@@ -102,7 +102,7 @@ Você pode acompanhar a revisão na aba **Pull requests**. Depois que a mudança
 
 Use arquivos `.mdx` em `src/content/docs/`. O nome das pastas define a URL; por exemplo, `guias-praticos/primeiro-sistema.mdx` gera `/docs/guias-praticos/primeiro-sistema/`.
 
-Toda página começa com um bloco de metadados chamado *frontmatter*:
+Toda página começa com um bloco de metadados chamado *frontmatter* na linguagem YAML:
 
 ```yaml
 ---
@@ -113,6 +113,26 @@ sidebar:
   order: 1
 ---
 ```
+
+Dentro do frontmatter, o caractere `#` inicia um **comentário**. Tudo o que estiver depois dele, naquela linha, é ignorado pelo YAML e não altera a página. Isso permite explicar um campo, separar grupos de informações ou "desativar" temporariamente uma linha sem apagá-la.
+
+```yaml
+infobox:
+  # == Dados do Mobi ==
+  title: Habbo anda no Mobi
+  # image: # preenchida automaticamente
+  image_direction: 2
+  # image_animated_state: 100 # valor padrão
+```
+
+No exemplo acima, `title` e `image_direction` estão ativos. As linhas de `image` e `image_animated_state` estão comentadas, portanto o projeto usa os valores automáticos ou padrões desses campos. Um comentário também pode aparecer depois de um valor ativo, como em `availability: No catálogo e CA # opções aceitas`.
+
+Esse recurso é usado em `src/content/docs/referencia/ativadores/wf_trg_walks_on_furni.mdx` para documentar valores padrão e manter campos opcionais visíveis como referência. Ao reativar uma linha, remova o `#` e mantenha a indentação correta.
+
+<Aside type="caution" title="Somente dentro do frontmatter">
+Fora do bloco entre `---`, o `#` faz parte da sintaxe Markdown para títulos e não funciona como comentário. Em conteúdo MDX, use `{/* comentário */}` quando precisar deixar uma observação invisível na página.
+{/* E FUNCIONA MESMO! */}
+</Aside>
 
 Neste projeto, as páginas das seções **Vamos Começar** e **Guias práticos** entram automaticamente no menu. A seção **Referência** combina itens definidos manualmente com grupos automáticos. A seção **Sobre Nós** é manual. Ao criar ou mover uma página, confira a configuração `sidebar` em `astro.config.mjs`.
 
@@ -173,6 +193,34 @@ Os campos são validados por `src/content.config.ts`:
 | `negative_version` | Somente para efeitos e condições; informa `name`, `revision`, `classname` e, opcionalmente, `description`. |
 
 Também existe uma infobox básica, com `title`, `image` opcional e `hide` opcional. Não copie valores de outra página sem conferir o mobi no jogo e a fonte dos dados.
+
+## Formatação básica em Markdown
+
+Como ainda não temos um editor visual, o conteúdo é escrito em Markdown, uma forma simples de formatar texto usando símbolos:
+
+| O que eu quero | Como eu escrevo |
+|---|---|
+| Um título de seção | `## Nome da seção` |
+| Um subtítulo | `### Nome do subtítulo` |
+| Texto em **negrito** | `**texto**` |
+| Texto em *itálico* | `*texto*` |
+| Um link | `[texto do link](https://exemplo.com)` |
+| Lista com marcadores | `- primeiro item` |
+| Lista numerada | `1. primeiro item` |
+| Uma citação | `> texto citado` |
+| Uma imagem | `![descrição da imagem](/caminho/imagem.png)` |
+
+Para trechos de código, use crases:
+
+````md
+Um trecho de `código` no meio da frase, ou um bloco maior:
+
+```js
+console.log("assim fica um bloco de código");
+```
+````
+
+Se tiver dúvida sobre como algo vai ficar, use a aba **"Preview"** no editor do GitHub Web, ela mostra uma prévia simplificada antes de você enviar.
 
 ## Componentes disponíveis
 
