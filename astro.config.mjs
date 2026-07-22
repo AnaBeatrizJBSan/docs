@@ -122,6 +122,10 @@ export default defineConfig({
 						{
 							label: 'Contribuidores',
 							slug: 'sobre-nos/contribuidores',
+						},
+						{
+							label: 'Como contribuir',
+							slug: 'sobre-nos/como-contribuir',
 						}, 
 						{
 							label: 'Mudanças Recentes',
