@@ -11,6 +11,13 @@
       "avatar_url": "https://github.com/alynva.png",
       "profile": "https://github.com/alynva",
       "contributions": ["review", "doc", "code", "maintenance"]
+    }, 
+    {
+      "login": "AnaBeatrizJBSan",
+      "name": "AnaBeatrizJBSan",
+      "avatar_url": "https://github.com/AnaBeatrizJBSan.png",
+      "profile": "https://github.com/AnaBeatrizJBSan",
+      "contributions": ["doc"]
     }
   ],
   "linkToUsage": false
