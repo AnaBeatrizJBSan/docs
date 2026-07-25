@@ -72,7 +72,7 @@ Você pode acompanhar a revisão na aba **Pull requests**. Depois que a mudança
 
 3. **Edite e visualize**
 
-   As páginas ficam em `src/content/docs/`. Inicie o ambiente local e abra `http://localhost:4321/docs/`:
+   As páginas ficam em `src/content/docs/`. Inicie o ambiente local e abra `http://localhost:4321/`:
 
    ```bash
    npm run dev
@@ -100,7 +100,7 @@ Você pode acompanhar a revisão na aba **Pull requests**. Depois que a mudança
 
 ## Escrevendo uma página
 
-Use arquivos `.mdx` em `src/content/docs/`. O nome das pastas define a URL; por exemplo, `guias-praticos/primeiro-sistema.mdx` gera `/docs/guias-praticos/primeiro-sistema/`.
+Use arquivos `.mdx` em `src/content/docs/`. O nome das pastas define a URL; por exemplo, `guias-praticos/primeiro-sistema.mdx` gera `/guias-praticos/primeiro-sistema/`.
 
 Toda página começa com um bloco de metadados chamado *frontmatter* na linguagem YAML:
 
@@ -251,7 +251,7 @@ Explique aqui o cuidado necessário.
 
 - Coloque imagens mantidas pelo projeto em `src/assets/` e importe-as com caminho relativo quando quiser que o Astro faça a otimização.
 - Escreva um texto alternativo que descreva o conteúdo relevante da imagem.
-- Para páginas internas, prefira links a partir da raiz publicada, como `/docs/referencia/glossario/`.
+- Para páginas internas, prefira links a partir da raiz publicada, como `/referencia/glossario/`.
 - Use português do Brasil, frases diretas e os termos adotados nas páginas existentes, como **Wired**, **mobi**, **Ativador**, **Efeito**, **Condição** e **Habbo**.
 - Explique siglas e conceitos antes de aprofundá-los. Evite copiar descrições provisórias ou em outro idioma.
 - Preserve o foco da página. Quando um assunto exigir uma explicação longa, crie uma página própria e adicione os links necessários.

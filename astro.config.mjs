@@ -8,8 +8,8 @@ import starlightPageReader from 'starlight-page-reader';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://wiredclub.github.io',
-	base: '/docs',
+	site: 'https://docs.wiredclub.com.br',
+	base: '/',
 	integrations: [
 		starlight({
 			title: 'Wired Club Docs',
