@@ -49,6 +49,11 @@ const typePlural = (type: string) =>
 		efeito: "efeitos",
 		condição: "condicoes",
 		condicao: "condicoes",
+		extra: "extras",
+		seletores: "seletores",
+		variáveis: "variaveis",
+		contratos: "contratos",
+		"tabelas de classificação": "outros/tabelas-de-classificacao",
 	})[type.toLowerCase()];
 ---
 
@@ -70,7 +75,7 @@ const typePlural = (type: string) =>
 
 			return (
 				<a
-					href={`/referencia/${typePlural(infobox.type)}/${classname}`}
+					href={`/referencia/${typePlural(infobox.type)}/${classname.replace('*', '-')}`}
 					class="wired-link-card"
 				>
 					<div class="card-content">
