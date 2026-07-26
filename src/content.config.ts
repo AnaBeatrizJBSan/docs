@@ -107,20 +107,20 @@ const AddOnInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 });
 
 const SelectorInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
-	type: z.literal("Seletores").describe("Tipo do Wired: Seletor"),
+	type: z.literal("Seletor").describe("Tipo do Wired: Seletor"),
 });
 
 const VariableInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
-	type: z.literal("Variáveis").describe("Tipo do Wired: Variável"),
+	type: z.literal("Variável").describe("Tipo do Wired: Variável"),
 });
 
 const LeaderboardInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
-	type: z.literal("Tabelas de Classificação").describe("Tipo do Wired: Tabela de Classificação"),
+	type: z.literal("Tabela de Classificação").describe("Tipo do Wired: Tabela de Classificação"),
 	additional_sources: z.array(z.string()).optional(),
 });
 
 const ContractInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
-	type: z.literal("Contratos").describe("Tipo do Wired: Contrato"),
+	type: z.literal("Contrato").describe("Tipo do Wired: Contrato"),
 });
 
 export const WiredInfoboxSchema = z.discriminatedUnion("type", [
