@@ -1,133 +1,146 @@
 ---
-import { CardGrid } from '@astrojs/starlight/components';
-import { loadDataByInfoboxType, loadDataByAnyType } from '../utils/loadData';
-import type { WiredInfobox, WiredInfoboxType } from '../content.config';
-import { getFurniIcon } from '../utils/furniImages';
+import { CardGrid } from "@astrojs/starlight/components";
+import { loadDataByInfoboxType, loadDataByAnyType } from "../utils/loadData";
+import type { WiredInfobox, WiredInfoboxType } from "../content.config";
+import { getFurniIcon } from "../utils/furniImages";
 
-type Props = {
-  type: WiredInfoboxType;
-} | {
-  classname_list: string[];
-}
+type Props =
+	| {
+			type: WiredInfoboxType;
+	  }
+	| {
+			classname_list: string[];
+	  };
 
 let list: WiredInfobox[] = [];
 if ("type" in Astro.props) {
-  const { type } = Astro.props;
+	const { type } = Astro.props;
 
-  list = await loadDataByInfoboxType(type);
+	list = await loadDataByInfoboxType(type);
 } else if ("classname_list" in Astro.props) {
-  const { classname_list } = Astro.props;
+	const { classname_list } = Astro.props;
 
-  const allData = await loadDataByAnyType();
+	const allData = await loadDataByAnyType();
 
-  const negativeClassnames: typeof list = []
-  list = allData.filter(infobox => {
-    if ("negative_version" in infobox && infobox.negative_version && classname_list.includes(infobox.negative_version.classname)) {
-      negativeClassnames.push({
-        ...infobox,
-        revision: infobox.negative_version.revision,
-        classname: infobox.negative_version.classname,
-        name: infobox.negative_version.name,
-        description: infobox.negative_version.description,
-      })
-    }
-    return classname_list.includes(infobox.classname)
-  });
-  list.push(...negativeClassnames);
+	const negativeClassnames: typeof list = [];
+	list = allData.filter((infobox) => {
+		if (
+			"negative_version" in infobox &&
+			infobox.negative_version &&
+			classname_list.includes(infobox.negative_version.classname)
+		) {
+			negativeClassnames.push({
+				...infobox,
+				revision: infobox.negative_version.revision,
+				classname: infobox.negative_version.classname,
+				name: infobox.negative_version.name,
+				description: infobox.negative_version.description,
+			});
+		}
+		return classname_list.includes(infobox.classname);
+	});
+	list.push(...negativeClassnames);
 }
 
-
 // gerar o plural da rota correta
-const typePlural = (type: string) => ({
-  "ativador": "ativadores",
-  "efeito": "efeitos",
-  "condição": "condicoes",
-  "condicao": "condicoes",
-}[type.toLowerCase()]);
+const typePlural = (type: string) =>
+	({
+		ativador: "ativadores",
+		efeito: "efeitos",
+		condição: "condicoes",
+		condicao: "condicoes",
+	})[type.toLowerCase()];
 ---
 
 <CardGrid>
-  {list.map(infobox => {
-    const classname = infobox.classname;
-    const name = infobox.name;
-    const description = infobox.description;
-    const revision = infobox.revision;
-    const iconUrl = getFurniIcon(classname, revision);
-    const negativeIconUrl =
-      "negative_version" in infobox && infobox.negative_version
-        ? getFurniIcon(
-            infobox.negative_version.classname,
-            infobox.negative_version.revision,
-          )
-        : undefined;
+	{
+		list.map((infobox) => {
+			const classname = infobox.classname;
+			const name = infobox.name;
+			const description = infobox.description;
+			const revision = infobox.revision;
+			const iconUrl = getFurniIcon(classname, revision);
+			const negativeIconUrl =
+				"negative_version" in infobox && infobox.negative_version
+					? getFurniIcon(
+							infobox.negative_version.classname,
+							infobox.negative_version.revision,
+						)
+					: undefined;
 
-    return (
-      <a href={`/referencia/${typePlural(infobox.type)}/${classname}`} class="wired-link-card">
-        <div class="card-content">
-          <div class="icon-container">
-            <img src={iconUrl} alt={name} />
-            {negativeIconUrl && (
-              <img
-                src={negativeIconUrl}
-                alt={`${name} (versão negativa)`}
-              />
-            )}
-          </div>
-		  <div class="text-content">
-			<span class="card-title">{name}</span>
-			<p class="card-description">{description}</p>
-		  </div>
-        </div>
-      </a>
-    );
-  })}
+			return (
+				<a
+					href={`/referencia/${typePlural(infobox.type)}/${classname}`}
+					class="wired-link-card"
+				>
+					<div class="card-content">
+						<div class="icon-container">
+							<img src={iconUrl} alt={name} />
+							{negativeIconUrl && (
+								<img
+									src={negativeIconUrl}
+									alt={`${name} (versão negativa)`}
+								/>
+							)}
+						</div>
+						<div class="text-content">
+							<span class="card-title">{name}</span>
+							<p class="card-description">{description}</p>
+						</div>
+					</div>
+				</a>
+			);
+		})
+	}
 </CardGrid>
 
 <style>
- .wired-link-card {
-    display: flex;
-    text-decoration: none;
-    background-color: var(--sl-color-bg-nav);
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-    color: var(--sl-color-text);
-  }
+	.wired-link-card {
+		display: flex;
+		text-decoration: none;
+		background-color: var(--sl-color-bg-nav);
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.5rem;
+		padding: 1rem;
+		transition:
+			border-color 0.2s ease,
+			background-color 0.2s ease;
+		color: var(--sl-color-text);
+	}
 
- .wired-link-card:hover {
-    border-color: var(--sl-color-accent);
-    background-color: var(--sl-color-bg-accent);
-    color: var(--sl-color-text-invert);
-  }
+	.wired-link-card:hover {
+		border-color: var(--sl-color-accent);
+		background-color: var(--sl-color-bg-accent);
+		color: var(--sl-color-text-invert);
+	}
 
- .card-content {
-    display: flex;
-	align-items: flex-start;
-    gap: 1rem;
-    width: 100%;
-  }
-  .icon-container {
-    flex: none;
-  }
-  img {
-	width: 30px;
-	height: 30px;
-	object-fit: contain;
-  }
+	.card-content {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		width: 100%;
+	}
+	.icon-container {
+		flex: none;
+	}
+	img {
+		width: 30px;
+		height: 30px;
+		object-fit: contain;
+	}
 
-  .text-content {
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
-	margin: 0;
-  }
- .card-title {
-    font-size: var(--sl-text-base);
-    font-weight: 600;
-  }
- .card-description {
-	font-size: var(--sl-text-sm);
-	color: var(--sl-color-text-secondary);
-  }
+	.text-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin: 0;
+	}
+	.card-title {
+		font-size: var(--sl-text-base);
+		font-weight: 600;
+	}
+	.card-description {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-text-secondary);
+	}
 </style>
