@@ -109,6 +109,9 @@ const AddOnInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 const SelectorInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Seletor").describe("Tipo do Wired: Seletor"),
 });
+const FilterSelectorInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Filtro de Seletor").describe("Tipo do Wired: Filtro de Seletor"),
+});
 
 const VariableInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Variável").describe("Tipo do Wired: Variável"),
@@ -129,6 +132,7 @@ export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	ConditionInfoboxBaseSchema,
 	AddOnInfoboxBaseSchema,
 	SelectorInfoboxBaseSchema,
+	FilterSelectorInfoboxBaseSchema,
 	VariableInfoboxBaseSchema,
 	LeaderboardInfoboxBaseSchema,
 	ContractInfoboxBaseSchema,
