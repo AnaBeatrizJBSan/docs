@@ -98,6 +98,35 @@ Você pode acompanhar a revisão na aba **Pull requests**. Depois que a mudança
 
 </Steps>
 
+### Configure o e-mail dos commits
+
+O Git registra um nome e um e-mail em cada commit. Para que os commits sejam associados à sua conta do GitHub sem expor seu e-mail pessoal, abra [Settings > Emails](https://github.com/settings/emails), confira o endereço `noreply` fornecido pelo GitHub e use esse endereço na configuração local do repositório:
+
+```bash
+git config user.name "SEU-NOME"
+git config user.email "SEU-ID+SEU-USUARIO@users.noreply.github.com"
+```
+
+Use exatamente o endereço exibido em **Keep my email addresses private**. A opção **Block command line pushes that expose my email** também pode impedir o envio de commits que contenham outro e-mail. Se quiser aplicar a configuração a todos os repositórios do computador, acrescente `--global` ao comando:
+
+```bash
+git config --global user.email "SEU-ID+SEU-USUARIO@users.noreply.github.com"
+```
+
+Para conferir o valor configurado, execute `git config user.email` (ou `git config --global user.email`). O e-mail de commits antigos não é alterado automaticamente; por isso, configure-o antes de fazer o primeiro commit.
+
+Para exibir a lista de commits do repositório, use:
+
+```bash
+git log
+```
+
+Por padrão, o histórico mostra o autor de cada commit no formato `Nome <e-mail>`. Portanto, o e-mail usado no commit fica visível para qualquer pessoa que consulte o histórico, inclusive no GitHub. Para conferir apenas os autores de forma resumida, você também pode usar:
+
+```bash
+git log --format="%h %an <%ae> %s"
+```
+
 ## Escrevendo uma página
 
 Use arquivos `.mdx` em `src/content/docs/`. O nome das pastas define a URL; por exemplo, `guias-praticos/primeiro-sistema.mdx` gera `/guias-praticos/primeiro-sistema/`.
