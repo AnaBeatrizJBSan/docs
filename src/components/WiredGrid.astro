@@ -53,11 +53,26 @@ const typePlural = (type: string) => ({
     const description = infobox.description;
     const revision = infobox.revision;
     const iconUrl = getFurniIcon(classname, revision);
+    const negativeIconUrl =
+      "negative_version" in infobox && infobox.negative_version
+        ? getFurniIcon(
+            infobox.negative_version.classname,
+            infobox.negative_version.revision,
+          )
+        : undefined;
 
     return (
       <a href={`/referencia/${typePlural(infobox.type)}/${classname}`} class="wired-link-card">
         <div class="card-content">
-		  <img src={iconUrl} alt={name} />
+          <div class="icon-container">
+            <img src={iconUrl} alt={name} />
+            {negativeIconUrl && (
+              <img
+                src={negativeIconUrl}
+                alt={`${name} (versão negativa)`}
+              />
+            )}
+          </div>
 		  <div class="text-content">
 			<span class="card-title">{name}</span>
 			<p class="card-description">{description}</p>
@@ -92,7 +107,9 @@ const typePlural = (type: string) => ({
     gap: 1rem;
     width: 100%;
   }
-
+  .icon-container {
+    flex: none;
+  }
   img {
 	width: 30px;
 	height: 30px;
