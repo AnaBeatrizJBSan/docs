@@ -118,6 +118,10 @@ const VariableInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Variável").describe("Tipo do Wired: Variável"),
 });
 
+const VariableAddonInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Extra de Variável").describe("Tipo do Wired: Extra de Variável"),
+});
+
 const LeaderboardInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Tabela de Classificação").describe("Tipo do Wired: Tabela de Classificação"),
 	additional_sources: z.array(z.string()).optional(),
@@ -135,6 +139,7 @@ export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	SelectorInfoboxBaseSchema,
 	FilterSelectorInfoboxBaseSchema,
 	VariableInfoboxBaseSchema,
+	VariableAddonInfoboxBaseSchema,
 	LeaderboardInfoboxBaseSchema,
 	ContractInfoboxBaseSchema,
 ]).describe("Esquema para infoboxes de Wired, com campos específicos para cada tipo");
