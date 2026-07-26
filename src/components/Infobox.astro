@@ -123,8 +123,12 @@ if (wired && "classname" in wired && wired.classname) {
 	if (!infobox.image) {
 		infobox.image = [
 			getFurniImage(wired.classname, wired.revision, wired.image_direction),
-			setinha.src,
-			getFurniAnimatedImage(wired.classname, wired.revision, wired.image_direction, wired.image_animated_state),
+			...(wired.image_not_animated
+				? []
+				: [
+						setinha.src,
+						getFurniAnimatedImage(wired.classname, wired.revision, wired.image_direction, wired.image_animated_state),
+					]),
 		];
 		credits = "Imagens de mobis por HabCat";
 	}
@@ -213,10 +217,10 @@ if (wired && "classname" in wired && wired.classname) {
 						class="ib-image"
 						loading="lazy"
 					/>
-					<img
+					{!wired.image_not_animated && <img
 						src={setinha.src}
 						loading="lazy"
-					/>
+					/>}
 					<img
 						src={getFurniAnimatedImage(wired.negative_version.classname, wired.negative_version.revision, wired.image_direction, wired.image_animated_state)}
 						alt={`${infobox.title} (versão negativa)`}

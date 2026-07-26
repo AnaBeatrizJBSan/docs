@@ -22,6 +22,7 @@ const FurniInfoboxBaseSchema = BasicInfoboxSchema.extend({
 		.describe("Descrição conforme o furnidata"),
 	product_name: z.string().optional().describe("Nome oficial do mobi no catálogo"),
 	image_direction: z.union([0, 1, 2, 3, 4, 5, 6, 7].map(x => z.literal(x))).default(0).describe("Direção da imagem, se aplicável (0-7)"),
+	image_not_animated: z.boolean().default(false).describe("Indica se o mobi não possui animação, mesmo que seja animado por padrão"),
 	image_animated_state: z.int().default(100).describe("Estado do mobi quando animado, se aplicável (geralmente 0 para estático e 100 para animado)"),
 	icon: z.string().optional().describe("URL ou caminho do ícone a ser exibido na infobox, se aplicável"),
 	availability: z
