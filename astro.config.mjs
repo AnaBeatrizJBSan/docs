@@ -15,7 +15,7 @@ export default defineConfig({
 		starlight({
 			title: 'Wired Club Docs',
 			logo: {
-				src: './src/assets/new_logo_square.png',
+				src: './src/assets/new_logo.png',
 				replacesTitle: true,
 			},
 			description: 'Documentação oficial da comunidade Wired Club, o maior portal Wired!',
