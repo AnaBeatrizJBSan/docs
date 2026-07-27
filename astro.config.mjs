@@ -5,6 +5,7 @@ import starlightLlmsTxt from 'starlight-llms-txt'
 import starlightScrollToTop from 'starlight-scroll-to-top'
 import starlightRecentChanges from 'starlight-recent-changes';
 import starlightPageReader from 'starlight-page-reader';
+import starlightThemeWiredClub from 'starlight-theme-wiredclub';
 
 // https://astro.build/config
 export default defineConfig({
@@ -144,7 +145,7 @@ export default defineConfig({
 				baseUrl: 'https://github.com/wiredclub/docs/edit/main/',
 			},
       		lastUpdated: true,
-			plugins: [starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightScrollToTop({
+			plugins: [starlightThemeWiredClub(), starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightScrollToTop({
 				tooltipText: 'Voltar ao topo',
 				showTooltip: true,
 				borderRadius: '50',

@@ -1,0 +1,13 @@
+{
+  "name": "starlight-theme-wiredclub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./styles.css": "./styles.css"
+  },
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.38.0"
+  }
+}
