@@ -5,6 +5,7 @@ import starlightLlmsTxt from 'starlight-llms-txt'
 import starlightScrollToTop from 'starlight-scroll-to-top'
 import starlightRecentChanges from 'starlight-recent-changes';
 import starlightPageReader from 'starlight-page-reader';
+import starlightThemeWiredClub from 'starlight-theme-wiredclub';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,7 +15,7 @@ export default defineConfig({
 		starlight({
 			title: 'Wired Club Docs',
 			logo: {
-				src: './src/assets/new_logo_square.png',
+				src: './src/assets/new_logo.png',
 				replacesTitle: true,
 			},
 			description: 'Documentação oficial da comunidade Wired Club, o maior portal Wired!',
@@ -144,7 +145,7 @@ export default defineConfig({
 				baseUrl: 'https://github.com/wiredclub/docs/edit/main/',
 			},
       		lastUpdated: true,
-			plugins: [starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightScrollToTop({
+			plugins: [starlightThemeWiredClub(), starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightScrollToTop({
 				tooltipText: 'Voltar ao topo',
 				showTooltip: true,
 				borderRadius: '50',

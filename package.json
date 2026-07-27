@@ -19,6 +19,7 @@
     "starlight-scroll-to-top": "^1.0.1",
     "starlight-showcases": "^0.3.2",
     "starlight-recent-changes": "file:./plugins/starlight-recent-changes",
-    "starlight-page-reader": "file:./plugins/starlight-page-reader"
+    "starlight-page-reader": "file:./plugins/starlight-page-reader",
+    "starlight-theme-wiredclub": "file:./plugins/starlight-theme-wiredclub"
   }
 }
