@@ -6,6 +6,7 @@
 	:root,
 	::backdrop {
 		color-scheme: dark;
+		--sl-text-base: 0.9rem;
 
 		/* Brand tokens, distilled from www.wiredclub.com.br. */
 		--wc-navy: #0b1530;
@@ -134,6 +135,7 @@
 	}
 
 	* {
+		scrollbar-width: thin;
 		scrollbar-color: var(--wc-blue-strong) var(--wc-navy-deep);
 	}
 
@@ -232,13 +234,11 @@
 		border-color: color-mix(in srgb, var(--wc-blue) 28%, transparent);
 		background: color-mix(in srgb, var(--wc-blue-soft) 68%, transparent);
 		color: var(--wc-text);
-		transform: translateX(2px);
 	}
 
 	.sidebar-content a[aria-current='page'] {
 		border-color: var(--wc-border);
 		background: linear-gradient(90deg, #123367, #0c254b);
-		box-shadow: inset 3px 0 var(--wc-blue);
 		color: #ffffff;
 		font-weight: 700;
 	}
@@ -292,13 +292,13 @@
 	}
 
 	.sl-markdown-content blockquote {
-		border-inline-start: 3px solid var(--wc-blue);
 		border-radius: 0 var(--wc-radius) var(--wc-radius) 0;
 		background: color-mix(in srgb, var(--wc-panel) 80%, transparent);
 		padding: 0.2rem 1.15rem;
 	}
 
 	.sl-markdown-content table {
+		width: fit-content;
 		overflow: hidden;
 		border: 1px solid var(--wc-border);
 		border-radius: var(--wc-radius);
@@ -312,6 +312,13 @@
 		font-size: 0.78rem;
 		letter-spacing: 0.035em;
 		text-transform: uppercase;
+	}
+
+	.sl-markdown-content :is(th:first-child, td:first-child):not(:where(.not-content *)) {
+		padding-inline-start: 1.3rem;
+	}
+	.sl-markdown-content :is(th:last-child, td:last-child):not(:where(.not-content *)) {
+		padding-inline-end: 1.5rem;
 	}
 
 	.sl-markdown-content tr:hover td {
@@ -336,7 +343,6 @@
 	.sl-link-card:hover {
 		border-color: var(--wc-blue);
 		box-shadow: var(--wc-shadow);
-		transform: translateY(-3px);
 	}
 
 	.card .title,
@@ -345,17 +351,10 @@
 		font-weight: 700;
 	}
 
-	.card .icon {
-		border-radius: var(--wc-radius-sm);
-		background: var(--wc-blue-soft);
-		color: var(--wc-blue);
-	}
-
 	.starlight-aside {
 		overflow: hidden;
 		border-width: 1px;
 		border-inline-start-width: 4px;
-		border-radius: var(--wc-radius);
 		box-shadow: var(--sl-shadow-sm);
 	}
 
@@ -370,7 +369,7 @@
 	.hero {
 		position: relative;
 		isolation: isolate;
-		padding-block: clamp(3rem, 8vw, 6.5rem);
+		padding: clamp(3rem, 8vw, 6.5rem);
 	}
 
 	.hero > .stack,
