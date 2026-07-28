@@ -12,34 +12,27 @@ type Props =
 			classname_list: string[];
 	  };
 
-let list: WiredInfobox[] = [];
+let list: WiredInfobox[] | Map<string, WiredInfobox> = [];
 if ("type" in Astro.props) {
 	const { type } = Astro.props;
 
 	list = await loadDataByInfoboxType(type);
 } else if ("classname_list" in Astro.props) {
 	const { classname_list } = Astro.props;
+	list = new Map();
 
 	const allData = await loadDataByAnyType();
 
-	const negativeClassnames: typeof list = [];
-	list = allData.filter((infobox) => {
-		if (
-			"negative_version" in infobox &&
-			infobox.negative_version &&
-			classname_list.includes(infobox.negative_version.classname)
-		) {
-			negativeClassnames.push({
-				...infobox,
-				revision: infobox.negative_version.revision,
-				classname: infobox.negative_version.classname,
-				name: infobox.negative_version.name,
-				description: infobox.negative_version.description,
-			});
+	for (const classname of classname_list) {
+		const found = allData.find((infobox) => infobox.classname === classname || ("negative_version" in infobox && infobox.negative_version?.classname === classname));
+		
+		if (!found) {
+			console.error(new Error(`Infobox with classname "${classname}" not found.`))
+			continue
 		}
-		return classname_list.includes(infobox.classname);
-	});
-	list.push(...negativeClassnames);
+
+		list.set(classname, found);
+	}
 }
 
 // gerar o plural da rota correta
@@ -61,14 +54,32 @@ const typePlural = (type: string) =>
 
 <CardGrid>
 	{
-		list.map((infobox) => {
-			const classname = infobox.classname;
-			const name = infobox.name;
-			const description = infobox.description;
-			const revision = infobox.revision;
-			const iconUrl = getFurniIcon(classname, revision);
+		(Array.isArray(list) ? list : Array.from(list.entries())).map((entry) => {
+			let infobox = entry;
+			if (Array.isArray(infobox)) {
+				infobox = infobox[1]; // extrair o infobox do Map
+			}
+			let classname = infobox.classname;
+			let name = infobox.name;
+			let description = infobox.description;
+			let revision = infobox.revision;
+			let iconUrl = getFurniIcon(classname, revision);
+			const linkClassname = classname.replace('*', '-');
+
+			if (Array.isArray(entry) && classname !== entry[0]) {
+				if ("negative_version" in entry[1] && entry[1].negative_version) {
+					classname = entry[1].negative_version.classname;
+					name = entry[1].negative_version.name;
+					description = entry[1].negative_version.description;
+					revision = entry[1].negative_version.revision;
+					iconUrl = getFurniIcon(classname, revision);
+				} else {
+					throw new Error(`Infobox with classname "${entry[0]}" doesn't match.`);
+				}
+			}
+
 			const negativeIconUrl =
-				"negative_version" in infobox && infobox.negative_version
+				"type" in Astro.props && "negative_version" in infobox && infobox.negative_version
 					? getFurniIcon(
 							infobox.negative_version.classname,
 							infobox.negative_version.revision,
@@ -77,13 +88,13 @@ const typePlural = (type: string) =>
 
 			return (
 				<a
-					href={`/referencia/${typePlural(infobox.type)}/${classname.replace('*', '-')}`}
+					href={`/referencia/${typePlural(infobox.type)}/${linkClassname}`}
 					class="wired-link-card"
 				>
 					<div class="card-content">
 						<div class="icon-container">
 							<img src={iconUrl} alt={name} />
-							{negativeIconUrl && (
+							{negativeIconUrl && !("classname_list" in Astro.props) && (
 								<img
 									src={negativeIconUrl}
 									alt={`${name} (versão negativa)`}
