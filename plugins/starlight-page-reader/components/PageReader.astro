@@ -417,9 +417,24 @@
 				text = formatCodeForSpeech(text, el);
 			} else if (isTableCell) {
 				text = formatTableCellForSpeech(text, el);
+			} else if (el.tagName === 'LI') {
+				text = formatListItemForSpeech(text, el);
 			}
 
 			return text.trim();
+		}
+
+		function formatListItemForSpeech(text: string, el: Element): string {
+			const cleanText = text.replace(/\s+/g, ' ').trim();
+			if (!cleanText) return '';
+			const ol = el.closest('ol');
+			if (ol) {
+				const siblingLis = Array.from(ol.querySelectorAll(':scope > li'));
+				const itemIndex = siblingLis.indexOf(el as HTMLLIElement);
+				const itemNumber = itemIndex >= 0 ? itemIndex + 1 : 1;
+				return `Item ${itemNumber}: ${cleanText}`;
+			}
+			return cleanText;
 		}
 
 		function formatCodeForSpeech(text: string, el: Element): string {
@@ -453,12 +468,19 @@
 		}
 
 		function collectBlocks() {
+			const initialBlocks: Element[] = [];
+			const topTitle = document.getElementById('_top');
+			if (topTitle && topTitle.textContent?.trim().length) {
+				initialBlocks.push(topTitle);
+			}
+
 			const article = getArticle();
-			if (!article) return [];
+			if (!article) return initialBlocks;
 
 			// 1. Collect all candidates with readable text
 			const rawCandidates = Array.from(article.querySelectorAll(READABLE_SELECTORS)).filter(el => {
 				if (el.closest('#page-reader, nav, button, script, style, .expressive-code .copy')) return false;
+				if (topTitle && (el === topTitle || el.contains(topTitle))) return false;
 				// Skip code element if it's already inside a pre tag that is also candidate
 				if (el.tagName === 'CODE' && el.closest('pre')) return false;
 				const text = getElementSpeechText(el);
@@ -472,7 +494,7 @@
 				return !hasChildCandidate;
 			});
 
-			return leafCandidates;
+			return [...initialBlocks, ...leafCandidates];
 		}
 
 		function clearHighlight() {
@@ -679,6 +701,41 @@
 				speakBlock(currentIndex);
 			}
 		});
+
+		// Dynamic relocation when original parent is hidden (e.g. mobile view)
+		const pageReaderEl = document.getElementById('page-reader');
+		if (pageReaderEl && pageReaderEl.parentElement) {
+			const originalParent = pageReaderEl.parentElement;
+			const placeholder = document.createComment('page-reader-placeholder');
+			originalParent.insertBefore(placeholder, pageReaderEl);
+
+			function isParentHidden(parent: HTMLElement | null): boolean {
+				if (!parent) return true;
+				const style = window.getComputedStyle(parent);
+				if (style.display === 'none' || style.visibility === 'hidden') return true;
+				return parent.offsetWidth === 0 && parent.offsetHeight === 0;
+			}
+
+			function updatePosition() {
+				if (!pageReaderEl || !originalParent) return;
+				const hidden = isParentHidden(originalParent);
+				if (hidden) {
+					const footer = document.querySelector('footer') || document.body;
+					if (footer && pageReaderEl.parentElement !== footer) {
+						pageReaderEl.style.maxWidth = 'unset';
+						footer.insertBefore(pageReaderEl, footer.firstChild);
+					}
+				} else {
+					if (placeholder.parentNode && pageReaderEl.parentElement !== placeholder.parentNode) {
+						pageReaderEl.style.maxWidth = "";
+						placeholder.parentNode.insertBefore(pageReaderEl, placeholder);
+					}
+				}
+			}
+
+			window.addEventListener('resize', updatePosition);
+			updatePosition();
+		}
 
 		document.addEventListener('astro:before-swap', stop);
 		window.addEventListener('beforeunload', stop);
