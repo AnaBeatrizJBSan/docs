@@ -720,10 +720,12 @@
 				if (!pageReaderEl || !originalParent) return;
 				const hidden = isParentHidden(originalParent);
 				if (hidden) {
-					const footer = document.querySelector('footer') || document.body;
-					if (footer && pageReaderEl.parentElement !== footer) {
-						pageReaderEl.style.maxWidth = 'unset';
-						footer.insertBefore(pageReaderEl, footer.firstChild);
+					const targetContent = document.querySelector('.sl-markdown-content') || document.querySelector('article, main [data-content], main');
+					if (targetContent && targetContent.parentElement) {
+						if (pageReaderEl.nextElementSibling !== targetContent || pageReaderEl.parentElement !== targetContent.parentElement) {
+							pageReaderEl.style.maxWidth = 'unset';
+							targetContent.parentElement.insertBefore(pageReaderEl, targetContent);
+						}
 					}
 				} else {
 					if (placeholder.parentNode && pageReaderEl.parentElement !== placeholder.parentNode) {
