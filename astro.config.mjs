@@ -34,10 +34,10 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Vamos Começar',
-					autogenerate: { directory: 'vamos-comecar' },
+					items: [{ autogenerate: { directory: 'vamos-comecar' } },],
 				}, {
 					label: 'Guias práticos',
-					autogenerate: { directory: 'guias-praticos' },
+					items: [{ autogenerate: { directory: 'guias-praticos' } },],
 				}, {
 					label: 'Referência',
 					items: [
@@ -67,42 +67,42 @@ export default defineConfig({
 						},
 						{
 							label: 'Ativadores',
-							autogenerate: { directory: 'referencia/ativadores' },
+							items: [{ autogenerate: { directory: 'referencia/ativadores' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Efeitos',
-							autogenerate: { directory: 'referencia/efeitos' },
+							items: [{ autogenerate: { directory: 'referencia/efeitos' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Condições',
-							autogenerate: { directory: 'referencia/condicoes' },
+							items: [{ autogenerate: { directory: 'referencia/condicoes' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Seletores',
-							autogenerate: { directory: 'referencia/seletores' },
+							items: [{ autogenerate: { directory: 'referencia/seletores' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Extras',
-							autogenerate: { directory: 'referencia/extras' },
+							items: [{ autogenerate: { directory: 'referencia/extras' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Variáveis',
-							autogenerate: { directory: 'referencia/variaveis' },
+							items: [{ autogenerate: { directory: 'referencia/variaveis' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Contratos',
-							autogenerate: { directory: 'referencia/contratos' },
+							items: [{ autogenerate: { directory: 'referencia/contratos' } }],
 							collapsed: true,
 						},
 						{
 							label: 'Outros',
-							autogenerate: { directory: 'referencia/outros' },
+							items: [{ autogenerate: { directory: 'referencia/outros' } }],
 							collapsed: true,
 						},
 						{

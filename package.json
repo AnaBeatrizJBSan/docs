@@ -11,15 +11,15 @@
     "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.38.2",
-    "astro": "^6.0.1",
+    "@astrojs/starlight": "^0.41.5",
+    "astro": "^7.1.5",
     "astro-contributors": "^0.8.0",
     "sharp": "^0.34.2",
     "starlight-llms-txt": "^0.8.0",
+    "starlight-page-reader": "file:./plugins/starlight-page-reader",
+    "starlight-recent-changes": "file:./plugins/starlight-recent-changes",
     "starlight-scroll-to-top": "^1.0.1",
     "starlight-showcases": "^0.3.2",
-    "starlight-recent-changes": "file:./plugins/starlight-recent-changes",
-    "starlight-page-reader": "file:./plugins/starlight-page-reader",
     "starlight-theme-wiredclub": "file:./plugins/starlight-theme-wiredclub"
   }
 }
