@@ -4,6 +4,7 @@ description: Padrão textual de documentação criado pelo Wired Club
 ---
 
 import { Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from '../../../components/PseudoWiredCodeBlock.astro';
 
 O **PseudoWired** é um padrão textual de documentação inspirado em linguagens como YAML e pseudocódigos. Ele foi desenvolvido pelo WiredClub para traduzir a lógica visual das pilhas de automação em um formato legível, intuitivo e livre de jargões excessivos para quem está lendo a documentação.
 
@@ -42,6 +43,7 @@ O fluxo de leitura do PseudoWired segue a ordem cronológica exata de processame
 
 ## Exemplo de Aplicação Completa
 
+<PseudoWiredCodeBlock>
 ```yaml
 ALVOS
   - Habbos na Área: Zona do Jogo
@@ -65,5 +67,6 @@ SENÃO
   - Faz pilhas: Pilha secundária
     Mostrar a mensagem "Apenas membros VIP podem usar este comando."
 ```
+</PseudoWiredCodeBlock>
 
 Dessa forma, qualquer pessoa que visite o portal conseguirá compreender o fluxo exato de uma pilha apenas lendo o bloco de texto, além de possibilitar o fácil compartilhamento das instruções.
