@@ -9,8 +9,8 @@
 		"./pages/PageHistory.astro": "./pages/PageHistory.astro"
   },
   "devDependencies": {
-    "@astrojs/starlight": "^0.38.2",
-    "astro": "^6.0.8"
+    "@astrojs/starlight": "^0.41.5",
+    "astro": "^7.1.5"
   },
   "peerDependencies": {
     "@astrojs/starlight": ">=0.38.0"
