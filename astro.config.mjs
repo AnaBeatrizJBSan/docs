@@ -25,10 +25,6 @@ export default defineConfig({
 					label: 'Português (Brasil)',
 					lang: 'pt-BR',
 				},
-				'pt-BR': {
-					label: 'Português (Brasil)',
-					lang: 'pt-BR',
-				},
 			},
 			social: [
 				{ icon: 'external', label: 'Website', href: 'https://wiredclub.com.br/' },
