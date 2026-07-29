@@ -1,0 +1,184 @@
+---
+title: Lógica de Programação
+description: Aprenda a organizar uma ideia em passos simples antes de montar uma Pilha Wired
+sidebar:
+  label: Lógica de Programação
+  order: 2
+  badge:
+    text: Novo
+    variant: tip
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from '../../../components/PseudoWiredCodeBlock.astro';
+
+Na página [Como os Wireds Funcionam](/vamos-comecar/como-funciona/), você conheceu as caixas que formam uma Pilha. Agora, aprenderá a organizar uma ideia antes de escolher e configurar essas caixas.
+
+A **lógica de programação** é uma forma de dividir um objetivo em passos claros. Você não precisa escrever código para usá-la: ao decidir **quando** algo acontece, **quais regras** precisam ser atendidas e **qual será o resultado**, já está criando uma lógica com Wireds.
+
+## Da Ideia ao Algoritmo
+
+Um **algoritmo** é apenas uma sequência de passos usada para alcançar um resultado. “Criar uma entrada VIP” descreve o objetivo, mas ainda não explica o que o quarto deve fazer. Uma descrição mais precisa seria:
+
+1. Quando um Habbo pisar no piso de entrada, iniciar a verificação.
+2. Verificar se esse Habbo é membro do grupo VIP.
+3. Se for membro, teleportá-lo para a área VIP.
+4. Se não for membro, não realizar o teletransporte.
+
+O quarto não tenta adivinhar o que você quis fazer. Ele responde aos eventos e às regras que você configurou. Às vezes, o resultado esperado é que nenhum Efeito seja executado. Isso também precisa ser planejado.
+
+## QUANDO, SE e ENTÃO
+
+Uma lógica simples pode ser organizada com três perguntas:
+
+| Parte | Pergunta | Com Wireds |
+| --- | --- | --- |
+| **QUANDO** | O que inicia a lógica? | Um Ativador. |
+| **SE** | Qual regra precisa ser atendida? | Uma ou mais Condições. |
+| **ENTÃO** | O que deve acontecer? | Um ou mais Efeitos. |
+
+```text
+QUANDO acontecer um evento
+SE uma regra for atendida
+ENTÃO realizar uma ação
+```
+
+Algumas lógicas também precisam definir **quem** ou **o que** receberá a ação. O alvo pode ser a Fonte de Gatilho (como o Habbo que iniciou a Pilha), um mobi configurado ou um conjunto definido por um Seletor.
+
+<Aside type="caution" title="Ordem de leitura">
+Essa sequência organiza o raciocínio. A posição das caixas dentro da Pilha não determina, sozinha, a ordem em que vários Efeitos serão executados.
+</Aside>
+
+## Tomando Decisões
+
+Uma decisão permite que a lógica siga caminhos diferentes. A verificação de uma Condição tem um de dois resultados:
+
+* **Verdadeiro:** a regra foi atendida.
+* **Falso:** a regra não foi atendida.
+
+Veja a entrada VIP representada em [PseudoWired](/referencia/pseudowired/):
+
+<PseudoWiredCodeBlock code={`
+
+QUANDO
+  - Habbo anda no Mobi: Piso de Entrada
+
+SE
+  - Membro do Grupo: VIP
+
+ENTÃO
+  - Teleportar para Mobi: Área VIP
+
+`} />
+
+O PseudoWired ajuda a ler e documentar a lógica, mas **não é um código que pode ser colado ou executado no Habbo**. Nesse exemplo, existem dois caminhos:
+
+| É membro do grupo VIP? | Resposta da Condição | Resultado |
+| --- | --- | --- |
+| Não | Falso | O Efeito positivo não é executado. |
+| Sim | Verdadeiro | O Habbo é teleportado. |
+
+Cada linha representa uma situação que deve ser testada. Essas situações também são chamadas de **casos de teste**.
+
+## Combinando Condições
+
+Uma Pilha pode verificar mais de uma regra. Nesse caso, é preciso decidir se **todas** ou apenas **uma** delas precisam ser atendidas.
+
+### E: todas as regras
+
+Por padrão, várias Condições na mesma Pilha usam a lógica **E**. Todas precisam ser verdadeiras para que os Efeitos positivos sejam executados. Se a entrada exigir pertencer ao grupo VIP **e** possuir um item de mão, apenas quem atender às duas regras poderá passar.
+
+> **Exemplo prático:** Pense como a tranca de um cofre que exige uma **Senha E uma Impressão Digital**: se qualquer uma das duas falhar, o cofre não abre.
+
+### OU: pelo menos uma regra
+
+Na lógica **OU**, basta uma das Condições ser verdadeira. Por exemplo, a entrada pode aceitar membros do grupo Organizadores **ou** do grupo Parceiros. No Wired, esse comportamento não é o padrão: ele pode ser aplicado com o Extra **Pelo menos uma condição é verdadeira**.
+
+> **Exemplo prático:** Pense como a portaria de um evento que aceita **RG OU CNH**: apresentando qualquer um dos dois documentos válidos, a entrada é liberada.
+
+Este trecho de PseudoWired representa apenas a parte da decisão:
+
+<PseudoWiredCodeBlock code={`
+
+SE
+  - Membro do Grupo: Organizadores do Jogo
+  - Membro do Grupo: Parceiros do Jogo
+
+COMO
+  - Pelo menos uma condição é verdadeira: Selecione as duas condições acima
+
+`} />
+
+Assim, pertencer a qualquer um dos dois grupos é suficiente para liberar a entrada.
+
+### NÃO: inverter uma regra
+
+O **NÃO** inverte uma regra. Em vez de verificar “é membro do grupo”, a lógica verifica “não é membro do grupo”. Algumas Condições possuem uma versão negativa, como **NÃO é membro de grupo**, mas isso não está disponível para todas elas.
+
+### SENÃO: quando a regra falha
+
+**SENÃO** representa o outro caminho, seguido quando as Condições falham. No Wired, esse caminho só pode ser usado quando o Efeito possui uma versão negativa. Quando ela não existe, uma Condição falsa apenas impede a execução dos Efeitos positivos.
+
+## Repetindo uma Ação
+
+Uma repetição faz a mesma lógica acontecer novamente. Em programação, essa estrutura é chamada de **laço**.
+
+No Wired, o Ativador **Repetir Efeito** aciona os Efeitos novamente no intervalo configurado. Ele cumpre um papel semelhante ao de um laço, mas cada acionamento inicia uma nova execução da Pilha.
+
+Imagine um obstáculo que deve alternar entre aberto e fechado:
+
+```text
+A cada X segundos → alternar o obstáculo entre aberto e fechado
+```
+
+Antes de usar uma repetição, pense no que acontecerá após a primeira, a segunda e a décima ativação. Um comportamento correto na primeira vez pode produzir um resultado inesperado quando é repetido.
+
+<Aside type="caution" title="Cuidado com Loops Infinitos">
+Toda repetição precisa de um **mecanismo ou condição de parada** (por exemplo, desligar o temporizador após terminar o jogo ou quando a sala estiver vazia). Repetições contínuas sem controle podem causar execuções indesejadas e sobrecarregar as pilhas do seu quarto.
+</Aside>
+
+<Aside type="note" title="Lembrar o que aconteceu">
+Algumas lógicas precisam guardar informações, como uma pontuação ou a fase atual de um jogo. No Wired, uma das formas de fazer isso é usar Variáveis. Você não precisa dominá-las agora; basta perceber quando a sua ideia depende de lembrar um valor anterior.
+</Aside>
+
+## Planeje Antes de Empilhar
+
+Use este roteiro para transformar uma ideia em uma lógica testável:
+
+<Steps>
+1. **Defina o objetivo**
+<p>Escreva, em uma frase, o que deve acontecer no quarto.</p>
+
+2. **Encontre o evento**
+<p>Pergunte o que inicia a lógica: um Habbo pisa, fala ou clica? Ou apenas a passagem do tempo?</p>
+
+3. **Liste as regras**
+<p>Transforme cada regra em uma pergunta que possa ser respondida com “sim” ou “não”. Se houver várias, determine se elas usam E ou OU e se alguma precisa ser negada.</p>
+
+4. **Defina os resultados e os alvos**
+<p>Descreva o que acontece quando as regras são atendidas e quando falham. Indique também quem ou o que será afetado.</p>
+
+5. **Revise a ideia**
+<p>Verifique se a lógica precisa repetir ou lembrar algum valor. Se a descrição ficar longa, divida o problema em partes menores.</p>
+
+</Steps>
+
+## Teste a Lógica
+
+Antes de montar as caixas, percorra os passos no papel e imagine o que acontecerá em cada situação. Esse exercício é chamado de **teste de mesa**.
+
+Ao testar no quarto:
+
+* **Teste o caminho verdadeiro:** confirme que as regras atendidas produzem o resultado esperado.
+* **Teste as falhas:** na lógica E, deixe uma Condição falsa por vez enquanto as outras ficam verdadeiras. Na lógica OU, teste uma Condição verdadeira por vez e depois todas falsas.
+* **Confira o alvo:** verifique quem ou o que recebeu a ação.
+* **Repita o teste:** execute a lógica mais de uma vez e veja se o resultado continua correto.
+* **Mude uma configuração por vez:** se algo falhar, isso ajuda a identificar qual mudança causou o problema.
+
+Um resultado diferente do planejado não significa que você “não sabe usar Wireds”. Significa apenas que existe uma diferença entre o algoritmo imaginado e a configuração atual. Volte às perguntas **QUANDO**, **SE** e **ENTÃO** até encontrar essa diferença.
+
+## Próximos Passos
+
+Você não precisa memorizar todas as caixas para pensar como alguém que programa. Se consegue descrever o evento, as regras, os alvos, os resultados e os casos de teste, já tem uma base para construir sistemas de forma consciente.
+
+Agora, coloque esse raciocínio em prática no guia [Primeiro Sistema](/guias-praticos/primeiro-sistema/) e depois avance para [Sistemas Condicionais](/guias-praticos/sistemas-condicionais/).
