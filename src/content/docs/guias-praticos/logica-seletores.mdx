@@ -10,6 +10,7 @@ sidebar:
 ---
 
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from '../../../components/PseudoWiredCodeBlock.astro';
 
 Os **Seletores** representam um salto significativo na complexidade dos seus sistemas Wired. Eles permitem que você deixe a seleção estática de mobis para trás e comece a trabalhar com **seleções dinâmicas** definidas em tempo real.
 
@@ -36,7 +37,8 @@ Você quer criar um sistema onde **todos os usuários em uma zona específica** 
 </Steps>
   </TabItem>
   <TabItem label="PseudoWired">
-```yaml
+    <PseudoWiredCodeBlock code={`
+
 ALVOS
   - Habbos na Área: Área de Detecção
 
@@ -48,8 +50,9 @@ QUANDO
 ENTÃO
   - Teleportar para Mobi: Área de Prêmios
     Usar usuários do seletor
-```
-</TabItem>
+
+`} />
+  </TabItem>
 </Tabs>
 
 ### Resultado:
