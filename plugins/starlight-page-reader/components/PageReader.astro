@@ -25,15 +25,28 @@
 	</button>
 
 	<div id="pr-controls" aria-hidden="true">
-		<button id="pr-stop" title="Parar" aria-label="Parar leitura">
-			<!-- <svg inert xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-				<path d="M6 6h12v12H6z"/>
-			</svg> -->
-			<svg inert width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-				<path d="M2 8C2 5.17157 2 3.75736 2.87868 2.87868C3.75736 2 5.17157 2 8 2C10.8284 2 12.2427 2 13.1213 2.87868C14 3.75736 14 5.17157 14 8C14 10.8284 14 12.2427 13.1213 13.1213C12.2427 14 10.8284 14 8 14C5.17157 14 3.75736 14 2.87868 13.1213C2 12.2427 2 10.8284 2 8Z" fill="white"/>
-			</svg>
-			<span>Parar leitura</span>
-		</button>
+		<div class="pr-action-row">
+			<button id="pr-prev" title="Seção anterior" aria-label="Seção anterior">
+				<svg inert width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 12L6 8L10 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				<span>Anterior</span>
+			</button>
+
+			<button id="pr-stop" title="Parar" aria-label="Parar leitura">
+				<svg inert width="14" height="14" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M2 8C2 5.17157 2 3.75736 2.87868 2.87868C3.75736 2 5.17157 2 8 2C10.8284 2 12.2427 2 13.1213 2.87868C14 3.75736 14 5.17157 14 8C14 10.8284 14 12.2427 13.1213 13.1213C12.2427 14 10.8284 14 8 14C5.17157 14 3.75736 14 2.87868 13.1213C2 12.2427 2 10.8284 2 8Z" fill="white"/>
+				</svg>
+				<span>Parar</span>
+			</button>
+
+			<button id="pr-next" title="Próxima seção" aria-label="Próxima seção">
+				<span>Próxima</span>
+				<svg inert width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M6 12L10 8L6 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+		</div>
 
 		
 		<button id="pr-switch-voice" title="Trocar voz" aria-label="Trocar voz">
@@ -187,48 +200,59 @@
 		display: flex;
 	}
 
-	#pr-stop,
-	#pr-switch-voice,
-	.pr-field {
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	#pr-stop,
-	#pr-switch-voice {
-		justify-content: flex-start;
-	}
-
-	#pr-stop, #pr-switch-voice {
-		display: inline-flex;
-		flex: 1 1 auto;
-		gap: 5px;
+	.pr-action-row {
+		display: flex;
 		align-items: center;
-		justify-content: flex-start;
-		padding: 3px;
+		justify-content: space-between;
+		gap: 4px;
+		width: 100%;
+	}
+
+	#pr-prev,
+	#pr-stop,
+	#pr-next,
+	#pr-switch-voice {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4px;
+		padding: 4px;
 		border: none;
 		background: transparent;
 		color: var(--sl-color-text-accent, #f38ba8);
 		cursor: pointer;
 		border-radius: 4px;
 		transition: background 0.12s;
-	}
-
-	#pr-switch-voice {
-		min-width: 0;
-		max-width: 100%;
-	}
-
-	#pr-stop span, #pr-voice-name {
-		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 		font-size: 0.7rem;
 		font-weight: 400;
 	}
 
-	#pr-stop:hover, #pr-switch-voice:hover {
+	#pr-prev, #pr-stop, #pr-next {
+		flex: 1 1 0;
+		min-width: 0;
+	}
+
+	#pr-switch-voice,
+	.pr-field {
+		width: 100%;
+		box-sizing: border-box;
+		justify-content: flex-start;
+	}
+
+	#pr-prev span,
+	#pr-stop span,
+	#pr-next span,
+	#pr-voice-name {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	#pr-prev:hover,
+	#pr-stop:hover,
+	#pr-next:hover,
+	#pr-switch-voice:hover {
 		background: rgba(243, 139, 168, 0.12);
 	}
 
@@ -320,6 +344,8 @@
 		const iconPause = document.getElementById('pr-icon-pause');
 		const controls = document.getElementById('pr-controls');
 		const stopBtn = document.getElementById('pr-stop');
+		const prevBtn = document.getElementById('pr-prev');
+		const nextBtn = document.getElementById('pr-next');
 		const rateInput = document.getElementById('pr-rate') as HTMLInputElement | null;
 		const pitchInput = document.getElementById('pr-pitch') as HTMLInputElement | null;
 		const rateVal = document.getElementById('pr-rate-val');
@@ -347,7 +373,7 @@
 		}
 
 		// Selectors for readable blocks (Starlight article content)
-		const BLOCK_SELECTORS = 'h1, h2, h3, h4, h5, h6, p, li';
+		const READABLE_SELECTORS = 'h1, h2, h3, h4, h5, h6, p, li, th, td, caption, pre, code';
 		const ARTICLE_SELECTOR = '.sl-markdown-content, article, main [data-content]';
 
 		let blocks = [] as Element[];
@@ -363,7 +389,6 @@
 				if (voice.lang.toLowerCase().replace(/[^a-z]/g, '') === VOICE_LANG.toLowerCase().replace(/[^a-z]/g, ''))
 				voices.push(voice)
 			}
-			// alert(`Vozes encontradas: ${vcs.map(v => `${v.name} (${v.lang})`).join(', ')}`)
 
 			const savedVoice = sessionStorage.getItem('voice')
 			if (savedVoice !== null)
@@ -382,12 +407,72 @@
 			return document.querySelector(ARTICLE_SELECTOR) || document.querySelector('main');
 		}
 
+		function getElementSpeechText(el: Element): string {
+			if (!el) return '';
+			const isCode = el.tagName === 'PRE' || el.tagName === 'CODE' || !!el.closest('pre, code, .expressive-code');
+			const isTableCell = el.tagName === 'TD' || el.tagName === 'TH' || el.tagName === 'CAPTION';
+
+			let text = el.textContent || '';
+			if (isCode) {
+				text = formatCodeForSpeech(text, el);
+			} else if (isTableCell) {
+				text = formatTableCellForSpeech(text, el);
+			}
+
+			return text.trim();
+		}
+
+		function formatCodeForSpeech(text: string, el: Element): string {
+			let cleanText = text
+				.replace(/\t/g, ' ')
+				.replace(/\r?\n/g, '. ')
+				.replace(/\s+/g, ' ');
+
+			const isBlock = el.tagName === 'PRE' || !!el.closest('pre, .expressive-code');
+			if (isBlock) {
+				const container = el.closest('pre, .expressive-code');
+				const lang = container?.getAttribute('data-language') || container?.className.match(/language-(\w+)/)?.[1] || '';
+				const prefix = lang ? `Bloco de código ${lang}: ` : 'Trecho de código: ';
+				if (!cleanText.toLowerCase().startsWith('bloco de código') && !cleanText.toLowerCase().startsWith('trecho de código')) {
+					cleanText = prefix + cleanText;
+				}
+			}
+			return cleanText;
+		}
+
+		function formatTableCellForSpeech(text: string, el: Element): string {
+			const cleanText = text.replace(/\s+/g, ' ').trim();
+			if (!cleanText) return '';
+			if (el.tagName === 'TH') {
+				return `Cabeçalho: ${cleanText}`;
+			}
+			if (el.tagName === 'CAPTION') {
+				return `Tabela: ${cleanText}`;
+			}
+			return cleanText;
+		}
+
 		function collectBlocks() {
 			const article = getArticle();
 			if (!article) return [];
-			return Array.from(article.querySelectorAll(BLOCK_SELECTORS)).filter(
-				el => el.textContent.trim().length > 0
-			);
+
+			// 1. Collect all candidates with readable text
+			const rawCandidates = Array.from(article.querySelectorAll(READABLE_SELECTORS)).filter(el => {
+				if (el.closest('#page-reader, nav, button, script, style, .expressive-code .copy')) return false;
+				// Skip code element if it's already inside a pre tag that is also candidate
+				if (el.tagName === 'CODE' && el.closest('pre')) return false;
+				const text = getElementSpeechText(el);
+				return text.length > 0;
+			});
+
+			// 2. Deduplicate: if a parent candidate contains child candidates, prefer reading child sub-elements
+			const candidateSet = new Set(rawCandidates);
+			const leafCandidates = rawCandidates.filter(parent => {
+				const hasChildCandidate = Array.from(parent.querySelectorAll(READABLE_SELECTORS)).some(child => candidateSet.has(child));
+				return !hasChildCandidate;
+			});
+
+			return leafCandidates;
 		}
 
 		function clearHighlight() {
@@ -408,11 +493,14 @@
 				stop();
 				return;
 			}
+			if (index < 0) {
+				index = 0;
+			}
 			currentIndex = index;
 			const el = blocks[index];
 			highlightBlock(el);
 
-			const text = el.textContent.trim();
+			const text = getElementSpeechText(el);
 			if (!text) {
 				speakBlock(index + 1);
 				return;
@@ -456,8 +544,6 @@
 		function resume() {
 			isPaused = false;
 			if (/Android/i.test(navigator.userAgent)) {
-				// Obs: desde 2014 o `pause` funciona como o `cancel` no Android
-				// https://github.com/mdn/browser-compat-data/issues/4500
 				speakBlock(currentIndex);
 			} else {
 				synth.resume();
@@ -473,6 +559,42 @@
 			clearHighlight();
 			setPlayingUI(false);
 			controls?.classList.remove('visible');
+		}
+
+		function prevSection() {
+			if (blocks.length === 0) blocks = collectBlocks();
+			if (blocks.length === 0) return;
+
+			let targetIndex = currentIndex - 1;
+			while (targetIndex > 0 && !/^H[1-6]$/i.test(blocks[targetIndex].tagName)) {
+				targetIndex--;
+			}
+			if (targetIndex < 0) targetIndex = 0;
+
+			if (!isPlaying) {
+				isPlaying = true;
+				isPaused = false;
+				setPlayingUI(true);
+			}
+			speakBlock(targetIndex);
+		}
+
+		function nextSection() {
+			if (blocks.length === 0) blocks = collectBlocks();
+			if (blocks.length === 0) return;
+
+			let targetIndex = currentIndex + 1;
+			while (targetIndex < blocks.length && !/^H[1-6]$/i.test(blocks[targetIndex].tagName)) {
+				targetIndex++;
+			}
+			if (targetIndex >= blocks.length) targetIndex = blocks.length - 1;
+
+			if (!isPlaying) {
+				isPlaying = true;
+				isPaused = false;
+				setPlayingUI(true);
+			}
+			speakBlock(targetIndex);
 		}
 
 		function setPlayingUI(playing: boolean, paused = false) {
@@ -496,25 +618,20 @@
 			}
 		}
 
-	function handleRateChange() {
-		if (!rateVal || !rateInput) return
+		function handleRateChange() {
+			if (!rateVal || !rateInput) return;
+			const value = parseFloat(rateInput.value);
+			rateVal.textContent = value.toFixed(1).replace('.0','') + '×';
+			sessionStorage.setItem('rate', value+'');
+		}
 
-		const value = parseFloat(rateInput.value)
-		rateVal.textContent = value.toFixed(1).replace('.0','') + '×';
+		function handlePitchChange() {
+			if (!pitchVal || !pitchInput) return;
+			const value = parseFloat(pitchInput.value);
+			pitchVal.textContent = value.toFixed(1).replace('.0','') + '×';
+			sessionStorage.setItem('pitch', value+'');
+		}
 
-		sessionStorage.setItem('rate', value+'')
-	}
-
-	function handlePitchChange() {
-		if (!pitchVal || !pitchInput) return
-
-		const value = parseFloat(pitchInput.value)
-		pitchVal.textContent = value.toFixed(1).replace('.0','') + '×';
-
-		sessionStorage.setItem('pitch', value+'')
-	}
-
-		// Toggle play/pause
 		toggle?.addEventListener('click', () => {
 			if (!isPlaying && !isPaused) {
 				start();
@@ -526,43 +643,43 @@
 		});
 
 		stopBtn?.addEventListener('click', stop);
+		prevBtn?.addEventListener('click', prevSection);
+		nextBtn?.addEventListener('click', nextSection);
 
 		rateInput?.addEventListener('input', handleRateChange);
-		const savedRate = sessionStorage.getItem('rate')
+		const savedRate = sessionStorage.getItem('rate');
 		if (savedRate && rateInput) {
-			rateInput.value = savedRate
-			handleRateChange()
+			rateInput.value = savedRate;
+			handleRateChange();
 		}
 
 		pitchInput?.addEventListener('input', handlePitchChange);
-		const savedPitch = sessionStorage.getItem('pitch')
+		const savedPitch = sessionStorage.getItem('pitch');
 		if (savedPitch && pitchInput) {
-			pitchInput.value = savedPitch
-			handlePitchChange()
+			pitchInput.value = savedPitch;
+			handlePitchChange();
 		}
 
 		switchVoiceBtn?.addEventListener('click', () => {
 			if (voices.length === 0) {
-				alert("Vozes não reconhecidas.")
-				return
+				alert("Vozes não reconhecidas.");
+				return;
 			} else if (voices.length === 1) {
 				alert(`Apenas uma voz disponível: ${voices[0].name}`);
-				return
+				return;
 			}
 
 			currentVoiceIndex = (currentVoiceIndex + 1) % voices.length;
 			const currentVoice = voices[currentVoiceIndex];
-			sessionStorage.setItem('voice', currentVoiceIndex + '')
-			updateVoiceDisplay()
+			sessionStorage.setItem('voice', currentVoiceIndex + '');
+			updateVoiceDisplay();
 
 			if (isPlaying || isPaused) {
 				synth.cancel();
 				speakBlock(currentIndex);
 			}
+		});
 
-		})
-
-		// Stop if user navigates away (SPA)
 		document.addEventListener('astro:before-swap', stop);
 		window.addEventListener('beforeunload', stop);
 	})();
