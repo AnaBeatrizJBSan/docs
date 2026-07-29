@@ -1,0 +1,164 @@
+---
+import { Code } from '@astrojs/starlight/components';
+
+interface Props {
+  code?: string;
+  lang?: string;
+  title?: string;
+}
+
+const { code, lang = 'yaml', title } = Astro.props;
+---
+
+<div class="pseudowired-codeblock">
+  {code ? <Code code={code} lang={lang} title={title} /> : <slot />}
+  <a
+    href="/referencia/pseudowired"
+    class="pseudowired-info-btn"
+    title="Saiba mais sobre PseudoWired"
+    aria-label="Saiba mais sobre PseudoWired"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pseudowired-icon">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="16" x2="12" y2="12"></line>
+      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+    </svg>
+    <span class="pseudowired-tooltip" role="tooltip">Saiba mais sobre PseudoWired</span>
+  </a>
+</div>
+
+<script>
+  function attachPseudoWiredButtons() {
+    const wrappers = document.querySelectorAll('.pseudowired-codeblock');
+    wrappers.forEach((wrapper) => {
+      const copyContainer = wrapper.querySelector('.expressive-code .copy') || wrapper.querySelector('.expressive-code [class*="copy"]');
+      const infoBtn = wrapper.querySelector('.pseudowired-info-btn') as HTMLElement | null;
+
+      if (infoBtn) {
+        if (copyContainer) {
+          const copyBtn = copyContainer.querySelector('button') || copyContainer.firstElementChild;
+          if (copyBtn && infoBtn.parentNode !== copyContainer) {
+            copyContainer.insertBefore(infoBtn, copyBtn);
+            infoBtn.classList.add('pseudowired-info-btn--nested');
+          }
+        }
+      }
+    });
+  }
+
+  // Initialize on load and on Starlight page navigation
+  attachPseudoWiredButtons();
+  document.addEventListener('astro:page-load', attachPseudoWiredButtons);
+</script>
+
+<style is:global>
+  .pseudowired-codeblock {
+    position: relative;
+  }
+
+  /* Make copy container flex if nested */
+  .expressive-code .copy {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    direction: ltr !important;
+  }
+
+  /* Fallback position when not inside .copy container */
+  .pseudowired-codeblock > .pseudowired-info-btn {
+    position: absolute;
+    top: 0.45rem;
+    right: 3.2rem;
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .pseudowired-codeblock:hover > .pseudowired-info-btn,
+  .pseudowired-codeblock:focus-within > .pseudowired-info-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Styling for the info button */
+  .pseudowired-info-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border-radius: 0.375rem;
+    border: 1px solid var(--wc-border, #12365c);
+    background: var(--wc-panel-raised, #111a31);
+    color: var(--wc-text-muted, #a8b5cf);
+    cursor: pointer;
+    text-decoration: none !important;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .pseudowired-info-btn--nested {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .pseudowired-info-btn:hover {
+    color: var(--wc-blue, #2aa9ff) !important;
+    background: var(--wc-blue-soft, #0d3155) !important;
+    border-color: var(--wc-blue, #2aa9ff) !important;
+    transform: translateY(-1px);
+  }
+
+  .pseudowired-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Custom Tooltip */
+  .pseudowired-info-btn .pseudowired-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 50%;
+    transform: translateX(50%) translateY(4px);
+    padding: 0.35rem 0.65rem;
+    background: var(--wc-navy-deep, #060e22);
+    color: var(--wc-text, #f8fafc);
+    border: 1px solid var(--wc-border, #12365c);
+    border-radius: var(--wc-radius-sm, 0.375rem);
+    font-size: 0.75rem;
+    font-family: var(--wc-font, sans-serif);
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+  }
+
+  .pseudowired-info-btn .pseudowired-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--wc-border, #12365c) transparent transparent transparent;
+  }
+
+  .pseudowired-info-btn:hover .pseudowired-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%) translateY(0);
+  }
+</style>
