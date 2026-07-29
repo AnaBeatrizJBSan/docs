@@ -417,7 +417,7 @@
 				text = formatCodeForSpeech(text, el);
 			} else if (isTableCell) {
 				text = formatTableCellForSpeech(text, el);
-			} else if (el.tagName === 'LI') {
+			} else {
 				text = formatListItemForSpeech(text, el);
 			}
 
@@ -427,14 +427,30 @@
 		function formatListItemForSpeech(text: string, el: Element): string {
 			const cleanText = text.replace(/\s+/g, ' ').trim();
 			if (!cleanText) return '';
-			const ol = el.closest('ol');
-			if (ol) {
-				const siblingLis = Array.from(ol.querySelectorAll(':scope > li'));
-				const itemIndex = siblingLis.indexOf(el as HTMLLIElement);
-				const itemNumber = itemIndex >= 0 ? itemIndex + 1 : 1;
-				return `Item ${itemNumber}: ${cleanText}`;
+
+			const li = el.tagName === 'LI' ? el : el.closest('li');
+			if (!li) return cleanText;
+
+			const ol = li.closest('ol');
+			if (!ol) return cleanText;
+
+			// If el is not the LI itself, check if it's the first candidate inside the LI
+			if (el !== li) {
+				const firstCandidate = li.querySelector(READABLE_SELECTORS);
+				if (firstCandidate && firstCandidate !== el) {
+					return cleanText;
+				}
 			}
-			return cleanText;
+
+			const siblingLis = Array.from(ol.querySelectorAll(':scope > li'));
+			const itemIndex = siblingLis.indexOf(li as HTMLLIElement);
+			const itemNumber = itemIndex >= 0 ? itemIndex + 1 : 1;
+
+			if (cleanText.toLowerCase().startsWith(`item ${itemNumber}:`)) {
+				return cleanText;
+			}
+
+			return `Item ${itemNumber}: ${cleanText}`;
 		}
 
 		function formatCodeForSpeech(text: string, el: Element): string {
