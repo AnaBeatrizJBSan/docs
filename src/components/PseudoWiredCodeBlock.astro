@@ -1,5 +1,6 @@
 ---
 import { Code } from '@astrojs/starlight/components';
+import { formatPseudoWired } from '../utils/formatPseudoWired';
 
 interface Props {
   code?: string;
@@ -8,10 +9,15 @@ interface Props {
 }
 
 const { code, lang = 'yaml', title } = Astro.props;
+const formattedCode = code ? formatPseudoWired(code) : '';
 ---
 
 <div class="pseudowired-codeblock">
-  {code ? <Code code={code} lang={lang} title={title} /> : <slot />}
+  {code ? (
+    <Code code={formattedCode} lang={lang} title={title} />
+  ) : (
+    <slot />
+  )}
   <a
     href="/referencia/pseudowired"
     class="pseudowired-info-btn"
