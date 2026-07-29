@@ -70,15 +70,6 @@ const { code, lang = 'yaml', title } = Astro.props;
     top: 0.45rem;
     right: 3.2rem;
     z-index: 20;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.15s ease, transform 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .pseudowired-codeblock:hover > .pseudowired-info-btn,
-  .pseudowired-codeblock:focus-within > .pseudowired-info-btn {
-    opacity: 1;
-    pointer-events: auto;
   }
 
   /* Styling for the info button */
@@ -98,15 +89,38 @@ const { code, lang = 'yaml', title } = Astro.props;
     text-decoration: none !important;
     box-sizing: border-box;
     flex-shrink: 0;
-    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
   }
 
   .pseudowired-info-btn--nested {
     position: relative !important;
     top: auto !important;
     right: auto !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
+  }
+
+  /* Hover visibility matching Expressive Code original behavior */
+  @media (hover: hover) {
+    .pseudowired-info-btn,
+    .pseudowired-codeblock > .pseudowired-info-btn,
+    .pseudowired-info-btn--nested {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .pseudowired-codeblock:hover .pseudowired-info-btn:not(:hover),
+    .pseudowired-codeblock:focus-within .pseudowired-info-btn:not(:hover),
+    .expressive-code .frame:hover .pseudowired-info-btn:not(:hover),
+    .expressive-code .frame:focus-within .pseudowired-info-btn:not(:hover),
+    .expressive-code .frame:hover .copy .pseudowired-info-btn:not(:hover),
+    .expressive-code .frame:focus-within .copy .pseudowired-info-btn:not(:hover) {
+      opacity: 0.75;
+      pointer-events: auto;
+    }
+
+    .pseudowired-info-btn:hover {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
   }
 
   .pseudowired-info-btn:hover {
@@ -122,12 +136,12 @@ const { code, lang = 'yaml', title } = Astro.props;
     flex-shrink: 0;
   }
 
-  /* Custom Tooltip */
+  /* Custom Tooltip - Positioned below, aligned to the right */
   .pseudowired-info-btn .pseudowired-tooltip {
     position: absolute;
-    bottom: calc(100% + 8px);
-    right: 50%;
-    transform: translateX(50%) translateY(4px);
+    top: calc(100% + 8px);
+    right: 0;
+    transform: translateY(-4px);
     padding: 0.35rem 0.65rem;
     background: var(--wc-navy-deep, #060e22);
     color: var(--wc-text, #f8fafc);
@@ -148,17 +162,16 @@ const { code, lang = 'yaml', title } = Astro.props;
   .pseudowired-info-btn .pseudowired-tooltip::after {
     content: '';
     position: absolute;
-    top: 100%;
-    right: 50%;
-    transform: translateX(50%);
+    bottom: 100%;
+    right: 0.6rem;
     border-width: 5px;
     border-style: solid;
-    border-color: var(--wc-border, #12365c) transparent transparent transparent;
+    border-color: transparent transparent var(--wc-border, #12365c) transparent;
   }
 
   .pseudowired-info-btn:hover .pseudowired-tooltip {
     opacity: 1;
     visibility: visible;
-    transform: translateX(50%) translateY(0);
+    transform: translateY(0);
   }
 </style>
