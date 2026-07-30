@@ -21,17 +21,19 @@ A pilha é a unidade funcional básica: quando os mobis estão na mesma coordena
 
 ## O Fluxo de Execução
 
-O funcionamento de uma pilha Wired segue uma sequência linear de processamento:
+Quando uma Pilha é acionada, o sistema Wired processa seus componentes em uma ordem definida. Se ela não tiver componentes de determinado tipo, essa etapa é simplesmente ignorada:
 
 <Steps>
 
-1. **O Impulso (Ativação):** Tudo começa com um **Ativador**. Ele atua como o gatilho inicial da pilha, iniciando a execução quando um evento específico ocorre (como um usuário pisar em um piso ou dizer uma senha).
+1. **Ativador:** tudo começa com o Ativador, que atua como o gatilho inicial da Pilha. Ele inicia a execução quando um evento específico acontece, como um Habbo pisar em um mobi ou dizer uma palavra.
 
-2. **A Validação (Condição):** Se houver uma ou mais **Condições** na pilha, o sistema fará uma pausa para verificar se os requisitos foram atendidos. Por padrão, todas as condições em uma pilha devem ser verdadeiras para que a execução continue (lógica "E"). Se qualquer condição falhar, o processo é abortado imediatamente e o efeito não é executado. A animação visual dos Wireds da pilha só acontece caso ela seja executada.
+2. **Seletores:** todos os Seletores envolvidos são processados para determinar suas respectivas seleções de Habbos ou mobis. Eles podem escolher Habbos em uma área específica ou mobis de determinado tipo, expandindo os alvos para além de quem acionou a Pilha ou dos itens configurados diretamente nos Efeitos. Junto a eles, os Filtros também são processados para limitarem as seleções resultantes.
 
-3. **O Direcionamento (Seletores):** Em sistemas avançados, os **Seletores** definem quem ou o que será afetado. Eles podem escolher usuários em uma área específica ou mobis de um determinado tipo, expandindo o alvo para além de quem disparou o gatilho inicial ou uma configuração fixa dos efeitos.
+3. **Extras:** modificam o comportamento padrão da Pilha e a forma como seus componentes são processados. São processados sob demanda, visto que alguns modificam o comportamento das Condições enquanto outros afetam apenas alguns Efeitos específicos.
 
-4. **A Ação (Efeito):** Finalmente, o **Efeito** realiza a mudança "física" no quarto (na maioria das vezes), como teleportar um usuário, abrir uma porta ou mostrar uma mensagem. Há também efeitos que redirecionam o fluxo de execução para outra pilha, que alteram variáveis internas ou que simplesmente criam uma mensagem de registro para o criador do quarto poder fazer uma auditoria posterior.
+4. **Condições:** verificam se os requisitos foram atendidos. Por padrão, todas precisam ser verdadeiras para que a execução continue pela lógica **E**. Se qualquer uma falhar, os Efeitos positivos não são executados e a pilha é considerada como "não executada".
+
+5. **Efeitos:** realizam as ações da Pilha, como teleportar um Habbo, abrir uma porta ou mostrar uma mensagem. Há também Efeitos que atuam sobre o fluxo de execução, alteram Variáveis ou registram informações para que o criador do quarto possa conferi-las posteriormente.
 
 </Steps>
 
@@ -40,6 +42,17 @@ A ordem dos mobis na pilha não altera a lógica de execução, mas pode ser usa
 
 Você consegue forçar que os Efeitos sejam processados em ordem do mais baixo para o mais alto usando o Extra "Executa na Ordem", mas isso só é necessário em casos mais avançados.
 </Aside>
+
+:::caution[Quando uma Pilha executa outra]
+
+O Efeito **Faz pilhas de wireds** executa a Pilha selecionada sem criar um novo acionamento por um Ativador. Isso produz duas diferenças importantes:
+
+* **Seletores:** os Seletores da Pilha chamada são processados de antemão, durante o acionamento da Pilha inicial. Cada Pilha mantém sua própria seleção.
+* **Condições:** as Condições da Pilha chamada não são verificadas quando o Efeito a executa.
+
+Se a Pilha chamada precisar passar por um novo acionamento, use o Efeito **Mandar Sinal** com uma **Antena** e o Ativador **Recebe Sinal**. Assim, seus Seletores e suas Condições serão processados no momento que o sinal ocorre.
+
+:::
 
 ## Configuração e Parâmetros
 
