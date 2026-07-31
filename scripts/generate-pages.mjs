@@ -122,12 +122,8 @@ function yamlStr(value) {
 	return str;
 }
 
-function buildMdx(item, items = [], subfolder = "") {
+function buildMdx(item, items = []) {
 	const type = inferType(item);
-
-	const subParts = subfolder.split(/[/\\]/).filter(Boolean);
-	const depth = 4 + Math.max(0, subParts.length - 1);
-	const relImport = "../".repeat(depth) + "components/Infobox.astro";
 
 	const colonIdx = item.name.indexOf(": ");
 	const shortLabel = colonIdx !== -1 ? item.name.slice(colonIdx + 2) : item.name;
@@ -185,7 +181,7 @@ ${type === "Condição" ? (negativeVersion ? `  negative_version:
     classname: ${negativeVersion.classname}` : "  # negative_version: # se aplicável\n  #   name: # nome para exibição\n  #   description: # descrição para exibição\n  #   revision: # revisão técnica\n  #   classname: # classname técnico") : `  additional_sources: []`}
 ---
 
-import Infobox from "${relImport}"
+import Infobox from "@components/Infobox.astro"
 
 <Infobox />
 `;

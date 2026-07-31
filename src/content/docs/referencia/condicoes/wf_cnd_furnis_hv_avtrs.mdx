@@ -44,7 +44,7 @@ infobox:
     classname: wf_cnd_not_hv_avtrs
 ---
 
-import Infobox from "../../../../components/Infobox.astro"
+import Infobox from "@components/Infobox.astro"
 import { ShowcaseYouTube } from 'starlight-showcases'
 
 Esta condição do sistema Wired verifica se **todos os mobis selecionados possuem pelo menos um usuário sobre eles** no momento da execução. Seu funcionamento consiste na seleção de um ou mais itens que serão monitorados: quando o ativador associado for disparado, por padrão a condição apenas permitirá a execução dos efeitos caso cada um desses mobis esteja ocupado por um avatar. Nessa configuração, caso qualquer um dos itens esteja vazio, a condição falha e interrompe a execução do restante da pilha.
