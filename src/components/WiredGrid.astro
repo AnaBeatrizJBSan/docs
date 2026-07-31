@@ -36,8 +36,8 @@ if ("type" in Astro.props) {
 }
 
 // gerar o plural da rota correta
-const typePlural = (type: string) =>
-	({
+const typePlural = (type: string) => {
+	const folder = ({
 		ativador: "ativadores",
 		efeito: "efeitos",
 		condição: "condicoes",
@@ -48,8 +48,16 @@ const typePlural = (type: string) =>
 		variável: "variaveis",
 		"extra de variável": "variaveis",
 		contrato: "contratos",
+		baú: "outros/baus",
 		"tabela de classificação": "outros/tabelas-de-classificacao",
 	})[type.toLowerCase()];
+
+	if (!folder) {
+		throw new Error(`Unknown infobox type: ${type}`);
+	}
+
+	return folder;
+}
 ---
 
 <CardGrid>

@@ -131,6 +131,10 @@ const ContractInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Contrato").describe("Tipo do Wired: Contrato"),
 });
 
+const StorageInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Baú").describe("Tipo do Wired: Baú"),
+});
+
 export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	TriggerInfoboxBaseSchema,
 	EffectInfoboxBaseSchema,
@@ -142,6 +146,7 @@ export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	VariableAddonInfoboxBaseSchema,
 	LeaderboardInfoboxBaseSchema,
 	ContractInfoboxBaseSchema,
+	StorageInfoboxBaseSchema,
 ]).describe("Esquema para infoboxes de Wired, com campos específicos para cada tipo");
 
 const CompleteInfoboxSchema = z.union([
@@ -156,6 +161,7 @@ export type TriggerInfobox = z.infer<typeof TriggerInfoboxBaseSchema>;
 export type EffectInfobox = z.infer<typeof EffectInfoboxBaseSchema>;
 export type ConditionInfobox = z.infer<typeof ConditionInfoboxBaseSchema>;
 export type AddonInfobox = z.infer<typeof AddOnInfoboxBaseSchema>;
+export type StorageInfobox = z.infer<typeof StorageInfoboxBaseSchema>;
 export type WiredInfobox = z.infer<typeof WiredInfoboxSchema>;
 export type WiredInfoboxType = WiredInfobox["type"];
 export type CompleteInfobox = z.infer<typeof CompleteInfoboxSchema>;

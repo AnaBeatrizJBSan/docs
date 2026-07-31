@@ -23,7 +23,7 @@ const CLASSNAME_TYPE_MAP = {
 	wf_act_: "Efeito",
 	wf_slc_: "Seletor",
 	wf_var_: "Variável",
-	wf_storage_: "Baús",
+	wf_storage_: "Baú",
 	wf_contract_: "Contrato",
 	wired: "Condição",
 	wired_trigger: "Ativador",
@@ -39,6 +39,7 @@ const TYPE_FOLDER_MAP = {
 	Seletor: "seletores",
 	Variável: "variaveis",
 	Contrato: "contratos",
+	Baú: "baus",
 	"Tabela de Classificação": "tabelas-de-classificacao",
 };
 
@@ -121,8 +122,12 @@ function yamlStr(value) {
 	return str;
 }
 
-function buildMdx(item, items = []) {
+function buildMdx(item, items = [], subfolder = "") {
 	const type = inferType(item);
+
+	const subParts = subfolder.split(/[/\\]/).filter(Boolean);
+	const depth = 4 + Math.max(0, subParts.length - 1);
+	const relImport = "../".repeat(depth) + "components/Infobox.astro";
 
 	const colonIdx = item.name.indexOf(": ");
 	const shortLabel = colonIdx !== -1 ? item.name.slice(colonIdx + 2) : item.name;
@@ -156,6 +161,7 @@ infobox:
   description: ${yamlStr(item.description)}
 	# product_name: # caso o nome na loja seja diferente do nome do Mobi
 	# image_direction: ${item.defaultdir} # valor padrão
+    # image_not_animated: false # valor padrão
 	# image_animated_state: 100 # valor padrão
 	# icon: # url preenchida automaticamente
   availability: ${yamlStr(availability)}
@@ -179,7 +185,7 @@ ${type === "Condição" ? (negativeVersion ? `  negative_version:
     classname: ${negativeVersion.classname}` : "  # negative_version: # se aplicável\n  #   name: # nome para exibição\n  #   description: # descrição para exibição\n  #   revision: # revisão técnica\n  #   classname: # classname técnico") : `  additional_sources: []`}
 ---
 
-import Infobox from "../../../../components/Infobox.astro"
+import Infobox from "${relImport}"
 
 <Infobox />
 `;
@@ -357,7 +363,7 @@ async function main() {
 
 		const filename = `${normClassname}.mdx`;
 		const filepath = join(targetDir, filename);
-		const content = buildMdx(item, allItems);
+		const content = buildMdx(item, allItems, subfolder);
 
 		writeFileSync(filepath, content, "utf8");
 		console.log(`✅  Criado: scripts/output/${subfolder}/${filename}`);
