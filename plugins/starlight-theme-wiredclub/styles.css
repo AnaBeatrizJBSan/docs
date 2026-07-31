@@ -167,9 +167,6 @@
 
 	header.header {
 		border-bottom: 2px solid var(--wc-blue);
-		background:
-			linear-gradient(90deg, rgb(42 169 255 / 5%) 1px, transparent 1px) 0 0 / 24px 24px,
-			linear-gradient(var(--wc-ink), var(--wc-ink));
 		box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
 	}
 
