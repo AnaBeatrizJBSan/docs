@@ -9,6 +9,11 @@ interface RcContributor {
 	[key: string]: any;
 }
 
+export interface AuthorDetails {
+	avatarUrl?: string;
+	handle?: string;
+}
+
 let cachedRcContributors: RcContributor[] | null = null;
 
 function getRcContributors(root: string): RcContributor[] {
@@ -38,7 +43,7 @@ function getRcContributors(root: string): RcContributor[] {
 	return cachedRcContributors;
 }
 
-export function getAuthorAvatar(authorName: string, authorEmail: string, root: string): string | undefined {
+export function getAuthorInfo(authorName: string, authorEmail: string, root: string): AuthorDetails {
 	const name = authorName.trim();
 	const email = authorEmail.trim().toLowerCase();
 
@@ -46,16 +51,21 @@ export function getAuthorAvatar(authorName: string, authorEmail: string, root: s
 
 	// 1. Try to find matching contributor in .all-contributorsrc by name, login, or email inclusion
 	for (const c of contributors) {
-		if (!c.avatar_url) continue;
-
 		const cName = c.name?.toLowerCase();
-		const cLogin = c.login?.toLowerCase();
+		const cLogin = c.login;
+		const cLoginLower = cLogin?.toLowerCase();
 
 		if (cName && cName === name.toLowerCase()) {
-			return c.avatar_url;
+			return {
+				avatarUrl: c.avatar_url,
+				handle: cLogin || name,
+			};
 		}
-		if (cLogin && (cLogin === name.toLowerCase() || (email && email.includes(cLogin)))) {
-			return c.avatar_url;
+		if (cLoginLower && (cLoginLower === name.toLowerCase() || (email && email.includes(cLoginLower)))) {
+			return {
+				avatarUrl: c.avatar_url,
+				handle: cLogin || name,
+			};
 		}
 	}
 
@@ -63,24 +73,40 @@ export function getAuthorAvatar(authorName: string, authorEmail: string, root: s
 	const githubNoreplyMatch = email.match(/^(?:\d+\+)?([^@]+)@users\.noreply\.github\.com$/i);
 	if (githubNoreplyMatch && githubNoreplyMatch[1]) {
 		const ghUser = githubNoreplyMatch[1];
+		let avatarUrl = `https://github.com/${ghUser}.png`;
 		for (const c of contributors) {
 			if (c.avatar_url && c.login?.toLowerCase() === ghUser.toLowerCase()) {
-				return c.avatar_url;
+				avatarUrl = c.avatar_url;
+				break;
 			}
 		}
-		return `https://github.com/${ghUser}.png`;
+		return {
+			avatarUrl,
+			handle: ghUser,
+		};
 	}
 
 	// 3. Check if authorName matches a single-word GitHub handle
 	if (name && !name.includes(' ') && /^[a-z0-9-]+$/i.test(name)) {
-		return `https://github.com/${name}.png`;
+		return {
+			avatarUrl: `https://github.com/${name}.png`,
+			handle: name,
+		};
 	}
 
 	// 4. Fallback to Gravatar if email is present
+	let avatarUrl: string | undefined = undefined;
 	if (email && email.includes('@')) {
 		const hash = crypto.createHash('md5').update(email).digest('hex');
-		return `https://www.gravatar.com/avatar/${hash}?d=404`;
+		avatarUrl = `https://www.gravatar.com/avatar/${hash}?d=404`;
 	}
 
-	return undefined;
+	return {
+		avatarUrl,
+		handle: name,
+	};
+}
+
+export function getAuthorAvatar(authorName: string, authorEmail: string, root: string): string | undefined {
+	return getAuthorInfo(authorName, authorEmail, root).avatarUrl;
 }

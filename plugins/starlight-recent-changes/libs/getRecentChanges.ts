@@ -3,7 +3,7 @@ import path from 'node:path';
 import { getEntries } from 'astro:content';
 import { getRepoBaseUrl, getRepoRoot } from './repo';
 import { normalizeSlug } from './utils';
-import { getAuthorAvatar } from './getAuthorAvatar';
+import { getAuthorInfo } from './getAuthorAvatar';
 
 const GIT_COMMIT_SPLIT = '==RECENT_CHANGES_COMMIT==';
 const CONTENT_DIR = 'src/content/docs';
@@ -85,13 +85,16 @@ export async function getRecentChanges(filePath?: string) {
 			});
 
 			const authorName = author.trim();
-			const avatarUrl = getAuthorAvatar(authorName, authorEmail || '', root);
+			const authorInfo = getAuthorInfo(authorName, authorEmail || '', root);
+			const authorQuery = authorInfo.handle || authorName;
+			const authorUrl = repoBaseUrl ? `${repoBaseUrl}/commits?author=${encodeURIComponent(authorQuery)}` : undefined;
 
 			return {
 				date,
 				kind: commitKindFromMessage(message),
 				author: authorName,
-				authorAvatarUrl: avatarUrl,
+				authorAvatarUrl: authorInfo.avatarUrl,
+				authorUrl,
 				message,
 				pages,
 				commitUrl: repoBaseUrl ? `${repoBaseUrl}/commit/${hash}` : hash,

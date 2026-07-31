@@ -14,6 +14,7 @@ export interface ChangeEntry {
 	kind?: string;
 	author: string;
 	authorAvatarUrl?: string;
+	authorUrl?: string;
 	message: string;
 	pages: {
 		title: string;
