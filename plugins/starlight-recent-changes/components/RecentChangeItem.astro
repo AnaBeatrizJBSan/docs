@@ -1,9 +1,12 @@
 ---
-import type { ChangeEntry } from "../common/types";
+import type { ChangeEntry, DateFormatOption } from "../common/types";
+import { formatDate } from "../libs/formatDate";
+import config from "virtual:starlight-recent-changes-config";
 
-const { entry, maxVisiblePages = 3 } = Astro.props as {
+const { entry, maxVisiblePages = 3, dateFormat = config?.dateFormat } = Astro.props as {
 	entry: ChangeEntry;
 	maxVisiblePages?: number;
+	dateFormat?: DateFormatOption;
 };
 
 function initials(name: string) {
@@ -42,7 +45,7 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 				{entry.author}
 			</span>
 			•
-			<span class="change-date">{new Date(entry.date).toLocaleString()}</span>
+			<span class="change-date">{formatDate(entry.date, dateFormat)}</span>
 		</div>
 		<div class="change-msg">{entry.message}</div>
 		<div class="pages-list">
