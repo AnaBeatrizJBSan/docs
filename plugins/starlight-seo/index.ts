@@ -1,5 +1,6 @@
 import { AstroError } from 'astro/errors';
 import type { StarlightPlugin } from '@astrojs/starlight/types';
+import { fileURLToPath } from 'node:url';
 import { normalizeOptions } from './src/config/normalize.ts';
 import { createAstroSeoIntegration } from './src/integrations/astro.ts';
 import type { StarlightSeoOptions } from './src/types.ts';
@@ -32,12 +33,7 @@ export default function starlightSeo(options: StarlightSeoOptions = {}): Starlig
 				}
 
 				const configuredHead = config.components?.Head;
-				if (configuredHead && configuredHead !== defaultHead && configuredHead !== 'starlight-seo/components/Head.astro') {
-					throw new AstroError(
-						'[starlight-seo] The Starlight `Head` component already has an override.',
-						`Compose the existing override with starlight-seo/components/Head.astro before enabling this plugin. Current override: ${configuredHead}`
-					);
-				}
+				const isCustomHead = configuredHead && configuredHead !== defaultHead && configuredHead !== 'starlight-seo/components/Head.astro';
 
 				const runtimeConfig = normalizeOptions(options, {
 					root: astroConfig.root,
@@ -48,12 +44,14 @@ export default function starlightSeo(options: StarlightSeoOptions = {}): Starlig
 						: Object.values(config.title)[0] ?? 'Documentation',
 				});
 				addIntegration(createAstroSeoIntegration(runtimeConfig));
-				updateConfig({
-					components: {
-						...(config.components ?? {}),
-						Head: 'starlight-seo/components/Head.astro',
-					},
-				});
+				if (!isCustomHead) {
+					updateConfig({
+						components: {
+							...(config.components ?? {}),
+							Head: 'starlight-seo/components/Head.astro',
+						},
+					});
+				}
 			},
 		},
 	};

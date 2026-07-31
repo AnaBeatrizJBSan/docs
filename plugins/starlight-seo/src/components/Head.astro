@@ -14,4 +14,6 @@ const head = createSeoHead(route.head, {
 }, config);
 ---
 
-{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+{head.map(({ tag: Tag, attrs, content }) => (
+	content ? <Tag {...attrs} set:html={content} /> : <Tag {...attrs} />
+))}
