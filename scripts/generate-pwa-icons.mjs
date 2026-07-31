@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
-const sourceImage = path.join(rootDir, 'src', 'assets', 'logo_docs.png');
+const sourceImage = path.join(rootDir, 'src', 'assets', 'favicon.png');
 const publicDir = path.join(rootDir, 'public');
 
 const sizes = [
