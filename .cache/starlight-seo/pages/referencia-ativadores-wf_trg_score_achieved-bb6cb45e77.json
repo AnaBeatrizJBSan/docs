@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_score_achieved",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_score_achieved.mdx",
+  "sourceHash": "4109fefe8899e6a1ece56fa1a7433a6238ad8dc404fa7e59f65eab047655cd73",
+  "hash": "ae936a3cc68e765749217350c1607886a5c15e7a94816ef89a3aa1dc015e9d7c",
+  "renderDirectory": "renders/ae936a3cc68e765749217350c1607886a5c15e7a94816ef89a3aa1dc015e9d7c"
+}

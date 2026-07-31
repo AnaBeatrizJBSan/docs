@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_says_something",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_says_something.mdx",
+  "sourceHash": "af03cb56c8479a740074712f54266ea4bc748772d99b9ac7d0cf7630d1100aef",
+  "hash": "c2d9dfb921927c8203b63d7e5db4dea90f859d9e493a4ec5c55adbb35e827c27",
+  "renderDirectory": "renders/c2d9dfb921927c8203b63d7e5db4dea90f859d9e493a4ec5c55adbb35e827c27"
+}

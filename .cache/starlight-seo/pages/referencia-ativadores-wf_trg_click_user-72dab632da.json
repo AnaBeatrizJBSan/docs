@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_click_user",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_click_user.mdx",
+  "sourceHash": "91edee6aff10d4890b51e78a7de8166cbc7966d2654032780f77526a221e2995",
+  "hash": "819ce6878ffa52c9f44af6c66f14ff79cd773c8c1eb1e812c8c53c8352da0f8b",
+  "renderDirectory": "renders/819ce6878ffa52c9f44af6c66f14ff79cd773c8c1eb1e812c8c53c8352da0f8b"
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_transaction_complete",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_transaction_complete.mdx",
+  "sourceHash": "ec0bf7609175b9004a4cf693b03e3c0e70bf52e9ff937bac6508242b24299a13",
+  "hash": "b4065acb8105b7508d206a3d8919d03a20b9657ff0046e77632100b3215ffd35",
+  "renderDirectory": "renders/b4065acb8105b7508d206a3d8919d03a20b9657ff0046e77632100b3215ffd35"
+}

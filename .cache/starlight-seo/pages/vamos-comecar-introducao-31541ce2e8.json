@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "vamos-comecar/introducao",
+  "source": "src/content/docs/vamos-comecar/introducao.mdx",
+  "sourceHash": "9195eecc5f1615330b461dd177e6de12ac86872588f699e157eb437f3a454c63",
+  "hash": "fde4f9eccfa31aeb7b74dd19233f1d3a2f6d3a8c47cb0c075b27dc6ea25df2c4",
+  "renderDirectory": "renders/fde4f9eccfa31aeb7b74dd19233f1d3a2f6d3a8c47cb0c075b27dc6ea25df2c4"
+}

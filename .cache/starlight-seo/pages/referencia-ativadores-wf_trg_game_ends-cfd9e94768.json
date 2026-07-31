@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_game_ends",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_game_ends.mdx",
+  "sourceHash": "1d15cd8364ee7313bcbcaec8c24a756ee59f627ab247c90369bc316f12fd2256",
+  "hash": "d10487cc149b2372e2b402d422dbbe54f0210ed87275acf1b813780ada2e85fb",
+  "renderDirectory": "renders/d10487cc149b2372e2b402d422dbbe54f0210ed87275acf1b813780ada2e85fb"
+}

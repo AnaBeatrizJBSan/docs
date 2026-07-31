@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "guias-praticos/primeiro-sistema",
+  "source": "src/content/docs/guias-praticos/primeiro-sistema.mdx",
+  "sourceHash": "f4ba439eac4010d865d17b689db296ad50271f317508970b125a4c03e8c9c2f6",
+  "hash": "11cc4c15a4b86d529e38a15c4ee3d0e57c4856d100c5df40df170af3d9f7e8ee",
+  "renderDirectory": "renders/11cc4c15a4b86d529e38a15c4ee3d0e57c4856d100c5df40df170af3d9f7e8ee"
+}

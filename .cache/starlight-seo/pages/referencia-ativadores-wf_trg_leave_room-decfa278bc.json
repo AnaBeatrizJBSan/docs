@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_leave_room",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_leave_room.mdx",
+  "sourceHash": "65d96ffc7b06908a40b5f1acac9e44a38c98382fbefe8561a85f3ff0b9730207",
+  "hash": "92448b845a4917871b331a0ec3c5d106fdff0f3152f7fea5993469406a479012",
+  "renderDirectory": "renders/92448b845a4917871b331a0ec3c5d106fdff0f3152f7fea5993469406a479012"
+}
