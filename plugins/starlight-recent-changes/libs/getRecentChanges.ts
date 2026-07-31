@@ -9,8 +9,30 @@ const GIT_COMMIT_SPLIT = '==RECENT_CHANGES_COMMIT==';
 const CONTENT_DIR = 'src/content/docs';
 
 function commitKindFromMessage(message: string) {
-	if (/\b(add|create|new|init)\b/i.test(message)) return 'add';
-	if (/\b(remove|delete|rm|drop)\b/i.test(message)) return 'delete';
+	const trimmed = message.trim();
+
+	// 1. Check for Conventional Commit prefix at the start of the message (e.g. feat:, fix(scope):, refactor!:, etc.)
+	const prefixMatch = trimmed.match(/^([a-z0-9_-]+)(?:\([^)]+\))?!?:/i);
+	if (prefixMatch && prefixMatch[1]) {
+		const prefix = prefixMatch[1].toLowerCase();
+
+		if (['feat', 'feature', 'add', 'create', 'new', 'init'].includes(prefix)) {
+			return 'add';
+		}
+		if (['remove', 'delete', 'rm', 'drop', 'revert'].includes(prefix)) {
+			return 'delete';
+		}
+		if ([
+			'fix', 'docs', 'style', 'refactor', 'perf', 'test',
+			'build', 'ci', 'chore', 'update', 'change', 'tweak', 'wip'
+		].includes(prefix)) {
+			return 'edit';
+		}
+	}
+
+	// 2. Fallback keyword search within message content if no prefix matched
+	if (/\b(add|create|new|init|adiciona|adicionar|criado|criacao)\b/i.test(trimmed)) return 'add';
+	if (/\b(remove|delete|rm|drop|revert|removeu|remover|removido|remocao)\b/i.test(trimmed)) return 'delete';
 	return 'edit';
 }
 
