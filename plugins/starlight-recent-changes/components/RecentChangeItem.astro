@@ -18,26 +18,11 @@ function initials(name: string) {
 		.toUpperCase();
 }
 
-function kindBadgeClass(kind = "") {
-	return kind === "add"
-		? "badge-add"
-		: kind === "edit"
-			? "badge-edit"
-			: "badge-delete";
-}
-
-function kindText(kind = "") {
-	return kind === "add" ? "novo" : kind === "edit" ? "edição" : "removido";
-}
-
 const visiblePages = entry.pages.slice(0, maxVisiblePages);
 const hiddenPages = entry.pages.slice(maxVisiblePages);
 ---
 
-<div class="change-row">
-	<span class={`kind-badge ${kindBadgeClass(entry.kind)}`}>
-		{kindText(entry.kind)}
-	</span>
+<div class={`change-row change-row-${entry.kind || 'edit'}`}>
 	<div class="change-body">
 		<div class="change-meta">
 			{
@@ -145,8 +130,9 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		display: flex;
 		align-items: flex-start;
 		gap: 12px;
-		padding: 0.75rem 0;
+		padding: 0.75rem 0 0.75rem 0.75rem;
 		border-bottom: 1px solid var(--sl-color-hairline);
+		border-left: 4px solid transparent;
 		margin-top: 0;
 	}
 
@@ -154,27 +140,16 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		border-bottom: none;
 	}
 
-	.kind-badge {
-		flex-shrink: 0;
-		font-size: 11px;
-		font-weight: 500;
-		border-radius: 12px;
-		padding: 2px 8px;
+	.change-row-add {
+		border-left-color: #22c55e;
 	}
 
-	.badge-add {
-		background: #eaf3de;
-		color: #3b6d11;
+	.change-row-edit {
+		border-left-color: #3b82f6;
 	}
 
-	.badge-edit {
-		background: #e6f1fb;
-		color: #185fa5;
-	}
-
-	.badge-delete {
-		background: #fcebeb;
-		color: #a32d2d;
+	.change-row-delete {
+		border-left-color: #ef4444;
 	}
 
 	.change-body {
