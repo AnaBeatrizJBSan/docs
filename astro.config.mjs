@@ -153,6 +153,7 @@ export default defineConfig({
 				progressRingColor: 'white',
 			}), starlightRecentChanges({
 				routeSlug: 'mudancas-recentes',
+				dateFormat: 'pt-BR',
 			})],
 		}),
 	],

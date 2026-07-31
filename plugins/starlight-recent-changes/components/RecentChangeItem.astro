@@ -1,9 +1,12 @@
 ---
-import type { ChangeEntry } from "../common/types";
+import type { ChangeEntry, DateFormatOption } from "../common/types";
+import { formatDate } from "../libs/formatDate";
+import config from "virtual:starlight-recent-changes-config";
 
-const { entry, maxVisiblePages = 3 } = Astro.props as {
+const { entry, maxVisiblePages = 3, dateFormat = config?.dateFormat } = Astro.props as {
 	entry: ChangeEntry;
 	maxVisiblePages?: number;
+	dateFormat?: DateFormatOption;
 };
 
 function initials(name: string) {
@@ -15,34 +18,68 @@ function initials(name: string) {
 		.toUpperCase();
 }
 
-function kindBadgeClass(kind = "") {
-	return kind === "add"
-		? "badge-add"
-		: kind === "edit"
-			? "badge-edit"
-			: "badge-delete";
-}
-
-function kindText(kind = "") {
-	return kind === "add" ? "novo" : kind === "edit" ? "edição" : "removido";
-}
-
 const visiblePages = entry.pages.slice(0, maxVisiblePages);
 const hiddenPages = entry.pages.slice(maxVisiblePages);
 ---
 
-<div class="change-row">
-	<span class={`kind-badge ${kindBadgeClass(entry.kind)}`}>
-		{kindText(entry.kind)}
-	</span>
+<div class={`change-row change-row-${entry.kind || 'edit'}`}>
 	<div class="change-body">
 		<div class="change-meta">
-			<span class="change-author">
-				<span class="avatar">{initials(entry.author)}</span>
-				{entry.author}
-			</span>
+			{
+				entry.authorUrl ? (
+					<a
+						href={entry.authorUrl}
+						class="change-author"
+						target="_blank"
+						rel="noopener noreferrer"
+						title={`Ver histórico de commits de ${entry.author} no GitHub`}
+					>
+						<span class="avatar">
+							{
+								entry.authorAvatarUrl ? (
+									<img
+										src={entry.authorAvatarUrl}
+										alt={entry.author}
+										class="avatar-img"
+										width="24"
+										height="24"
+										loading="lazy"
+										onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+									/>
+									<span class="avatar-initials" style="display:none">{initials(entry.author)}</span>
+								) : (
+									<span class="avatar-initials">{initials(entry.author)}</span>
+								)
+							}
+						</span>
+						{entry.author}
+					</a>
+				) : (
+					<span class="change-author">
+						<span class="avatar">
+							{
+								entry.authorAvatarUrl ? (
+									<img
+										src={entry.authorAvatarUrl}
+										alt={entry.author}
+										class="avatar-img"
+										width="24"
+										height="24"
+										loading="lazy"
+										onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+									/>
+									<span class="avatar-initials" style="display:none">{initials(entry.author)}</span>
+								) : (
+									<span class="avatar-initials">{initials(entry.author)}</span>
+								)
+							}
+						</span>
+						{entry.author}
+					</span>
+				)
+			}
 			•
-			<span class="change-date">{new Date(entry.date).toLocaleString()}</span>
+			<span class="change-date">{formatDate(entry.date, dateFormat)}</span>
 		</div>
 		<div class="change-msg">{entry.message}</div>
 		<div class="pages-list">
@@ -93,8 +130,9 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		display: flex;
 		align-items: flex-start;
 		gap: 12px;
-		padding: 0.75rem 0;
+		padding: 0.75rem 0 0.75rem 0.75rem;
 		border-bottom: 1px solid var(--sl-color-hairline);
+		border-left: 4px solid transparent;
 		margin-top: 0;
 	}
 
@@ -102,27 +140,16 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		border-bottom: none;
 	}
 
-	.kind-badge {
-		flex-shrink: 0;
-		font-size: 11px;
-		font-weight: 500;
-		border-radius: 12px;
-		padding: 2px 8px;
+	.change-row-add {
+		border-left-color: #22c55e;
 	}
 
-	.badge-add {
-		background: #eaf3de;
-		color: #3b6d11;
+	.change-row-edit {
+		border-left-color: #3b82f6;
 	}
 
-	.badge-edit {
-		background: #e6f1fb;
-		color: #185fa5;
-	}
-
-	.badge-delete {
-		background: #fcebeb;
-		color: #a32d2d;
+	.change-row-delete {
+		border-left-color: #ef4444;
 	}
 
 	.change-body {
@@ -149,6 +176,13 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		display: flex;
 		align-items: center;
 		gap: 12px;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	a.change-author:hover {
+		color: var(--sl-color-text-accent, #6ea6df);
+		text-decoration: underline;
 	}
 
 	.avatar {
@@ -163,6 +197,22 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		overflow: hidden;
+	}
+
+	.avatar-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	.avatar-initials {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
 	}
 
 	.pages-list {

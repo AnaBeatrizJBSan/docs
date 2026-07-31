@@ -3,13 +3,36 @@ import path from 'node:path';
 import { getEntries } from 'astro:content';
 import { getRepoBaseUrl, getRepoRoot } from './repo';
 import { normalizeSlug } from './utils';
+import { getAuthorInfo } from './getAuthorAvatar';
 
 const GIT_COMMIT_SPLIT = '==RECENT_CHANGES_COMMIT==';
 const CONTENT_DIR = 'src/content/docs';
 
 function commitKindFromMessage(message: string) {
-	if (/\b(add|create|new|init)\b/i.test(message)) return 'add';
-	if (/\b(remove|delete|rm|drop)\b/i.test(message)) return 'delete';
+	const trimmed = message.trim();
+
+	// 1. Check for Conventional Commit prefix at the start of the message (e.g. feat:, fix(scope):, refactor!:, etc.)
+	const prefixMatch = trimmed.match(/^([a-z0-9_-]+)(?:\([^)]+\))?!?:/i);
+	if (prefixMatch && prefixMatch[1]) {
+		const prefix = prefixMatch[1].toLowerCase();
+
+		if (['feat', 'feature', 'add', 'create', 'new', 'init'].includes(prefix)) {
+			return 'add';
+		}
+		if (['remove', 'delete', 'rm', 'drop', 'revert'].includes(prefix)) {
+			return 'delete';
+		}
+		if ([
+			'fix', 'docs', 'style', 'refactor', 'perf', 'test',
+			'build', 'ci', 'chore', 'update', 'change', 'tweak', 'wip'
+		].includes(prefix)) {
+			return 'edit';
+		}
+	}
+
+	// 2. Fallback keyword search within message content if no prefix matched
+	if (/\b(add|create|new|init|adiciona|adicionar|criado|criacao)\b/i.test(trimmed)) return 'add';
+	if (/\b(remove|delete|rm|drop|revert|removeu|remover|removido|remocao)\b/i.test(trimmed)) return 'delete';
 	return 'edit';
 }
 
@@ -32,7 +55,7 @@ export async function getRecentChanges(filePath?: string) {
 				'log',
 				'--no-merges',
 				'--date=iso-strict',
-				`--pretty=format:${GIT_COMMIT_SPLIT}%H|%an|%ad|%s`,
+				`--pretty=format:${GIT_COMMIT_SPLIT}%H|%an|%ae|%ad|%s`,
 				'--name-only',
 				'--',
 				CONTENT_DIR
@@ -53,7 +76,7 @@ export async function getRecentChanges(filePath?: string) {
 			const [meta, ...files] = lines;
 			if (!meta) return null;
 
-			const [hash, author, date, ...messageParts] = meta.split('|');
+			const [hash, author, authorEmail, date, ...messageParts] = meta.split('|');
 			const message = messageParts.join('|').trim();
 			let touchedFiles = Array.from(
 				new Set(
@@ -83,10 +106,17 @@ export async function getRecentChanges(filePath?: string) {
 				};
 			});
 
+			const authorName = author.trim();
+			const authorInfo = getAuthorInfo(authorName, authorEmail || '', root);
+			const authorQuery = authorInfo.handle || authorName;
+			const authorUrl = repoBaseUrl ? `${repoBaseUrl}/commits?author=${encodeURIComponent(authorQuery)}` : undefined;
+
 			return {
 				date,
 				kind: commitKindFromMessage(message),
-				author: author.trim(),
+				author: authorName,
+				authorAvatarUrl: authorInfo.avatarUrl,
+				authorUrl,
 				message,
 				pages,
 				commitUrl: repoBaseUrl ? `${repoBaseUrl}/commit/${hash}` : hash,

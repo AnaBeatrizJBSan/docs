@@ -1,10 +1,14 @@
 ---
 import GithubSlugger from 'github-slugger'
-import type { ChangeEntry } from "../common/types";
+import type { ChangeEntry, DateFormatOption } from "../common/types";
 import { buildGroupedEntries } from "../libs/groupEntries";
 import RecentChangeItem from "./RecentChangeItem.astro";
 
-const { entries, groupedEntries: groupedEntriesProp } = Astro.props as { entries: ChangeEntry[], groupedEntries?: Record<string, ChangeEntry[]> };
+const { entries, groupedEntries: groupedEntriesProp, dateFormat } = Astro.props as {
+	entries: ChangeEntry[];
+	groupedEntries?: Record<string, ChangeEntry[]>;
+	dateFormat?: DateFormatOption;
+};
 if (!entries) return null
 
 const MAX_VISIBLE_PAGES = 3;
@@ -30,6 +34,7 @@ const slugger = new GithubSlugger()
 						<RecentChangeItem
 							entry={entry}
 							maxVisiblePages={MAX_VISIBLE_PAGES}
+							dateFormat={dateFormat}
 						/>
 					))}
 				</section>
