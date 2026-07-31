@@ -127,6 +127,43 @@ Por padrão, o histórico mostra o autor de cada commit no formato `Nome <e-mail
 git log --format="%h %an <%ae> %s"
 ```
 
+### Padronização das mensagens de commit
+
+O repositório adota a convenção de **[Conventional Commits](https://www.conventionalcommits.org/pt-br/)** para manter o histórico organizado e categorizar automaticamente as atualizações na página de [Mudanças Recentes](/mudancas-recentes).
+
+As mensagens de commit devem seguir o formato:
+
+```text
+tipo(escopo): descrição sucinta da alteração
+```
+
+O `(escopo)` é opcional e indica a parte do projeto afetada (ex.: `feat(starlight-recent-changes): ...` ou `fix(page-reader): ...`).
+
+#### Prefixos recomendados
+
+| Prefixo | Categoria em Mudanças Recentes | Uso |
+| --- | --- | --- |
+| `feat:` / `feature:` / `new:` | **Novo** | Novas páginas, novos componentes ou novas funcionalidades. |
+| `fix:` | **Edição** | Correção de erros, links quebrados ou falhas de formatação. |
+| `docs:` | **Edição** | Atualização de textos, guias e documentação existente. |
+| `style:` | **Edição** | Ajustes visuais, CSS ou estéticos sem alterar comportamento. |
+| `refactor:` | **Edição** | Reestruturação de código ou pastas mantendo o mesmo funcionamento. |
+| `chore:` / `ci:` / `build:` | **Edição** | Manutenção de dependências, arquivos de configuração ou scripts. |
+| `remove:` / `delete:` / `revert:` | **Removido** | Remoção de páginas legadas ou reversão de alterações. |
+
+#### Exemplos de mensagens
+
+```bash
+git commit -m "feat: adiciona guia de Lógica de Programação"
+git commit -m "fix(page-reader): corrige exibição do leitor em telas menores"
+git commit -m "style: ajusta bordas e cores dos cards de ativadores"
+git commit -m "docs: atualiza tabela de parâmetros do ativador clica no mobi"
+```
+
+<Aside type="tip" title="Impacto na página de Mudanças Recentes">
+O plugin de histórico do Wired Club Docs lê esses prefixos para aplicar os indicadores visuais apropriados em cada alteração. Utilizar o prefixo correto ajuda a comunidade a identificar rapidamente o tipo de atualização realizada.
+</Aside>
+
 ## Escrevendo uma página
 
 Use arquivos `.mdx` em `src/content/docs/`. O nome das pastas define a URL; por exemplo, `guias-praticos/primeiro-sistema.mdx` gera `/guias-praticos/primeiro-sistema/`.
