@@ -1,0 +1,17 @@
+---
+import config from 'virtual:starlight-seo/config';
+import { createSeoHead } from '../runtime/head.ts';
+
+const route = Astro.locals.starlightRoute;
+const data = route.entry.data as typeof route.entry.data & { seo?: import('../types.ts').PageSeoFrontmatter };
+const head = createSeoHead(route.head, {
+	id: route.entry.id,
+	title: data.title,
+	description: data.description,
+	lang: route.lang,
+	pathname: Astro.url.pathname,
+	seo: data.seo,
+}, config);
+---
+
+{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
