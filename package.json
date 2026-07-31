@@ -5,29 +5,33 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-		"check:seo": "tsc -p plugins/starlight-seo/tsconfig.json",
-		"test:seo": "node --experimental-strip-types --test plugins/starlight-seo/test/config.test.ts plugins/starlight-seo/test/head.test.ts plugins/starlight-seo/test/thumbnail-cache.test.ts",
+    "build": "astro build && npm run pagefind-fix",
+    "pagefind-fix": "node scripts/pagefind-fix.mjs",
+    "generate-pwa-assets": "node scripts/generate-pwa-icons.mjs",
+    "check:seo": "tsc -p plugins/starlight-seo/tsconfig.json",
+    "test:seo": "node --experimental-strip-types --test plugins/starlight-seo/test/config.test.ts plugins/starlight-seo/test/head.test.ts plugins/starlight-seo/test/thumbnail-cache.test.ts",
     "preview": "astro preview",
     "astro": "astro",
     "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/",
     "generate": "node scripts/generate-pages.mjs"
   },
   "devDependencies": {
-		"typescript": "^6.0.3"
-	},
-	"dependencies": {
+    "@vite-pwa/astro": "^1.2.0",
+    "typescript": "^6.0.3",
+    "workbox-window": "^7.4.1"
+  },
+  "dependencies": {
     "@astrojs/starlight": "^0.41.5",
-		"@fontsource/noto-sans": "^5.2.8",
+    "@fontsource/noto-sans": "^5.2.8",
     "astro": "^7.1.5",
     "astro-contributors": "^0.9.0",
-		"astro-og-canvas": "^0.13.0",
+    "astro-og-canvas": "^0.13.0",
     "sharp": "^0.34.2",
     "starlight-llms-txt": "^0.11.0",
     "starlight-page-reader": "file:./plugins/starlight-page-reader",
-		"starlight-seo": "file:./plugins/starlight-seo",
     "starlight-recent-changes": "file:./plugins/starlight-recent-changes",
     "starlight-scroll-to-top": "^1.0.1",
+    "starlight-seo": "file:./plugins/starlight-seo",
     "starlight-showcases": "^0.3.2",
     "starlight-theme-wiredclub": "file:./plugins/starlight-theme-wiredclub"
   }
