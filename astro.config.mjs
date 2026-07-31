@@ -37,7 +37,13 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'vamos-comecar' } },],
 				}, {
 					label: 'Guias práticos',
-					items: [{ autogenerate: { directory: 'guias-praticos' } },],
+					items: [
+						{ autogenerate: { directory: 'guias-praticos' } },
+						{
+							label: 'Mais tutoriais',
+							link: 'https://www.wiredclub.com.br/tutoriais',
+						},
+					],
 				}, {
 					label: 'Referência',
 					items: [
