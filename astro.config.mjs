@@ -170,11 +170,13 @@ export default defineConfig({
 							description: 'Acompanhe as últimas atualizações da documentação Wired Club.',
 						},
 					},
-					logo: { path: './src/assets/new_logo.png', size: [300] },
+					logo: { path: './src/assets/logo_docs.png', size: [512] },
 					fonts: [
 						'./node_modules/@fontsource/noto-sans/files/noto-sans-latin-400-normal.woff',
 						'./node_modules/@fontsource/noto-sans/files/noto-sans-latin-800-normal.woff',
 					],
+					bgGradient: [[11, 21, 48],[6, 14, 34]],
+					border: { color: [42, 169, 255], width: 12, side: 'inline-start' },
 					font: {
 						title: { families: ['Noto Sans'] },
 						description: { families: ['Noto Sans'] },
