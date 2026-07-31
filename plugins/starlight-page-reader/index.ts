@@ -9,9 +9,17 @@ export default function starlightPageReader(options: PageReaderOptions = {}): St
 		name: 'starlight-page-reader',
 			hooks: {
 			'config:setup': ({ config, updateConfig, addIntegration }) => {
+				const componentOverrides: typeof config.components = {};
+
 				if (config.components?.PageSidebar && config.components.PageSidebar !== '@astrojs/starlight/components/PageSidebar.astro') {
-					console.warn('[starlight-page-reader] PageSidebar já possui um override. Configure esse override manualmente e importe PageReader nele.');
-					return;
+					console.warn(
+						'It looks like you already have a `PageSidebar` component override in your Starlight configuration.',
+					);
+					console.warn(
+						'To use `starlight-page-reader`, either remove the override or manually render `starlight-page-reader/overrides/PageSidebar.astro`.',
+					);
+				} else {
+					componentOverrides.PageSidebar = 'starlight-page-reader/overrides/PageSidebar.astro';
 				}
 				addIntegration({
 					name: 'starlight-page-reader-config',
@@ -21,7 +29,12 @@ export default function starlightPageReader(options: PageReaderOptions = {}): St
 						},
 					},
 				});
-				updateConfig({ components: { PageSidebar: 'starlight-page-reader/overrides/PageSidebar.astro' } });
+					updateConfig({
+						components: {
+							...componentOverrides,
+							...config.components,
+						}
+					});
 			},
 		},
 	};
