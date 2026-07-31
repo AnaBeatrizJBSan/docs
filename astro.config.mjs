@@ -7,6 +7,8 @@ import starlightRecentChanges from 'starlight-recent-changes';
 import starlightPageReader from 'starlight-page-reader';
 import starlightSeo from 'starlight-seo';
 import starlightThemeWiredClub from 'starlight-theme-wiredclub';
+import AstroPWA from '@vite-pwa/astro';
+import manifest from './webmanifest.json';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +22,15 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 			description: 'Documentação oficial da comunidade Wired Club, o maior portal Wired!',
+			head: [
+				{ tag: 'link', attrs: { rel: 'manifest', href: '/manifest.webmanifest' } },
+				{ tag: 'meta', attrs: { name: 'theme-color', content: '#0b1530' } },
+				{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' } },
+			],
+			components: {
+				Head: './src/components/Head.astro',
+				Search: './src/components/Search.astro',
+			},
 			
 			locales: {
 				root: {
@@ -192,6 +203,21 @@ export default defineConfig({
 				routeSlug: 'mudancas-recentes',
 				dateFormat: 'pt-BR',
 			})],
+		}),
+		AstroPWA({
+			workbox: {
+				skipWaiting: true,
+				clientsClaim: true,
+				navigateFallback: '/404',
+				ignoreURLParametersMatching: [/./],
+				globPatterns: ['**/*.{html,js,css,png,svg,json,ttf,pf_fragment,pf_index,pf_meta,pagefind,wasm}'],
+			},
+			experimental: {
+				directoryAndTrailingSlashHandler: true,
+			},
+			mode: 'production',
+			registerType: 'autoUpdate',
+			manifest: manifest,
 		}),
 	],
 });

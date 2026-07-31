@@ -1,0 +1,61 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import SeoHead from 'starlight-seo/components/Head.astro';
+import { pwaInfo } from 'virtual:pwa-info';
+
+type Props = Record<string, any>;
+---
+
+{pwaInfo ? <Fragment set:html={pwaInfo.webManifest.linkTag} /> : <link rel="manifest" href="/manifest.webmanifest" />}
+<meta name="theme-color" content="#0b1530" />
+<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+
+<script>
+// PWA service worker registration and auto-update
+import { registerSW } from 'virtual:pwa-register';
+
+const intervalMS = 10 * 60 * 1000;
+const updateSW = registerSW({
+  immediate: true,
+  onRegisteredSW(swUrl, r) {
+    console.log('SW registered: ', swUrl);
+    r && setInterval(async () => {
+      if (r.installing || !navigator)
+        return;
+
+      if (('connection' in navigator) && !navigator.onLine)
+        return;
+
+      const resp = await fetch(swUrl, {
+        cache: 'no-store',
+        headers: {
+          'cache': 'no-store',
+          'cache-control': 'no-cache',
+        },
+      });
+
+      if (resp?.status === 200)
+        await r.update();
+    }, intervalMS);
+  },
+  onOfflineReady() {
+    console.log('PWA application ready to work offline');
+  },
+});
+</script>
+
+<script is:inline type="module">
+    await import('/pagefind/pagefind-highlight.js');
+    new PagefindHighlight({ highlightParam: "highlight", addStyles: false, markOptions: {
+		className: "pagefind-highlight",
+		exclude: ["[data-pagefind-ignore]", "[data-pagefind-ignore] *"],
+		accuracy: { "value": "complementary", "limiters": [",", "", ".", ":"] },
+		acrossElements: true,
+		synonyms: {
+			"1": "one",
+			"2": "two",
+		}
+	}});
+</script>
+
+<SeoHead {...Astro.props}><slot /></SeoHead>
