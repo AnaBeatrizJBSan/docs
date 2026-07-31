@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_clock_counter",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_clock_counter.mdx",
+  "sourceHash": "4da49baa4ad872d9845cf519be628d18105111d65cbdba27234469f12276687d",
+  "hash": "2527c4ba505bd31cfd399ffcfafac5294bd5b067c0bd3bc1270a5c4979aca0d3",
+  "renderDirectory": "renders/2527c4ba505bd31cfd399ffcfafac5294bd5b067c0bd3bc1270a5c4979aca0d3"
+}

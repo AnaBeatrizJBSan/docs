@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_periodically",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_periodically.mdx",
+  "sourceHash": "0cb77013bbfa273eaa2dacf43a417eba546b949fcfc1ad189bae6ad728a3a366",
+  "hash": "525b55de97760bc015d1558ccf5b2bbec10680658b252dc14bac168a3010286d",
+  "renderDirectory": "renders/525b55de97760bc015d1558ccf5b2bbec10680658b252dc14bac168a3010286d"
+}

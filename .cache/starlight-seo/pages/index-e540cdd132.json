@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "index",
+  "source": "src/content/docs/index.mdx",
+  "sourceHash": "995efe2d633b08b1e5a7e4ccf25addcc4e9cf64a8fc4f3179d6c5c8cdc57c792",
+  "hash": "9a58634bcdf1836502ed1fa072629db01f5a32653b8b31cd0264333a03423789",
+  "renderDirectory": "renders/9a58634bcdf1836502ed1fa072629db01f5a32653b8b31cd0264333a03423789"
+}

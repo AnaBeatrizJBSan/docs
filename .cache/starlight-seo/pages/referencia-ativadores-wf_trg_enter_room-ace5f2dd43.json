@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_enter_room",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_enter_room.mdx",
+  "sourceHash": "36bb4911ff79ae03b7508a73a51bf8677006cd3d14825543d3b8271b406c0e0a",
+  "hash": "01b7591193b11a665f1f32b2411934529de5f23f29711e38e7d25b803f28f4f5",
+  "renderDirectory": "renders/01b7591193b11a665f1f32b2411934529de5f23f29711e38e7d25b803f28f4f5"
+}

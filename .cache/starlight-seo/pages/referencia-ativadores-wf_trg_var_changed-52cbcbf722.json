@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_var_changed",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_var_changed.mdx",
+  "sourceHash": "e59fcd3d50b063f688b0d49f80eb80816b4699f65b9c14b2d9ff18e036ef5abd",
+  "hash": "3fdc9a1931588579cc9aa7cb56f6da144ebfdfb2465be071bcdaa15571d1ecd0",
+  "renderDirectory": "renders/3fdc9a1931588579cc9aa7cb56f6da144ebfdfb2465be071bcdaa15571d1ecd0"
+}

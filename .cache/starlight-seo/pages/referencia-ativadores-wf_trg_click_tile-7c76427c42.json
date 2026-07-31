@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_click_tile",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_click_tile.mdx",
+  "sourceHash": "db9caecfef2ec07b8ac5a9cf662618f5280555a8b66fec462f21aa0bf7297808",
+  "hash": "691d9abf46da94e4497c9934e69030ae5376a5f326ca5a1bdbe9c12735a283b9",
+  "renderDirectory": "renders/691d9abf46da94e4497c9934e69030ae5376a5f326ca5a1bdbe9c12735a283b9"
+}

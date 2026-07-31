@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/glossario",
+  "source": "src/content/docs/referencia/glossario.mdx",
+  "sourceHash": "624e3bbacaacee4134b091417f38e509188abf346524ba3c7ff26bac1475bb0c",
+  "hash": "12a28ab3e27878ea455f291320598599c9b8671ad5e4222ca990fce457971c14",
+  "renderDirectory": "renders/12a28ab3e27878ea455f291320598599c9b8671ad5e4222ca990fce457971c14"
+}

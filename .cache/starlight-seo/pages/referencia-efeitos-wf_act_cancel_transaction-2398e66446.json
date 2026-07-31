@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/efeitos/wf_act_cancel_transaction",
+  "source": "src/content/docs/referencia/efeitos/wf_act_cancel_transaction.mdx",
+  "sourceHash": "61ace9abcf5917b96e7336e9469370f57006d30b3d6ff739eaba1d71fcc2ebf0",
+  "hash": "fc750f7a4a0c97a4b5cf3c409c5020bcf00372375f5069eb531f8de1d5609006",
+  "renderDirectory": "renders/fc750f7a4a0c97a4b5cf3c409c5020bcf00372375f5069eb531f8de1d5609006"
+}

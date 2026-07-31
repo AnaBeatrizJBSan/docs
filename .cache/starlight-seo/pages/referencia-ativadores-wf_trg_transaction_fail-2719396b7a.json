@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_transaction_fail",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_transaction_fail.mdx",
+  "sourceHash": "618778c4ef0ac390cd612040088ee846db31517264e65696d663cd8330a0d5be",
+  "hash": "568087cfde78b9c8f1635ca31b10db7de4d31d0841c460c6e4cb1bfc3bcfbce7",
+  "renderDirectory": "renders/568087cfde78b9c8f1635ca31b10db7de4d31d0841c460c6e4cb1bfc3bcfbce7"
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "page": "referencia/ativadores/wf_trg_game_starts",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_game_starts.mdx",
+  "sourceHash": "b1717ad48d5a5783d4c5d09f31aefd43c56c32fc307751f6187e0c19cc0fe170",
+  "hash": "bd025c29787cabdabd8f53fb27498012c9e736612a37e255b47a0ec74a5f5fff",
+  "renderDirectory": "renders/bd025c29787cabdabd8f53fb27498012c9e736612a37e255b47a0ec74a5f5fff"
+}
