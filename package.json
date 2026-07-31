@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/"
+    "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/",
+    "generate": "node scripts/generate-pages.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.5",
