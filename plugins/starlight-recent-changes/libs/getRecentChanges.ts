@@ -3,6 +3,7 @@ import path from 'node:path';
 import { getEntries } from 'astro:content';
 import { getRepoBaseUrl, getRepoRoot } from './repo';
 import { normalizeSlug } from './utils';
+import { getAuthorAvatar } from './getAuthorAvatar';
 
 const GIT_COMMIT_SPLIT = '==RECENT_CHANGES_COMMIT==';
 const CONTENT_DIR = 'src/content/docs';
@@ -32,7 +33,7 @@ export async function getRecentChanges(filePath?: string) {
 				'log',
 				'--no-merges',
 				'--date=iso-strict',
-				`--pretty=format:${GIT_COMMIT_SPLIT}%H|%an|%ad|%s`,
+				`--pretty=format:${GIT_COMMIT_SPLIT}%H|%an|%ae|%ad|%s`,
 				'--name-only',
 				'--',
 				CONTENT_DIR
@@ -53,7 +54,7 @@ export async function getRecentChanges(filePath?: string) {
 			const [meta, ...files] = lines;
 			if (!meta) return null;
 
-			const [hash, author, date, ...messageParts] = meta.split('|');
+			const [hash, author, authorEmail, date, ...messageParts] = meta.split('|');
 			const message = messageParts.join('|').trim();
 			let touchedFiles = Array.from(
 				new Set(
@@ -83,10 +84,14 @@ export async function getRecentChanges(filePath?: string) {
 				};
 			});
 
+			const authorName = author.trim();
+			const avatarUrl = getAuthorAvatar(authorName, authorEmail || '', root);
+
 			return {
 				date,
 				kind: commitKindFromMessage(message),
-				author: author.trim(),
+				author: authorName,
+				authorAvatarUrl: avatarUrl,
 				message,
 				pages,
 				commitUrl: repoBaseUrl ? `${repoBaseUrl}/commit/${hash}` : hash,

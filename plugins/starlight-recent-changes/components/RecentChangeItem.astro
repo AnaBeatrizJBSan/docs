@@ -41,7 +41,24 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 	<div class="change-body">
 		<div class="change-meta">
 			<span class="change-author">
-				<span class="avatar">{initials(entry.author)}</span>
+				<span class="avatar">
+					{
+						entry.authorAvatarUrl ? (
+							<img
+								src={entry.authorAvatarUrl}
+								alt={entry.author}
+								class="avatar-img"
+								width="24"
+								height="24"
+								loading="lazy"
+								onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+							/>
+							<span class="avatar-initials" style="display:none">{initials(entry.author)}</span>
+						) : (
+							<span class="avatar-initials">{initials(entry.author)}</span>
+						)
+					}
+				</span>
 				{entry.author}
 			</span>
 			•
@@ -166,6 +183,22 @@ const hiddenPages = entry.pages.slice(maxVisiblePages);
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		overflow: hidden;
+	}
+
+	.avatar-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	.avatar-initials {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
 	}
 
 	.pages-list {

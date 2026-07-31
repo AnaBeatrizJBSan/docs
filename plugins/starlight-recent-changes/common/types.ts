@@ -13,6 +13,7 @@ export interface ChangeEntry {
 	date: string | Date;
 	kind?: string;
 	author: string;
+	authorAvatarUrl?: string;
 	message: string;
 	pages: {
 		title: string;
