@@ -5,6 +5,7 @@ import starlightLlmsTxt from 'starlight-llms-txt'
 import starlightScrollToTop from 'starlight-scroll-to-top'
 import starlightRecentChanges from 'starlight-recent-changes';
 import starlightPageReader from 'starlight-page-reader';
+import starlightSeo from 'starlight-seo';
 import starlightThemeWiredClub from 'starlight-theme-wiredclub';
 
 // https://astro.build/config
@@ -151,7 +152,35 @@ export default defineConfig({
 				baseUrl: 'https://github.com/wiredclub/docs/edit/main/',
 			},
       		lastUpdated: true,
-			plugins: [starlightThemeWiredClub(), starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightScrollToTop({
+			plugins: [starlightThemeWiredClub(), starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightSeo({
+				titleTemplate: '%s | Wired Club Docs',
+				keywords: ['Wired', 'Habbo', 'programação visual', 'documentação'],
+				robots: { index: true, follow: true, maxImagePreview: 'large' },
+				structuredData: true,
+				thumbnails: {
+					cache: true,
+					routeMappings: [{ from: 'mudancas-recentes' }],
+					additionalPages: {
+						'404': {
+							title: 'Página não encontrada',
+							description: 'O conteúdo que você procurou não está disponível.',
+						},
+						'mudancas-recentes': {
+							title: 'Mudanças recentes',
+							description: 'Acompanhe as últimas atualizações da documentação Wired Club.',
+						},
+					},
+					logo: { path: './src/assets/new_logo.png', size: [300] },
+					fonts: [
+						'./node_modules/@fontsource/noto-sans/files/noto-sans-latin-400-normal.woff',
+						'./node_modules/@fontsource/noto-sans/files/noto-sans-latin-800-normal.woff',
+					],
+					font: {
+						title: { families: ['Noto Sans'] },
+						description: { families: ['Noto Sans'] },
+					},
+				},
+			}), starlightScrollToTop({
 				tooltipText: 'Voltar ao topo',
 				showTooltip: true,
 				borderRadius: '50',

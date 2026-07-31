@@ -1,0 +1,7 @@
+hey, you can do it with https://github.com/delucis/astro-og-canvas/tree/latest/packages/astro-og-canvas or if want it simpler than that you can see this script and develop on top of it (it's static generated too) https://github.com/JonasKruckenberg/JonasKruckenberg/blob/main/src/pages/social-image/%5B...path%5D.png.ts
+
+There are multiple way to do it. For another project I created a external script that generates the images with sharp (because I needed to compose multiple source images). But not sure this would work for you as you need the title and an external script wouldn't have access to page content natively. Could parse the mdx/page, but it easier to do this with Astro content collection and such.
+
+Assuming the image will be statically generated, you can reference it anywhere you need. Astro docs uses astro-og-canvas, here is a preview https://docs.astro.build/open-graph/en/guides/integrations-guide/mdx.webp . Let me know if you need help on this. (if you're using starlight you may need to do a hack to get it working as expected)
+
+Note also that astro-og-canvas can cache generated images so each build doesn't need to regenerate all of em

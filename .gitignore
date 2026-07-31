@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# generated SEO thumbnails
+.cache/
+
 # dependencies
 node_modules/
 

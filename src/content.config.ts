@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
+import { seoSchema } from 'starlight-seo/schema';
 
 const BasicInfoboxSchema = z.object({
 	hide: z.boolean().default(false).describe("Oculta a infobox, mesmo que os campos sejam preenchidos"),
@@ -170,6 +171,7 @@ export const collections = {
 	docs: defineCollection({
 		loader: docsLoader(), schema: docsSchema({
 			extend: z.object({
+				seo: seoSchema.optional(),
 				infobox: CompleteInfoboxSchema.optional().describe("Infobox personalizada para destacar informações-chave do documento"),
 			})
 		})
