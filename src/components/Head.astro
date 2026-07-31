@@ -44,18 +44,4 @@ const updateSW = registerSW({
 });
 </script>
 
-<script is:inline type="module">
-    await import('/pagefind/pagefind-highlight.js');
-    new PagefindHighlight({ highlightParam: "highlight", addStyles: false, markOptions: {
-		className: "pagefind-highlight",
-		exclude: ["[data-pagefind-ignore]", "[data-pagefind-ignore] *"],
-		accuracy: { "value": "complementary", "limiters": [",", "", ".", ":"] },
-		acrossElements: true,
-		synonyms: {
-			"1": "one",
-			"2": "two",
-		}
-	}});
-</script>
-
 <SeoHead {...Astro.props}><slot /></SeoHead>
