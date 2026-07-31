@@ -42,6 +42,9 @@ export function createSeoHead(currentHead: Head, page: SeoPageData, config: Runt
 	}
 
 	head = upsert(head, { tag: 'link', attrs: { rel: 'canonical', href: canonical } });
+	head = upsert(head, { tag: 'link', attrs: { rel: 'manifest', href: '/manifest.webmanifest' } });
+	head = upsertMeta(head, 'name', 'theme-color', '#0b1530');
+	head = upsert(head, { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' } });
 	head = upsertMeta(head, 'property', 'og:title', pageTitle);
 	head = upsertMeta(head, 'property', 'og:type', seo.type ?? config.openGraph?.type ?? 'article');
 	head = upsertMeta(head, 'property', 'og:url', canonical);
@@ -171,7 +174,7 @@ function sameIdentity(left: HeadEntry, right: HeadEntry): boolean {
 	if (left.tag !== right.tag) return false;
 	if (left.tag === 'title') return true;
 	if (left.tag === 'link' && right.tag === 'link') {
-		return left.attrs?.rel === right.attrs?.rel && left.attrs?.rel === 'canonical';
+		return left.attrs?.rel === right.attrs?.rel;
 	}
 	if (left.tag === 'meta' && right.tag === 'meta') {
 		return ['name', 'property', 'http-equiv'].some((key) =>

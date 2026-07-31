@@ -2,7 +2,7 @@
   "version": "1",
   "page": "referencia/extras/visao-geral",
   "source": "src/content/docs/referencia/extras/visao-geral.mdx",
-  "sourceHash": "f23b2a2cda80b21c76f555352f2356eab00d2029c57eecee195a4a8840a7138b",
-  "hash": "89b4c1f8cfc9e968bcdfdcd31382005fe6d14470f524ae9eca1a29eed646b869",
-  "renderDirectory": "renders/89b4c1f8cfc9e968bcdfdcd31382005fe6d14470f524ae9eca1a29eed646b869"
+  "sourceHash": "b7adfe05db331defeb01f52705d5498d088c94cd9cbbd3a38b6f401c608743ee",
+  "hash": "2d1895f68add55be67e80a591681ba69ee8886ebae6aeaccae58649ccff5ee8d",
+  "renderDirectory": "renders/2d1895f68add55be67e80a591681ba69ee8886ebae6aeaccae58649ccff5ee8d"
 }

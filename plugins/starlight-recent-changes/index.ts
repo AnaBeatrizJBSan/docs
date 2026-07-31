@@ -28,10 +28,7 @@ export default function starlightRecentChanges(userConfig: RecentChangesOptions 
 				}
 
 				updateConfig({
-					components: {
-						...componentOverrides,
-						...config.components,
-					},
+					components: componentOverrides,
 				});
 			}
 		},
