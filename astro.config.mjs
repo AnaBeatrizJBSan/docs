@@ -30,7 +30,7 @@ export default defineConfig({
 			components: {
 				Head: './src/components/Head.astro',
 			},
-			
+
 			locales: {
 				root: {
 					label: 'Português (Brasil)',
@@ -39,7 +39,7 @@ export default defineConfig({
 			},
 			social: [
 				{ icon: 'external', label: 'Website', href: 'https://wiredclub.com.br/' },
-				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/wiredclub' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/TCaVCvDsbV' },
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/wiredclub/docs' },
 			],
 			sidebar: [
@@ -137,7 +137,7 @@ export default defineConfig({
 						{
 							label: 'Wired Club',
 							slug: 'sobre-nos/wired-club',
-						}, 
+						},
 						{
 							label: 'Contribuidores',
 							slug: 'sobre-nos/contribuidores',
@@ -145,7 +145,7 @@ export default defineConfig({
 						{
 							label: 'Como contribuir',
 							slug: 'sobre-nos/como-contribuir',
-						}, 
+						},
 						{
 							label: 'Mudanças Recentes',
 							link: '/mudancas-recentes',
@@ -161,7 +161,7 @@ export default defineConfig({
 			editLink: {
 				baseUrl: 'https://github.com/wiredclub/docs/edit/main/',
 			},
-      		lastUpdated: true,
+			lastUpdated: true,
 			plugins: [starlightThemeWiredClub(), starlightLlmsTxt(), starlightPageReader({ pages: true }), starlightSeo({
 				titleTemplate: '%s | Wired Club Docs',
 				keywords: ['Wired', 'Habbo', 'programação visual', 'documentação'],
@@ -185,7 +185,7 @@ export default defineConfig({
 						'./node_modules/@fontsource/noto-sans/files/noto-sans-latin-400-normal.woff',
 						'./node_modules/@fontsource/noto-sans/files/noto-sans-latin-800-normal.woff',
 					],
-					bgGradient: [[11, 21, 48],[6, 14, 34]],
+					bgGradient: [[11, 21, 48], [6, 14, 34]],
 					border: { color: [42, 169, 255], width: 12, side: 'inline-start' },
 					font: {
 						title: { families: ['Noto Sans'] },
