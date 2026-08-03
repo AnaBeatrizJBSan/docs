@@ -68,11 +68,15 @@ Adicione a página ao sidebar em `astro.config.mjs`.
 
 ## Contribuindo
 
+Você pode contribuir localmente clonando o repositório, ou diretamente no navegador usando o **VS Code Web** (pressionando a tecla **`.`** na página do repositório no GitHub).
+
 1. Fork o repositório
-2. Crie sua branch: `git checkout -b feature/nova-pagina`
+2. Crie sua branch: `git checkout -b feature/nova-pagina` (ou pelo painel Source Control no VS Code Web)
 3. Commit suas mudanças: `git commit -m 'docs: adiciona guia de X'`
 4. Push: `git push origin feature/nova-pagina`
 5. Abra um Pull Request
+
+Para mais detalhes, veja o [Guia Completo de Como Contribuir](src/content/docs/sobre-nos/como-contribuir.mdx).
 
 ## Licença
 

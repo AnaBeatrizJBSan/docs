@@ -13,16 +13,17 @@ import { Aside, Steps } from '@astrojs/starlight/components';
 O Wired Club Docs é construído pela comunidade. Você pode contribuir corrigindo uma palavra, melhorando uma explicação, documentando um Wired ou criando um guia completo.
 
 <Aside type="tip" title="Não sabe por onde começar?">
-Para uma correção pequena, use o link **Editar página** no final da página que deseja alterar. Para mudanças em vários arquivos, trabalhe localmente.
+Para uma correção pequena em uma página, use o link **Editar página** no rodapé. Para editar múltiplos arquivos diretamente no navegador sem instalar nada, use o **VS Code Web** pressionando a tecla **`.`** no repositório. Para criar novas páginas, componentes ou testar o site em tempo real, trabalhe em seu computador.
 </Aside>
 
 ## Escolha uma forma de contribuir
 
-| | Pelo GitHub Web | Em seu computador |
-| --- | --- | --- |
-| **Indicado para** | Textos, links e correções pontuais | Novas páginas, componentes e mudanças maiores |
-| **Instalação** | Nenhuma | Git e Node.js |
-| **Visualização** | Prévia do arquivo no GitHub Web | Site completo em `localhost:4321` |
+| | Pelo GitHub Web | Pelo VS Code Web | Em seu computador |
+| --- | --- | --- | --- |
+| **Indicado para** | Textos, links e correções pontuais em um único arquivo | Edição de múltiplos arquivos, reorganização de textos e refatorações sem instalação | Novas páginas, componentes, testes de build e alterações avançadas |
+| **Instalação** | Nenhuma | Nenhuma (executa direto no navegador) | Git e Node.js |
+| **Acesso** | Botão *Editar página* no rodapé | Tecla **`.`** na página do repositório GitHub (ou trocando `.com` por `.dev`) | `git clone` e terminal local |
+| **Visualização** | Aba *Preview* simplificada no GitHub | Editor VS Code completo com busca global e destaque de sintaxe | Site completo rodando em `localhost:4321` |
 
 ## Pelo GitHub Web
 
@@ -47,6 +48,47 @@ Para uma correção pequena, use o link **Editar página** no final da página q
 </Steps>
 
 Você pode acompanhar a revisão na aba **Pull requests**. Depois que a mudança for aprovada e publicada, ela pode levar alguns minutos para aparecer no site.
+
+## Pelo VS Code Web (tecla `.`)
+
+O **VS Code Web** (disponível via [github.dev](https://github.dev)) permite editar arquivos do projeto utilizando a interface completa do Visual Studio Code diretamente pelo navegador, sem necessidade de clonar o repositório ou instalar ferramentas locais.
+
+<Aside type="tip" title="Como abrir o VS Code Web">
+Ao navegar em qualquer página do repositório no GitHub (inclusive em seu *fork*), basta pressionar a tecla **`.`** (ponto) no teclado. O repositório abrirá instantaneamente no editor web. Você também pode acessar trocando `github.com` por `github.dev` na barra de endereço do navegador.
+</Aside>
+
+### Vantagens do VS Code Web
+
+- **Sem necessidade de instalação:** Não exige Git, Node.js nem download de dependências. Funciona em qualquer computador ou tablet com navegador moderno.
+- **Edição multi-arquivos:** Permite abrir e alterar simultaneamente múltiplos arquivos MDX, visualizar a estrutura completa de pastas e mover arquivos facilmente.
+- **Recursos avançados do VS Code:** Destaque de sintaxe, busca e substituição global em todo o projeto (`Ctrl+Shift+F` / `Cmd+Shift+F`), atalhos de teclado conhecidos e pré-visualização de Markdown.
+- **Git e Pull Requests integrados:** Painel de *Source Control* na barra lateral para criar *branches*, fazer commits formatados e abrir *pull requests* diretamente pelo navegador.
+
+### Passo a passo para contribuir
+
+<Steps>
+
+1. **Abra o repositório no VS Code Web**
+
+   Acesse o repositório `WiredClub/docs` (ou o seu *fork*) no GitHub e pressione **`.`** (ponto) no teclado.
+
+2. **Edite as páginas desejadas**
+
+   Na barra lateral esquerda, navegue até a pasta `src/content/docs/`, abra os arquivos `.mdx` que deseja modificar ou crie novas páginas.
+
+3. **Realize o commit das alterações**
+
+   Acesse o painel **Source Control** (`Ctrl+Shift+G` / `Cmd+Shift+G`). Digite uma mensagem de commit clara seguindo o padrão do projeto (ex.: `docs: atualiza guia de contribuição`) e clique em **Commit**. Caso não tenha permissão de escrita direta, o editor solicitará permissão para criar uma nova branch/fork automaticamente.
+
+4. **Envie o Pull Request**
+
+   Após concluir o commit, utilize o botão de criação de *Pull Request* oferecido na interface do VS Code Web ou acesse o repositório no GitHub para propor as alterações para a branch `main` de `WiredClub/docs`.
+
+</Steps>
+
+<Aside type="note" title="Limitação do ambiente Web">
+O VS Code Web roda exclusivamente dentro do navegador e não inclui um terminal local para executar `npm run dev` ou `npm run build`. Caso sua contribuição envolva componentes interativos complexos ou alterações nas configurações do Astro/Starlight, é recomendado testar em seu computador.
+</Aside>
 
 ## Em seu computador
 
