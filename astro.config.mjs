@@ -39,7 +39,7 @@ export default defineConfig({
 			},
 			social: [
 				{ icon: 'external', label: 'Website', href: 'https://wiredclub.com.br/' },
-				{ icon: 'discord', label: 'Discord', href: 'https://wiredclub.com.br/discord' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.wiredclub.com.br' },
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/wiredclub/docs' },
 			],
 			sidebar: [
