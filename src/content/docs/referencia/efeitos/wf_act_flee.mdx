@@ -1,6 +1,6 @@
 ---
 title: "EFEITO WIRED: Fugir"
-description: Quando o Mobi disparado vai uma Telha mais longe do avatar mais próximo.
+description: "Este efeito move o mobi selecionado para longe do usuário mais próximo na mesma linha ou coluna. Se houver um usuário ao lado deste mobi, o Ativador WIRED: Batida será ativado."
 sidebar:
   label: Fugir
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 50950
   classname: wf_act_flee
   name: Fugir
-  description: Quando o Mobi disparado vai uma Telha mais longe do avatar mais próximo.
+  description: "Este efeito move o mobi selecionado para longe do usuário mais próximo na mesma linha ou coluna. Se houver um usuário ao lado deste mobi, o Ativador WIRED: Batida será ativado."
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -29,7 +29,7 @@ infobox:
   # == Dados do Wired ==
   type: Efeito
   # requires_bot: false # valor padrão
-  # requires_furni: false # valor padrão
+  requires_furni: true
   # requires_antena: false # valor padrão
   # requires_contract: false # valor padrão
   # requires_chest: false # valor padrão
@@ -38,10 +38,10 @@ infobox:
 
   # == Dados do Efeito ==
   # negative_version: # se aplicável
-  #   name: # nome para exibição
-  #   description: # descrição para exibição
-  #   revision: # revisão técnica
-  #   classname: # classname técnico
+  # name: # nome para exibição
+  # description: # descrição para exibição
+  # revision: # revisão técnica
+  # classname: # classname técnico
 ---
 
 import Infobox from "@components/Infobox.astro"
