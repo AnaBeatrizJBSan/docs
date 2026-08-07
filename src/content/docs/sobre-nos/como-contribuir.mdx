@@ -90,6 +90,81 @@ Ao navegar em qualquer página do repositório no GitHub (inclusive em seu *fork
 O VS Code Web roda exclusivamente dentro do navegador e não inclui um terminal local para executar `npm run dev` ou `npm run build`. Caso sua contribuição envolva componentes interativos complexos ou alterações nas configurações do Astro/Starlight, é recomendado testar em seu computador.
 </Aside>
 
+## Mantenha sua contribuição atualizada
+
+Enquanto você trabalha em uma contribuição, outras pessoas podem enviar alterações para o projeto. Por isso, sua cópia do projeto pode ficar **desatualizada** em relação à branch `main`.
+
+É uma boa prática atualizar sua contribuição antes de abrir o pull request e durante trabalhos mais longos. Isso diminui a chance de aparecerem **conflitos**, que acontecem quando duas alterações mexem na mesma parte de um arquivo e o Git não consegue decidir sozinho qual versão manter.
+
+### O jeito mais fácil: pelo GitHub
+
+Se você estiver trabalhando em um *fork*, não precisa usar o terminal para fazer essa sincronização.
+
+<Steps>
+
+1. **Abra seu fork no GitHub**
+
+   Acesse a página do seu *fork* de `WiredClub/docs`.
+
+2. **Procure o botão "Sync fork"**
+
+   Na página principal do repositório, o GitHub mostra a opção **Sync fork** quando existem alterações novas no repositório original.
+
+3. **Atualize sua cópia**
+
+   Clique em **Sync fork** e depois em **Update branch**. O GitHub copiará as alterações mais recentes da branch `main` do projeto para a branch correspondente do seu *fork*.
+
+4. **Continue trabalhando**
+
+   Depois da sincronização, você pode continuar editando sua branch e abrir o pull request normalmente.
+
+</Steps>
+
+<Aside type="tip" title="Quando fazer isso?">
+Se você começou uma contribuição há alguns dias, ou se percebe que o projeto recebeu várias alterações desde então, sincronize seu fork antes de abrir o pull request. Para contribuições que demoram mais tempo, vale a pena repetir esse processo regularmente.
+</Aside>
+
+Se o GitHub informar que existem **conflitos**, isso significa que alguma alteração do projeto original entrou em conflito com o que você modificou. Nesse caso, talvez seja necessário resolver o conflito antes que o pull request possa ser integrado.
+
+### Para quem trabalha pelo computador
+
+Quando você trabalha localmente, o processo é semelhante, mas envolve alguns comandos do Git. Primeiro, atualize sua branch `main` com as alterações do projeto original e, depois, atualize sua branch de trabalho.
+
+Se você ainda não configurou o repositório original como `upstream`, faça isso uma única vez:
+
+```bash
+git remote add upstream https://github.com/WiredClub/docs.git
+```
+
+Depois, para atualizar sua `main` local:
+
+```bash
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
+
+Em seguida, volte para a sua branch de trabalho e incorpore as alterações:
+
+```bash
+git checkout docs/nome-da-alteracao
+git merge main
+```
+
+Caso o Git informe que existem conflitos, você precisará resolvê-los antes de continuar. Depois de resolver os arquivos indicados pelo Git, faça um novo commit com a resolução e continue o trabalho.
+
+Uma alternativa usada por projetos como Django, pip e Cirq é atualizar a própria branch diretamente sobre a `main` mais recente usando **rebase**:
+
+```bash
+git fetch upstream
+git checkout docs/nome-da-alteracao
+git rebase upstream/main
+```
+
+O *rebase* é mais técnico e pode exigir a resolução de conflitos. Se você está começando agora, prefira a sincronização pelo GitHub ou o fluxo com `merge` descrito acima.
+
+> **Por que manter a branch atualizada?** Atualizar regularmente as branches dos pull requests mantém a contribuição próxima das alterações mais recentes e reduz a possibilidade de conflitos.
+
 ## Em seu computador
 
 <Steps>
@@ -102,6 +177,12 @@ O VS Code Web roda exclusivamente dentro do navegador e não inclui um terminal 
    git clone https://github.com/SEU-USUARIO/docs.git
    cd docs
    npm install
+   ```
+
+   Configure também o repositório original como `upstream`. Isso permite buscar as alterações feitas por outras pessoas no projeto:
+
+   ```bash
+   git remote add upstream https://github.com/WiredClub/docs.git
    ```
 
 2. **Crie uma branch**
@@ -370,6 +451,7 @@ Explique aqui o cuidado necessário.
 - Remova textos provisórios, placeholders e imports que não são usados.
 - Teste exemplos e confirme informações técnicas no Habbo ou em uma fonte confiável.
 - Verifique imagens, links internos e a visualização em telas menores.
+- Se sua contribuição começou há alguns dias, sincronize sua branch com a `main` mais recente para reduzir a chance de conflitos.
 - Execute `npm run build` e descreva no pull request o que mudou e como você validou.
 - Não inclua arquivos gerados, dependências ou materiais de trabalho, como `dist/`, `node_modules/`, PDFs e arquivos compactados.
 
