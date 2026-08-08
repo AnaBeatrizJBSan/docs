@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions'
 import type { Props } from '@astrojs/starlight/props';
 import SeoHead from 'starlight-seo/components/Head.astro';
 import { pwaInfo } from 'virtual:pwa-info';
@@ -46,8 +45,6 @@ const updateSW = registerSW({
 </script>
 
 <SeoHead {...Astro.props}><slot /></SeoHead>
-
-<ClientRouter />
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7XQ1KHR4QW"></script>
