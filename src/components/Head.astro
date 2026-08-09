@@ -11,37 +11,22 @@ type Props = Record<string, any>;
 <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
 
 <script>
-// PWA service worker registration and auto-update
-import { registerSW } from 'virtual:pwa-register';
+// Temporariamente desativando e desregistrando o Service Worker para resolver o tempo de atualização de arquivos
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (const registration of registrations) {
+      registration.unregister();
+    }
+  });
+}
 
-const intervalMS = 10 * 60 * 1000;
-const updateSW = registerSW({
-  immediate: true,
-  onRegisteredSW(swUrl, r) {
-    console.log('SW registered: ', swUrl);
-    r && setInterval(async () => {
-      if (r.installing || !navigator)
-        return;
-
-      if (('connection' in navigator) && !navigator.onLine)
-        return;
-
-      const resp = await fetch(swUrl, {
-        cache: 'no-store',
-        headers: {
-          'cache': 'no-store',
-          'cache-control': 'no-cache',
-        },
-      });
-
-      if (resp?.status === 200)
-        await r.update();
-    }, intervalMS);
-  },
-  onOfflineReady() {
-    console.log('PWA application ready to work offline');
-  },
-});
+if ('caches' in window) {
+  caches.keys().then((names) => {
+    for (const name of names) {
+      caches.delete(name);
+    }
+  });
+}
 </script>
 
 <SeoHead {...Astro.props}><slot /></SeoHead>
