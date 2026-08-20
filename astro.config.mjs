@@ -62,24 +62,24 @@ export default defineConfig({
 							label: 'Glossário de Termos',
 							slug: 'referencia/glossario',
 							badge: {
-								text: "Novo",
-								variant: "tip"
+								text: "Rascunho",
+								variant: "note"
 							},
 						},
 						{
 							label: 'Tipos de Wired',
 							slug: 'referencia/tipos-de-wireds',
 							badge: {
-								text: "Novo",
-								variant: "tip"
+								text: "Rascunho",
+								variant: "note"
 							},
 						},
 						{
 							label: 'Configurando Wireds',
 							slug: 'referencia/configurando-wireds',
 							badge: {
-								text: "Novo",
-								variant: "tip"
+								text: "Rascunho",
+								variant: "note"
 							},
 						},
 						{
@@ -126,8 +126,8 @@ export default defineConfig({
 							label: 'PseudoWired',
 							slug: 'referencia/pseudowired',
 							badge: {
-								text: "Novo",
-								variant: "tip"
+								text: "Rascunho",
+								variant: "note"
 							},
 						},
 					],
@@ -150,8 +150,8 @@ export default defineConfig({
 							label: 'Mudanças Recentes',
 							link: '/mudancas-recentes',
 							badge: {
-								text: "Novo",
-								variant: "tip"
+								text: "Rascunho",
+								variant: "note"
 							}
 						}
 					],
