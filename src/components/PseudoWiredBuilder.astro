@@ -1,0 +1,1057 @@
+---
+import { getFurniIcon } from '@utils/furniImages';
+import { getCollection } from 'astro:content';
+
+let docs = [];
+try {
+  docs = await getCollection('docs');
+} catch (e) {
+  docs = [];
+}
+
+const collectionCatalog = docs
+  .filter((entry) => entry.data?.infobox?.type)
+  .map(e => e.data.infobox)
+  .map((infobox) => {
+    return {
+      id: infobox.classname,
+      type: infobox.type,
+      name: infobox.title || infobox.name,
+      icon: infobox.icon || getFurniIcon(infobox.classname || '', infobox.revision || 0),
+      classname: infobox.classname || '',
+      revision: infobox.revision || 0,
+      hasNegative: !!infobox.negative_version,
+      negativeName: infobox.negative_version?.name || '',
+      negativeClassname: infobox.negative_version?.classname || '',
+      negativeRevision: infobox.negative_version?.revision || 0,
+      negativeIcon: infobox.negative_version?.icon || getFurniIcon(infobox.negative_version?.classname || '', infobox.negative_version?.revision || 0),
+    };
+  });
+
+const FALLBACK_CATALOG = [
+  { id: "sel-1", name: "Habbos na Área", type: "Seletor" },
+  { id: "sel-2", name: "Habbos Selecionados", type: "Seletor" },
+  { id: "sel-3", name: "Todos os Bots da Sala", type: "Seletor" },
+  { id: "flt-1", name: "Filtrar por Grupo", type: "Filtro de Seletor" },
+  { id: "flt-2", name: "Filtrar por Rank", type: "Filtro de Seletor" },
+  { id: "trg-1", name: "Habbo diz algo", type: "Ativador" },
+  { id: "trg-2", name: "Habbo entra na sala", type: "Ativador" },
+  { id: "trg-3", name: "Temporizador", type: "Ativador" },
+  { id: "cnd-1", name: "Membro do Grupo", type: "Condição" },
+  { id: "cnd-2", name: "Possui Item no Inventário", type: "Condição" },
+  { id: "cnd-3", name: "Tem Moedas Suficientes", type: "Condição" },
+  { id: "add-1", name: "Pelo menos uma condição é verdadeira", type: "Extra" },
+  { id: "add-2", name: "Repetir Execução", type: "Extra" },
+  { id: "add-3", name: "Atraso de Execução", type: "Extra" },
+  { id: "eff-1", name: "Teleportar para Mobi", type: "Efeito", hasNegative: true, negativeName: "Cancelar Teleporte" },
+  { id: "eff-2", name: "Mostrar Mensagem", type: "Efeito" },
+  { id: "eff-3", name: "Dar Moedas ao Usuário", type: "Efeito", hasNegative: true, negativeName: "Remover Moedas do Usuário" },
+  { id: "eff-4", name: "Faz Pilhas", type: "Efeito" },
+];
+
+const catalog = collectionCatalog.length > 0 ? collectionCatalog : FALLBACK_CATALOG;
+---
+
+<pseudo-wired-builder data-catalog={JSON.stringify(catalog)}>
+  <div class="pw-container pw-collapsed js-pw-container">
+    <!-- Header Utility Bar -->
+    <div class="pw-header js-header-toggle">
+      <div class="pw-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pw-icon-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span>GERADOR PSEUDOWIRED</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pw-chevron js-pw-chevron"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+      <div class="pw-header-actions js-header-actions">
+        <button type="button" class="pw-btn pw-btn-ghost js-clear-btn" title="Limpar tudo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+          Limpar
+        </button>
+        <button type="button" class="pw-btn pw-btn-primary js-copy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="js-copy-icon"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+          <span class="js-copy-text">Copiar Código</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Accordion Collapsible Body -->
+    <div class="pw-body js-pw-body">
+      <!-- Search Input Row -->
+      <div class="pw-search-section">
+        <div class="pw-search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pw-search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" class="pw-search-input js-search-input" placeholder="Buscar Wired pelo nome (ex: teleportar, grupo, timer...)" />
+          <div class="pw-search-dropdown js-search-dropdown hidden"></div>
+        </div>
+      </div>
+
+      <!-- Main Content Area: Split Active Stack & Code Preview -->
+      <div class="pw-main-grid">
+        <!-- Active Items List -->
+        <div class="pw-stack-col">
+          <div class="pw-stack-container js-stack-container"></div>
+          <div class="pw-empty-state js-empty-state">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+            <div class="pw-empty-text">
+              <strong>Sua pilha está vazia</strong>
+              <span>Busque Wireds no campo acima para montar a pilha.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Code Preview Panel -->
+        <div class="pw-code-col">
+          <div class="pw-code-header">
+            <span class="pw-code-title">SAÍDA .PSEUDOWIRED</span>
+          </div>
+          <pre class="pw-code-preview"><code class="js-code-output">// Selecione Wireds para gerar o código</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</pseudo-wired-builder>
+
+<style is:inline>
+  pseudo-wired-builder {
+    display: block;
+    margin: 1.5rem 0;
+    font-family: var(--sl-font, system-ui, -apple-system, sans-serif);
+    color: #e2e8f0;
+  }
+
+  pseudo-wired-builder *,
+  pseudo-wired-builder *::before,
+  pseudo-wired-builder *::after {
+    box-sizing: border-box;
+  }
+
+  /* Global Reset for buttons inside pseudo-wired-builder so browser defaults never leak */
+  pseudo-wired-builder button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    user-select: none;
+  }
+
+  pseudo-wired-builder input {
+    font-family: inherit;
+    color: inherit;
+  }
+
+  .pw-container {
+    background: #0f151c;
+    border: 1px solid #23303c;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    transition: all 0.2s ease;
+  }
+
+  /* Header */
+  .pw-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a242f;
+    margin-bottom: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+  }
+
+  .pw-header:hover .pw-title {
+    color: #7dd3fc;
+  }
+
+  .pw-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sl-font-mono, 'JetBrains Mono', monospace);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #38bdf8;
+    transition: color 0.15s ease;
+  }
+
+  .pw-icon-zap {
+    color: #fbbf24;
+  }
+
+  .pw-chevron {
+    color: #64748b;
+    transition: transform 0.2s ease;
+    margin-left: 4px;
+  }
+
+  /* Accordion Collapsed State */
+  .pw-container.pw-collapsed {
+    padding: 14px 16px;
+  }
+
+  .pw-container.pw-collapsed .pw-header {
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .pw-container.pw-collapsed .pw-header-actions {
+    display: none !important;
+  }
+
+  .pw-container.pw-collapsed .pw-body {
+    display: none !important;
+  }
+
+  .pw-container.pw-collapsed .pw-chevron {
+    transform: rotate(-90deg);
+  }
+
+  .pw-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Header Buttons */
+  .pw-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+
+  .pw-btn-ghost {
+    background: #131a22;
+    color: #94a3b8;
+    border-color: #23303c;
+  }
+
+  .pw-btn-ghost:hover {
+    background: #1a232c;
+    color: #f1f5f9;
+    border-color: #334155;
+  }
+
+  .pw-btn-primary {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #38bdf8;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+  }
+
+  .pw-btn-primary:hover {
+    background: #0369a1;
+    border-color: #7dd3fc;
+  }
+
+  .pw-btn-copied {
+    background: #166534 !important;
+    border-color: #4ade80 !important;
+    color: #ffffff !important;
+  }
+
+  /* Search Input */
+  .pw-search-section {
+    margin-bottom: 14px;
+  }
+
+  .pw-search-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .pw-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+  }
+
+  .pw-search-input {
+    width: 100%;
+    padding: 9px 12px 9px 36px;
+    background: #131a22;
+    border: 1px solid #23303c;
+    border-radius: 8px;
+    color: #f1f5f9;
+    font-size: 13px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.15s ease;
+  }
+
+  .pw-search-input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+  }
+
+  /* Dropdown Results (Command Palette Style) */
+  .pw-search-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #0f151c;
+    border: 1px solid #23303c;
+    border-radius: 8px;
+    padding: 6px;
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 50;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  }
+
+  .pw-dropdown-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 8px 12px !important;
+    margin: 2px 0 !important;
+    background: #131a22 !important;
+    border: 1px solid #23303c !important;
+    border-radius: 6px !important;
+    color: #e2e8f0 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  .pw-dropdown-item:hover {
+    background: #1e293b !important;
+    border-color: #38bdf8 !important;
+    color: #ffffff !important;
+  }
+
+  .pw-dropdown-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pw-dropdown-badge {
+    font-family: var(--sl-font-mono, 'JetBrains Mono', monospace);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+
+  /* Main Grid Layout */
+  .pw-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  @media (min-width: 768px) {
+    .pw-main-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Stack Column */
+  .pw-stack-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pw-stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pw-empty-state {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #131a22;
+    border: 1px dashed #23303c;
+    border-radius: 8px;
+    color: #64748b;
+  }
+
+  .pw-empty-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+  }
+
+  .pw-empty-text strong {
+    color: #94a3b8;
+    font-size: 13px;
+  }
+
+  /* Section Groups (Dynamic) */
+  .pw-section-group {
+    background: #131a22;
+    border: 3px solid #64748b;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pw-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pw-section-title {
+    font-family: var(--sl-font-mono, 'JetBrains Mono', monospace);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .pw-section-hint {
+    font-size: 10px;
+    color: #64748b;
+  }
+
+  /* Item Card */
+  .pw-item-card {
+    background: #0f151c;
+    border: 1px solid #23303c;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .pw-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pw-item-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pw-item-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #f1f5f9;
+  }
+
+  .pw-item-icon {
+    image-rendering: pixelated;
+    width: 30px;
+    height: 30px;
+    object-fit: none;
+    flex-shrink: 0;
+  }
+
+  .pw-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Icon Buttons (Remove & Swap) */
+  .pw-icon-btn {
+    background: #131a22 !important;
+    border: 1px solid #23303c !important;
+    color: #94a3b8 !important;
+    padding: 5px 8px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+    line-height: 1 !important;
+  }
+
+  .pw-icon-btn:hover {
+    background: #1e293b !important;
+    border-color: #3b82f6 !important;
+    color: #f1f5f9 !important;
+  }
+
+  .pw-icon-btn-danger:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+    color: #f87171 !important;
+  }
+
+  .pw-swap-btn:hover {
+    background: rgba(56, 189, 248, 0.15) !important;
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    color: #38bdf8 !important;
+  }
+
+  /* Item Inputs */
+  .pw-item-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .pw-param-input {
+    width: 100%;
+    background: #131a22;
+    border: 1px solid #23303c;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #e2e8f0;
+    outline: none;
+    transition: all 0.15s ease;
+    box-sizing: border-box;
+  }
+
+  .pw-param-input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.12);
+  }
+
+  /* Subitems / Details List */
+  .pw-subitems-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 10px;
+    border-left: 2px solid #23303c;
+    margin-top: 4px;
+  }
+
+  .pw-subitem-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pw-subitem-input {
+    flex: 1;
+    background: #131a22;
+    border: 1px solid #23303c;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+    outline: none;
+    transition: all 0.15s ease;
+  }
+
+  .pw-subitem-input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.12);
+  }
+
+  .pw-add-subitem-btn {
+    align-self: flex-start;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: #38bdf8 !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+    border: 1px dashed rgba(56, 189, 248, 0.3) !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    margin-top: 4px !important;
+  }
+
+  .pw-add-subitem-btn:hover {
+    background: rgba(56, 189, 248, 0.16) !important;
+    border-color: #38bdf8 !important;
+    color: #7dd3fc !important;
+  }
+
+  /* Code Output Column */
+  .pw-code-col {
+    background: #131a22;
+    border: 1px solid #23303c;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .pw-code-header {
+    background: #0f151c;
+    padding: 8px 12px;
+    border-bottom: 1px solid #23303c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pw-code-title {
+    font-family: var(--sl-font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+  }
+
+  .pw-code-preview {
+    margin: 0;
+    padding: 12px;
+    font-family: var(--sl-font-mono, 'JetBrains Mono', monospace);
+    font-size: 12px;
+    line-height: 1.5;
+    color: #a7f3d0;
+    overflow-x: auto;
+    white-space: pre;
+    flex: 1;
+    background: transparent;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+  const SECTION_ORDER = ["ALVOS", "QUANDO", "SE", "COMO", "ENTÃO", "SENÃO"];
+
+  const SECTION_META = {
+    ALVOS: { hint: "Seletores e Filtros", accent: "#38bdf8" },
+    QUANDO: { hint: "Ativadores", accent: "#fbbf24" },
+    SE: { hint: "Condições", accent: "#a78bfa" },
+    COMO: { hint: "Extras", accent: "#94a3b8" },
+    "ENTÃO": { hint: "Efeitos positivos", accent: "#34d399" },
+    SENÃO: { hint: "Efeitos negativos", accent: "#fb7185" },
+  };
+
+  const TYPE_TO_DEFAULT_SECTION = {
+    "Seletor": "ALVOS",
+    "Filtro de Seletor": "ALVOS",
+    "Ativador": "QUANDO",
+    "Condição": "SE",
+    "Extra": "COMO",
+    "Variável": "COMO",
+    "Extra de Variável": "COMO",
+    "Tabela de Classificação": "COMO",
+    "Contrato": "COMO",
+    "Baú": "COMO",
+    "Efeito": "ENTÃO",
+  };
+
+  class PseudoWiredBuilder extends HTMLElement {
+    connectedCallback() {
+      try {
+        this.catalog = JSON.parse(this.dataset.catalog || "[]");
+      } catch (e) {
+        this.catalog = [];
+      }
+
+      this.items = this.loadDraft() || [];
+
+      this.initElements();
+      this.bindEvents();
+      this.render();
+    }
+
+    loadDraft() {
+      try {
+        const saved = localStorage.getItem("pw_builder_draft");
+        return saved ? JSON.parse(saved) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    saveDraft() {
+      try {
+        localStorage.setItem("pw_builder_draft", JSON.stringify(this.items));
+      } catch (e) {}
+    }
+
+    initElements() {
+      this.container = this.querySelector(".js-pw-container");
+      this.headerToggle = this.querySelector(".js-header-toggle");
+      this.searchInput = this.querySelector(".js-search-input");
+      this.searchDropdown = this.querySelector(".js-search-dropdown");
+      this.stackContainer = this.querySelector(".js-stack-container");
+      this.emptyState = this.querySelector(".js-empty-state");
+      this.codeOutput = this.querySelector(".js-code-output");
+      this.clearBtn = this.querySelector(".js-clear-btn");
+      this.copyBtn = this.querySelector(".js-copy-btn");
+      this.copyText = this.querySelector(".js-copy-text");
+    }
+
+    bindEvents() {
+      // Toggle accordion on header click
+      this.headerToggle.addEventListener("click", (e) => {
+        if (e.target.closest(".js-header-actions")) return;
+        this.container.classList.toggle("pw-collapsed");
+      });
+
+      // Search input
+      this.searchInput.addEventListener("input", () => this.handleSearch());
+      this.searchInput.addEventListener("focus", () => this.handleSearch());
+
+      document.addEventListener("click", (e) => {
+        if (!this.contains(e.target)) {
+          this.searchDropdown.classList.add("hidden");
+        }
+      });
+
+      // Clear button
+      this.clearBtn.addEventListener("click", () => {
+        this.items = [];
+        this.saveDraft();
+        this.render();
+      });
+
+      // Copy button
+      this.copyBtn.addEventListener("click", () => this.copyToClipboard());
+
+      // Stack container interactions (delegated)
+      this.stackContainer.addEventListener("input", (e) => this.handleItemInput(e));
+      this.stackContainer.addEventListener("change", (e) => this.handleItemChange(e));
+      this.stackContainer.addEventListener("click", (e) => this.handleItemClick(e));
+    }
+
+    handleSearch() {
+      const q = this.searchInput.value.trim().toLowerCase();
+      if (!q) {
+        this.searchDropdown.classList.add("hidden");
+        return;
+      }
+
+      const results = this.catalog
+        .filter((item) => item.name.toLowerCase().includes(q))
+        .slice(0, 8);
+
+      if (results.length === 0) {
+        this.searchDropdown.classList.add("hidden");
+        return;
+      }
+
+      this.searchDropdown.innerHTML = results
+        .map((r) => {
+          const defaultSec = TYPE_TO_DEFAULT_SECTION[r.type] || "COMO";
+          const meta = SECTION_META[defaultSec] || { accent: "#64748b" };
+          const iconSrc = r.icon || '';
+          return `
+            <button type="button" class="pw-dropdown-item" data-id="${r.id}">
+              <div class="pw-dropdown-left">
+                ${iconSrc ? `<img src="${iconSrc}" class="pw-item-icon" alt="" />` : ''}
+                <span>${this.escapeHtml(r.name)}</span>
+              </div>
+              <span class="pw-dropdown-badge" style="color: ${meta.accent}; border-color: ${meta.accent}44; background: ${meta.accent}12;">${defaultSec}</span>
+            </button>
+          `;
+        })
+        .join("");
+
+      this.searchDropdown.classList.remove("hidden");
+
+      this.searchDropdown.querySelectorAll(".pw-dropdown-item").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const itemId = btn.dataset.id;
+          const found = this.catalog.find((c) => c.id === itemId);
+          if (found) {
+            this.addItem(found);
+            this.searchInput.value = "";
+            this.searchDropdown.classList.add("hidden");
+          }
+        });
+      });
+    }
+
+    addItem(catalogItem) {
+      const section = TYPE_TO_DEFAULT_SECTION[catalogItem.type] || "COMO";
+      const newItem = {
+        id: `pw-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+        catalogId: catalogItem.id,
+        name: catalogItem.name,
+        type: catalogItem.type,
+        hasNegative: !!catalogItem.hasNegative,
+        negativeName: catalogItem.negativeName || "",
+        icon: catalogItem.icon || "",
+        negativeIcon: catalogItem.negativeIcon || "",
+        section,
+        param: "",
+        useNegative: false,
+        subitems: [],
+      };
+
+      this.items.push(newItem);
+      this.saveDraft();
+      this.render();
+    }
+
+    handleItemInput(e) {
+      const target = e.target;
+      const card = target.closest(".pw-item-card");
+      if (!card) return;
+      const itemId = card.dataset.id;
+      const item = this.items.find((i) => i.id === itemId);
+      if (!item) return;
+
+      if (target.classList.contains("js-param-input")) {
+        item.param = target.value;
+        this.saveDraft();
+        this.renderCodeOnly();
+      } else if (target.classList.contains("js-subitem-input")) {
+        const subIndex = parseInt(target.dataset.index, 10);
+        item.subitems[subIndex] = target.value;
+        this.saveDraft();
+        this.renderCodeOnly();
+      }
+    }
+
+    handleItemChange() {
+      // no checkboxes
+    }
+
+    handleItemClick(e) {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+
+      const card = btn.closest(".pw-item-card");
+      if (!card) return;
+      const itemId = card.dataset.id;
+      const item = this.items.find((i) => i.id === itemId);
+      if (!item) return;
+
+      if (btn.classList.contains("js-remove-item")) {
+        this.items = this.items.filter((i) => i.id !== itemId);
+        this.saveDraft();
+        this.render();
+      } else if (btn.classList.contains("js-swap-effect")) {
+        const canSwap = (item.type === "Condição" && item.hasNegative) || (item.type === "Efeito" && item.hasNegative);
+        if (canSwap) {
+          item.useNegative = !item.useNegative;
+          if (item.type === "Efeito") {
+            item.section = item.useNegative ? "SENÃO" : "ENTÃO";
+          }
+          this.saveDraft();
+          this.render();
+        }
+      } else if (btn.classList.contains("js-add-subitem")) {
+        item.subitems.push("");
+        this.saveDraft();
+        this.render();
+
+        const updatedCard = this.querySelector(`.pw-item-card[data-id="${itemId}"]`);
+        if (updatedCard) {
+          const subInputs = updatedCard.querySelectorAll(".js-subitem-input");
+          if (subInputs.length > 0) {
+            const lastInput = subInputs[subInputs.length - 1];
+            lastInput.focus();
+          }
+        }
+      } else if (btn.classList.contains("js-remove-subitem")) {
+        const subIndex = parseInt(btn.dataset.index, 10);
+        item.subitems.splice(subIndex, 1);
+        this.saveDraft();
+        this.render();
+      }
+    }
+
+    generateCode() {
+      const blocks = SECTION_ORDER.map((section) => {
+        const sectionItems = this.items.filter((it) => it.section === section);
+        if (sectionItems.length === 0) return null;
+
+        const lines = [section];
+        sectionItems.forEach((it) => {
+          const useNeg = it.useNegative && it.hasNegative;
+          const displayName = useNeg && it.negativeName ? it.negativeName : it.name;
+          const param = (it.param || "").trim();
+          const paramStr = param ? `: ${param}` : "";
+          lines.push(`  - ${displayName}${paramStr}`);
+          if (Array.isArray(it.subitems)) {
+            it.subitems
+              .filter((s) => s && s.trim())
+              .forEach((s) => lines.push(`    ${s.trim()}`));
+          }
+        });
+
+        return lines.join("\n");
+      }).filter(Boolean);
+
+      return blocks.join("\n\n");
+    }
+
+    renderCodeOnly() {
+      const code = this.generateCode();
+      this.codeOutput.textContent = code || "// Selecione Wireds para gerar o código";
+    }
+
+    render() {
+      this.renderCodeOnly();
+
+      if (this.items.length === 0) {
+        this.stackContainer.innerHTML = "";
+        this.emptyState.classList.remove("hidden");
+        return;
+      }
+
+      this.emptyState.classList.add("hidden");
+
+      const activeSections = SECTION_ORDER.filter((sec) =>
+        this.items.some((it) => it.section === sec)
+      );
+
+      this.stackContainer.innerHTML = activeSections
+        .map((section) => {
+          const meta = SECTION_META[section] || { accent: "#64748b", hint: "" };
+          const secItems = this.items.filter((it) => it.section === section);
+
+          const itemsHtml = secItems
+            .map((item) => {
+              const useNeg = item.useNegative && item.hasNegative;
+              const displayName = useNeg && item.negativeName ? item.negativeName : item.name;
+              const displayIcon = useNeg && item.negativeIcon ? item.negativeIcon : (item.icon || '');
+              const canSwap = (item.type === "Condição" && item.hasNegative) || (item.type === "Efeito" && item.hasNegative);
+
+              const subitemsHtml = item.subitems
+                .map(
+                  (sub, idx) => `
+                <div class="pw-subitem-row">
+                  <input type="text" class="pw-subitem-input js-subitem-input" data-index="${idx}" placeholder="detalhe de configuração" value="${this.escapeAttr(
+                    sub
+                  )}" />
+                  <button type="button" class="pw-icon-btn pw-icon-btn-danger js-remove-subitem" data-index="${idx}" title="Remover detalhe">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                  </button>
+                </div>
+              `
+                )
+                .join("");
+
+              return `
+                <div class="pw-item-card" data-id="${item.id}">
+                  <div class="pw-item-top">
+                    <div class="pw-item-title-wrap">
+                      ${displayIcon ? `<img src="${displayIcon}" class="pw-item-icon" alt="" />` : ''}
+                      <span class="pw-item-name">${this.escapeHtml(displayName)}</span>
+                    </div>
+                    <div class="pw-item-controls">
+                      ${
+                        canSwap
+                          ? `<button type="button" class="pw-icon-btn pw-swap-btn js-swap-effect ${useNeg ? 'active' : ''}" title="Alternar versão positiva / negativa">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 3 4 4-4 4"></path><path d="M20 7H4"></path><path d="m8 21-4-4 4-4"></path><path d="M4 17h16"></path></svg>
+                            </button>`
+                          : ""
+                      }
+                      <button type="button" class="pw-icon-btn pw-icon-btn-danger js-remove-item" title="Remover item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="pw-item-input-row">
+                    <input type="text" class="pw-param-input js-param-input" placeholder="Parâmetro" value="${this.escapeAttr(
+                      item.param
+                    )}" />
+                  </div>
+
+                  <div class="pw-subitems-list">
+                    ${subitemsHtml}
+                    <button type="button" class="pw-add-subitem-btn js-add-subitem">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      adicionar detalhe
+                    </button>
+                  </div>
+                </div>
+              `;
+            })
+            .join("");
+
+          return `
+            <div class="pw-section-group" style="border-color: ${meta.accent};">
+              <div class="pw-section-header">
+                <span class="pw-section-title" style="color: ${meta.accent};">${section}</span>
+                <span class="pw-section-hint">${meta.hint}</span>
+              </div>
+              ${itemsHtml}
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    copyToClipboard() {
+      const text = this.generateCode();
+      if (!text) return;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => this.showCopiedState());
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        this.showCopiedState();
+      }
+    }
+
+    showCopiedState() {
+      this.copyBtn.classList.add("pw-btn-copied");
+      this.copyText.textContent = "Copiado!";
+      setTimeout(() => {
+        this.copyBtn.classList.remove("pw-btn-copied");
+        this.copyText.textContent = "Copiar Código";
+      }, 2000);
+    }
+
+    escapeHtml(str) {
+      return (str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    escapeAttr(str) {
+      return (str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;");
+    }
+  }
+
+  customElements.define("pseudo-wired-builder", PseudoWiredBuilder);
+</script>
