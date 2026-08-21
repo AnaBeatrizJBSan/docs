@@ -61,26 +61,14 @@ export default defineConfig({
 						{
 							label: 'Glossário de Termos',
 							slug: 'referencia/glossario',
-							badge: {
-								text: "Novo",
-								variant: "tip"
-							},
 						},
 						{
 							label: 'Tipos de Wired',
 							slug: 'referencia/tipos-de-wireds',
-							badge: {
-								text: "Novo",
-								variant: "tip"
-							},
 						},
 						{
 							label: 'Configurando Wireds',
 							slug: 'referencia/configurando-wireds',
-							badge: {
-								text: "Novo",
-								variant: "tip"
-							},
 						},
 						{
 							label: 'Ativadores',
@@ -125,10 +113,6 @@ export default defineConfig({
 						{
 							label: 'PseudoWired',
 							slug: 'referencia/pseudowired',
-							badge: {
-								text: "Novo",
-								variant: "tip"
-							},
 						},
 					],
 				}, {
