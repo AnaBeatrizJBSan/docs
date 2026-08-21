@@ -133,10 +133,6 @@ export default defineConfig({
 						{
 							label: 'Mudanças Recentes',
 							link: '/mudancas-recentes',
-							badge: {
-								text: "Novo",
-								variant: "tip"
-							}
 						}
 					],
 				}
