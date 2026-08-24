@@ -9,7 +9,10 @@ sidebar:
     variant: note
 ---
 
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import WiredGrid from "@components/WiredGrid.astro";
+import estruturaBasicaDeUso from "@assets/tabelas-de-classificacao/estrutura-basica-de-uso.mp4";
 
 ## O que é uma Tabela de Classificação?
 
@@ -25,6 +28,61 @@ As Tabelas de Classificação podem ser redefinidas manualmente com o comando `:
 - As tabelas semanais zeram aos sábados, também às 21h pelo horário de Brasília e 01h pelo horário de Portugal.
 - Já as tabelas mensais zeram no último dia de cada mês, às 21h pelo horário de Brasília e 01h pelo horário de Portugal.
 - No caso das tabelas gerais, a pontuação não é reiniciada automaticamente.
+
+## Estrutura Básica de Uso
+
+O objetivo das Tabelas de Classificação é registrar os resultados de um jogo. Para que isso aconteça corretamente, o sistema precisa controlar a participação do jogador na partida, o início e o fim do tempo de jogo, além do momento em que a pontuação ou a vitória é atribuída.
+
+Em uma configuração simples, o fluxo costuma funcionar desta forma:
+
+<figure>
+  <video controls preload="metadata" style={{ width: "100%" }}>
+    <source src={estruturaBasicaDeUso} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
+1. **Ativador:** Habbo anda no Mobi
+    1. Selecione o Piso Colorido
+2. **Efeito:** Entrar na equipe
+3. **Efeito:** Controlar cronômetro
+    1. Selecione o mobi Wired Cronômetro de Jogos
+4. **Efeito**: Pontuação recebida
+    1. Opcional: Mude a configuração da pontuação para 1
+5. **Efeito**: Controlar cronômetro
+    1. Selecione o mesmo mobi Wired Cronômetro de Jogos
+    2. Selecione a opção Reset
+6. **Efeito**: Sair da equipe
+7. **Extra**: Executa na ordem
+
+
+</Steps>
+  </TabItem>
+  <TabItem label="PseudoWired">
+    <PseudoWiredCodeBlock code={`
+
+QUANDO
+  - Habbo anda no Mobi: Piso Colorido
+
+COMO
+  - Executa na Ordem
+
+ENTÃO
+  - Entrar na Equipe: Time Vermelho Wired
+  - Controlar Cronômetro: Wired Cronômetro de Jogos
+  - Pontuação recebida: Adicionar 1 ponto Time Vermelho
+  - Controlar Cronômetro: Wired Cronômetro de Jogos com opção Reset
+  - Sair da Equipe
+
+`} />
+  </TabItem>
+</Tabs>
+
+Nesse exemplo, o piso colorido funciona como ponto de entrada da partida, o cronômetro controla a duração do jogo e a tabela registra o resultado final com base na pontuação recebida. Esse é um modelo simples, mas já mostra a lógica principal por trás do uso das tabelas em jogos Wired.
 
 ## Lista Completa
 
