@@ -19,6 +19,18 @@ Elas permitem criar mecânicas mais avançadas, como sistemas de pontos, vidas, 
 
 Elas não precisam ficar empilhadas na pilha principal para funcionar. O papel delas é servir como base de informação para o sistema wired, permitindo que outros Wireds consultem, filtrem, transformem e reutilizem valores ao longo do sistema.
 
+## Relação com Extras de Variável
+
+Além das próprias Variáveis, existem wireds Extras específicos que ampliam ou modificam a forma como esses dados podem ser usados no sistema. Esses componentes adicionam comportamentos complementares à variável já existente.
+
+Isso permite montar lógicas mais avançadas, como conectar textos e valores, trabalhar com progressão de níveis ou lidar com utilitários de tempo. Diferente dos Extras gerais, os Extras de Variável precisam ser posicionados junto da variável que se deseja modificar, porque atuam diretamente sobre o funcionamento dela.
+
+## Boas práticas e cuidados
+
+Ao trabalhar com Variáveis, uma das decisões mais importantes é escolher o tipo certo para cada caso. Valores individuais, como pontos de um jogador, costumam funcionar melhor em variáveis de usuário. Já informações compartilhadas por todo o quarto fazem mais sentido em variáveis globais.
+
+Também é importante lembrar que nem toda variável deve ser reutilizada para múltiplas funções. Separar variáveis por responsabilidade ajuda a evitar confusão e facilita a manutenção do sistema, principalmente em automações maiores.
+
 ## Lista Completa
 
 <WiredGrid type="Variável" />
