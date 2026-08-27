@@ -19,8 +19,22 @@ Com eles, você pode configurar pagamentos em créditos ou mobis, recompensas pa
 
 Diferente de Ativadores, Efeitos e Condições, os Contratos não servem para disparar ou validar ações diretamente. O papel deles é definir os itens envolvidos na transação, que depois será usada por outros Wireds compatíveis, como os de iniciar ou concluir transações.
 
+## Relação com Baús
+
+Os Contratos e os Baús costumam funcionar em conjunto dentro de sistemas de transação Wired, mas cada um tem uma responsabilidade diferente. O Contrato define as regras da transação, ou seja, o que será cobrado, entregue ou trocado. Já o Baú é o componente que armazena os créditos ou mobis que realmente serão usados nesse processo.
+
+Isso significa que o Contrato organiza a negociação, enquanto o Baú fornece ou recebe os recursos envolvidos. Um sistema pode, por exemplo, usar um Contrato de Pagamento para cobrar moedas guardadas em um Baú de Créditos, ou um Contrato de Recompensa para entregar um item armazenado em um Baú de Mobis.
+
+Essa relação é importante porque um Contrato sozinho não armazena nada, e um Baú sozinho não define nenhuma transação. Em sistemas de loja, recompensa ou troca, normalmente é a combinação entre os dois que permite que a automação funcione de forma completa.
+
+## Contrato Customizável
+
+Além dos contratos tradicionais, existe também o Contrato Customizável, que oferece uma forma mais flexível de montar transações no sistema Wired. Em vez de ficar limitado a um comportamento fixo, ele pode ser ajustado dinamicamente para funcionar de acordo com a lógica criada no quarto.
+
+Isso permite integrar o contrato com Variáveis, Seletores e outras configurações mais avançadas, abrindo espaço para sistemas mais complexos e reutilizáveis. Ele é especialmente útil quando a transação precisa mudar conforme o contexto, o usuário acionador, os mobis selecionados ou os valores definidos durante a execução da pilha.
+
 ## Lista Completa
 
 <WiredGrid type="Contrato" />
 
-Veja também: [Baús](/referencia/outros/baus/visao-geral/)
+Veja também: [Baús](/referencia/outros/baus/visao-geral/) e [Contrato Customizável](/referencia/extras/wf_xtra_custom_contract/)
