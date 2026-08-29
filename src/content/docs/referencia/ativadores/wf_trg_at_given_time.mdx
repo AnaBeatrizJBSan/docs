@@ -47,5 +47,88 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+
+O **Ativador Wired: No tempo escolhido** é responsável por executar uma pilha Wired quando o tempo interno do quarto atingir um valor específico.
 
 <Infobox />
+
+#### Como esse Wired funciona?
+
+Antes de utilizá-lo, é importante entender qual é esse "tempo" citado no nome do Wired.
+
+Esse tempo corresponde ao valor da variável global interna do jogo chamada **`@wired_timer`**. Ela é atualizada automaticamente a cada **0,5 segundo** (meio segundo), aumentando seu valor continuamente enquanto o quarto estiver ativo.
+
+É possível acompanhar o valor atual dessa variável utilizando o comando **`:wired`** dentro do jogo e acessando a aba **Variáveis Globais**.
+
+#### Como escolher o tempo?
+
+O campo de configuração do Wired espera um número inteiro, que será comparado com o valor atual da variável **`@wired_timer`**.
+
+Como a variável aumenta uma unidade a cada 0,5 segundo, basta multiplicar o tempo desejado em segundos por **2** para descobrir qual será o valor da variável naquele momento.
+
+**Exemplos:**
+
+| Tempo desejado | Valor da variável `@wired_timer` |
+| :-------------- | :-------------------------------: |
+| 1 segundo      |                                2 |
+| 5 segundos     |                               10 |
+| 10 segundos    |                               20 |
+| 30 segundos    |                               60 |
+| 1 minuto       |                              120 |
+
+#### Exemplo prático
+
+Neste exemplo, um **Piso Colorido** mudará de estado 10 segundos após um usuário pisar nele.
+
+<Tabs>
+  <TabItem label="Configuração">
+    Primeira pilha
+    <Steps>
+    1. **Ativador:** No Tempo escolhido
+        1. Indique o valor 10
+    2. **Efeito:** Mudar estado do mobi
+        1. Selecione o Piso Colorido
+    </Steps>
+    Segunda pilha
+    <Steps>
+    1. **Ativador:** Habbo anda no mobi
+        1. Selecione o Piso Colorido
+    2. **Efeito:** Reiniciar tempo
+    </Steps>
+  </TabItem>
+  
+  <TabItem label="PseudoWired">
+    Primeira pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - No tempo escolhido: 10
+    ENTÃO
+      - Mudar estado do Mobi: Piso Colorido
+    `} />
+    Segunda pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Habbo anda no Mobi: Piso Colorido
+    ENTÃO
+      - Reiniciar tempo
+    `} />
+  </TabItem>
+</Tabs>
+
+#### O que acontece nesse exemplo?
+
+Ao pisar no Piso Colorido, o **Efeito Wired: Reiniciar Tempo** redefine o valor da variável **`@wired_timer`** para **0**.
+
+A partir desse momento, a variável volta a aumentar automaticamente em intervalos de 0,5 segundo.
+
+Embora o **Ativador Wired: No tempo escolhido** esteja configurado com o valor **10**, é importante lembrar que cada unidade da variável representa apenas meio segundo. Portanto, quando a variável atingir o valor **20**, terão se passado **10 segundos**, momento em que o Piso Colorido mudará de estado.
+
+#### Como reiniciar o tempo?
+
+Existem diferentes maneiras de reiniciar o valor da variável **`@wired_timer`**.
+
+A mais comum é utilizando o **Wired Efeito: Reiniciar Tempo**, permitindo reiniciar a contagem exatamente no momento desejado.
+
+Outra possibilidade é deixar o quarto completamente vazio durante aproximadamente **30 segundos**. Ao entrar novamente no quarto, a variável **`@wired_timer`** será reiniciada automaticamente.
