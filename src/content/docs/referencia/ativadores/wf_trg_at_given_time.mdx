@@ -49,6 +49,7 @@ infobox:
 import Infobox from "@components/Infobox.astro"
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+import WiredTimerNoWiredCreatorTools from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools.mp4";
 
 O **Ativador Wired: No tempo escolhido** é responsável por executar uma pilha Wired quando o tempo interno do quarto atingir um valor específico.
 
@@ -60,7 +61,15 @@ Antes de utilizá-lo, é importante entender qual é esse "tempo" citado no nome
 
 Esse tempo corresponde ao valor da variável global interna do jogo chamada **`@wired_timer`**. Ela é atualizada automaticamente a cada **0,5 segundo** (meio segundo), aumentando seu valor continuamente enquanto o quarto estiver ativo.
 
-É possível acompanhar o valor atual dessa variável utilizando o comando **`:wired`** dentro do jogo e acessando a aba **Variáveis Globais**.
+É possível acompanhar o valor atual dessa variável utilizando o comando **`:wired`** dentro do jogo e acessando a aba **Variáveis Globais**, como mostrado no vídeo abaixo:
+
+<figure>
+  <video controls preload="metadata" style={{ width: "55%" }}>
+    <source src={WiredTimerNoWiredCreatorTools} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 #### Como escolher o tempo?
 
