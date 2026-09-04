@@ -5,7 +5,7 @@ sidebar:
   label: Visão Geral
   order: 0
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 ---
 
@@ -13,6 +13,22 @@ import WiredGrid from "@components/WiredGrid.astro";
 
 ## O que é um Baú?
 
+Os Baús são mobis usados para armazenar recursos que, ao serem melhorados para Baú Wired, podem ser utilizados em sistemas Wired dentro do quarto. Dependendo do modelo, eles podem guardar créditos ou mobis, funcionando como uma fonte de recompensa, pagamento ou retirada de itens em automações criadas pelo jogador.
+
+Eles permitem que um sistema entregue algo como resultado. Isso faz com que os Baús sejam especialmente úteis em jogos, lojas, sistemas de troca, recompensas automáticas e outras mecânicas em que seja necessário distribuir moedas ou itens de forma controlada.
+
+A principal exceção é o Baú de Mobis Inicial, que funciona apenas como armazenamento básico e não permite integração com Wired. Para usar um baú em automações, entregas ou sistemas de transação, é necessário utilizar um modelo compatível com essa integração.
+
+## Relação com Contratos
+
+Os Baús e os Contratos costumam trabalhar juntos em sistemas de transação Wired, mas cada um tem uma função diferente. O Baú é o componente que armazena os recursos que serão usados no sistema, como créditos ou mobis. Já o Contrato define como esses recursos entram na transação, determinando o que será cobrado, entregue ou trocado.
+
+Isso significa que o Baú funciona como a origem ou o destino dos itens, enquanto o Contrato funciona como a regra da negociação. Um sistema pode, por exemplo, usar um Contrato de Pagamento para cobrar moedas armazenadas em um Baú de Créditos, ou um Contrato de Recompensa para entregar ao jogador um item guardado em um Baú de Mobis.
+
+Essa relação é importante porque um Contrato sozinho não armazena nada, e um Baú sozinho não define nenhuma transação. Para criar lojas, recompensas automáticas, trocas ou mecânicas de pagamento, normalmente é a combinação entre os dois que torna o sistema funcional.
+
 ## Lista Completa
 
 <WiredGrid type="Baú" />
+
+Veja também: [Contratos](/referencia/contratos/visao-geral/)
