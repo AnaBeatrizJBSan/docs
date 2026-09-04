@@ -4,7 +4,7 @@ description: Efeitos são ativados em uma hora definida depois do contador ser r
 sidebar:
   label: No tempo escolhido
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -49,13 +49,12 @@ infobox:
 import Infobox from "@components/Infobox.astro"
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
-import WiredTimerNoWiredCreatorTools from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools.mp4";
+import wiredTimerNoWiredCreatorTools from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools.mp4";
+import exemploPraticoWiredNoTempoEscolhido from "@assets/wf_trg_at_given_time/3-exemplo-pratico.mp4";
 
 O **Ativador Wired: No tempo escolhido** é responsável por executar uma pilha Wired quando o tempo interno do quarto atingir um valor específico.
 
 <Infobox />
-
-#### Como esse Wired funciona?
 
 Antes de utilizá-lo, é importante entender qual é esse "tempo" citado no nome do Wired.
 
@@ -65,15 +64,17 @@ Esse tempo corresponde ao valor da variável global interna do jogo chamada **`@
 
 <figure>
   <video controls preload="metadata" style={{ width: "55%" }}>
-    <source src={WiredTimerNoWiredCreatorTools} type="video/mp4" />
+    <source src={wiredTimerNoWiredCreatorTools} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
 </figure>
 
-#### Como escolher o tempo?
+## Como escolher o tempo?
 
-O campo de configuração do Wired espera um número inteiro, que será comparado com o valor atual da variável **`@wired_timer`**.
+O campo de configuração do Wired No Tempo Escolhido espera um número inteiro, que será comparado com o valor atual da variável **`@wired_timer`**.
+
+![Janela de configuração do Ativador Wired No tempo escolhido, com o campo Configurar tempo preenchido com 10](@assets/wf_trg_at_given_time/2-wired-no-tempo-escolhido.png)
 
 Como a variável aumenta uma unidade a cada 0,5 segundo, basta multiplicar o tempo desejado em segundos por **2** para descobrir qual será o valor da variável naquele momento.
 
@@ -87,9 +88,17 @@ Como a variável aumenta uma unidade a cada 0,5 segundo, basta multiplicar o tem
 | 30 segundos    |                               60 |
 | 1 minuto       |                              120 |
 
-#### Exemplo prático
+## Exemplo prático
 
 Neste exemplo, um **Piso Colorido** mudará de estado 10 segundos após um usuário pisar nele.
+
+<figure>
+  <video controls preload="metadata" style={{ width: "100%" }}>
+    <source src={exemploPraticoWiredNoTempoEscolhido} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 <Tabs>
   <TabItem label="Configuração">
@@ -126,7 +135,7 @@ Neste exemplo, um **Piso Colorido** mudará de estado 10 segundos após um usuá
   </TabItem>
 </Tabs>
 
-#### O que acontece nesse exemplo?
+### O que acontece nesse exemplo?
 
 Ao pisar no Piso Colorido, o **Efeito Wired: Reiniciar Tempo** redefine o valor da variável **`@wired_timer`** para **0**.
 
@@ -134,7 +143,7 @@ A partir desse momento, a variável volta a aumentar automaticamente em interval
 
 Embora o **Ativador Wired: No tempo escolhido** esteja configurado com o valor **10**, é importante lembrar que cada unidade da variável representa apenas meio segundo. Portanto, quando a variável atingir o valor **20**, terão se passado **10 segundos**, momento em que o Piso Colorido mudará de estado.
 
-#### Como reiniciar o tempo?
+## Como reiniciar o tempo?
 
 Existem diferentes maneiras de reiniciar o valor da variável **`@wired_timer`**.
 
