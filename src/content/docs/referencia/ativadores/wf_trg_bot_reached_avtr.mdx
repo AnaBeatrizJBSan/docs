@@ -51,6 +51,8 @@ import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import BotsNaLoja from "@assets/wf_trg_bot_reached_avtr/1-bots-na-loja.png";
 import SistemaDePegaPega from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega.mp4";
+import WiredEfeitoBotSegueOUsuarioBotFonte from "@assets/wf_trg_bot_reached_avtr/4-wired-efeito-bot-segue-o-usuario-bot-fonte.gif";
+import WiredEfeitoBotSegueOUsuarioUsuarioFonte from "@assets/wf_trg_bot_reached_avtr/5-wired-efeito-bot-segue-o-usuario-usuario-fonte.gif";
 
 O **Ativador Wired: Bot alcança usuário** executa uma pilha Wired quando um Bot configurado alcança um jogador no quarto.
 
@@ -67,20 +69,44 @@ Os Bots são um tipo de usuário que podem ser adquiridos no catálogo do jogo. 
   style={{ width: "55%" }}
 />
 
-Para que este Ativador funcione como esperado, é necessário ter pelo menos um Bot no quarto e informar o nome dele na configuração do Wired.
+Para que este Ativador funcione como esperado, é necessário ter pelo menos um Bot no quarto. No campo **Nome do Bot**, informe o nome do Bot que deverá ser observado pelo Ativador.
 
 ![Janela de configuração do Ativador Wired Bot alcança usuário, com o campo Nome do Bot preenchido com fswiredclub](@assets/wf_trg_bot_reached_avtr/2-wired-bot-alcanca-usuario.png "Janela de configuração do Ativador Wired Bot alcança usuário, com o campo Nome do Bot preenchido com fswiredclub")
+
+Para definir qual Bot seguirá o jogador, utilize o **Efeito Wired: Bot segue o usuário**. Nas configurações avançadas, na seção **Selecione Bot fonte**, é possível escolher uma das seguintes opções:
+
+- **Use o Bot especificado pelo nome:** utiliza o nome informado no campo de texto do Wired.
+- **Usuários do seletor:** utiliza o Bot retornado por um Seletor presente na pilha.
+- **Usuários do sinal:** utiliza o Bot associado ao sinal recebido pela pilha.
+- **Usuário acionador:** utiliza o Bot que ativou a pilha.
+- **Usuário clicado:** utiliza o Bot clicado. Esta opção só aparece quando a pilha utiliza o **Ativador Wired: Usuário clica em usuário**.
+
+<img
+  src={WiredEfeitoBotSegueOUsuarioBotFonte.src}
+  alt="Configurações avançadas do Efeito Wired Bot segue o usuário, com a opção Selecione Bot fonte sendo alterada"
+  title="Configurações avançadas do Efeito Wired Bot segue o usuário, com a opção Selecione Bot fonte sendo alterada"
+  style={{ width: "35%" }}
+/>
+
+Depois de escolher o Bot, também é necessário definir qual jogador ele deverá seguir.
 
 ### Quem é o usuário?
 
 No Habbo, o termo "usuário" pode se referir a jogadores, Bots ou Pets. Porém, neste Wired, o Bot só pode seguir jogadores presentes no quarto. Portanto, é necessário que haja pelo menos um jogador no ambiente para que o comportamento funcione como esperado.
 
-Para definir quem o bot seguirá, precisamos ir até as configurações avançadas do **Efeito Wired: Bot segue o usuário**, no tópico de selecionar usuários fonte. É possível escolher uma das seguintes fontes:
+O jogador perseguido também é definido nas configurações avançadas do **Efeito Wired: Bot segue o usuário**, na seção **Selecionar usuários fonte**. É possível escolher uma das seguintes fontes:
 
 - **Usuário acionador:** o jogador que ativou a pilha.
 - **Usuários do seletor:** os jogadores retornados por um Seletor presente na pilha.
 - **Usuários do sinal:** os jogadores associados ao sinal recebido pela pilha.
 - **Usuário clicado:** o jogador clicado. Esta opção só aparece quando a pilha utiliza o **Ativador Wired: Usuário clica em usuário**.
+
+<img
+  src={WiredEfeitoBotSegueOUsuarioUsuarioFonte.src}
+  alt="Configurações avançadas do Efeito Wired Bot segue o usuário, com a opção Selecionar usuários fonte sendo alterada"
+  title="Configurações avançadas do Efeito Wired Bot segue o usuário, com a opção Selecionar usuários fonte sendo alterada"
+  style={{ width: "35%" }}
+/>
 
 ## Exemplo prático
 
