@@ -47,5 +47,110 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+import BotsNaLoja from "@assets/wf_trg_bot_reached_avtr/1-bots-na-loja.png";
+
+O **Ativador Wired: Bot alcança usuário** executa uma pilha Wired quando um Bot configurado alcança um jogador no quarto.
 
 <Infobox />
+
+### O que é um Bot?
+
+Os Bots são um tipo de usuário que podem ser adquiridos no catálogo do jogo. Existem três tipos de Bot, e o modelo mais barato custa 25 moedas.
+
+<img
+  src={BotsNaLoja.src}
+  alt="Seção Bots da loja do Habbo, com três modelos disponíveis por 25, 40 e 35 moedas"
+  style={{ width: "55%" }}
+/>
+
+Para que este Ativador funcione como esperado, é necessário ter pelo menos um Bot no quarto e informar o nome dele na configuração do Wired.
+
+![](@assets/wf_trg_at_given_time/2-wired-no-tempo-escolhido.png)
+
+### Quem é o usuário?
+
+Neste Wired, o usuário é um jogador presente no quarto. Portanto, o Bot só poderá alcançar alguém enquanto houver jogadores no ambiente.
+
+## Exemplo prático
+
+Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o Bot começará a seguir o jogador. Quando conseguir alcançá-lo, a mensagem `Pego!` será exibida. O jogo também poderá ser interrompido ao dizer `Tempo!`.
+
+<figure>
+  <video controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+<Tabs>
+  <TabItem label="Configuração">
+    Primeira pilha
+
+    <Steps>
+    1. **Ativador:** Habbo diz algo
+        1. Escreva a mensagem `Já!`
+        2. Selecione a opção de Combinação exata
+    2. **Efeito:** Bot segue o usuário
+        1. Informe o nome do seu Bot, nesse caso, `fswiredclub`
+        2. Selecione a opção de Começar a seguir
+    </Steps>
+
+    Segunda pilha
+
+    <Steps>
+    1. **Ativador:** Bot alcança usuário
+        1. Informe o nome do seu Bot, nesse caso, `fswiredclub`
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva a mensagem `Pego!`
+    </Steps>
+
+    Terceira pilha
+
+    <Steps>
+    1. **Ativador:** Habbo diz algo
+        1. Escreva a mensagem `Tempo!`
+        2. Selecione a opção de Combinação exata
+    2. **Efeito:** Bot segue o usuário
+        1. Informe o nome do seu Bot, nesse caso, `fswiredclub`
+        2. Selecione a opção de Parar de seguir
+    </Steps>
+  </TabItem>
+
+  <TabItem label="PseudoWired">
+    Primeira pilha
+
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Habbo diz algo: Já! com Combinação exata
+    ENTÃO
+      - Bot segue o usuário: fswiredclub com Começar a seguir
+    `} />
+
+    Segunda pilha
+    
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Bot alcança usuário: fswiredclub
+    ENTÃO
+      - Mostrar mensagem: Pego!
+    `} />
+
+    Terceira pilha
+
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Habbo diz algo: Tempo! com Combinação exata
+    ENTÃO
+      - Bot segue o usuário: fswiredclub com Parar de seguir
+    `} />
+  </TabItem>
+</Tabs>
+
+### O que acontece nesse exemplo?
+
+Quando um jogador diz `Já!`, o Bot `fswiredclub` começa a segui-lo. Assim que o Bot alcança esse jogador, o Ativador da primeira pilha é acionado e a mensagem `Pego!` é exibida.
+
+O efeito **Bot segue o usuário** continua funcionando até que outro efeito do mesmo tipo seja executado com a opção de parar de seguir. Por isso, a terceira pilha é necessária: ao dizer `Tempo!`, o Bot interrompe a perseguição.
