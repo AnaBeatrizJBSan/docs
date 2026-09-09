@@ -73,9 +73,9 @@ Para que este Ativador funcione como esperado, é necessário ter pelo menos um 
 
 ### Quem é o usuário?
 
-Neste Wired, o usuário é um jogador presente no quarto. Portanto, o Bot só poderá alcançar alguém enquanto houver jogadores no ambiente.
+No Habbo, o termo "usuário" pode se referir a jogadores, Bots ou Pets. Porém, neste Wired, o Bot só pode seguir jogadores presentes no quarto. Portanto, é necessário que haja pelo menos um jogador no ambiente para que o comportamento funcione como esperado.
 
-O tipo de jogador que o Bot seguirá é definido nas configurações avançadas do **Efeito Wired: Bot segue o usuário**. Nelas, é possível escolher uma das seguintes fontes:
+Para definir quem o bot seguirá, precisamos ir até as configurações avançadas do **Efeito Wired: Bot segue o usuário**, no tópico de selecionar usuários fonte. É possível escolher uma das seguintes fontes:
 
 - **Usuário acionador:** o jogador que ativou a pilha.
 - **Usuários do seletor:** os jogadores retornados por um Seletor presente na pilha.
@@ -133,9 +133,11 @@ Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o B
 
     <PseudoWiredCodeBlock code={`
     QUANDO
-      - Habbo diz algo: 'Já!' com Combinação exata
+      - Habbo diz algo: 'Já!'
+        Combinação exata
     ENTÃO
-      - Bot segue o usuário: 'fswiredclub' com Começar a seguir
+      - Bot segue o usuário: 'fswiredclub'
+        Começar a seguir
     `} />
 
     Segunda pilha
@@ -144,16 +146,19 @@ Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o B
     QUANDO
       - Bot alcança usuário: fswiredclub
     ENTÃO
-      - Mostrar mensagem: 'Pego!' com Visibilidade da mensagem marcado para Todos
+      - Mostrar mensagem: 'Pego!'
+        Visibilidade da mensagem: Todos
     `} />
 
     Terceira pilha
 
     <PseudoWiredCodeBlock code={`
     QUANDO
-      - Habbo diz algo: 'Tempo!' com Combinação exata
+      - Habbo diz algo: 'Tempo!'
+        Combinação exata
     ENTÃO
-      - Bot segue o usuário: 'fswiredclub' com Parar de seguir
+      - Bot segue o usuário: fswiredclub
+        Parar de seguir
     `} />
   </TabItem>
 </Tabs>
