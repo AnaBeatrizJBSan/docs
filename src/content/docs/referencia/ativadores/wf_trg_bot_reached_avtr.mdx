@@ -62,16 +62,24 @@ Os Bots são um tipo de usuário que podem ser adquiridos no catálogo do jogo. 
 <img
   src={BotsNaLoja.src}
   alt="Seção Bots da loja do Habbo, com três modelos disponíveis por 25, 40 e 35 moedas"
+  title="Seção Bots da loja do Habbo, com três modelos disponíveis por 25, 40 e 35 moedas"
   style={{ width: "55%" }}
 />
 
 Para que este Ativador funcione como esperado, é necessário ter pelo menos um Bot no quarto e informar o nome dele na configuração do Wired.
 
-![](@assets/wf_trg_at_given_time/2-wired-no-tempo-escolhido.png)
+![Janela de configuração do Ativador Wired Bot alcança usuário, com o campo Nome do Bot preenchido com fswiredclub](@assets/wf_trg_bot_reached_avtr/2-wired-bot-alcanca-usuario.png "Janela de configuração do Ativador Wired Bot alcança usuário, com o campo Nome do Bot preenchido com fswiredclub")
 
 ### Quem é o usuário?
 
 Neste Wired, o usuário é um jogador presente no quarto. Portanto, o Bot só poderá alcançar alguém enquanto houver jogadores no ambiente.
+
+O tipo de jogador que o Bot seguirá é definido nas configurações avançadas do **Efeito Wired: Bot segue o usuário**. Nelas, é possível escolher uma das seguintes fontes:
+
+- **Usuário acionador:** o jogador que ativou a pilha.
+- **Usuários do seletor:** os jogadores retornados por um Seletor presente na pilha.
+- **Usuários do sinal:** os jogadores associados ao sinal recebido pela pilha.
+- **Usuário clicado:** o jogador clicado. Esta opção só aparece quando a pilha utiliza o **Ativador Wired: Usuário clica em usuário**.
 
 ## Exemplo prático
 
