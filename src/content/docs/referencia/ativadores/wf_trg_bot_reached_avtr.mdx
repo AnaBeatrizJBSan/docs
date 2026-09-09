@@ -4,7 +4,7 @@ description: Efeitos são ativados quando um dos Bots alcança o usuário
 sidebar:
   label: Bot alcança usuário
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -50,6 +50,7 @@ import Infobox from "@components/Infobox.astro"
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import BotsNaLoja from "@assets/wf_trg_bot_reached_avtr/1-bots-na-loja.png";
+import SistemaDePegaPega from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega.mp4";
 
 O **Ativador Wired: Bot alcança usuário** executa uma pilha Wired quando um Bot configurado alcança um jogador no quarto.
 
@@ -87,7 +88,7 @@ Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o B
 
 <figure>
   <video controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={SistemaDePegaPega} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -112,7 +113,7 @@ Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o B
     1. **Ativador:** Bot alcança usuário
         1. Informe o nome do seu Bot, nesse caso, `fswiredclub`
     2. **Efeito:** Mostrar mensagem
-        1. Escreva a mensagem `Pego!`
+        1. Escreva a mensagem `Pego!` com Visibilidade da mensagem marcado para Todos
     </Steps>
 
     Terceira pilha
@@ -132,9 +133,9 @@ Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o B
 
     <PseudoWiredCodeBlock code={`
     QUANDO
-      - Habbo diz algo: Já! com Combinação exata
+      - Habbo diz algo: 'Já!' com Combinação exata
     ENTÃO
-      - Bot segue o usuário: fswiredclub com Começar a seguir
+      - Bot segue o usuário: 'fswiredclub' com Começar a seguir
     `} />
 
     Segunda pilha
@@ -143,16 +144,16 @@ Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o B
     QUANDO
       - Bot alcança usuário: fswiredclub
     ENTÃO
-      - Mostrar mensagem: Pego!
+      - Mostrar mensagem: 'Pego!' com Visibilidade da mensagem marcado para Todos
     `} />
 
     Terceira pilha
 
     <PseudoWiredCodeBlock code={`
     QUANDO
-      - Habbo diz algo: Tempo! com Combinação exata
+      - Habbo diz algo: 'Tempo!' com Combinação exata
     ENTÃO
-      - Bot segue o usuário: fswiredclub com Parar de seguir
+      - Bot segue o usuário: 'fswiredclub' com Parar de seguir
     `} />
   </TabItem>
 </Tabs>
