@@ -4,7 +4,7 @@ description: Este extra exibe uma barra de saúde acima de um usuário ou mobi, 
 sidebar:
   label: Barra de saúde do chefe
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -41,5 +41,134 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_boss/1-requisitos.png";
+
+A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de progresso que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
+
+A aparência da barra é atualizada de acordo com o valor de uma variável já atribuída ao mobi ou ao usuário.
 
 <Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Barra de saúde do chefe** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+<img
+  src={Requisitos.src}
+  style={{ width: "40%" }}
+/>
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o preenchimento da barra de saúde.
+
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Barra de saúde do chefe**, serão exibidas algumas opções de personalização.
+
+### Estilo
+
+Nesta seção é possível escolher como a barra de saúde será exibida.
+
+Atualmente existem dois estilos disponíveis:
+
+* **Vida do chefe e caveira:** exibe a barra de progresso acompanhada por uma caveira em cada extremidade.
+* **Vida do chefe:** exibe apenas a barra de progresso.
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência da barra de saúde.
+
+Sempre que um estilo for alterado, essa prévia será atualizada automaticamente.
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência da barra.
+
+#### Cor
+
+É possível escolher entre diversas cores.
+
+A maioria delas possui uma aparência fixa, porém duas opções merecem destaque:
+
+* **Vermelho para verde:** a cor da barra varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra. Quanto menor for o valor, mais vermelha ela ficará.
+* **Cor do time:** utiliza a mesma cor de um time do Battle Banzai, podendo ser rosa, amarelo, azul ou verde.
+
+#### Tamanho
+
+Também é possível definir o tamanho da barra de saúde.
+
+As opções disponíveis são:
+
+* Grande
+* Extra grande
+* Enorme
+
+### Intervalo de valores
+
+Esta seção define como o valor da variável será convertido em uma porcentagem da barra de progresso.
+
+O próprio Wired fornece um exemplo:
+
+* Valor mínimo: **10**
+* Valor máximo: **20**
+* Valor da variável: **15**
+
+Nesse caso, a barra será exibida com aproximadamente **50%** do seu preenchimento.
+
+Alterar os valores mínimo e máximo permite adaptar a barra para diferentes escalas de vida.
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando a barra de saúde ficará visível.
+
+#### Sempre visível
+
+A barra permanecerá sempre visível acima do mobi ou usuário.
+
+#### Visível quando a variável atualiza
+
+A barra será exibida quando a variável for atualizada.
+
+Essa atualização pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando recebe novamente o mesmo valor.
+
+Também existe uma opção para exibir a barra apenas quando o mouse estiver sobre o mobi ou usuário.
+
+#### Visível ao passar o mouse
+
+A barra será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+### Configurações avançadas de intervalo
+
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo, também é possível utilizar variáveis.
+
+#### Substituir mínimo
+
+Ao marcar esta opção, o valor mínimo passará a ser obtido a partir de uma variável.
+
+Dependendo do tipo de variável selecionado no topo da janela da Variável FX, será possível escolher:
+
+* Variáveis de usuário;
+* Variáveis de mobi;
+* Variáveis globais.
+
+#### Substituir máximo
+
+Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define o valor máximo do intervalo utilizando uma variável.
+
+Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
+
+## Exemplos de uso
+
+A **Variável FX: Barra de saúde do chefe** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* Exibir a vida de um chefão durante uma batalha.
+* Mostrar a saúde de um inimigo ou NPC.
+* Representar a durabilidade de um objeto do quarto.
+* Criar barras de energia para jogadores.
+* Exibir o progresso de destruição de um mobi.
+
