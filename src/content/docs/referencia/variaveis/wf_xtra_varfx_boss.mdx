@@ -51,8 +51,10 @@ import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/8-sempre-visivel-ex
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_boss/9-visivel-quando-a-variavel-atualiza.mp4"
 import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx_boss/10-wired-com-visivel-ao-passar-o-mouse-marcado.png";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-visivel-ao-passar-o-mouse-exemplo.gif";
-import AudienciaSomenteOUsuario from "@assets/wf_xtra_varfx_boss/11-wired-audiencia-somente-o-usuario.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx_boss/11-wired-audiencia-somente-o-usuario.png";
 import AudienciaSomenteOUsuarioVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/11-audiencia-somente-o-usuario-exemplo-visao-dos-usuarios.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx_boss/12-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/12-audiencia-usuarios-que-estao-no-mesmo-time-exemplo-visao-dos-usuarios.png";
 
 A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de saúde que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
 
@@ -294,7 +296,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de saú
     <tr>
       <td>
         <img
-          src={AudienciaSomenteOUsuario.src}
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
           alt="Configurações de audiência da Barra de saúde do chefe, com a opção Somente o usuário selecionada"
           title="Configurações de audiência da Barra de saúde do chefe, com a opção Somente o usuário selecionada"
           style={{ width: "100%" }}
@@ -317,6 +319,35 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de saú
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão a barra de saúde**.
 
 Esta opção não está disponível quando o Wired **Variável FX: Barra de saúde do chefe** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que estão no mesmo time selecionada"
+          title="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que estão no mesmo time selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios.src}
+          alt="Comparação entre jogadores do mesmo time, que veem barras de saúde, e jogadores de outro time, que não as veem"
+          title="Comparação entre jogadores do mesmo time, que veem barras de saúde, e jogadores de outro time, que não as veem"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Usuários que têm variável
 
