@@ -49,6 +49,10 @@ import IntervaloDeValores from "@assets/wf_xtra_varfx_boss/7-intervalo-de-valore
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx_boss/8-wired-com-sempre-visivel-marcado.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/8-sempre-visivel-exemplo.png";
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_boss/9-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx_boss/10-wired-com-visivel-ao-passar-o-mouse-marcado.png";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-visivel-ao-passar-o-mouse-exemplo.gif";
+import AudienciaSomenteOUsuario from "@assets/wf_xtra_varfx_boss/11-wired-audiencia-somente-o-usuario.png";
+import AudienciaSomenteOUsuarioVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/11-audiencia-somente-o-usuario-exemplo-visao-dos-usuarios.png";
 
 A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de saúde que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
 
@@ -212,10 +216,9 @@ A barra de saúde permanecerá sempre visível acima do mobi ou usuário.
   </tbody>
 </table>
 
-
 #### Visível quando a variável atualiza
 
-A barra de saúde será exibida quando a variável for atualizada.
+A barra de saúde será exibida quando a variável configurada no tópico [Requisitos](/referencia/variaveis/wf_xtra_varfx_boss/#requisitos) for atualizada.
 
 Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
 
@@ -239,23 +242,81 @@ No exemplo abaixo foi informado o valor **2000** para a duração, então a barr
 
 A barra de saúde será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
 
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações de visibilidade da Barra de saúde do chefe, com a opção Visível ao passar o mouse selecionada"
+          title="Configurações de visibilidade da Barra de saúde do chefe, com a opção Visível ao passar o mouse selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseExemplo.src}
+          alt="Mobi no quarto do Habbo sem barra de saúde visível até que o mouse seja posicionado sobre ele"
+          title="Mobi no quarto do Habbo sem barra de saúde visível até que o mouse seja posicionado sobre ele"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ### Audiência
 
 Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
 
-As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Barra de saúde do chefe**.
+As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Barra de saúde do chefe**, de usuário ou de mobi.
 
 #### Somente o usuário
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá a barra de saúde**.
 
-Esta opção não está disponível quando o Wired **Variável FX: Barra de saúde do chefe** estiver vinculada a uma variável de mobi.
+Esta opção não está disponível quando o Wired **Variável FX: Barra de saúde do chefe** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuario.src}
+          alt="Configurações de audiência da Barra de saúde do chefe, com a opção Somente o usuário selecionada"
+          title="Configurações de audiência da Barra de saúde do chefe, com a opção Somente o usuário selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioVisaoDosUsuarios.src}
+          alt="Comparação entre a visão do usuário com a variável, que vê a barra de saúde, e a de outros usuários, que não a veem"
+          title="Comparação entre a visão do usuário com a variável, que vê a barra de saúde, e a de outros usuários, que não a veem"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Usuários que estão no mesmo time
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão a barra de saúde**.
 
-Esta opção não está disponível quando a Variável FX estiver vinculada a uma variável de mobi.
+Esta opção não está disponível quando o Wired **Variável FX: Barra de saúde do chefe** estiver vinculado a uma variável de mobi.
 
 #### Usuários que têm variável
 
@@ -263,11 +324,13 @@ Levando em consideração a configuração de visibilidade escolhida anteriormen
 
 Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
 
-Esta opção está disponível tanto para Variáveis FX vinculadas a variáveis de usuário quanto a variáveis de mobi.
+Esta opção está disponível tanto para um Wired **Variável FX: Barra de saúde do chefe** vinculado a uma variável de usuário quanto a uma variável de mobi.
 
 #### Todos
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a barra de saúde acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Barra de saúde do chefe** vinculado a variáveis de usuário quanto a variáveis de mobi.
 
 ### Configurações avançadas de intervalo
 
@@ -277,7 +340,7 @@ Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e m
 
 Ao marcar esta opção, o valor mínimo passará a ser obtido a partir de uma variável.
 
-Dependendo do tipo de variável selecionado no topo da janela da Variável FX, será possível escolher:
+Dependendo do tipo de variável selecionado no topo da janela do Wired **Variável FX: Barra de saúde do chefe**, será possível escolher:
 
 * Variáveis de usuário;
 * Variáveis de mobi;
