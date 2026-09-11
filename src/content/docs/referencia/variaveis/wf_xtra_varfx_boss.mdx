@@ -41,9 +41,9 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
-import Requisitos from "@assets/wf_xtra_varfx_boss/1-requisitos.png";
+import Requisitos from "@assets/wf_xtra_varfx_boss/1-requisitos.mp4";
 
-A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de progresso que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
+A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de saúde que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
 
 A aparência da barra é atualizada de acordo com o valor de uma variável já atribuída ao mobi ou ao usuário.
 
@@ -58,12 +58,17 @@ Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **
 * **Wired Variável: Mobi Variável**
 * **Wired Variável: Usuário Variável**
 
-<img
-  src={Requisitos.src}
-  style={{ width: "40%" }}
-/>
-
 Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o preenchimento da barra de saúde.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video controls preload="metadata" style={{ width: "100%" }}>
+    <source src={Requisitos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 
 ## Como esse Wired funciona?
@@ -76,8 +81,8 @@ Nesta seção é possível escolher como a barra de saúde será exibida.
 
 Atualmente existem dois estilos disponíveis:
 
-* **Vida do chefe e caveira:** exibe a barra de progresso acompanhada por uma caveira em cada extremidade.
-* **Vida do chefe:** exibe apenas a barra de progresso.
+* **Vida do chefe e caveira:** exibe a barra de saúde acompanhada por uma caveira em cada extremidade.
+* **Vida do chefe:** exibe apenas a barra de saúde.
 
 ![](@assets/wf_xtra_varfx_boss/2-estilo.png)
 
@@ -91,7 +96,7 @@ Sempre que um estilo for alterado, essa prévia será atualizada automaticamente
 
 ### Configurações
 
-Nesta seção é possível personalizar a aparência da barra.
+Nesta seção é possível personalizar a aparência da barra de saúde.
 
 #### Cor
 
@@ -99,7 +104,7 @@ Nesta seção é possível personalizar a aparência da barra.
 
 A maioria delas possui uma aparência fixa, porém duas opções merecem destaque:
 
-* **Vermelho para verde:** a cor da barra varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra. Quanto menor for o valor, mais vermelha ela ficará.
+* **Vermelho para verde:** a cor da barra de saúde varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra de saúde. Quanto menor for o valor, mais vermelha ela ficará.
 * **Cor do time:** utiliza a mesma cor de um time do Battle Banzai, podendo ser rosa, amarelo, azul ou verde.
 
 #### Tamanho
@@ -114,7 +119,7 @@ As opções disponíveis são:
 
 ### Intervalo de valores
 
-Esta seção define como o valor da variável será convertido em uma porcentagem da barra de progresso.
+Esta seção define como o valor da variável será convertido em uma porcentagem da barra de saúde.
 
 O próprio Wired fornece um exemplo:
 
@@ -122,9 +127,9 @@ O próprio Wired fornece um exemplo:
 * Valor máximo: **20**
 * Valor da variável: **15**
 
-Nesse caso, a barra será exibida com aproximadamente **50%** do seu preenchimento.
+Nesse caso, a barra de saúde será exibida com aproximadamente **50%** do seu preenchimento.
 
-Alterar os valores mínimo e máximo permite adaptar a barra para diferentes escalas de vida.
+Alterar os valores mínimo e máximo permite adaptar a barra de saúde para diferentes escalas de vida.
 
 ### Configurações de visibilidade
 
@@ -132,19 +137,19 @@ Nesta seção é possível definir quando a barra de saúde ficará visível.
 
 #### Sempre visível
 
-A barra permanecerá sempre visível acima do mobi ou usuário.
+A barra de saúde permanecerá sempre visível acima do mobi ou usuário.
 
 #### Visível quando a variável atualiza
 
-A barra será exibida quando a variável for atualizada.
+A barra de saúde será exibida quando a variável for atualizada.
 
 Essa atualização pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando recebe novamente o mesmo valor.
 
-Também existe uma opção para exibir a barra apenas quando o mouse estiver sobre o mobi ou usuário.
+Também existe uma opção para exibir a barra de saúde apenas quando o mouse estiver sobre o mobi ou usuário.
 
 #### Visível ao passar o mouse
 
-A barra será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+A barra de saúde será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
 
 ### Configurações avançadas de intervalo
 
