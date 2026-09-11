@@ -42,6 +42,10 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_boss/1-requisitos.mp4";
+import CorVermelhoPraVerde from "@assets/wf_xtra_varfx_boss/4-cor-vermelho-pra-verde.mp4";
+import CorDoTime from "@assets/wf_xtra_varfx_boss/5-cor-do-time.mp4";
+import Tamanho from "@assets/wf_xtra_varfx_boss/6-tamanho.mp4";
+import IntervaloDeValores from "@assets/wf_xtra_varfx_boss/7-intervalo-de-valores.mp4";
 
 A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de saúde que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
 
@@ -63,7 +67,7 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 O vídeo abaixo ilustra como seria esse processo:
 
 <figure>
-  <video controls preload="metadata" style={{ width: "100%" }}>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
     <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -84,7 +88,7 @@ Atualmente existem dois estilos disponíveis:
 * **Vida do chefe e caveira:** exibe a barra de saúde acompanhada por uma caveira em cada extremidade.
 * **Vida do chefe:** exibe apenas a barra de saúde.
 
-![](@assets/wf_xtra_varfx_boss/2-estilo.png)
+![Comparação entre os estilos de barra de saúde: com caveiras nas extremidades e sem caveiras](@assets/wf_xtra_varfx_boss/2-estilo.png)
 
 ### Visualização
 
@@ -92,7 +96,7 @@ A seção **Visualização** mostra uma prévia da aparência da barra de saúde
 
 Sempre que um estilo for alterado, essa prévia será atualizada automaticamente.
 
-![](@assets/wf_xtra_varfx_boss/3-visualizacao.gif)
+![Janela de configuração da Variável FX Barra de saúde do chefe mostrando a prévia da barra ao alterar o estilo](@assets/wf_xtra_varfx_boss/3-visualizacao.gif)
 
 ### Configurações
 
@@ -100,12 +104,30 @@ Nesta seção é possível personalizar a aparência da barra de saúde.
 
 #### Cor
 
-É possível escolher entre diversas cores.
+É possível escolher entre diversas cores para a barra de saúde.
 
-A maioria delas possui uma aparência fixa, porém duas opções merecem destaque:
+No entanto, essa configuração está disponível apenas para o estilo **Vida do chefe**.
+
+O estilo **Vida do chefe e caveira** utiliza sempre a cor vermelha, que é o padrão desse efeito visual e não pode ser alterada.
+
+A maioria das cores disponíveis possui uma aparência fixa, porém duas opções merecem destaque:
 
 * **Vermelho para verde:** a cor da barra de saúde varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra de saúde. Quanto menor for o valor, mais vermelha ela ficará.
-* **Cor do time:** utiliza a mesma cor de um time do Battle Banzai, podendo ser rosa, amarelo, azul ou verde.
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={CorVermelhoPraVerde} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+* **Cor do time:** utiliza a mesma cor de um time do Battle Banzai, podendo ser vermelho, verde, azul ou amarelo.
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={CorDoTime} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 #### Tamanho
 
@@ -117,19 +139,37 @@ As opções disponíveis são:
 * Extra grande
 * Enorme
 
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={Tamanho} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
 ### Intervalo de valores
 
 Esta seção define como o valor da variável será convertido em uma porcentagem da barra de saúde.
 
+Nos campos **Valor mínimo** e **Valor máximo**, é possível informar números com **até 10 dígitos**.
+
 O próprio Wired fornece um exemplo:
 
+* Valor da variável: **15**
 * Valor mínimo: **10**
 * Valor máximo: **20**
-* Valor da variável: **15**
 
 Nesse caso, a barra de saúde será exibida com aproximadamente **50%** do seu preenchimento.
 
 Alterar os valores mínimo e máximo permite adaptar a barra de saúde para diferentes escalas de vida.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={IntervaloDeValores} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 ### Configurações de visibilidade
 
@@ -143,13 +183,43 @@ A barra de saúde permanecerá sempre visível acima do mobi ou usuário.
 
 A barra de saúde será exibida quando a variável for atualizada.
 
-Essa atualização pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando recebe novamente o mesmo valor.
+Essa atualização pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
 
 Também existe uma opção para exibir a barra de saúde apenas quando o mouse estiver sobre o mobi ou usuário.
 
 #### Visível ao passar o mouse
 
 A barra de saúde será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pela Variável FX.
+
+#### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá a barra de saúde**.
+
+Esta opção não está disponível quando a Variável FX estiver vinculada a uma variável de mobi.
+
+#### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time do Battle Banzai que o usuário visualizarão a barra de saúde**.
+
+Esta opção não está disponível quando a Variável FX estiver vinculada a uma variável de mobi.
+
+#### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar a barra de saúde**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para Variáveis FX vinculadas a variáveis de usuário quanto a variáveis de mobi.
+
+#### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a barra de saúde acima do mobi ou usuário**.
 
 ### Configurações avançadas de intervalo
 
@@ -180,4 +250,3 @@ A **Variável FX: Barra de saúde do chefe** pode ser utilizada em diversos sist
 * Representar a durabilidade de um objeto do quarto.
 * Criar barras de energia para jogadores.
 * Exibir o progresso de destruição de um mobi.
-
