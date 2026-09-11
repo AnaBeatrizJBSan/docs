@@ -46,15 +46,17 @@ import CorVermelhoPraVerde from "@assets/wf_xtra_varfx_boss/4-cor-vermelho-pra-v
 import CorDoTime from "@assets/wf_xtra_varfx_boss/5-cor-do-time.mp4";
 import Tamanho from "@assets/wf_xtra_varfx_boss/6-tamanho.mp4";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_boss/7-intervalo-de-valores.mp4";
-import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx_boss/8-wired-com-sempre-visivel-marcado.png";
-import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/8-sempre-visivel-exemplo.png";
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx_boss/8-wired-sempre-visivel.png";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/8-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_boss/9-visivel-quando-a-variavel-atualiza.mp4"
-import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx_boss/10-wired-com-visivel-ao-passar-o-mouse-marcado.png";
-import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-visivel-ao-passar-o-mouse-exemplo.gif";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx_boss/10-wired-visivel-ao-passar-o-mouse.png";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-exemplo-visivel-ao-passar-o-mouse.gif";
 import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx_boss/11-wired-audiencia-somente-o-usuario.png";
-import AudienciaSomenteOUsuarioVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/11-audiencia-somente-o-usuario-exemplo-visao-dos-usuarios.png";
+import AudienciaSomenteOUsuarioVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/11-exemplo-audiencia-somente-o-usuario.png";
 import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx_boss/12-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
-import AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/12-audiencia-usuarios-que-estao-no-mesmo-time-exemplo-visao-dos-usuarios.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/12-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx_boss/13-wired-audiencia-usuarios-com-variavel.gif";
+import AudienciaUsuariosComVariavelExemplo from "@assets/wf_xtra_varfx_boss/13-exemplo-audiencia-usuarios-com-variavel.png";
 
 A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de saúde que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
 
@@ -357,6 +359,35 @@ Ao selecionar esta opção, uma nova janela será aberta para que seja possível
 
 Esta opção está disponível tanto para um Wired **Variável FX: Barra de saúde do chefe** vinculado a uma variável de usuário quanto a uma variável de mobi.
 
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosComVariavelConfiguracao.src}
+          alt="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que têm variável sendo configurada"
+          title="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que têm variável sendo configurada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosComVariavelExemplo.src}
+          alt="Comparação entre visualizações do quarto, com a barra de saúde visível apenas para usuários que possuem a variável configurada"
+          title="Comparação entre visualizações do quarto, com a barra de saúde visível apenas para usuários que possuem a variável configurada"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 #### Todos
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a barra de saúde acima do mobi ou usuário**.
@@ -365,7 +396,7 @@ Esta opção está disponível tanto para um Wired **Variável FX: Barra de saú
 
 ### Configurações avançadas de intervalo
 
-Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo, também é possível utilizar variáveis.
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo, também é possível utilizar valores armazenados em variáveis.
 
 #### Substituir mínimo
 
@@ -382,6 +413,10 @@ Dependendo do tipo de variável selecionado no topo da janela do Wired **Variáv
 Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define o valor máximo do intervalo utilizando uma variável.
 
 Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
+
+| Variável de Usuário | Variável de Mobi | Variável Global |
+| :---: | :---: | :---: |
+| ![Janela da Variável FX Barra de saúde do chefe com as configurações avançadas de intervalo para uma Variável de Usuário](@assets/wf_xtra_varfx_boss/14-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif "Janela da Variável FX Barra de saúde do chefe com as configurações avançadas de intervalo para uma Variável de Usuário") | ![Janela da Variável FX Barra de saúde do chefe com as configurações avançadas de intervalo para uma Variável de Mobi](@assets/wf_xtra_varfx_boss/14-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif "Janela da Variável FX Barra de saúde do chefe com as configurações avançadas de intervalo para uma Variável de Mobi") | ![Janela da Variável FX Barra de saúde do chefe com as configurações avançadas de intervalo para uma Variável Global](@assets/wf_xtra_varfx_boss/14-configuracoes-avancadas-de-intervalo-variavel-global.gif "Janela da Variável FX Barra de saúde do chefe com as configurações avançadas de intervalo para uma Variável Global") |
 
 ## Exemplos de uso
 
