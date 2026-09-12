@@ -24,7 +24,7 @@ export default defineConfig({
 			description: 'Documentação oficial da comunidade Wired Club, o maior portal Wired!',
 			tableOfContents: {
 				minHeadingLevel: 2,
-				maxHeadingLevel: 4,
+				maxHeadingLevel: 5,
 			},
 			head: [
 				{ tag: 'link', attrs: { rel: 'manifest', href: '/manifest.webmanifest' } },

@@ -174,7 +174,30 @@ Nesta seção é possível definir quando os pontos de saúde ficarão visíveis
 
 Os pontos de saúde permanecerão sempre visíveis acima do mobi ou usuário.
 
-![Configuração e exemplo dos Pontos de Saúde sempre visíveis](https://placehold.co/600x400?text=sempre+visivel "Configuração e exemplo dos Pontos de Saúde sempre visíveis")
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400?text=sempre+visivel+configuracao+do+wired"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400?text=sempre+visivel+exemplo+do+efeito+visual+no+quarto"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Visível quando a variável atualiza
 
@@ -182,7 +205,11 @@ Os pontos de saúde serão exibidos quando a variável configurada no tópico [R
 
 Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não é alterado.
 
-Também é possível definir por quanto tempo os pontos de saúde permanecerão visíveis utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+Também existe uma opção para exibir a barra de pontos de saúde apenas quando o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo os pontos de saúde permanecerão visíveis utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de pontos de saúde permanece visível por **2 segundos** acima do usuário sempre que a variável aumenta de valor.
 
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
@@ -196,15 +223,38 @@ Também é possível definir por quanto tempo os pontos de saúde permanecerão 
 
 Os pontos de saúde serão exibidos somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
 
-![Configuração e exemplo dos Pontos de Saúde visíveis ao passar o mouse](https://placehold.co/600x400?text=visivel+ao+passar+o+mouse "Configuração e exemplo dos Pontos de Saúde visíveis ao passar o mouse")
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400?text=visivel+ao+passar+o+mouse+configuracao+do+wired"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400?text=visivel+ao+passar+o+mouse+exemplo+do+efeito+visual+no+quarto"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-### Audiência
+#### Audiência
 
 Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
 
 As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Pontos de Saúde**, de usuário ou de mobi.
 
-#### Somente o usuário
+##### Somente o usuário
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá os pontos de saúde**.
 
@@ -212,7 +262,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
 
 ![Exemplo da audiência Somente o usuário](https://placehold.co/600x400?text=somente+o+usuario "Exemplo da audiência Somente o usuário")
 
-#### Usuários que estão no mesmo time
+##### Usuários que estão no mesmo time
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão os pontos de saúde**.
 
@@ -220,7 +270,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
 
 ![Exemplo da audiência Usuários que estão no mesmo time](https://placehold.co/600x400?text=usuarios+no+mesmo+time "Exemplo da audiência Usuários que estão no mesmo time")
 
-#### Usuários que têm variável
+##### Usuários que têm variável
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar os pontos de saúde**.
 
@@ -230,7 +280,7 @@ Esta opção está disponível tanto para um Wired **Variável FX: Pontos de Sa�
 
 ![Exemplo da audiência Usuários que têm variável](https://placehold.co/600x400?text=usuarios+com+variavel "Exemplo da audiência Usuários que têm variável")
 
-#### Todos
+##### Todos
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar os pontos de saúde acima do mobi ou usuário**.
 
