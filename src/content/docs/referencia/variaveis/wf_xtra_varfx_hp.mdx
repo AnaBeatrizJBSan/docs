@@ -46,6 +46,13 @@ import Cor from "@assets/wf_xtra_varfx_hp/05-cor.mp4";
 import Segmentos from "@assets/wf_xtra_varfx_hp/06-segmentos.mp4";
 import Tamanho from "@assets/wf_xtra_varfx_hp/07-tamanho.mp4";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores.mp4";
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_hp/09-exemplo-sempre-visivel.png";
+import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza.mp4";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_hp/11-exemplo-visivel-ao-passar-o-mouse.gif";
 
 A **Variável FX: Pontos de Saúde** adiciona um efeito visual acima de um mobi ou usuário, exibindo sua saúde de maneiras diferentes. Ele pode representar, por exemplo, a vida de jogadores, inimigos, NPCs ou qualquer mobi do quarto.
 
@@ -107,7 +114,7 @@ Ao pressioná-lo, a prévia da barra de pontos de saúde passa a utilizar difere
 
 Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
 
-![](@assets/wf_xtra_varfx_hp/4-visualizacao-aleatoria.gif)
+![Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_hp/4-visualizacao-aleatoria.gif "Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória")
 
 ### Configurações
 
@@ -206,13 +213,17 @@ Os pontos de saúde permanecerão sempre visíveis acima do mobi ou usuário.
     <tr>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=sempre+visivel+configuracao+do+wired"}
+          src={SempreVisivelConfiguracao.src}
+          alt="Configurações dos Pontos de Saúde com a opção Sempre visível selecionada"
+          title="Configurações dos Pontos de Saúde com a opção Sempre visível selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=sempre+visivel+exemplo+do+efeito+visual+no+quarto"}
+          src={SempreVisivelExemplo.src}
+          alt="Pontos de Saúde visíveis acima de um usuário no quarto"
+          title="Pontos de Saúde visíveis acima de um usuário no quarto"
           style={{ width: "100%" }}
         />
       </td>
@@ -230,11 +241,11 @@ Também existe uma opção para exibir a barra de pontos de saúde apenas quando
 
 Além disso, é possível definir por quanto tempo os pontos de saúde permanecerão visíveis utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
 
-No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de pontos de saúde permanece visível por **2 segundos** acima do usuário sempre que a variável aumenta de valor.
+No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de pontos de saúde permanece visível por **2 segundos** acima do mobi sempre que a variável aumenta de valor.
 
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={VisivelQuandoAVariavelAtualizaExemplo} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -255,13 +266,17 @@ Os pontos de saúde serão exibidos somente enquanto o mouse estiver posicionado
     <tr>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=visivel+ao+passar+o+mouse+configuracao+do+wired"}
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações dos Pontos de Saúde com a opção Visível ao passar o mouse selecionada"
+          title="Configurações dos Pontos de Saúde com a opção Visível ao passar o mouse selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=visivel+ao+passar+o+mouse+exemplo+do+efeito+visual+no+quarto"}
+          src={VisivelAoPassarOMouseExemplo.src}
+          alt="Pontos de Saúde visíveis acima de um usuário enquanto o mouse está sobre ele"
+          title="Pontos de Saúde visíveis acima de um usuário enquanto o mouse está sobre ele"
           style={{ width: "100%" }}
         />
       </td>
@@ -292,7 +307,9 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
     <tr>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=somente+o+usuario+configuracao+do+wired"}
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
+          alt="Configurações de audiência dos Pontos de Saúde com a opção Somente o usuário selecionada"
+          title="Configurações de audiência dos Pontos de Saúde com a opção Somente o usuário selecionada"
           style={{ width: "100%" }}
         />
       </td>
@@ -323,7 +340,9 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
     <tr>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=usuarios+que+estao+no+mesmo+time+configuracao+do+wired"}
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações de audiência dos Pontos de Saúde com a opção Usuários que estão no mesmo time selecionada"
+          title="Configurações de audiência dos Pontos de Saúde com a opção Usuários que estão no mesmo time selecionada"
           style={{ width: "100%" }}
         />
       </td>
