@@ -41,6 +41,7 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
 
 O **Extra Variável: Sistema de Aumento de Nível** auxilia na criação de sistemas de progressão baseados em experiência (XP), permitindo calcular automaticamente o nível correspondente ao valor de uma variável.
 
@@ -61,6 +62,16 @@ Antes de utilizar este Extra de Variável, é necessário adicioná-lo acima de 
 
 Além disso, a variável escolhida já deve possuir um valor atribuído, pois será esse valor que representará a quantidade de experiência utilizada nos cálculos de progressão.
 
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
 ## Como esse Wired funciona?
 
 Ao abrir a janela de configuração do **Extra Variável: Sistema de Aumento de Nível**, serão exibidas algumas opções de configuração.
@@ -80,15 +91,50 @@ Esse modo possui dois campos de configuração:
 * **Tamanho da etapa:** define quantos pontos de experiência são necessários para avançar um nível. Esse campo aceita valores entre **1** e **100000**.
 * **Nível máximo:** define o maior nível que poderá ser atingido. Esse campo aceita valores entre **2** e **100000**.
 
+Por exemplo, com **Tamanho da etapa** igual a **100** e **Nível máximo** igual a **5**, a progressão será:
+
+```text
+Nível 1 - XP: 0
+Nível 2 - XP: 100
+Nível 3 - XP: 200
+Nível 5 - XP: 400
+```
+
+Nesse caso, cada avanço de nível exige mais **100 pontos de experiência**.
+
 #### Exponencial
 
-No modo **Exponencial**, a quantidade de experiência necessária aumenta conforme os níveis avançam.
+No modo **Exponencial**, o total de experiência necessário para cada nível é calculado a partir de uma progressão geométrica.
 
 Esse modo possui três campos de configuração:
 
-* **XP base:** define a quantidade inicial de experiência. Esse campo aceita valores entre **1** e **100000**.
-* **Fator de aumento em porcentagem:** define quanto a experiência necessária aumentará a cada novo nível. Esse campo aceita valores entre **1** e **100000**.
+* **XP base:** define a experiência necessária para alcançar o nível 2. Esse campo aceita valores entre **1** e **100000**.
+* **Fator de aumento em porcentagem:** define a taxa de crescimento da experiência necessária a cada nível. Esse campo aceita valores entre **1** e **100000**.
 * **Nível máximo:** define o maior nível que poderá ser atingido. Esse campo aceita valores entre **2** e **100000**.
+
+A lógica usada pelo Wired é:
+
+1. O nível 1 começa com 0 XP.
+2. O XP base define o custo para chegar ao nível 2.
+3. A cada novo nível, esse custo aumenta conforme o fator escolhido.
+4. O XP de um nível é a soma dos custos de todos os avanços anteriores.
+
+Por exemplo, com **XP base** igual a **25**, **Fator de aumento em porcentagem** igual a **200%** e **Nível máximo** igual a **20**, a progressão será:
+
+```text
+Nível 1 - XP: 0
+Nível 2 - XP: 25
+Nível 3 - XP: 100
+Nível 5 - XP: 1.000
+Nível 10 - XP: 246.025
+Nível 20 - XP: 1.643.366.437
+```
+
+Nesse caso, a experiência exigida em cada avanço cresce de forma exponencial, por isso os níveis mais altos exigem valores consideravelmente maiores. Em valores muito altos, utilize a **[Visualização de nível/experiência](/referencia/variaveis/wf_xtra_var_lvlup_system/#visualização-de-nívelexperiência)** do próprio Wired para conferir o resultado exibido.
+
+<Aside type="tip" title="Curiosidade">
+  O Habbo em sua versão Flash (Clássica) consegue exibir números de até **2.147.483.647**. Quando o resultado ultrapassa esse limite, o valor sofre um retorno dentro do intervalo de números inteiros de 32 bits. Por isso, neste exemplo, embora o cálculo matemático do nível 20 resulte em **14.528.268.325 XP**, o Wired mostra **1.643.366.437 XP** na progressão.
+</Aside>
 
 #### Entrada manual
 
@@ -106,6 +152,24 @@ Por exemplo:
 
 Nesse caso, será necessário possuir **100 pontos de experiência** para atingir o **nível 5**.
 
+Não é necessário informar todos os níveis. Quando um nível anterior não é especificado, o Wired preenche os níveis intermediários automaticamente, distribuindo os valores entre os pontos informados.
+
+Por exemplo, com a seguinte configuração:
+
+```text
+5=200
+10=500
+20=4000
+```
+
+A progressão também exibirá os níveis não informados antes do nível 5:
+
+```text
+Nível 1 - XP: 0
+Nível 2 - XP: 50
+Nível 3 - XP: 100
+```
+
 É possível adicionar quantas relações forem necessárias para personalizar completamente a curva de progressão.
 
 ### Visualização de nível/experiência
@@ -114,16 +178,9 @@ Esta seção exibe uma prévia da relação entre experiência e nível de acord
 
 Por exemplo, suponha que o modo **Linear** esteja selecionado, com **Tamanho da etapa** igual a **1** e **Nível máximo** igual a **10**.
 
-A visualização será semelhante à seguinte:
+A visualização será a seguinte:
 
-```text
-Nível 1 - XP: 0
-Nível 2 - XP: 1
-Nível 3 - XP: 2
-Nível 5 - XP: 4
-Nível 10 - XP: 9
-Nível 20 - XP: nível não pode ser atingido
-```
+![Janela do Extra Variável Sistema de Aumento de Nível no modo Linear, mostrando a Visualização de nível e experiência para níveis de 1 a 20](@assets/wf_xtra_var_lvlup_system/visualizacao-de-nivel-experiencia.png "Janela do Extra Variável Sistema de Aumento de Nível no modo Linear, mostrando a Visualização de nível e experiência para níveis de 1 a 20")
 
 Essa visualização é atualizada automaticamente conforme as configurações são alteradas, facilitando a validação da progressão antes da utilização no quarto.
 
@@ -133,7 +190,15 @@ Esta seção permite criar automaticamente novas variáveis derivadas do sistema
 
 Cada opção possui um checkbox, inicialmente desmarcado, e um campo de texto onde é possível definir o nome da subvariável que será criada.
 
-Quando um checkbox é marcado, uma nova variável passa a ser criada como subvariável da variável configurada no Wired de Variável utilizado no tópico Requisitos.
+Quando um checkbox é marcado, uma nova variável passa a ser criada como subvariável da variável configurada no Wired de Variável utilizado no tópico [Requisitos](/referencia/variaveis/wf_xtra_var_lvlup_system/#requisitos) e podemos vê-la utilizando o comando `:wired`, como visto no vídeo a seguir:
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 Caso o nome não seja alterado, será utilizado o valor padrão indicado pelo próprio Wired.
 
@@ -143,93 +208,48 @@ As opções disponíveis são:
 
 Armazena o nível correspondente à quantidade atual de experiência.
 
-Nome padrão da subvariável:
-
-```text
-current_level
-```
+Nome padrão da subvariável: `current_level`
 
 #### XP atual
 
 Armazena a quantidade atual de experiência.
 
-Nome padrão da subvariável:
-
-```text
-current_xp
-```
+Nome padrão da subvariável: `current_xp`
 
 #### Progresso de nível
 
 Armazena o progresso atual dentro do nível.
 
-Nome padrão da subvariável:
-
-```text
-progress
-```
+Nome padrão da subvariável: `progress`
 
 #### Progresso de nível em porcentagem
 
 Armazena o progresso do nível em porcentagem.
 
-Nome padrão da subvariável:
-
-```text
-progress_percentage
-```
+Nome padrão da subvariável: `progress_percentage`
 
 #### Total de XP necessário
 
 Armazena a quantidade total de experiência necessária para alcançar o próximo nível.
 
-Nome padrão da subvariável:
-
-```text
-xp_required
-```
+Nome padrão da subvariável: `xp_required`
 
 #### XP restante
 
 Armazena a quantidade de experiência restante para alcançar o próximo nível.
 
-Nome padrão da subvariável:
-
-```text
-xp_remaining
-```
+Nome padrão da subvariável: `xp_remaining`
 
 #### Está no máximo
 
 Indica se o nível máximo configurado já foi atingido.
 
-Nome padrão da subvariável:
-
-```text
-is_maxed
-```
+Nome padrão da subvariável: `is_maxed`
 
 #### Nível máximo
 
 Armazena o nível máximo configurado para o sistema de progressão.
 
-Nome padrão da subvariável:
+Nome padrão da subvariável: `max_level`
 
-```text
-max_level
-```
-
-## Exemplos de uso
-
-O **Extra Variável: Sistema de Aumento de Nível** pode ser utilizado em diversos sistemas. Alguns exemplos são:
-
-* Sistemas de nível para jogadores em RPGs.
-* Evolução de mascotes ou criaturas.
-* Progressão de profissões ou classes.
-* Sistema de reputação baseado em experiência.
-* Evolução de equipamentos.
-* Desbloqueio de habilidades conforme o nível aumenta.
-* Missões que exigem um nível mínimo para serem iniciadas.
-* Rankings baseados em experiência acumulada.
-* Sistemas de prestígio ou renascimento.
-
+## Exemplo prático
