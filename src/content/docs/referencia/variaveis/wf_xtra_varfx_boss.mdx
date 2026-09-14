@@ -23,7 +23,7 @@ infobox:
   # image_animated_state: 100 # valor padrão
   # icon: # url preenchida automaticamente
   availability: No catálogo e CA
-  # price: # preço em câmbios
+  price: 20
   release_date: 2026-09-10
 
   # == Dados do Wired ==
@@ -46,14 +46,14 @@ import CorVermelhoPraVerde from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-
 import CorDoTime from "@assets/wf_xtra_varfx_boss/05-cor-do-time.mp4";
 import Tamanho from "@assets/wf_xtra_varfx_boss/06-tamanho.mp4";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores.mp4";
-import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx_boss/08-wired-sempre-visivel.png";
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/08-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza.mp4"
-import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx_boss/10-wired-visivel-ao-passar-o-mouse.png";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-exemplo-visivel-ao-passar-o-mouse.gif";
-import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx_boss/11-wired-audiencia-somente-o-usuario.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
 import AudienciaSomenteOUsuarioVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/11-exemplo-audiencia-somente-o-usuario.png";
-import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx_boss/12-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
 import AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/12-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png";
 import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx_boss/13-wired-audiencia-usuarios-com-variavel.gif";
 import AudienciaUsuariosComVariavelExemplo from "@assets/wf_xtra_varfx_boss/13-exemplo-audiencia-usuarios-com-variavel.png";
@@ -108,6 +108,16 @@ A seção **Visualização** mostra uma prévia da aparência da barra de saúde
 Sempre que um estilo for selecionado, essa prévia será atualizada automaticamente.
 
 ![Janela de configuração da Variável FX Barra de saúde do chefe mostrando a prévia da barra ao alterar o estilo](@assets/wf_xtra_varfx_boss/03-visualizacao.gif "Janela de configuração da Variável FX Barra de saúde do chefe mostrando a prévia da barra ao alterar o estilo")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia da barra de saúde passa a utilizar diferentes valores da variável, permitindo visualizar como o efeito ficará em diferentes níveis de preenchimento.
+
+Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
+
+![Prévia da barra de saúde do chefe alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_boss/15-visualizacao-aleatoria.gif "Prévia da barra de saúde do chefe alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória")
 
 ### Configurações
 
@@ -275,13 +285,13 @@ A barra de saúde será exibida somente enquanto o mouse estiver posicionado sob
   </tbody>
 </table>
 
-### Audiência
+#### Audiência
 
 Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
 
 As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Barra de saúde do chefe**, de usuário ou de mobi.
 
-#### Somente o usuário
+##### Somente o usuário
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá a barra de saúde**.
 
@@ -316,7 +326,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de saú
   </tbody>
 </table>
 
-#### Usuários que estão no mesmo time
+##### Usuários que estão no mesmo time
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão a barra de saúde**.
 
@@ -326,7 +336,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de saú
   <thead>
     <tr>
       <th style={{ width: "50%" }}>Configuração do Wired</th>
-      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+      <th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th>
     </tr>
   </thead>
   <tbody>
@@ -351,7 +361,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de saú
   </tbody>
 </table>
 
-#### Usuários que têm variável
+##### Usuários que têm variável
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar a barra de saúde**.
 
@@ -388,7 +398,7 @@ Esta opção está disponível tanto para um Wired **Variável FX: Barra de saú
   </tbody>
 </table>
 
-#### Todos
+##### Todos
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a barra de saúde acima do mobi ou usuário**.
 
@@ -396,7 +406,7 @@ Esta opção está disponível tanto para um Wired **Variável FX: Barra de saú
 
 ### Configurações avançadas de intervalo
 
-Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo, também é possível utilizar valores armazenados em variáveis.
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](/referencia/variaveis/wf_xtra_varfx_boss/#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
 
 #### Substituir mínimo
 
@@ -422,7 +432,7 @@ Também é possível selecionar variáveis de usuário, mobi ou globais, conform
 
 A **Variável FX: Barra de saúde do chefe** pode ser utilizada em diversos sistemas. Alguns exemplos são:
 
-* Exibir a vida de um chefão durante uma batalha.
-* Mostrar a saúde de um inimigo ou NPC.
-* Representar a durabilidade de um objeto do quarto.
-* Exibir o progresso de destruição de um mobi.
+* **Batalha cooperativa:** vincule a barra a uma variável de mobi usada para registrar a vida de um chefe. Com a audiência **Todos**, cada participante acompanha o dano causado durante a batalha.
+* **Inimigos em fases:** configure uma barra para cada inimigo importante e altere o valor máximo com uma variável ao iniciar uma nova fase. Dessa forma, a mesma barra acompanha chefes com diferentes quantidades de saúde.
+* **Objetivo que precisa ser defendido:** associe a variável a uma barricada, portal ou base. A barra mostra a durabilidade do mobi e pode ficar visível apenas quando a variável for atualizada, destacando os ataques recebidos.
+* **Desafio entre equipes:** utilize uma variável de usuário para representar a saúde ou as tentativas restantes de um jogador e selecione a audiência **Usuários que estão no mesmo time**, permitindo que aliados acompanhem seu estado sem revelar a informação ao adversário.
