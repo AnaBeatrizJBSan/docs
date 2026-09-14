@@ -53,6 +53,10 @@ import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_va
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_hp/09-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza.mp4";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_hp/11-exemplo-visivel-ao-passar-o-mouse.gif";
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_hp/12-exemplo-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_hp/13-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx_hp/14-wired-audiencia-usuarios-com-variavel.gif";
+import AudienciaUsuariosComVariavelExemplo from "@assets/wf_xtra_varfx_hp/15-exemplo-audiencia-usuarios-com-variavel.png";
 
 A **Variável FX: Pontos de Saúde** adiciona um efeito visual acima de um mobi ou usuário, exibindo sua saúde de maneiras diferentes. Ele pode representar, por exemplo, a vida de jogadores, inimigos, NPCs ou qualquer mobi do quarto.
 
@@ -114,7 +118,7 @@ Ao pressioná-lo, a prévia da barra de pontos de saúde passa a utilizar difere
 
 Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
 
-![Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_hp/4-visualizacao-aleatoria.gif "Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória")
+![Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_hp/04-visualizacao-aleatoria.gif "Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória")
 
 ### Configurações
 
@@ -315,7 +319,9 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
       </td>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=somente+o+usuario+exemplo+do+efeito+visual+no+quarto"}
+          src={AudienciaSomenteOUsuarioExemplo.src}
+          alt="Comparação entre a visão do usuário com a variável e a de outro usuário quando a audiência é Somente o usuário"
+          title="Comparação entre a visão do usuário com a variável e a de outro usuário quando a audiência é Somente o usuário"
           style={{ width: "100%" }}
         />
       </td>
@@ -333,7 +339,7 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
   <thead>
     <tr>
       <th style={{ width: "50%" }}>Configuração do Wired</th>
-      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+      <th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th>
     </tr>
   </thead>
   <tbody>
@@ -348,7 +354,9 @@ Esta opção não está disponível quando o Wired **Variável FX: Pontos de Sa�
       </td>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=usuarios+que+estao+no+mesmo+time+exemplo+do+efeito+visual+no+quarto"}
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src}
+          alt="Comparação entre a visão dos usuários do mesmo time e a de outro usuário quando a audiência é Usuários que estão no mesmo time"
+          title="Comparação entre a visão dos usuários do mesmo time e a de outro usuário quando a audiência é Usuários que estão no mesmo time"
           style={{ width: "100%" }}
         />
       </td>
@@ -375,13 +383,17 @@ Esta opção está disponível tanto para um Wired **Variável FX: Pontos de Sa�
     <tr>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=usuarios+que+tem+variavel+configuracao+do+wired"}
+          src={AudienciaUsuariosComVariavelConfiguracao.src}
+          alt="Configurações de audiência dos Pontos de Saúde com a opção Usuários que têm variável selecionada"
+          title="Configurações de audiência dos Pontos de Saúde com a opção Usuários que têm variável selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src={"https://placehold.co/600x400?text=usuarios+que+tem+variavel+exemplo+do+efeito+visual+no+quarto"}
+          src={AudienciaUsuariosComVariavelExemplo.src}
+          alt="Comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários"
+          title="Comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários"
           style={{ width: "100%" }}
         />
       </td>
@@ -417,7 +429,7 @@ Também é possível selecionar variáveis de usuário, mobi ou globais, conform
 
 | Variável de Usuário | Variável de Mobi | Variável Global |
 | :---: | :---: | :---: |
-| ![](https://placehold.co/600x400?text=variavel+de+usuario) | ![](https://placehold.co/600x400?text=variavel+de+mobi) | ![](https://placehold.co/600x400?text=variavel+global) |
+| ![Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Usuário](@assets/wf_xtra_varfx_hp/16-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif "Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Usuário") | ![Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Mobi](@assets/wf_xtra_varfx_hp/16-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif "Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Mobi") | ![Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável Global](@assets/wf_xtra_varfx_hp/16-configuracoes-avancadas-de-intervalo-variavel-global.gif "Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável Global") |
 
 ## Exemplos de uso
 
