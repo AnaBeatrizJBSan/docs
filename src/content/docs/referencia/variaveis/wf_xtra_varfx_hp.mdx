@@ -1,10 +1,10 @@
 ---
 title: "Variável FX: Pontos de Saúde"
-description: Este extra exibe os pontos de saúde acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+description: Este extra exibe os pontos de saúde acima de um usuário ou mobi, utilizando o valor de uma variável.
 sidebar:
   label: Pontos de Saúde
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -16,14 +16,14 @@ infobox:
   revision: 75717
   classname: wf_xtra_varfx_hp
   name: "Variável FX: Pontos de Saúde"
-  description: Este extra exibe os pontos de saúde acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+  description: Este extra exibe os pontos de saúde acima de um usuário ou mobi, utilizando o valor de uma variável.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
   # image_animated_state: 100 # valor padrão
   # icon: # url preenchida automaticamente
   availability: No catálogo e CA
-  # price: # preço em câmbios
+  price: 15
   release_date: 2026-09-10
 
   # == Dados do Wired ==
@@ -41,5 +41,401 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_hp/01-requisitos.mp4";
+import Cor from "@assets/wf_xtra_varfx_hp/05-cor.mp4";
+import Segmentos from "@assets/wf_xtra_varfx_hp/06-segmentos.mp4";
+import Tamanho from "@assets/wf_xtra_varfx_hp/07-tamanho.mp4";
+import IntervaloDeValores from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores.mp4";
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_hp/09-exemplo-sempre-visivel.png";
+import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza.mp4";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_hp/11-exemplo-visivel-ao-passar-o-mouse.gif";
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_hp/12-exemplo-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_hp/13-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx_hp/14-wired-audiencia-usuarios-com-variavel.gif";
+import AudienciaUsuariosComVariavelExemplo from "@assets/wf_xtra_varfx_hp/15-exemplo-audiencia-usuarios-com-variavel.png";
+
+A **Variável FX: Pontos de Saúde** adiciona um efeito visual acima de um mobi ou usuário, exibindo sua saúde de maneiras diferentes. Ele pode representar, por exemplo, a vida de jogadores, inimigos, NPCs ou qualquer mobi do quarto.
+
+A aparência do efeito é atualizada de acordo com o valor de uma variável já atribuída ao mobi ou ao usuário.
 
 <Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Pontos de Saúde** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o preenchimento da exibição de saúde.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={Requisitos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Pontos de Saúde**, serão exibidas algumas opções de personalização.
+
+### Estilo
+
+Nesta seção é possível escolher como os pontos de saúde serão exibidos.
+
+Atualmente existem quatro estilos disponíveis:
+
+* **Barra de Saúde:** exibe a saúde em uma barra acompanhada por um coração à esquerda.
+* **Coração Único:** exibe a saúde em um único coração com preenchimento proporcional ao valor atual.
+* **Corações Empilhados:** exibe a saúde em vários corações organizados em uma grade.
+* **Termômetro:** exibe a saúde em uma escala horizontal dividida em segmentos.
+
+![Comparação entre os estilos Barra de Saúde, Coração Único, Corações Empilhados e Termômetro da Variável FX Pontos de Saúde](@assets/wf_xtra_varfx_hp/02-estilo.png "Comparação entre os estilos Barra de Saúde, Coração Único, Corações Empilhados e Termômetro da Variável FX Pontos de Saúde")
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência dos pontos de saúde.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+![Janela de configuração da Variável FX Pontos de Saúde mostrando a prévia do estilo Barra de Saúde](@assets/wf_xtra_varfx_hp/03-visualizacao.gif "Janela de configuração da Variável FX Pontos de Saúde mostrando a prévia do estilo Barra de Saúde")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia da barra de pontos de saúde passa a utilizar diferentes valores da variável, permitindo visualizar como o efeito ficará em diferentes níveis de preenchimento.
+
+Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
+
+![Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_hp/04-visualizacao-aleatoria.gif "Prévia dos Pontos de Saúde alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência dos pontos de saúde.
+
+#### Cor
+É possível escolher entre diversas cores para a barra de pontos de saúde.
+
+No entanto, essa configuração está disponível apenas para os estilos **Coração Único** e **Corações Empilhados**.
+
+A maioria das cores disponíveis possui uma aparência fixa, porém uma cor dinâmica merece destaque:
+
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={Cor} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Segmentos
+
+A opção **Segmentos** está disponível apenas para o estilo **Termômetro**. Ela define quantos quadradinhos serão exibidos na representação visual da saúde.
+
+É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, o termômetro é exibido com **9** quadradinhos.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={Segmentos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Tamanho
+
+Os tamanhos disponíveis variam conforme o estilo selecionado:
+
+| Estilo | Tamanhos disponíveis |
+| :--- | :--- |
+| Barra de Saúde | Pequeno, médio e grande |
+| Coração Único | Não é possível escolher o tamanho |
+| Corações Empilhados | Médio e grande |
+| Termômetro | Extra pequeno, pequeno, médio, grande e extra grande |
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={Tamanho} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Intervalo de valores
+
+Esta seção define como o valor da variável será convertido em uma porcentagem da exibição de saúde.
+
+Nos campos **Valor mínimo** e **Valor máximo**, é possível informar números com **até 10 dígitos**.
+
+O próprio Wired fornece um exemplo:
+
+* Valor da variável: **15**
+* Valor mínimo: **10**
+* Valor máximo: **20**
+
+Nesse caso, os pontos de saúde serão exibidos com aproximadamente **50%** do preenchimento.
+
+Alterar os valores mínimo e máximo permite adaptar a exibição para diferentes escalas de vida.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={IntervaloDeValores} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando os pontos de saúde ficarão visíveis.
+
+#### Sempre visível
+
+Os pontos de saúde permanecerão sempre visíveis acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={SempreVisivelConfiguracao.src}
+          alt="Configurações dos Pontos de Saúde com a opção Sempre visível selecionada"
+          title="Configurações dos Pontos de Saúde com a opção Sempre visível selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={SempreVisivelExemplo.src}
+          alt="Pontos de Saúde visíveis acima de um usuário no quarto"
+          title="Pontos de Saúde visíveis acima de um usuário no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+Os pontos de saúde serão exibidos quando a variável configurada no tópico [Requisitos](/referencia/variaveis/wf_xtra_varfx_hp/#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não é alterado.
+
+Também existe uma opção para exibir a barra de pontos de saúde apenas quando o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo os pontos de saúde permanecerão visíveis utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de pontos de saúde permanece visível por **2 segundos** acima do mobi sempre que a variável aumenta de valor.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={VisivelQuandoAVariavelAtualizaExemplo} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+Os pontos de saúde serão exibidos somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações dos Pontos de Saúde com a opção Visível ao passar o mouse selecionada"
+          title="Configurações dos Pontos de Saúde com a opção Visível ao passar o mouse selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseExemplo.src}
+          alt="Pontos de Saúde visíveis acima de um usuário enquanto o mouse está sobre ele"
+          title="Pontos de Saúde visíveis acima de um usuário enquanto o mouse está sobre ele"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Pontos de Saúde**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá os pontos de saúde**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Pontos de Saúde** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
+          alt="Configurações de audiência dos Pontos de Saúde com a opção Somente o usuário selecionada"
+          title="Configurações de audiência dos Pontos de Saúde com a opção Somente o usuário selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioExemplo.src}
+          alt="Comparação entre a visão do usuário com a variável e a de outro usuário quando a audiência é Somente o usuário"
+          title="Comparação entre a visão do usuário com a variável e a de outro usuário quando a audiência é Somente o usuário"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão os pontos de saúde**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Pontos de Saúde** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações de audiência dos Pontos de Saúde com a opção Usuários que estão no mesmo time selecionada"
+          title="Configurações de audiência dos Pontos de Saúde com a opção Usuários que estão no mesmo time selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src}
+          alt="Comparação entre a visão dos usuários do mesmo time e a de outro usuário quando a audiência é Usuários que estão no mesmo time"
+          title="Comparação entre a visão dos usuários do mesmo time e a de outro usuário quando a audiência é Usuários que estão no mesmo time"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar os pontos de saúde**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Pontos de Saúde** vinculado a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosComVariavelConfiguracao.src}
+          alt="Configurações de audiência dos Pontos de Saúde com a opção Usuários que têm variável selecionada"
+          title="Configurações de audiência dos Pontos de Saúde com a opção Usuários que têm variável selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosComVariavelExemplo.src}
+          alt="Comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários"
+          title="Comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar os pontos de saúde acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Pontos de Saúde** vinculado a variáveis de usuário quanto a variáveis de mobi.
+
+### Configurações avançadas de intervalo
+
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](/referencia/variaveis/wf_xtra_varfx_hp/#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
+
+#### Substituir mínimo
+
+Ao marcar esta opção, o valor mínimo passará a ser obtido a partir de uma variável.
+
+Dependendo do tipo de variável selecionado no topo da janela do Wired **Variável FX: Pontos de Saúde**, será possível escolher:
+
+* Variáveis de usuário;
+* Variáveis de mobi;
+* Variáveis globais.
+
+#### Substituir máximo
+
+Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define o valor máximo do intervalo utilizando uma variável.
+
+Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
+
+| Variável de Usuário | Variável de Mobi | Variável Global |
+| :---: | :---: | :---: |
+| ![Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Usuário](@assets/wf_xtra_varfx_hp/16-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif "Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Usuário") | ![Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Mobi](@assets/wf_xtra_varfx_hp/16-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif "Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável de Mobi") | ![Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável Global](@assets/wf_xtra_varfx_hp/16-configuracoes-avancadas-de-intervalo-variavel-global.gif "Janela dos Pontos de Saúde com o intervalo avançado configurado usando uma Variável Global") |
+
+## Exemplos de uso
+
+A **Variável FX: Pontos de Saúde** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **Partida em equipes:** exiba uma **Barra de Saúde** acima de cada jogador e escolha a audiência **Usuários que estão no mesmo time** para que cada equipe acompanhe apenas seus aliados.
+* **Batalha contra chefe:** vincule o Wired a uma variável de mobi usada para controlar a vida do inimigo. O estilo **Corações Empilhados** ajuda a destacar a quantidade de saúde restante para todos no quarto.
+* **Sistema de sobrevivência:** use uma variável de usuário para representar a saúde de cada participante e deixe o efeito **Visível quando a variável atualiza**, chamando a atenção para cada dano ou recuperação recebida.
+* **Objeto com durabilidade:** associe uma variável de mobi a uma porta, máquina ou barricada e defina o intervalo máximo com uma variável. Assim, a saúde exibida acompanha a durabilidade configurada para aquele objeto.
