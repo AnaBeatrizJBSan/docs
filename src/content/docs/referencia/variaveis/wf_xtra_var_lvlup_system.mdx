@@ -42,6 +42,9 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 import { Aside } from '@astrojs/starlight/components';
+import Requisitos from "@assets/wf_xtra_var_lvlup_system/01-requisitos.mp4"
+import CriarSubvariaveis from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis.mp4"
+import ExemploPratico from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico.mp4"
 
 O **Extra Variável: Sistema de Aumento de Nível** auxilia na criação de sistemas de progressão baseados em experiência (XP), permitindo calcular automaticamente o nível correspondente ao valor de uma variável.
 
@@ -66,7 +69,7 @@ O vídeo abaixo ilustra como seria esse processo:
 
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -180,7 +183,7 @@ Por exemplo, suponha que o modo **Linear** esteja selecionado, com **Tamanho da 
 
 A visualização será a seguinte:
 
-![Janela do Extra Variável Sistema de Aumento de Nível no modo Linear, mostrando a Visualização de nível e experiência para níveis de 1 a 20](@assets/wf_xtra_var_lvlup_system/visualizacao-de-nivel-experiencia.png "Janela do Extra Variável Sistema de Aumento de Nível no modo Linear, mostrando a Visualização de nível e experiência para níveis de 1 a 20")
+![Janela do Extra Variável Sistema de Aumento de Nível no modo Linear, mostrando a Visualização de nível e experiência para níveis de 1 a 20](@assets/wf_xtra_var_lvlup_system/02-visualizacao-de-nivel-experiencia.png "Janela do Extra Variável Sistema de Aumento de Nível no modo Linear, mostrando a Visualização de nível e experiência para níveis de 1 a 20")
 
 Essa visualização é atualizada automaticamente conforme as configurações são alteradas, facilitando a validação da progressão antes da utilização no quarto.
 
@@ -194,7 +197,7 @@ Quando um checkbox é marcado, uma nova variável passa a ser criada como subvar
 
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={CriarSubvariaveis} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -246,6 +249,10 @@ Indica se o nível máximo configurado já foi atingido.
 
 Nome padrão da subvariável: `is_maxed`
 
+<Aside type="note" title="Lembre-se">
+Essa subvariável recebe valores verdadeiro ou falso, sendo assim, ela só fica vinculada ao componente específico quando seu valor é verdadeiro. Quando o valor é falso, ela não fica vinculada.
+</Aside>
+
 #### Nível máximo
 
 Armazena o nível máximo configurado para o sistema de progressão.
@@ -253,3 +260,30 @@ Armazena o nível máximo configurado para o sistema de progressão.
 Nome padrão da subvariável: `max_level`
 
 ## Exemplo prático
+
+Este exemplo demonstra uma forma simples de utilizar o **Extra Variável: Sistema de Aumento de Nível** com uma variável de usuário. O jogador visita diferentes estações do Centro de Inteligência e acumula pontos de experiência ao interagir com cada uma delas.
+
+O objetivo é mostrar que todas as interações podem alterar uma única variável e que o Extra calcula automaticamente o nível, o progresso e a experiência restante. Assim, não é necessário criar manualmente a lógica de progressão para cada ação do quarto.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={ExemploPratico} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### O que acontece nesse exemplo?
+
+O fluxo começa quando entramos no **Centro de Inteligência do Wired Club** pelo tapete de boas-vindas. Ao fazer isso, recebemos a variável de usuário `inteligencia`, que será usada para armazenar nossos pontos de experiência.
+
+Com a variável criada, podemos interagir com as estações de estudo ao redor do quarto. Cada interação adiciona uma quantidade diferente de XP a `inteligencia`:
+
+* Ao usar a **estante de livros**, ganhamos **5 XP** por ler um livro.
+* Ao sentar à **mesa de estudos**, ganhamos **10 XP** por resolver exercícios.
+* Ao sentar ao **computador de tela plana**, ganhamos **20 XP** por pesquisar um tema.
+* Ao sentar aos **jogos de mesa**, ganhamos **25 XP** por resolver um desafio lógico.
+
+Utilizando a janela do comando `:wired`, é possível acompanhar as subvariáveis de `inteligencia` sendo atualizadas após cada interação.
+
+O **Extra Variável: Sistema de Aumento de Nível** é especialmente útil em sistemas de RPG e progressão. Sem ele, seria necessário criar toda a lógica de cálculo de níveis, progresso e experiência restante manualmente. Com o Extra, essas contas são feitas automaticamente, permitindo focar nas outras mecânicas do sistema.
