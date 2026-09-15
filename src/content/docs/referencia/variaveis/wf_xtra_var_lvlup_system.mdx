@@ -43,6 +43,7 @@ infobox:
 import Infobox from "@components/Infobox.astro"
 import { Aside } from '@astrojs/starlight/components';
 import Requisitos from "@assets/wf_xtra_var_lvlup_system/01-requisitos.mp4"
+import RequisitosDescricao from "@assets/wf_xtra_var_lvlup_system/01-requisitos-descricao.vtt"
 import CriarSubvariaveis from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis.mp4"
 import ExemploPratico from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico.mp4"
 
@@ -68,7 +69,15 @@ Além disso, a variável escolhida já deve possuir um valor atribuído, pois se
 O vídeo abaixo ilustra como seria esse processo:
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com o Sistema de Aumento de Nível"
+    title="Demonstração da configuração de uma variável para usar com o Sistema de Aumento de Nível"
+    style={{ width: "100%" }}
+  >
+    <track kind="descriptions" src={RequisitosDescricao} srclang="pt" label="Descrições em Português do Brasil" default />
     <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -196,7 +205,14 @@ Cada opção possui um checkbox, inicialmente desmarcado, e um campo de texto on
 Quando um checkbox é marcado, uma nova variável passa a ser criada como subvariável da variável configurada no Wired de Variável utilizado no tópico [Requisitos](/referencia/variaveis/wf_xtra_var_lvlup_system/#requisitos) e podemos vê-la utilizando o comando `:wired`, como visto no vídeo a seguir:
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da criação de subvariáveis do Sistema de Aumento de Nível e da consulta delas pelo comando :wired"
+    title="Demonstração da criação de subvariáveis do Sistema de Aumento de Nível"
+    style={{ width: "100%" }}
+  >
     <source src={CriarSubvariaveis} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -266,7 +282,14 @@ Este exemplo demonstra uma forma simples de utilizar o **Extra Variável: Sistem
 O objetivo é mostrar que todas as interações podem alterar uma única variável e que o Extra calcula automaticamente o nível, o progresso e a experiência restante. Assim, não é necessário criar manualmente a lógica de progressão para cada ação do quarto.
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Exemplo prático do Centro de Inteligência do Wired Club, com interações que adicionam experiência à variável inteligencia"
+    title="Exemplo prático do Sistema de Aumento de Nível no Centro de Inteligência"
+    style={{ width: "100%" }}
+  >
     <source src={ExemploPratico} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
