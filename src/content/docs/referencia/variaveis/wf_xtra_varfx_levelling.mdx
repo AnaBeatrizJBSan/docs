@@ -1,6 +1,6 @@
 ---
 title: "Variável FX: Progresso de Nível"
-description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma variável.
 sidebar:
   label: Progresso de Nível
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 75717
   classname: wf_xtra_varfx_levelling
   name: "Variável FX: Progresso de Nível"
-  description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+  description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma variável.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -42,4 +42,149 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+A **Variável FX: Progresso de Nível** adiciona um efeito visual acima de um mobi ou usuário, exibindo seu nível atual e o progresso até o próximo nível.
+
+As informações exibidas são calculadas automaticamente pelo **Extra Variável: Sistema de Aumento de Nível**, conforme os pontos de experiência armazenados na variável configurada.
+
 <Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário. Para isso, coloque um dos seguintes Wireds no quarto:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Também é necessário configurar o [**Extra Variável: Sistema de Aumento de Nível**](/referencia/variaveis/wf_xtra_var_lvlup_system/) acima do Wired de variável. Ele será responsável por calcular o nível, o progresso e as demais informações usadas pelo efeito visual.
+
+Por fim, coloque a **Variável FX: Progresso de Nível** acima dessa pilha para exibir as informações calculadas acima do mobi ou usuário.
+
+## Informações de uso
+
+Na janela de configuração da **Variável FX: Progresso de Nível**, existe o tópico **Informações de uso**. Ele apresenta o seguinte texto:
+
+> Essa Variável FX deve ser usada em combinação com o Extra Variável: Sistema de Aumento de Nível; ele usará automaticamente as informações corretas de progressão de nível.
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Progresso de Nível**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Estilo
+
+Nesta seção é possível escolher como o nível e o progresso serão exibidos.
+
+Atualmente existem dois estilos disponíveis:
+
+* **Nível e Barra:** exibe o nível atual acompanhado por uma barra de progresso.
+* **Detalhes de Nível:** exibe informações mais detalhadas sobre o nível e seu progresso.
+
+![](@assets/wf_xtra_varfx_levelling/01-estilo.png)
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência do efeito.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia passa a utilizar diferentes valores de progresso, permitindo visualizar como o efeito ficará em diferentes momentos entre um nível e outro.
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência do progresso de nível.
+
+#### Cor
+
+Os dois estilos permitem alterar a cor do efeito. A maioria das cores disponíveis possui uma aparência fixa, porém duas opções dinâmicas merecem destaque:
+
+* **Progressão de nível:** altera a cor de acordo com o progresso atual até o próximo nível.
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+#### Segmentos
+
+A opção **Segmentos** define quantos quadradinhos serão exibidos na barra de progresso.
+
+É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **9** quadradinhos.
+
+#### Estilo visual
+
+Os dois estilos possuem a opção **Estilo visual**, que altera a aparência da barra de progresso. As opções disponíveis são:
+
+* **Blocos**
+* **Listrada**
+* **Seta**
+
+#### Tamanho
+
+Os tamanhos disponíveis variam conforme o estilo selecionado:
+
+| Estilo | Tamanhos disponíveis |
+| :--- | :--- |
+| Nível e Barra | Pequeno, médio e grande |
+| Detalhes de Nível | Pequeno, médio, grande e extra grande |
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando o progresso de nível ficará visível.
+
+#### Sempre visível
+
+O nível e o progresso permanecerão sempre visíveis acima do mobi ou usuário.
+
+#### Visível quando a variável atualiza
+
+O progresso de nível será exibido quando a variável configurada no tópico [Requisitos](/referencia/variaveis/wf_xtra_varfx_levelling/#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, o progresso de nível será exibido somente se o mouse estiver sobre o mobi ou usuário no momento em que a variável for atualizada.
+
+Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+#### Visível ao passar o mouse
+
+O nível e o progresso serão exibidos somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pela **Variável FX: Progresso de Nível**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá seu nível e progresso**.
+
+Esta opção não está disponível quando a **Variável FX: Progresso de Nível** estiver vinculada a uma variável de mobi.
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão seu nível e progresso**.
+
+Esta opção não está disponível quando a **Variável FX: Progresso de Nível** estiver vinculada a uma variável de mobi.
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar o nível e o progresso**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para uma **Variável FX: Progresso de Nível** vinculada a uma variável de usuário quanto a uma variável de mobi.
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar o nível e o progresso acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para uma **Variável FX: Progresso de Nível** vinculada a variáveis de usuário quanto a variáveis de mobi.
+
+## Exemplos de uso
+
+A **Variável FX: Progresso de Nível** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **RPG:** exiba o nível e a evolução de experiência de cada jogador durante missões e batalhas.
+* **Profissões:** mostre o progresso de um usuário ao exercer funções como cozinheiro, minerador ou fazendeiro.
+* **Mascotes e criaturas:** acompanhe a evolução de um pet, inimigo ou personagem não jogável conforme ele acumula experiência.
+* **Desafios do quarto:** indique a progressão de usuários que completam tarefas, respondem perguntas ou participam de atividades.
