@@ -40,6 +40,8 @@ infobox:
   additional_sources: []
 ---
 
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import Infobox from "@components/Infobox.astro"
 import { Aside } from '@astrojs/starlight/components';
 import Requisitos from "@assets/wf_xtra_var_lvlup_system/01-requisitos.mp4"
@@ -295,6 +297,134 @@ O objetivo é mostrar que todas as interações podem alterar uma única variáv
   </video>
   <figcaption></figcaption>
 </figure>
+
+<Tabs>
+  <TabItem label="Configuração">
+    Primeira pilha
+    <Steps>
+    1. **Ativador:** Habbo anda no mobi
+        1. Selecione o Tapete de Boas-Vindas
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva `Boas vindas ao centro de inteligência do Wired Club!`
+    3. **Extra:** Limite de execução
+        1. Selecione 1 na Quantidade de Execuções
+        2. Selecione 10 na Janela de Tempo
+    4. **Efeito:** Dar variável
+        1. Selecione a variável `inteligencia`
+        2. Desmarque a opção de Substituir variável existente
+    </Steps>
+    Segunda pilha
+    <Steps>
+    1. **Ativador:** Mobi é usado
+        1. Selecione a Estante de Livros
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva `Você ganhou [b]+5[/b] de inteligência por [u]ler um livro[/u]!`
+    3. **Extra:** Limite de execução
+        1. Selecione 1 na Quantidade de Execuções
+        2. Selecione 10 na Janela de Tempo
+    4. **Efeito:** Mudar valor variável
+        1. Selecione a variável `inteligencia`
+        2. Selecione a operação Somar
+        3. Escreva o valor 5 como referência
+    </Steps>
+    Terceira pilha
+    <Steps>
+    1. **Ativador:** Habbo anda no mobi
+        1. Selecione a Cadeira de Jantar
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva `Você ganhou [b]+10[/b] de inteligência por [u]resolver exercícios[/u]!`
+    3. **Extra:** Limite de execução
+        1. Selecione 1 na Quantidade de Execuções
+        2. Selecione 10 na Janela de Tempo
+    4. **Efeito:** Mudar valor variável
+        1. Selecione a variável `inteligencia`
+        2. Selecione a operação Somar
+        3. Escreva o valor 10 como referência
+    </Steps>
+    Quarta pilha
+    <Steps>
+    1. **Ativador:** Habbo anda no mobi
+        1. Selecione a Cadeira de Madeira
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva `Você ganhou [b]+20[/b] de inteligência por [u]pesquisar um tema[/u]!`
+    3. **Extra:** Limite de execução
+        1. Selecione 1 na Quantidade de Execuções
+        2. Selecione 10 na Janela de Tempo
+    4. **Efeito:** Mudar valor variável
+        1. Selecione a variável `inteligencia`
+        2. Selecione a operação Somar
+        3. Escreva o valor 20 como referência
+    </Steps>
+    Quinta pilha
+    <Steps>
+    1. **Ativador:** Habbo anda no mobi
+        1. Selecione a Cadeira Iced Escura
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva `Você ganhou [b]+25[/b] de inteligência por [u]resolver um desafio lógico[/u]!`
+    3. **Extra:** Limite de execução
+        1. Selecione 1 na Quantidade de Execuções
+        2. Selecione 10 na Janela de Tempo
+    4. **Efeito:** Mudar valor variável
+        1. Selecione a variável `inteligencia`
+        2. Selecione a operação Somar
+        3. Escreva o valor 25 como referência
+    </Steps>
+  </TabItem>
+  
+  <TabItem label="PseudoWired">
+    Primeira pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Habbo anda no Mobi: Tapete de Boas-Vindas
+    COMO
+      - Limite de Execução: Quantidade de Execuções: 1
+        Janela de Tempo: 10
+    ENTÃO
+      - Mostrar mensagem: Boas vindas ao centro de inteligência do Wired Club!
+      - Dar Variável: inteligencia
+        Substituir variável existente: desmarcado
+    `} />
+    Segunda pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Mobi é usado: Estante de Livros
+    COMO
+      - Limite de Execução: Quantidade de Execuções: 1
+        Janela de Tempo: 10
+    ENTÃO
+      - Mostrar mensagem: Você ganhou [b]+5[/b] de inteligência por [u]ler um livro[/u]!
+      - Mudar Valor Variável: inteligencia
+        Operação: Somar
+        Valor de referência: 5
+    `} />
+    Terceira pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Habbo anda no Mobi: Cadeira de Jantar
+    COMO
+      - Limite de Execução: Quantidade de Execuções: 1
+        Janela de Tempo: 10
+    ENTÃO
+      - Mostrar mensagem: Você ganhou [b]+10[/b] de inteligência por [u]resolver exercícios[/u]!
+      - Mudar Valor Variável: inteligencia
+        Operação: Somar
+        Valor de referência: 10
+    `} />
+    Quarta pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Habbo anda no Mobi: Cadeira Iced Escura
+    COMO
+      - Limite de Execução: Quantidade de Execuções: 1
+        Janela de Tempo: 10
+    ENTÃO
+      - Mostrar mensagem: Você ganhou [b]+25[/b] de inteligência por [u]resolver um desafio lógico[/u]!
+      - Mudar Valor Variável: inteligencia
+        Operação: Somar
+        Valor de referência: 25
+    `} />
+  </TabItem>
+</Tabs>
 
 ### O que acontece nesse exemplo?
 
