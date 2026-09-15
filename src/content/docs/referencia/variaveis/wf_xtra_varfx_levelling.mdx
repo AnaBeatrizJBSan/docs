@@ -59,11 +59,15 @@ Também é necessário configurar o [**Extra Variável: Sistema de Aumento de N�
 
 Por fim, coloque a **Variável FX: Progresso de Nível** acima dessa pilha para exibir as informações calculadas acima do mobi ou usuário.
 
-## Informações de uso
+O vídeo abaixo ilustra como seria esse processo:
 
-Na janela de configuração da **Variável FX: Progresso de Nível**, existe o tópico **Informações de uso**. Ele apresenta o seguinte texto:
-
-> Essa Variável FX deve ser usada em combinação com o Extra Variável: Sistema de Aumento de Nível; ele usará automaticamente as informações corretas de progressão de nível.
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 ## Como esse Wired funciona?
 
@@ -75,10 +79,10 @@ Nesta seção é possível escolher como o nível e o progresso serão exibidos.
 
 Atualmente existem dois estilos disponíveis:
 
-* **Nível e Barra:** exibe o nível atual acompanhado por uma barra de progresso.
-* **Detalhes de Nível:** exibe informações mais detalhadas sobre o nível e seu progresso.
+* **Nível e Barra:** exibe o nível atual acompanhado por uma barra de progresso segmentada.
+* **Detalhes de Nível:** exibe o nível atual, os valores numéricos de progresso e uma barra de progresso.
 
-![](@assets/wf_xtra_varfx_levelling/01-estilo.png)
+![Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100](@assets/wf_xtra_varfx_levelling/01-estilo.png "Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100")
 
 ### Visualização
 
@@ -86,11 +90,15 @@ A seção **Visualização** mostra uma prévia da aparência do efeito.
 
 Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
 
+![](https://placehold.co/600x400/?text=visualizacao+gif)
+
 #### Visualização Aleatória
 
 No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
 
 Ao pressioná-lo, a prévia passa a utilizar diferentes valores de progresso, permitindo visualizar como o efeito ficará em diferentes momentos entre um nível e outro.
+
+![](https://placehold.co/600x400/?text=visualizacao+aleatoria+gif)
 
 ### Configurações
 
@@ -101,21 +109,49 @@ Nesta seção é possível personalizar a aparência do progresso de nível.
 Os dois estilos permitem alterar a cor do efeito. A maioria das cores disponíveis possui uma aparência fixa, porém duas opções dinâmicas merecem destaque:
 
 * **Progressão de nível:** altera a cor de acordo com o progresso atual até o próximo nível.
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 * **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 #### Segmentos
 
-A opção **Segmentos** define quantos quadradinhos serão exibidos na barra de progresso.
+A opção **Segmentos** está disponível apenas para o estilo **Nível e Barra**. Ela define quantos quadradinhos serão exibidos na barra de progresso.
 
-É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **9** quadradinhos.
+É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **6** quadradinhos.
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 #### Estilo visual
 
-Os dois estilos possuem a opção **Estilo visual**, que altera a aparência da barra de progresso. As opções disponíveis são:
+A opção **Estilo visual** está disponível apenas para o estilo **Nível e Barra** e altera a aparência da barra de progresso. As opções disponíveis são:
 
 * **Blocos**
 * **Listrada**
 * **Seta**
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 #### Tamanho
 
@@ -125,6 +161,13 @@ Os tamanhos disponíveis variam conforme o estilo selecionado:
 | :--- | :--- |
 | Nível e Barra | Pequeno, médio e grande |
 | Detalhes de Nível | Pequeno, médio, grande e extra grande |
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 ### Configurações de visibilidade
 
@@ -134,19 +177,77 @@ Nesta seção é possível definir quando o progresso de nível ficará visível
 
 O nível e o progresso permanecerão sempre visíveis acima do mobi ou usuário.
 
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=configuracao+do+wired+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=exemplo+do+efeito+no+quarto+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 #### Visível quando a variável atualiza
 
 O progresso de nível será exibido quando a variável configurada no tópico [Requisitos](/referencia/variaveis/wf_xtra_varfx_levelling/#requisitos) for atualizada.
 
 Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
 
-Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, o progresso de nível será exibido somente se o mouse estiver sobre o mobi ou usuário no momento em que a variável for atualizada.
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, a barra de saúde também será exibida se o mouse estiver sobre o mobi ou usuário.
 
 Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+<figure>
+  <video muted controls preload="metadata" style={{ width: "100%" }}>
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 #### Visível ao passar o mouse
 
 O nível e o progresso serão exibidos somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=configuracao+do+wired+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=exemplo+do+efeito+no+quarto+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Audiência
 
@@ -160,11 +261,61 @@ Levando em consideração a configuração de visibilidade escolhida anteriormen
 
 Esta opção não está disponível quando a **Variável FX: Progresso de Nível** estiver vinculada a uma variável de mobi.
 
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=configuracao+do+wired+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=exemplo+do+efeito+no+quarto+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ##### Usuários que estão no mesmo time
 
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão seu nível e progresso**.
 
 Esta opção não está disponível quando a **Variável FX: Progresso de Nível** estiver vinculada a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=configuracao+do+wired+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=exemplo+do+efeito+no+quarto+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ##### Usuários que têm variável
 
@@ -173,6 +324,31 @@ Levando em consideração a configuração de visibilidade escolhida anteriormen
 Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
 
 Esta opção está disponível tanto para uma **Variável FX: Progresso de Nível** vinculada a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=configuracao+do+wired+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={"https://placehold.co/600x400/?text=exemplo+do+efeito+no+quarto+img"}
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ##### Todos
 
@@ -186,5 +362,5 @@ A **Variável FX: Progresso de Nível** pode ser utilizada em diversos sistemas.
 
 * **RPG:** exiba o nível e a evolução de experiência de cada jogador durante missões e batalhas.
 * **Profissões:** mostre o progresso de um usuário ao exercer funções como cozinheiro, minerador ou fazendeiro.
-* **Mascotes e criaturas:** acompanhe a evolução de um pet, inimigo ou personagem não jogável conforme ele acumula experiência.
+* **Mascotes e criaturas:** acompanhe a evolução de um pet, inimigo ou NPC conforme ele acumula experiência.
 * **Desafios do quarto:** indique a progressão de usuários que completam tarefas, respondem perguntas ou participam de atividades.
