@@ -41,6 +41,11 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_levelling/01-requisitos.mp4"
+import ProgressaoDeNivel from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel.mp4"
+import CorDoTime from "@assets/wf_xtra_varfx_levelling/06-cor-do-time.mp4"
+import Segmentos from "@assets/wf_xtra_varfx_levelling/07-segmentos.mp4"
+import EstiloVisual from "@assets/wf_xtra_varfx_levelling/08-estilo-visual.mp4"
 
 A **Variável FX: Progresso de Nível** adiciona um efeito visual acima de um mobi ou usuário, exibindo seu nível atual e o progresso até o próximo nível.
 
@@ -63,7 +68,7 @@ O vídeo abaixo ilustra como seria esse processo:
 
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -72,6 +77,14 @@ O vídeo abaixo ilustra como seria esse processo:
 ## Como esse Wired funciona?
 
 Ao abrir a janela de configuração da **Variável FX: Progresso de Nível**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Informações de uso
+
+Na janela de configuração, existe o tópico **Informações de uso**. Ele apresenta o seguinte texto:
+
+> Essa Variável FX deve ser usada em combinação com o Extra Variável: Sistema de Aumento de Nível; ele usará automaticamente as informações corretas de progressão de nível.
+
+Como a progressão de nível, os valores mínimo e máximo e os cálculos de experiência já são definidos pelo **Extra Variável: Sistema de Aumento de Nível**. Portanto, esta Variável FX não possui as seções **Intervalo de valores** nem **Configurações avançadas de intervalo** presentes em outros Extras de Variável FX.
 
 ### Estilo
 
@@ -82,7 +95,7 @@ Atualmente existem dois estilos disponíveis:
 * **Nível e Barra:** exibe o nível atual acompanhado por uma barra de progresso segmentada.
 * **Detalhes de Nível:** exibe o nível atual, os valores numéricos de progresso e uma barra de progresso.
 
-![Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100](@assets/wf_xtra_varfx_levelling/01-estilo.png "Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100")
+![Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100](@assets/wf_xtra_varfx_levelling/02-estilo.png "Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100")
 
 ### Visualização
 
@@ -90,7 +103,7 @@ A seção **Visualização** mostra uma prévia da aparência do efeito.
 
 Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
 
-![](https://placehold.co/600x400/?text=visualizacao+gif)
+![](@assets/wf_xtra_varfx_levelling/03-visualizacao.gif)
 
 #### Visualização Aleatória
 
@@ -98,7 +111,7 @@ No canto inferior direito da seção **Visualização**, existe um ícone chamad
 
 Ao pressioná-lo, a prévia passa a utilizar diferentes valores de progresso, permitindo visualizar como o efeito ficará em diferentes momentos entre um nível e outro.
 
-![](https://placehold.co/600x400/?text=visualizacao+aleatoria+gif)
+![](@assets/wf_xtra_varfx_levelling/04-visualizacao-aleatoria.gif)
 
 ### Configurações
 
@@ -111,15 +124,16 @@ Os dois estilos permitem alterar a cor do efeito. A maioria das cores disponíve
 * **Progressão de nível:** altera a cor de acordo com o progresso atual até o próximo nível.
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={ProgressaoDeNivel} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
 </figure>
+
 * **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={CorDoTime} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -132,7 +146,7 @@ A opção **Segmentos** está disponível apenas para o estilo **Nível e Barra*
 É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **6** quadradinhos.
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={Segmentos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -147,7 +161,7 @@ A opção **Estilo visual** está disponível apenas para o estilo **Nível e Ba
 * **Seta**
 <figure>
   <video muted controls preload="metadata" style={{ width: "100%" }}>
-    <source src={""} type="video/mp4" />
+    <source src={EstiloVisual} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
