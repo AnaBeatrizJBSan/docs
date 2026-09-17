@@ -41,6 +41,32 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import IconeBateria from "@assets/wf_xtra_varfx_number/05-icones-bateria.png"
+import IconeQueimando from "@assets/wf_xtra_varfx_number/05-icones-queimando.png"
+import IconeDinheiro from "@assets/wf_xtra_varfx_number/05-icones-dinheiro.png"
+import IconeTempoDeRecarga from "@assets/wf_xtra_varfx_number/05-icones-tempo-de-recarga.png"
+import IconeGota from "@assets/wf_xtra_varfx_number/05-icones-gota.png"
+import IconeEnergia from "@assets/wf_xtra_varfx_number/05-icones-energia.png"
+import IconeOlho from "@assets/wf_xtra_varfx_number/05-icones-olho.png"
+import IconePeixe from "@assets/wf_xtra_varfx_number/05-icones-peixe.png"
+import IconeComida from "@assets/wf_xtra_varfx_number/05-icones-comida.png"
+import IconeCongelando from "@assets/wf_xtra_varfx_number/05-icones-congelando.png"
+import IconePedrasPreciosas from "@assets/wf_xtra_varfx_number/05-icones-pedras-preciosas.png"
+import IconeOuro from "@assets/wf_xtra_varfx_number/05-icones-ouro.png"
+import IconeSaude from "@assets/wf_xtra_varfx_number/05-icones-saude.png"
+import IconeHonra from "@assets/wf_xtra_varfx_number/05-icones-honra.png"
+import IconeMagica from "@assets/wf_xtra_varfx_number/05-icones-magica.png"
+import IconeMana from "@assets/wf_xtra_varfx_number/05-icones-mana.png"
+import IconeVeneno from "@assets/wf_xtra_varfx_number/05-icones-veneno.png"
+import IconeReparacao from "@assets/wf_xtra_varfx_number/05-icones-reparacao.png"
+import IconeReputacao from "@assets/wf_xtra_varfx_number/05-icones-reputacao.png"
+import IconeEscudo from "@assets/wf_xtra_varfx_number/05-icones-escudo.png"
+import IconeResistencia from "@assets/wf_xtra_varfx_number/05-icones-resistencia.png"
+import IconePoderEstrela from "@assets/wf_xtra_varfx_number/05-icones-poder-estrela.png"
+import IconeFurtividade from "@assets/wf_xtra_varfx_number/05-icones-furtividade.png"
+import IconeTempoRestante from "@assets/wf_xtra_varfx_number/05-icones-tempo-restante.png"
+import IconeAprimoramento from "@assets/wf_xtra_varfx_number/05-aprimoramento.png"
+import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/05-icones-troncos-de-madeira.png"
 
 A **Variável FX: Exibição de Números** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em formato numérico.
 
@@ -143,8 +169,37 @@ Existem **26** opções de ícone disponíveis. Elas permitem, por exemplo, rela
 
 As opções disponíveis são:
 
+<div class="icon-table-scroll" role="region" aria-label="Primeira lista de ícones da Exibição de Números" tabindex="0">
+<table class="icon-table">
+  <thead>
+    <tr>
+      <th style={{ width: "7%" }}>Bateria</th><th style={{ width: "7%" }}>Queimando</th><th style={{ width: "7%" }}>Dinheiro</th><th style={{ width: "7%" }}>Tempo de recarga</th><th style={{ width: "7%" }}>Gota</th><th style={{ width: "7%" }}>Energia</th><th style={{ width: "7%" }}>Olho</th><th style={{ width: "7%" }}>Peixe</th><th style={{ width: "7%" }}>Comida</th><th style={{ width: "7%" }}>Congelando</th><th style={{ width: "7%" }}>Pedras preciosas</th><th style={{ width: "7%" }}>Ouro</th><th style={{ width: "7%" }}>Saúde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ width: "7%" }}><img src={IconeBateria.src} alt="Ícone Bateria" title="Ícone Bateria" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeQueimando.src} alt="Ícone Queimando" title="Ícone Queimando" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeDinheiro.src} alt="Ícone Dinheiro" title="Ícone Dinheiro" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeTempoDeRecarga.src} alt="Ícone Tempo de recarga" title="Ícone Tempo de recarga" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeGota.src} alt="Ícone Gota" title="Ícone Gota" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeEnergia.src} alt="Ícone Energia" title="Ícone Energia" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeOlho.src} alt="Ícone Olho" title="Ícone Olho" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconePeixe.src} alt="Ícone Peixe" title="Ícone Peixe" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeComida.src} alt="Ícone Comida" title="Ícone Comida" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeCongelando.src} alt="Ícone Congelando" title="Ícone Congelando" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconePedrasPreciosas.src} alt="Ícone Pedras preciosas" title="Ícone Pedras preciosas" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeOuro.src} alt="Ícone Ouro" title="Ícone Ouro" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeSaude.src} alt="Ícone Saúde" title="Ícone Saúde" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
 
-![Placeholder da configuração de ícone da Variável FX Exibição de Números](https://placehold.co/600x400/?text=selecao+de+icone "Seleção de ícone da Exibição de Números")
+</div>
+
+<div class="icon-table-scroll" role="region" aria-label="Segunda lista de ícones da Exibição de Números" tabindex="0">
+<table class="icon-table">
+  <thead>
+    <tr>
+      <th style={{ width: "7%" }}>Honra</th><th style={{ width: "7%" }}>Mágica</th><th style={{ width: "7%" }}>Mana</th><th style={{ width: "7%" }}>Veneno</th><th style={{ width: "7%" }}>Reparação</th><th style={{ width: "7%" }}>Reputação</th><th style={{ width: "7%" }}>Escudo</th><th style={{ width: "7%" }}>Resistência</th><th style={{ width: "7%" }}>Poder estrela</th><th style={{ width: "7%" }}>Furtividade</th><th style={{ width: "7%" }}>Tempo restante</th><th style={{ width: "7%" }}>Aprimoramento</th><th style={{ width: "7%" }}>Troncos de madeira</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ width: "7%" }}><img src={IconeHonra.src} alt="Ícone Honra" title="Ícone Honra" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeMagica.src} alt="Ícone Mágica" title="Ícone Mágica" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeMana.src} alt="Ícone Mana" title="Ícone Mana" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeVeneno.src} alt="Ícone Veneno" title="Ícone Veneno" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeReparacao.src} alt="Ícone Reparação" title="Ícone Reparação" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeReputacao.src} alt="Ícone Reputação" title="Ícone Reputação" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeEscudo.src} alt="Ícone Escudo" title="Ícone Escudo" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeResistencia.src} alt="Ícone Resistência" title="Ícone Resistência" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconePoderEstrela.src} alt="Ícone Poder estrela" title="Ícone Poder estrela" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeFurtividade.src} alt="Ícone Furtividade" title="Ícone Furtividade" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeTempoRestante.src} alt="Ícone Tempo restante" title="Ícone Tempo restante" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeAprimoramento.src} alt="Ícone Aprimoramento" title="Ícone Aprimoramento" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeTroncosDeMadeira.src} alt="Ícone Troncos de madeira" title="Ícone Troncos de madeira" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
 
 #### Alinhamento do ícone
 
