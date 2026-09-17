@@ -78,7 +78,14 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 O vídeo abaixo ilustra como seria esse processo:
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com a Barra de saúde do chefe"
+    title="Configuração de uma variável para a Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
     <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -134,8 +141,17 @@ O estilo **Vida do chefe e caveira** utiliza sempre a cor vermelha, que é o pad
 A maioria das cores disponíveis possui uma aparência fixa, porém duas opções merecem destaque:
 
 * **Vermelho para verde:** a cor da barra de saúde varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra de saúde. Quanto menor for o valor, mais vermelha ela ficará.
+
+O vídeo abaixo demonstra a mudança de cor conforme o valor da variável é atualizado.
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da cor Vermelho para verde da Barra de saúde do chefe"
+    title="Cor Vermelho para verde da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
     <source src={CorVermelhoPraVerde} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -143,8 +159,17 @@ A maioria das cores disponíveis possui uma aparência fixa, porém duas opçõe
 </figure>
 
 * **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+O vídeo abaixo mostra a barra de saúde utilizando a cor do time do usuário.
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Barra de saúde do chefe usando a Cor do time"
+    title="Cor do time da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
     <source src={CorDoTime} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -161,8 +186,17 @@ As opções disponíveis são:
 * Extra grande
 * Enorme
 
+O vídeo abaixo mostra a diferença entre os tamanhos disponíveis para a barra de saúde.
+
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos tamanhos disponíveis para a Barra de saúde do chefe"
+    title="Tamanhos da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
     <source src={Tamanho} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -185,8 +219,17 @@ Nesse caso, a barra de saúde será exibida com aproximadamente **50%** do seu p
 
 Alterar os valores mínimo e máximo permite adaptar a barra de saúde para diferentes escalas de vida.
 
+O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da barra de saúde.
+
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do intervalo de valores da Barra de saúde do chefe"
+    title="Intervalo de valores da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
     <source src={IntervaloDeValores} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -232,7 +275,7 @@ A barra de saúde permanecerá sempre visível acima do mobi ou usuário.
 
 #### Visível quando a variável atualiza
 
-A barra de saúde será exibida quando a variável configurada no tópico [Requisitos](/referencia/variaveis/wf_xtra_varfx_boss/#requisitos) for atualizada.
+A barra de saúde será exibida quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
 
 Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
 
@@ -245,7 +288,14 @@ Esse campo aceita valores entre **1500** e **20000**, representando a duração 
 No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de saúde permanece visível por **2 segundos** acima do usuário sempre que a variável aumenta de valor.
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Exemplo da Barra de saúde do chefe visível quando a variável atualiza"
+    title="Barra de saúde do chefe visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
     <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -406,7 +456,7 @@ Esta opção está disponível tanto para um Wired **Variável FX: Barra de saú
 
 ### Configurações avançadas de intervalo
 
-Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](/referencia/variaveis/wf_xtra_varfx_boss/#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
 
 #### Substituir mínimo
 
