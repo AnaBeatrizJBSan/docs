@@ -1,6 +1,6 @@
 ---
 title: "Variável FX: Exibição de Números"
-description: Este extra exibe um valor numérico acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+description: Este extra exibe um valor numérico acima de um usuário ou mobi, utilizando o valor de uma variável.
 sidebar:
   label: Exibição de Números
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 75717
   classname: wf_xtra_varfx_number
   name: "Variável FX: Exibição de Números"
-  description: Este extra exibe um valor numérico acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+  description: Este extra exibe um valor numérico acima de um usuário ou mobi, utilizando o valor de uma variável.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -42,4 +42,341 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+A **Variável FX: Exibição de Números** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em formato numérico.
+
+Ela pode representar, por exemplo, pontos, moedas, dano, energia ou qualquer outro valor que precise ficar visível no quarto.
+
 <Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Exibição de Números** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o número exibido pelo efeito.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com a Exibição de Números"
+    title="Configuração de uma variável para a Exibição de Números"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Exibição de Números**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Estilo
+
+Nesta seção é possível escolher como o valor numérico será exibido.
+
+Atualmente existem três estilos disponíveis:
+
+* **Freeze**
+* **Shalimar**
+* **Quadradão**
+
+![Placeholder da comparação entre os estilos Freeze, Shalimar e Quadradão da Variável FX Exibição de Números](https://placehold.co/600x400/?text=comparacao+dos+estilos "Comparação entre os estilos Freeze, Shalimar e Quadradão")
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência da Exibição de Números.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+![Placeholder da janela de configuração da Variável FX Exibição de Números mostrando a prévia do efeito](https://placehold.co/600x400/?text=visualizacao+do+efeito "Visualização da Variável FX Exibição de Números")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia passa a utilizar diferentes valores numéricos, permitindo visualizar como o efeito ficará com números distintos.
+
+![Placeholder da prévia da Exibição de Números alternando valores ao usar a Visualização Aleatória](https://placehold.co/600x400/?text=visualizacao+aleatoria "Visualização Aleatória da Exibição de Números")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência da Exibição de Números.
+
+#### Cor
+
+Os três estilos permitem alterar a cor do efeito. A maioria das cores disponíveis possui uma aparência fixa, porém uma cor dinâmica merece destaque:
+
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+O vídeo abaixo mostra a Exibição de Números utilizando a cor do time do usuário.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Exibição de Números usando a Cor do time"
+    title="Cor do time da Exibição de Números"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Ícone
+
+Também é possível escolher um ícone para acompanhar o número exibido. Por padrão, o ícone fica à esquerda do valor.
+
+Existem **26** opções de ícone disponíveis. Elas permitem, por exemplo, relacionar o número a moedas, energia, saúde ou outro elemento visual do sistema criado.
+
+As opções disponíveis são:
+
+
+![Placeholder da configuração de ícone da Variável FX Exibição de Números](https://placehold.co/600x400/?text=selecao+de+icone "Seleção de ícone da Exibição de Números")
+
+#### Alinhamento do ícone
+
+A opção **Alinhamento do ícone** define onde o ícone escolhido será exibido em relação ao número. As opções disponíveis são:
+
+* **Esquerda:** exibe o ícone antes do número.
+* **Direita:** exibe o ícone depois do número.
+* **Ambos os lados:** exibe um ícone de cada lado do número.
+
+![Placeholder da configuração de alinhamento do ícone da Variável FX Exibição de Números](https://placehold.co/600x400/?text=alinhamento+do+icone "Alinhamento do ícone da Exibição de Números")
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando a Exibição de Números ficará visível.
+
+#### Sempre visível
+
+O número permanecerá sempre visível acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=configuracao+sempre+visivel"
+          alt="Placeholder das configurações da Exibição de Números com a opção Sempre visível selecionada"
+          title="Configurações da Exibição de Números com a opção Sempre visível selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=exemplo+sempre+visivel"
+          alt="Placeholder de um exemplo da Exibição de Números sempre visível no quarto"
+          title="Exemplo da Exibição de Números sempre visível no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+O número será exibido quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não é alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, o número também será exibido se o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Exibição de Números visível quando a variável atualiza"
+    title="Exibição de Números visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+O número será exibido somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=configuracao+visivel+ao+passar+o+mouse"
+          alt="Placeholder das configurações da Exibição de Números com a opção Visível ao passar o mouse selecionada"
+          title="Configurações da Exibição de Números com a opção Visível ao passar o mouse selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=exemplo+visivel+ao+passar+o+mouse"
+          alt="Placeholder de um exemplo da Exibição de Números visível ao passar o mouse no quarto"
+          title="Exemplo da Exibição de Números visível ao passar o mouse no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Exibição de Números**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá o número**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Exibição de Números** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=audiencia+somente+o+usuario"
+          alt="Placeholder das configurações de audiência da Exibição de Números com a opção Somente o usuário selecionada"
+          title="Configurações de audiência Somente o usuário"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=exemplo+audiencia+somente+o+usuario"
+          alt="Placeholder da comparação entre a visão do usuário com a variável e a de outro usuário"
+          title="Exemplo da audiência Somente o usuário"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão o número**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Exibição de Números** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=audiencia+mesmo+time"
+          alt="Placeholder das configurações de audiência da Exibição de Números com a opção Usuários que estão no mesmo time selecionada"
+          title="Configurações de audiência Usuários que estão no mesmo time"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=exemplo+audiencia+mesmo+time"
+          alt="Placeholder da comparação entre a visão de usuários do mesmo time e a de outro usuário"
+          title="Exemplo da audiência Usuários que estão no mesmo time"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar o número**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Exibição de Números** vinculado a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=audiencia+usuarios+com+variavel"
+          alt="Placeholder das configurações de audiência da Exibição de Números com a opção Usuários que têm variável selecionada"
+          title="Configurações de audiência Usuários que têm variável"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src="https://placehold.co/600x400/?text=exemplo+audiencia+usuarios+com+variavel"
+          alt="Placeholder da comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários"
+          title="Exemplo da audiência Usuários que têm variável"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar o número acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Exibição de Números** vinculado a variáveis de usuário quanto a variáveis de mobi.
+
+## Exemplos de uso
+
+A **Variável FX: Exibição de Números** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **Sistema de moedas:** vincule o Wired a uma variável de usuário e exiba a quantidade de moedas obtidas durante uma atividade.
+* **Contador de dano:** associe o Wired a uma variável de mobi para mostrar o dano causado a um inimigo ou objeto do quarto.
+* **Pontuação de minijogo:** use uma variável de usuário para mostrar os pontos acumulados por cada participante.
+* **Energia de máquina:** vincule uma variável de mobi a uma máquina e exiba o valor disponível para indicar quanto ela ainda pode ser utilizada.
