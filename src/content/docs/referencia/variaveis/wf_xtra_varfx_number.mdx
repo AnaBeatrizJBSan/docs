@@ -4,7 +4,7 @@ description: Este extra exibe um valor numérico acima de um usuário ou mobi, u
 sidebar:
   label: Exibição de Números
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -41,32 +41,34 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
-import IconeBateria from "@assets/wf_xtra_varfx_number/05-icones-bateria.png"
-import IconeQueimando from "@assets/wf_xtra_varfx_number/05-icones-queimando.png"
-import IconeDinheiro from "@assets/wf_xtra_varfx_number/05-icones-dinheiro.png"
-import IconeTempoDeRecarga from "@assets/wf_xtra_varfx_number/05-icones-tempo-de-recarga.png"
-import IconeGota from "@assets/wf_xtra_varfx_number/05-icones-gota.png"
-import IconeEnergia from "@assets/wf_xtra_varfx_number/05-icones-energia.png"
-import IconeOlho from "@assets/wf_xtra_varfx_number/05-icones-olho.png"
-import IconePeixe from "@assets/wf_xtra_varfx_number/05-icones-peixe.png"
-import IconeComida from "@assets/wf_xtra_varfx_number/05-icones-comida.png"
-import IconeCongelando from "@assets/wf_xtra_varfx_number/05-icones-congelando.png"
-import IconePedrasPreciosas from "@assets/wf_xtra_varfx_number/05-icones-pedras-preciosas.png"
-import IconeOuro from "@assets/wf_xtra_varfx_number/05-icones-ouro.png"
-import IconeSaude from "@assets/wf_xtra_varfx_number/05-icones-saude.png"
-import IconeHonra from "@assets/wf_xtra_varfx_number/05-icones-honra.png"
-import IconeMagica from "@assets/wf_xtra_varfx_number/05-icones-magica.png"
-import IconeMana from "@assets/wf_xtra_varfx_number/05-icones-mana.png"
-import IconeVeneno from "@assets/wf_xtra_varfx_number/05-icones-veneno.png"
-import IconeReparacao from "@assets/wf_xtra_varfx_number/05-icones-reparacao.png"
-import IconeReputacao from "@assets/wf_xtra_varfx_number/05-icones-reputacao.png"
-import IconeEscudo from "@assets/wf_xtra_varfx_number/05-icones-escudo.png"
-import IconeResistencia from "@assets/wf_xtra_varfx_number/05-icones-resistencia.png"
-import IconePoderEstrela from "@assets/wf_xtra_varfx_number/05-icones-poder-estrela.png"
-import IconeFurtividade from "@assets/wf_xtra_varfx_number/05-icones-furtividade.png"
-import IconeTempoRestante from "@assets/wf_xtra_varfx_number/05-icones-tempo-restante.png"
+import CorDoTime from "@assets/wf_xtra_varfx_number/05-cor-do-time.mp4"
+import Requisitos from "@assets/wf_xtra_varfx_number/01-requisitos.mp4"
+import IconeBateria from "@assets/wf_xtra_varfx_number/06-icones-bateria.png"
+import IconeQueimando from "@assets/wf_xtra_varfx_number/06-icones-queimando.png"
+import IconeDinheiro from "@assets/wf_xtra_varfx_number/06-icones-dinheiro.png"
+import IconeTempoDeRecarga from "@assets/wf_xtra_varfx_number/06-icones-tempo-de-recarga.png"
+import IconeGota from "@assets/wf_xtra_varfx_number/06-icones-gota.png"
+import IconeEnergia from "@assets/wf_xtra_varfx_number/06-icones-energia.png"
+import IconeOlho from "@assets/wf_xtra_varfx_number/06-icones-olho.png"
+import IconePeixe from "@assets/wf_xtra_varfx_number/06-icones-peixe.png"
+import IconeComida from "@assets/wf_xtra_varfx_number/06-icones-comida.png"
+import IconeCongelando from "@assets/wf_xtra_varfx_number/06-icones-congelando.png"
+import IconePedrasPreciosas from "@assets/wf_xtra_varfx_number/06-icones-pedras-preciosas.png"
+import IconeOuro from "@assets/wf_xtra_varfx_number/06-icones-ouro.png"
+import IconeSaude from "@assets/wf_xtra_varfx_number/06-icones-saude.png"
+import IconeHonra from "@assets/wf_xtra_varfx_number/06-icones-honra.png"
+import IconeMagica from "@assets/wf_xtra_varfx_number/06-icones-magica.png"
+import IconeMana from "@assets/wf_xtra_varfx_number/06-icones-mana.png"
+import IconeVeneno from "@assets/wf_xtra_varfx_number/06-icones-veneno.png"
+import IconeReparacao from "@assets/wf_xtra_varfx_number/06-icones-reparacao.png"
+import IconeReputacao from "@assets/wf_xtra_varfx_number/06-icones-reputacao.png"
+import IconeEscudo from "@assets/wf_xtra_varfx_number/06-icones-escudo.png"
+import IconeResistencia from "@assets/wf_xtra_varfx_number/06-icones-resistencia.png"
+import IconePoderEstrela from "@assets/wf_xtra_varfx_number/06-icones-poder-estrela.png"
+import IconeFurtividade from "@assets/wf_xtra_varfx_number/06-icones-furtividade.png"
+import IconeTempoRestante from "@assets/wf_xtra_varfx_number/06-icones-tempo-restante.png"
 import IconeAprimoramento from "@assets/wf_xtra_varfx_number/05-aprimoramento.png"
-import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/05-icones-troncos-de-madeira.png"
+import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/06-icones-troncos-de-madeira.png"
 
 A **Variável FX: Exibição de Números** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em formato numérico.
 
@@ -96,7 +98,7 @@ O vídeo abaixo ilustra como seria esse processo:
     title="Configuração de uma variável para a Exibição de Números"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -112,11 +114,11 @@ Nesta seção é possível escolher como o valor numérico será exibido.
 
 Atualmente existem três estilos disponíveis:
 
-* **Freeze**
-* **Shalimar**
-* **Quadradão**
+* **Freeze:** exibe números formados por blocos pixelados, com faixas verticais mais escuras.
+* **Shalimar:** exibe números com contorno claro e linhas horizontais no preenchimento.
+* **Quadradão:** exibe números largos e quadrados, com preenchimento sólido e sombra escura.
 
-![Placeholder da comparação entre os estilos Freeze, Shalimar e Quadradão da Variável FX Exibição de Números](https://placehold.co/600x400/?text=comparacao+dos+estilos "Comparação entre os estilos Freeze, Shalimar e Quadradão")
+![Comparação entre os estilos Freeze, Shalimar e Quadradão](@assets/wf_xtra_varfx_number/02-estilo.png "Comparação entre os estilos Freeze, Shalimar e Quadradão")
 
 ### Visualização
 
@@ -124,7 +126,7 @@ A seção **Visualização** mostra uma prévia da aparência da Exibição de N
 
 Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
 
-![Placeholder da janela de configuração da Variável FX Exibição de Números mostrando a prévia do efeito](https://placehold.co/600x400/?text=visualizacao+do+efeito "Visualização da Variável FX Exibição de Números")
+![Janela de configuração da Variável FX Exibição de Números mostrando a prévia dos estilos](@assets/wf_xtra_varfx_number/03-visualizacao.gif "Janela de configuração da Variável FX Exibição de Números mostrando a prévia dos estilos")
 
 #### Visualização Aleatória
 
@@ -132,7 +134,7 @@ No canto inferior direito da seção **Visualização**, existe um ícone chamad
 
 Ao pressioná-lo, a prévia passa a utilizar diferentes valores numéricos, permitindo visualizar como o efeito ficará com números distintos.
 
-![Placeholder da prévia da Exibição de Números alternando valores ao usar a Visualização Aleatória](https://placehold.co/600x400/?text=visualizacao+aleatoria "Visualização Aleatória da Exibição de Números")
+![Visualização Aleatória da Exibição de Números](@assets/wf_xtra_varfx_number/04-visualizacao-aleatoria.gif "Visualização Aleatória da Exibição de Números")
 
 ### Configurações
 
@@ -155,7 +157,7 @@ O vídeo abaixo mostra a Exibição de Números utilizando a cor do time do usu�
     title="Cor do time da Exibição de Números"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={CorDoTime} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
