@@ -78,7 +78,14 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 O vídeo abaixo ilustra como seria esse processo:
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com os Pontos de Saúde"
+    title="Configuração de uma variável para os Pontos de Saúde"
+    style={{ width: "100%" }}
+  >
     <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -133,8 +140,17 @@ A maioria das cores disponíveis possui uma aparência fixa, porém uma cor din�
 
 * **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
 
+O vídeo abaixo mostra os pontos de saúde utilizando a cor do time do usuário.
+
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos Pontos de Saúde usando a Cor do time"
+    title="Cor do time dos Pontos de Saúde"
+    style={{ width: "100%" }}
+  >
     <source src={Cor} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -147,8 +163,17 @@ A opção **Segmentos** está disponível apenas para o estilo **Termômetro**. 
 
 É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, o termômetro é exibido com **9** quadradinhos.
 
+O vídeo abaixo compara o termômetro com diferentes quantidades de segmentos.
+
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos segmentos disponíveis no estilo Termômetro dos Pontos de Saúde"
+    title="Segmentos do estilo Termômetro"
+    style={{ width: "100%" }}
+  >
     <source src={Segmentos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -166,8 +191,17 @@ Os tamanhos disponíveis variam conforme o estilo selecionado:
 | Corações Empilhados | Médio e grande |
 | Termômetro | Extra pequeno, pequeno, médio, grande e extra grande |
 
+O vídeo abaixo mostra a diferença entre os tamanhos disponíveis para cada estilo.
+
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos tamanhos disponíveis para os estilos dos Pontos de Saúde"
+    title="Tamanhos dos Pontos de Saúde"
+    style={{ width: "100%" }}
+  >
     <source src={Tamanho} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -190,8 +224,17 @@ Nesse caso, os pontos de saúde serão exibidos com aproximadamente **50%** do p
 
 Alterar os valores mínimo e máximo permite adaptar a exibição para diferentes escalas de vida.
 
+O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da exibição de saúde.
+
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do intervalo de valores dos Pontos de Saúde"
+    title="Intervalo de valores dos Pontos de Saúde"
+    style={{ width: "100%" }}
+  >
     <source src={IntervaloDeValores} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
@@ -248,7 +291,14 @@ Além disso, é possível definir por quanto tempo os pontos de saúde permanece
 No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de pontos de saúde permanece visível por **2 segundos** acima do mobi sempre que a variável aumenta de valor.
 
 <figure>
-  <video muted controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Exemplo dos Pontos de Saúde visíveis quando a variável atualiza"
+    title="Pontos de Saúde visíveis quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
     <source src={VisivelQuandoAVariavelAtualizaExemplo} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
