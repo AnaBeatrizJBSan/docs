@@ -69,6 +69,18 @@ import IconeFurtividade from "@assets/wf_xtra_varfx_number/06-icones-furtividade
 import IconeTempoRestante from "@assets/wf_xtra_varfx_number/06-icones-tempo-restante.png"
 import IconeAprimoramento from "@assets/wf_xtra_varfx_number/05-aprimoramento.png"
 import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/06-icones-troncos-de-madeira.png"
+import AlinhamentoDoIcone from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone.mp4"
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_number/08-exemplo-sempre-visivel.png";
+import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza.mp4";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_number/10-exemplo-visivel-ao-passar-o-mouse.gif";
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_number/11-exemplo-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_number/12-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelConfiguracao from "@assets/wf_xtra_varfx_number/13-wired-audiencia-usuarios-que-tem-variavel.gif"
+import AudienciaUsuariosQueTemVariavelExemplo from "@assets/wf_xtra_varfx_number/13-exemplo-audiencia-usuarios-que-tem-variavel.png"
 
 A **Variável FX: Exibição de Números** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em formato numérico.
 
@@ -211,7 +223,20 @@ A opção **Alinhamento do ícone** define onde o ícone escolhido será exibido
 * **Direita:** exibe o ícone depois do número.
 * **Ambos os lados:** exibe um ícone de cada lado do número.
 
-![Placeholder da configuração de alinhamento do ícone da Variável FX Exibição de Números](https://placehold.co/600x400/?text=alinhamento+do+icone "Alinhamento do ícone da Exibição de Números")
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do Alinhamento do ícone da Exibição de Números"
+    title="Alinhamento do ícone da Exibição de Números"
+    style={{ width: "100%" }}
+  >
+    <source src={AlinhamentoDoIcone} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
 
 ### Configurações de visibilidade
 
@@ -232,17 +257,17 @@ O número permanecerá sempre visível acima do mobi ou usuário.
     <tr>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=configuracao+sempre+visivel"
-          alt="Placeholder das configurações da Exibição de Números com a opção Sempre visível selecionada"
-          title="Configurações da Exibição de Números com a opção Sempre visível selecionada"
+          src={SempreVisivelConfiguracao.src}
+          alt="Configurações do Exibição de Números com a opção Sempre visível selecionada"
+          title="Configurações do Exibição de Números com a opção Sempre visível selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=exemplo+sempre+visivel"
-          alt="Placeholder de um exemplo da Exibição de Números sempre visível no quarto"
-          title="Exemplo da Exibição de Números sempre visível no quarto"
+          src={SempreVisivelExemplo.src}
+          alt="Usuário e mobi no quarto com o Exibição de Números sempre visível acima deles"
+          title="Exemplo do Exibição de Números sempre visível no quarto"
           style={{ width: "100%" }}
         />
       </td>
@@ -271,7 +296,7 @@ O vídeo abaixo demonstra a exibição temporária depois de uma atualização d
     title="Exibição de Números visível quando a variável atualiza"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={VisivelQuandoAVariavelAtualizaExemplo} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -292,17 +317,17 @@ O número será exibido somente enquanto o mouse estiver posicionado sobre o mob
     <tr>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=configuracao+visivel+ao+passar+o+mouse"
-          alt="Placeholder das configurações da Exibição de Números com a opção Visível ao passar o mouse selecionada"
-          title="Configurações da Exibição de Números com a opção Visível ao passar o mouse selecionada"
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações do Exibição de Números com a opção Visível ao passar o mouse selecionada"
+          title="Configurações do Exibição de Números com a opção Visível ao passar o mouse selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=exemplo+visivel+ao+passar+o+mouse"
-          alt="Placeholder de um exemplo da Exibição de Números visível ao passar o mouse no quarto"
-          title="Exemplo da Exibição de Números visível ao passar o mouse no quarto"
+          src={VisivelAoPassarOMouseExemplo.src}
+          alt="Animação do Exibição de Números sendo exibido somente quando o mouse passa sobre o mobi"
+          title="Exemplo do Exibição de Números visível ao passar o mouse no quarto"
           style={{ width: "100%" }}
         />
       </td>
@@ -333,17 +358,17 @@ Esta opção não está disponível quando o Wired **Variável FX: Exibição de
     <tr>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=audiencia+somente+o+usuario"
-          alt="Placeholder das configurações de audiência da Exibição de Números com a opção Somente o usuário selecionada"
-          title="Configurações de audiência Somente o usuário"
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
+          alt="Configurações do Exibição de Números com a audiência Somente o usuário selecionada"
+          title="Configurações do Exibição de Números com a audiência Somente o usuário selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=exemplo+audiencia+somente+o+usuario"
-          alt="Placeholder da comparação entre a visão do usuário com a variável e a de outro usuário"
-          title="Exemplo da audiência Somente o usuário"
+          src={AudienciaSomenteOUsuarioExemplo.src}
+          alt="Comparação entre a visão de dois usuários, em que o Exibição de Números aparece somente para o usuário configurado"
+          title="Exemplo do Exibição de Números visível somente para o usuário"
           style={{ width: "100%" }}
         />
       </td>
@@ -361,24 +386,24 @@ Esta opção não está disponível quando o Wired **Variável FX: Exibição de
   <thead>
     <tr>
       <th style={{ width: "50%" }}>Configuração do Wired</th>
-      <th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th>
+      <th style={{ width: "50%" }}>Visão dos usuários que estão no mesmo time e visão de outros usuários</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=audiencia+mesmo+time"
-          alt="Placeholder das configurações de audiência da Exibição de Números com a opção Usuários que estão no mesmo time selecionada"
-          title="Configurações de audiência Usuários que estão no mesmo time"
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações do Exibição de Números com a audiência Usuários que estão no mesmo time selecionada"
+          title="Configurações do Exibição de Números com a audiência Usuários que estão no mesmo time selecionada"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=exemplo+audiencia+mesmo+time"
-          alt="Placeholder da comparação entre a visão de usuários do mesmo time e a de outro usuário"
-          title="Exemplo da audiência Usuários que estão no mesmo time"
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src}
+          alt="Comparação entre usuários no mesmo time, que veem o Exibição de Números, e um usuário de outro time, que não o vê"
+          title="Exemplo do Exibição de Números visível para usuários do mesmo time"
           style={{ width: "100%" }}
         />
       </td>
@@ -397,7 +422,7 @@ Esta opção está disponível tanto para um Wired **Variável FX: Exibição de
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead>
     <tr>
-      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "40%" }}>Configuração do Wired</th>
       <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
     </tr>
   </thead>
@@ -405,17 +430,17 @@ Esta opção está disponível tanto para um Wired **Variável FX: Exibição de
     <tr>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=audiencia+usuarios+com+variavel"
-          alt="Placeholder das configurações de audiência da Exibição de Números com a opção Usuários que têm variável selecionada"
-          title="Configurações de audiência Usuários que têm variável"
+          src={AudienciaUsuariosQueTemVariavelConfiguracao.src}
+          alt="Animação da janela de configuração do Exibição de Números, incluindo as configurações de visibilidade"
+          title="Configuração da audiência Usuários que têm variável do Exibição de Números"
           style={{ width: "100%" }}
         />
       </td>
       <td>
         <img
-          src="https://placehold.co/600x400/?text=exemplo+audiencia+usuarios+com+variavel"
-          alt="Placeholder da comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários"
-          title="Exemplo da audiência Usuários que têm variável"
+          src={AudienciaUsuariosQueTemVariavelExemplo.src}
+          alt="Comparação entre usuários no quarto, em que o Exibição de Números é visível apenas para quem possui a variável configurada"
+          title="Exemplo do Exibição de Números visível para usuários que têm variável"
           style={{ width: "100%" }}
         />
       </td>
