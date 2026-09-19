@@ -46,11 +46,20 @@ infobox:
   # - Item de ativação
 ---
 
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Infobox from "@components/Infobox.astro"
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import wiredTimerNoWiredCreatorTools from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools.mp4";
+import WiredTimerCaptionsUrl from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools-captions.vtt?url";
+import WiredTimerDescriptionsUrl from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools-descriptions.vtt?url";
+import WiredTimerCaptionsRaw from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools-captions.vtt?raw";
+import WiredTimerDescriptionsRaw from "@assets/wf_trg_at_given_time/1-wired_timer-no-wired-creator-tools-descriptions.vtt?raw";
 import exemploPraticoWiredNoTempoEscolhido from "@assets/wf_trg_at_given_time/3-exemplo-pratico.mp4";
+import ExemploPraticoCaptionsUrl from "@assets/wf_trg_at_given_time/3-exemplo-pratico-captions.vtt?url";
+import ExemploPraticoDescriptionsUrl from "@assets/wf_trg_at_given_time/3-exemplo-pratico-descriptions.vtt?url";
+import ExemploPraticoCaptionsRaw from "@assets/wf_trg_at_given_time/3-exemplo-pratico-captions.vtt?raw";
+import ExemploPraticoDescriptionsRaw from "@assets/wf_trg_at_given_time/3-exemplo-pratico-descriptions.vtt?raw";
 
 O **Ativador Wired: No tempo escolhido** é responsável por executar uma pilha Wired quando o tempo interno do quarto atingir um valor específico.
 
@@ -62,20 +71,16 @@ Esse tempo corresponde ao valor da variável global interna do jogo chamada **`@
 
 É possível acompanhar o valor atual dessa variável utilizando o comando **`:wired`** dentro do jogo e acessando a aba **Variáveis Globais**, como mostrado no vídeo abaixo:
 
-<figure>
-  <video
-    controls
-    muted
-    preload="metadata"
-    aria-label="Demonstração da consulta da variável global @wired_timer na janela de Ferramentas para Criadores Wired"
-    title="Consulta da variável global @wired_timer"
-    style={{ width: "55%" }}
-  >
-    <source src={wiredTimerNoWiredCreatorTools} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="consulta-wired-timer"
+  src={wiredTimerNoWiredCreatorTools}
+  title="Consulta da variável global @wired_timer"
+  captionsSrc={WiredTimerCaptionsUrl}
+  captionsContent={WiredTimerCaptionsRaw}
+  descriptionsSrc={WiredTimerDescriptionsUrl}
+  descriptionsContent={WiredTimerDescriptionsRaw}
+  width="55%"
+/>
 
 ## Como escolher o tempo?
 
@@ -99,20 +104,15 @@ Como a variável aumenta uma unidade a cada 0,5 segundo, basta multiplicar o tem
 
 Neste exemplo, um **Piso Colorido** mudará de estado 10 segundos após um usuário pisar nele.
 
-<figure>
-  <video
-    controls
-    muted
-    preload="metadata"
-    aria-label="Exemplo prático do Ativador Wired No tempo escolhido mudando o estado de um Piso Colorido"
-    title="Exemplo prático do Ativador Wired No tempo escolhido"
-    style={{ width: "100%" }}
-  >
-    <source src={exemploPraticoWiredNoTempoEscolhido} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="exemplo-pratico-no-tempo-escolhido"
+  src={exemploPraticoWiredNoTempoEscolhido}
+  title="Exemplo prático do Ativador Wired No tempo escolhido"
+  captionsSrc={ExemploPraticoCaptionsUrl}
+  captionsContent={ExemploPraticoCaptionsRaw}
+  descriptionsSrc={ExemploPraticoDescriptionsUrl}
+  descriptionsContent={ExemploPraticoDescriptionsRaw}
+/>
 
 <Tabs>
   <TabItem label="Configuração">

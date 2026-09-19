@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.000
+Em um quarto do Habbo, há um piso colorido, uma pilha Wired com mostrador numérico e um avatar. A configuração do ativador “No tempo escolhido” é aberta, o tempo é alterado de 0,5 para 10 segundos e a escolha é confirmada.
+
+00:00:08.000 --> 00:00:15.700
+Um efeito “Mudar estado do Mobi” é colocado sobre o ativador. Na configuração, permanece marcada a opção para avançar ao próximo estado, e o piso colorido recebe um contorno azul para indicar que foi selecionado como alvo.
+
+00:00:15.700 --> 00:00:21.900
+Uma segunda pilha é criada ao lado da primeira. O ativador “Habbo anda no Mobi” é aberto, e o mesmo piso colorido é selecionado como o local que acionará essa pilha.
+
+00:00:21.900 --> 00:00:24.900
+Sobre o segundo ativador, é colocado o efeito “Reiniciar tempo”. A configuração é confirmada sem atraso, permitindo que o piso reinicie a contagem quando for pisado.
+
+00:00:24.900 --> 00:00:28.200
+O painel Inspection é aberto à direita e destaca a variável global “@wired_timer”. O avatar pisa no piso colorido, e o valor da variável volta para zero.
+
+00:00:28.200 --> 00:00:32.600
+O avatar se afasta. No painel, “@wired_timer” aumenta continuamente enquanto o piso permanece azul-claro, demonstrando a passagem do tempo após a reinicialização.
+
+00:00:32.600 --> 00:00:34.666
+Quando “@wired_timer” chega a 20 pulsos, equivalentes aos 10 segundos configurados, o piso muda de azul-claro para amarelo. A contagem continua após a execução do efeito.

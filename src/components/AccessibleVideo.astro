@@ -17,6 +17,7 @@ interface Props {
   autoplay?: boolean;
   loop?: boolean;
   muted?: boolean;
+  width?: string;
 }
 
 const {
@@ -32,6 +33,7 @@ const {
   autoplay = false,
   loop = false,
   muted = true,
+  width = "100%"
 } = Astro.props;
 
 const captions: WebVttCue[] = parseWebVtt(captionsContent);
@@ -55,20 +57,21 @@ const accessibleTextId = `${id}-accessible-text`;
     muted={muted}
     aria-label={title}
     aria-describedby={accessibleTextId}
+    style={{ width }}
   >
     <track
       kind="captions"
       src={captionsSrc}
       srclang="pt-BR"
-      label="Legendas em português do Brasil"
-      default
+      label="Português (Brasil)"
     />
 
     <track
       kind="descriptions"
       src={descriptionsSrc}
       srclang="pt-BR"
-      label="Audiodescrição em português do Brasil"
+      label="Português (Brasil)"
+      default
     />
 
     Seu navegador não oferece suporte à reprodução de vídeos.
