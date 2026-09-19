@@ -4,7 +4,7 @@ description: Este extra exibe o progresso em formato de barra acima de um usuár
 sidebar:
   label: Barra de Progresso
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -41,6 +41,11 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import BarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-barra-classica.png"
+import BarraEmBlocos from "@assets/wf_xtra_varfx_prog/02-estilo-barra-em-blocos.png"
+import BarraListrada from "@assets/wf_xtra_varfx_prog/02-estilo-barra-listrada.gif"
+import BarraDeSeta from "@assets/wf_xtra_varfx_prog/02-estilo-barra-de-seta.png"
+import MiniBarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-mini-barra-classica.png"
 
 A **Variável FX: Barra de Progresso** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável como uma barra preenchida.
 
@@ -86,13 +91,26 @@ Nesta seção é possível escolher como a barra de progresso será exibida.
 
 Atualmente existem cinco estilos disponíveis:
 
-* **Barra clássica**
-* **Barra em blocos**
-* **Barra listrada**
-* **Barra de seta**
-* **Mini barra clássica**
-
-![Placeholder da comparação entre os estilos da Variável FX Barra de Progresso](https://placehold.co/600x400/?text=comparacao+dos+estilos "Comparação entre os estilos da Barra de Progresso")
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "20%" }}>Barra clássica</th>
+      <th style={{ width: "20%" }}>Barra em blocos</th>
+      <th style={{ width: "20%" }}>Barra listrada</th>
+      <th style={{ width: "20%" }}>Barra de seta</th>
+      <th style={{ width: "20%" }}>Mini barra clássica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={BarraClassica.src} alt="Estilo Barra clássica da Variável FX Barra de Progresso" title="Barra clássica" style={{ width: "100%" }} /></td>
+      <td><img src={BarraEmBlocos.src} alt="Estilo Barra em blocos da Variável FX Barra de Progresso" title="Barra em blocos" style={{ width: "100%" }} /></td>
+      <td><img src={BarraListrada.src} alt="Estilo Barra listrada da Variável FX Barra de Progresso" title="Barra listrada" style={{ width: "100%" }} /></td>
+      <td><img src={BarraDeSeta.src} alt="Estilo Barra de seta da Variável FX Barra de Progresso" title="Barra de seta" style={{ width: "100%" }} /></td>
+      <td><img src={MiniBarraClassica.src} alt="Estilo Mini barra clássica da Variável FX Barra de Progresso" title="Mini barra clássica" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Visualização
 
@@ -100,7 +118,7 @@ A seção **Visualização** mostra uma prévia da aparência da barra de progre
 
 Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
 
-![Placeholder da janela de configuração da Variável FX Barra de Progresso mostrando a prévia do efeito](https://placehold.co/600x400/?text=visualizacao+do+efeito "Visualização da Barra de Progresso")
+![Janela de configuração da Variável FX Barra de Progresso mostrando a prévia dos estilos](@assets/wf_xtra_varfx_prog/03-visualizacao.gif "Janela de configuração da Variável FX Barra de Progresso mostrando a prévia dos estilos")
 
 #### Visualização Aleatória
 
@@ -168,9 +186,9 @@ O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
 
 #### Segmentos
 
-A opção **Segmentos** está disponível apenas para os estilos **Barra em blocos** e **Barra de seta**. Ela define quantos quadradinhos serão exibidos na barra de progresso.
+A opção **Segmentos** está disponível apenas para os estilos **Barra em blocos** e **Barra de seta**. Ela define quantas partições serão exibidas na barra de progresso.
 
-É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **6** quadradinhos.
+É possível escolher entre **1** e **100** partições. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **6** partições.
 
 O vídeo abaixo compara a barra de progresso com diferentes quantidades de segmentos.
 
