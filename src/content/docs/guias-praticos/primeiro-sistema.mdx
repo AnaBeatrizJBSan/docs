@@ -7,9 +7,14 @@ sidebar:
   
 ---
 
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
-import exemploPraticoCriandoSeuPrimeiroSistemaWired from "@assets/primeiro-sistema/exemplo-pratico-criando-seu-primeiro-sistema-wired.mp4";
+import ExemploPratico from "@assets/primeiro-sistema/01-exemplo-pratico.mp4";
+import ExemploPraticoLegendaUrl from "@assets/primeiro-sistema/01-exemplo-pratico-captions.vtt?url";
+import ExemploPraticoDescricaoUrl from "@assets/primeiro-sistema/01-exemplo-pratico-descriptions.vtt?url";
+import ExemploPraticoLegendaRaw from "@assets/primeiro-sistema/01-exemplo-pratico-captions.vtt?raw";
+import ExemploPraticoDescricaoRaw from "@assets/primeiro-sistema/01-exemplo-pratico-descriptions.vtt?raw";
 
 Seja bem-vindo ao seu primeiro passo no mundo da programação Wired! Automatizar quartos pode parecer um grande desafio no início, mas tudo se baseia em uma regra de ouro: combinar um sensor que detecta uma ação com um executor que realiza uma resposta.
 
@@ -17,20 +22,15 @@ Seja bem-vindo ao seu primeiro passo no mundo da programação Wired! Automatiza
 
 A seguir, criaremos o seu primeiro sistema **Wired**. Pense nele como um **sistema de campainha inteligente**: o **"Piso Escuro"** é o botão que alguém pressiona ao chegar, o ativador **"Habbo anda no mobi"** é o gatilho que detecta essa ação, e a **mensagem** é o som da campainha tocando. Quando alguém pisa no botão (sensor), a campainha (resposta) toca automaticamente.
 
-<figure>
-  <video
-    controls
-    muted
-    preload="metadata"
-    aria-label="Demonstração da criação de um primeiro sistema Wired que mostra uma mensagem ao pisar em um Piso Escuro"
-    title="Demonstração da criação de um primeiro sistema Wired"
-    style={{ width: "100%" }}
-  >
-    <source src={exemploPraticoCriandoSeuPrimeiroSistemaWired} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="exemplo-pratico-primeiro-sistema"
+  src={ExemploPratico}
+  title="Demonstração da criação de um primeiro sistema Wired"
+  captionsSrc={ExemploPraticoLegendaUrl}
+  captionsContent={ExemploPraticoLegendaRaw}
+  descriptionsSrc={ExemploPraticoDescricaoUrl}
+  descriptionsContent={ExemploPraticoDescricaoRaw}
+/>
 
 <Tabs>
   <TabItem label="Configuração">
