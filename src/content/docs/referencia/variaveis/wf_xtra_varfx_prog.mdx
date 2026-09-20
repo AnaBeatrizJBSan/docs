@@ -41,11 +41,15 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_prog/01-requisitos.mp4"
 import BarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-barra-classica.png"
 import BarraEmBlocos from "@assets/wf_xtra_varfx_prog/02-estilo-barra-em-blocos.png"
 import BarraListrada from "@assets/wf_xtra_varfx_prog/02-estilo-barra-listrada.gif"
 import BarraDeSeta from "@assets/wf_xtra_varfx_prog/02-estilo-barra-de-seta.png"
 import MiniBarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-mini-barra-classica.png"
+import CorDoTime from "@assets/wf_xtra_varfx_prog/05-cor-do-time.mp4"
+import Tamanho from "@assets/wf_xtra_varfx_prog/06-tamanho.mp4"
+import Segmentos from "@assets/wf_xtra_varfx_prog/07-segmentos.mp4"
 
 A **Variável FX: Barra de Progresso** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável como uma barra preenchida.
 
@@ -75,7 +79,7 @@ O vídeo abaixo ilustra como seria esse processo:
     title="Configuração de uma variável para a Barra de Progresso"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={Requisitos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -128,7 +132,7 @@ Ao pressioná-lo, a prévia passa a utilizar diferentes valores da variável, pe
 
 Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
 
-![Placeholder da prévia da Barra de Progresso alternando valores ao usar a Visualização Aleatória](https://placehold.co/600x400/?text=visualizacao+aleatoria "Visualização Aleatória da Barra de Progresso")
+![Prévia da Barra de Progresso alternando valores ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_prog/04-visualizacao-aleatoria.gif "Visualização Aleatória da Barra de Progresso")
 
 ### Configurações
 
@@ -151,7 +155,7 @@ O vídeo abaixo mostra a Barra de Progresso utilizando a cor do time do usuário
     title="Cor do time da Barra de Progresso"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={CorDoTime} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -178,7 +182,7 @@ O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
     title="Tamanhos da Barra de Progresso"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={Tamanho} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -201,7 +205,7 @@ O vídeo abaixo compara a barra de progresso com diferentes quantidades de segme
     title="Segmentos da Barra de Progresso"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={Segmentos} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
