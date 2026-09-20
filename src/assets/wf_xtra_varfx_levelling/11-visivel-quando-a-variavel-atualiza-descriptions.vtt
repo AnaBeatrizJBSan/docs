@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+A configuração da Variável FX: Progresso de Nível está aberta. O indicador com o nível 1 e uma barra azul permanece visível acima do avatar enquanto a opção “Sempre visível” está selecionada.
+
+00:00:03.600 --> 00:00:06.700
+A opção de exibir o indicador quando a variável atualizar é selecionada. O período de visibilidade é configurado e as alterações são salvas.
+
+00:00:06.800 --> 00:00:09.400
+A janela fecha e o indicador desaparece. O avatar é inspecionado para acessar a lista de variáveis vinculadas a ele.
+
+00:00:09.500 --> 00:00:12.900
+Na janela de variáveis, o valor de “escritor” é editado. O número passa de 20 para 25, atualizando também os dados de experiência e progresso.
+
+00:00:13.000 --> 00:00:15.300
+Após a atualização, o indicador de nível reaparece brevemente acima do avatar e volta a desaparecer ao fim do período configurado.
