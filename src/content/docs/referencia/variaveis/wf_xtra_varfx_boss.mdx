@@ -40,15 +40,40 @@ infobox:
   additional_sources: []
 ---
 
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_boss/01-requisitos.mp4";
+import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_boss/01-requisitos-captions.vtt?url";
+import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_boss/01-requisitos-captions.vtt?raw";
+import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_boss/01-requisitos-descriptions.vtt?url";
+import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_boss/01-requisitos-descriptions.vtt?raw";
 import CorVermelhoPraVerde from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-verde.mp4";
+import CorVermelhoPraVerdeCaptionsUrl from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-verde-captions.vtt?url";
+import CorVermelhoPraVerdeCaptionsRaw from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-verde-captions.vtt?raw";
+import CorVermelhoPraVerdeDescriptionsUrl from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-verde-descriptions.vtt?url";
+import CorVermelhoPraVerdeDescriptionsRaw from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-verde-descriptions.vtt?raw";
 import CorDoTime from "@assets/wf_xtra_varfx_boss/05-cor-do-time.mp4";
+import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_boss/05-cor-do-time-captions.vtt?url";
+import CorDoTimeCaptionsRaw from "@assets/wf_xtra_varfx_boss/05-cor-do-time-captions.vtt?raw";
+import CorDoTimeDescriptionsUrl from "@assets/wf_xtra_varfx_boss/05-cor-do-time-descriptions.vtt?url";
+import CorDoTimeDescriptionsRaw from "@assets/wf_xtra_varfx_boss/05-cor-do-time-descriptions.vtt?raw";
 import Tamanho from "@assets/wf_xtra_varfx_boss/06-tamanho.mp4";
+import TamanhoCaptionsUrl from "@assets/wf_xtra_varfx_boss/06-tamanho-captions.vtt?url";
+import TamanhoCaptionsRaw from "@assets/wf_xtra_varfx_boss/06-tamanho-captions.vtt?raw";
+import TamanhoDescriptionsUrl from "@assets/wf_xtra_varfx_boss/06-tamanho-descriptions.vtt?url";
+import TamanhoDescriptionsRaw from "@assets/wf_xtra_varfx_boss/06-tamanho-descriptions.vtt?raw";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores.mp4";
+import IntervaloDeValoresCaptionsUrl from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores-captions.vtt?url";
+import IntervaloDeValoresCaptionsRaw from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores-captions.vtt?raw";
+import IntervaloDeValoresDescriptionsUrl from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores-descriptions.vtt?url";
+import IntervaloDeValoresDescriptionsRaw from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores-descriptions.vtt?raw";
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/08-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelQuandoAVariavelAtualizaCaptionsUrl from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza-captions.vtt?url";
+import VisivelQuandoAVariavelAtualizaCaptionsRaw from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
+import VisivelQuandoAVariavelAtualizaDescriptionsUrl from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
+import VisivelQuandoAVariavelAtualizaDescriptionsRaw from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-exemplo-visivel-ao-passar-o-mouse.gif";
 import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
@@ -77,20 +102,15 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 
 O vídeo abaixo ilustra como seria esse processo:
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da configuração de uma variável para usar com a Barra de saúde do chefe"
-    title="Configuração de uma variável para a Barra de saúde do chefe"
-    style={{ width: "100%" }}
-  >
-    <source src={Requisitos} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="requisitos-barra-saude-chefe"
+  src={Requisitos}
+  title="Configuração de uma variável para a Barra de saúde do chefe"
+  captionsSrc={RequisitosCaptionsUrl}
+  captionsContent={RequisitosCaptionsRaw}
+  descriptionsSrc={RequisitosDescriptionsUrl}
+  descriptionsContent={RequisitosDescriptionsRaw}
+/>
 
 
 ## Como esse Wired funciona?
@@ -143,38 +163,28 @@ A maioria das cores disponíveis possui uma aparência fixa, porém duas opçõe
 * **Vermelho para verde:** a cor da barra de saúde varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra de saúde. Quanto menor for o valor, mais vermelha ela ficará.
 
 O vídeo abaixo demonstra a mudança de cor conforme o valor da variável é atualizado.
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da cor Vermelho para verde da Barra de saúde do chefe"
-    title="Cor Vermelho para verde da Barra de saúde do chefe"
-    style={{ width: "100%" }}
-  >
-    <source src={CorVermelhoPraVerde} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="cor-vermelho-para-verde-barra-saude-chefe"
+  src={CorVermelhoPraVerde}
+  title="Cor Vermelho para verde da Barra de saúde do chefe"
+  captionsSrc={CorVermelhoPraVerdeCaptionsUrl}
+  captionsContent={CorVermelhoPraVerdeCaptionsRaw}
+  descriptionsSrc={CorVermelhoPraVerdeDescriptionsUrl}
+  descriptionsContent={CorVermelhoPraVerdeDescriptionsRaw}
+/>
 
 * **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
 
 O vídeo abaixo mostra a barra de saúde utilizando a cor do time do usuário.
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da Barra de saúde do chefe usando a Cor do time"
-    title="Cor do time da Barra de saúde do chefe"
-    style={{ width: "100%" }}
-  >
-    <source src={CorDoTime} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="cor-do-time-barra-saude-chefe"
+  src={CorDoTime}
+  title="Cor do time da Barra de saúde do chefe"
+  captionsSrc={CorDoTimeCaptionsUrl}
+  captionsContent={CorDoTimeCaptionsRaw}
+  descriptionsSrc={CorDoTimeDescriptionsUrl}
+  descriptionsContent={CorDoTimeDescriptionsRaw}
+/>
 
 #### Tamanho
 
@@ -188,20 +198,15 @@ As opções disponíveis são:
 
 O vídeo abaixo mostra a diferença entre os tamanhos disponíveis para a barra de saúde.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração dos tamanhos disponíveis para a Barra de saúde do chefe"
-    title="Tamanhos da Barra de saúde do chefe"
-    style={{ width: "100%" }}
-  >
-    <source src={Tamanho} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="tamanhos-barra-saude-chefe"
+  src={Tamanho}
+  title="Tamanhos da Barra de saúde do chefe"
+  captionsSrc={TamanhoCaptionsUrl}
+  captionsContent={TamanhoCaptionsRaw}
+  descriptionsSrc={TamanhoDescriptionsUrl}
+  descriptionsContent={TamanhoDescriptionsRaw}
+/>
 
 ### Intervalo de valores
 
@@ -221,20 +226,15 @@ Alterar os valores mínimo e máximo permite adaptar a barra de saúde para dife
 
 O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da barra de saúde.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração do intervalo de valores da Barra de saúde do chefe"
-    title="Intervalo de valores da Barra de saúde do chefe"
-    style={{ width: "100%" }}
-  >
-    <source src={IntervaloDeValores} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="intervalo-valores-barra-saude-chefe"
+  src={IntervaloDeValores}
+  title="Intervalo de valores da Barra de saúde do chefe"
+  captionsSrc={IntervaloDeValoresCaptionsUrl}
+  captionsContent={IntervaloDeValoresCaptionsRaw}
+  descriptionsSrc={IntervaloDeValoresDescriptionsUrl}
+  descriptionsContent={IntervaloDeValoresDescriptionsRaw}
+/>
 
 ### Configurações de visibilidade
 
@@ -287,20 +287,15 @@ Esse campo aceita valores entre **1500** e **20000**, representando a duração 
 
 No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de saúde permanece visível por **2 segundos** acima do usuário sempre que a variável aumenta de valor.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Exemplo da Barra de saúde do chefe visível quando a variável atualiza"
-    title="Barra de saúde do chefe visível quando a variável atualiza"
-    style={{ width: "100%" }}
-  >
-    <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="visivel-quando-atualiza-barra-saude-chefe"
+  src={VisivelQuandoAVariavelAtualiza}
+  title="Barra de saúde do chefe visível quando a variável atualiza"
+  captionsSrc={VisivelQuandoAVariavelAtualizaCaptionsUrl}
+  captionsContent={VisivelQuandoAVariavelAtualizaCaptionsRaw}
+  descriptionsSrc={VisivelQuandoAVariavelAtualizaDescriptionsUrl}
+  descriptionsContent={VisivelQuandoAVariavelAtualizaDescriptionsRaw}
+/>
 
 #### Visível ao passar o mouse
 

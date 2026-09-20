@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.400
+Nas configurações de visibilidade da Variável FX, a opção Sempre visível está inicialmente selecionada.
+
+00:00:01.400 --> 00:00:04.900
+A opção Visível quando a variável atualiza é selecionada. Apenas o evento Variável aumentada permanece marcado, a duração é definida como dois mil milissegundos e a audiência permanece configurada para todos.
+
+00:00:04.900 --> 00:00:06.600
+Na ferramenta de inspeção, o avatar está com a variável saude_do_usuario no valor cento e um. Nenhuma barra está visível acima dele.
+
+00:00:06.600 --> 00:00:08.166
+O valor aumenta para cento e dois. Como o aumento corresponde ao evento configurado, a barra vermelha com caveiras aparece temporariamente acima do avatar.

@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+Estilo: Vida do chefe
+
+00:00:03.300 --> 00:00:07.700
+Cor: [Dinâmica] Cor do Time
+Intervalo de valores: 0 a 100
+
+00:00:10.700 --> 00:00:16.700
+Inspection
+@team.color: 1 (Red)
+@team.type: 4 (Wired)
+Variável: saude_do_usuario
+Valor: 100
+
+00:00:16.700 --> 00:00:19.000
+Time vermelho
+
+00:00:19.000 --> 00:00:21.000
+Time verde
+
+00:00:21.000 --> 00:00:23.000
+Time azul
+
+00:00:23.000 --> 00:00:24.733
+Time amarelo
+
