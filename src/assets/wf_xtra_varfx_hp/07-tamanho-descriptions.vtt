@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Na configuração da Variável FX: Pontos de Saúde, o estilo “Barra de saúde” é exibido. O tamanho é alterado de médio para pequeno, reduzindo o comprimento da barra com coração acima do avatar.
+
+00:00:03.600 --> 00:00:08.400
+O tamanho grande é selecionado. A barra de saúde fica visivelmente mais comprida acima do avatar, mantendo o coração vermelho na extremidade esquerda.
+
+00:00:08.500 --> 00:00:10.900
+O estilo muda para “Corações empilhados”. Vários corações vermelhos aparecem organizados em linhas acima do avatar.
+
+00:00:11.000 --> 00:00:13.700
+Ao alternar entre médio e grande, a formação de corações se expande, passando a ocupar uma área maior acima do personagem.
+
+00:00:13.800 --> 00:00:16.600
+O estilo muda para “Termômetro”. No tamanho extra pequeno, o indicador segmentado aparece curto e compacto acima do avatar.
+
+00:00:16.700 --> 00:00:18.600
+O tamanho pequeno é selecionado, aumentando discretamente o comprimento do termômetro.
+
+00:00:18.700 --> 00:00:20.600
+Com o tamanho médio, o indicador verde segmentado fica mais largo.
+
+00:00:20.700 --> 00:00:24.900
+Por fim, o tamanho grande é selecionado. O termômetro se estende ainda mais horizontalmente acima do avatar.
