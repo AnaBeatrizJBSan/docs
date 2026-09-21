@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.900
+A janela do WIRED Variável: Usuário Variável está aberta. A variável recebe o nome “atleta”, é configurada para ter valor e fica disponível enquanto o usuário está no quarto.
+
+00:00:06.000 --> 00:00:09.000
+A configuração é salva. Em seguida, o avatar é inspecionado e sua lista de variáveis é aberta.
+
+00:00:09.100 --> 00:00:12.500
+A variável “atleta” é criada com o valor 45. Uma barra horizontal parcialmente preenchida de verde aparece acima do avatar.
+
+00:00:12.600 --> 00:00:16.500
+A Variável FX: Barra de Progresso, posicionada sobre o WIRED de variável, mostra uma prévia da barra verde e as configurações de intervalo, aparência e visibilidade.
+
+00:00:16.600 --> 00:00:22.000
+A janela do WIRED Variável: Mobi Variável é aberta. Uma segunda variável recebe o nome “treino_concluido”, também é configurada para ter valor e permanecer enquanto o Mobi está no quarto.
+
+00:00:22.100 --> 00:00:26.700
+O suporte com pesos coloridos é inspecionado. A variável “treino_concluido” é criada com o valor 10, e uma barra de progresso surge acima do Mobi, enquanto a barra do avatar continua visível.

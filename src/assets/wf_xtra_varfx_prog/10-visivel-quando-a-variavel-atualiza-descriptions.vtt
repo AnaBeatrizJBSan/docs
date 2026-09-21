@@ -1,0 +1,20 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+No editor da Barra de Progresso, a opção “Sempre visível” está marcada. A barra verde segmentada permanece exibida sobre o avatar.
+
+00:00:03.300 --> 00:00:06.300
+Em Configurações de visibilidade, a opção muda para “Visível quando a variável atualiza”. A barra deixa de permanecer sobre o avatar.
+
+00:00:06.300 --> 00:00:09.800
+A condição “Variável aumentada” é mantida marcada, e a duração da exibição é definida como 2.000 milissegundos.
+
+00:00:09.800 --> 00:00:12.500
+O editor é fechado. O menu do bot é aberto, e a janela de variáveis é acessada pela opção “Inspecionar”.
+
+00:00:12.500 --> 00:00:17.800
+Na lista de variáveis do bot, “atleta” tem valor 50. O número é editado e aumentado para 51.
+
+00:00:17.800 --> 00:00:20.133
+Como a variável aumentou, a barra de progresso verde surge sobre o avatar pelo período configurado e depois desaparece.
+
