@@ -1,10 +1,10 @@
 ---
 title: "Variável FX: Barra de Status"
-description: Este extra exibe uma barra de status acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+description: Este extra exibe uma barra de status acima de um usuário ou mobi, utilizando o valor de uma variável.
 sidebar:
   label: Barra de Status
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -16,7 +16,7 @@ infobox:
   revision: 75717
   classname: wf_xtra_varfx_status
   name: "Variável FX: Barra de Status"
-  description: Este extra exibe uma barra de status acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+  description: Este extra exibe uma barra de status acima de um usuário ou mobi, utilizando o valor de uma variável.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -42,4 +42,367 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+A **Variável FX: Barra de Status** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em um dos estilos de status disponíveis.
+
+Ela pode representar, por exemplo, energia, mana, fome, resistência, reputação ou qualquer outro recurso que precise ser acompanhado no quarto.
+
 <Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Barra de Status** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o preenchimento da barra.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com a Barra de Status"
+    title="Configuração de uma variável para a Barra de Status"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Barra de Status**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Estilo
+
+Nesta seção é possível escolher qual status será representado pela barra.
+
+Atualmente existem vinte e dois estilos disponíveis:
+
+* **Energia**
+* **Escudo**
+* **Magia**
+* **Comida**
+* **Resistência**
+* **Veneno**
+* **Mana**
+* **Saúde**
+* **Ouro**
+* **Pedras preciosas**
+* **Honra**
+* **Reputação**
+* **Tempo de recarga**
+* **Tempo restante**
+* **Queimando**
+* **Congelando**
+* **Bateria**
+* **Reparação**
+* **Furtividade**
+* **Aprimoramento**
+* **Poder estrela**
+* **Água**
+
+![Placeholder da comparação entre os estilos disponíveis da Barra de Status](https://placehold.co/1200x500/?text=estilos+da+barra+de+status "Estilos da Barra de Status")
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência da Barra de Status.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+![Placeholder da janela de configuração da Barra de Status mostrando a prévia do estilo selecionado](https://placehold.co/600x400/?text=visualizacao "Visualização da Barra de Status")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia passa a utilizar diferentes valores da variável, permitindo visualizar como o efeito ficará em diferentes níveis de preenchimento.
+
+Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
+
+![Placeholder da prévia da Barra de Status alternando valores ao usar a Visualização Aleatória](https://placehold.co/600x400/?text=visualizacao+aleatoria "Visualização Aleatória da Barra de Status")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência da Barra de Status.
+
+#### Cor
+
+Para a maioria dos estilos, a opção **Cor** não é aplicável e não pode ser alterada.
+
+O estilo **Bateria** utiliza sempre a aparência **Vermelho para verde**. Conforme o valor da variável aumenta, o preenchimento passa do vermelho para o verde. Essa cor é padrão do estilo e também não pode ser modificada.
+
+![Placeholder do estilo Bateria da Barra de Status alternando do vermelho para o verde conforme o valor aumenta](https://placehold.co/600x400/?text=cor+da+bateria "Cor Vermelho para verde do estilo Bateria")
+
+#### Tamanho
+
+Todos os estilos permitem alterar o tamanho da Barra de Status. As opções disponíveis são:
+
+* Extra pequeno
+* Pequeno
+* Médio
+* Grande
+* Extra grande
+
+O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos tamanhos disponíveis para a Barra de Status"
+    title="Tamanhos da Barra de Status"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Estilo visual
+
+A opção **Estilo visual** altera a aparência do preenchimento da barra. As opções disponíveis são:
+
+* **Blocos:** divide a parte preenchida da barra em blocos quadrados separados.
+* **Listrada:** preenche a barra com faixas diagonais claras, que possuem um efeito de animação.
+* **Seta:** preenche a barra com setas apontadas para a direita, indicando o sentido da progressão.
+
+O vídeo abaixo apresenta como cada estilo visual altera a barra.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos estilos visuais Blocos, Listrada e Seta da Barra de Status"
+    title="Estilo visual da Barra de Status"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Segmentos
+
+A opção **Segmentos** está disponível para todos os estilos. Ela define quantos quadradinhos serão exibidos na barra.
+
+É possível escolher entre **1** e **100** segmentos. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **6** quadradinhos.
+
+O vídeo abaixo compara a barra com diferentes quantidades de segmentos.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração das diferentes quantidades de segmentos na Barra de Status"
+    title="Segmentos da Barra de Status"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Intervalo de valores
+
+Esta seção define como o valor da variável será convertido em uma porcentagem do preenchimento da Barra de Status.
+
+Nos campos **Valor mínimo** e **Valor máximo**, é possível informar números com **até 10 dígitos**.
+
+O próprio Wired fornece um exemplo:
+
+* Valor da variável: **15**
+* Valor mínimo: **10**
+* Valor máximo: **20**
+
+Nesse caso, a Barra de Status será exibida com aproximadamente **50%** do preenchimento.
+
+Alterar os valores mínimo e máximo permite adaptar a barra para diferentes escalas de status.
+
+O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da barra.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do intervalo de valores da Barra de Status"
+    title="Intervalo de valores da Barra de Status"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando a Barra de Status ficará visível.
+
+#### Sempre visível
+
+A Barra de Status permanecerá sempre visível acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://placehold.co/600x400/?text=configuracao+sempre+visivel" alt="Placeholder das configurações da Barra de Status com a opção Sempre visível selecionada" title="Configurações da Barra de Status com a opção Sempre visível selecionada" style={{ width: "100%" }} /></td>
+      <td><img src="https://placehold.co/600x400/?text=exemplo+sempre+visivel" alt="Placeholder de uma Barra de Status sempre visível no quarto" title="Exemplo da Barra de Status sempre visível no quarto" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+A Barra de Status será exibida quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não é alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, a barra também será exibida se o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Barra de Status visível quando a variável atualiza"
+    title="Barra de Status visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
+    <source src={""} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+A Barra de Status será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://placehold.co/600x400/?text=configuracao+visivel+ao+passar+o+mouse" alt="Placeholder das configurações da Barra de Status com a opção Visível ao passar o mouse selecionada" title="Configurações da Barra de Status com a opção Visível ao passar o mouse selecionada" style={{ width: "100%" }} /></td>
+      <td><img src="https://placehold.co/600x400/?text=exemplo+visivel+ao+passar+o+mouse" alt="Placeholder de uma Barra de Status visível ao passar o mouse no quarto" title="Exemplo da Barra de Status visível ao passar o mouse no quarto" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pela **Variável FX: Barra de Status**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá a Barra de Status**.
+
+Esta opção não está disponível quando a **Variável FX: Barra de Status** estiver vinculada a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
+  <tbody><tr>
+    <td><img src="https://placehold.co/600x400/?text=audiencia+somente+o+usuario" alt="Placeholder das configurações de audiência da Barra de Status com a opção Somente o usuário selecionada" title="Configurações de audiência Somente o usuário" style={{ width: "100%" }} /></td>
+    <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+somente+o+usuario" alt="Placeholder da comparação entre a visão do usuário com a variável e a de outro usuário" title="Exemplo da audiência Somente o usuário" style={{ width: "100%" }} /></td>
+  </tr></tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão a Barra de Status**.
+
+Esta opção não está disponível quando a **Variável FX: Barra de Status** estiver vinculada a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th></tr></thead>
+  <tbody><tr>
+    <td><img src="https://placehold.co/600x400/?text=audiencia+mesmo+time" alt="Placeholder das configurações de audiência da Barra de Status com a opção Usuários que estão no mesmo time selecionada" title="Configurações de audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+    <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+mesmo+time" alt="Placeholder da comparação entre a visão de usuários do mesmo time e a de outro usuário" title="Exemplo da audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+  </tr></tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar a Barra de Status**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para uma **Variável FX: Barra de Status** vinculada a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
+  <tbody><tr>
+    <td><img src="https://placehold.co/600x400/?text=audiencia+usuarios+com+variavel" alt="Placeholder das configurações de audiência da Barra de Status com a opção Usuários que têm variável selecionada" title="Configurações de audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
+    <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+usuarios+com+variavel" alt="Placeholder da comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários" title="Exemplo da audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
+  </tr></tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a Barra de Status acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para uma **Variável FX: Barra de Status** vinculada a variáveis de usuário quanto a variáveis de mobi.
+
+### Configurações avançadas de intervalo
+
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
+
+#### Substituir mínimo
+
+Ao marcar esta opção, o valor mínimo passará a ser obtido a partir de uma variável.
+
+Dependendo do tipo de variável selecionado no topo da janela do Wired **Variável FX: Barra de Status**, será possível escolher:
+
+* Variáveis de usuário;
+* Variáveis de mobi;
+* Variáveis globais.
+
+#### Substituir máximo
+
+Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define o valor máximo do intervalo utilizando uma variável.
+
+Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
+
+| Variável de Usuário | Variável de Mobi | Variável Global |
+| :---: | :---: | :---: |
+| ![Placeholder da Barra de Status com o intervalo avançado configurado usando uma Variável de Usuário](https://placehold.co/600x400/?text=variavel+de+usuario "Intervalo avançado com Variável de Usuário") | ![Placeholder da Barra de Status com o intervalo avançado configurado usando uma Variável de Mobi](https://placehold.co/600x400/?text=variavel+de+mobi "Intervalo avançado com Variável de Mobi") | ![Placeholder da Barra de Status com o intervalo avançado configurado usando uma Variável Global](https://placehold.co/600x400/?text=variavel+global "Intervalo avançado com Variável Global") |
+
+## Exemplos de uso
+
+A **Variável FX: Barra de Status** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **RPG:** utilize os estilos **Mana**, **Energia** ou **Resistência** para acompanhar os recursos de cada jogador durante missões e batalhas.
+* **Sistema de fome:** associe o estilo **Comida** a uma variável de usuário e reduza seu valor com o tempo, incentivando os participantes a procurarem alimento.
+* **Objetivo com durabilidade:** vincule o estilo **Reparação** a uma variável de mobi para mostrar o progresso de conserto de uma máquina, porta ou veículo.
+* **Desafio em equipes:** use o estilo **Reputação** ou **Poder estrela** para acompanhar a pontuação dos participantes e selecione a audiência **Usuários que estão no mesmo time** para que cada equipe veja apenas seus aliados.
