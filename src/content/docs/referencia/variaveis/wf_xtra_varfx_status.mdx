@@ -41,6 +41,28 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import EstiloEnergia from "@assets/wf_xtra_varfx_status/02-estilo-energia.png"
+import EstiloEscudo from "@assets/wf_xtra_varfx_status/02-estilo-escudo.png"
+import EstiloMagia from "@assets/wf_xtra_varfx_status/02-estilo-magia.png"
+import EstiloComida from "@assets/wf_xtra_varfx_status/02-estilo-comida.png"
+import EstiloResistencia from "@assets/wf_xtra_varfx_status/02-estilo-resistencia.png"
+import EstiloVeneno from "@assets/wf_xtra_varfx_status/02-estilo-veneno.png"
+import EstiloMana from "@assets/wf_xtra_varfx_status/02-estilo-mana.png"
+import EstiloSaude from "@assets/wf_xtra_varfx_status/02-estilo-saude.png"
+import EstiloOuro from "@assets/wf_xtra_varfx_status/02-estilo-ouro.png"
+import EstiloPedrasPreciosas from "@assets/wf_xtra_varfx_status/02-estilo-pedras-preciosas.png"
+import EstiloHonra from "@assets/wf_xtra_varfx_status/02-estilo-honra.png"
+import EstiloReputacao from "@assets/wf_xtra_varfx_status/02-estilo-reputacao.png"
+import EstiloTempoDeRecarga from "@assets/wf_xtra_varfx_status/02-estilo-tempo-de-recarga.png"
+import EstiloTempoRestante from "@assets/wf_xtra_varfx_status/02-estilo-tempo-restante.png"
+import EstiloQueimando from "@assets/wf_xtra_varfx_status/02-estilo-queimando.png"
+import EstiloCongelando from "@assets/wf_xtra_varfx_status/02-estilo-congelando.png"
+import EstiloBateria from "@assets/wf_xtra_varfx_status/02-estilo-bateria.png"
+import EstiloReparacao from "@assets/wf_xtra_varfx_status/02-estilo-reparacao.png"
+import EstiloFurtividade from "@assets/wf_xtra_varfx_status/02-estilo-furtividade.png"
+import EstiloAprimoramento from "@assets/wf_xtra_varfx_status/02-estilo-aprimoramento.png"
+import EstiloPoderEstrela from "@assets/wf_xtra_varfx_status/02-estilo-poder-estrela.png"
+import EstiloAgua from "@assets/wf_xtra_varfx_status/02-estilo-agua.png"
 
 A **Variável FX: Barra de Status** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em um dos estilos de status disponíveis.
 
@@ -86,30 +108,30 @@ Nesta seção é possível escolher qual status será representado pela barra.
 
 Atualmente existem vinte e dois estilos disponíveis:
 
-* **Energia**
-* **Escudo**
-* **Magia**
-* **Comida**
-* **Resistência**
-* **Veneno**
-* **Mana**
-* **Saúde**
-* **Ouro**
-* **Pedras preciosas**
-* **Honra**
-* **Reputação**
-* **Tempo de recarga**
-* **Tempo restante**
-* **Queimando**
-* **Congelando**
-* **Bateria**
-* **Reparação**
-* **Furtividade**
-* **Aprimoramento**
-* **Poder estrela**
-* **Água**
-
-![Placeholder da comparação entre os estilos disponíveis da Barra de Status](https://placehold.co/1200x500/?text=estilos+da+barra+de+status "Estilos da Barra de Status")
+| Estilo | Visualização |
+| :--- | :---: |
+| Energia | ![Estilo Energia da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-energia.png "Estilo Energia") |
+| Escudo | ![Estilo Escudo da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-escudo.png "Estilo Escudo") |
+| Magia | ![Estilo Magia da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-magia.png "Estilo Magia") |
+| Comida | ![Estilo Comida da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-comida.png "Estilo Comida") |
+| Resistência | ![Estilo Resistência da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-resistencia.png "Estilo Resistência") |
+| Veneno | ![Estilo Veneno da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-veneno.png "Estilo Veneno") |
+| Mana | ![Estilo Mana da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-mana.png "Estilo Mana") |
+| Saúde | ![Estilo Saúde da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-saude.png "Estilo Saúde") |
+| Ouro | ![Estilo Ouro da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-ouro.png "Estilo Ouro") |
+| Pedras preciosas | ![Estilo Pedras preciosas da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-pedras-preciosas.png "Estilo Pedras preciosas") |
+| Honra | ![Estilo Honra da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-honra.png "Estilo Honra") |
+| Reputação | ![Estilo Reputação da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-reputacao.png "Estilo Reputação") |
+| Tempo de recarga | ![Estilo Tempo de recarga da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-tempo-de-recarga.png "Estilo Tempo de recarga") |
+| Tempo restante | ![Estilo Tempo restante da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-tempo-restante.png "Estilo Tempo restante") |
+| Queimando | ![Estilo Queimando da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-queimando.png "Estilo Queimando") |
+| Congelando | ![Estilo Congelando da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-congelando.png "Estilo Congelando") |
+| Bateria | ![Estilo Bateria da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-bateria.png "Estilo Bateria") |
+| Reparação | ![Estilo Reparação da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-reparacao.png "Estilo Reparação") |
+| Furtividade | ![Estilo Furtividade da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-furtividade.png "Estilo Furtividade") |
+| Aprimoramento | ![Estilo Aprimoramento da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-aprimoramento.png "Estilo Aprimoramento") |
+| Poder estrela | ![Estilo Poder estrela da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-poder-estrela.png "Estilo Poder estrela") |
+| Água | ![Estilo Água da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-agua.png "Estilo Água") |
 
 ### Visualização
 
