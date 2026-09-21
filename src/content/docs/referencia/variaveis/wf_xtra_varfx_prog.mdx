@@ -50,6 +50,21 @@ import MiniBarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-mini-barra-c
 import CorDoTime from "@assets/wf_xtra_varfx_prog/05-cor-do-time.mp4"
 import Tamanho from "@assets/wf_xtra_varfx_prog/06-tamanho.mp4"
 import Segmentos from "@assets/wf_xtra_varfx_prog/07-segmentos.mp4"
+import IntervaloDeValores from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores.mp4"
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_prog/09-exemplo-sempre-visivel.png"
+import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_prog/11-exemplo-visivel-ao-passar-o-mouse.gif"
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_prog/12-exemplo-audiencia-somente-o-usuario.png"
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_prog/13-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelExemplo from "@assets/wf_xtra_varfx_prog/14-exemplo-audiencia-usuarios-que-tem-variavel.png"
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png"
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png"
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png"
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif"
+import IntervaloAvancadoVariavelGlobal from "@assets/wf_xtra_varfx/06-wired-configuracoes-avancadas-de-intervalo-variavel-global.gif"
+import IntervaloAvancadoVariavelDeMobi from "@assets/wf_xtra_varfx/07-wired-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif"
+import IntervaloAvancadoVariavelDeUsuario from "@assets/wf_xtra_varfx/08-wired-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif"
 
 A **Variável FX: Barra de Progresso** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável como uma barra preenchida.
 
@@ -238,7 +253,7 @@ O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da 
     title="Intervalo de valores da Barra de Progresso"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={IntervaloDeValores} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -261,8 +276,8 @@ A barra de progresso permanecerá sempre visível acima do mobi ou usuário.
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://placehold.co/600x400/?text=configuracao+sempre+visivel" alt="Placeholder das configurações da Barra de Progresso com a opção Sempre visível selecionada" title="Configurações da Barra de Progresso com a opção Sempre visível selecionada" style={{ width: "100%" }} /></td>
-      <td><img src="https://placehold.co/600x400/?text=exemplo+sempre+visivel" alt="Placeholder de um exemplo da Barra de Progresso sempre visível no quarto" title="Exemplo da Barra de Progresso sempre visível no quarto" style={{ width: "100%" }} /></td>
+      <td><img src={SempreVisivelConfiguracao.src} alt="Configurações da Barra de Progresso com a opção Sempre visível selecionada" title="Configurações da Barra de Progresso com a opção Sempre visível selecionada" style={{ width: "100%" }} /></td>
+      <td><img src={SempreVisivelExemplo.src} alt="Barra de Progresso sempre visível acima de um usuário e de um mobi no quarto" title="Exemplo da Barra de Progresso sempre visível no quarto" style={{ width: "100%" }} /></td>
     </tr>
   </tbody>
 </table>
@@ -288,7 +303,7 @@ O vídeo abaixo demonstra a exibição temporária depois de uma atualização d
     title="Barra de Progresso visível quando a variável atualiza"
     style={{ width: "100%" }}
   >
-    <source src={""} type="video/mp4" />
+    <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>
   <figcaption></figcaption>
@@ -307,8 +322,8 @@ A barra de progresso será exibida somente enquanto o mouse estiver posicionado 
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://placehold.co/600x400/?text=configuracao+visivel+ao+passar+o+mouse" alt="Placeholder das configurações da Barra de Progresso com a opção Visível ao passar o mouse selecionada" title="Configurações da Barra de Progresso com a opção Visível ao passar o mouse selecionada" style={{ width: "100%" }} /></td>
-      <td><img src="https://placehold.co/600x400/?text=exemplo+visivel+ao+passar+o+mouse" alt="Placeholder de um exemplo da Barra de Progresso visível ao passar o mouse no quarto" title="Exemplo da Barra de Progresso visível ao passar o mouse no quarto" style={{ width: "100%" }} /></td>
+      <td><img src={VisivelAoPassarOMouseConfiguracao.src} alt="Configurações da Barra de Progresso com a opção Visível ao passar o mouse selecionada" title="Configurações da Barra de Progresso com a opção Visível ao passar o mouse selecionada" style={{ width: "100%" }} /></td>
+      <td><img src={VisivelAoPassarOMouseExemplo.src} alt="Barra de Progresso acima de um mobi sendo exibida ao passar o mouse sobre ele" title="Exemplo da Barra de Progresso visível ao passar o mouse no quarto" style={{ width: "100%" }} /></td>
     </tr>
   </tbody>
 </table>
@@ -328,8 +343,8 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de Prog
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
   <tbody><tr>
-    <td><img src="https://placehold.co/600x400/?text=audiencia+somente+o+usuario" alt="Placeholder das configurações de audiência da Barra de Progresso com a opção Somente o usuário selecionada" title="Configurações de audiência Somente o usuário" style={{ width: "100%" }} /></td>
-    <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+somente+o+usuario" alt="Placeholder da comparação entre a visão do usuário com a variável e a de outro usuário" title="Exemplo da audiência Somente o usuário" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaSomenteOUsuarioConfiguracao.src} alt="Configurações de audiência da Barra de Progresso com a opção Somente o usuário selecionada" title="Configurações de audiência Somente o usuário" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaSomenteOUsuarioExemplo.src} alt="Comparação entre a visão do usuário com a variável e a de outro usuário para a audiência Somente o usuário" title="Exemplo da audiência Somente o usuário" style={{ width: "100%" }} /></td>
   </tr></tbody>
 </table>
 
@@ -342,8 +357,8 @@ Esta opção não está disponível quando o Wired **Variável FX: Barra de Prog
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th></tr></thead>
   <tbody><tr>
-    <td><img src="https://placehold.co/600x400/?text=audiencia+mesmo+time" alt="Placeholder das configurações de audiência da Barra de Progresso com a opção Usuários que estão no mesmo time selecionada" title="Configurações de audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
-    <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+mesmo+time" alt="Placeholder da comparação entre a visão de usuários do mesmo time e a de outro usuário" title="Exemplo da audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src} alt="Configurações de audiência da Barra de Progresso com a opção Usuários que estão no mesmo time selecionada" title="Configurações de audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src} alt="Comparação entre a visão de usuários do mesmo time e a de outro usuário para a audiência Usuários que estão no mesmo time" title="Exemplo da audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
   </tr></tbody>
 </table>
 
@@ -358,8 +373,8 @@ Esta opção está disponível tanto para um Wired **Variável FX: Barra de Prog
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
   <tbody><tr>
-    <td><img src="https://placehold.co/600x400/?text=audiencia+usuarios+com+variavel" alt="Placeholder das configurações de audiência da Barra de Progresso com a opção Usuários que têm variável selecionada" title="Configurações de audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
-    <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+usuarios+com+variavel" alt="Placeholder da comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários" title="Exemplo da audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueTemVariavelConfiguracao.src} alt="Animação da janela de configuração da Barra de Progresso, incluindo as configurações de visibilidade" title="Configuração da audiência Usuários que têm variável da Barra de Progresso" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueTemVariavelExemplo.src} alt="Comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários para a audiência Usuários que têm variável" title="Exemplo da audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
   </tr></tbody>
 </table>
 
@@ -389,9 +404,22 @@ Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define
 
 Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
 
-| Variável de Usuário | Variável de Mobi | Variável Global |
-| :---: | :---: | :---: |
-| ![Placeholder da Barra de Progresso com o intervalo avançado configurado usando uma Variável de Usuário](https://placehold.co/600x400/?text=variavel+de+usuario "Intervalo avançado com Variável de Usuário") | ![Placeholder da Barra de Progresso com o intervalo avançado configurado usando uma Variável de Mobi](https://placehold.co/600x400/?text=variavel+de+mobi "Intervalo avançado com Variável de Mobi") | ![Placeholder da Barra de Progresso com o intervalo avançado configurado usando uma Variável Global](https://placehold.co/600x400/?text=variavel+global "Intervalo avançado com Variável Global") |
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "33.33%" }}>Variável de Usuário</th>
+      <th style={{ width: "33.33%" }}>Variável de Mobi</th>
+      <th style={{ width: "33.33%" }}>Variável Global</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={IntervaloAvancadoVariavelDeUsuario.src} alt="Configurações avançadas de intervalo da Barra de Progresso usando uma variável de usuário" title="Intervalo avançado com variável de usuário" style={{ width: "100%" }} /></td>
+      <td><img src={IntervaloAvancadoVariavelDeMobi.src} alt="Configurações avançadas de intervalo da Barra de Progresso usando uma variável de mobi" title="Intervalo avançado com variável de mobi" style={{ width: "100%" }} /></td>
+      <td><img src={IntervaloAvancadoVariavelGlobal.src} alt="Configurações avançadas de intervalo da Barra de Progresso usando uma variável global" title="Intervalo avançado com variável global" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Exemplos de uso
 
