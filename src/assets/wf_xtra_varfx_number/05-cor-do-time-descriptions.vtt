@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.800
+O avatar usa o capacete do time vermelho, mas o número 1 acima dele ainda aparece em verde. A configuração da Variável FX: Exibição de Números é aberta com uma prévia do número 31.
+
+00:00:02.900 --> 00:00:05.400
+A lista de cores é expandida e a opção “[Dinâmico] Cor do Time” é selecionada. Na prévia, o número 31 muda de verde para vermelho, acompanhando o time atual do avatar.
+
+00:00:05.500 --> 00:00:07.300
+A janela fecha e o número 1 aparece em vermelho, combinando com o capacete. Em seguida, o avatar muda para o time verde, e o número acompanha a nova cor.
+
+00:00:07.400 --> 00:00:08.300
+Ao entrar no time azul, o capacete e o número exibido acima do avatar ficam azuis.
+
+00:00:08.400 --> 00:00:09.500
+Por fim, o avatar muda para o time amarelo, e o número 1 acompanha a nova cor automaticamente.

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+A Variável FX: Exibição de Números está aberta. O valor 1, acompanhado por raios amarelos, permanece visível acima do Mobi enquanto a opção “Sempre visível” está ativa.
+
+00:00:03.300 --> 00:00:11.500
+A opção de mostrar o indicador quando a variável atualizar é selecionada. O período de exibição é configurado e as alterações são salvas.
+
+00:00:11.600 --> 00:00:13.400
+A janela fecha e o número desaparece de cima do Mobi, deixando o indicador oculto até a próxima atualização.
+
+00:00:13.500 --> 00:00:18.800
+O Mobi é inspecionado e sua lista de variáveis é aberta. O valor da variável “energia” é editado de 1 para 2.
+
+00:00:18.900 --> 00:00:21.800
+Após a atualização, o número 2 aparece entre dois raios amarelos acima do Mobi. O indicador permanece visível por alguns instantes e depois desaparece novamente.
