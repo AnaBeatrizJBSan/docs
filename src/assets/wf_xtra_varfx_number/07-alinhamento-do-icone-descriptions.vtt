@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.400
+A Variável FX: Exibição de Números mostra o valor 50 em amarelo, sem ícone. A lista de ícones é aberta para escolher um símbolo visual.
+
+00:00:02.500 --> 00:00:09.300
+O ícone “Energia”, representado por um raio amarelo, é selecionado e aparece à esquerda do número 50 na prévia. Após salvar, o raio também fica à esquerda do valor 1 acima do Mobi.
+
+00:00:09.400 --> 00:00:14.700
+O alinhamento muda para “Direita”. O raio passa para o lado direito do número, tanto na prévia quanto no indicador exibido acima do Mobi.
+
+00:00:14.800 --> 00:00:17.000
+A opção “Ambos os lados” é selecionada. Dois raios enquadram o número, um à esquerda e outro à direita, na prévia e acima do Mobi.

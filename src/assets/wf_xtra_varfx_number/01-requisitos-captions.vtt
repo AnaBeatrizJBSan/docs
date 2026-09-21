@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.400
+Variável de usuário: “pontuacao”.
+
+00:00:03.500 --> 00:00:11.900
+“pontuacao” recebe o valor 1.
+
+00:00:12.000 --> 00:00:15.200
+Variável de Mobi: “energia”.
+
+00:00:15.300 --> 00:00:18.900
+Exibição de Números vinculada à variável.
+
+00:00:19.000 --> 00:00:24.600
+“energia” recebe o valor 2.

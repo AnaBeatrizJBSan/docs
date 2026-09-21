@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.400
+A janela do WIRED Variável: Usuário Variável está aberta. A variável recebe o nome “pontuacao”, é configurada para ter valor e fica disponível enquanto o usuário está no quarto.
+
+00:00:03.500 --> 00:00:07.000
+A configuração é salva. Em seguida, o avatar é inspecionado e sua lista de variáveis é aberta.
+
+00:00:07.100 --> 00:00:11.900
+A variável “pontuacao” é criada com o valor 1. O número verde aparece acima do avatar, demonstrando a Exibição de Números vinculada à variável de usuário.
+
+00:00:12.000 --> 00:00:15.200
+A janela do WIRED Variável: Mobi Variável é aberta. Uma segunda variável recebe o nome “energia”, também é configurada para ter valor e permanece disponível enquanto o Mobi está no quarto.
+
+00:00:15.300 --> 00:00:18.900
+A Variável FX: Exibição de Números, posicionada sobre o WIRED de variável, mostra uma prévia com o número 50 em verde. A configuração é salva para vincular o efeito ao Mobi.
+
+00:00:19.000 --> 00:00:24.600
+O Mobi é inspecionado e a variável “energia” é criada com o valor 2. O número verde 2 surge acima dele, enquanto o número 1 continua visível acima do avatar.
