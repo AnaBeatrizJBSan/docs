@@ -41,6 +41,11 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png"
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png"
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png"
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif"
 import EstiloEnergia from "@assets/wf_xtra_varfx_status/02-estilo-energia.png"
 import EstiloEscudo from "@assets/wf_xtra_varfx_status/02-estilo-escudo.png"
 import EstiloMagia from "@assets/wf_xtra_varfx_status/02-estilo-magia.png"
@@ -157,7 +162,7 @@ Nesta seção é possível personalizar a aparência da Barra de Status.
 
 #### Cor
 
-Para a maioria dos estilos, a opção **Cor** não é aplicável e não pode ser alterada.
+Para todos os estilos, a opção **Cor** não é aplicável e não pode ser alterada.
 
 O estilo **Bateria** utiliza sempre a aparência **Vermelho para verde**. Conforme o valor da variável aumenta, o preenchimento passa do vermelho para o verde. Essa cor é padrão do estilo e também não pode ser modificada.
 
@@ -288,7 +293,7 @@ A Barra de Status permanecerá sempre visível acima do mobi ou usuário.
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://placehold.co/600x400/?text=configuracao+sempre+visivel" alt="Placeholder das configurações da Barra de Status com a opção Sempre visível selecionada" title="Configurações da Barra de Status com a opção Sempre visível selecionada" style={{ width: "100%" }} /></td>
+      <td><img src={SempreVisivelConfiguracao.src} alt="Configurações da Barra de Status com a opção Sempre visível selecionada" title="Configurações da Barra de Status com a opção Sempre visível selecionada" style={{ width: "100%" }} /></td>
       <td><img src="https://placehold.co/600x400/?text=exemplo+sempre+visivel" alt="Placeholder de uma Barra de Status sempre visível no quarto" title="Exemplo da Barra de Status sempre visível no quarto" style={{ width: "100%" }} /></td>
     </tr>
   </tbody>
@@ -334,7 +339,7 @@ A Barra de Status será exibida somente enquanto o mouse estiver posicionado sob
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://placehold.co/600x400/?text=configuracao+visivel+ao+passar+o+mouse" alt="Placeholder das configurações da Barra de Status com a opção Visível ao passar o mouse selecionada" title="Configurações da Barra de Status com a opção Visível ao passar o mouse selecionada" style={{ width: "100%" }} /></td>
+      <td><img src={VisivelAoPassarOMouseConfiguracao.src} alt="Configurações da Barra de Status com a opção Visível ao passar o mouse selecionada" title="Configurações da Barra de Status com a opção Visível ao passar o mouse selecionada" style={{ width: "100%" }} /></td>
       <td><img src="https://placehold.co/600x400/?text=exemplo+visivel+ao+passar+o+mouse" alt="Placeholder de uma Barra de Status visível ao passar o mouse no quarto" title="Exemplo da Barra de Status visível ao passar o mouse no quarto" style={{ width: "100%" }} /></td>
     </tr>
   </tbody>
@@ -355,7 +360,7 @@ Esta opção não está disponível quando a **Variável FX: Barra de Status** e
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
   <tbody><tr>
-    <td><img src="https://placehold.co/600x400/?text=audiencia+somente+o+usuario" alt="Placeholder das configurações de audiência da Barra de Status com a opção Somente o usuário selecionada" title="Configurações de audiência Somente o usuário" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaSomenteOUsuarioConfiguracao.src} alt="Configurações de audiência da Barra de Status com a opção Somente o usuário selecionada" title="Configurações de audiência Somente o usuário" style={{ width: "100%" }} /></td>
     <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+somente+o+usuario" alt="Placeholder da comparação entre a visão do usuário com a variável e a de outro usuário" title="Exemplo da audiência Somente o usuário" style={{ width: "100%" }} /></td>
   </tr></tbody>
 </table>
@@ -369,7 +374,7 @@ Esta opção não está disponível quando a **Variável FX: Barra de Status** e
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th></tr></thead>
   <tbody><tr>
-    <td><img src="https://placehold.co/600x400/?text=audiencia+mesmo+time" alt="Placeholder das configurações de audiência da Barra de Status com a opção Usuários que estão no mesmo time selecionada" title="Configurações de audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src} alt="Configurações de audiência da Barra de Status com a opção Usuários que estão no mesmo time selecionada" title="Configurações de audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
     <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+mesmo+time" alt="Placeholder da comparação entre a visão de usuários do mesmo time e a de outro usuário" title="Exemplo da audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
   </tr></tbody>
 </table>
@@ -385,7 +390,7 @@ Esta opção está disponível tanto para uma **Variável FX: Barra de Status** 
 <table style={{ width: "100%", tableLayout: "fixed" }}>
   <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
   <tbody><tr>
-    <td><img src="https://placehold.co/600x400/?text=audiencia+usuarios+com+variavel" alt="Placeholder das configurações de audiência da Barra de Status com a opção Usuários que têm variável selecionada" title="Configurações de audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosComVariavelConfiguracao.src} alt="Configurações de audiência da Barra de Status com a opção Usuários que têm variável selecionada" title="Configurações de audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
     <td><img src="https://placehold.co/600x400/?text=exemplo+audiencia+usuarios+com+variavel" alt="Placeholder da comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários" title="Exemplo da audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
   </tr></tbody>
 </table>
