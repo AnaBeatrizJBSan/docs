@@ -1,0 +1,17 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+Configuração atual: “Sempre visível”.
+
+00:00:03.300 --> 00:00:06.300
+“Visível quando a variável atualiza”.
+
+00:00:06.300 --> 00:00:09.800
+Condição: “Variável aumentada”. Duração: 2.000 ms.
+
+00:00:12.000 --> 00:00:17.800
+Variável “atleta”: 50 → 51.
+
+00:00:17.800 --> 00:00:20.133
+A barra de progresso aparece temporariamente.
+
