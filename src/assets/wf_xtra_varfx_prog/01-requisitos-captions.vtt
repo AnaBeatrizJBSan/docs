@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.900
+Variável de usuário: “atleta”.
+
+00:00:06.000 --> 00:00:12.500
+“atleta” recebe o valor 45.
+
+00:00:12.600 --> 00:00:16.500
+Barra de Progresso vinculada à variável.
+
+00:00:16.600 --> 00:00:22.000
+Variável de Mobi: “treino_concluido”.
+
+00:00:22.100 --> 00:00:26.700
+“treino_concluido” recebe o valor 10.
