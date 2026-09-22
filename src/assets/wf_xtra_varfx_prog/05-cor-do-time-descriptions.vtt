@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+A configuração da Variável FX: Barra de Progresso está aberta. A prévia mostra uma barra parcialmente preenchida de verde, enquanto o avatar usa o capacete do time vermelho.
+
+00:00:03.100 --> 00:00:06.000
+A lista de cores é expandida e a opção “[Dinâmico] Cor do Time” é selecionada. Na prévia, o preenchimento da barra muda de verde para vermelho, acompanhando o time atual do avatar.
+
+00:00:06.100 --> 00:00:13.300
+A janela fecha. O avatar é inspecionado e o valor que representa seu time é alterado para demonstrar a atualização dinâmica da barra.
+
+00:00:13.400 --> 00:00:15.400
+A barra aparece em vermelho acima do avatar, combinando com o capacete. Em seguida, o avatar muda para o time verde, e o preenchimento acompanha a nova cor.
+
+00:00:15.500 --> 00:00:16.900
+Ao entrar no time azul, o capacete e o preenchimento da barra ficam azuis.
+
+00:00:17.000 --> 00:00:18.400
+Por fim, o avatar muda para o time amarelo, e a barra acompanha automaticamente a nova cor.

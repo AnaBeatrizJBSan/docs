@@ -1,10 +1,10 @@
 ---
 title: "Variável FX: Barra de Progresso"
-description: Este extra exibe o progresso em formato de barra acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+description: Este extra exibe o progresso em formato de barra acima de um usuário ou mobi, utilizando o valor de uma variável.
 sidebar:
   label: Barra de Progresso
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -16,7 +16,7 @@ infobox:
   revision: 75717
   classname: wf_xtra_varfx_prog
   name: "Variável FX: Barra de Progresso"
-  description: Este extra exibe o progresso em formato de barra acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+  description: Este extra exibe o progresso em formato de barra acima de um usuário ou mobi, utilizando o valor de uma variável.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -41,5 +41,391 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_prog/01-requisitos.mp4"
+import BarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-barra-classica.png"
+import BarraEmBlocos from "@assets/wf_xtra_varfx_prog/02-estilo-barra-em-blocos.png"
+import BarraListrada from "@assets/wf_xtra_varfx_prog/02-estilo-barra-listrada.gif"
+import BarraDeSeta from "@assets/wf_xtra_varfx_prog/02-estilo-barra-de-seta.png"
+import MiniBarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-mini-barra-classica.png"
+import CorDoTime from "@assets/wf_xtra_varfx_prog/05-cor-do-time.mp4"
+import Tamanho from "@assets/wf_xtra_varfx_prog/06-tamanho.mp4"
+import Segmentos from "@assets/wf_xtra_varfx_prog/07-segmentos.mp4"
+import IntervaloDeValores from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores.mp4"
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_prog/09-exemplo-sempre-visivel.png"
+import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_prog/11-exemplo-visivel-ao-passar-o-mouse.gif"
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_prog/12-exemplo-audiencia-somente-o-usuario.png"
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_prog/13-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelExemplo from "@assets/wf_xtra_varfx_prog/14-exemplo-audiencia-usuarios-que-tem-variavel.png"
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png"
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png"
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png"
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif"
+import IntervaloAvancadoVariavelGlobal from "@assets/wf_xtra_varfx/06-wired-configuracoes-avancadas-de-intervalo-variavel-global.gif"
+import IntervaloAvancadoVariavelDeMobi from "@assets/wf_xtra_varfx/07-wired-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif"
+import IntervaloAvancadoVariavelDeUsuario from "@assets/wf_xtra_varfx/08-wired-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif"
+
+A **Variável FX: Barra de Progresso** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável como uma barra preenchida.
+
+Ela pode representar, por exemplo, o avanço de uma tarefa, a durabilidade de um objeto, o carregamento de uma máquina ou qualquer progresso que precise ser acompanhado no quarto.
 
 <Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Barra de Progresso** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o preenchimento da barra.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com a Barra de Progresso"
+    title="Configuração de uma variável para a Barra de Progresso"
+    style={{ width: "100%" }}
+  >
+    <source src={Requisitos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Barra de Progresso**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Estilo
+
+Nesta seção é possível escolher como a barra de progresso será exibida.
+
+Atualmente existem cinco estilos disponíveis:
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "20%" }}>Barra clássica</th>
+      <th style={{ width: "20%" }}>Barra em blocos</th>
+      <th style={{ width: "20%" }}>Barra listrada</th>
+      <th style={{ width: "20%" }}>Barra de seta</th>
+      <th style={{ width: "20%" }}>Mini barra clássica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={BarraClassica.src} alt="Estilo Barra clássica da Variável FX Barra de Progresso" title="Barra clássica" style={{ width: "100%" }} /></td>
+      <td><img src={BarraEmBlocos.src} alt="Estilo Barra em blocos da Variável FX Barra de Progresso" title="Barra em blocos" style={{ width: "100%" }} /></td>
+      <td><img src={BarraListrada.src} alt="Estilo Barra listrada da Variável FX Barra de Progresso" title="Barra listrada" style={{ width: "100%" }} /></td>
+      <td><img src={BarraDeSeta.src} alt="Estilo Barra de seta da Variável FX Barra de Progresso" title="Barra de seta" style={{ width: "100%" }} /></td>
+      <td><img src={MiniBarraClassica.src} alt="Estilo Mini barra clássica da Variável FX Barra de Progresso" title="Mini barra clássica" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência da barra de progresso.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+![Janela de configuração da Variável FX Barra de Progresso mostrando a prévia dos estilos](@assets/wf_xtra_varfx_prog/03-visualizacao.gif "Janela de configuração da Variável FX Barra de Progresso mostrando a prévia dos estilos")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia passa a utilizar diferentes valores da variável, permitindo visualizar como o efeito ficará em diferentes níveis de preenchimento.
+
+Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
+
+![Prévia da Barra de Progresso alternando valores ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_prog/04-visualizacao-aleatoria.gif "Visualização Aleatória da Barra de Progresso")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência da barra de progresso.
+
+#### Cor
+
+Os cinco estilos permitem alterar a cor do efeito. A maioria das cores disponíveis possui uma aparência fixa, porém uma cor dinâmica merece destaque:
+
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+O vídeo abaixo mostra a Barra de Progresso utilizando a cor do time do usuário.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Barra de Progresso usando a Cor do time"
+    title="Cor do time da Barra de Progresso"
+    style={{ width: "100%" }}
+  >
+    <source src={CorDoTime} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Tamanho
+
+Todos os estilos permitem alterar o tamanho da barra de progresso. As opções disponíveis são:
+
+* Extra pequeno
+* Pequeno
+* Médio
+* Grande
+* Extra grande
+
+O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos tamanhos disponíveis para a Barra de Progresso"
+    title="Tamanhos da Barra de Progresso"
+    style={{ width: "100%" }}
+  >
+    <source src={Tamanho} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Segmentos
+
+A opção **Segmentos** está disponível apenas para os estilos **Barra em blocos** e **Barra de seta**. Ela define quantas partições serão exibidas na barra de progresso.
+
+É possível escolher entre **1** e **100** partições. Quando a opção **Não aplicado** é selecionada, a barra é exibida com **6** partições.
+
+O vídeo abaixo compara a barra de progresso com diferentes quantidades de segmentos.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração das diferentes quantidades de segmentos na Barra de Progresso"
+    title="Segmentos da Barra de Progresso"
+    style={{ width: "100%" }}
+  >
+    <source src={Segmentos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Intervalo de valores
+
+Esta seção define como o valor da variável será convertido em uma porcentagem do preenchimento da barra de progresso.
+
+Nos campos **Valor mínimo** e **Valor máximo**, é possível informar números com **até 10 dígitos**.
+
+O próprio Wired fornece um exemplo:
+
+* Valor da variável: **15**
+* Valor mínimo: **10**
+* Valor máximo: **20**
+
+Nesse caso, a barra de progresso será exibida com aproximadamente **50%** do preenchimento.
+
+Alterar os valores mínimo e máximo permite adaptar a barra para diferentes escalas de progresso.
+
+O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da barra de progresso.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do intervalo de valores da Barra de Progresso"
+    title="Intervalo de valores da Barra de Progresso"
+    style={{ width: "100%" }}
+  >
+    <source src={IntervaloDeValores} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando a Barra de Progresso ficará visível.
+
+#### Sempre visível
+
+A barra de progresso permanecerá sempre visível acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={SempreVisivelConfiguracao.src} alt="Configurações da Barra de Progresso com a opção Sempre visível selecionada" title="Configurações da Barra de Progresso com a opção Sempre visível selecionada" style={{ width: "100%" }} /></td>
+      <td><img src={SempreVisivelExemplo.src} alt="Barra de Progresso sempre visível acima de um usuário e de um mobi no quarto" title="Exemplo da Barra de Progresso sempre visível no quarto" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+A barra de progresso será exibida quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não é alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, a barra também será exibida se o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Barra de Progresso visível quando a variável atualiza"
+    title="Barra de Progresso visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
+    <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+A barra de progresso será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={VisivelAoPassarOMouseConfiguracao.src} alt="Configurações da Barra de Progresso com a opção Visível ao passar o mouse selecionada" title="Configurações da Barra de Progresso com a opção Visível ao passar o mouse selecionada" style={{ width: "100%" }} /></td>
+      <td><img src={VisivelAoPassarOMouseExemplo.src} alt="Barra de Progresso acima de um mobi sendo exibida ao passar o mouse sobre ele" title="Exemplo da Barra de Progresso visível ao passar o mouse no quarto" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Barra de Progresso**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá a barra de progresso**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Barra de Progresso** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
+  <tbody><tr>
+    <td><img src={AudienciaSomenteOUsuarioConfiguracao.src} alt="Configurações de audiência da Barra de Progresso com a opção Somente o usuário selecionada" title="Configurações de audiência Somente o usuário" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaSomenteOUsuarioExemplo.src} alt="Comparação entre a visão do usuário com a variável e a de outro usuário para a audiência Somente o usuário" title="Exemplo da audiência Somente o usuário" style={{ width: "100%" }} /></td>
+  </tr></tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão a barra de progresso**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Barra de Progresso** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th></tr></thead>
+  <tbody><tr>
+    <td><img src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src} alt="Configurações de audiência da Barra de Progresso com a opção Usuários que estão no mesmo time selecionada" title="Configurações de audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src} alt="Comparação entre a visão de usuários do mesmo time e a de outro usuário para a audiência Usuários que estão no mesmo time" title="Exemplo da audiência Usuários que estão no mesmo time" style={{ width: "100%" }} /></td>
+  </tr></tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar a barra de progresso**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Barra de Progresso** vinculado a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead><tr><th style={{ width: "50%" }}>Configuração do Wired</th><th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th></tr></thead>
+  <tbody><tr>
+    <td><img src={AudienciaUsuariosQueTemVariavelConfiguracao.src} alt="Animação da janela de configuração da Barra de Progresso, incluindo as configurações de visibilidade" title="Configuração da audiência Usuários que têm variável da Barra de Progresso" style={{ width: "100%" }} /></td>
+    <td><img src={AudienciaUsuariosQueTemVariavelExemplo.src} alt="Comparação entre a visão de usuários que possuem a variável escolhida e a de outros usuários para a audiência Usuários que têm variável" title="Exemplo da audiência Usuários que têm variável" style={{ width: "100%" }} /></td>
+  </tr></tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a barra de progresso acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Barra de Progresso** vinculado a variáveis de usuário quanto a variáveis de mobi.
+
+### Configurações avançadas de intervalo
+
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
+
+#### Substituir mínimo
+
+Ao marcar esta opção, o valor mínimo passará a ser obtido a partir de uma variável.
+
+Dependendo do tipo de variável selecionado no topo da janela do Wired **Variável FX: Barra de Progresso**, será possível escolher:
+
+* Variáveis de usuário;
+* Variáveis de mobi;
+* Variáveis globais.
+
+#### Substituir máximo
+
+Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define o valor máximo do intervalo utilizando uma variável.
+
+Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "33.33%" }}>Variável de Usuário</th>
+      <th style={{ width: "33.33%" }}>Variável de Mobi</th>
+      <th style={{ width: "33.33%" }}>Variável Global</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={IntervaloAvancadoVariavelDeUsuario.src} alt="Configurações avançadas de intervalo da Barra de Progresso usando uma variável de usuário" title="Intervalo avançado com variável de usuário" style={{ width: "100%" }} /></td>
+      <td><img src={IntervaloAvancadoVariavelDeMobi.src} alt="Configurações avançadas de intervalo da Barra de Progresso usando uma variável de mobi" title="Intervalo avançado com variável de mobi" style={{ width: "100%" }} /></td>
+      <td><img src={IntervaloAvancadoVariavelGlobal.src} alt="Configurações avançadas de intervalo da Barra de Progresso usando uma variável global" title="Intervalo avançado com variável global" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+## Exemplos de uso
+
+A **Variável FX: Barra de Progresso** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **Construção de objeto:** vincule a barra a uma variável de mobi e aumente seu valor a cada etapa, mostrando o andamento da construção para todos no quarto.
+* **Missão de coleta:** use uma variável de usuário para representar a quantidade de itens coletados e exiba o progresso até o objetivo da missão.
+* **Máquina em recarga:** associe a barra a uma máquina e faça seu preenchimento acompanhar o tempo ou a energia necessária para voltar a utilizá-la.
+* **Desafio em equipe:** mostre o progresso individual dos jogadores e selecione a audiência **Usuários que estão no mesmo time** para que cada equipe acompanhe apenas seus aliados.
