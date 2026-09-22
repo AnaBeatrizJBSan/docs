@@ -47,33 +47,9 @@ import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-vi
 import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png"
 import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png"
 import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif"
-import EstiloEnergia from "@assets/wf_xtra_varfx_status/02-estilo-energia.png"
-import EstiloEscudo from "@assets/wf_xtra_varfx_status/02-estilo-escudo.png"
-import EstiloMagia from "@assets/wf_xtra_varfx_status/02-estilo-magia.png"
-import EstiloComida from "@assets/wf_xtra_varfx_status/02-estilo-comida.png"
-import EstiloResistencia from "@assets/wf_xtra_varfx_status/02-estilo-resistencia.png"
-import EstiloVeneno from "@assets/wf_xtra_varfx_status/02-estilo-veneno.png"
-import EstiloMana from "@assets/wf_xtra_varfx_status/02-estilo-mana.png"
-import EstiloSaude from "@assets/wf_xtra_varfx_status/02-estilo-saude.png"
-import EstiloOuro from "@assets/wf_xtra_varfx_status/02-estilo-ouro.png"
-import EstiloPedrasPreciosas from "@assets/wf_xtra_varfx_status/02-estilo-pedras-preciosas.png"
-import EstiloHonra from "@assets/wf_xtra_varfx_status/02-estilo-honra.png"
-import EstiloReputacao from "@assets/wf_xtra_varfx_status/02-estilo-reputacao.png"
-import EstiloTempoDeRecarga from "@assets/wf_xtra_varfx_status/02-estilo-tempo-de-recarga.png"
-import EstiloTempoRestante from "@assets/wf_xtra_varfx_status/02-estilo-tempo-restante.png"
-import EstiloQueimando from "@assets/wf_xtra_varfx_status/02-estilo-queimando.png"
-import EstiloCongelando from "@assets/wf_xtra_varfx_status/02-estilo-congelando.png"
-import EstiloBateria from "@assets/wf_xtra_varfx_status/02-estilo-bateria.png"
-import EstiloReparacao from "@assets/wf_xtra_varfx_status/02-estilo-reparacao.png"
-import EstiloFurtividade from "@assets/wf_xtra_varfx_status/02-estilo-furtividade.png"
-import EstiloAprimoramento from "@assets/wf_xtra_varfx_status/02-estilo-aprimoramento.png"
-import EstiloPoderEstrela from "@assets/wf_xtra_varfx_status/02-estilo-poder-estrela.png"
-import EstiloAgua from "@assets/wf_xtra_varfx_status/02-estilo-agua.png"
 import IntervaloAvancadoVariavelGlobal from "@assets/wf_xtra_varfx/06-wired-configuracoes-avancadas-de-intervalo-variavel-global.gif";
 import IntervaloAvancadoVariavelDeMobi from "@assets/wf_xtra_varfx/07-wired-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif";
 import IntervaloAvancadoVariavelDeUsuario from "@assets/wf_xtra_varfx/08-wired-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif";
-import Visualizacao from "@assets/wf_xtra_varfx_status/03-visualizacao.gif"
-import VisualizacaoAleatoria from "@assets/wf_xtra_varfx_status/04-visualizacao-aleatoria.gif"
 import CorVermelhoParaVerde from "@assets/wf_xtra_varfx_status/05-cor-vermelho-pra-verde.mp4"
 import Tamanho from "@assets/wf_xtra_varfx_status/06-tamanho.mp4"
 import EstiloVisual from "@assets/wf_xtra_varfx_status/07-estilo-visual.mp4"
@@ -132,28 +108,28 @@ Atualmente existem vinte e dois estilos disponíveis:
 
 | Estilo | Visualização |
 | :--- | :---: |
-| Energia | <img src={EstiloEnergia.src} width={EstiloEnergia.width} height={EstiloEnergia.height} alt="Estilo Energia da Barra de Status" title="Estilo Energia" loading="lazy" decoding="async" /> |
-| Escudo | <img src={EstiloEscudo.src} width={EstiloEscudo.width} height={EstiloEscudo.height} alt="Estilo Escudo da Barra de Status" title="Estilo Escudo" loading="lazy" decoding="async" /> |
-| Magia | <img src={EstiloMagia.src} width={EstiloMagia.width} height={EstiloMagia.height} alt="Estilo Magia da Barra de Status" title="Estilo Magia" loading="lazy" decoding="async" /> |
-| Comida | <img src={EstiloComida.src} width={EstiloComida.width} height={EstiloComida.height} alt="Estilo Comida da Barra de Status" title="Estilo Comida" loading="lazy" decoding="async" /> |
-| Resistência | <img src={EstiloResistencia.src} width={EstiloResistencia.width} height={EstiloResistencia.height} alt="Estilo Resistência da Barra de Status" title="Estilo Resistência" loading="lazy" decoding="async" /> |
-| Veneno | <img src={EstiloVeneno.src} width={EstiloVeneno.width} height={EstiloVeneno.height} alt="Estilo Veneno da Barra de Status" title="Estilo Veneno" loading="lazy" decoding="async" /> |
-| Mana | <img src={EstiloMana.src} width={EstiloMana.width} height={EstiloMana.height} alt="Estilo Mana da Barra de Status" title="Estilo Mana" loading="lazy" decoding="async" /> |
-| Saúde | <img src={EstiloSaude.src} width={EstiloSaude.width} height={EstiloSaude.height} alt="Estilo Saúde da Barra de Status" title="Estilo Saúde" loading="lazy" decoding="async" /> |
-| Ouro | <img src={EstiloOuro.src} width={EstiloOuro.width} height={EstiloOuro.height} alt="Estilo Ouro da Barra de Status" title="Estilo Ouro" loading="lazy" decoding="async" /> |
-| Pedras preciosas | <img src={EstiloPedrasPreciosas.src} width={EstiloPedrasPreciosas.width} height={EstiloPedrasPreciosas.height} alt="Estilo Pedras preciosas da Barra de Status" title="Estilo Pedras preciosas" loading="lazy" decoding="async" /> |
-| Honra | <img src={EstiloHonra.src} width={EstiloHonra.width} height={EstiloHonra.height} alt="Estilo Honra da Barra de Status" title="Estilo Honra" loading="lazy" decoding="async" /> |
-| Reputação | <img src={EstiloReputacao.src} width={EstiloReputacao.width} height={EstiloReputacao.height} alt="Estilo Reputação da Barra de Status" title="Estilo Reputação" loading="lazy" decoding="async" /> |
-| Tempo de recarga | <img src={EstiloTempoDeRecarga.src} width={EstiloTempoDeRecarga.width} height={EstiloTempoDeRecarga.height} alt="Estilo Tempo de recarga da Barra de Status" title="Estilo Tempo de recarga" loading="lazy" decoding="async" /> |
-| Tempo restante | <img src={EstiloTempoRestante.src} width={EstiloTempoRestante.width} height={EstiloTempoRestante.height} alt="Estilo Tempo restante da Barra de Status" title="Estilo Tempo restante" loading="lazy" decoding="async" /> |
-| Queimando | <img src={EstiloQueimando.src} width={EstiloQueimando.width} height={EstiloQueimando.height} alt="Estilo Queimando da Barra de Status" title="Estilo Queimando" loading="lazy" decoding="async" /> |
-| Congelando | <img src={EstiloCongelando.src} width={EstiloCongelando.width} height={EstiloCongelando.height} alt="Estilo Congelando da Barra de Status" title="Estilo Congelando" loading="lazy" decoding="async" /> |
-| Bateria | <img src={EstiloBateria.src} width={EstiloBateria.width} height={EstiloBateria.height} alt="Estilo Bateria da Barra de Status" title="Estilo Bateria" loading="lazy" decoding="async" /> |
-| Reparação | <img src={EstiloReparacao.src} width={EstiloReparacao.width} height={EstiloReparacao.height} alt="Estilo Reparação da Barra de Status" title="Estilo Reparação" loading="lazy" decoding="async" /> |
-| Furtividade | <img src={EstiloFurtividade.src} width={EstiloFurtividade.width} height={EstiloFurtividade.height} alt="Estilo Furtividade da Barra de Status" title="Estilo Furtividade" loading="lazy" decoding="async" /> |
-| Aprimoramento | <img src={EstiloAprimoramento.src} width={EstiloAprimoramento.width} height={EstiloAprimoramento.height} alt="Estilo Aprimoramento da Barra de Status" title="Estilo Aprimoramento" loading="lazy" decoding="async" /> |
-| Poder estrela | <img src={EstiloPoderEstrela.src} width={EstiloPoderEstrela.width} height={EstiloPoderEstrela.height} alt="Estilo Poder estrela da Barra de Status" title="Estilo Poder estrela" loading="lazy" decoding="async" /> |
-| Água | <img src={EstiloAgua.src} width={EstiloAgua.width} height={EstiloAgua.height} alt="Estilo Água da Barra de Status" title="Estilo Água" loading="lazy" decoding="async" /> |
+| Energia | ![Estilo Energia da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-energia.png "Estilo Energia") |
+| Escudo | ![Estilo Escudo da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-escudo.png "Estilo Escudo") |
+| Magia | ![Estilo Magia da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-magia.png "Estilo Magia") |
+| Comida | ![Estilo Comida da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-comida.png "Estilo Comida") |
+| Resistência | ![Estilo Resistência da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-resistencia.png "Estilo Resistência") |
+| Veneno | ![Estilo Veneno da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-veneno.png "Estilo Veneno") |
+| Mana | ![Estilo Mana da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-mana.png "Estilo Mana") |
+| Saúde | ![Estilo Saúde da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-saude.png "Estilo Saúde") |
+| Ouro | ![Estilo Ouro da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-ouro.png "Estilo Ouro") |
+| Pedras preciosas | ![Estilo Pedras preciosas da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-pedras-preciosas.png "Estilo Pedras preciosas") |
+| Honra | ![Estilo Honra da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-honra.png "Estilo Honra") |
+| Reputação | ![Estilo Reputação da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-reputacao.png "Estilo Reputação") |
+| Tempo de recarga | ![Estilo Tempo de recarga da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-tempo-de-recarga.png "Estilo Tempo de recarga") |
+| Tempo restante | ![Estilo Tempo restante da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-tempo-restante.png "Estilo Tempo restante") |
+| Queimando | ![Estilo Queimando da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-queimando.png "Estilo Queimando") |
+| Congelando | ![Estilo Congelando da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-congelando.png "Estilo Congelando") |
+| Bateria | ![Estilo Bateria da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-bateria.png "Estilo Bateria") |
+| Reparação | ![Estilo Reparação da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-reparacao.png "Estilo Reparação") |
+| Furtividade | ![Estilo Furtividade da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-furtividade.png "Estilo Furtividade") |
+| Aprimoramento | ![Estilo Aprimoramento da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-aprimoramento.png "Estilo Aprimoramento") |
+| Poder estrela | ![Estilo Poder estrela da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-poder-estrela.png "Estilo Poder estrela") |
+| Água | ![Estilo Água da Barra de Status](@assets/wf_xtra_varfx_status/02-estilo-agua.png "Estilo Água") |
 
 ### Visualização
 
@@ -161,7 +137,7 @@ A seção **Visualização** mostra uma prévia da aparência da Barra de Status
 
 Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
 
-<img src={Visualizacao.src} width={Visualizacao.width} height={Visualizacao.height} alt="Janela de configuração da Variável FX Barra de Status mostrando a prévia dos estilos" title="Visualização da Barra de Status" loading="lazy" decoding="async" />
+![Janela de configuração da Variável FX Barra de Status mostrando a prévia dos estilos](@assets/wf_xtra_varfx_status/03-visualizacao.gif "Visualização da Barra de Status")
 
 #### Visualização Aleatória
 
@@ -171,7 +147,7 @@ Ao pressioná-lo, a prévia passa a utilizar diferentes valores da variável, pe
 
 Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
 
-<img src={VisualizacaoAleatoria.src} width={VisualizacaoAleatoria.width} height={VisualizacaoAleatoria.height} alt="Prévia da Barra de Status alternando valores ao usar a Visualização Aleatória" title="Visualização Aleatória da Barra de Status" loading="lazy" decoding="async" />
+![Prévia da Barra de Status alternando valores ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_status/04-visualizacao-aleatoria.gif "Visualização Aleatória da Barra de Status")
 
 ### Configurações
 
@@ -195,7 +171,7 @@ O estilo **Bateria** utiliza sempre a aparência **Vermelho para verde**. Confor
     <source src={CorVermelhoParaVerde} type="video/mp4" />
     Seu navegador não suporta vídeos HTML5.
   </video>
-  <figcaption>Cor Vermelho para verde do estilo Bateria</figcaption>
+  <figcaption></figcaption>
 </figure>
 
 #### Tamanho
