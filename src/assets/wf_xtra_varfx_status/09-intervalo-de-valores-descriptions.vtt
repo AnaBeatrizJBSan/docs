@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.350
+No quarto do Habbo, uma barra de status parcialmente preenchida de laranja aparece acima de um bot, ao lado de um mobi Wired.
+
+00:00:01.350 --> 00:00:03.000
+A janela de inspeção do bot mostra a variável mana com valor 50. O campo é selecionado para edição.
+
+00:00:03.000 --> 00:00:05.700
+O valor de mana passa para 1500000000. A barra acima do bot se enche e fica verde.
+
+00:00:05.700 --> 00:00:07.750
+A janela de inspeção se fecha. O mobi Wired é aberto para configurar a barra de status.
+
+00:00:07.750 --> 00:00:10.150
+Na janela VARIÁVEL FX, o estilo é Bateria. A seção Intervalo de valores mostra os limites Min 0 e Max 100.
+
+00:00:10.150 --> 00:00:11.950
+O limite Min é alterado para 1000000000; a visualização da barra na janela fica vazia.
+
+00:00:11.950 --> 00:00:13.650
+O limite Max é alterado para 2000000000 e a configuração é confirmada no botão pronto.
+
+00:00:13.650 --> 00:00:14.433
+No quarto, a barra acima do bot volta a mostrar um preenchimento parcial laranja.

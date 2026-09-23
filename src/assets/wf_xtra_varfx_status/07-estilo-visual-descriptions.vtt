@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.100
+A janela da “Variável FX: Barra de Status” mostra o estilo “Bateria” com “Estilo visual” em “Listrada”. O preenchimento da prévia é verde, com faixas diagonais, enquanto a barra acima do avatar aparece em laranja. O menu “Estilo visual” é aberto.
+
+00:00:02.100 --> 00:00:05.900
+“Blocos” é selecionado. O preenchimento verde da prévia se divide em blocos separados. Após salvar, a barra laranja sobre o avatar também passa a ter blocos. A janela de configuração é reaberta.
+
+00:00:05.900 --> 00:00:09.600
+O estilo visual volta para “Listrada”. A prévia troca os blocos pelas faixas diagonais. Após salvar, a barra sobre o avatar volta a apresentar o preenchimento listrado. A configuração é aberta novamente.
+
+00:00:09.600 --> 00:00:11.466
+“Seta” é selecionado. A prévia mostra setas apontando para a direita dentro da barra. Ao salvar, as mesmas setas aparecem no trecho laranja da barra acima do avatar.
