@@ -118,7 +118,7 @@ export default defineConfig({
 							label: 'Ferramentas de criação Wired',
 							items: [{
 								autogenerate: {
-									directory: 'referencia/ferramentas-de-criação-wired',
+									directory: 'referencia/ferramentas-de-criacao-wired',
 								},
 							}],
 							collapsed: true,
