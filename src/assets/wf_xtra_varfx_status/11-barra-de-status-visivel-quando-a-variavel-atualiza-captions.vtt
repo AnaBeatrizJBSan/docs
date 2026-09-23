@@ -1,0 +1,20 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.250
+VARIÁVEL FX: Barra de Status. Configurações de visibilidade.
+
+00:00:01.250 --> 00:00:03.700
+Visível quando a variável atualiza: Variável aumentada.
+
+00:00:03.850 --> 00:00:04.800
+Número precisa estar entre 1500 e 20000.
+
+00:00:05.000 --> 00:00:06.650
+Duração (milissegundos): 2000.
+
+00:00:08.900 --> 00:00:11.400
+Inspection: agua = 50.
+
+00:00:12.050 --> 00:00:15.000
+Inspection: agua = 51.
+

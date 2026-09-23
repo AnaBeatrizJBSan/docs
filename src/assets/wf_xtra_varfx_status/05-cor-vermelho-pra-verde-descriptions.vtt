@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+A janela de inspeção mostra a variável “mana” com valor 100. Acima do avatar, a Barra de Status no estilo Bateria está totalmente preenchida por blocos verdes. O valor é selecionado para edição.
+
+00:00:03.300 --> 00:00:06.300
+O valor de “mana” passa a 90. A barra sobre o avatar perde parte do preenchimento, mas permanece predominantemente verde.
+
+00:00:06.300 --> 00:00:09.700
+O valor é reduzido para 50. A barra encolhe até cerca da metade e os blocos preenchidos passam do verde ao laranja.
+
+00:00:09.700 --> 00:00:11.399
+O valor é reduzido para 10. Resta um pequeno trecho vermelho no início da barra, enquanto o restante fica vazio.

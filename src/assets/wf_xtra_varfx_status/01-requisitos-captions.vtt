@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:01.800 --> 00:00:04.100
+Variável de usuário: “mana”. “Tem valor” ativado.
+
+00:00:05.400 --> 00:00:07.000
+Barra de Status: estilo “Mana”.
+
+00:00:08.600 --> 00:00:11.800
+“mana” recebe o valor 10.
+
+00:00:12.600 --> 00:00:14.100
+Variável de mobi: “agua”. “Tem valor” ativado.
+
+00:00:16.900 --> 00:00:18.000
+Barra de Status: estilo “Água”.
+
+00:00:21.600 --> 00:00:24.800
+“agua” recebe o valor 10.
