@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.200
+No quarto, a janela do WIRED “Usuário Variável” é aberta sobre uma pilha de Wireds. A variável recebe o nome “mana”; a opção “Tem valor” é marcada e a disponibilidade permanece em “Enquanto o usuário está no quarto”. A configuração é salva.
+
+00:00:04.300 --> 00:00:07.000
+Acima desse WIRED, a “Variável FX: Barra de Status” é aberta. O estilo muda de “Energia” para “Mana”; a prévia troca o raio amarelo por um ícone azul e blocos azuis. A configuração é salva.
+
+00:00:07.100 --> 00:00:10.700
+O avatar é selecionado e sua janela de inspeção se abre. Em “Give variable”, a variável “mana” é escolhida e o valor 10 é digitado.
+
+00:00:10.800 --> 00:00:12.200
+Ao criar a variável, “mana” aparece na inspeção com valor 10. Uma barra azul com ícone de mana surge acima do avatar, com apenas o começo preenchido.
+
+00:00:12.300 --> 00:00:14.100
+Uma segunda pilha de Wireds é selecionada. Na janela “Mobi Variável”, o nome “agua” é digitado, “Tem valor” é marcado e a disponibilidade permanece em “Enquanto o quarto está ativo”. A configuração é salva.
+
+00:00:14.200 --> 00:00:18.000
+A “Variável FX: Barra de Status” sobre o WIRED de mobi é aberta. No menu “Estilo”, “Água” substitui “Energia”; a prévia passa a mostrar uma gota e blocos azuis. A configuração é salva.
+
+00:00:18.100 --> 00:00:23.600
+Uma árvore em vaso é selecionada e inspecionada. Em “Give variable”, a variável “agua” é escolhida e o valor 10 é digitado para esse mobi.
+
+00:00:23.700 --> 00:00:26.299
+Ao criar “agua”, a inspeção mostra o valor 10. Uma barra de Água com a primeira parte preenchida surge acima da árvore, ao lado da barra de mana que continua acima do avatar.

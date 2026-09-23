@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.300
+Na janela de configuração da Barra de Status, uma barra azul está visível acima de uma árvore em vaso. A seção Configurações de visibilidade está aberta.
+
+00:00:01.300 --> 00:00:03.750
+A opção Visível quando a variável atualiza é selecionada. Entre os tipos de atualização, somente Variável aumentada fica marcada.
+
+00:00:03.750 --> 00:00:05.300
+Ao editar a duração, aparece um aviso de que o número deve ficar entre 1500 e 20000 milissegundos. O campo é corrigido para 2000.
+
+00:00:05.300 --> 00:00:07.050
+A configuração é confirmada no botão pronto; a janela se fecha e a barra deixa de aparecer sobre a árvore.
+
+00:00:07.050 --> 00:00:10.000
+A árvore é inspecionada. Na lista de variáveis, agua está em 50, sem barra visível sobre ela.
+
+00:00:10.000 --> 00:00:12.950
+O valor de agua é editado de 50 para 51 na janela de inspeção.
+
+00:00:12.950 --> 00:00:15.666
+Após o aumento, a barra azul aparece por um breve período sobre a árvore e desaparece novamente, enquanto a variável continua em 51.
