@@ -115,6 +115,15 @@ export default defineConfig({
 							collapsed: true,
 						},
 						{
+							label: 'Ferramentas de criação Wired',
+							items: [{
+								autogenerate: {
+									directory: 'referencia/ferramentas-de-criação-wired',
+								},
+							}],
+							collapsed: true,
+						},
+						{
 							label: 'PseudoWired',
 							slug: 'referencia/pseudowired',
 						},
