@@ -1,0 +1,464 @@
+---
+title: "Variável FX: Exibição de Números"
+description: Este extra exibe um valor numérico acima de um usuário ou mobi, utilizando o valor de uma variável.
+sidebar:
+  label: Exibição de Números
+  badge:
+    text: NOVO
+    variant: note
+infobox:
+  # == Infobox ==
+  # hide: false # valor padrão
+  title: Exibição de Números
+  # image: # url preenchida automaticamente
+
+  # == Dados do Mobi ==
+  revision: 75717
+  classname: wf_xtra_varfx_number
+  name: "Variável FX: Exibição de Números"
+  description: Este extra exibe um valor numérico acima de um usuário ou mobi, utilizando o valor de uma variável.
+  # product_name: # caso o nome na loja seja diferente do nome do Mobi
+  # image_direction: 0 # valor padrão
+  # image_not_animated: false # valor padrão
+  # image_animated_state: 100 # valor padrão
+  # icon: # url preenchida automaticamente
+  availability: No catálogo e CA
+  price: 15
+  release_date: 2026-09-10
+
+  # == Dados do Wired ==
+  type: Extra de Variável
+  # requires_bot: false # valor padrão
+  # requires_furni: false # valor padrão
+  # requires_antena: false # valor padrão
+  # requires_contract: false # valor padrão
+  # requires_chest: false # valor padrão
+  # execution_limit: 100 # valor padrão
+  # execution_limit_per_user: 100 # valor padrão
+
+  # == Dados do Extra de Variável ==
+  additional_sources: []
+---
+
+import Infobox from "@components/Infobox.astro"
+import CorDoTime from "@assets/wf_xtra_varfx_number/05-cor-do-time.mp4"
+import Requisitos from "@assets/wf_xtra_varfx_number/01-requisitos.mp4"
+import IconeBateria from "@assets/wf_xtra_varfx_number/06-icones-bateria.png"
+import IconeQueimando from "@assets/wf_xtra_varfx_number/06-icones-queimando.png"
+import IconeDinheiro from "@assets/wf_xtra_varfx_number/06-icones-dinheiro.png"
+import IconeTempoDeRecarga from "@assets/wf_xtra_varfx_number/06-icones-tempo-de-recarga.png"
+import IconeGota from "@assets/wf_xtra_varfx_number/06-icones-gota.png"
+import IconeEnergia from "@assets/wf_xtra_varfx_number/06-icones-energia.png"
+import IconeOlho from "@assets/wf_xtra_varfx_number/06-icones-olho.png"
+import IconePeixe from "@assets/wf_xtra_varfx_number/06-icones-peixe.png"
+import IconeComida from "@assets/wf_xtra_varfx_number/06-icones-comida.png"
+import IconeCongelando from "@assets/wf_xtra_varfx_number/06-icones-congelando.png"
+import IconePedrasPreciosas from "@assets/wf_xtra_varfx_number/06-icones-pedras-preciosas.png"
+import IconeOuro from "@assets/wf_xtra_varfx_number/06-icones-ouro.png"
+import IconeSaude from "@assets/wf_xtra_varfx_number/06-icones-saude.png"
+import IconeHonra from "@assets/wf_xtra_varfx_number/06-icones-honra.png"
+import IconeMagica from "@assets/wf_xtra_varfx_number/06-icones-magica.png"
+import IconeMana from "@assets/wf_xtra_varfx_number/06-icones-mana.png"
+import IconeVeneno from "@assets/wf_xtra_varfx_number/06-icones-veneno.png"
+import IconeReparacao from "@assets/wf_xtra_varfx_number/06-icones-reparacao.png"
+import IconeReputacao from "@assets/wf_xtra_varfx_number/06-icones-reputacao.png"
+import IconeEscudo from "@assets/wf_xtra_varfx_number/06-icones-escudo.png"
+import IconeResistencia from "@assets/wf_xtra_varfx_number/06-icones-resistencia.png"
+import IconePoderEstrela from "@assets/wf_xtra_varfx_number/06-icones-poder-estrela.png"
+import IconeFurtividade from "@assets/wf_xtra_varfx_number/06-icones-furtividade.png"
+import IconeTempoRestante from "@assets/wf_xtra_varfx_number/06-icones-tempo-restante.png"
+import IconeAprimoramento from "@assets/wf_xtra_varfx_number/05-aprimoramento.png"
+import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/06-icones-troncos-de-madeira.png"
+import AlinhamentoDoIcone from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone.mp4"
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_number/08-exemplo-sempre-visivel.png";
+import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza.mp4";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_number/10-exemplo-visivel-ao-passar-o-mouse.gif";
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_number/11-exemplo-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_number/12-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif"
+import AudienciaUsuariosQueTemVariavelExemplo from "@assets/wf_xtra_varfx_number/13-exemplo-audiencia-usuarios-que-tem-variavel.png"
+
+A **Variável FX: Exibição de Números** adiciona um efeito visual acima de um mobi ou usuário, exibindo o valor de uma variável em formato numérico.
+
+Ela pode representar, por exemplo, pontos, moedas, dano, energia ou qualquer outro valor que precise ficar visível no quarto.
+
+<Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Exibição de Números** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o número exibido pelo efeito.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com a Exibição de Números"
+    title="Configuração de uma variável para a Exibição de Números"
+    style={{ width: "100%" }}
+  >
+    <source src={Requisitos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Exibição de Números**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Estilo
+
+Nesta seção é possível escolher como o valor numérico será exibido.
+
+Atualmente existem três estilos disponíveis:
+
+* **Freeze:** exibe números formados por blocos pixelados, com faixas verticais mais escuras.
+* **Shalimar:** exibe números com contorno claro e linhas horizontais no preenchimento.
+* **Quadradão:** exibe números largos e quadrados, com preenchimento sólido e sombra escura.
+
+![Comparação entre os estilos Freeze, Shalimar e Quadradão](@assets/wf_xtra_varfx_number/02-estilo.png "Comparação entre os estilos Freeze, Shalimar e Quadradão")
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência da Exibição de Números.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+![Janela de configuração da Variável FX Exibição de Números mostrando a prévia dos estilos](@assets/wf_xtra_varfx_number/03-visualizacao.gif "Janela de configuração da Variável FX Exibição de Números mostrando a prévia dos estilos")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia passa a utilizar diferentes valores numéricos, permitindo visualizar como o efeito ficará com números distintos.
+
+![Visualização Aleatória da Exibição de Números](@assets/wf_xtra_varfx_number/04-visualizacao-aleatoria.gif "Visualização Aleatória da Exibição de Números")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência da Exibição de Números.
+
+#### Cor
+
+Os três estilos permitem alterar a cor do efeito. A maioria das cores disponíveis possui uma aparência fixa, porém uma cor dinâmica merece destaque:
+
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+O vídeo abaixo mostra a Exibição de Números utilizando a cor do time do usuário.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Exibição de Números usando a Cor do time"
+    title="Cor do time da Exibição de Números"
+    style={{ width: "100%" }}
+  >
+    <source src={CorDoTime} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Ícone
+
+Também é possível escolher um ícone para acompanhar o número exibido. Por padrão, o ícone fica à esquerda do valor.
+
+Existem **26** opções de ícone disponíveis. Elas permitem, por exemplo, relacionar o número a moedas, energia, saúde ou outro elemento visual do sistema criado.
+
+As opções disponíveis são:
+
+<div class="icon-table-scroll" role="region" aria-label="Primeira lista de ícones da Exibição de Números" tabindex="0">
+<table class="icon-table">
+  <thead>
+    <tr>
+      <th style={{ width: "7%" }}>Bateria</th><th style={{ width: "7%" }}>Queimando</th><th style={{ width: "7%" }}>Dinheiro</th><th style={{ width: "7%" }}>Tempo de recarga</th><th style={{ width: "7%" }}>Gota</th><th style={{ width: "7%" }}>Energia</th><th style={{ width: "7%" }}>Olho</th><th style={{ width: "7%" }}>Peixe</th><th style={{ width: "7%" }}>Comida</th><th style={{ width: "7%" }}>Congelando</th><th style={{ width: "7%" }}>Pedras preciosas</th><th style={{ width: "7%" }}>Ouro</th><th style={{ width: "7%" }}>Saúde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ width: "7%" }}><img src={IconeBateria.src} alt="Ícone Bateria" title="Ícone Bateria" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeQueimando.src} alt="Ícone Queimando" title="Ícone Queimando" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeDinheiro.src} alt="Ícone Dinheiro" title="Ícone Dinheiro" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeTempoDeRecarga.src} alt="Ícone Tempo de recarga" title="Ícone Tempo de recarga" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeGota.src} alt="Ícone Gota" title="Ícone Gota" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeEnergia.src} alt="Ícone Energia" title="Ícone Energia" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeOlho.src} alt="Ícone Olho" title="Ícone Olho" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconePeixe.src} alt="Ícone Peixe" title="Ícone Peixe" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeComida.src} alt="Ícone Comida" title="Ícone Comida" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeCongelando.src} alt="Ícone Congelando" title="Ícone Congelando" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconePedrasPreciosas.src} alt="Ícone Pedras preciosas" title="Ícone Pedras preciosas" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeOuro.src} alt="Ícone Ouro" title="Ícone Ouro" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeSaude.src} alt="Ícone Saúde" title="Ícone Saúde" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="icon-table-scroll" role="region" aria-label="Segunda lista de ícones da Exibição de Números" tabindex="0">
+<table class="icon-table">
+  <thead>
+    <tr>
+      <th style={{ width: "7%" }}>Honra</th><th style={{ width: "7%" }}>Mágica</th><th style={{ width: "7%" }}>Mana</th><th style={{ width: "7%" }}>Veneno</th><th style={{ width: "7%" }}>Reparação</th><th style={{ width: "7%" }}>Reputação</th><th style={{ width: "7%" }}>Escudo</th><th style={{ width: "7%" }}>Resistência</th><th style={{ width: "7%" }}>Poder estrela</th><th style={{ width: "7%" }}>Furtividade</th><th style={{ width: "7%" }}>Tempo restante</th><th style={{ width: "7%" }}>Aprimoramento</th><th style={{ width: "7%" }}>Troncos de madeira</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ width: "7%" }}><img src={IconeHonra.src} alt="Ícone Honra" title="Ícone Honra" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeMagica.src} alt="Ícone Mágica" title="Ícone Mágica" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeMana.src} alt="Ícone Mana" title="Ícone Mana" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeVeneno.src} alt="Ícone Veneno" title="Ícone Veneno" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeReparacao.src} alt="Ícone Reparação" title="Ícone Reparação" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeReputacao.src} alt="Ícone Reputação" title="Ícone Reputação" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeEscudo.src} alt="Ícone Escudo" title="Ícone Escudo" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeResistencia.src} alt="Ícone Resistência" title="Ícone Resistência" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconePoderEstrela.src} alt="Ícone Poder estrela" title="Ícone Poder estrela" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeFurtividade.src} alt="Ícone Furtividade" title="Ícone Furtividade" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeTempoRestante.src} alt="Ícone Tempo restante" title="Ícone Tempo restante" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeAprimoramento.src} alt="Ícone Aprimoramento" title="Ícone Aprimoramento" style={{ width: "100%" }} /></td><td style={{ width: "7%" }}><img src={IconeTroncosDeMadeira.src} alt="Ícone Troncos de madeira" title="Ícone Troncos de madeira" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+#### Alinhamento do ícone
+
+A opção **Alinhamento do ícone** define onde o ícone escolhido será exibido em relação ao número. As opções disponíveis são:
+
+* **Esquerda:** exibe o ícone antes do número.
+* **Direita:** exibe o ícone depois do número.
+* **Ambos os lados:** exibe um ícone de cada lado do número.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do Alinhamento do ícone da Exibição de Números"
+    title="Alinhamento do ícone da Exibição de Números"
+    style={{ width: "100%" }}
+  >
+    <source src={AlinhamentoDoIcone} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando a Exibição de Números ficará visível.
+
+#### Sempre visível
+
+O número permanecerá sempre visível acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={SempreVisivelConfiguracao.src}
+          alt="Configurações do Exibição de Números com a opção Sempre visível selecionada"
+          title="Configurações do Exibição de Números com a opção Sempre visível selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={SempreVisivelExemplo.src}
+          alt="Usuário e mobi no quarto com o Exibição de Números sempre visível acima deles"
+          title="Exemplo do Exibição de Números sempre visível no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+O número será exibido quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não é alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, o número também será exibido se o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Exibição de Números visível quando a variável atualiza"
+    title="Exibição de Números visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
+    <source src={VisivelQuandoAVariavelAtualizaExemplo} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+O número será exibido somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações do Exibição de Números com a opção Visível ao passar o mouse selecionada"
+          title="Configurações do Exibição de Números com a opção Visível ao passar o mouse selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseExemplo.src}
+          alt="Animação do Exibição de Números sendo exibido somente quando o mouse passa sobre o mobi"
+          title="Exemplo do Exibição de Números visível ao passar o mouse no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Exibição de Números**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá o número**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Exibição de Números** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
+          alt="Configurações do Exibição de Números com a audiência Somente o usuário selecionada"
+          title="Configurações do Exibição de Números com a audiência Somente o usuário selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioExemplo.src}
+          alt="Comparação entre a visão de dois usuários, em que o Exibição de Números aparece somente para o usuário configurado"
+          title="Exemplo do Exibição de Números visível somente para o usuário"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão o número**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Exibição de Números** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão dos usuários que estão no mesmo time e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações do Exibição de Números com a audiência Usuários que estão no mesmo time selecionada"
+          title="Configurações do Exibição de Números com a audiência Usuários que estão no mesmo time selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src}
+          alt="Comparação entre usuários no mesmo time, que veem o Exibição de Números, e um usuário de outro time, que não o vê"
+          title="Exemplo do Exibição de Números visível para usuários do mesmo time"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar o número**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Exibição de Números** vinculado a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "40%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueTemVariavelConfiguracao.src}
+          alt="Animação da janela de configuração do Exibição de Números, incluindo as configurações de visibilidade"
+          title="Configuração da audiência Usuários que têm variável do Exibição de Números"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueTemVariavelExemplo.src}
+          alt="Comparação entre usuários no quarto, em que o Exibição de Números é visível apenas para quem possui a variável configurada"
+          title="Exemplo do Exibição de Números visível para usuários que têm variável"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar o número acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Exibição de Números** vinculado a variáveis de usuário quanto a variáveis de mobi.
+
+## Exemplos de uso
+
+A **Variável FX: Exibição de Números** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **Sistema de moedas:** vincule o Wired a uma variável de usuário e exiba a quantidade de moedas obtidas durante uma atividade.
+* **Contador de dano:** associe o Wired a uma variável de mobi para mostrar o dano causado a um inimigo ou objeto do quarto.
+* **Pontuação de minijogo:** use uma variável de usuário para mostrar os pontos acumulados por cada participante.
+* **Energia de máquina:** vincule uma variável de mobi a uma máquina e exiba o valor disponível para indicar quanto ela ainda pode ser utilizada.

@@ -1,0 +1,17 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.200
+Na janela de variáveis do mobi, o valor de “treinos_concluidos” é alterado de 20 para 1.500.000.000.
+
+00:00:04.200 --> 00:00:07.300
+O editor da Barra de Progresso é aberto. O intervalo ainda está configurado com mínimo 0 e máximo 100, abaixo da prévia da barra verde.
+
+00:00:07.300 --> 00:00:11.800
+No campo Mínimo, o valor 0 é apagado e substituído por 1.000.000.000.
+
+00:00:11.800 --> 00:00:16.000
+No campo Máximo, o valor 100 é apagado e substituído por 2.000.000.000.
+
+00:00:16.000 --> 00:00:17.266
+Com o valor atual de 1.500.000.000 entre o mínimo e o máximo, a barra verde aparece preenchida pela metade sobre o avatar.
+

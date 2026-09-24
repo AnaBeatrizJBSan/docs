@@ -303,6 +303,56 @@
 		box-shadow: var(--sl-shadow-sm);
 	}
 
+	/* Keeps the 13-icon tables readable without clipping them on narrow screens. */
+	.sl-markdown-content .icon-table-scroll {
+		max-width: 100%;
+		overflow-x: auto;
+		margin-block: 1rem;
+		border: 1px solid var(--wc-border);
+		border-radius: var(--wc-radius);
+		background: var(--wc-panel);
+		box-shadow: var(--sl-shadow-sm);
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.sl-markdown-content .icon-table-scroll .icon-table {
+		width: 56rem;
+		min-width: 56rem;
+		margin: 0;
+		overflow: visible;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.sl-markdown-content .icon-table :is(th, td):not(:where(.not-content *)) {
+		width: 7%;
+		min-width: 4rem;
+		padding: 0.55rem 0.3rem;
+	}
+
+	.sl-markdown-content .icon-table img {
+		display: block;
+		width: min(100%, 1.50rem) !important;
+		margin-inline: auto;
+	}
+
+	@media (max-width: 50rem) {
+		.sl-markdown-content .icon-table-scroll .icon-table {
+			width: 45rem;
+			min-width: 45rem;
+		}
+
+		.sl-markdown-content .icon-table :is(th, td):not(:where(.not-content *)) {
+			min-width: 3.45rem;
+			padding: 0.4rem 0.2rem;
+		}
+
+		.sl-markdown-content .icon-table th {
+			font-size: 0.64rem;
+		}
+	}
+
 	.sl-markdown-content th {
 		background: var(--wc-panel-raised);
 		color: var(--wc-text);

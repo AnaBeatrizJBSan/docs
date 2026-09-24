@@ -4,9 +4,6 @@ description: Conheça as Variáveis Wired, usadas para armazenar, consultar e tr
 sidebar:
   label: Visão Geral
   order: 0
-  badge:
-    text: NOVO
-    variant: note
 ---
 
 import WiredGrid from "@components/WiredGrid.astro";
@@ -24,6 +21,12 @@ Elas não precisam ficar empilhadas na pilha principal para funcionar. O papel d
 Além das próprias Variáveis, existem wireds Extras específicos que ampliam ou modificam a forma como esses dados podem ser usados no sistema. Esses componentes adicionam comportamentos complementares à variável já existente.
 
 Isso permite montar lógicas mais avançadas, como conectar textos e valores, trabalhar com progressão de níveis ou lidar com utilitários de tempo. Diferente dos Extras gerais, os Extras de Variável precisam ser posicionados junto da variável que se deseja modificar, porque atuam diretamente sobre o funcionamento dela.
+
+## Variáveis FX
+
+As Variáveis FX são Extras de Variável voltados para a apresentação visual de dados no quarto. Elas transformam o valor armazenado em uma variável de usuário ou mobi em elementos que os jogadores podem acompanhar durante a partida, como barras de saúde, corações, termômetros, indicadores de progresso e números.
+
+Para utilizá-las, coloque a Variável FX sobre a Variável Wired de usuário ou mobi correspondente. Sempre que o valor da variável for alterado, a exibição visual será atualizada automaticamente de acordo com as configurações escolhidas.
 
 ## Boas práticas e cuidados
 

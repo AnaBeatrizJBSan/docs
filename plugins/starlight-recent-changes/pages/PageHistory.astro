@@ -21,7 +21,22 @@ const headings = toHeadings(groupedEntries);
 ---
 
 <StarlightPage
-	frontmatter={{ title: `Histórico de "${entry.data.title}"` }}
+	frontmatter={{
+		title: `Histórico de "${entry.data.title}"`,
+		pagefind: false,
+		head: [
+			{
+				tag: 'meta',
+				attrs: {
+					name: 'robots',
+					content: 'noindex',
+				},
+			},
+		],
+		seo: {
+			robots: 'noindex',
+		},
+	}}
 	headings={headings}
 >
 	<a href={repoBaseUrl + "/commits/main/" + entry.filePath} target="_blank" rel="noopener noreferrer">

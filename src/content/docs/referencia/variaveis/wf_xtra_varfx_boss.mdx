@@ -1,0 +1,504 @@
+---
+title: "Variável FX: Barra de saúde do chefe"
+description: Este extra exibe uma barra de saúde acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+sidebar:
+  label: Barra de saúde do chefe
+  badge:
+    text: NOVO
+    variant: note
+infobox:
+  # == Infobox ==
+  # hide: false # valor padrão
+  title: Barra de saúde do chefe
+  # image: # url preenchida automaticamente
+
+  # == Dados do Mobi ==
+  revision: 75717
+  classname: wf_xtra_varfx_boss
+  name: "Variável FX: Barra de saúde do chefe"
+  description: Este extra exibe uma barra de saúde acima de um usuário ou mobi, utilizando o valor de uma váriavel.
+  # product_name: # caso o nome na loja seja diferente do nome do Mobi
+  # image_direction: 0 # valor padrão
+  # image_not_animated: false # valor padrão
+  # image_animated_state: 100 # valor padrão
+  # icon: # url preenchida automaticamente
+  availability: No catálogo e CA
+  price: 20
+  release_date: 2026-09-10
+
+  # == Dados do Wired ==
+  type: Extra de Variável
+  # requires_bot: false # valor padrão
+  # requires_furni: false # valor padrão
+  # requires_antena: false # valor padrão
+  # requires_contract: false # valor padrão
+  # requires_chest: false # valor padrão
+  # execution_limit: 100 # valor padrão
+  # execution_limit_per_user: 100 # valor padrão
+
+  # == Dados do Extra de Variável ==
+  additional_sources: []
+---
+
+import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_boss/01-requisitos.mp4";
+import CorVermelhoPraVerde from "@assets/wf_xtra_varfx_boss/04-cor-vermelho-pra-verde.mp4";
+import CorDoTime from "@assets/wf_xtra_varfx_boss/05-cor-do-time.mp4";
+import Tamanho from "@assets/wf_xtra_varfx_boss/06-tamanho.mp4";
+import IntervaloDeValores from "@assets/wf_xtra_varfx_boss/07-intervalo-de-valores.mp4";
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
+import IntervaloAvancadoVariavelGlobal from "@assets/wf_xtra_varfx/06-wired-configuracoes-avancadas-de-intervalo-variavel-global.gif";
+import IntervaloAvancadoVariavelDeMobi from "@assets/wf_xtra_varfx/07-wired-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif";
+import IntervaloAvancadoVariavelDeUsuario from "@assets/wf_xtra_varfx/08-wired-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_boss/08-exemplo-sempre-visivel.png";
+import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_boss/09-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
+import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_boss/10-exemplo-visivel-ao-passar-o-mouse.gif";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
+import AudienciaSomenteOUsuarioVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/11-exemplo-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios from "@assets/wf_xtra_varfx_boss/12-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import AudienciaUsuariosComVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif";
+import AudienciaUsuariosComVariavelExemplo from "@assets/wf_xtra_varfx_boss/13-exemplo-audiencia-usuarios-com-variavel.png";
+
+A **Variável FX: Barra de saúde do chefe** adiciona um efeito visual acima de um mobi ou usuário, exibindo uma barra de saúde que pode representar, por exemplo, a vida de um chefão, inimigo, NPC ou qualquer mobi do quarto.
+
+A aparência da barra é atualizada de acordo com o valor de uma variável já atribuída ao mobi ou ao usuário.
+
+<Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário.
+
+Para isso, coloque um dos seguintes Wireds no quarto e depois coloque o Wired **Variável FX: Barra de saúde do chefe** acima deles:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Além disso, essa variável já deve possuir um valor atribuído, pois será esse valor que determinará o preenchimento da barra de saúde.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável para usar com a Barra de saúde do chefe"
+    title="Configuração de uma variável para a Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
+    <source src={Requisitos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Barra de saúde do chefe**, serão exibidas algumas opções de personalização.
+
+### Estilo
+
+Nesta seção é possível escolher como a barra de saúde será exibida.
+
+Atualmente existem dois estilos disponíveis:
+
+* **Vida do chefe e caveira:** exibe a barra de saúde acompanhada por uma caveira em cada extremidade.
+* **Vida do chefe:** exibe apenas a barra de saúde.
+
+![Comparação entre os estilos de barra de saúde: com caveiras nas extremidades e sem caveiras](@assets/wf_xtra_varfx_boss/02-estilo.png "Comparação entre os estilos de barra de saúde: com caveiras nas extremidades e sem caveiras")
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência da barra de saúde.
+
+Sempre que um estilo for selecionado, essa prévia será atualizada automaticamente.
+
+![Janela de configuração da Variável FX Barra de saúde do chefe mostrando a prévia da barra ao alterar o estilo](@assets/wf_xtra_varfx_boss/03-visualizacao.gif "Janela de configuração da Variável FX Barra de saúde do chefe mostrando a prévia da barra ao alterar o estilo")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia da barra de saúde passa a utilizar diferentes valores da variável, permitindo visualizar como o efeito ficará em diferentes níveis de preenchimento.
+
+Por exemplo, suponha que o **Valor mínimo** seja **0** e o **Valor máximo** seja **1**. Ao pressionar o ícone pela primeira vez, a barra poderá ser exibida completamente vazia. Ao pressioná-lo novamente, ela poderá ser exibida completamente preenchida.
+
+![Prévia da barra de saúde do chefe alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_boss/15-visualizacao-aleatoria.gif "Prévia da barra de saúde do chefe alternando entre diferentes níveis de preenchimento ao usar a Visualização Aleatória")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência da barra de saúde.
+
+#### Cor
+
+É possível escolher entre diversas cores para a barra de saúde.
+
+No entanto, essa configuração está disponível apenas para o estilo **Vida do chefe**.
+
+O estilo **Vida do chefe e caveira** utiliza sempre a cor vermelha, que é o padrão desse efeito visual e não pode ser alterada.
+
+A maioria das cores disponíveis possui uma aparência fixa, porém duas opções merecem destaque:
+
+* **Vermelho para verde:** a cor da barra de saúde varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra de saúde. Quanto menor for o valor, mais vermelha ela ficará.
+
+O vídeo abaixo demonstra a mudança de cor conforme o valor da variável é atualizado.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da cor Vermelho para verde da Barra de saúde do chefe"
+    title="Cor Vermelho para verde da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
+    <source src={CorVermelhoPraVerde} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+O vídeo abaixo mostra a barra de saúde utilizando a cor do time do usuário.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da Barra de saúde do chefe usando a Cor do time"
+    title="Cor do time da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
+    <source src={CorDoTime} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Tamanho
+
+Também é possível definir o tamanho da barra de saúde.
+
+As opções disponíveis são:
+
+* Grande
+* Extra grande
+* Enorme
+
+O vídeo abaixo mostra a diferença entre os tamanhos disponíveis para a barra de saúde.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos tamanhos disponíveis para a Barra de saúde do chefe"
+    title="Tamanhos da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
+    <source src={Tamanho} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Intervalo de valores
+
+Esta seção define como o valor da variável será convertido em uma porcentagem da barra de saúde.
+
+Nos campos **Valor mínimo** e **Valor máximo**, é possível informar números com **até 10 dígitos**.
+
+O próprio Wired fornece um exemplo:
+
+* Valor da variável: **15**
+* Valor mínimo: **10**
+* Valor máximo: **20**
+
+Nesse caso, a barra de saúde será exibida com aproximadamente **50%** do seu preenchimento.
+
+Alterar os valores mínimo e máximo permite adaptar a barra de saúde para diferentes escalas de vida.
+
+O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da barra de saúde.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do intervalo de valores da Barra de saúde do chefe"
+    title="Intervalo de valores da Barra de saúde do chefe"
+    style={{ width: "100%" }}
+  >
+    <source src={IntervaloDeValores} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando a barra de saúde ficará visível.
+
+#### Sempre visível
+
+A barra de saúde permanecerá sempre visível acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={SempreVisivelConfiguracao.src}
+          alt="Configurações de visibilidade da Barra de saúde do chefe, com a opção Sempre visível selecionada"
+          title="Configurações de visibilidade da Barra de saúde do chefe, com a opção Sempre visível selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={SempreVisivelExemplo.src}
+          alt="Quarto do Habbo com barras de saúde sempre visíveis acima de um mobi e de um jogador"
+          title="Quarto do Habbo com barras de saúde sempre visíveis acima de um mobi e de um jogador"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+A barra de saúde será exibida quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, a barra de saúde também será exibida se o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo a barra de saúde permanecerá visível utilizando o campo **Duração**.
+
+Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+No exemplo abaixo foi informado o valor **2000** para a duração, então a barra de saúde permanece visível por **2 segundos** acima do usuário sempre que a variável aumenta de valor.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Exemplo da Barra de saúde do chefe visível quando a variável atualiza"
+    title="Barra de saúde do chefe visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
+    <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+A barra de saúde será exibida somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações de visibilidade da Barra de saúde do chefe, com a opção Visível ao passar o mouse selecionada"
+          title="Configurações de visibilidade da Barra de saúde do chefe, com a opção Visível ao passar o mouse selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseExemplo.src}
+          alt="Mobi no quarto do Habbo sem barra de saúde visível até que o mouse seja posicionado sobre ele"
+          title="Mobi no quarto do Habbo sem barra de saúde visível até que o mouse seja posicionado sobre ele"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pelo Wired **Variável FX: Barra de saúde do chefe**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá a barra de saúde**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Barra de saúde do chefe** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
+          alt="Configurações de audiência da Barra de saúde do chefe, com a opção Somente o usuário selecionada"
+          title="Configurações de audiência da Barra de saúde do chefe, com a opção Somente o usuário selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioVisaoDosUsuarios.src}
+          alt="Comparação entre a visão do usuário com a variável, que vê a barra de saúde, e a de outros usuários, que não a veem"
+          title="Comparação entre a visão do usuário com a variável, que vê a barra de saúde, e a de outros usuários, que não a veem"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão a barra de saúde**.
+
+Esta opção não está disponível quando o Wired **Variável FX: Barra de saúde do chefe** estiver vinculado a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão dos usuários com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que estão no mesmo time selecionada"
+          title="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que estão no mesmo time selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeVisaoDosUsuarios.src}
+          alt="Comparação entre jogadores do mesmo time, que veem barras de saúde, e jogadores de outro time, que não as veem"
+          title="Comparação entre jogadores do mesmo time, que veem barras de saúde, e jogadores de outro time, que não as veem"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar a barra de saúde**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Barra de saúde do chefe** vinculado a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Visão do usuário com a variável e visão de outros usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosComVariavelConfiguracao.src}
+          alt="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que têm variável sendo configurada"
+          title="Configurações de audiência da Barra de saúde do chefe, com a opção Usuários que têm variável sendo configurada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosComVariavelExemplo.src}
+          alt="Comparação entre visualizações do quarto, com a barra de saúde visível apenas para usuários que possuem a variável configurada"
+          title="Comparação entre visualizações do quarto, com a barra de saúde visível apenas para usuários que possuem a variável configurada"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar a barra de saúde acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para um Wired **Variável FX: Barra de saúde do chefe** vinculado a variáveis de usuário quanto a variáveis de mobi.
+
+### Configurações avançadas de intervalo
+
+Em vez de utilizar valores numéricos fixos para definir o intervalo mínimo e máximo (como visto no tópico [Intervalo de valores](#intervalo-de-valores)), também é possível utilizar valores armazenados em variáveis.
+
+#### Substituir mínimo
+
+Ao marcar esta opção, o valor mínimo passará a ser obtido a partir de uma variável.
+
+Dependendo do tipo de variável selecionado no topo da janela do Wired **Variável FX: Barra de saúde do chefe**, será possível escolher:
+
+* Variáveis de usuário;
+* Variáveis de mobi;
+* Variáveis globais.
+
+#### Substituir máximo
+
+Esta opção funciona da mesma maneira que **Substituir mínimo**, porém define o valor máximo do intervalo utilizando uma variável.
+
+Também é possível selecionar variáveis de usuário, mobi ou globais, conforme o tipo de variável escolhido.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "33.33%" }}>Variável de Usuário</th>
+      <th style={{ width: "33.33%" }}>Variável de Mobi</th>
+      <th style={{ width: "33.33%" }}>Variável Global</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src={IntervaloAvancadoVariavelDeUsuario.src} alt="Configurações avançadas de intervalo da Barra de saúde do chefe usando uma variável de usuário" title="Intervalo avançado com variável de usuário" style={{ width: "100%" }} /></td>
+      <td><img src={IntervaloAvancadoVariavelDeMobi.src} alt="Configurações avançadas de intervalo da Barra de saúde do chefe usando uma variável de mobi" title="Intervalo avançado com variável de mobi" style={{ width: "100%" }} /></td>
+      <td><img src={IntervaloAvancadoVariavelGlobal.src} alt="Configurações avançadas de intervalo da Barra de saúde do chefe usando uma variável global" title="Intervalo avançado com variável global" style={{ width: "100%" }} /></td>
+    </tr>
+  </tbody>
+</table>
+
+## Exemplos de uso
+
+A **Variável FX: Barra de saúde do chefe** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **Batalha cooperativa:** vincule a barra a uma variável de mobi usada para registrar a vida de um chefe. Com a audiência **Todos**, cada participante acompanha o dano causado durante a batalha.
+* **Inimigos em fases:** configure uma barra para cada inimigo importante e altere o valor máximo com uma variável ao iniciar uma nova fase. Dessa forma, a mesma barra acompanha chefes com diferentes quantidades de saúde.
+* **Objetivo que precisa ser defendido:** associe a variável a uma barricada, portal ou base. A barra mostra a durabilidade do mobi e pode ficar visível apenas quando a variável for atualizada, destacando os ataques recebidos.
+* **Desafio entre equipes:** utilize uma variável de usuário para representar a saúde ou as tentativas restantes de um jogador e selecione a audiência **Usuários que estão no mesmo time**, permitindo que aliados acompanhem seu estado sem revelar a informação ao adversário.

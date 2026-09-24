@@ -24,7 +24,7 @@ infobox:
   # icon: # url preenchida automaticamente
   availability: No catálogo e CA
   price: 7
-  # release_date: # data de lançamento
+  release_date: 2015-03-11
 
   # == Dados do Wired ==
   type: Ativador
@@ -113,7 +113,14 @@ O jogador perseguido também é definido nas configurações avançadas do **Efe
 Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o Bot começará a seguir o jogador. Quando conseguir alcançá-lo, a mensagem `Pego!` será exibida. O jogo também poderá ser interrompido ao dizer `Tempo!`.
 
 <figure>
-  <video controls preload="metadata" style={{ width: "100%" }}>
+  <video
+    controls
+    muted
+    preload="metadata"
+    aria-label="Exemplo prático de um sistema de pega-pega em que um Bot segue e alcança um jogador"
+    title="Exemplo prático do Ativador Wired Bot alcança usuário"
+    style={{ width: "100%" }}
+  >
     <source src={SistemaDePegaPega} type="video/mp4" />
     Seu navegador nao suporta videos HTML5.
   </video>

@@ -1,0 +1,471 @@
+---
+title: "Variável FX: Progresso de Nível"
+description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma variável.
+sidebar:
+  label: Progresso de Nível
+  badge:
+    text: NOVO
+    variant: note
+infobox:
+  # == Infobox ==
+  # hide: false # valor padrão
+  title: Progresso de Nível
+  # image: # url preenchida automaticamente
+
+  # == Dados do Mobi ==
+  revision: 75717
+  classname: wf_xtra_varfx_levelling
+  name: "Variável FX: Progresso de Nível"
+  description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma variável.
+  # product_name: # caso o nome na loja seja diferente do nome do Mobi
+  # image_direction: 0 # valor padrão
+  # image_not_animated: false # valor padrão
+  # image_animated_state: 100 # valor padrão
+  # icon: # url preenchida automaticamente
+  availability: No catálogo e CA
+  price: 15
+  release_date: 2026-09-10
+
+  # == Dados do Wired ==
+  type: Extra de Variável
+  # requires_bot: false # valor padrão
+  # requires_furni: false # valor padrão
+  # requires_antena: false # valor padrão
+  # requires_contract: false # valor padrão
+  # requires_chest: false # valor padrão
+  # execution_limit: 100 # valor padrão
+  # execution_limit_per_user: 100 # valor padrão
+
+  # == Dados do Extra de Variável ==
+  additional_sources: []
+---
+
+import Infobox from "@components/Infobox.astro"
+import Requisitos from "@assets/wf_xtra_varfx_levelling/01-requisitos.mp4"
+import ProgressaoDeNivel from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel.mp4"
+import CorDoTime from "@assets/wf_xtra_varfx_levelling/06-cor-do-time.mp4"
+import Segmentos from "@assets/wf_xtra_varfx_levelling/07-segmentos.mp4"
+import EstiloVisual from "@assets/wf_xtra_varfx_levelling/08-estilo-visual.mp4"
+import Tamanho from "@assets/wf_xtra_varfx_levelling/09-tamanho.mp4"
+import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
+import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
+import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
+import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
+import SempreVisivelExemplo from "@assets/wf_xtra_varfx_levelling/10-exemplo-sempre-visivel.png"
+import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_levelling/11-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelAoPassarOMouse from "@assets/wf_xtra_varfx_levelling/12-visivel-ao-passar-o-mouse.gif"
+import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_levelling/13-audiencia-somente-o-usuario.png"
+import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_levelling/14-audiencia-usuarios-que-estao-no-mesmo-time.png"
+import AudienciaUsuariosQueTemVariavelConfiguracao from "@assets/wf_xtra_varfx/05-wired-audiencia-usuarios-que-tem-variavel.gif"
+import AudienciaUsuariosQueTemVariavelExemplo from "@assets/wf_xtra_varfx_levelling/16-exemplo-audiencia-usuarios-que-tem-variavel.png"
+
+A **Variável FX: Progresso de Nível** adiciona um efeito visual acima de um mobi ou usuário, exibindo seu nível atual e o progresso até o próximo nível.
+
+As informações exibidas são calculadas automaticamente pelo **Extra Variável: Sistema de Aumento de Nível**, conforme os pontos de experiência armazenados na variável configurada.
+
+<Infobox />
+
+## Requisitos
+
+Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário. Para isso, coloque um dos seguintes Wireds no quarto:
+
+* **Wired Variável: Mobi Variável**
+* **Wired Variável: Usuário Variável**
+
+Também é necessário configurar o [**Extra Variável: Sistema de Aumento de Nível**](/referencia/variaveis/wf_xtra_var_lvlup_system/) acima do Wired de variável. Ele será responsável por calcular o nível, o progresso e as demais informações usadas pelo efeito visual.
+
+Por fim, coloque a **Variável FX: Progresso de Nível** acima dessa pilha para exibir as informações calculadas acima do mobi ou usuário.
+
+O vídeo abaixo ilustra como seria esse processo:
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da configuração de uma variável com o Sistema de Aumento de Nível e o Progresso de Nível"
+    title="Configuração do Progresso de Nível"
+    style={{ width: "100%" }}
+  >
+    <source src={Requisitos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração da **Variável FX: Progresso de Nível**, serão exibidas opções para personalizar a aparência e a visibilidade do efeito.
+
+### Informações de uso
+
+Na janela de configuração, existe o tópico **Informações de uso**. Ele apresenta o seguinte texto:
+
+> Essa Variável FX deve ser usada em combinação com o Extra Variável: Sistema de Aumento de Nível; ele usará automaticamente as informações corretas de progressão de nível.
+
+Como a progressão de nível, os valores mínimo e máximo e os cálculos de experiência já são definidos pelo **Extra Variável: Sistema de Aumento de Nível**, então, esta Variável FX não possui as seções **Intervalo de valores** nem **Configurações avançadas de intervalo** presentes em outros Extras de Variável FX.
+
+### Estilo
+
+Nesta seção é possível escolher como o nível e o progresso serão exibidos.
+
+Atualmente existem dois estilos disponíveis:
+
+* **Nível e Barra:** exibe o nível atual acompanhado por uma barra de progresso segmentada.
+* **Detalhes de Nível:** exibe o nível atual, os valores numéricos de progresso e uma barra de progresso.
+
+![Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100](@assets/wf_xtra_varfx_levelling/02-estilo.png "Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100")
+
+### Visualização
+
+A seção **Visualização** mostra uma prévia da aparência do efeito.
+
+Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
+
+![Janela de configuração da Variável FX Progresso de Nível mostrando a prévia dos dois estilos](@assets/wf_xtra_varfx_levelling/03-visualizacao.gif "Janela de configuração da Variável FX Progresso de Nível mostrando a prévia dos dois estilos")
+
+#### Visualização Aleatória
+
+No canto inferior direito da seção **Visualização**, existe um ícone chamado **Visualização Aleatória**.
+
+Ao pressioná-lo, a prévia passa a utilizar diferentes valores de progresso, permitindo visualizar como o efeito ficará em diferentes momentos entre um nível e outro.
+
+![Prévia do Progresso de Nível alternando entre diferentes valores ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_levelling/04-visualizacao-aleatoria.gif "Prévia do Progresso de Nível alternando entre diferentes valores ao usar a Visualização Aleatória")
+
+### Configurações
+
+Nesta seção é possível personalizar a aparência do progresso de nível.
+
+#### Cor
+
+Os dois estilos permitem alterar a cor do efeito. A maioria das cores disponíveis possui uma aparência fixa, porém duas opções dinâmicas merecem destaque:
+
+* **Progressão de nível:** altera a cor de acordo com o progresso atual até o próximo nível.
+
+O vídeo abaixo demonstra a mudança de cor conforme o progresso de nível é atualizado.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração da cor Progressão de nível sendo atualizada conforme a experiência aumenta"
+    title="Cor Progressão de nível"
+    style={{ width: "100%" }}
+  >
+    <source src={ProgressaoDeNivel} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+* **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
+
+O vídeo abaixo mostra a exibição utilizando a cor do time do usuário.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração do Progresso de Nível usando a Cor do time"
+    title="Cor do time do Progresso de Nível"
+    style={{ width: "100%" }}
+  >
+    <source src={CorDoTime} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Segmentos
+
+A opção **Segmentos** está disponível apenas para o estilo **Nível e Barra**. Ela define quantas partições serão exibidas na barra de progresso. É possível escolher entre **1** e **100** segmentos.
+
+O vídeo abaixo compara a barra de progresso com diferentes quantidades de segmentos.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração das diferentes quantidades de segmentos na barra de progresso de nível"
+    title="Segmentos do Progresso de Nível"
+    style={{ width: "100%" }}
+  >
+    <source src={Segmentos} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Estilo visual
+
+A opção **Estilo visual** está disponível apenas para o estilo **Nível e Barra** e altera a aparência da barra de progresso. As opções disponíveis são:
+
+* **Blocos:** divide a parte preenchida da barra em blocos quadrados separados.
+* **Listrada:** preenche a barra com faixas diagonais claras, que possuem um efeito de animação.
+* **Seta:** preenche a barra com setas apontadas para a direita, indicando o sentido da progressão.
+
+O vídeo abaixo apresenta como cada estilo visual altera a barra de progresso.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos estilos visuais Blocos, Listrada e Seta da barra de progresso de nível"
+    title="Estilo visual do Progresso de Nível"
+    style={{ width: "100%" }}
+  >
+    <source src={EstiloVisual} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Tamanho
+
+Os tamanhos disponíveis variam conforme o estilo selecionado:
+
+| Estilo | Tamanhos disponíveis |
+| :--- | :--- |
+| Nível e Barra | Pequeno, médio e grande |
+| Detalhes de Nível | Pequeno, médio, grande e extra grande |
+
+O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração dos tamanhos disponíveis para os estilos do Progresso de Nível"
+    title="Tamanhos do Progresso de Nível"
+    style={{ width: "100%" }}
+  >
+    <source src={Tamanho} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+### Configurações de visibilidade
+
+Nesta seção é possível definir quando o progresso de nível ficará visível.
+
+#### Sempre visível
+
+O nível e o progresso permanecerão sempre visíveis acima do mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={SempreVisivelConfiguracao.src}
+          alt="Configurações do Progresso de Nível com a opção Sempre visível selecionada"
+          title="Configurações do Progresso de Nível com a opção Sempre visível selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={SempreVisivelExemplo.src}
+          alt="Usuário e mobi no quarto com o Progresso de Nível sempre visível acima deles"
+          title="Exemplo do Progresso de Nível sempre visível no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Visível quando a variável atualiza
+
+O progresso de nível será exibido quando a variável configurada no tópico [Requisitos](#requisitos) for atualizada.
+
+Essa exibição pode ocorrer quando a variável é criada, quando seu valor aumenta, diminui ou mesmo quando seu valor não foi alterado.
+
+Nesta mesma configuração, o checkbox **Mostrar ao passar o mouse** pode ser marcado. Com ele ativo, a barra de saúde também será exibida se o mouse estiver sobre o mobi ou usuário.
+
+Além disso, é possível definir por quanto tempo o efeito permanecerá visível utilizando o campo **Duração**. Esse campo aceita valores entre **1500** e **20000**, representando a duração em milissegundos.
+
+O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
+
+<figure>
+  <video
+    muted
+    controls
+    preload="metadata"
+    aria-label="Demonstração temporária do Progresso de Nível após uma atualização da variável"
+    title="Progresso de Nível visível quando a variável atualiza"
+    style={{ width: "100%" }}
+  >
+    <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
+    Seu navegador nao suporta videos HTML5.
+  </video>
+  <figcaption></figcaption>
+</figure>
+
+#### Visível ao passar o mouse
+
+O nível e o progresso serão exibidos somente enquanto o mouse estiver posicionado sobre o mobi ou usuário.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={VisivelAoPassarOMouseConfiguracao.src}
+          alt="Configurações do Progresso de Nível com a opção Visível ao passar o mouse selecionada"
+          title="Configurações do Progresso de Nível com a opção Visível ao passar o mouse selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={VisivelAoPassarOMouse.src}
+          alt="Animação do Progresso de Nível sendo exibido somente quando o mouse passa sobre o mobi"
+          title="Exemplo do Progresso de Nível visível ao passar o mouse no quarto"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### Audiência
+
+Além das configurações de visibilidade, também é possível definir quem poderá visualizar o efeito.
+
+As opções disponíveis dependem do tipo de variável utilizado pela **Variável FX: Progresso de Nível**, de usuário ou de mobi.
+
+##### Somente o usuário
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas o usuário que possui a variável verá seu nível e progresso**.
+
+Esta opção não está disponível quando a **Variável FX: Progresso de Nível** estiver vinculada a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioConfiguracao.src}
+          alt="Configurações do Progresso de Nível com a audiência Somente o usuário selecionada"
+          title="Configurações do Progresso de Nível com a audiência Somente o usuário selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaSomenteOUsuarioExemplo.src}
+          alt="Comparação entre a visão de dois usuários, em que o Progresso de Nível aparece somente para o usuário configurado"
+          title="Exemplo do Progresso de Nível visível somente para o usuário"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que estão no mesmo time
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas os usuários que estiverem no mesmo time Battle Banzai ou Freeze que o usuário visualizarão seu nível e progresso**.
+
+Esta opção não está disponível quando a **Variável FX: Progresso de Nível** estiver vinculada a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
+          alt="Configurações do Progresso de Nível com a audiência Usuários que estão no mesmo time selecionada"
+          title="Configurações do Progresso de Nível com a audiência Usuários que estão no mesmo time selecionada"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src}
+          alt="Comparação entre usuários no mesmo time, que veem o Progresso de Nível, e um usuário de outro time, que não o vê"
+          title="Exemplo do Progresso de Nível visível para usuários do mesmo time"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Usuários que têm variável
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **apenas usuários que possuírem uma determinada variável poderão visualizar o nível e o progresso**.
+
+Ao selecionar esta opção, uma nova janela será aberta para que seja possível escolher a variável utilizada como filtro. Também é possível, opcionalmente, filtrar por um valor específico dessa variável.
+
+Esta opção está disponível tanto para uma **Variável FX: Progresso de Nível** vinculada a uma variável de usuário quanto a uma variável de mobi.
+
+<table style={{ width: "100%", tableLayout: "fixed" }}>
+  <thead>
+    <tr>
+      <th style={{ width: "50%" }}>Configuração do Wired</th>
+      <th style={{ width: "50%" }}>Exemplo do efeito visual no quarto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src={AudienciaUsuariosQueTemVariavelConfiguracao.src}
+          alt="Animação da janela de configuração do Progresso de Nível, incluindo as configurações de visibilidade"
+          title="Configuração da audiência Usuários que têm variável do Progresso de Nível"
+          style={{ width: "100%" }}
+        />
+      </td>
+      <td>
+        <img
+          src={AudienciaUsuariosQueTemVariavelExemplo.src}
+          alt="Comparação entre usuários no quarto, em que o Progresso de Nível é visível apenas para quem possui a variável configurada"
+          title="Exemplo do Progresso de Nível visível para usuários que têm variável"
+          style={{ width: "100%" }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+##### Todos
+
+Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar o nível e o progresso acima do mobi ou usuário**.
+
+Esta opção está disponível tanto para uma **Variável FX: Progresso de Nível** vinculada a variáveis de usuário quanto a variáveis de mobi.
+
+## Exemplos de uso
+
+A **Variável FX: Progresso de Nível** pode ser utilizada em diversos sistemas. Alguns exemplos são:
+
+* **RPG:** exiba o nível e a evolução de experiência de cada jogador durante missões e batalhas.
+* **Profissões:** mostre o progresso de um usuário ao exercer funções como cozinheiro, minerador ou fazendeiro.
+* **Mascotes e criaturas:** acompanhe a evolução de um pet, inimigo ou NPC conforme ele acumula experiência.
+* **Desafios do quarto:** indique a progressão de usuários que completam tarefas, respondem perguntas ou participam de atividades.
