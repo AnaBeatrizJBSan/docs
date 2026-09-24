@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.700
+As variáveis do Mobi são inspecionadas.
+
+00:00:02.800 --> 00:00:07.500
+pontos_de_saude_do_mobi recebe o valor 1.500.000.000.
+
+00:00:07.600 --> 00:00:10.700
+Intervalo atual: mínimo 0 e máximo 100.
+
+00:00:10.800 --> 00:00:15.000
+Novo intervalo: mínimo 1.000.000.000 e máximo 2.000.000.000.

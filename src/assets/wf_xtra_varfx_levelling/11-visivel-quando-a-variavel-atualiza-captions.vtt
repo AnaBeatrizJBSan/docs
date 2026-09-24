@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Visibilidade: sempre visível.
+
+00:00:03.600 --> 00:00:06.700
+Visibilidade: quando a variável atualizar.
+
+00:00:07.500 --> 00:00:12.900
+A variável “escritor” muda de 20 para 25.
+
+00:00:13.000 --> 00:00:15.300
+O progresso de nível aparece temporariamente.

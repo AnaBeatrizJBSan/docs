@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Em um quarto do Habbo, a janela do Wired de variável de usuário é aberta. A variável recebe o nome “escritor” e é configurada para o usuário presente no quarto.
+
+00:00:03.600 --> 00:00:07.300
+A configuração do sistema de níveis é exibida. As subvariáveis de nível atual, experiência atual, progresso, porcentagem, experiência necessária, experiência restante e limite de nível são marcadas.
+
+00:00:07.400 --> 00:00:10.700
+Na inspeção do avatar, a variável “escritor” recebe o valor inicial zero. As subvariáveis são criadas e uma barra de progresso com o número 1 aparece acima do usuário.
+
+00:00:10.800 --> 00:00:14.500
+Uma nova janela de variável é aberta, agora para um Mobi. A variável é nomeada “pagina_escrita” e vinculada ao quarto atual.
+
+00:00:14.600 --> 00:00:18.700
+O sistema de níveis do Mobi é configurado com todas as subvariáveis de progressão ativadas, incluindo nível, experiência e valores restantes.
+
+00:00:18.800 --> 00:00:21.500
+A Variável FX: Progresso de Nível é aberta. O estilo escolhido é uma barra de nível média, dividida em blocos e com cor dinâmica de progressão.
+
+00:00:21.600 --> 00:00:26.300
+O Mobi é inspecionado e “pagina_escrita” recebe o valor zero. Um segundo indicador de nível 1 surge acima do objeto, enquanto a barra do avatar permanece visível.

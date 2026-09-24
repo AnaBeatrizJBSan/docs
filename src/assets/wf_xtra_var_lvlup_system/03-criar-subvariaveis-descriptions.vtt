@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+O painel Inspection mostra a variável “inteligencia” com valor zero. Na configuração do sistema de níveis, a opção “Nível Atual” é marcada. Após confirmar, surge “inteligencia.current_level” com valor 1.
+
+00:00:03.500 --> 00:00:06.500
+A configuração é aberta novamente, e “XP Atual” também é marcado. O painel passa a exibir “inteligencia.current_xp” com valor zero.
+
+00:00:06.500 --> 00:00:09.500
+Em seguida, é ativada a opção “Progresso de nível”. A subvariável “inteligencia.progress” aparece no Inspection, inicialmente com valor zero.
+
+00:00:09.500 --> 00:00:12.500
+A opção de progresso em porcentagem é habilitada. Uma nova subvariável registra o percentual de avanço no nível, também começando em zero.
+
+00:00:12.500 --> 00:00:15.500
+A opção “Total de XP necessário” é marcada. No painel, “inteligencia.xp_required” aparece com valor 10, indicando a experiência exigida para o próximo nível.
+
+00:00:15.500 --> 00:00:19.000
+Depois, “XP restante” é habilitado. A subvariável “inteligencia.xp_remaining” também recebe o valor 10, pois ainda não há progresso acumulado.
+
+00:00:19.000 --> 00:00:23.133
+Por fim, a opção “Nível máximo” é marcada. O painel Inspection exibe “inteligencia.max_level” com valor 20, junto das demais subvariáveis criadas durante a demonstração.

@@ -40,19 +40,44 @@ infobox:
   additional_sources: []
 ---
 
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_prog/01-requisitos.mp4"
+import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_prog/01-requisitos-captions.vtt?url";
+import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_prog/01-requisitos-captions.vtt?raw";
+import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_prog/01-requisitos-descriptions.vtt?url";
+import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_prog/01-requisitos-descriptions.vtt?raw";
 import BarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-barra-classica.png"
 import BarraEmBlocos from "@assets/wf_xtra_varfx_prog/02-estilo-barra-em-blocos.png"
 import BarraListrada from "@assets/wf_xtra_varfx_prog/02-estilo-barra-listrada.gif"
 import BarraDeSeta from "@assets/wf_xtra_varfx_prog/02-estilo-barra-de-seta.png"
 import MiniBarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-mini-barra-classica.png"
 import CorDoTime from "@assets/wf_xtra_varfx_prog/05-cor-do-time.mp4"
+import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_prog/05-cor-do-time-captions.vtt?url";
+import CorDoTimeCaptionsRaw from "@assets/wf_xtra_varfx_prog/05-cor-do-time-captions.vtt?raw";
+import CorDoTimeDescriptionsUrl from "@assets/wf_xtra_varfx_prog/05-cor-do-time-descriptions.vtt?url";
+import CorDoTimeDescriptionsRaw from "@assets/wf_xtra_varfx_prog/05-cor-do-time-descriptions.vtt?raw";
 import Tamanho from "@assets/wf_xtra_varfx_prog/06-tamanho.mp4"
+import TamanhoCaptionsUrl from "@assets/wf_xtra_varfx_prog/06-tamanho-captions.vtt?url";
+import TamanhoCaptionsRaw from "@assets/wf_xtra_varfx_prog/06-tamanho-captions.vtt?raw";
+import TamanhoDescriptionsUrl from "@assets/wf_xtra_varfx_prog/06-tamanho-descriptions.vtt?url";
+import TamanhoDescriptionsRaw from "@assets/wf_xtra_varfx_prog/06-tamanho-descriptions.vtt?raw";
 import Segmentos from "@assets/wf_xtra_varfx_prog/07-segmentos.mp4"
+import SegmentosCaptionsUrl from "@assets/wf_xtra_varfx_prog/07-segmentos-captions.vtt?url";
+import SegmentosCaptionsRaw from "@assets/wf_xtra_varfx_prog/07-segmentos-captions.vtt?raw";
+import SegmentosDescriptionsUrl from "@assets/wf_xtra_varfx_prog/07-segmentos-descriptions.vtt?url";
+import SegmentosDescriptionsRaw from "@assets/wf_xtra_varfx_prog/07-segmentos-descriptions.vtt?raw";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores.mp4"
+import IntervaloDeValoresCaptionsUrl from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-captions.vtt?url";
+import IntervaloDeValoresCaptionsRaw from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-captions.vtt?raw";
+import IntervaloDeValoresDescriptionsUrl from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-descriptions.vtt?url";
+import IntervaloDeValoresDescriptionsRaw from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-descriptions.vtt?raw";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_prog/09-exemplo-sempre-visivel.png"
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza.mp4"
+import VisivelQuandoAVariavelAtualizaCaptionsUrl from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-captions.vtt?url";
+import VisivelQuandoAVariavelAtualizaCaptionsRaw from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
+import VisivelQuandoAVariavelAtualizaDescriptionsUrl from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
+import VisivelQuandoAVariavelAtualizaDescriptionsRaw from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_prog/11-exemplo-visivel-ao-passar-o-mouse.gif"
 import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_prog/12-exemplo-audiencia-somente-o-usuario.png"
 import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_prog/13-audiencia-usuarios-que-estao-no-mesmo-time.png"
@@ -85,20 +110,15 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 
 O vídeo abaixo ilustra como seria esse processo:
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da configuração de uma variável para usar com a Barra de Progresso"
-    title="Configuração de uma variável para a Barra de Progresso"
-    style={{ width: "100%" }}
-  >
-    <source src={Requisitos} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="requisitos-barra-progresso"
+  src={Requisitos}
+  title="Configuração de uma variável para a Barra de Progresso"
+  captionsSrc={RequisitosCaptionsUrl}
+  captionsContent={RequisitosCaptionsRaw}
+  descriptionsSrc={RequisitosDescriptionsUrl}
+  descriptionsContent={RequisitosDescriptionsRaw}
+/>
 
 ## Como esse Wired funciona?
 
@@ -161,20 +181,15 @@ Os cinco estilos permitem alterar a cor do efeito. A maioria das cores disponív
 
 O vídeo abaixo mostra a Barra de Progresso utilizando a cor do time do usuário.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da Barra de Progresso usando a Cor do time"
-    title="Cor do time da Barra de Progresso"
-    style={{ width: "100%" }}
-  >
-    <source src={CorDoTime} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="cor-do-time-barra-progresso"
+  src={CorDoTime}
+  title="Cor do time da Barra de Progresso"
+  captionsSrc={CorDoTimeCaptionsUrl}
+  captionsContent={CorDoTimeCaptionsRaw}
+  descriptionsSrc={CorDoTimeDescriptionsUrl}
+  descriptionsContent={CorDoTimeDescriptionsRaw}
+/>
 
 #### Tamanho
 
@@ -188,20 +203,15 @@ Todos os estilos permitem alterar o tamanho da barra de progresso. As opções d
 
 O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração dos tamanhos disponíveis para a Barra de Progresso"
-    title="Tamanhos da Barra de Progresso"
-    style={{ width: "100%" }}
-  >
-    <source src={Tamanho} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="tamanho-barra-progresso"
+  src={Tamanho}
+  title="Tamanhos da Barra de Progresso"
+  captionsSrc={TamanhoCaptionsUrl}
+  captionsContent={TamanhoCaptionsRaw}
+  descriptionsSrc={TamanhoDescriptionsUrl}
+  descriptionsContent={TamanhoDescriptionsRaw}
+/>
 
 #### Segmentos
 
@@ -209,20 +219,15 @@ A opção **Segmentos** está disponível apenas para os estilos **Barra em bloc
 
 O vídeo abaixo compara a barra de progresso com diferentes quantidades de segmentos.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração das diferentes quantidades de segmentos na Barra de Progresso"
-    title="Segmentos da Barra de Progresso"
-    style={{ width: "100%" }}
-  >
-    <source src={Segmentos} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="segmentos-barra-progresso"
+  src={Segmentos}
+  title="Segmentos da Barra de Progresso"
+  captionsSrc={SegmentosCaptionsUrl}
+  captionsContent={SegmentosCaptionsRaw}
+  descriptionsSrc={SegmentosDescriptionsUrl}
+  descriptionsContent={SegmentosDescriptionsRaw}
+/>
 
 ### Intervalo de valores
 
@@ -242,20 +247,15 @@ Alterar os valores mínimo e máximo permite adaptar a barra para diferentes esc
 
 O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da barra de progresso.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração do intervalo de valores da Barra de Progresso"
-    title="Intervalo de valores da Barra de Progresso"
-    style={{ width: "100%" }}
-  >
-    <source src={IntervaloDeValores} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="intervalo-de-valores-barra-progresso"
+  src={IntervaloDeValores}
+  title="Intervalo de valores da Barra de Progresso"
+  captionsSrc={IntervaloDeValoresCaptionsUrl}
+  captionsContent={IntervaloDeValoresCaptionsRaw}
+  descriptionsSrc={IntervaloDeValoresDescriptionsUrl}
+  descriptionsContent={IntervaloDeValoresDescriptionsRaw}
+/>
 
 ### Configurações de visibilidade
 
@@ -292,20 +292,15 @@ Além disso, é possível definir por quanto tempo o efeito permanecerá visíve
 
 O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da Barra de Progresso visível quando a variável atualiza"
-    title="Barra de Progresso visível quando a variável atualiza"
-    style={{ width: "100%" }}
-  >
-    <source src={VisivelQuandoAVariavelAtualiza} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="visivel-quando-a-variavel-atualiza-barra-progresso"
+  src={VisivelQuandoAVariavelAtualiza}
+  title="Barra de Progresso visível quando a variável atualiza"
+  captionsSrc={VisivelQuandoAVariavelAtualizaCaptionsUrl}
+  captionsContent={VisivelQuandoAVariavelAtualizaCaptionsRaw}
+  descriptionsSrc={VisivelQuandoAVariavelAtualizaDescriptionsUrl}
+  descriptionsContent={VisivelQuandoAVariavelAtualizaDescriptionsRaw}
+/>
 
 #### Visível ao passar o mouse
 

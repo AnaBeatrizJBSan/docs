@@ -1,0 +1,17 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+WIRED VARIÁVEL: Usuário Variável
+Nome da variável: inteligencia
+
+00:00:03.200 --> 00:00:05.200
+Tem valor
+Disponibilidade: enquanto o usuário está no quarto
+
+00:00:05.200 --> 00:00:08.500
+Inspection: Dar variável
+Variável: inteligencia
+
+00:00:08.500 --> 00:00:10.533
+Valor: 0
+inteligencia: 0

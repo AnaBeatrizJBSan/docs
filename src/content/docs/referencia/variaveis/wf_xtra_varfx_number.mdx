@@ -40,9 +40,18 @@ infobox:
   additional_sources: []
 ---
 
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Infobox from "@components/Infobox.astro"
 import CorDoTime from "@assets/wf_xtra_varfx_number/05-cor-do-time.mp4"
+import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_number/05-cor-do-time-captions.vtt?url";
+import CorDoTimeCaptionsRaw from "@assets/wf_xtra_varfx_number/05-cor-do-time-captions.vtt?raw";
+import CorDoTimeDescriptionsUrl from "@assets/wf_xtra_varfx_number/05-cor-do-time-descriptions.vtt?url";
+import CorDoTimeDescriptionsRaw from "@assets/wf_xtra_varfx_number/05-cor-do-time-descriptions.vtt?raw";
 import Requisitos from "@assets/wf_xtra_varfx_number/01-requisitos.mp4"
+import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_number/01-requisitos-captions.vtt?url";
+import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_number/01-requisitos-captions.vtt?raw";
+import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_number/01-requisitos-descriptions.vtt?url";
+import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_number/01-requisitos-descriptions.vtt?raw";
 import IconeBateria from "@assets/wf_xtra_varfx_number/06-icones-bateria.png"
 import IconeQueimando from "@assets/wf_xtra_varfx_number/06-icones-queimando.png"
 import IconeDinheiro from "@assets/wf_xtra_varfx_number/06-icones-dinheiro.png"
@@ -70,12 +79,20 @@ import IconeTempoRestante from "@assets/wf_xtra_varfx_number/06-icones-tempo-res
 import IconeAprimoramento from "@assets/wf_xtra_varfx_number/05-aprimoramento.png"
 import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/06-icones-troncos-de-madeira.png"
 import AlinhamentoDoIcone from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone.mp4"
+import AlinhamentoDoIconeCaptionsUrl from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-captions.vtt?url";
+import AlinhamentoDoIconeCaptionsRaw from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-captions.vtt?raw";
+import AlinhamentoDoIconeDescriptionsUrl from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-descriptions.vtt?url";
+import AlinhamentoDoIconeDescriptionsRaw from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-descriptions.vtt?raw";
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
 import VisivelAoPassarOMouseConfiguracao from "@assets/wf_xtra_varfx/02-wired-visivel-ao-passar-o-mouse.png";
 import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired-audiencia-somente-o-usuario.png";
 import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_number/08-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza.mp4";
+import VisivelQuandoAVariavelAtualizaExemploCaptionsUrl from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-captions.vtt?url";
+import VisivelQuandoAVariavelAtualizaExemploCaptionsRaw from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
+import VisivelQuandoAVariavelAtualizaExemploDescriptionsUrl from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
+import VisivelQuandoAVariavelAtualizaExemploDescriptionsRaw from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_number/10-exemplo-visivel-ao-passar-o-mouse.gif";
 import AudienciaSomenteOUsuarioExemplo from "@assets/wf_xtra_varfx_number/11-exemplo-audiencia-somente-o-usuario.png";
 import AudienciaUsuariosQueEstaoNoMesmoTimeExemplo from "@assets/wf_xtra_varfx_number/12-exemplo-audiencia-usuarios-que-estao-no-mesmo-time.png"
@@ -101,20 +118,15 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 
 O vídeo abaixo ilustra como seria esse processo:
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da configuração de uma variável para usar com a Exibição de Números"
-    title="Configuração de uma variável para a Exibição de Números"
-    style={{ width: "100%" }}
-  >
-    <source src={Requisitos} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="requisitos-exibicao-numeros"
+  src={Requisitos}
+  title="Configuração de uma variável para a Exibição de Números"
+  captionsSrc={RequisitosCaptionsUrl}
+  captionsContent={RequisitosCaptionsRaw}
+  descriptionsSrc={RequisitosDescriptionsUrl}
+  descriptionsContent={RequisitosDescriptionsRaw}
+/>
 
 ## Como esse Wired funciona?
 
@@ -160,20 +172,15 @@ Os três estilos permitem alterar a cor do efeito. A maioria das cores disponív
 
 O vídeo abaixo mostra a Exibição de Números utilizando a cor do time do usuário.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da Exibição de Números usando a Cor do time"
-    title="Cor do time da Exibição de Números"
-    style={{ width: "100%" }}
-  >
-    <source src={CorDoTime} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="cor-do-time-exibicao-numeros"
+  src={CorDoTime}
+  title="Cor do time da Exibição de Números"
+  captionsSrc={CorDoTimeCaptionsUrl}
+  captionsContent={CorDoTimeCaptionsRaw}
+  descriptionsSrc={CorDoTimeDescriptionsUrl}
+  descriptionsContent={CorDoTimeDescriptionsRaw}
+/>
 
 #### Ícone
 
@@ -223,20 +230,15 @@ A opção **Alinhamento do ícone** define onde o ícone escolhido será exibido
 * **Direita:** exibe o ícone depois do número.
 * **Ambos os lados:** exibe um ícone de cada lado do número.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração do Alinhamento do ícone da Exibição de Números"
-    title="Alinhamento do ícone da Exibição de Números"
-    style={{ width: "100%" }}
-  >
-    <source src={AlinhamentoDoIcone} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="alinhamento-icone-exibicao-numeros"
+  src={AlinhamentoDoIcone}
+  title="Alinhamento do ícone da Exibição de Números"
+  captionsSrc={AlinhamentoDoIconeCaptionsUrl}
+  captionsContent={AlinhamentoDoIconeCaptionsRaw}
+  descriptionsSrc={AlinhamentoDoIconeDescriptionsUrl}
+  descriptionsContent={AlinhamentoDoIconeDescriptionsRaw}
+/>
 
 ### Configurações de visibilidade
 
@@ -287,20 +289,15 @@ Além disso, é possível definir por quanto tempo o efeito permanecerá visíve
 
 O vídeo abaixo demonstra a exibição temporária depois de uma atualização da variável.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da Exibição de Números visível quando a variável atualiza"
-    title="Exibição de Números visível quando a variável atualiza"
-    style={{ width: "100%" }}
-  >
-    <source src={VisivelQuandoAVariavelAtualizaExemplo} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="visivel-quando-atualiza-exibicao-numeros"
+  src={VisivelQuandoAVariavelAtualizaExemplo}
+  title="Exibição de Números visível quando a variável atualiza"
+  captionsSrc={VisivelQuandoAVariavelAtualizaExemploCaptionsUrl}
+  captionsContent={VisivelQuandoAVariavelAtualizaExemploCaptionsRaw}
+  descriptionsSrc={VisivelQuandoAVariavelAtualizaExemploDescriptionsUrl}
+  descriptionsContent={VisivelQuandoAVariavelAtualizaExemploDescriptionsRaw}
+/>
 
 #### Visível ao passar o mouse
 

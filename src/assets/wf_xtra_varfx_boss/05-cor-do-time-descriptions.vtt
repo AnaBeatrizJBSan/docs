@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+A configuração da Variável FX Barra de saúde do chefe está aberta. O estilo Vida do chefe é selecionado, exibindo uma barra sem caveiras nas extremidades.
+
+00:00:03.300 --> 00:00:07.700
+O menu de cores é aberto e a opção dinâmica Cor do Time é selecionada. A barra usa o tamanho extra grande e o intervalo de valores permanece entre zero e cem. A configuração é confirmada.
+
+00:00:07.700 --> 00:00:10.700
+A janela fecha. O avatar, que usa um capacete vermelho, é selecionado e a ferramenta de inspeção é aberta.
+
+00:00:10.700 --> 00:00:16.700
+Na inspeção, os dados indicam que o avatar pertence ao time vermelho do Wired. A variável saude_do_usuario é selecionada e recebe o valor cem.
+
+00:00:16.700 --> 00:00:19.000
+Uma barra de saúde vermelha e totalmente preenchida aparece acima do avatar, acompanhando a cor do time vermelho.
+
+00:00:19.000 --> 00:00:21.000
+O avatar muda para o time verde. Seu capacete e a barra de saúde passam da cor vermelha para verde.
+
+00:00:21.000 --> 00:00:23.000
+O avatar muda para o time azul. O capacete e a barra de saúde também ficam azuis.
+
+00:00:23.000 --> 00:00:24.733
+Por fim, o avatar muda para o time amarelo. O capacete e a barra de saúde passam a exibir a cor amarela.

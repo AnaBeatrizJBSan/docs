@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.400
+A Variável FX: Progresso de Nível está aberta. No estilo “Blocos”, a parte preenchida da barra do nível 1 é formada por pequenos retângulos amarelos.
+
+00:00:01.500 --> 00:00:05.300
+O estilo “Listrada” é selecionado. Os blocos são substituídos por uma faixa contínua com marcas diagonais, mantendo a cor amarela do time do avatar.
+
+00:00:05.400 --> 00:00:09.000
+Em seguida, o estilo muda para “Seta”. O preenchimento passa a ser representado por pequenas setas amarelas apontadas para a direita.
+
+00:00:09.100 --> 00:00:11.300
+Por fim, o estilo retorna para “Blocos”, restaurando os retângulos amarelos dentro da barra de progresso.

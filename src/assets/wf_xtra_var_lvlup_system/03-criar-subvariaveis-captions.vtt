@@ -1,0 +1,29 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Criar subvariáveis: Nível Atual
+inteligencia.current_level: 1
+
+00:00:03.500 --> 00:00:06.500
+Criar subvariáveis: XP Atual
+inteligencia.current_xp: 0
+
+00:00:06.500 --> 00:00:09.500
+Criar subvariáveis: Progresso de nível
+inteligencia.progress: 0
+
+00:00:09.500 --> 00:00:12.500
+Criar subvariáveis: Progresso de nível em porcentagem
+inteligencia.progress_percentage: 0
+
+00:00:12.500 --> 00:00:15.500
+Criar subvariáveis: Total de XP necessário
+inteligencia.xp_required: 10
+
+00:00:15.500 --> 00:00:19.000
+Criar subvariáveis: XP restante
+inteligencia.xp_remaining: 10
+
+00:00:19.000 --> 00:00:23.133
+Criar subvariáveis: Nível máximo
+inteligencia.max_level: 20

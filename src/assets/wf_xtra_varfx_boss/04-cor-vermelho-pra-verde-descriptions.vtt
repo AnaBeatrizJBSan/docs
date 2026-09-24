@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.700
+A configuração da Variável FX Barra de saúde do chefe está aberta. O estilo é alterado de Vida do chefe e caveira para Vida do chefe, removendo as caveiras das extremidades da barra.
+
+00:00:01.700 --> 00:00:06.700
+O menu de cores é aberto e a opção dinâmica Vermelho para Verde é selecionada. A barra usa o tamanho extra grande e o intervalo de valores permanece entre zero e cem. A configuração é confirmada.
+
+00:00:06.700 --> 00:00:08.000
+A janela fecha. O avatar é selecionado e a ferramenta de inspeção é aberta.
+
+00:00:08.000 --> 00:00:12.800
+Na inspeção, a variável saude_do_usuario recebe o valor cem. Uma barra de saúde totalmente preenchida na cor verde aparece acima do avatar.
+
+00:00:12.800 --> 00:00:15.300
+O valor da variável é reduzido para cinquenta. A barra fica preenchida pela metade e sua cor muda gradualmente de verde para laranja.
+
+00:00:15.300 --> 00:00:16.233
+O valor é reduzido novamente, agora para quinze. Apenas uma pequena parte vermelha permanece preenchida na barra de saúde.

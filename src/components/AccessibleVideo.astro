@@ -1,0 +1,137 @@
+---
+import {
+  parseWebVtt,
+  type WebVttCue,
+} from "../utils/parseWebVtt";
+
+interface Props {
+  id: string;
+  src: string;
+  captionsSrc: string;
+  captionsContent: string;
+  descriptionsSrc: string;
+  descriptionsContent: string;
+  title: string;
+  poster?: string;
+  preload?: "none" | "metadata" | "auto";
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  width?: string;
+}
+
+const {
+  id,
+  src,
+  captionsSrc,
+  captionsContent,
+  descriptionsSrc,
+  descriptionsContent,
+  title,
+  poster,
+  preload = "metadata",
+  autoplay = false,
+  loop = false,
+  muted = true,
+  width = "100%"
+} = Astro.props;
+
+const captions: WebVttCue[] = parseWebVtt(captionsContent);
+const descriptions: WebVttCue[] = parseWebVtt(
+  descriptionsContent,
+);
+
+const accessibleTextId = `${id}-accessible-text`;
+---
+
+<figure class="accessible-video">
+  <video
+    id={id}
+    controls
+    playsinline
+    src={src}
+    poster={poster}
+    preload={preload}
+    autoplay={autoplay}
+    loop={loop}
+    muted={muted}
+    aria-label={title}
+    aria-describedby={accessibleTextId}
+    style={{ width }}
+  >
+    <track
+      kind="captions"
+      src={captionsSrc}
+      srclang="pt-BR"
+      label="Português (Brasil)"
+    />
+
+    <track
+      kind="descriptions"
+      src={descriptionsSrc}
+      srclang="pt-BR"
+      label="Português (Brasil)"
+      default
+    />
+
+    Seu navegador não oferece suporte à reprodução de vídeos.
+  </video>
+
+  <figcaption>{title}</figcaption>
+
+  <div id={accessibleTextId} class="video-accessible-text">
+    <section>
+      <h3>Legendas do vídeo: {title}</h3>
+
+      {
+        captions.length > 0 ? (
+          captions.map((cue) => <p>{cue.text}</p>)
+        ) : (
+          <p>Este vídeo não possui legendas disponíveis.</p>
+        )
+      }
+    </section>
+
+    <section>
+      <h3>Audiodescrição do vídeo: {title}</h3>
+
+      {
+        descriptions.length > 0 ? (
+          descriptions.map((cue) => <p>{cue.text}</p>)
+        ) : (
+          <p>Este vídeo não possui audiodescrição disponível.</p>
+        )
+      }
+    </section>
+  </div>
+</figure>
+
+<style>
+  .accessible-video {
+    margin-block: 1.5rem;
+  }
+
+  .accessible-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .accessible-video figcaption {
+    margin-top: 0.5rem;
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-sm);
+  }
+  
+  .video-accessible-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+    border: 0;
+  }
+</style>

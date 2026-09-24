@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.000
+Variável: saude_do_mobi
+Valor: 100
+
+00:00:02.000 --> 00:00:07.800
+Variável: saude_do_mobi
+Valor: 1.500.000.000
+
+00:00:07.800 --> 00:00:11.000
+Intervalo de valores
+Mínimo: 0
+Máximo: 100
+
+00:00:11.000 --> 00:00:15.800
+Mínimo: 1.000.000.000
+Máximo: 2.000.000.000
+
+00:00:15.800 --> 00:00:17.399
+Valor atual: 1.500.000.000
+Barra preenchida em 50%

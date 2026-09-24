@@ -46,11 +46,16 @@ infobox:
   # - Item de ativação
 ---
 
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Infobox from "@components/Infobox.astro"
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import BotsNaLoja from "@assets/wf_trg_bot_reached_avtr/1-bots-na-loja.png";
 import SistemaDePegaPega from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega.mp4";
+import SistemaDePegaPegaCaptionsUrl from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega-captions.vtt?url";
+import SistemaDePegaPegaDescriptionsUrl from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega-descriptions.vtt?url";
+import SistemaDePegaPegaCaptionsRaw from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega-captions.vtt?raw";
+import SistemaDePegaPegaDescriptionsRaw from "@assets/wf_trg_bot_reached_avtr/3-sistema-de-pega-pega-descriptions.vtt?raw";
 import WiredEfeitoBotSegueOUsuarioBotFonte from "@assets/wf_trg_bot_reached_avtr/4-wired-efeito-bot-segue-o-usuario-bot-fonte.gif";
 import WiredEfeitoBotSegueOUsuarioUsuarioFonte from "@assets/wf_trg_bot_reached_avtr/5-wired-efeito-bot-segue-o-usuario-usuario-fonte.gif";
 
@@ -112,20 +117,15 @@ O jogador perseguido também é definido nas configurações avançadas do **Efe
 
 Neste exemplo, vamos criar um sistema simples de pega-pega. Ao dizer `Já!`, o Bot começará a seguir o jogador. Quando conseguir alcançá-lo, a mensagem `Pego!` será exibida. O jogo também poderá ser interrompido ao dizer `Tempo!`.
 
-<figure>
-  <video
-    controls
-    muted
-    preload="metadata"
-    aria-label="Exemplo prático de um sistema de pega-pega em que um Bot segue e alcança um jogador"
-    title="Exemplo prático do Ativador Wired Bot alcança usuário"
-    style={{ width: "100%" }}
-  >
-    <source src={SistemaDePegaPega} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="exemplo-pratico-bot-alcanca-usuario"
+  src={SistemaDePegaPega}
+  title="Exemplo prático do Ativador Wired Bot alcança usuário"
+  captionsSrc={SistemaDePegaPegaCaptionsUrl}
+  captionsContent={SistemaDePegaPegaCaptionsRaw}
+  descriptionsSrc={SistemaDePegaPegaDescriptionsUrl}
+  descriptionsContent={SistemaDePegaPegaDescriptionsRaw}
+/>
 
 <Tabs>
   <TabItem label="Configuração">

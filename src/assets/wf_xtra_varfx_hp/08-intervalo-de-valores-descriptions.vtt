@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.700
+A janela de inspeção do coelho de pelúcia mostra suas variáveis internas. A opção de conceder uma nova variável é acionada.
+
+00:00:02.800 --> 00:00:07.500
+“pontos_de_saude_do_mobi” é selecionada e recebe o valor 1.500.000.000. Uma barra verde com coração vermelho aparece acima do Mobi.
+
+00:00:07.600 --> 00:00:10.700
+A configuração da Variável FX: Pontos de Saúde é aberta. O intervalo ainda apresenta o mínimo 0 e o máximo 100.
+
+00:00:10.800 --> 00:00:15.000
+O mínimo é alterado para 1.000.000.000 e o máximo para 2.000.000.000. Como o valor do Mobi está no ponto médio desse intervalo, a barra representa 50% da saúde.

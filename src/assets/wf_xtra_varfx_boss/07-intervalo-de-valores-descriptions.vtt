@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.000
+Na ferramenta de inspeção, a variável saude_do_mobi do dinossauro tem o valor cem. A barra vermelha acima dele aparece totalmente preenchida.
+
+00:00:02.000 --> 00:00:07.800
+O valor da variável é alterado para um bilhão e quinhentos milhões. Como esse número está acima do máximo atual de cem, a barra continua completamente preenchida.
+
+00:00:07.800 --> 00:00:11.000
+A configuração da Variável FX Barra de saúde do chefe é aberta. O intervalo ainda possui o valor mínimo zero e o máximo cem.
+
+00:00:11.000 --> 00:00:15.800
+O mínimo é alterado para um bilhão e o máximo para dois bilhões. O valor atual, um bilhão e quinhentos milhões, fica exatamente no meio desse novo intervalo.
+
+00:00:15.800 --> 00:00:17.399
+A configuração é confirmada. A barra vermelha acima do dinossauro passa a ficar preenchida pela metade, representando cinquenta por cento do intervalo.

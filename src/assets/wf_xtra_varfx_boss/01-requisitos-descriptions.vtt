@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.900
+No quarto do Habbo, a janela do WIRED Usuário Variável está aberta. O nome saude_do_usuario é digitado, a opção Tem valor é marcada e a configuração é confirmada.
+
+00:00:03.900 --> 00:00:06.900
+A janela fecha. O avatar é selecionado e a opção de inspeção é aberta pelo menu exibido acima dele.
+
+00:00:06.900 --> 00:00:11.800
+Na ferramenta de inspeção, a variável saude_do_usuario é atribuída ao avatar. Seu valor é alterado de zero para cem.
+
+00:00:11.800 --> 00:00:13.500
+Uma barra vermelha de saúde, com caveiras nas extremidades, aparece completamente preenchida acima do avatar.
+
+00:00:13.500 --> 00:00:15.900
+A janela do WIRED Mobi Variável é aberta. O nome saude_do_mobi é digitado, a opção Tem valor é marcada e a configuração é confirmada.
+
+00:00:15.900 --> 00:00:18.900
+A configuração da Variável FX Barra de saúde do chefe é exibida com o estilo Vida do chefe e caveira, em tamanho extra grande e com intervalo de zero a cem.
+
+00:00:18.900 --> 00:00:23.900
+O dinossauro é selecionado. Na ferramenta de inspeção, a variável saude_do_mobi é atribuída a ele e alterada de zero para cem. A barra de saúde aparece completamente preenchida acima do mobi.

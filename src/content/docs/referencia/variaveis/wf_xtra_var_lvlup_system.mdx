@@ -41,13 +41,25 @@ infobox:
 ---
 
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import Infobox from "@components/Infobox.astro"
 import { Aside } from '@astrojs/starlight/components';
 import Requisitos from "@assets/wf_xtra_var_lvlup_system/01-requisitos.mp4"
-import RequisitosDescricao from "@assets/wf_xtra_var_lvlup_system/01-requisitos-descricao.vtt"
+import RequisitosCaptionsUrl from "@assets/wf_xtra_var_lvlup_system/01-requisitos-captions.vtt?url"
+import RequisitosDescriptionsUrl from "@assets/wf_xtra_var_lvlup_system/01-requisitos-descriptions.vtt?url"
+import RequisitosCaptionsRaw from "@assets/wf_xtra_var_lvlup_system/01-requisitos-captions.vtt?raw"
+import RequisitosDescriptionsRaw from "@assets/wf_xtra_var_lvlup_system/01-requisitos-descriptions.vtt?raw"
 import CriarSubvariaveis from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis.mp4"
+import CriarSubvariaveisCaptionsUrl from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis-captions.vtt?url"
+import CriarSubvariaveisDescriptionsUrl from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis-descriptions.vtt?url"
+import CriarSubvariaveisCaptionsRaw from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis-captions.vtt?raw"
+import CriarSubvariaveisDescriptionsRaw from "@assets/wf_xtra_var_lvlup_system/03-criar-subvariaveis-descriptions.vtt?raw"
 import ExemploPratico from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico.mp4"
+import ExemploPraticoCaptionsUrl from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico-captions.vtt?url"
+import ExemploPraticoDescriptionsUrl from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico-descriptions.vtt?url"
+import ExemploPraticoCaptionsRaw from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico-captions.vtt?raw"
+import ExemploPraticoDescriptionsRaw from "@assets/wf_xtra_var_lvlup_system/04-exemplo-pratico-descriptions.vtt?raw"
 
 O **Extra Variável: Sistema de Aumento de Nível** auxilia na criação de sistemas de progressão baseados em experiência (XP), permitindo calcular automaticamente o nível correspondente ao valor de uma variável.
 
@@ -70,21 +82,15 @@ Além disso, a variável escolhida já deve possuir um valor atribuído, pois se
 
 O vídeo abaixo ilustra como seria esse processo:
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da configuração de uma variável para usar com o Sistema de Aumento de Nível"
-    title="Demonstração da configuração de uma variável para usar com o Sistema de Aumento de Nível"
-    style={{ width: "100%" }}
-  >
-    <track kind="descriptions" src={RequisitosDescricao} srclang="pt" label="Descrições em Português do Brasil" default />
-    <source src={Requisitos} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="requisitos-sistema-aumento-nivel"
+  src={Requisitos}
+  title="Demonstração da configuração de uma variável para usar com o Sistema de Aumento de Nível"
+  captionsSrc={RequisitosCaptionsUrl}
+  captionsContent={RequisitosCaptionsRaw}
+  descriptionsSrc={RequisitosDescriptionsUrl}
+  descriptionsContent={RequisitosDescriptionsRaw}
+/>
 
 ## Como esse Wired funciona?
 
@@ -206,20 +212,15 @@ Cada opção possui um checkbox, inicialmente desmarcado, e um campo de texto on
 
 Quando um checkbox é marcado, uma nova variável passa a ser criada como subvariável da variável configurada no Wired de Variável utilizado no tópico [Requisitos](#requisitos) e podemos vê-la utilizando o comando `:wired`, como visto no vídeo a seguir:
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Demonstração da criação de subvariáveis do Sistema de Aumento de Nível e da consulta delas pelo comando :wired"
-    title="Demonstração da criação de subvariáveis do Sistema de Aumento de Nível"
-    style={{ width: "100%" }}
-  >
-    <source src={CriarSubvariaveis} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="criar-subvariaveis-sistema-aumento-nivel"
+  src={CriarSubvariaveis}
+  title="Demonstração da criação de subvariáveis do Sistema de Aumento de Nível"
+  captionsSrc={CriarSubvariaveisCaptionsUrl}
+  captionsContent={CriarSubvariaveisCaptionsRaw}
+  descriptionsSrc={CriarSubvariaveisDescriptionsUrl}
+  descriptionsContent={CriarSubvariaveisDescriptionsRaw}
+/>
 
 Caso o nome não seja alterado, será utilizado o valor padrão indicado pelo próprio Wired.
 
@@ -283,20 +284,15 @@ Este exemplo demonstra uma forma simples de utilizar o **Extra Variável: Sistem
 
 O objetivo é mostrar que todas as interações podem alterar uma única variável e que o Extra calcula automaticamente o nível, o progresso e a experiência restante. Assim, não é necessário criar manualmente a lógica de progressão para cada ação do quarto.
 
-<figure>
-  <video
-    muted
-    controls
-    preload="metadata"
-    aria-label="Exemplo prático do Centro de Inteligência do Wired Club, com interações que adicionam experiência à variável inteligencia"
-    title="Exemplo prático do Sistema de Aumento de Nível no Centro de Inteligência"
-    style={{ width: "100%" }}
-  >
-    <source src={ExemploPratico} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="exemplo-pratico-sistema-aumento-nivel"
+  src={ExemploPratico}
+  title="Exemplo prático do Sistema de Aumento de Nível no Centro de Inteligência"
+  captionsSrc={ExemploPraticoCaptionsUrl}
+  captionsContent={ExemploPraticoCaptionsRaw}
+  descriptionsSrc={ExemploPraticoDescriptionsUrl}
+  descriptionsContent={ExemploPraticoDescriptionsRaw}
+/>
 
 <Tabs>
   <TabItem label="Configuração">
