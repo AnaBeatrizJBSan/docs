@@ -520,10 +520,14 @@
 		}
 
 		function highlightBlock(el: Element | null) {
+			const target = el?.closest('[data-page-reader-highlight]') ?? el;
+			// Keep the same visual target highlighted across its readable blocks.
+			if (target?.classList.contains('pr-highlight-block')) return;
+
 			clearHighlight();
-			if (!el) return;
-			el.classList.add('pr-highlight-block');
-			el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			if (!target) return;
+			target.classList.add('pr-highlight-block');
+			target.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		}
 
 		function speakBlock(index: number) {
