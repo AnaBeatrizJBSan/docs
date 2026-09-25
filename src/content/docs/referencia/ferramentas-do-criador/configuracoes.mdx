@@ -4,12 +4,170 @@ description: Conheça as configurações do quarto e da sua conta disponíveis n
 sidebar:
   order: 7
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import ReloadERollback from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter.mp4";
+import ReloadERollbackCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-captions.vtt?url";
+import ReloadERollbackCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-captions.vtt?raw";
+import ReloadERollbackDescriptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-descriptions.vtt?url";
+import ReloadERollbackDescriptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-descriptions.vtt?raw";
 
-<Aside type="tip" title="Em construção">
-Esta documentação ainda está incompleta, mas está em constante atualização. Estamos preparando explicações e exemplos para ajudar você a utilizar os recursos das Ferramentas do Criador.
+A aba **Configurações** reúne opções para ajustar o funcionamento do quarto e a forma como você utiliza as ferramentas. Quer permitir que outras pessoas consultem seus Wireds sem alterá-los? Ou testar um jogo sem que os seus direitos no quarto interfiram? É aqui que você encontra esses controles.
+
+## Como acessar
+
+Abra as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) com o comando `:wired` ou `:wf` e selecione a última aba de **Configurações**.
+
+As opções estão divididas em duas seções: **Configurações do quarto** e **Preferências da conta**.
+
+![](@assets/ferramentas-do-criador/configuracoes/02-janela-ferramentas-do-criador.png)
+
+## Configurações do quarto
+
+Esta seção reúne as permissões dos Wireds, o fuso horário utilizado pelo sistema e os controles para atualizar ou reverter o estado do quarto.
+
+![](@assets/ferramentas-do-criador/configuracoes/03-configuracoes-do-quarto.png)
+
+### Quem pode modificar os Wireds
+
+Aqui você define quem pode alterar os Wireds do quarto. As opções são apresentadas em caixas de seleção:
+
+* **Apenas usuários com direitos:** permite que apenas os jogadores aos quais você concedeu direitos no quarto modifiquem os Wireds. Para dar direitos a alguém, clique no jogador e selecione **Moderar → Dar direitos**.
+* **Apenas membros do grupo:** se o quarto possui um grupo, apenas os jogadores que são membros desse grupo podem modificar os Wireds.
+* **Apenas administradores do grupo:** se o quarto possui um grupo, apenas os membros que são administradores desse grupo podem modificar os Wireds.
+
+![](@assets/ferramentas-do-criador/configuracoes/04-quem-pode-modificar-os-wireds.png)
+
+### Quem pode inspecionar os Wireds
+
+Inspecionar um Wired permite abrir sua janela e consultar as configurações, sem modificá-las. Isso pode ser útil, por exemplo, quando você quer mostrar como um sistema funciona sem permitir que outras pessoas o alterem.
+
+As opções disponíveis são:
+
+* **Todos:** qualquer jogador que entrar no quarto pode inspecionar os Wireds clicando duas vezes neles.
+* **Apenas usuários com direitos:** permite que apenas os jogadores aos quais você concedeu direitos no quarto inspecionem os Wireds. Para dar direitos a alguém, clique no jogador e selecione **Moderar → Dar direitos**.
+* **Apenas membros do grupo:** se o quarto possui um grupo, apenas os jogadores que são membros desse grupo podem inspecionar os Wireds.
+* **Apenas administradores do grupo:** se o quarto possui um grupo, apenas os membros que são administradores desse grupo podem inspecionar os Wireds.
+
+![](@assets/ferramentas-do-criador/configuracoes/05-quem-pode-inspecionar-os-wireds.png)
+
+### Fuso horário
+
+Wireds que dependem de hora ou dia utilizam o **fuso horário do quarto**. Se você está criando um sistema que deve executar uma ação em determinado horário, confira essa configuração para que ele siga o horário esperado.
+
+![](@assets/ferramentas-do-criador/configuracoes/06-fuso-horario.png)
+
+A caixa de seleção oferece **26 fusos horários**:
+
+A comparação abaixo usa o **horário de Brasília (UTC−3)** como referência, pois o Brasil possui mais de um fuso horário. Valores positivos indicam horas à frente de Brasília; valores negativos indicam horas atrás.
+
+| Fuso horário | Diferença em relação a Brasília |
+| :--- | :--- |
+| Europa/Lisboa | +3 h (inverno) / +4 h (verão) |
+| Brasil/Acre | -2 h |
+| Brasil/Noronha | +1 h |
+| Brasil/Leste | 0 h (mesmo horário) |
+| Brasil/Oeste | -1 h |
+| África/Lagos | +4 h |
+| África/Luanda | +4 h |
+| América/Araguaína | 0 h (mesmo horário) |
+| América/Bahia | 0 h (mesmo horário) |
+| América/Belém | 0 h (mesmo horário) |
+| América/Boa_Vista | -1 h |
+| América/Campo_Grande | -1 h |
+| América/Cuiabá | -1 h |
+| América/Eirunepé | -2 h |
+| América/Fortaleza | 0 h (mesmo horário) |
+| América/Maceió | 0 h (mesmo horário) |
+| América/Manaus | -1 h |
+| América/Noronha | +1 h |
+| América/Porto_Acre | -2 h |
+| América/Porto_Velho | -1 h |
+| América/Recife | 0 h (mesmo horário) |
+| América/Rio_Branco | -2 h |
+| América/Santarém | 0 h (mesmo horário) |
+| América/São_Paulo | 0 h (mesmo horário) |
+| Atlântico/Açores | +2 h (inverno) / +3 h (verão) |
+| Atlântico/Madeira | +3 h (inverno) / +4 h (verão) |
+
+Em Lisboa, nos Açores e na Madeira, a diferença muda conforme o horário de verão de Portugal. As indicações de inverno e verão na tabela se referem às estações em Portugal. Os valores consideram as regras vigentes em 2026.
+
+### Estado do quarto
+
+![](@assets/ferramentas-do-criador/07-configuracoes-room-state.png)
+
+Enquanto um quarto está carregado, com pessoas dentro, a maioria das mudanças fica em memória e não é salva imediatamente no banco de dados do Habbo. Essas mudanças são salvas quando o quarto é descarregado. O Habbo faz esse descarregamento automaticamente após **30 segundos sem jogadores no quarto**.
+
+Os botões **Atualizar** e **Reverter** permitem forçar o descarregamento sem esperar que o quarto fique vazio, mas tratam as mudanças de maneiras diferentes:
+
+| Botão | Comando equivalente | O que acontece |
+| :--- | :--- | :--- |
+| **Atualizar** | `:reload` | Salva os dados normalmente ao descarregar o quarto. |
+| **Reverter** | `:rollback` | Descarta as mudanças que estão em memória e retorna ao estado salvo no último descarregamento do quarto. |
+
+Ao utilizar uma dessas opções, todos os jogadores saem do quarto automaticamente. Se o quarto estiver aberto, eles também retornam automaticamente. Caso o acesso exija **senha ou campainha**, os jogadores que não são donos precisam passar por essa etapa antes de entrar novamente.
+
+Ao clicar em **Reverter**, uma janela de confirmação pergunta se você deseja continuar e avisa que os movimentos de mobis e as mudanças de estado desde a última recarga do quarto serão perdidos.
+
+![](@assets/ferramentas-do-criador/configuracoes/08-janela-de-aviso-reverter.png)
+
+<Aside type="caution" title="Antes de reverter o quarto">
+A opção **Reverter** descarta as mudanças ainda não salvas. Ela não permite escolher um momento específico para restaurar: o estado utilizado é o do último descarregamento do quarto.
 </Aside>
+
+#### Exemplo prático: restaurando a posição de um mobi
+
+Imagine que você quer testar uma mudança na posição de um mobi e depois voltar à posição anterior. Para entender a diferença entre os dois botões, acompanhe este exemplo:
+
+1. Coloque **um mobi qualquer** no quarto e clique em **Atualizar**. O quarto será descarregado e os dados serão salvos, incluindo a posição dos Wireds.
+2. Ao retornar ao quarto, mova o mobi para outro lugar.
+3. Clique em **Reverter** e confirme a ação na janela que aparece.
+4. Quando você voltar ao quarto, o mobi movido estará na **posição anterior**, salva ao utilizar **Atualizar**.
+
+Nesse exemplo, **Atualizar** salva o estado que você quer manter, enquanto **Reverter** descarta a mudança de posição feita depois.
+
+<AccessibleVideo
+  id="configuracoes-exemplo-reload-e-rollback"
+  src={ReloadERollback}
+  title="Restaurando a posição de um Wired com Atualizar e Reverter"
+  captionsSrc={ReloadERollbackCaptionsUrl}
+  captionsContent={ReloadERollbackCaptionsRaw}
+  descriptionsSrc={ReloadERollbackDescriptionsUrl}
+  descriptionsContent={ReloadERollbackDescriptionsRaw}
+/>
+
+## Preferências da conta
+
+Na seção **Geral**, você encontra quatro caixas de seleção para ajustar a exibição de atalhos e notificações, além de ativar o modo de teste para jogos.
+
+![](@assets/ferramentas-do-criador/configuracoes/09-preferencias-da-conta.png)
+
+### Mostrar o menu Wired na barra de ferramentas
+
+A barra de ferramentas fica no rodapé do jogo, abaixo do campo onde você escreve no chat. Ao ativar esta opção, um **ícone de caixa de ferramentas com Wireds** aparece ao lado do ícone do seu avatar.
+
+Clicar nesse ícone abre a janela das Ferramentas do Criador, oferecendo um atalho para acessá-la.
+
+### Mostrar o botão de Inspeção em usuários e mobis
+
+Ao ativar esta opção, o botão **Inspect** aparece acima dos usuários ou ao clicar em um mobi. Esse botão abre as Ferramentas do Criador diretamente na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/).
+
+<Aside type="tip" title="Para acompanhar os exemplos">
+Utilizamos o botão **Inspect** em vários vídeos de exemplo do Wired Club. Vale ativar esta opção para acompanhar as demonstrações e consultar as variáveis dos usuários e mobis durante os seus testes.
+</Aside>
+
+### Habilitar o modo de teste para jogos
+
+Quando você cria um jogo no próprio quarto, os seus direitos podem interferir no teste. Esta opção permite **testar o sistema Wired com os seus direitos desabilitados**, ajudando a conferir seu funcionamento nessas condições.
+
+Você também pode alternar essa opção utilizando o comando `:playtest`.
+
+### Mostrar todas as notificações do sistema
+
+Esta opção permite visualizar as notificações que aparecem no lado direito da tela quando ocorre algo relacionado ao sistema Wired.
+
+Essas mensagens são acompanhadas de ícones que lembram um **fio conector**, nas cores verde, vermelho ou azul. Ative a opção para acompanhar as notificações enquanto utiliza os seus sistemas.
