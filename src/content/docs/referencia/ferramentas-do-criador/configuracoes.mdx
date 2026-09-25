@@ -10,6 +10,16 @@ sidebar:
 
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
+import BotaoInspecao from "@assets/ferramentas-do-criador/configuracoes/11-mostrar-o-botao-de-inspecao-em-usuarios-e-mobis.mp4";
+import BotaoInspecaoCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/11-mostrar-o-botao-de-inspecao-em-usuarios-e-mobis-captions.vtt?url";
+import BotaoInspecaoCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/11-mostrar-o-botao-de-inspecao-em-usuarios-e-mobis-captions.vtt?raw";
+import BotaoInspecaoDescriptionsUrl from "@assets/ferramentas-do-criador/configuracoes/11-mostrar-o-botao-de-inspecao-em-usuarios-e-mobis-descriptions.vtt?url";
+import BotaoInspecaoDescriptionsRaw from "@assets/ferramentas-do-criador/configuracoes/11-mostrar-o-botao-de-inspecao-em-usuarios-e-mobis-descriptions.vtt?raw";
+import MenuWired from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas.mp4";
+import MenuWiredCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-captions.vtt?url";
+import MenuWiredCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-captions.vtt?raw";
+import MenuWiredDescriptionsUrl from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-descriptions.vtt?url";
+import MenuWiredDescriptionsRaw from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-descriptions.vtt?raw";
 import ReloadERollback from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter.mp4";
 import ReloadERollbackCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-captions.vtt?url";
 import ReloadERollbackCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-captions.vtt?raw";
@@ -24,13 +34,13 @@ Abra as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/
 
 As opções estão divididas em duas seções: **Configurações do quarto** e **Preferências da conta**.
 
-![](@assets/ferramentas-do-criador/configuracoes/02-janela-ferramentas-do-criador.png)
+![Aba Configurações das Ferramentas do Criador, com configurações do quarto e preferências da conta](@assets/ferramentas-do-criador/configuracoes/02-janela-ferramentas-do-criador.png "Aba Configurações das Ferramentas do Criador")
 
 ## Configurações do quarto
 
 Esta seção reúne as permissões dos Wireds, o fuso horário utilizado pelo sistema e os controles para atualizar ou reverter o estado do quarto.
 
-![](@assets/ferramentas-do-criador/configuracoes/03-configuracoes-do-quarto.png)
+![Seção Configurações do quarto com permissões para modificar e inspecionar Wireds, fuso horário e botões Atualizar e Reverter](@assets/ferramentas-do-criador/configuracoes/03-configuracoes-do-quarto.png "Configurações do quarto")
 
 ### Quem pode modificar os Wireds
 
@@ -40,7 +50,7 @@ Aqui você define quem pode alterar os Wireds do quarto. As opções são aprese
 * **Apenas membros do grupo:** se o quarto possui um grupo, apenas os jogadores que são membros desse grupo podem modificar os Wireds.
 * **Apenas administradores do grupo:** se o quarto possui um grupo, apenas os membros que são administradores desse grupo podem modificar os Wireds.
 
-![](@assets/ferramentas-do-criador/configuracoes/04-quem-pode-modificar-os-wireds.png)
+![Opções de modificação dos Wireds para usuários com direitos, membros do grupo e administradores do grupo](@assets/ferramentas-do-criador/configuracoes/04-quem-pode-modificar-os-wireds.png "Quem pode modificar os Wireds")
 
 ### Quem pode inspecionar os Wireds
 
@@ -53,13 +63,13 @@ As opções disponíveis são:
 * **Apenas membros do grupo:** se o quarto possui um grupo, apenas os jogadores que são membros desse grupo podem inspecionar os Wireds.
 * **Apenas administradores do grupo:** se o quarto possui um grupo, apenas os membros que são administradores desse grupo podem inspecionar os Wireds.
 
-![](@assets/ferramentas-do-criador/configuracoes/05-quem-pode-inspecionar-os-wireds.png)
+![Opções de inspeção dos Wireds para todos, usuários com direitos, membros do grupo e administradores do grupo](@assets/ferramentas-do-criador/configuracoes/05-quem-pode-inspecionar-os-wireds.png "Quem pode inspecionar os Wireds")
 
 ### Fuso horário
 
 Wireds que dependem de hora ou dia utilizam o **fuso horário do quarto**. Se você está criando um sistema que deve executar uma ação em determinado horário, confira essa configuração para que ele siga o horário esperado.
 
-![](@assets/ferramentas-do-criador/configuracoes/06-fuso-horario.png)
+![Campo Fuso horário com o fuso Europa/Lisboa selecionado](@assets/ferramentas-do-criador/configuracoes/06-fuso-horario.png "Fuso horário do quarto")
 
 A caixa de seleção oferece **26 fusos horários**:
 
@@ -94,11 +104,9 @@ A comparação abaixo usa o **horário de Brasília (UTC−3)** como referência
 | Atlântico/Açores | +2 h (inverno) / +3 h (verão) |
 | Atlântico/Madeira | +3 h (inverno) / +4 h (verão) |
 
-Em Lisboa, nos Açores e na Madeira, a diferença muda conforme o horário de verão de Portugal. As indicações de inverno e verão na tabela se referem às estações em Portugal. Os valores consideram as regras vigentes em 2026.
-
 ### Estado do quarto
 
-![](@assets/ferramentas-do-criador/configuracoes/07-estado-do-quarto.png)
+![Seção Estado do quarto com os botões Reload para atualizar e Rollback para reverter o quarto](@assets/ferramentas-do-criador/configuracoes/07-estado-do-quarto.png "Estado do quarto: Atualizar e Reverter")
 
 Enquanto um quarto está carregado, com pessoas dentro, a maioria das mudanças fica em memória e não é salva imediatamente no banco de dados do Habbo. Essas mudanças são salvas quando o quarto é descarregado. O Habbo faz esse descarregamento automaticamente após **30 segundos sem jogadores no quarto**.
 
@@ -113,7 +121,7 @@ Ao utilizar uma dessas opções, todos os jogadores saem do quarto automaticamen
 
 Ao clicar em **Reverter**, uma janela de confirmação pergunta se você deseja continuar e avisa que os movimentos de mobis e as mudanças de estado desde a última recarga do quarto serão perdidos.
 
-![](@assets/ferramentas-do-criador/configuracoes/08-janela-de-aviso-reverter.png)
+![Janela de confirmação de Rollback avisando que movimentos de mobis e mudanças de estado desde a última recarga serão perdidos, com botões Cancelar e Ok](@assets/ferramentas-do-criador/configuracoes/08-janela-de-aviso-reverter.png "Confirmação para reverter o quarto")
 
 <Aside type="caution" title="Antes de reverter o quarto">
 A opção **Reverter** descarta as mudanças ainda não salvas. Ela não permite escolher um momento específico para restaurar: o estado utilizado é o do último descarregamento do quarto.
@@ -123,7 +131,7 @@ A opção **Reverter** descarta as mudanças ainda não salvas. Ela não permite
 
 Imagine que você quer testar uma mudança na posição de um mobi e depois voltar à posição anterior. Para entender a diferença entre os dois botões, acompanhe este exemplo:
 
-1. Coloque **um mobi qualquer** no quarto e clique em **Atualizar**. O quarto será descarregado e os dados serão salvos, incluindo a posição dos Wireds.
+1. Coloque **um mobi qualquer** no quarto e clique em **Atualizar**. O quarto será descarregado e os dados serão salvos, incluindo a posição dos mobis.
 2. Ao retornar ao quarto, mova o mobi para outro lugar.
 3. Clique em **Reverter** e confirme a ação na janela que aparece.
 4. Quando você voltar ao quarto, o mobi movido estará na **posição anterior**, salva ao utilizar **Atualizar**.
@@ -144,7 +152,7 @@ Nesse exemplo, **Atualizar** salva o estado que você quer manter, enquanto **Re
 
 Na seção **Geral**, você encontra quatro caixas de seleção para ajustar a exibição de atalhos e notificações, além de ativar o modo de teste para jogos.
 
-![](@assets/ferramentas-do-criador/configuracoes/09-preferencias-da-conta.png)
+![Preferências da conta com opções para mostrar o menu Wired, exibir o botão de inspeção, habilitar o modo de teste e mostrar notificações do sistema](@assets/ferramentas-do-criador/configuracoes/09-preferencias-da-conta.png "Preferências da conta")
 
 ### Mostrar o menu Wired na barra de ferramentas
 
@@ -152,9 +160,29 @@ A barra de ferramentas fica no rodapé do jogo, abaixo do campo onde você escre
 
 Clicar nesse ícone abre a janela das Ferramentas do Criador, oferecendo um atalho para acessá-la.
 
+<AccessibleVideo
+  id="mostrar-o-menu-wired-na-barra-de-ferramentas"
+  src={MenuWired}
+  title="Mostrar o menu Wired na barra de ferramentas"
+  captionsSrc={MenuWiredCaptionsUrl}
+  captionsContent={MenuWiredCaptionsRaw}
+  descriptionsSrc={MenuWiredDescriptionsUrl}
+  descriptionsContent={MenuWiredDescriptionsRaw}
+/>
+
 ### Mostrar o botão de Inspeção em usuários e mobis
 
 Ao ativar esta opção, o botão **Inspect** aparece acima dos usuários ou ao clicar em um mobi. Esse botão abre as Ferramentas do Criador diretamente na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/).
+
+<AccessibleVideo
+  id="mostrar-o-botao-de-inspecao-em-usuarios-e-mobis"
+  src={BotaoInspecao}
+  title="Mostrar o botão de Inspeção em usuários e mobis"
+  captionsSrc={BotaoInspecaoCaptionsUrl}
+  captionsContent={BotaoInspecaoCaptionsRaw}
+  descriptionsSrc={BotaoInspecaoDescriptionsUrl}
+  descriptionsContent={BotaoInspecaoDescriptionsRaw}
+/>
 
 <Aside type="tip" title="Para acompanhar os exemplos">
 Utilizamos o botão **Inspect** em vários vídeos de exemplo do Wired Club. Vale ativar esta opção para acompanhar as demonstrações e consultar as variáveis dos usuários e mobis durante os seus testes.
@@ -170,4 +198,6 @@ Você também pode alternar essa opção utilizando o comando `:playtest`.
 
 Esta opção permite visualizar as notificações que aparecem no lado direito da tela quando ocorre algo relacionado ao sistema Wired.
 
-Essas mensagens são acompanhadas de ícones que lembram um **fio conector**, nas cores verde, vermelho ou azul. Ative a opção para acompanhar as notificações enquanto utiliza os seus sistemas.
+Essas mensagens são acompanhadas de ícones que lembram um **fio conector**, nas cores vermelho, verde ou azul. Ative a opção para acompanhar as notificações enquanto utiliza os seus sistemas.
+
+![Exemplos de notificações Wired com ícones vermelho, verde e azul: excesso de comandos, MARKED_AS_HEAVY e modo de teste desativado](@assets/ferramentas-do-criador/configuracoes/12-mostrar-todas-as-notificacoes-do-sistema.png "Exemplos de notificações do sistema Wired")
