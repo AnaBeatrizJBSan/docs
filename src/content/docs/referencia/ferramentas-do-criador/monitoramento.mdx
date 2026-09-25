@@ -4,12 +4,177 @@ description: Acompanhe o uso dos Wireds com estatísticas do quarto e registros 
 sidebar:
   order: 2
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 ---
 
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="tip" title="Em construção">
-Esta documentação ainda está incompleta, mas está em constante atualização. Estamos preparando explicações e exemplos para ajudar você a utilizar os recursos das Ferramentas do Criador.
+A aba **Monitoramento** ajuda você a acompanhar o funcionamento dos Wireds do quarto. O sistema está consumindo muitos recursos? Alguma execução foi interrompida? Uma transação com baús falhou? As estatísticas e os registros desta aba ajudam a entender essas situações.
+
+## Como acessar
+
+Abra as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) com o comando `:wired` ou `:wf` e selecione a aba **Monitoramento**.
+
+A janela está dividida em duas seções: **Estatísticas**, que mostra o uso dos recursos do quarto, e **Registros**, que reúne informações sobre o que acontece com os Wireds.
+
+## Estatísticas
+
+No lado esquerdo desta seção, você encontra um painel com os valores de uso e seus respectivos limites. Os campos numéricos seguem o formato **uso atual / limite**, permitindo comparar quanto o quarto está utilizando com o máximo disponível.
+
+| Estatística | O que representa |
+| :--- | :--- |
+| **Uso de Wired** | O custo computacional instantâneo do quarto. O valor muda conforme o sistema processa as ações dos Wireds. Saiba mais na seção [Entendendo o uso de Wired](#entendendo-o-uso-de-wired) |
+| **Está pesado** | Indica **Sim** ou **Não**, conforme o quarto tenha sido considerado pesado. Veja a explicação de [MARKED_AS_HEAVY](#marked_as_heavy). |
+| **Mobis de chão** | A quantidade de mobis de chão no quarto. |
+| **Mobis de parede** | A quantidade de mobis de parede no quarto. |
+| **Variáveis permanentes de mobis** | A quantidade de variáveis criadas com o **Wired Variável: Mobi Variável** que possuem a opção **Permanente** marcada. |
+| **Variáveis permanentes de usuários** | A quantidade de variáveis criadas com o **Wired Variável: Usuário Variável** que possuem a opção **Permanente** marcada. |
+| **Variáveis permanentes globais** | A quantidade de variáveis criadas com o **Wired Variável: Variável Global** que possuem a opção **Permanente** marcada. |
+
+Os limites de **todas as estatísticas numéricas** variam conforme o nível da sua conta no Habbo: uso de Wired, quantidade de mobis de chão e de parede e quantidade de variáveis permanentes de mobis, de usuários e globais. Como exemplo dessa variação, uma conta de **nível 30** possui limite de **10.000** de uso de Wired, enquanto uma conta de **nível 13** possui limite de **4.688**. Cada estatística tem seu próprio limite, então confira os valores exibidos na sua janela ao planejar o quarto e os seus sistemas.
+
+### Entendendo o uso de Wired
+
+Pense no **Uso de Wired** como um indicador semelhante ao uso de CPU de um computador: quanto mais trabalho o sistema precisa processar, maior pode ser o valor exibido. O custo exato de cada operação não é público, então essa comparação ajuda a entender o indicador, mas não significa que ele seja uma porcentagem de CPU.
+
+### O que a imagem do Frank indica?
+
+No lado direito, a imagem do Frank oferece uma indicação visual do estado do quarto. Quando está tudo bem, ele aparece feliz, com a mão no bolso. Quando o quarto está pesado, ele aparece com as mãos na cabeça e uma expressão de desespero.
+
+Use essa imagem como um sinal para conferir as estatísticas e os registros. Eles ajudam a entender o motivo do aviso e se há algo que você precisa ajustar.
+
+## Registros
+
+A tabela de registros resume os eventos relacionados ao funcionamento dos Wireds. Cada linha apresenta as seguintes informações:
+
+| Coluna | O que mostra |
+| :--- | :--- |
+| **Tipo** | O identificador do registro, como `EXECUTION_CAP` ou `TRANSACTION_FAILURE`. |
+| **Categoria** | Se o registro é uma informação, um aviso, um erro ou uma mensagem de depuração. |
+| **Quantidade** | Quantas vezes o registro ocorreu. |
+| **Última ocorrência** | Há quanto tempo o registro aconteceu pela última vez, como 100 minutos, 70 dias ou 7 meses atrás. |
+
+O **tipo** ajuda a identificar o que aconteceu, enquanto a **categoria** indica a natureza da mensagem. A seguir, conheça os tipos de registro e o que observar em cada caso.
+
+### EXECUTION_CAP
+
+Este erro ocorre quando uma execução está prestes a ultrapassar o limite máximo de **Uso de Wired**. Para impedir que esse limite seja excedido, a execução das pilhas Wired é cancelada.
+
+Se o limite é atingido muito rapidamente, vale revisar a configuração. Imagine um sistema que deveria realizar poucas ações, mas dispara várias pilhas repetidamente: esse trabalho pode consumir o limite antes do esperado.
+
+A estatística **Uso de Wired** ajuda a avaliar essa complexidade. Neste caso, o problema está relacionado ao custo da configuração, e não a fatores como lag nos servidores do Habbo.
+
+### DELAYED_EVENTS_CAP
+
+Quando um Efeito Wired possui um atraso configurado, ele cria um evento que fica aguardando o momento de executar. Existe um limite para a quantidade desses eventos pendentes ao mesmo tempo, evitando que configurações acumulem eventos indefinidamente e comprometam a memória dos servidores.
+
+É raro atingir esse limite em uma situação normal. Se o erro aparecer, confira se o sistema está criando efeitos atrasados em excesso. Caso não encontre um erro na configuração, considere reorganizar o controle de tempo utilizando **cronômetros**.
+
+### EXECUTOR_OVERLOAD
+
+Este erro indica que o mecanismo Wired está recebendo mais instruções do que os servidores conseguem processar no mesmo ritmo. Geralmente, isso sinaliza um problema nos servidores e não necessariamente no seu quarto.
+
+Se o quarto também apresentar o aviso `MARKED_AS_HEAVY`, ele pode estar contribuindo para a sobrecarga. Nesse caso, vale revisar a configuração e procurar formas de reduzir sua complexidade.
+
+### MARKED_AS_HEAVY
+
+Os servidores do Habbo acompanham o tempo necessário para executar os Wireds. Quando determinados limites são ultrapassados, o quarto pode ser **marcado como pesado** e passa a receber um tratamento diferente para evitar que prejudique o funcionamento dos outros quartos do hotel.
+
+Esse registro é um **aviso**, não um erro. Para decidir o que fazer, considere o contexto:
+
+* **O Habbo está com lag?** O aviso pode não estar relacionado à sua configuração. Nesse caso, ele sozinho não indica que você precisa alterar o sistema.
+* **O quarto possui um sistema realmente complexo?** O aviso pode apenas informar uma condição esperada para essa configuração.
+* **O sistema deveria ser simples?** Vale investigar se há ações desnecessárias ou uma configuração que possa ser melhorada.
+
+### KILLED
+
+Este erro ocorre quando o servidor suspeita de um uso malicioso dos Wireds no quarto. Os critérios exatos que provocam essa identificação não são divulgados.
+
+Como consequência, as execuções Wired do quarto são **interrompidas durante 10 minutos**.
+
+### RECURSION_TIMEOUT
+
+Uma sequência recursiva pode acontecer quando sinais acionam outras pilhas Wired, que continuam acionando novas pilhas antes de a execução terminar. Essa sequência pode envolver dezenas, centenas ou até mais de mil acionamentos.
+
+Se o processamento demorar demais, o servidor interrompe a execução. Esse erro é raro, mas pode aparecer quando uma configuração complexa ou ineficiente coincide com lag nos servidores. Na maioria dos casos, outro limite já terá interrompido a execução antes disso.
+
+### TOO_MANY_VARIABLES
+
+Este erro indica que muitas variáveis Wired diferentes foram atribuídas a um mesmo usuário ou mobi. O limite é alto e normalmente não deveria ser atingido.
+
+Se você está se aproximando dele, revise como está organizando os dados. Variáveis Wired não permitem armazenar longas listas de dados diretamente, e criar uma variável para cada informação pode não ser uma boa solução para o seu sistema.
+
+<Aside type="tip" title="Uma possibilidade para sistemas avançados">
+Os valores das variáveis Wired são números inteiros de **64 bits com sinal**. Dependendo do que você precisa representar, as **operações bit a bit**, disponíveis entre os operadores matemáticos avançados, podem ajudar a guardar mais informações em uma única variável. Essa alternativa exige planejar como os dados serão representados e lidos.
 </Aside>
+
+### TRANSACTION_FAILURE
+
+Este erro indica que uma transação Wired envolvendo baús falhou. O motivo pode estar relacionado ao usuário, aos recursos disponíveis, à configuração dos Wireds ou a um problema interno.
+
+Por exemplo, uma transação pode falhar porque o usuário a cancelou, porque o baú está cheio ou porque o saldo é insuficiente. Confira a mensagem associada ao registro para identificar o caso.
+
+Os motivos possíveis incluem:
+
+* O usuário cancelou a transação;
+* Erro interno;
+* Erro no banco de dados;
+* Erro no banco de dados, sendo necessário recarregar o quarto;
+* Transação vazia;
+* Baú cheio;
+* Recurso desativado;
+* Baú não está no quarto;
+* Excesso de baús;
+* Não há baús ou os baús estão trancados;
+* Não é possível entregar todo o conteúdo a vários usuários;
+* Excesso de ofertas por parte de Wired;
+* Transações muito rápidas;
+* O baú excederia sua capacidade;
+* Transação inválida;
+* Tempo limite esgotado;
+* Transação cancelada;
+* O usuário já está realizando uma transação;
+* Configuração incorreta do Wired;
+* Saldo insuficiente;
+* Saldo indisponível;
+* O usuário não pode realizar transações;
+* O proprietário do baú não pode realizar transações;
+* Configuração incorreta: multiplicador inválido;
+* Configuração incorreta: contratos em excesso ou ausentes;
+* Configuração incorreta: sem usuários;
+* Configuração incorreta: tempo limite inválido;
+* O usuário saiu do quarto;
+* Erro interno no banco de dados;
+* Erro interno: é necessário recarregar o quarto.
+
+### VARIABLE_FX_LIMIT
+
+Este erro ocorre quando o limite de Wireds **Variável FX** é atingido. É possível utilizar até **cinco** desses Wireds acima de um Wired de variável ou distribuir um Variável FX em cada um de cinco Wireds de variável.
+
+Se o registro aparecer, confira a quantidade de Variáveis FX utilizada na configuração.
+
+## Controles dos registros
+
+Abaixo da tabela, você encontra dois botões para limpar o resumo ou consultar os registros com mais detalhes.
+
+### Limpar todos
+
+O botão **Limpar todos** apaga os dados exibidos na tabela de registros. Ele permite limpar o histórico apresentado antes de acompanhar novas ocorrências.
+
+### Ver registros completos
+
+O botão **Ver registros completos** abre a janela **Registros dos Wireds**, com uma visão geral dos registros mais recentes do sistema e dos Wireds. São armazenados apenas os **200 registros mais recentes por tipo**.
+
+Essa janela oferece os seguintes controles:
+
+| Controle | Como utilizar |
+| :--- | :--- |
+| **Auto atualizar** | Marque a caixa para que novos registros apareçam automaticamente na janela. |
+| **Filtrar** | Digite um texto para encontrar registros que contenham esse conteúdo. |
+| **Fonte do registro** | Selecione **Todos**, **Sistema** ou **Wired**. |
+| **Nível do registro** | Selecione **Todos**, **INFO** (informação), **WARN** (aviso), **ERROR** (erro) ou **DEBUG** (depuração). |
+
+A tabela detalhada apresenta as colunas **Horário**, **Fonte**, **Nível** e **Mensagem**. Utilize os botões de avançar e voltar para navegar entre as páginas dos registros.
+
+Imagine que você está testando uma transação com baús e precisa entender por que ela falhou. Abra os registros completos, filtre pelo texto relacionado à transação e confira a mensagem. Assim, você consegue investigar o motivo específico da falha, em vez de depender apenas da quantidade de ocorrências no resumo.
