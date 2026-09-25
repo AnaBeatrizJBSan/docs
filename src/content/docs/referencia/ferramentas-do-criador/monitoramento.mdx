@@ -18,9 +18,13 @@ Abra as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/
 
 A janela está dividida em duas seções: **Estatísticas**, que mostra o uso dos recursos do quarto, e **Registros**, que reúne informações sobre o que acontece com os Wireds.
 
+![Aba Monitoramento das Ferramentas do Criador, com estatísticas do quarto, imagem do Frank e tabela de registros](@assets/ferramentas-do-criador/monitoramento/01-janela-ferramentas-do-criador.png "Aba Monitoramento das Ferramentas do Criador")
+
 ## Estatísticas
 
 No lado esquerdo desta seção, você encontra um painel com os valores de uso e seus respectivos limites. Os campos numéricos seguem o formato **uso atual / limite**, permitindo comparar quanto o quarto está utilizando com o máximo disponível.
+
+![Painel de estatísticas com uso de Wired, indicação de quarto pesado, quantidades de mobis e variáveis permanentes e seus limites](@assets/ferramentas-do-criador/monitoramento/02-estatisticas-lado-esquerdo.gif "Estatísticas do quarto")
 
 | Estatística | O que representa |
 | :--- | :--- |
@@ -32,7 +36,7 @@ No lado esquerdo desta seção, você encontra um painel com os valores de uso e
 | **Variáveis permanentes de usuários** | A quantidade de variáveis criadas com o **Wired Variável: Usuário Variável** que possuem a opção **Permanente** marcada. |
 | **Variáveis permanentes globais** | A quantidade de variáveis criadas com o **Wired Variável: Variável Global** que possuem a opção **Permanente** marcada. |
 
-Os limites de **todas as estatísticas numéricas** variam conforme o nível da sua conta no Habbo: uso de Wired, quantidade de mobis de chão e de parede e quantidade de variáveis permanentes de mobis, de usuários e globais. Como exemplo dessa variação, uma conta de **nível 30** possui limite de **10.000** de uso de Wired, enquanto uma conta de **nível 13** possui limite de **4.688**. Cada estatística tem seu próprio limite, então confira os valores exibidos na sua janela ao planejar o quarto e os seus sistemas.
+Os limites de **todas as estatísticas numéricas** variam conforme o nível da sua conta no Habbo. Como exemplo dessa variação, uma conta de **nível 30** possui limite de **10.000** de uso de Wired, enquanto uma conta de **nível 13** possui limite de **4.688**. Cada estatística tem seu próprio limite, então confira os valores exibidos na sua janela ao planejar o quarto e os seus sistemas.
 
 ### Entendendo o uso de Wired
 
@@ -40,22 +44,28 @@ Pense no **Uso de Wired** como um indicador semelhante ao uso de CPU de um compu
 
 ### O que a imagem do Frank indica?
 
-No lado direito, a imagem do Frank oferece uma indicação visual do estado do quarto. Quando está tudo bem, ele aparece feliz, com a mão no bolso. Quando o quarto está pesado, ele aparece com as mãos na cabeça e uma expressão de desespero.
+No lado direito, o Frank aparece feliz, com a mão no bolso. Quando ocorre um registro da categoria **Erro** no quarto, sua imagem muda: ele passa a aparecer com as mãos na cabeça e uma expressão de desespero.
 
-Use essa imagem como um sinal para conferir as estatísticas e os registros. Eles ajudam a entender o motivo do aviso e se há algo que você precisa ajustar.
+| Frank feliz | Frank após um erro |
+| :---: | :---: |
+| ![Frank feliz, com a mão no bolso](@assets/ferramentas-do-criador/monitoramento/03-estatisticas-lado-direito-frank-feliz.png "Frank feliz") | ![Frank desesperado, com as mãos na cabeça, após ocorrer um registro da categoria Erro no quarto](@assets/ferramentas-do-criador/monitoramento/03-estatisticas-lado-direito-frank-desesperado.png "Frank após um registro de erro") |
+
+Se o Frank mudar de expressão, confira os registros para entender qual erro ocorreu e o que você pode ajustar. O aviso `MARKED_AS_HEAVY`, por si só, não provoca essa mudança, pois pertence à categoria **Aviso**.
 
 ## Registros
+
+![Tabela de registros com as colunas Type, Category, Amount e Last occurrence, correspondentes a tipo, categoria, quantidade e última ocorrência](@assets/ferramentas-do-criador/monitoramento/04-tabela-de-registros.png "Resumo dos registros dos Wireds")
 
 A tabela de registros resume os eventos relacionados ao funcionamento dos Wireds. Cada linha apresenta as seguintes informações:
 
 | Coluna | O que mostra |
 | :--- | :--- |
-| **Tipo** | O identificador do registro, como `EXECUTION_CAP` ou `TRANSACTION_FAILURE`. |
+| **Tipo** | O identificador do registro, como `EXECUTION_CAP` ou `TRANSACTION_FAILURE`. Saiba mais sobre todos os identificadores logo abaixo |
 | **Categoria** | Se o registro é uma informação, um aviso, um erro ou uma mensagem de depuração. |
 | **Quantidade** | Quantas vezes o registro ocorreu. |
 | **Última ocorrência** | Há quanto tempo o registro aconteceu pela última vez, como 100 minutos, 70 dias ou 7 meses atrás. |
 
-O **tipo** ajuda a identificar o que aconteceu, enquanto a **categoria** indica a natureza da mensagem. A seguir, conheça os tipos de registro e o que observar em cada caso.
+O **tipo** ajuda a identificar o que aconteceu, enquanto a **categoria** indica a natureza da mensagem. Todos os tipos descritos a seguir pertencem à categoria **Erro**, exceto `MARKED_AS_HEAVY`, que pertence à categoria **Aviso**.
 
 ### EXECUTION_CAP
 
@@ -158,6 +168,8 @@ Se o registro aparecer, confira a quantidade de Variáveis FX utilizada na confi
 
 Abaixo da tabela, você encontra dois botões para limpar o resumo ou consultar os registros com mais detalhes.
 
+![Botões Clear all e View full logs, usados para limpar todos os registros da tabela e abrir os registros completos](@assets/ferramentas-do-criador/monitoramento/05-registros-botoes.png "Controles dos registros")
+
 ### Limpar todos
 
 O botão **Limpar todos** apaga os dados exibidos na tabela de registros. Ele permite limpar o histórico apresentado antes de acompanhar novas ocorrências.
@@ -166,15 +178,17 @@ O botão **Limpar todos** apaga os dados exibidos na tabela de registros. Ele pe
 
 O botão **Ver registros completos** abre a janela **Registros dos Wireds**, com uma visão geral dos registros mais recentes do sistema e dos Wireds. São armazenados apenas os **200 registros mais recentes por tipo**.
 
+![Janela Wired Logs com atualização automática, filtros de texto, fonte e nível, tabela de horário, fonte, nível e mensagem e controles de paginação](@assets/ferramentas-do-criador/monitoramento/06-janela-registros-dos-wireds.png "Janela de registros completos dos Wireds")
+
 Essa janela oferece os seguintes controles:
 
 | Controle | Como utilizar |
 | :--- | :--- |
 | **Auto atualizar** | Marque a caixa para que novos registros apareçam automaticamente na janela. |
 | **Filtrar** | Digite um texto para encontrar registros que contenham esse conteúdo. |
-| **Fonte do registro** | Selecione **Todos**, **Sistema** ou **Wired**. |
+| **Fonte do registro** | Selecione **Todos**, **Sistema** ou **Wired**. A fonte **Sistema** indica que o registro foi criado a partir de uma ativação de alguma pilha Wired. A fonte **Wired** indica que ele foi criado pelo **Efeito Wired: Escrever Nos Logs**. |
 | **Nível do registro** | Selecione **Todos**, **INFO** (informação), **WARN** (aviso), **ERROR** (erro) ou **DEBUG** (depuração). |
 
 A tabela detalhada apresenta as colunas **Horário**, **Fonte**, **Nível** e **Mensagem**. Utilize os botões de avançar e voltar para navegar entre as páginas dos registros.
 
-Imagine que você está testando uma transação com baús e precisa entender por que ela falhou. Abra os registros completos, filtre pelo texto relacionado à transação e confira a mensagem. Assim, você consegue investigar o motivo específico da falha, em vez de depender apenas da quantidade de ocorrências no resumo.
+A coluna **Horário** mostra a data e a hora no formato **dia-mês-ano hora:minuto:segundo**, usando o relógio de 24 horas, como em `24-09-2026 13:47:34`. A janela utiliza um fuso horário europeu que, nesse exemplo, está **quatro horas à frente do horário de Brasília**. Assim, esse registro corresponde a `24-09-2026 09:47:34` em Brasília. Considere essa diferença ao comparar os registros com o horário em que você realizou um teste.
