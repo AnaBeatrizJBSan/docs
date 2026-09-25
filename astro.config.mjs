@@ -115,10 +115,10 @@ export default defineConfig({
 							collapsed: true,
 						},
 						{
-							label: 'Ferramentas de Criação',
+							label: 'Ferramentas do Criador',
 							items: [{
 								autogenerate: {
-									directory: 'referencia/ferramentas-de-criacao',
+									directory: 'referencia/ferramentas-do-criador',
 								},
 							}],
 							collapsed: true,
