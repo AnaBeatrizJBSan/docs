@@ -4,12 +4,72 @@ description: Aprenda a inspecionar mobis, usuários e o quarto para consultar su
 sidebar:
   order: 4
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 ---
 
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="tip" title="Em construção">
-Esta documentação ainda está incompleta, mas está em constante atualização. Estamos preparando explicações e exemplos para ajudar você a utilizar os recursos das Ferramentas do Criador.
+A aba **Inspeção** permite examinar um mobi, um usuário ou o próprio quarto para consultar as variáveis relacionadas a ele. Quer conferir quais variáveis um jogador recebeu ou descobrir quais Wireds utilizam determinado mobi? Esta aba ajuda a encontrar essas informações enquanto você acompanha o seu sistema.
+
+## Como acessar
+
+Digite e envie o comando `:inspect` ou `:inspection` no chat de um quarto onde você tenha permissão para utilizá-lo. As [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) serão abertas diretamente na aba **Inspeção**.
+
+Você também pode abrir a janela com `:wired` ou `:wf` e selecionar a aba manualmente.
+
+<Aside type="tip" title="Um atalho para inspecionar">
+Se quiser acessar a inspeção pelo botão **Inspect** em usuários e mobis, você pode ativar a opção [Mostrar o botão de Inspeção em usuários e mobis](/referencia/ferramentas-do-criador/configuracoes/#mostrar-o-botão-de-inspeção-em-usuários-e-mobis) nas Configurações. Esse botão não aparece por padrão.
 </Aside>
+
+A interface está dividida em três seções: **Tipo do elemento**, **Variáveis** e **Prévia**.
+
+## Tipo do elemento
+
+Os três ícones desta seção permitem escolher o que você quer inspecionar. Cada opção define como selecionar o alvo:
+
+| Tipo | Como selecionar |
+| :--- | :--- |
+| **Mobi** | Clique no ícone de mobi e depois em um mobi do quarto. |
+| **Usuário** | Clique no ícone de usuário e depois em um usuário do quarto. |
+| **Global** | Clique no ícone global para consultar as informações relacionadas ao próprio quarto. |
+
+Depois da seleção, as demais seções mostram as informações do alvo escolhido. Por exemplo, para conferir as variáveis de um cronômetro, selecione **Mobi** e clique no cronômetro que está no quarto.
+
+## Variáveis
+
+Esta seção apresenta uma tabela com as colunas **Variável** e **Valor**, listando as variáveis associadas ao elemento selecionado.
+
+Imagine que o seu sistema atribui uma variável de pontuação a um jogador. Ao inspecionar esse usuário, você pode consultar a tabela para conferir se a variável está vinculada a ele e qual valor aparece.
+
+No rodapé da tabela, os botões **Remover variável** e **Dar variável** permitem ajustar essas associações.
+
+### Remover variável
+
+Selecione a linha da variável que você quer remover. Se ela puder ser removida, o botão **Remover variável** ficará disponível. Clique nele para desvincular a variável do elemento selecionado.
+
+Essa ação se aplica ao alvo que você está inspecionando. Ela é diferente de [excluir uma variável pela aba Variáveis](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável), que afeta todos os usuários ou mobis que a possuem.
+
+### Dar variável
+
+Ao clicar em **Dar variável**, você abre uma opção para buscar a variável que deseja associar ao alvo e atribuir um valor a ela.
+
+Esse recurso pode ajudar durante os testes. Por exemplo, você pode vincular uma variável ao usuário selecionado para preparar uma situação que deseja conferir no seu sistema.
+
+## Prévia
+
+A seção **Prévia** mostra o ícone do mobi ou a imagem do usuário selecionado. Ela ajuda a confirmar qual alvo você está inspecionando antes de consultar ou alterar suas associações com variáveis.
+
+### Encontrar Wireds que utilizam um mobi
+
+Ao inspecionar um mobi, a prévia também apresenta um pequeno **ícone azul com a letra W**. Ao passar o mouse sobre ele, a descrição informa que o botão destaca os Wireds que possuem aquele mobi referenciado na opção **Usar mobis escolhidos**.
+
+Quando o botão estiver disponível, clique nele para destacar esses Wireds no quarto. Isso ajuda a localizar onde o mobi está sendo utilizado no sistema.
+
+Por exemplo, no [tutorial de como adicionar um relógio ao quarto](https://www.wiredclub.com.br/tutoriais/relogio-funcional-com-uma-unica-pilha-wired), o mobi de cronômetro é selecionado no **Efeito Wired: Mudar valor variável**. Ao inspecionar esse cronômetro e clicar no ícone **W**, o Efeito que o utiliza ficará destacado.
+
+### Manter selecionado
+
+A opção **Manter selecionado** permite fixar a prévia no último mobi ou usuário escolhido. Com a caixa marcada, você pode clicar em outros mobis ou usuários do quarto sem perder a prévia daquele alvo.
+
+Isso pode ser útil quando você precisa continuar acompanhando um elemento enquanto interage com outras partes do sistema.
