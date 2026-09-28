@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.850
+Na aba Inspeção das Ferramentas do Criador, o ícone de mobi está selecionado. A prévia pede que um mobi seja escolhido; o cursor seleciona um relógio digital no quarto.
+
+00:00:01.850 --> 00:00:04.100
+A prévia mostra o relógio, e a lista ao lado exibe suas variáveis, incluindo @class_id e @height. O cursor vai até o ícone de usuário.
+
+00:00:04.100 --> 00:00:06.150
+Ao mudar o tipo de elemento para usuário, a prévia e a lista de variáveis ficam vazias. O cursor seleciona o personagem no quarto.
+
+00:00:06.150 --> 00:00:09.933
+A prévia passa a mostrar o personagem. A lista exibe variáveis de usuário, como @gender e @level; @type indica Bot, e @bot_id confirma a seleção do bot.

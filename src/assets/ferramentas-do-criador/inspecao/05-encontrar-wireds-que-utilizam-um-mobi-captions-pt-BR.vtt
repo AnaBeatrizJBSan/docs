@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.600
+Inspeção: selecione um mobi.
+
+00:00:02.600 --> 00:00:04.550
+Relógio selecionado. Variáveis: ~clock.is_game_aware; ~clock.pulse_count: 2078; ~clock.state: 0 (Initial).
+
+00:00:04.550 --> 00:00:05.900
+Botão W: destaca caixas Wired que têm este mobi em suas seleções de mobis.
+
+00:00:05.900 --> 00:00:11.183
+Uma caixa Wired da pilha é destacada em azul-claro.
