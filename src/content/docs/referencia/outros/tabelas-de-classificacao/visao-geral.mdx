@@ -9,7 +9,12 @@ sidebar:
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import WiredGrid from "@components/WiredGrid.astro";
-import estruturaBasicaDeUso from "@assets/tabelas-de-classificacao/estrutura-basica-de-uso.mp4";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import estruturaBasicaDeUso from "@assets/tabelas-de-classificacao/01-estrutura-basica-de-uso.mp4";
+import estruturaBasicaDeUsoCaptionsUrl from "@assets/tabelas-de-classificacao/01-estrutura-basica-de-uso-captions.vtt?url";
+import estruturaBasicaDeUsoCaptionsRaw from "@assets/tabelas-de-classificacao/01-estrutura-basica-de-uso-captions.vtt?raw";
+import estruturaBasicaDeUsoDescriptionsUrl from "@assets/tabelas-de-classificacao/01-estrutura-basica-de-uso-descriptions.vtt?url";
+import estruturaBasicaDeUsoDescriptionsRaw from "@assets/tabelas-de-classificacao/01-estrutura-basica-de-uso-descriptions.vtt?raw";
 
 ## O que é uma Tabela de Classificação?
 
@@ -32,20 +37,15 @@ O objetivo das Tabelas de Classificação é registrar os resultados de um jogo.
 
 Em uma configuração simples, o fluxo costuma funcionar desta forma:
 
-<figure>
-  <video
-    controls
-    muted
-    preload="metadata"
-    aria-label="Demonstração da estrutura básica de uma partida com Tabela de Classificação"
-    title="Estrutura básica de uso de uma Tabela de Classificação"
-    style={{ width: "100%" }}
-  >
-    <source src={estruturaBasicaDeUso} type="video/mp4" />
-    Seu navegador nao suporta videos HTML5.
-  </video>
-  <figcaption></figcaption>
-</figure>
+<AccessibleVideo
+  id="estrutura-basica-de-uso-tabelas-de-classificacao"
+  src={estruturaBasicaDeUso}
+  title="Estrutura básica de uso de uma Tabela de Classificação"
+  captionsSrc={estruturaBasicaDeUsoCaptionsUrl}
+  captionsContent={estruturaBasicaDeUsoCaptionsRaw}
+  descriptionsSrc={estruturaBasicaDeUsoDescriptionsUrl}
+  descriptionsContent={estruturaBasicaDeUsoDescriptionsRaw}
+/>
 
 <Tabs>
   <TabItem label="Configuração">
