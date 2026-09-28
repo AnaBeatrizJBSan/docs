@@ -20,11 +20,11 @@ import MenuWiredCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/1
 import MenuWiredCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-captions.vtt?raw";
 import MenuWiredDescriptionsUrl from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-descriptions.vtt?url";
 import MenuWiredDescriptionsRaw from "@assets/ferramentas-do-criador/configuracoes/10-mostrar-o-menu-wired-na-barra-de-ferramentas-descriptions.vtt?raw";
-import ReloadERollback from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter.mp4";
-import ReloadERollbackCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-captions.vtt?url";
-import ReloadERollbackCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-captions.vtt?raw";
-import ReloadERollbackDescriptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-descriptions.vtt?url";
-import ReloadERollbackDescriptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-atualizar-e-reverter-descriptions.vtt?raw";
+import ReloadERollback from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-recarregar-e-reverter.mp4";
+import ReloadERollbackCaptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-recarregar-e-reverter-captions.vtt?url";
+import ReloadERollbackCaptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-recarregar-e-reverter-captions.vtt?raw";
+import ReloadERollbackDescriptionsUrl from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-recarregar-e-reverter-descriptions.vtt?url";
+import ReloadERollbackDescriptionsRaw from "@assets/ferramentas-do-criador/configuracoes/08-exemplo-recarregar-e-reverter-descriptions.vtt?raw";
 
 A aba **Configurações** reúne opções para ajustar o funcionamento do quarto e a forma como você utiliza as ferramentas. Quer permitir que outras pessoas consultem seus Wireds sem alterá-los? Ou testar um jogo sem que os seus direitos no quarto interfiram? É aqui que você encontra esses controles.
 
@@ -38,9 +38,9 @@ As opções estão divididas em duas seções: **Configurações do quarto** e *
 
 ## Configurações do quarto
 
-Esta seção reúne as permissões dos Wireds, o fuso horário utilizado pelo sistema e os controles para atualizar ou reverter o estado do quarto.
+Esta seção reúne as permissões dos Wireds, o fuso horário utilizado pelo sistema e os controles para recarregar ou reverter o estado do quarto.
 
-![Seção Configurações do quarto com permissões para modificar e inspecionar Wireds, fuso horário e botões Atualizar e Reverter](@assets/ferramentas-do-criador/configuracoes/03-configuracoes-do-quarto.png "Configurações do quarto")
+![Seção Configurações do quarto com permissões para modificar e inspecionar Wireds, fuso horário e botões Recarregar e Reverter](@assets/ferramentas-do-criador/configuracoes/03-configuracoes-do-quarto.png "Configurações do quarto")
 
 ### Quem pode modificar os Wireds
 
@@ -71,50 +71,50 @@ Wireds que dependem de hora ou dia utilizam o **fuso horário do quarto**. Se vo
 
 ![Campo Fuso horário com o fuso Europa/Lisboa selecionado](@assets/ferramentas-do-criador/configuracoes/06-fuso-horario.png "Fuso horário do quarto")
 
-A caixa de seleção oferece **26 fusos horários**:
+No Habbo BR/PT, a caixa de seleção oferece **26 fusos horários**:
 
 A comparação abaixo usa o **horário de Brasília (UTC−3)** como referência. Valores positivos indicam horas à frente de Brasília; valores negativos indicam horas atrás.
 
-| Fuso horário | Diferença em relação a Brasília |
-| :--- | :--- |
-| Europa/Lisboa | +3 h (inverno) / +4 h (verão) |
-| Brasil/Acre | -2 h |
-| Brasil/Noronha | +1 h |
-| Brasil/Leste | 0 h (mesmo horário) |
-| Brasil/Oeste | -1 h |
-| África/Lagos | +4 h |
-| África/Luanda | +4 h |
-| América/Araguaína | 0 h (mesmo horário) |
-| América/Bahia | 0 h (mesmo horário) |
-| América/Belém | 0 h (mesmo horário) |
-| América/Boa_Vista | -1 h |
-| América/Campo_Grande | -1 h |
-| América/Cuiabá | -1 h |
-| América/Eirunepé | -2 h |
-| América/Fortaleza | 0 h (mesmo horário) |
-| América/Maceió | 0 h (mesmo horário) |
-| América/Manaus | -1 h |
-| América/Noronha | +1 h |
-| América/Porto_Acre | -2 h |
-| América/Porto_Velho | -1 h |
-| América/Recife | 0 h (mesmo horário) |
-| América/Rio_Branco | -2 h |
-| América/Santarém | 0 h (mesmo horário) |
-| América/São_Paulo | 0 h (mesmo horário) |
-| Atlântico/Açores | +2 h (inverno) / +3 h (verão) |
-| Atlântico/Madeira | +3 h (inverno) / +4 h (verão) |
+| Fuso horário | UTC | Diferença em relação a Brasília |
+| :--- | :--- | :--- |
+| Europa/Lisboa | UTC+00:00 (inverno) / UTC+01:00 (verão) | +3 h (inverno) / +4 h (verão) |
+| Brasil/Acre | UTC-05:00 | -2 h |
+| Brasil/Noronha | UTC-02:00 | +1 h |
+| Brasil/Leste | UTC-03:00 | 0 h (mesmo horário) |
+| Brasil/Oeste | UTC-04:00 | -1 h |
+| África/Lagos | UTC+01:00 | +4 h |
+| África/Luanda | UTC+01:00 | +4 h |
+| América/Araguaína | UTC-03:00 | 0 h (mesmo horário) |
+| América/Bahia | UTC-03:00 | 0 h (mesmo horário) |
+| América/Belém | UTC-03:00 | 0 h (mesmo horário) |
+| América/Boa_Vista | UTC-04:00 | -1 h |
+| América/Campo_Grande | UTC-04:00 | -1 h |
+| América/Cuiabá | UTC-04:00 | -1 h |
+| América/Eirunepé | UTC-05:00 | -2 h |
+| América/Fortaleza | UTC-03:00 | 0 h (mesmo horário) |
+| América/Maceió | UTC-03:00 | 0 h (mesmo horário) |
+| América/Manaus | UTC-04:00 | -1 h |
+| América/Noronha | UTC-02:00 | +1 h |
+| América/Porto_Acre | UTC-05:00 | -2 h |
+| América/Porto_Velho | UTC-04:00 | -1 h |
+| América/Recife | UTC-03:00 | 0 h (mesmo horário) |
+| América/Rio_Branco | UTC-05:00 | -2 h |
+| América/Santarém | UTC-03:00 | 0 h (mesmo horário) |
+| América/São_Paulo | UTC-03:00 | 0 h (mesmo horário) |
+| Atlântico/Açores | UTC-01:00 (inverno) / UTC+00:00 (verão) | +2 h (inverno) / +3 h (verão) |
+| Atlântico/Madeira | UTC+00:00 (inverno) / UTC+01:00 (verão) | +3 h (inverno) / +4 h (verão) |
 
 ### Estado do quarto
 
-![Seção Estado do quarto com os botões Reload para atualizar e Rollback para reverter o quarto](@assets/ferramentas-do-criador/configuracoes/07-estado-do-quarto.png "Estado do quarto: Atualizar e Reverter")
+![Seção Estado do quarto com os botões Reload para recarregar e Rollback para reverter o quarto](@assets/ferramentas-do-criador/configuracoes/07-estado-do-quarto.png "Estado do quarto: Recarregar e Reverter")
 
 Enquanto um quarto está carregado (com jogadores dentro) a maioria das mudanças fica em memória e não é salva imediatamente no banco de dados do Habbo. Essas mudanças são salvas quando o quarto é descarregado. O Habbo faz esse descarregamento automaticamente após **30 segundos sem jogadores no quarto**.
 
-Os botões **Atualizar** e **Reverter** permitem forçar o descarregamento sem esperar que o quarto fique vazio, mas tratam as mudanças de maneiras diferentes:
+Os botões **Recarregar** e **Reverter** permitem forçar o descarregamento sem esperar que o quarto fique vazio, mas tratam as mudanças de maneiras diferentes:
 
 | Botão | Comando equivalente | O que acontece |
 | :--- | :--- | :--- |
-| **Atualizar** | `:reload` | Salva os dados normalmente ao descarregar o quarto. |
+| **Recarregar** | `:reload` | Salva os dados normalmente ao descarregar o quarto. |
 | **Reverter** | `:rollback` | Descarta as mudanças que estão em memória e retorna ao estado salvo no último descarregamento do quarto. |
 
 Ao utilizar uma dessas opções, todos os jogadores saem do quarto automaticamente. Se o quarto estiver aberto, eles também retornam automaticamente. Caso o acesso exija **senha ou campainha**, os jogadores que não são donos precisam passar por essa etapa antes de entrar novamente.
@@ -131,17 +131,17 @@ A opção **Reverter** descarta as mudanças ainda não salvas. Ela não permite
 
 Imagine que você quer testar uma mudança na posição de um mobi e depois voltar à posição anterior. Para entender a diferença entre os dois botões, acompanhe este exemplo:
 
-1. Coloque **um mobi qualquer** no quarto e clique em **Atualizar**. O quarto será descarregado e os dados serão salvos, incluindo a posição dos mobis.
+1. Coloque **um mobi qualquer** no quarto e clique em **Recarregar**. O quarto será descarregado e os dados serão salvos, incluindo a posição dos mobis.
 2. Ao retornar ao quarto, mova o mobi para outro lugar.
 3. Clique em **Reverter** e confirme a ação na janela que aparece.
-4. Quando você voltar ao quarto, o mobi movido estará na **posição anterior**, salva ao utilizar **Atualizar**.
+4. Quando você voltar ao quarto, o mobi movido estará na **posição anterior**, salva ao utilizar **Recarregar**.
 
-Nesse exemplo, **Atualizar** salva o estado que você quer manter, enquanto **Reverter** descarta a mudança de posição feita depois.
+Nesse exemplo, **Recarregar** salva o estado que você quer manter, enquanto **Reverter** descarta a mudança de posição feita depois.
 
 <AccessibleVideo
   id="configuracoes-exemplo-reload-e-rollback"
   src={ReloadERollback}
-  title="Restaurando a posição de um Wired com Atualizar e Reverter"
+  title="Restaurando a posição de um Wired com Recarregar e Reverter"
   captionsSrc={ReloadERollbackCaptionsUrl}
   captionsContent={ReloadERollbackCaptionsRaw}
   descriptionsSrc={ReloadERollbackDescriptionsUrl}
