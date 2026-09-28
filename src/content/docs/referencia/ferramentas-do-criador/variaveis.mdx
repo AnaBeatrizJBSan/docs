@@ -9,6 +9,19 @@ sidebar:
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import Gerenciar from "@assets/ferramentas-do-criador/variaveis/07-gerenciar.gif";
+import Destacar from "@assets/ferramentas-do-criador/variaveis/06-destacar.mp4";
+import DestacarCaptionsUrl from "@assets/ferramentas-do-criador/variaveis/06-destacar-captions.vtt?url";
+import DestacarCaptionsRaw from "@assets/ferramentas-do-criador/variaveis/06-destacar-captions.vtt?raw";
+import DestacarDescriptionsUrl from "@assets/ferramentas-do-criador/variaveis/06-destacar-descriptions.vtt?url";
+import DestacarDescriptionsRaw from "@assets/ferramentas-do-criador/variaveis/06-destacar-descriptions.vtt?raw";
+import ExcluirVariavel from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel.mp4";
+import ExcluirVariavelCaptionsUrl from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-captions.vtt?url";
+import ExcluirVariavelCaptionsRaw from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-captions.vtt?raw";
+import ExcluirVariavelDescriptionsUrl from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-descriptions.vtt?url";
+import ExcluirVariavelDescriptionsRaw from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-descriptions.vtt?raw";
+import EscolhaDeVariavel from '@assets/ferramentas-do-criador/variaveis/05-escolha-de-variavel.gif'
 
 A aba **Variáveis** permite consultar as variáveis disponíveis no quarto e entender como cada uma funciona. Quer conferir se uma variável pode ter seu valor alterado? Descobrir quais mobis a possuem? Ou gerenciar uma variável permanente de um usuário que não está no quarto? É aqui que você encontra esses recursos.
 
@@ -20,6 +33,8 @@ Você também pode abrir a janela com `:wired` ou `:wf` e selecionar a aba manua
 
 A interface reúne quatro seções: **Tipos de variável**, **Propriedades**, **Escolha de variável** e **Valores textuais**.
 
+![Aba Variables das Ferramentas do Criador com seleção de alvo, lista de variáveis, propriedades e valores textuais](@assets/ferramentas-do-criador/variaveis/01-janela-ferramentas-do-criador.png "Aba Variáveis das Ferramentas do Criador")
+
 ## Tipos de variável
 
 No início da aba, quatro ícones permitem escolher o alvo das variáveis que você quer consultar:
@@ -29,6 +44,8 @@ No início da aba, quatro ícones permitem escolher o alvo das variáveis que vo
 * **Global**;
 * **Contexto**.
 
+![Ícones para selecionar variáveis de mobi, usuário, global e contexto](@assets/ferramentas-do-criador/variaveis/02-tipos-de-variavel.gif "Seleção do alvo das variáveis")
+
 Ao abrir a aba, o ícone de **Mobi** já está selecionado. Clicar em outro ícone atualiza as informações das demais seções para mostrar as variáveis relacionadas ao alvo escolhido.
 
 Por exemplo, para consultar uma variável de usuário, selecione primeiro o ícone de **Usuário** e depois procure a variável na lista.
@@ -37,17 +54,19 @@ Por exemplo, para consultar uma variável de usuário, selecione primeiro o íco
 
 Esta seção apresenta uma tabela com as colunas **Propriedade** e **Valor**. A primeira linha já vem selecionada ao abrir a aba, e as informações exibidas descrevem a variável escolhida.
 
+![Tabela de propriedades da variável interna @id, com nome, tipo, alvo e permissões](@assets/ferramentas-do-criador/variaveis/03-propriedades.png "Propriedades da variável selecionada")
+
 | Propriedade | O que representa |
 | :--- | :--- |
 | **Nome** | O nome da variável selecionada. |
-| **Tipo** | Se a variável é **Interna**, **Inteligente** ou **Criada pelo usuário**. |
+| **Tipo** | Se a variável é **Interna**, **Inteligente** ou **Criada pelo usuário**. Confira o tópico [Internas, inteligentes e criadas pelo usuário](#internas-inteligentes-e-criadas-pelo-usuário) para mais detalhes |
 | **Alvo** | Se a variável é destinada a **Mobi**, **Usuário**, **Global** ou **Contexto**. |
 | **Disponibilidade** | Para variáveis criadas pelo usuário, informa a disponibilidade configurada no Wired, como **Permanente** ou **Enquanto o usuário está no quarto**. Não se aplica às variáveis internas ou inteligentes. |
 | **Tem valor** | Indica **Sim** ou **Não**, conforme a variável possua um valor. Nas variáveis do tipo verdadeiro ou falso, esta propriedade aparece como **Não**. |
 | **Pode ter o valor alterado** | Indica se é possível modificar o valor da variável. |
 | **Pode ser criada ou apagada** | Indica se é possível criar ou apagar a variável. |
 | **Pode ser interceptada** | Indica se a variável pode ser selecionada no **Ativador Wired: Variável mudou**. A maioria das variáveis internas e inteligentes não podem ser selecionadas nesse Ativador. |
-| **Está sempre disponível** | Indica se a variável sempre existe nos alvos aos quais se destina. |
+| **Está sempre disponível** | Indica se a variável sempre existe nos alvos aos quais se destina. Confira o tópico [O que significa estar sempre disponível?](#o-que-significa-estar-sempre-disponível) para mais detalhes |
 | **Tem data de criação** | Indica se a variável possui uma data de criação. Apenas variáveis criadas pelo usuário podem ter essa informação. |
 | **Tem data de atualização** | Indica se a variável possui uma data de atualização. Apenas variáveis criadas pelo usuário podem ter essa informação. |
 | **Tem texto conectado** | Indica se existem textos associados aos valores numéricos da variável. Veja a seção [Valores textuais](#valores-textuais). |
@@ -56,9 +75,11 @@ Esta seção apresenta uma tabela com as colunas **Propriedade** e **Valor**. A 
 
 O campo **Tipo** ajuda a identificar de onde vem a variável:
 
-* **Interna:** é criada pelo jogo e seu nome começa com `@`.
-* **Inteligente:** seu nome começa com `~` e ela só aparece na lista quando existe algo no quarto relacionado a ela.
 * **Criada pelo usuário:** é criada utilizando os Wireds Variável e não possui um prefixo obrigatório por padrão.
+* **Inteligente:** seu nome começa com `~` e ela só aparece na lista quando existe algo no quarto relacionado a ela.
+* **Interna:** é criada pelo jogo e seu nome começa com `@`.
+
+![Lista com a variável criada pelo usuário wired_club, uma variável inteligente com prefixo ~walk_helper e a variável interna @id](@assets/ferramentas-do-criador/variaveis/04-variaveis-criadas-pelo-usuario-inteligentes-e-internas.png "Variáveis criadas pelo usuário, inteligentes e internas")
 
 Alguns mobis e usuários possuem variáveis inteligentes próprias. Conheça alguns exemplos de prefixos que você pode encontrar:
 
@@ -78,7 +99,7 @@ Esses são alguns exemplos, não uma lista completa. Se uma variável inteligent
 
 ### O que significa estar sempre disponível?
 
-Uma variável está sempre disponível quando ela existe em todos os alvos aos quais se destina. Por exemplo, `@index` existe em todos os usuários, `@id` existe em todos os mobis e `@furni_count` está sempre disponível globalmente.
+Uma variável está sempre disponível quando ela existe em todos os alvos aos quais se destina. Por exemplo, `@index` existe em todos os usuários, `@id` existe em todos os mobis e `@room_id` está sempre disponível globalmente.
 
 Já as variáveis criadas pelo usuário, as inteligentes e algumas internas dependem de condições específicas. A variável `@is_stackable`, por exemplo, não existe em todos os mobis, pois nem todos podem ser empilhados. Da mesma forma, `@is_idle` não existe em todos os usuários, pois nem todos podem estar dormindo.
 
@@ -87,6 +108,8 @@ Já as variáveis criadas pelo usuário, as inteligentes e algumas internas depe
 Esta seção lista as variáveis relacionadas ao alvo selecionado. Cada alvo possui suas próprias variáveis, então a lista muda quando você troca entre **Mobi**, **Usuário**, **Global** e **Contexto**.
 
 Selecione uma variável para consultar suas propriedades e, quando houver, os textos associados aos seus valores. No rodapé da lista, você encontra os controles **Destacar**, **Gerenciar** e o **ícone de excluir**.
+
+<img src={EscolhaDeVariavel.src} alt="Lista de variáveis do alvo selecionado com os botões Destacar, Gerenciar e Excluir" title="Escolha de variável" style={{ width: "30%" }} />
 
 ### Destacar
 
@@ -99,11 +122,23 @@ Esse recurso **não funciona para variáveis internas**. A quantidade máxima de
 
 Imagine que vários mobis participam de um sistema, mas você quer conferir quais receberam determinada variável. Selecione a variável e use esse botão para identificá-los visualmente.
 
+<AccessibleVideo
+  id="variaveis-destacar"
+  src={Destacar}
+  title="Destacando os alvos que possuem uma variável"
+  captionsSrc={DestacarCaptionsUrl}
+  captionsContent={DestacarCaptionsRaw}
+  descriptionsSrc={DestacarDescriptionsUrl}
+  descriptionsContent={DestacarDescriptionsRaw}
+/>
+
 ### Gerenciar
 
 Quando o alvo selecionado é **Usuário** e há uma variável permanente vinculada a um usuário, o botão **Gerenciar** fica disponível. Ao clicar nele, você abre a janela **Gerenciamento de variável**, que permite consultar os usuários que possuem aquela variável permanente.
 
-Se você acompanhou o tutorial de contador de visitantes do Wired Club, talvez já tenha utilizado essa janela.
+Se você acompanhou o [tutorial de contador de visitas do Wired Club](https://www.wiredclub.com.br/tutoriais/contador-de-visitas-simples-feito-em-5-minutos), talvez já tenha utilizado essa janela.
+
+<img src={Gerenciar.src} alt="Demonstração do acesso ao gerenciamento de uma variável permanente de usuário pelo botão Gerenciar" title="Gerenciando uma variável permanente de usuário" />
 
 #### Gerenciamento de variável
 
@@ -122,12 +157,16 @@ A tabela apresenta os seguintes dados:
 | :--- | :--- |
 | **Tipo de usuário** | Se o alvo é um Habbo, mascote ou bot. |
 | **Nome do usuário** | O nome de quem possui a variável. Quando o alvo é um Habbo, você pode clicar no nome para abrir seu perfil. |
-| **Data de criação** | Quando a variável foi criada para aquele usuário. |
-| **Última data de atualização** | Quando o valor da variável foi atualizado pela última vez. |
+| **Data de criação** | Quando a variável foi criada para aquele usuário. Utiliza uma formatação de horário explicada logo abaixo |
+| **Última data de atualização** | Quando o valor da variável foi atualizado pela última vez. Utiliza uma formatação de horário explicada logo abaixo |
 | **Valor** | O valor da variável para aquele usuário. |
-| **Gerenciar** | Abre a janela **Gerenciar variáveis do usuário** para o alvo daquela linha. |
+| **Gerenciar** | Abre a janela [**Gerenciar variáveis do usuário**](#gerenciar-variáveis-do-usuário) para o alvo daquela linha. |
 
-As datas utilizam o formato **dia-mês-ano hora:minuto:segundo**, como em `24-09-2026 13:47:34`. No exemplo da interface com o fuso europeu, esse horário está quatro horas à frente de Brasília e corresponde a `24-09-2026 09:47:34`. Considere o fuso exibido ao comparar essas datas com os seus testes.
+As datas utilizam o formato **dia-mês-ano hora:minuto:segundo**, como em `24-09-2026 13:47:34`. No exemplo da interface com o fuso europeu, esse horário está quatro horas à frente de Brasília e corresponde a `24-09-2026 09:47:34`.
+
+Para que as datas de criação e atualização dos novos registros acompanhem o horário que você utiliza, altere o [Fuso horário](/referencia/ferramentas-do-criador/configuracoes/#fuso-horário) na aba **Configurações** das Ferramentas do Criador. Se você utiliza o horário de Brasília, por exemplo, selecione **América/São_Paulo**.
+
+Essa alteração vale apenas para os **registros adicionados depois da mudança de fuso**. Os registros anteriores mantêm o horário original, então ainda é necessário considerar a diferença ao consultá-los.
 
 <Aside type="note" title="Sincronização entre quartos">
 Quando uma variável é compartilhada entre quartos, pode haver um atraso de **20 segundos** para sincronizar as informações. Leve esse intervalo em conta antes de concluir que uma mudança de valor não foi registrada.
@@ -141,11 +180,15 @@ A janela possui um **botão de ajuda**, com explicações sobre o funcionamento 
 
 Na seção de informações do alvo, a imagem aparece à esquerda. À direita, são exibidos o tipo, o nome e o identificador único do usuário. Para bots e mascotes, também aparecem o nome e o identificador único do proprietário.
 
+![Janela de gerenciamento das variáveis permanentes de um bot, com informações do alvo e botões para remover ou dar variável](@assets/ferramentas-do-criador/variaveis/08-gerenciamento-de-variavel.png "Gerenciar variáveis do usuário")
+
 A seção **Variáveis permanentes** apresenta uma tabela com as colunas **Variável** e **Valor**. Por ali, você pode:
 
 * **Alterar um valor:** clique no valor da variável, informe o novo valor e pressione **Enter**.
 * **Remover uma variável:** selecione uma linha para ativar o botão **Remover variável**. Ao utilizá-lo, a variável será desvinculada daquele alvo.
 * **Dar uma variável:** clique em **Dar variável**, escolha a variável e defina o valor que ela terá.
+
+![Demonstração do gerenciamento de variáveis permanentes de um bot na tabela de variáveis e valores](@assets/ferramentas-do-criador/variaveis/08-gerenciamento-de-variavel-crud.gif "Gerenciamento de variáveis permanentes")
 
 Os valores exibidos estão atualizados, com a possibilidade de um atraso de **20 segundos** quando o usuário está em outro quarto que utiliza a variável.
 
@@ -163,17 +206,23 @@ O ícone de excluir, no rodapé da lista de escolha de variável, abre uma confi
 Excluir a variável pela lista afeta todos os usuários ou mobis que a possuem. Para desvinculá-la apenas de um usuário específico, utilize **Remover variável** na janela de gerenciamento daquele usuário.
 </Aside>
 
+<AccessibleVideo
+  id="variaveis-excluir-uma-variavel"
+  src={ExcluirVariavel}
+  title="Excluindo uma variável pelas Ferramentas do Criador"
+  captionsSrc={ExcluirVariavelCaptionsUrl}
+  captionsContent={ExcluirVariavelCaptionsRaw}
+  descriptionsSrc={ExcluirVariavelDescriptionsUrl}
+  descriptionsContent={ExcluirVariavelDescriptionsRaw}
+/>
+
 ## Valores textuais
 
 Algumas variáveis associam textos aos seus valores numéricos. Quando você seleciona uma delas, esta seção preenche uma tabela com as colunas **Valor** e **Texto**. A propriedade **Tem texto conectado** ajuda a identificar essas variáveis.
 
 Um exemplo é a variável interna `@type` dos mobis:
 
-| Valor | Texto |
-| :--- | :--- |
-| 0 | Normal |
-| 1 | BC |
-| 2 | Temp |
+![Tabela de valores textuais da variável @type, associando 0 a Normal, 1 a BC e 2 a Temp](@assets/ferramentas-do-criador/variaveis/10-valores-textuais.png "Valores textuais da variável @type")
 
 Nesse caso, **0** representa um mobi normal comprado na loja, **1** representa um mobi do Clube do Arquiteto e **2** representa um mobi temporário, gerado com o **Efeito Wired: Colocar Mobi Temporário**.
 
