@@ -40,6 +40,7 @@ infobox:
   additional_sources: []
 ---
 
+import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_boss/01-requisitos.mp4";
@@ -105,6 +106,10 @@ Além disso, essa variável já deve possuir um valor atribuído, pois será ess
 
 O vídeo abaixo ilustra como seria esse processo:
 
+<Aside type="tip" title="Para acompanhar o vídeo">
+O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários e mobis. Se quiser utilizar esse botão ao acompanhar o exemplo, você pode ativar a opção [Mostrar o botão de Inspeção em usuários e mobis](/referencia/ferramentas-do-criador/configuracoes/#mostrar-o-botão-de-inspeção-em-usuários-e-mobis) nas Ferramentas do Criador.
+</Aside>
+
 <AccessibleVideo
   id="requisitos-barra-saude-chefe"
   src={Requisitos}
@@ -166,6 +171,10 @@ A maioria das cores disponíveis possui uma aparência fixa, porém duas opçõe
 * **Vermelho para verde:** a cor da barra de saúde varia conforme o valor da variável. Quanto maior for o valor, mais verde será a barra de saúde. Quanto menor for o valor, mais vermelha ela ficará.
 
 O vídeo abaixo demonstra a mudança de cor conforme o valor da variável é atualizado.
+<Aside type="tip" title="Para acompanhar o vídeo">
+O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários e mobis. Se quiser utilizar esse botão ao acompanhar o exemplo, você pode ativar a opção [Mostrar o botão de Inspeção em usuários e mobis](/referencia/ferramentas-do-criador/configuracoes/#mostrar-o-botão-de-inspeção-em-usuários-e-mobis) nas Ferramentas do Criador.
+</Aside>
+
 <AccessibleVideo
   id="cor-vermelho-para-verde-barra-saude-chefe"
   src={CorVermelhoPraVerde}
@@ -179,6 +188,10 @@ O vídeo abaixo demonstra a mudança de cor conforme o valor da variável é atu
 * **Cor do time:** utiliza a mesma cor de um time Battle Banzai ou Freeze, podendo ser vermelho, verde, azul ou amarelo.
 
 O vídeo abaixo mostra a barra de saúde utilizando a cor do time do usuário.
+<Aside type="tip" title="Para acompanhar o vídeo">
+O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários e mobis. Se quiser utilizar esse botão ao acompanhar o exemplo, você pode ativar a opção [Mostrar o botão de Inspeção em usuários e mobis](/referencia/ferramentas-do-criador/configuracoes/#mostrar-o-botão-de-inspeção-em-usuários-e-mobis) nas Ferramentas do Criador.
+</Aside>
+
 <AccessibleVideo
   id="cor-do-time-barra-saude-chefe"
   src={CorDoTime}

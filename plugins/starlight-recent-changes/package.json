@@ -8,11 +8,8 @@
 		"./pages/RecentChanges.astro": "./pages/RecentChanges.astro",
 		"./pages/PageHistory.astro": "./pages/PageHistory.astro"
   },
-  "devDependencies": {
-    "@astrojs/starlight": "^0.41.5",
-    "astro": "^7.1.5"
-  },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.38.0"
+    "@astrojs/starlight": ">=0.38.0",
+    "astro": ">=7.0.0"
   }
 }
