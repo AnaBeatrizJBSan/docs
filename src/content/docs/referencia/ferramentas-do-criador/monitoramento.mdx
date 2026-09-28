@@ -121,7 +121,7 @@ Os valores das variáveis Wired são números inteiros de **64 bits com sinal**.
 
 ### TRANSACTION_FAILURE
 
-Este erro indica que uma transação Wired envolvendo baús falhou. O motivo pode estar relacionado ao usuário, aos recursos disponíveis, à configuração dos Wireds ou a um problema interno.
+Este erro indica que uma transação Wired envolvendo [baús](/referencia/outros/baus/visao-geral/) falhou. O motivo pode estar relacionado ao usuário, aos recursos disponíveis, à configuração dos Wireds ou a um problema interno.
 
 Por exemplo, uma transação pode falhar porque o usuário a cancelou, porque o baú está cheio ou porque o saldo é insuficiente. Confira a mensagem associada ao registro para identificar o caso.
 
@@ -160,9 +160,9 @@ Os motivos possíveis incluem:
 
 ### VARIABLE_FX_LIMIT
 
-Este erro ocorre quando o limite de Wireds **Variável FX** é atingido. É possível utilizar até **cinco** desses Wireds acima de um Wired de variável ou distribuir um Variável FX em cada um de cinco Wireds de variável.
+Este erro ocorre quando o limite de [Wireds **Variável FX**](/referencia/variaveis/visao-geral/#variáveis-fx) é atingido. É possível utilizar até **cinco** desses Wireds acima de um Wired de variável ou distribuir um Variável FX em cada um de cinco Wireds de variável.
 
-Se o registro aparecer, confira a quantidade de Variáveis FX utilizada na configuração.
+Se o registro aparecer, confira a quantidade de Variáveis FX utilizadas no sistema Wired.
 
 ## Controles dos registros
 
@@ -191,4 +191,6 @@ Essa janela oferece os seguintes controles:
 
 A tabela detalhada apresenta as colunas **Horário**, **Fonte**, **Nível** e **Mensagem**. Utilize os botões de avançar e voltar para navegar entre as páginas dos registros.
 
-A coluna **Horário** mostra a data e a hora no formato **dia-mês-ano hora:minuto:segundo**, usando o relógio de 24 horas, como em `24-09-2026 13:47:34`. A janela utiliza um fuso horário europeu que, nesse exemplo, está **quatro horas à frente do horário de Brasília**. Assim, esse registro corresponde a `24-09-2026 09:47:34` em Brasília. Considere essa diferença ao comparar os registros com o horário em que você realizou um teste.
+A coluna **Horário** mostra a data e a hora no formato **dia-mês-ano hora:minuto:segundo**, usando o relógio de 24 horas, como em `24-09-2026 13:47:34`. Com o fuso europeu padrão, esse exemplo está **quatro horas à frente do horário de Brasília**, correspondendo a `24-09-2026 09:47:34` em Brasília.
+
+Para que os registros acompanhem o horário que você utiliza, altere o [Fuso horário](/referencia/ferramentas-do-criador/configuracoes/#fuso-horário) na aba **Configurações** das Ferramentas do Criador. Se você utiliza o horário de Brasília, por exemplo, selecione **América/São_Paulo**. Assim, você pode comparar os horários dos registros com os seus testes sem precisar converter a diferença manualmente.
