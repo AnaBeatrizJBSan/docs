@@ -4,12 +4,110 @@ description: Aprenda a gerenciar os baús do quarto, trancar e destrancar seus b
 sidebar:
   order: 6
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 ---
 
 import { Aside } from '@astrojs/starlight/components';
 
-<Aside type="tip" title="Em construção">
-Esta documentação ainda está incompleta, mas está em constante atualização. Estamos preparando explicações e exemplos para ajudar você a utilizar os recursos das Ferramentas do Criador.
+A aba **Baús** permite controlar os baús de moedas e de mobis do quarto e acompanhar as movimentações dos recursos guardados neles. Quer trancar seus baús antes de fazer ajustes no sistema ou conferir quem depositou ou retirou um recurso? Você encontra essas opções nesta aba.
+
+## Como acessar
+
+Abra as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) com o comando `:wired` ou `:wf` e selecione a aba **Baús**.
+
+A janela está dividida em duas seções: **Controle dos baús** e **Registros de transação do quarto**.
+
+## Controle dos baús
+
+Esta seção reúne três botões para controlar as trancas dos baús sem precisar abrir cada um deles:
+
+| Botão | O que faz |
+| :--- | :--- |
+| **Trancar todos seus baús** | Tranca todos os baús que pertencem a você no quarto. |
+| **Destrancar todos seus baús** | Destranca todos os baús que pertencem a você no quarto. |
+| **Trancar todos os baús** | Permite ao dono do quarto trancar todos os baús do ambiente, incluindo os que pertencem a outras pessoas. |
+
+Ao clicar em **Trancar todos os baús**, o dono do quarto recebe uma janela de confirmação. Ela avisa que todos os baús serão trancados e que apenas seus respectivos donos poderão destrancá-los. Ao confirmar, a ação se aplica tanto aos seus baús quanto aos de outros jogadores.
+
+### Como funciona a tranca
+
+Trancar um baú é uma forma de controlar quando os recursos dele podem ser utilizados. Enquanto estiver trancado, **os Wireds não podem interagir com ele**. Os usuários com permissão para modificar Wireds também não podem depositar ou retirar recursos, com exceção do próprio dono do baú.
+
+Tanto o **dono do quarto** quanto o **dono do baú** podem trancá-lo. Já a ação de destrancar fica disponível apenas para o **dono do baú**.
+
+<Aside type="note" title="Os baús começam trancados">
+Ao colocar um baú no quarto, ele fica trancado por padrão. Se quiser utilizá-lo no seu sistema Wired, lembre-se de destrancá-lo.
 </Aside>
+
+### Trancar automaticamente ao sair
+
+O baú também oferece uma opção para ser trancado automaticamente quando você sair do quarto. Ela pode ser útil em jogos que precisam da sua supervisão para movimentar os recursos.
+
+Com essa opção ativada, voltar ao quarto **não destranca o baú automaticamente**. Você precisa destrancá-lo manualmente, podendo utilizar o botão **Destrancar todos seus baús** desta aba.
+
+## Registros de transação do quarto
+
+Esta seção mostra uma prévia dos **10 registros mais recentes** de transações do quarto. Cada linha ajuda a identificar como os recursos foram movimentados e qual usuário está relacionado à transação.
+
+| Coluna | O que mostra |
+| :--- | :--- |
+| **Tipo** | A forma como a transação foi realizada, como uma movimentação manual ou por Wired. Confira os tipos logo abaixo. |
+| **Nome de usuário** | O usuário relacionado à transação. Clique no nome para abrir o perfil dele. |
+| **Saques** | A quantidade de recursos retirados na transação, como 1 mobi ou 1 moeda. Quando não há saques, aparece um hífen (`-`). |
+| **Depósitos** | A quantidade de recursos depositados na transação, como 1 mobi ou 1 moeda. Quando não há depósitos, aparece um hífen (`-`). |
+
+### Tipos de transação
+
+O identificador da coluna **Tipo** indica o que deu origem à movimentação:
+
+| Tipo | Quando aparece |
+| :--- | :--- |
+| `MANUAL` | Quando alguém abre o baú e utiliza os botões de depositar ou retirar recursos. |
+| `WIRED` | Quando a transação é realizada pelo **Efeito Wired: Entregar Moeda do Baú** ou pelo **Efeito Wired: Entregar Mobi do Baú**. |
+| `CONTRACT_PAYMENT` | Quando a transação utiliza o **Wired Contrato: Contrato de Pagamento**. |
+| `CONTRACT_REWARD` | Quando a transação utiliza o **Wired Contrato: Contrato de Recompensa**. |
+| `CONTRACT_TRADE` | Quando a transação utiliza o **Wired Contrato: Contrato de Troca** ou o **Wired Extra: Contrato Customizável**. |
+| `AUTO_WITHDRAW` | Quando há uma tentativa de colocar moedas em um baú de moedas cheio. Nesse caso, as moedas vão para a aba **Lucros** do usuário, em vez de ficarem no baú. |
+
+### Ver lista detalhada
+
+Abaixo da prévia, clique em **Ver lista detalhada** para abrir a janela **Registros de transação**. Nela, você pode consultar mais registros e utilizar o botão **Atualizar** para buscar as informações mais recentes.
+
+No início da janela, dois campos ajudam a identificar o que você está consultando:
+
+| Campo | O que mostra |
+| :--- | :--- |
+| **Tipo de lista** | Mostra **Quarto** quando você abre a lista pelas Ferramentas do Criador. Se abrir pelo botão **Visualizar Registros** de um baú, mostra **Baú**. |
+| **ID do quarto** | O identificador único do quarto relacionado aos registros. |
+
+A tabela mantém as colunas **Tipo**, **Nome de usuário**, **Saques** e **Depósitos**, e acrescenta as seguintes informações:
+
+| Coluna | O que mostra |
+| :--- | :--- |
+| **Data da transação** | A data e a hora da movimentação no formato **dia-mês-ano hora:minuto:segundo**, como `24-09-2026 13:47:34`. |
+| **Baús** | A quantidade de baús envolvidos na transação. |
+| **Detalhes** | O texto clicável **Ver**, que abre a janela **Detalhes da transação**. |
+
+Com o fuso europeu padrão, o exemplo `24-09-2026 13:47:34` corresponde a `24-09-2026 09:47:34` no horário de Brasília, uma diferença de **quatro horas**.
+
+Para que os novos registros acompanhem o horário que você utiliza, altere o [Fuso horário](/referencia/ferramentas-do-criador/configuracoes/#fuso-horário) na aba **Configurações** das Ferramentas do Criador. Se você utiliza o horário de Brasília, por exemplo, selecione **América/São_Paulo**.
+
+Essa alteração vale apenas para os **registros adicionados depois da mudança de fuso**. Os registros anteriores mantêm o horário original, então ainda é necessário considerar a diferença ao consultá-los.
+
+A lista é paginada. Utilize os botões de **avançar** e **voltar** para consultar os demais registros.
+
+### Detalhes da transação
+
+Ao clicar em **Ver**, você abre uma janela com o **tipo da transação**, a **data da transação**, o **ID do quarto** e o **nome de usuário**, além de informações sobre os baús e os recursos envolvidos.
+
+O campo **ID(s) do baú** mostra os identificadores únicos dos baús que participaram da movimentação. Já a seção **Transações** apresenta os **saques** e os **depósitos** de maneira visual, com o ícone de cada recurso envolvido, seja um mobi ou uma moeda.
+
+#### Informação extra
+
+A seção **Extra** pode trazer informações adicionais sobre a execução Wired que originou a transação. Você pode clicar no ícone de informação para consultar a explicação desse campo.
+
+* Nas transações do tipo `WIRED`, o campo mostra o **ID do Efeito Wired: Entregar Moeda do Baú ou do Efeito Wired: Entregar Mobi do Baú**, a **quantidade de itens ou moedas** e o tipo de iteração.
+* Nas transações contratuais, o campo mostra o **ID do contrato** e o **multiplicador utilizado**.
+
+Essas informações ajudam a conferir qual Efeito ou contrato participou da movimentação e quais quantidades foram utilizadas pelo sistema.
