@@ -18,9 +18,13 @@ Abra as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/
 
 A janela está dividida em duas seções: **Controle dos baús** e **Registros de transação do quarto**.
 
+![Aba Baús das Ferramentas do Criador com controles de trancamento e registros de transação do quarto.](@assets/ferramentas-do-criador/baus/01-janela-ferramentas-do-criador.png "Aba Baús das Ferramentas do Criador")
+
 ## Controle dos baús
 
 Esta seção reúne três botões para controlar as trancas dos baús sem precisar abrir cada um deles:
+
+![Seção Controle dos baús com botões para trancar seus baús, destrancar seus baús e trancar todos os baús do quarto.](@assets/ferramentas-do-criador/baus/02-controle-dos-baus.png "Controle dos baús")
 
 | Botão | O que faz |
 | :--- | :--- |
@@ -29,6 +33,8 @@ Esta seção reúne três botões para controlar as trancas dos baús sem precis
 | **Trancar todos os baús** | Permite ao dono do quarto trancar todos os baús do ambiente, incluindo os que pertencem a outras pessoas. |
 
 Ao clicar em **Trancar todos os baús**, o dono do quarto recebe uma janela de confirmação. Ela avisa que todos os baús serão trancados e que apenas seus respectivos donos poderão destrancá-los. Ao confirmar, a ação se aplica tanto aos seus baús quanto aos de outros jogadores.
+
+![Janela de confirmação do trancamento de todos os baús, avisando que apenas os donos poderão destrancá-los, com os botões Cancelar e Ok.](@assets/ferramentas-do-criador/baus/02-controle-dos-baus-janela-de-aviso.png "Confirmação para trancar todos os baús")
 
 ### Como funciona a tranca
 
@@ -46,9 +52,13 @@ O baú também oferece uma opção para ser trancado automaticamente quando voc�
 
 Com essa opção ativada, voltar ao quarto **não destranca o baú automaticamente**. Você precisa destrancá-lo manualmente, podendo utilizar o botão **Destrancar todos seus baús** desta aba.
 
+![Janela de um baú de mobis com as opções Trancar esse baú e Trancar o baú automaticamente quando o dono do baú sair do quarto marcadas.](@assets/ferramentas-do-criador/baus/03-bau-de-mobis-trancado.png "Baú de mobis com tranca automática ativada")
+
 ## Registros de transação do quarto
 
 Esta seção mostra uma prévia dos **10 registros mais recentes** de transações do quarto. Cada linha ajuda a identificar como os recursos foram movimentados e qual usuário está relacionado à transação.
+
+![Prévia dos registros de transação do quarto com tipo, nome de usuário, saques e depósitos.](@assets/ferramentas-do-criador/baus/04-registros-de-transacao-do-quarto.png "Registros de transação do quarto")
 
 | Coluna | O que mostra |
 | :--- | :--- |
@@ -74,6 +84,8 @@ O identificador da coluna **Tipo** indica o que deu origem à movimentação:
 
 Abaixo da prévia, clique em **Ver lista detalhada** para abrir a janela **Registros de transação**. Nela, você pode consultar mais registros e utilizar o botão **Atualizar** para buscar as informações mais recentes.
 
+![Botão View detailed list, correspondente a Ver lista detalhada.](@assets/ferramentas-do-criador/baus/05-botao-ver-lista-detalhada.png "Botão Ver lista detalhada")
+
 No início da janela, dois campos ajudam a identificar o que você está consultando:
 
 | Campo | O que mostra |
@@ -87,7 +99,7 @@ A tabela mantém as colunas **Tipo**, **Nome de usuário**, **Saques** e **Depó
 | :--- | :--- |
 | **Data da transação** | A data e a hora da movimentação no formato **dia-mês-ano hora:minuto:segundo**, como `24-09-2026 13:47:34`. |
 | **Baús** | A quantidade de baús envolvidos na transação. |
-| **Detalhes** | O texto clicável **Ver**, que abre a janela **Detalhes da transação**. |
+| **Detalhes** | O texto clicável **Ver**, que abre a janela **[Detalhes da transação](#detalhes-da-transação)**. |
 
 Com o fuso europeu padrão, o exemplo `24-09-2026 13:47:34` corresponde a `24-09-2026 09:47:34` no horário de Brasília, uma diferença de **quatro horas**.
 
@@ -97,11 +109,15 @@ Essa alteração vale apenas para os **registros adicionados depois da mudança 
 
 A lista é paginada. Utilize os botões de **avançar** e **voltar** para consultar os demais registros.
 
+![Janela Registros de transações com tipo de lista, ID do quarto, botão Atualizar, tabela de movimentações e controles de paginação.](@assets/ferramentas-do-criador/baus/05-janela-registros-de-transacoes.png "Lista detalhada dos registros de transações")
+
 ### Detalhes da transação
 
 Ao clicar em **Ver**, você abre uma janela com o **tipo da transação**, a **data da transação**, o **ID do quarto** e o **nome de usuário**, além de informações sobre os baús e os recursos envolvidos.
 
 O campo **ID(s) do baú** mostra os identificadores únicos dos baús que participaram da movimentação. Já a seção **Transações** apresenta os **saques** e os **depósitos** de maneira visual, com o ícone de cada recurso envolvido, seja um mobi ou uma moeda.
+
+![Detalhes de uma transação CONTRACT_TRADE com data, IDs do quarto e dos baús, nome de usuário e ícones dos recursos retirados e depositados.](@assets/ferramentas-do-criador/baus/06-detalhes-da-transacao.png "Detalhes da transação")
 
 #### Informação extra
 
@@ -111,3 +127,5 @@ A seção **Extra** pode trazer informações adicionais sobre a execução Wire
 * Nas transações contratuais, o campo mostra o **ID do contrato** e o **multiplicador utilizado**.
 
 Essas informações ajudam a conferir qual Efeito ou contrato participou da movimentação e quais quantidades foram utilizadas pelo sistema.
+
+![Explicação do campo Extra aberta pelo ícone de informação, descrevendo os dados das transações Wired e contratuais.](@assets/ferramentas-do-criador/baus/07-informacao-extra.png "Informação extra da transação")
