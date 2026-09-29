@@ -9,6 +9,12 @@ sidebar:
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import LimparTodos from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos.mp4";
+import LimparTodosCaptionsUrl from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-captions.vtt?url";
+import LimparTodosCaptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-captions.vtt?raw";
+import LimparTodosDescriptionsUrl from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?url";
+import LimparTodosDescriptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?raw";
 
 A aba **Monitoramento** ajuda você a acompanhar o funcionamento dos Wireds do quarto. O sistema está consumindo muitos recursos? Alguma execução foi interrompida? Uma transação com baús falhou? As estatísticas e os registros desta aba ajudam a entender essas situações.
 
@@ -174,11 +180,21 @@ Abaixo da tabela, você encontra dois botões para limpar o resumo ou consultar 
 
 O botão **Limpar todos** apaga os dados exibidos na tabela de registros. Ele permite limpar o histórico apresentado antes de acompanhar novas ocorrências.
 
+<AccessibleVideo
+  id="monitoramento-limpar-todos"
+  src={LimparTodos}
+  title="Limpando todos os registros da tabela de Monitoramento"
+  captionsSrc={LimparTodosCaptionsUrl}
+  captionsContent={LimparTodosCaptionsRaw}
+  descriptionsSrc={LimparTodosDescriptionsUrl}
+  descriptionsContent={LimparTodosDescriptionsRaw}
+/>
+
 ### Ver registros completos
 
 O botão **Ver registros completos** abre a janela **Registros dos Wireds**, com uma visão geral dos registros mais recentes do sistema e dos Wireds. São armazenados apenas os **200 registros mais recentes por tipo**.
 
-![Janela Wired Logs com atualização automática, filtros de texto, fonte e nível, tabela de horário, fonte, nível e mensagem e controles de paginação](@assets/ferramentas-do-criador/monitoramento/06-janela-registros-dos-wireds.png "Janela de registros completos dos Wireds")
+![Janela Registros Completos dos Wireds com atualização automática, filtros de texto, fonte e nível, tabela de horário, fonte, nível e mensagem e controles de paginação](@assets/ferramentas-do-criador/monitoramento/06-janela-registros-dos-wireds.png "Janela de registros completos dos Wireds")
 
 Essa janela oferece os seguintes controles:
 
