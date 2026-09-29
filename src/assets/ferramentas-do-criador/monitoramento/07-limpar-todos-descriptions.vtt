@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.250
+A aba Monitoramento das Ferramentas do Criador mostra estatísticas e categorias de registros. A janela Registros Completos dos Wireds abre à direita com três registros recentes, de fontes Wired e Sistema. No Monitoramento, o cursor vai até o botão vermelho “Limpar todos”.
+
+00:00:04.250 --> 00:00:06.450
+O botão “Limpar todos” é pressionado e fica esmaecido. Os três registros ainda permanecem por um instante na janela Registros Completos dos Wireds; as categorias do Monitoramento continuam listadas com quantidade zero.
+
+00:00:06.450 --> 00:00:07.099
+A lista da janela Registros Completos dos Wireds é esvaziada e passa a mostrar “Nada para mostrar”.
