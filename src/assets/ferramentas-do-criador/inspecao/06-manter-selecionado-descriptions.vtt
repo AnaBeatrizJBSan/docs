@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.850
+Na aba de inspeção do Wired, a caixa “Manter selecionado” está marcada. A prévia mostra um coelho. O cursor clica no chão e seleciona o coelho novamente; a prévia e a lista de variáveis continuam mostrando o mobi.
+
+00:00:05.850 --> 00:00:10.450
+O cursor desmarca “Manter selecionado” e seleciona o cronômetro no quarto. A prévia do coelho é substituída pela do cronômetro, e a lista de variáveis muda. O cursor clica no chão.
+
+00:00:10.450 --> 00:00:12.900
+O cursor muda o tipo de elemento de mobi para usuário. Sem pessoa selecionada, a prévia fica vazia. Em seguida, marca “Manter selecionado”.
+
+00:00:12.900 --> 00:00:15.250
+O cursor seleciona o personagem à esquerda, identificado nas variáveis como bot. Depois clica na outra personagem; a prévia continua mostrando o primeiro bot enquanto a opção está marcada.
+
+00:00:15.250 --> 00:00:18.899
+O cursor desmarca “Manter selecionado” e volta a clicar nos personagens. Ao selecionar a da direita, a prévia e as variáveis passam a mostrar essa usuária.
