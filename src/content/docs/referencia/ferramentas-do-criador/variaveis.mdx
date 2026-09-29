@@ -22,6 +22,8 @@ import ExcluirVariavelCaptionsRaw from "@assets/ferramentas-do-criador/variaveis
 import ExcluirVariavelDescriptionsUrl from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-descriptions.vtt?url";
 import ExcluirVariavelDescriptionsRaw from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-descriptions.vtt?raw";
 import EscolhaDeVariavel from '@assets/ferramentas-do-criador/variaveis/05-escolha-de-variavel.gif'
+import DestacarErro from "@assets/ferramentas-do-criador/variaveis/11-notificacao-destacar-muitas-variaveis.png"
+import GerenciamentoDeVariavelBotaoGerenciar from "@assets/ferramentas-do-criador/variaveis/12-gerenciamento-de-variavel-botao-gerenciar.gif"
 
 A aba **Variáveis** permite consultar as variáveis disponíveis no quarto e entender como cada uma funciona. Quer conferir se uma variável pode ter seu valor alterado? Descobrir quais mobis a possuem? Ou gerenciar uma variável permanente de um usuário que não está no quarto? É aqui que você encontra esses recursos.
 
@@ -39,10 +41,10 @@ A interface reúne quatro seções: **Tipos de variável**, **Propriedades**, **
 
 No início da aba, quatro ícones permitem escolher o alvo das variáveis que você quer consultar:
 
-* **Mobi**;
-* **Usuário**;
-* **Global**;
-* **Contexto**.
+* **Mobi:** variáveis associadas aos mobis do quarto. Por exemplo: posição ou o estado de cada mobi.
+* **Usuário:** variáveis associadas a jogadores, bots ou mascotes. Por exemplo: pontuação individual.
+* **Global:** variáveis relacionadas ao quarto como um todo. Por exemplo: contador geral de partidas.
+* **Contexto:** variáveis relacionadas à execução atual dos Wireds. Por exemplo: informações do evento que acionou a pilha.
 
 ![Ícones para selecionar variáveis de mobi, usuário, global e contexto](@assets/ferramentas-do-criador/variaveis/02-tipos-de-variavel.gif "Seleção do alvo das variáveis")
 
@@ -59,7 +61,7 @@ Esta seção apresenta uma tabela com as colunas **Propriedade** e **Valor**. A 
 | Propriedade | O que representa |
 | :--- | :--- |
 | **Nome** | O nome da variável selecionada. |
-| **Tipo** | Se a variável é **Interna**, **Inteligente** ou **Criada pelo usuário**. Confira o tópico [Internas, inteligentes e criadas pelo usuário](#internas-inteligentes-e-criadas-pelo-usuário) para mais detalhes |
+| **Tipo** | Se a variável é **Criada pelo usuário**, **Inteligente** ou **Interna**. Confira o tópico [Criadas pelo usuário, inteligentes e internas](#criadas-pelo-usuário-inteligentes-e-internas) para mais detalhes |
 | **Alvo** | Se a variável é destinada a **Mobi**, **Usuário**, **Global** ou **Contexto**. |
 | **Disponibilidade** | Para variáveis criadas pelo usuário, informa a disponibilidade configurada no Wired, como **Permanente** ou **Enquanto o usuário está no quarto**. Não se aplica às variáveis internas ou inteligentes. |
 | **Tem valor** | Indica **Sim** ou **Não**, conforme a variável possua um valor. Nas variáveis do tipo verdadeiro ou falso, esta propriedade aparece como **Não**. |
@@ -68,10 +70,10 @@ Esta seção apresenta uma tabela com as colunas **Propriedade** e **Valor**. A 
 | **Pode ser interceptada** | Indica se a variável pode ser selecionada no **Ativador Wired: Variável mudou**. A maioria das variáveis internas e inteligentes não podem ser selecionadas nesse Ativador. |
 | **Está sempre disponível** | Indica se a variável sempre existe nos alvos aos quais se destina. Confira o tópico [O que significa estar sempre disponível?](#o-que-significa-estar-sempre-disponível) para mais detalhes |
 | **Tem data de criação** | Indica se a variável possui uma data de criação. Apenas variáveis criadas pelo usuário podem ter essa informação. |
-| **Tem data de atualização** | Indica se a variável possui uma data de atualização. Apenas variáveis criadas pelo usuário podem ter essa informação. |
-| **Tem texto conectado** | Indica se existem textos associados aos valores numéricos da variável. Veja a seção [Valores textuais](#valores-textuais). |
+| **Tem data de atualização** | Indica se a variável possui uma data de atualização. Apenas variáveis criadas pelo usuário em que a opção **Tem valor** foi marcada podem ter essa informação. |
+| **Tem texto conectado** | Indica se existem textos associados aos valores numéricos da variável. Veja a seção [Valores textuais](#valores-textuais) para mais detalhes. |
 
-### Internas, inteligentes e criadas pelo usuário
+### Criadas pelo usuário, inteligentes e internas
 
 O campo **Tipo** ajuda a identificar de onde vem a variável:
 
@@ -115,10 +117,14 @@ Selecione uma variável para consultar suas propriedades e, quando houver, os te
 
 O botão **Destacar** ajuda a localizar quem possui a variável selecionada. Quando ela é de mobi ou de usuário, os alvos que a possuem ficam **destacados em azul** no quarto.
 
-Esse recurso **não funciona para variáveis internas**. A quantidade máxima de alvos destacados depende de a variável possuir um valor:
+Esse recurso **não funciona para variáveis internas, apenas para variáveis inteligentes ou que foram criadas pelo usuário**. A quantidade máxima de alvos destacados depende de a variável possuir um valor:
 
 * **Sem valor:** até **1.000** alvos.
 * **Com valor:** até **400** alvos.
+
+Se você tentar destacar uma variável com mais alvos associados do que o limite permite, o jogo impedirá o destaque e exibirá a notificação abaixo:
+
+<img style={{ width: "35%" }} src={DestacarErro.src} alt="Notificação com a mensagem: Não é permitido destacar esta variável, pois há muitos alvos associados a ela" title="Limite de alvos para destacar uma variável" />
 
 Imagine que vários mobis participam de um sistema, mas você quer conferir quais receberam determinada variável. Selecione a variável e use esse botão para identificá-los visualmente.
 
@@ -157,8 +163,8 @@ A tabela apresenta os seguintes dados:
 | :--- | :--- |
 | **Tipo de usuário** | Se o alvo é um Habbo, mascote ou bot. |
 | **Nome do usuário** | O nome de quem possui a variável. Quando o alvo é um Habbo, você pode clicar no nome para abrir seu perfil. |
-| **Data de criação** | Quando a variável foi criada para aquele usuário. Utiliza uma formatação de horário explicada logo abaixo |
-| **Última data de atualização** | Quando o valor da variável foi atualizado pela última vez. Utiliza uma formatação de horário explicada logo abaixo |
+| **Data de criação** | Quando a variável foi criada para aquele usuário. Esta coluna utiliza uma formatação de horário explicada logo abaixo |
+| **Última data de atualização** | Quando o valor da variável foi atualizado pela última vez. Esta coluna utiliza uma formatação de horário explicada logo abaixo |
 | **Valor** | O valor da variável para aquele usuário. |
 | **Gerenciar** | Abre a janela [**Gerenciar variáveis do usuário**](#gerenciar-variáveis-do-usuário) para o alvo daquela linha. |
 
@@ -175,6 +181,8 @@ Quando uma variável é compartilhada entre quartos, pode haver um atraso de **2
 #### Gerenciar variáveis do usuário
 
 Ao clicar em **Gerenciar** na linha de um usuário, você abre uma janela para consultar e modificar suas variáveis permanentes. Ela utiliza os dados armazenados no banco de dados do Habbo, permitindo gerenciar também **usuários offline ou que não estão no quarto**.
+
+<img style={{ width: "70%" }} src={GerenciamentoDeVariavelBotaoGerenciar.src} alt="Demonstração do acesso às variáveis permanentes de um bot pelo link Gerenciar na tabela de gerenciamento de variável" title="Acesso ao gerenciamento de variáveis do usuário" />
 
 A janela possui um **botão de ajuda**, com explicações sobre o funcionamento da ferramenta, e um **botão de atualizar**, que busca os valores mais recentes para a tabela.
 
