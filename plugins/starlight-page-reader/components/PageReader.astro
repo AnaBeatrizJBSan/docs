@@ -372,9 +372,32 @@
 			toggle.setAttribute('title', 'Iniciar leitura');
 		}
 
-		// Selectors for readable blocks (Starlight article content)
-		const READABLE_SELECTORS = 'h1, h2, h3, h4, h5, h6, p, li, th, td, caption, pre, code, header, dd, dt, blockquote, figure, figcaption';
+		// Selectors for readable blocks in priority order (Starlight article content)
+		const READABLE_SELECTORS = [
+			'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+			'p',
+			'li',
+			'th', 'td', 'caption',
+			'pre',
+			'dd', 'dt',
+			'header',
+			'figcaption',
+			'img',
+			'blockquote',
+			'figure',
+			'code',
+		];
+		const READABLE_SELECTORS_QUERY = READABLE_SELECTORS.join(', ');
 		const ARTICLE_SELECTOR = '.sl-markdown-content, article, main [data-content]';
+
+		function getSelectorPriority(el: Element): number {
+			for (let i = 0; i < READABLE_SELECTORS.length; i++) {
+				if (el.matches(READABLE_SELECTORS[i])) {
+					return i;
+				}
+			}
+			return Infinity;
+		}
 
 		let blocks = [] as Element[];
 		let currentIndex = 0;
@@ -409,6 +432,9 @@
 
 		function getElementSpeechText(el: Element): string {
 			if (!el) return '';
+			if (el.tagName === 'IMG') {
+				return formatImageForSpeech(el);
+			}
 			const isCode = el.tagName === 'PRE' || el.tagName === 'CODE' || !!el.closest('pre, code, .expressive-code');
 			const isTableCell = el.tagName === 'TD' || el.tagName === 'TH' || el.tagName === 'CAPTION';
 
@@ -424,6 +450,22 @@
 			return text.trim();
 		}
 
+		function formatImageForSpeech(el: Element): string {
+			const title = el.getAttribute('title')?.trim();
+			const alt = el.getAttribute('alt')?.trim();
+
+			if (title && alt) {
+				return `Título: "${title}". Legenda: "${alt}".`;
+			}
+			if (title) {
+				return `Título: "${title}".`;
+			}
+			if (alt) {
+				return `Legenda: "${alt}".`;
+			}
+			return '';
+		}
+
 		function formatListItemForSpeech(text: string, el: Element): string {
 			const cleanText = text.replace(/\s+/g, ' ').trim();
 			if (!cleanText) return '';
@@ -436,7 +478,7 @@
 
 			// If el is not the LI itself, check if it's the first candidate inside the LI
 			if (el !== li) {
-				const firstCandidate = li.querySelector(READABLE_SELECTORS);
+				const firstCandidate = li.querySelector(READABLE_SELECTORS_QUERY);
 				if (firstCandidate && firstCandidate !== el) {
 					return cleanText;
 				}
@@ -494,20 +536,49 @@
 			if (!article) return initialBlocks;
 
 			// 1. Collect all candidates with readable text
-			const rawCandidates = Array.from(article.querySelectorAll(READABLE_SELECTORS)).filter(el => {
+			const rawCandidates = Array.from(article.querySelectorAll(READABLE_SELECTORS_QUERY)).filter(el => {
 				if (el.closest('#page-reader, nav, button, script, style, .expressive-code .copy')) return false;
 				if (topTitle && (el === topTitle || el.contains(topTitle))) return false;
-				// Skip code element if it's already inside a pre tag that is also candidate
-				if (el.tagName === 'CODE' && el.closest('pre')) return false;
 				const text = getElementSpeechText(el);
 				return text.length > 0;
 			});
 
-			// 2. Deduplicate: if a parent candidate contains child candidates, prefer reading child sub-elements
+			// 2. Deduplicate: priority system based on selector list order.
+			// If a parent appears first in the selector list relative to a child, the parent is read (child is eliminated).
+			// Otherwise (child appears first or equal), the child is preferred (parent is eliminated).
 			const candidateSet = new Set(rawCandidates);
-			const leafCandidates = rawCandidates.filter(parent => {
-				const hasChildCandidate = Array.from(parent.querySelectorAll(READABLE_SELECTORS)).some(child => candidateSet.has(child));
-				return !hasChildCandidate;
+
+			// 2A. Eliminate parents that contain a child candidate with higher-or-equal priority
+			const survivingParents = rawCandidates.filter(parent => {
+				const parentPriority = getSelectorPriority(parent);
+				const childCandidates = Array.from(parent.querySelectorAll(READABLE_SELECTORS_QUERY))
+					.filter(child => candidateSet.has(child));
+
+				const hasHigherOrEqualPriorityChild = childCandidates.some(child => {
+					const childPriority = getSelectorPriority(child);
+					return childPriority <= parentPriority;
+				});
+
+				return !hasHigherOrEqualPriorityChild;
+			});
+
+			const survivingParentSet = new Set(survivingParents);
+
+			// 2B. Eliminate children that are inside a surviving parent that has higher priority (appears first)
+			const leafCandidates = survivingParents.filter(child => {
+				if (child.tagName === 'IMG') return true;
+				const childPriority = getSelectorPriority(child);
+				let ancestor = child.parentElement;
+				while (ancestor && ancestor !== article) {
+					if (survivingParentSet.has(ancestor)) {
+						const ancestorPriority = getSelectorPriority(ancestor);
+						if (ancestorPriority < childPriority) {
+							return false;
+						}
+					}
+					ancestor = ancestor.parentElement;
+				}
+				return true;
 			});
 
 			return [...initialBlocks, ...leafCandidates];
