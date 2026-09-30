@@ -15,6 +15,7 @@ import LimparTodosCaptionsUrl from "@assets/ferramentas-do-criador/monitoramento
 import LimparTodosCaptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-captions.vtt?raw";
 import LimparTodosDescriptionsUrl from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?url";
 import LimparTodosDescriptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?raw";
+import WhisperReadNotificacao from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-notificacao.png"
 
 A aba **Monitoramento** ajuda você a acompanhar o funcionamento dos Wireds do quarto. O sistema está consumindo muitos recursos? Alguma execução foi interrompida? Uma transação com baús falhou? As estatísticas e os registros desta aba ajudam a entender essas situações.
 
@@ -66,12 +67,12 @@ A tabela de registros resume os eventos relacionados ao funcionamento dos Wireds
 
 | Coluna | O que mostra |
 | :--- | :--- |
-| **Tipo** | O identificador do registro, como `EXECUTION_CAP` ou `TRANSACTION_FAILURE`. Saiba mais sobre todos os identificadores logo abaixo |
+| **Tipo** | O identificador do registro, como `EXECUTION_CAP` ou `TRANSACTION_FAILURE`. Conheça alguns dos identificadores logo abaixo. |
 | **Categoria** | Se o registro é uma informação, um aviso, um erro ou uma mensagem de depuração. |
 | **Quantidade** | Quantas vezes o registro ocorreu. |
 | **Última ocorrência** | Há quanto tempo o registro aconteceu pela última vez, como 100 minutos, 70 dias ou 7 meses atrás. |
 
-O **tipo** ajuda a identificar o que aconteceu, enquanto a **categoria** indica a natureza da mensagem. Todos os tipos descritos a seguir pertencem à categoria **Erro**, exceto `MARKED_AS_HEAVY`, que pertence à categoria **Aviso**.
+O **tipo** ajuda a identificar o que aconteceu, enquanto a **categoria** indica a natureza da mensagem. Os registros descritos a seguir pertencem à categoria **Erro**, exceto `MARKED_AS_HEAVY`, que pertence à categoria **Aviso**. Também explicamos a notificação `WHISPER_READ`, que aparece apenas na tela, sem um registro na janela **Ver registros completos**.
 
 ### EXECUTION_CAP
 
@@ -169,6 +170,28 @@ Os motivos possíveis incluem:
 Este erro ocorre quando o limite de [Wireds **Variável FX**](/referencia/variaveis/visao-geral/#variáveis-fx) é atingido. É possível utilizar até **cinco** desses Wireds acima de um Wired de variável ou distribuir um Variável FX em cada um de cinco Wireds de variável.
 
 Se o registro aparecer, confira a quantidade de Variáveis FX utilizadas no sistema Wired.
+
+### PLACEMENT_FAILURE
+
+Este erro pode ocorrer quando o **Efeito Wired: Colocar Móbi Temporário** tenta colocar um mobi em um destino ocupado. Por exemplo, imagine que você configurou **Local de destino** como **Local personalizado** e, em **Destino personalizado**, selecionou um mobi que já possui outro mobi em cima.
+
+Ao ativar o Efeito nessa situação, aparece a notificação **“Falha ao colocar o mobi”**, acompanhada de um **ícone de fio vermelho**. Também aparecem **dois registros relacionados à falha** na janela [Ver registros completos](#ver-registros-completos).
+
+Se isso acontecer, confira o mobi selecionado como destino e se há outro mobi sobre ele.
+
+### WHISPER_READ
+
+Esta notificação informa que uma pilha Wired detectou sua mensagem enviada como sussurro para outro jogador. Ela aparece com um **ícone de fio azul** e o texto **“Uma pilha wired detectou sua mensagem de sussurro. Você pode desativar essa opção em 'Outras configurações'”**.
+
+Para desativar que Wireds detectem seu sussuro, siga o passo a passo do vídeo abaixo:
+
+Um exemplo é um sistema que lê o texto enviado pelo usuário e utiliza **empacotamento de bits** para armazenar informações sobre essa mensagem em variáveis numéricas. Essa técnica permite reunir vários valores em um mesmo número, reservando uma parte dos bits para cada um deles.
+
+Para guardar texto dessa forma, a configuração precisa definir códigos numéricos para os caracteres e como esses códigos serão agrupados e recuperados depois. A quantidade de caracteres que cabe em cada variável depende dos bits disponíveis e da codificação escolhida. Nesse exemplo, a notificação aparece porque a pilha detectou o **sussurro**, e não pela operação de empacotamento em si.
+
+Ao contrário dos registros anteriores, `WHISPER_READ` **não aparece na janela Ver registros completos**. Você verá apenas a notificação ao lado direito da tela.
+
+<img style={{ width: "35%" }} src={WhisperReadNotificacao.src} />
 
 ## Controles dos registros
 
