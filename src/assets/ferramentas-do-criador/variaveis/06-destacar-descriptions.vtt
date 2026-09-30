@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+A janela “Ferramentas do Criador” está na aba “Variáveis”, em “Visão Geral das Variáveis”. A variável de mobi “mobi_wired_club” está selecionada; as propriedades indicam alvo “Mobi” e disponibilidade permanente. Ao lado da janela há uma bot, um coelho e dois Wired de Variável. O botão “Destacar” fica abaixo da lista de variáveis.
+
+00:00:03.200 --> 00:00:05.100
+Ao acionar “Destacar”, o botão muda para “Desfazer”. O coelho à direita ganha um contorno e um brilho azul translúcido, indicando qual mobi possui a variável selecionada.
+
+00:00:05.100 --> 00:00:06.500
+O destaque do coelho é desfeito; o botão volta a mostrar “Destacar”. Em seguida, o ícone de usuário é acionado na seção “Tipo de variável”.
+
+00:00:06.500 --> 00:00:08.450
+A lista passa a mostrar a variável “usuario_wired_club”. Nas propriedades, o alvo muda para “Usuário”, enquanto a disponibilidade continua permanente. A personagem permanece sem destaque.
+
+00:00:08.450 --> 00:00:10.566
+“Destacar” é acionado novamente. Desta vez, a personagem recebe o contorno e o brilho azul translúcido; o botão muda para “Desfazer”. Perto do fim, a ação é desfeita e a personagem volta à aparência normal.
