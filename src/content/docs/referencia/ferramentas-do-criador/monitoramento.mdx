@@ -16,6 +16,11 @@ import LimparTodosCaptionsRaw from "@assets/ferramentas-do-criador/monitoramento
 import LimparTodosDescriptionsUrl from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?url";
 import LimparTodosDescriptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?raw";
 import WhisperReadNotificacao from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-notificacao.png"
+import DesativarSussurro from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox.mp4";
+import DesativarSussurroCaptionsUrl from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-captions.vtt?url";
+import DesativarSussurroCaptionsRaw from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-captions.vtt?raw";
+import DesativarSussurroDescriptionsUrl from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-descriptions.vtt?url";
+import DesativarSussurroDescriptionsRaw from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-descriptions.vtt?raw";
 
 A aba **Monitoramento** ajuda você a acompanhar o funcionamento dos Wireds do quarto. O sistema está consumindo muitos recursos? Alguma execução foi interrompida? Uma transação com baús falhou? As estatísticas e os registros desta aba ajudam a entender essas situações.
 
@@ -171,6 +176,10 @@ Este erro ocorre quando o limite de [Wireds **Variável FX**](/referencia/variav
 
 Se o registro aparecer, confira a quantidade de Variáveis FX utilizadas no sistema Wired.
 
+Quando esse evento ocorre, são adicionados **dois registros** à tabela da janela **Registros dos Wireds**, acessível pelo botão [Ver registros completos](#ver-registros-completos):
+
+![Janela Registros dos Wireds com um registro DEBUG indicando que o limite de cinco configurações de Variável FX por pilha foi excedido e um registro ERROR com o erro VARIABLE_FX_LIMIT.](@assets/ferramentas-do-criador/monitoramento/09-variable_fx_limit-registros.png "Registros gerados pelo erro VARIABLE_FX_LIMIT")
+
 ### PLACEMENT_FAILURE
 
 Este erro pode ocorrer quando o **Efeito Wired: Colocar Móbi Temporário** tenta colocar um mobi em um destino ocupado. Por exemplo, imagine que você configurou **Local de destino** como **Local personalizado** e, em **Destino personalizado**, selecionou um mobi que já possui outro mobi em cima.
@@ -183,7 +192,17 @@ Se isso acontecer, confira o mobi selecionado como destino e se há outro mobi s
 
 Esta notificação informa que uma pilha Wired detectou sua mensagem enviada como sussurro para outro jogador. Ela aparece com um **ícone de fio azul** e o texto **“Uma pilha wired detectou sua mensagem de sussurro. Você pode desativar essa opção em 'Outras configurações'”**.
 
-Para desativar que Wireds detectem seu sussuro, siga o passo a passo do vídeo abaixo:
+Para impedir que Wireds detectem seus sussurros, siga o passo a passo do vídeo abaixo:
+
+<AccessibleVideo
+  id="monitoramento-desativar-sussurro"
+  src={DesativarSussurro}
+  title="Como desativar a detecção de sussurros pelos Wireds"
+  captionsSrc={DesativarSussurroCaptionsUrl}
+  captionsContent={DesativarSussurroCaptionsRaw}
+  descriptionsSrc={DesativarSussurroDescriptionsUrl}
+  descriptionsContent={DesativarSussurroDescriptionsRaw}
+/>
 
 Um exemplo é um sistema que lê o texto enviado pelo usuário e utiliza **empacotamento de bits** para armazenar informações sobre essa mensagem em variáveis numéricas. Essa técnica permite reunir vários valores em um mesmo número, reservando uma parte dos bits para cada um deles.
 
@@ -191,7 +210,12 @@ Para guardar texto dessa forma, a configuração precisa definir códigos numér
 
 Ao contrário dos registros anteriores, `WHISPER_READ` **não aparece na janela Ver registros completos**. Você verá apenas a notificação ao lado direito da tela.
 
-<img style={{ width: "35%" }} src={WhisperReadNotificacao.src} />
+<img
+  style={{ width: "35%" }}
+  src={WhisperReadNotificacao.src}
+  alt="Notificação com um ícone de fio azul informando que um Wired detectou sua mensagem de sussurro e que essa opção pode ser desativada em Outras configurações."
+  title="Notificação de detecção de sussurro pelos Wireds"
+/>
 
 ## Controles dos registros
 
