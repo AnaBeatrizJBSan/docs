@@ -382,6 +382,7 @@
 			'dd', 'dt',
 			'header',
 			'figcaption',
+			'img',
 			'blockquote',
 			'figure',
 			'code',
@@ -431,6 +432,9 @@
 
 		function getElementSpeechText(el: Element): string {
 			if (!el) return '';
+			if (el.tagName === 'IMG') {
+				return formatImageForSpeech(el);
+			}
 			const isCode = el.tagName === 'PRE' || el.tagName === 'CODE' || !!el.closest('pre, code, .expressive-code');
 			const isTableCell = el.tagName === 'TD' || el.tagName === 'TH' || el.tagName === 'CAPTION';
 
@@ -444,6 +448,22 @@
 			}
 
 			return text.trim();
+		}
+
+		function formatImageForSpeech(el: Element): string {
+			const title = el.getAttribute('title')?.trim();
+			const alt = el.getAttribute('alt')?.trim();
+
+			if (title && alt) {
+				return `Título: "${title}". Legenda: "${alt}".`;
+			}
+			if (title) {
+				return `Título: "${title}".`;
+			}
+			if (alt) {
+				return `Legenda: "${alt}".`;
+			}
+			return '';
 		}
 
 		function formatListItemForSpeech(text: string, el: Element): string {
@@ -546,6 +566,7 @@
 
 			// 2B. Eliminate children that are inside a surviving parent that has higher priority (appears first)
 			const leafCandidates = survivingParents.filter(child => {
+				if (child.tagName === 'IMG') return true;
 				const childPriority = getSelectorPriority(child);
 				let ancestor = child.parentElement;
 				while (ancestor && ancestor !== article) {
