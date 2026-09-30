@@ -456,6 +456,18 @@ Levando em consideração a configuração de visibilidade escolhida anteriormen
 
 Esta opção está disponível tanto para um Wired **Variável FX: Exibição de Números** vinculado a variáveis de usuário quanto a variáveis de mobi.
 
+## Limite do número exibido
+
+Na versão **Flash (Clássica)** do Habbo, o maior número positivo que a **Variável FX: Exibição de Números** consegue exibir é **2.147.483.647**.
+
+Imagine que a variável já tenha o valor **2.147.483.647** e você utilize o **Efeito Wired: Mudar Valor Variável** para adicionar **1**. Ao ultrapassar esse limite, o efeito visual passa a mostrar **-2.147.483.648**. Se continuar adicionando 1, os próximos números exibidos serão **-2.147.483.647**, **-2.147.483.646** e assim por diante.
+
+![Demonstração da Exibição de Números acima de um usuário, passando de 2.147.483.647 para valores negativos ao ultrapassar o limite de exibição.](@assets/wf_xtra_varfx_number/14-numero-maximo.gif "Exibição de Números ao ultrapassar o limite positivo")
+
+Isso acontece porque a exibição utiliza o intervalo dos números inteiros de **32 bits com sinal**: ao ultrapassar o maior valor positivo, ela retorna ao menor valor negativo desse intervalo. Esse comportamento diz respeito ao **número exibido pelo efeito visual** e não significa, por si só, que o valor armazenado na variável tenha se tornado negativo.
+
+Ao planejar pontuações, moedas ou outros contadores que utilizem esse efeito, mantenha os valores positivos em até **2.147.483.647** para evitar essa mudança na exibição.
+
 ## Exemplos de uso
 
 A **Variável FX: Exibição de Números** pode ser utilizada em diversos sistemas. Alguns exemplos são:
