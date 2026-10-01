@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.950
+Na aba “Inspeção” das Ferramentas do Criador, o tipo mobi está ativo e a prévia começa vazia. Um cronômetro no chão do quarto é selecionado. A prévia passa a mostrar o cronômetro e a lista apresenta suas variáveis, incluindo o estado inicial e o identificador de classe.
+
+00:00:02.950 --> 00:00:04.900
+O botão central muda o tipo de elemento para usuário. A prévia e a lista são limpas; a janela pede a seleção de um usuário. O avatar à direita é selecionado no quarto.
+
+00:00:04.900 --> 00:00:06.200
+A prévia mostra o avatar selecionado. Na lista, o tipo é “4 (Bot)” e aparece a variável usuario_wired_club. Um menu de contexto se abre brevemente sobre o personagem antes de desaparecer.
+
+00:00:06.200 --> 00:00:07.899
+O botão com o globo muda o tipo de elemento para quarto. A prévia passa a mostrar uma sala em miniatura, e a lista troca os dados do bot por variáveis do quarto, como a quantidade de mobis, a quantidade de usuários e o temporizador Wired.

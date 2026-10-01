@@ -4,12 +4,136 @@ description: Aprenda a inspecionar mobis, usuários e o quarto para consultar su
 sidebar:
   order: 4
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import TipoDoElemento from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento.mp4";
+import TipoDoElementoCaptionsUrl from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-captions.vtt?url";
+import TipoDoElementoCaptionsRaw from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-captions.vtt?raw";
+import TipoDoElementoDescriptionsUrl from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-descriptions.vtt?url";
+import TipoDoElementoDescriptionsRaw from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-descriptions.vtt?raw";
+import EncontrarWireds from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi.mp4";
+import EncontrarWiredsCaptionsUrl from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-captions.vtt?url";
+import EncontrarWiredsCaptionsRaw from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-captions.vtt?raw";
+import EncontrarWiredsDescriptionsUrl from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-descriptions.vtt?url";
+import EncontrarWiredsDescriptionsRaw from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-descriptions.vtt?raw";
+import ManterSelecionado from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado.mp4";
+import ManterSelecionadoCaptionsUrl from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-captions.vtt?url";
+import ManterSelecionadoCaptionsRaw from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-captions.vtt?raw";
+import ManterSelecionadoDescriptionsUrl from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-descriptions.vtt?url";
+import ManterSelecionadoDescriptionsRaw from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-descriptions.vtt?raw";
 
-<Aside type="tip" title="Em construção">
-Esta documentação ainda está incompleta, mas está em constante atualização. Estamos preparando explicações e exemplos para ajudar você a utilizar os recursos das Ferramentas do Criador.
+A aba **Inspeção** permite examinar um mobi, um usuário ou o próprio quarto para consultar as variáveis relacionadas a ele. Quer conferir quais variáveis um jogador recebeu ou descobrir quais Wireds utilizam determinado mobi? Esta aba ajuda a encontrar essas informações enquanto você acompanha o seu sistema.
+
+## Como acessar
+
+Digite e envie o comando `:inspect` ou `:inspection` no chat de um quarto onde você tenha permissão para utilizá-lo. As [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) serão abertas diretamente na aba **Inspeção**.
+
+Você também pode abrir a janela com `:wired` ou `:wf` e selecionar a aba manualmente.
+
+![Aba Inspeção das Ferramentas do Criador com as seções Tipo do elemento, Variáveis e Prévia.](@assets/ferramentas-do-criador/inspecao/01-janela-ferramentas-do-criador.png "Aba Inspeção das Ferramentas do Criador")
+
+<Aside type="tip" title="Um atalho para inspecionar">
+Se quiser acessar a inspeção pelo botão **Inspect** em usuários e mobis, você pode ativar a opção [Mostrar o botão de Inspeção em usuários e mobis](/referencia/ferramentas-do-criador/configuracoes/#mostrar-o-botão-de-inspeção-em-usuários-e-mobis) nas Configurações. Esse botão não aparece por padrão.
 </Aside>
+
+A interface está dividida em três seções: **Tipo do elemento**, **Variáveis** e **Prévia**.
+
+## Tipo do elemento
+
+Os três ícones desta seção permitem escolher o que você quer inspecionar. Cada opção define como selecionar o alvo:
+
+| Tipo | Como selecionar |
+| :--- | :--- |
+| **Mobi** | Clique no ícone de mobi e depois em um mobi do quarto. |
+| **Usuário** | Clique no ícone de usuário e depois em um usuário do quarto. |
+| **Global** | Clique no ícone global para consultar as informações relacionadas ao próprio quarto. |
+
+Depois da seleção, as demais seções mostram as informações do alvo escolhido. Por exemplo, para conferir as variáveis de um cronômetro, selecione **Mobi** e clique no cronômetro que está no quarto.
+
+<AccessibleVideo
+  id="inspecao-tipo-do-elemento"
+  src={TipoDoElemento}
+  title="Como escolher o tipo de elemento para inspecionar"
+  captionsSrc={TipoDoElementoCaptionsUrl}
+  captionsContent={TipoDoElementoCaptionsRaw}
+  descriptionsSrc={TipoDoElementoDescriptionsUrl}
+  descriptionsContent={TipoDoElementoDescriptionsRaw}
+/>
+
+## Variáveis
+
+Esta seção apresenta uma tabela com as colunas **Variável** e **Valor**, listando as variáveis associadas ao elemento selecionado.
+
+Imagine que o seu sistema atribui uma variável de pontuação a um jogador. Ao inspecionar esse usuário, você pode consultar a tabela para conferir se a variável está vinculada a ele e qual valor aparece.
+
+No rodapé da tabela, os botões **Remover variável** e **Dar variável** permitem ajustar essas associações.
+
+![Tabela da aba Inspeção com os nomes e valores das variáveis do alvo selecionado e os botões Remover variável e Dar variável.](@assets/ferramentas-do-criador/inspecao/03-variaveis.png "Variáveis do elemento selecionado")
+
+### Alterar o valor de uma variável
+
+Você também pode alterar o valor diretamente na tabela, desde que a variável **permita modificar seu valor**. Para isso, clique duas vezes no número da coluna **Valor**, digite outro número e pressione **Enter** para confirmar.
+
+Se quiser conferir se uma variável permite essa ação, consulte a propriedade **Pode ter o valor alterado** na aba [Variáveis](/referencia/ferramentas-do-criador/variaveis/#propriedades).
+
+![Demonstração de como alterar o valor de uma variável na tabela da aba Inspeção.](@assets/ferramentas-do-criador/inspecao/03-alterar-o-valor-de-uma-variavel.gif "Alterar o valor de uma variável")
+
+### Remover variável
+
+Selecione a linha da variável que você quer remover. Se ela puder ser removida, o botão **Remover variável** ficará disponível. Clique nele para desvincular a variável do elemento selecionado.
+
+Essa ação se aplica ao alvo que você está inspecionando. Ela é diferente de [excluir uma variável pela aba Variáveis](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável), que afeta todos os usuários ou mobis que a possuem.
+
+![Demonstração de como remover uma variável do mobi selecionado na aba Inspeção.](@assets/ferramentas-do-criador/inspecao/03-remover-variavel.gif "Remover uma variável do elemento selecionado")
+
+### Dar variável
+
+Ao clicar em **Dar variável**, você abre uma opção para buscar a variável que deseja associar ao alvo e atribuir um valor a ela.
+
+Esse recurso pode ajudar durante os testes. Por exemplo, você pode vincular uma variável ao usuário selecionado para preparar uma situação que deseja conferir no seu sistema.
+
+![Demonstração de como vincular uma variável ao alvo selecionado pelo botão Dar variável.](@assets/ferramentas-do-criador/inspecao/03-dar-variavel.gif "Dar uma variável ao elemento selecionado")
+
+## Prévia
+
+A seção **Prévia** mostra o ícone do mobi ou a imagem do usuário selecionado. Ela ajuda a confirmar qual alvo você está inspecionando antes de consultar ou alterar suas associações com variáveis.
+
+![Prévias de um mobi de cronômetro e de um bot, com a opção Manter selecionado e o ícone W na prévia do mobi.](@assets/ferramentas-do-criador/inspecao/04-previa.png "Prévia do elemento selecionado")
+
+### Encontrar Wireds que utilizam um mobi
+
+Ao inspecionar um mobi, a prévia também apresenta um pequeno **ícone azul com a letra W**. Ao passar o mouse sobre ele, a descrição informa que o botão destaca os Wireds que possuem aquele mobi referenciado na opção **Usar mobis escolhidos**.
+
+Quando o botão estiver disponível, clique nele para destacar esses Wireds no quarto. Isso ajuda a localizar onde o mobi está sendo utilizado no sistema.
+
+Por exemplo, no [tutorial de como adicionar um relógio ao quarto](https://www.wiredclub.com.br/tutoriais/relogio-funcional-com-uma-unica-pilha-wired), o mobi de cronômetro é selecionado no **Efeito Wired: Mudar valor variável**. Ao inspecionar esse cronômetro e clicar no ícone **W**, o Efeito que o utiliza ficará destacado.
+
+<AccessibleVideo
+  id="inspecao-encontrar-wireds"
+  src={EncontrarWireds}
+  title="Como encontrar os Wireds que utilizam um mobi"
+  captionsSrc={EncontrarWiredsCaptionsUrl}
+  captionsContent={EncontrarWiredsCaptionsRaw}
+  descriptionsSrc={EncontrarWiredsDescriptionsUrl}
+  descriptionsContent={EncontrarWiredsDescriptionsRaw}
+/>
+
+### Manter selecionado
+
+A opção **Manter selecionado** permite fixar a prévia no último mobi ou usuário escolhido. Com a caixa marcada, você pode clicar em outros mobis ou usuários do quarto sem perder a prévia daquele alvo.
+
+Com a caixa **desmarcada**, a prévia muda a cada nova seleção no quarto, conforme o tipo de elemento escolhido: se você selecionou **Mobi**, ela acompanha o mobi em que clicar; se selecionou **Usuário**, ela acompanha o usuário em que clicar.
+
+<AccessibleVideo
+  id="inspecao-manter-selecionado"
+  src={ManterSelecionado}
+  title="Como funciona a opção Manter selecionado na aba Inspeção"
+  captionsSrc={ManterSelecionadoCaptionsUrl}
+  captionsContent={ManterSelecionadoCaptionsRaw}
+  descriptionsSrc={ManterSelecionadoDescriptionsUrl}
+  descriptionsContent={ManterSelecionadoDescriptionsRaw}
+/>

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.600
+Na aba Inspeção das Ferramentas do Criador Wired, o tipo de elemento é mobi. A prévia está vazia, e o cursor seleciona um relógio digital no quarto.
+
+00:00:02.600 --> 00:00:04.550
+A prévia passa a mostrar o relógio. À direita aparecem suas variáveis, incluindo ~clock.is_game_aware, ~clock.pulse_count e ~clock.state. Ao lado da prévia há um pequeno botão com a letra W.
+
+00:00:04.550 --> 00:00:05.900
+Ao posicionar o cursor sobre o botão W, uma dica explica que ele destaca as caixas Wired que incluem o mobi selecionado em suas seleções. O botão é acionado.
+
+00:00:05.900 --> 00:00:08.800
+Uma caixa na pilha de Wired à direita recebe um destaque azul-claro, identificando onde o relógio está incluído. A janela de Inspeção continua aberta com o relógio selecionado.
+
+00:00:08.800 --> 00:00:11.183
+A imagem se desloca para enquadrar melhor a pilha. A caixa Wired destacada permanece visível; o cursor se aproxima dela no fim do vídeo.
