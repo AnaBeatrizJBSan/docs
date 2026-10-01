@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Variável de usuário criada: escritor.
+
+00:00:03.600 --> 00:00:07.300
+As subvariáveis do sistema de níveis são ativadas.
+
+00:00:07.400 --> 00:00:10.700
+O usuário recebe a variável e inicia no nível 1.
+
+00:00:10.800 --> 00:00:14.500
+Variável de Mobi criada: pagina_escrita.
+
+00:00:14.600 --> 00:00:18.700
+As subvariáveis de progressão são ativadas para o Mobi.
+
+00:00:18.800 --> 00:00:21.500
+Progresso de Nível: barra média com blocos.
+
+00:00:21.600 --> 00:00:26.300
+O Mobi recebe a variável e também inicia no nível 1.

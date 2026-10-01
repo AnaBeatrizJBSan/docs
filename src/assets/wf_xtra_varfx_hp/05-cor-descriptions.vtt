@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.700
+Na configuração da Variável FX: Pontos de Saúde, o menu de estilos é aberto. A opção “Coração único” é selecionada, substituindo a barra de saúde por um único coração acima do alvo.
+
+00:00:03.800 --> 00:00:07.600
+O menu de cores é aberto e percorre uma lista de cores fixas e metálicas. A opção “[Dinâmico] Cor do Time” é selecionada, fazendo o coração acompanhar a cor do time do usuário.
+
+00:00:08.000 --> 00:00:12.300
+O avatar usa um capacete vermelho. Na janela de inspeção, suas variáveis são exibidas, incluindo informações relacionadas ao time.
+
+00:00:12.400 --> 00:00:15.700
+A opção de conceder uma variável é aberta. “pontos_de_saude_do_usuario” é selecionada e recebe o valor 100.
+
+00:00:15.800 --> 00:00:17.700
+Um coração vermelho aparece acima do avatar, combinando com seu capacete e seu time atual.
+
+00:00:17.800 --> 00:00:18.700
+Ao mudar para o time verde, o capacete e o coração ficam verdes.
+
+00:00:18.800 --> 00:00:19.700
+No time azul, o capacete e o coração mudam para azul.
+
+00:00:19.800 --> 00:00:21.900
+Por fim, no time amarelo, o capacete e o coração passam para amarelo, demonstrando a atualização dinâmica da cor.

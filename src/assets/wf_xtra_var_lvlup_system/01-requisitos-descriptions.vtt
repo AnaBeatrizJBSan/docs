@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+Em um quarto do Habbo, a configuração do Wired “Usuário Variável” está aberta ao lado de um bot e de uma pilha Wired. No campo de nome, é digitado “inteligencia”.
+
+00:00:03.200 --> 00:00:05.200
+A opção “Tem valor” permanece marcada, e a disponibilidade escolhida mantém a variável somente enquanto o usuário estiver no quarto. A configuração é confirmada.
+
+00:00:05.200 --> 00:00:08.500
+O painel Inspection exibe as variáveis do bot selecionado. Ao clicar em “Dar variável”, abre-se um formulário, e a variável “inteligencia” é escolhida na lista.
+
+00:00:08.500 --> 00:00:10.533
+O valor zero é inserido e aplicado. A nova linha “inteligencia”, com valor 0, aparece no topo da lista, confirmando que a variável foi atribuída ao bot.

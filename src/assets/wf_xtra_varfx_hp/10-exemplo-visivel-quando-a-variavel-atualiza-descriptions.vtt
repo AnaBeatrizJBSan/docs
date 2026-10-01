@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.100
+Na configuração da Variável FX: Pontos de Saúde, a seção de visibilidade está aberta. A opção “Visível quando a variável atualiza” é selecionada.
+
+00:00:04.200 --> 00:00:08.800
+Entre os tipos de atualização, apenas “Variável aumentada” permanece marcada. A duração da exibição é definida como 2.000 milissegundos.
+
+00:00:09.000 --> 00:00:14.400
+A janela de configuração é fechada e o coelho de pelúcia é inspecionado. O valor de “pontos_de_saude_do_mobi” é aumentado.
+
+00:00:14.500 --> 00:00:16.700
+Como a variável aumentou, uma barra verde com coração vermelho aparece temporariamente acima do Mobi.
+
+00:00:16.800 --> 00:00:18.500
+Após os dois segundos configurados, a barra de saúde desaparece e o coelho permanece sem o indicador visível.

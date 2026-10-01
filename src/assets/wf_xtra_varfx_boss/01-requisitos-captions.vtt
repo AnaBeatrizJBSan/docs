@@ -1,0 +1,30 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.900
+WIRED VARIÁVEL: Usuário Variável
+Nome da variável: saude_do_usuario
+Tem valor
+
+00:00:06.900 --> 00:00:11.800
+Inspection
+Variável: saude_do_usuario
+Valor: 0 → 100
+
+00:00:12.000 --> 00:00:13.000
+Barra de saúde: 100%
+
+00:00:13.600 --> 00:00:15.900
+WIRED VARIÁVEL: Mobi Variável
+Nome da variável: saude_do_mobi
+Tem valor
+
+00:00:16.000 --> 00:00:18.900
+VARIÁVEL FX: Barra de saúde do chefe
+Estilo: Vida do chefe e caveira
+Intervalo de valores: 0 a 100
+
+00:00:19.000 --> 00:00:23.900
+Inspection
+Variável: saude_do_mobi
+Valor: 0 → 100
+

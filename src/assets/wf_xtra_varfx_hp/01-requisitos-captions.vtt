@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.900
+Variável do usuário: pontos_de_saude_do_usuario.
+
+00:00:04.000 --> 00:00:08.400
+Valor inicial da variável do usuário: 100.
+
+00:00:08.500 --> 00:00:10.200
+A barra de saúde do usuário é exibida.
+
+00:00:10.300 --> 00:00:14.000
+Variável do Mobi: pontos_de_saude_do_mobi.
+
+00:00:14.100 --> 00:00:16.100
+Barra de saúde configurada para o Mobi.
+
+00:00:16.200 --> 00:00:20.900
+Valor inicial da variável do Mobi: 100.

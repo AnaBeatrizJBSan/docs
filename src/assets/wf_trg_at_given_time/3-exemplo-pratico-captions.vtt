@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:07.800
+ATIVADOR WIRED: No tempo escolhido
+Configurar tempo: 10
+
+00:00:09.000 --> 00:00:15.000
+EFEITO WIRED: Mudar estado do Mobi
+Alterar para o próximo estado
+
+00:00:16.500 --> 00:00:21.500
+ATIVADOR WIRED: Habbo anda no Mobi
+Mobi selecionado: piso colorido
+
+00:00:22.000 --> 00:00:24.800
+EFEITO WIRED: Reiniciar tempo
+
+00:00:25.000 --> 00:00:29.000
+@wired_timer reiniciado: 0
+
+00:00:29.000 --> 00:00:32.500
+@wired_timer aumenta continuamente.
+
+00:00:32.500 --> 00:00:34.666
+@wired_timer: 20. O piso muda de cor.

@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.700
+Estilo: Vida do chefe
+
+00:00:01.700 --> 00:00:06.700
+Cor: [Dinâmica] Vermelho para Verde
+Intervalo de valores: 0 a 100
+
+00:00:08.000 --> 00:00:12.800
+Variável: saude_do_usuario
+Valor: 100
+
+00:00:12.800 --> 00:00:15.300
+Valor: 50
+
+00:00:15.300 --> 00:00:16.233
+Valor: 15
+

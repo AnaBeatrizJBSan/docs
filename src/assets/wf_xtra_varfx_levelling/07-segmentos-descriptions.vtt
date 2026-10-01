@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.400
+A Variável FX: Progresso de Nível está aberta no estilo “Nível e barra”, com visual em blocos. O campo “Segmentos” está definido como 10, formando uma barra curta acima da máquina de escrever.
+
+00:00:03.500 --> 00:00:07.000
+O valor é alterado para 20. O indicador do nível 1 se estende horizontalmente e passa a exibir vinte blocos menores.
+
+00:00:07.100 --> 00:00:11.300
+Por fim, 35 segmentos são selecionados. A barra fica ainda mais comprida e apresenta trinta e cinco divisões estreitas, mantendo os primeiros blocos preenchidos em verde.

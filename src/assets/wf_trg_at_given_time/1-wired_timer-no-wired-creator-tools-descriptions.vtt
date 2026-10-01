@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.500
+A janela Wired Creator Tools está aberta na aba Monitor, exibindo estatísticas e registros do quarto. O cursor seleciona a aba Inspection.
+
+00:00:01.500 --> 00:00:04.200
+Na seção “Element type”, o cursor escolhe o ícone de globo, identificado como “Global”. A ferramenta carrega as variáveis globais do quarto.
+
+00:00:04.200 --> 00:00:07.899
+A lista de variáveis aparece. A linha “@wired_timer” fica destacada em azul, e seu valor aumenta automaticamente de 626 para 630, demonstrando a contagem contínua do temporizador Wired.

@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+Em um quarto do Habbo, três pilhas Wired estão alinhadas perto de um bot e de uma jogadora. No primeiro ativador “Habbo diz algo”, o texto “já!” é inserido e a opção de combinação exata é selecionada.
+
+00:00:04.000 --> 00:00:08.000
+O efeito “Bot segue o usuário” é configurado com o nome “fswiredclub” e a opção “Começar a seguir”. Essa pilha fará o bot perseguir quem disser “já!”.
+
+00:00:08.000 --> 00:00:12.000
+Na segunda pilha, o ativador “Bot alcança usuário” recebe novamente o nome “fswiredclub”, para detectar quando o bot alcançar a pessoa perseguida.
+
+00:00:12.000 --> 00:00:16.000
+O efeito “Mostrar mensagem” é configurado com o texto “Pego!”. A visibilidade é definida como “Todos”, permitindo que a mensagem seja vista por todos no quarto.
+
+00:00:16.000 --> 00:00:20.000
+Na terceira pilha, outro ativador “Habbo diz algo” é configurado com a palavra “tempo!”, que funcionará como comando para interromper a perseguição.
+
+00:00:20.000 --> 00:00:24.000
+Sobre esse ativador, o efeito “Bot segue o usuário” recebe o nome “fswiredclub”, desta vez com a opção “Parar de seguir”. A configuração do jogo está concluída.
+
+00:00:24.000 --> 00:00:28.000
+Na demonstração, a jogadora diz “já!”. O bot começa a segui-la enquanto ela caminha pelo quarto, aproximando-se a cada movimento.
+
+00:00:28.000 --> 00:00:31.500
+O bot alcança a jogadora. A mensagem “Pego!” aparece no alto da tela, confirmando que a segunda pilha detectou o encontro.
+
+00:00:31.500 --> 00:00:34.199
+A jogadora se afasta e diz “tempo!”. O bot interrompe a perseguição e permanece parado, demonstrando o funcionamento da terceira pilha.

@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.400
+Na configuração da Variável FX: Progresso de Nível, o menu de cores é aberto. A opção “[Dinâmico] Cor do Time” é escolhida para substituir a cor dinâmica baseada na progressão.
+
+00:00:05.500 --> 00:00:06.700
+O avatar aparece com capacete vermelho. A moldura do nível 1 e os blocos preenchidos da barra também ficam vermelhos.
+
+00:00:06.800 --> 00:00:09.700
+Ao entrar no time verde, o capacete e o indicador ficam verdes. Em seguida, ambos mudam para azul quando o time é trocado novamente.
+
+00:00:09.800 --> 00:00:11.700
+Por fim, no time amarelo, o capacete, a moldura do nível e os blocos preenchidos ficam amarelos, confirmando a atualização dinâmica.

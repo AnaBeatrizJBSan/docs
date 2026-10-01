@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.300
+A máquina de escrever é inspecionada. Conforme os valores de nível e experiência são alterados, o indicador acima do Mobi passa do nível 1 para níveis mais altos e começa a preencher seus blocos.
+
+00:00:05.400 --> 00:00:08.800
+O indicador chega ao nível 3 com blocos verdes e depois ao nível 11, quando sua moldura e seu preenchimento assumem tons roxos.
+
+00:00:08.900 --> 00:00:11.300
+Os valores retornam a níveis menores. O indicador mostra o nível 2 em verde e, em seguida, volta ao nível 1 com a barra vazia.
+
+00:00:11.400 --> 00:00:14.000
+A Variável FX: Progresso de Nível é aberta. A cor está configurada como “[Dinâmico] Progressão de nível”, e o estilo é alterado de “Nível e barra” para “Detalhes do nível”.
+
+00:00:14.100 --> 00:00:16.300
+O novo indicador exibe o nível 1 e a relação de experiência “0 de 1”, com uma linha colorida na parte inferior.
+
+00:00:16.400 --> 00:00:18.600
+Novas atualizações mostram o nível 5 com “4 de 6” e o nível 6 com “5 de 6”. A moldura e a linha passam para tons de azul, acompanhando a progressão.

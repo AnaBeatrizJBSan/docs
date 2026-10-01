@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.100
+Visibilidade: quando a variável atualiza.
+
+00:00:04.200 --> 00:00:08.800
+Condição: variável aumentada. Duração: 2.000 milissegundos.
+
+00:00:09.000 --> 00:00:14.400
+O valor de pontos_de_saude_do_mobi é aumentado.
+
+00:00:14.500 --> 00:00:16.700
+A barra de saúde aparece por 2 segundos.
+
+00:00:16.800 --> 00:00:18.500
+A barra de saúde desaparece automaticamente.

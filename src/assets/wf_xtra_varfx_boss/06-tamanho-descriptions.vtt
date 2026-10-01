@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.800
+O dinossauro é selecionado na ferramenta de inspeção. A variável saude_do_mobi é atribuída a ele com o valor cem.
+
+00:00:03.800 --> 00:00:07.800
+Uma barra vermelha totalmente preenchida, com caveiras nas extremidades, aparece acima do dinossauro. Na configuração da Variável FX, o estilo Vida do chefe e caveira é mantido e o tamanho Grande é demonstrado.
+
+00:00:07.800 --> 00:00:10.000
+O tamanho é alterado para Extra grande. A barra com caveiras fica mais larga acima do dinossauro.
+
+00:00:10.000 --> 00:00:12.400
+O tamanho Enorme é selecionado. A barra se expande ainda mais, ocupando uma grande parte da largura do quarto.
+
+00:00:12.400 --> 00:00:15.800
+O estilo é alterado para Vida do chefe, removendo as caveiras das extremidades. O tamanho Grande é selecionado e uma barra simples e compacta aparece acima do dinossauro.
+
+00:00:15.800 --> 00:00:18.000
+O tamanho Extra grande é selecionado. A barra simples aumenta de largura, permanecendo totalmente preenchida em vermelho.
+
+00:00:18.000 --> 00:00:20.466
+Por fim, o tamanho Enorme é selecionado. A barra simples alcança sua maior largura acima do dinossauro.

@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.200
+Em um quarto vazio do Habbo, um avatar está sobre o piso branco. À esquerda, o Depósito do Arquiteto está aberto na seção Wired, exibindo as categorias de mobis.
+
+00:00:04.200 --> 00:00:08.400
+Na categoria Ativadores, o cursor seleciona “Habbo anda no Mobi”. O ativador Wired é colocado no chão, ao lado do avatar.
+
+00:00:08.400 --> 00:00:11.300
+O catálogo muda para os mobis de jogos. Um Piso Escuro é escolhido e colocado diante do ativador.
+
+00:00:11.300 --> 00:00:14.700
+A configuração do ativador é aberta. O Piso Escuro recebe um contorno azul e é definido como o mobi que acionará o sistema quando o avatar andar sobre ele.
+
+00:00:14.700 --> 00:00:18.900
+O cursor abre a categoria Efeitos e seleciona “Mostrar mensagem”. O novo Wired é colocado sobre o ativador, formando uma pilha de dois blocos.
+
+00:00:18.900 --> 00:00:23.500
+Na configuração do efeito, o texto “Pisou!” é digitado no campo Mensagem. A configuração é confirmada, mantendo o efeito empilhado sobre o ativador.
+
+00:00:23.500 --> 00:00:27.086
+Para testar o sistema, o avatar se afasta e volta a andar sobre o Piso Escuro. Uma notificação com o texto “Pisou!” aparece, confirmando que a pilha Wired funciona.
