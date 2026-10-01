@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.850
+Inspeção de mobi: um coelho aparece na prévia, com a opção “Manter selecionado” marcada.
+
+00:00:05.850 --> 00:00:08.350
+A opção “Manter selecionado” é desmarcada.
+
+00:00:08.350 --> 00:00:10.450
+A prévia e as variáveis passam a mostrar um cronômetro.
+
+00:00:10.450 --> 00:00:12.900
+Tipo de elemento: usuário. A prévia pede para selecionar um usuário. “Manter selecionado” é marcada.
+
+00:00:12.900 --> 00:00:15.250
+Um bot aparece na prévia. Variáveis: “usuario_wired_club: 0” e “@type: 4 (Bot)”.
+
+00:00:15.250 --> 00:00:17.750
+“Manter selecionado” é desmarcada. O bot ainda aparece na prévia.
+
+00:00:17.750 --> 00:00:18.899
+A prévia muda para outra personagem. Variáveis: “@type: 1 (User)” e “@level: 30”.
