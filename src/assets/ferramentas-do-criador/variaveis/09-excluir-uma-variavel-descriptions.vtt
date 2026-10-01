@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.700
+Na aba Inspeção, um mobi de coelho está selecionado. A lista de variáveis inclui mobi_wired_club.
+
+00:00:01.700 --> 00:00:04.450
+A aba Variáveis mostra mobi_wired_club selecionada na visão geral. O cursor vai até o ícone vermelho de lixeira e clica nele.
+
+00:00:04.450 --> 00:00:05.900
+Uma janela avisa que limpar a variável a removerá de todos os usuários e mobis que a possuem, sem possibilidade de desfazer. O cursor clica em OK.
+
+00:00:05.900 --> 00:00:07.600
+A janela fecha. mobi_wired_club permanece na lista da visão geral.
+
+00:00:07.600 --> 00:00:08.850
+De volta à Inspeção do coelho, mobi_wired_club desapareceu da lista de variáveis do mobi.
