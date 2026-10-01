@@ -1,10 +1,10 @@
 ---
 title: "WIRED Variável: Usuário Variável"
-description: Esta variável armazena valores ligados a um usuário específico.
+description: Aprenda a criar variáveis de usuário, definir sua disponibilidade e consultar as variáveis internas de jogadores, bots e mascotes.
 sidebar:
   label: Usuário Variável
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -40,6 +40,150 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+import Infobox from "@components/Infobox.astro";
+
+O **Wired Variável: Usuário Variável** permite criar informações e associá-las aos usuários do quarto. Quer guardar a pontuação de um jogador, identificar quem participa de uma partida ou marcar um bot como vendedor? Você pode utilizar uma variável de usuário para isso.
+
+No Habbo, **usuário** não significa apenas um jogador: **bots e mascotes** também fazem parte desse grupo. Cada um possui características que o jogo disponibiliza automaticamente, como tipo, posição e direção. Este Wired permite criar suas próprias informações, além das [variáveis internas](#variáveis-internas-de-usuário) já oferecidas pelo Habbo.
 
 <Infobox />
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração, você encontra três seções: **Nome da variável**, **Configurações da variável** e **Opções de disponibilidade**.
+
+![Janela do Wired Usuário Variável com o campo Nome da variável vazio, a opção Tem valor desmarcada e a disponibilidade Enquanto o usuário está no quarto selecionada.](@assets/wf_var_user/01-janela-do-wired.png)
+
+### Nome da variável
+
+Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e underline (`_`)**.
+
+Prefira nomes que ajudem a entender o que a variável representa, como `pontuacao`, `participando_do_jogo` ou `vendedor`.
+
+### Configurações da variável
+
+A opção **Tem valor** define se a variável armazena um número ou apenas indica a presença de uma característica:
+
+| Opção | Como funciona | Exemplo |
+| :--- | :--- | :--- |
+| **Marcada** | A variável pode armazenar um valor numérico. | `pontuacao` guarda os pontos de cada jogador. |
+| **Desmarcada** | A variável funciona como uma informação de verdadeiro ou falso, conforme esteja vinculada ao usuário ou não. | `participando_do_jogo` identifica quem está na partida. |
+
+No exemplo de uma variável sem valor, estar vinculada ao usuário representa **verdadeiro**. Se ela não estiver vinculada, representa **falso**. Você não precisa armazenar os números 1 e 0 para fazer essa distinção.
+
+#### Valores que a variável pode armazenar
+
+Com a opção **Tem valor** marcada, a variável armazena apenas **valores numéricos**, que podem ser positivos, negativos ou zero. Ela não armazena texto diretamente.
+
+O limite positivo é **2.147.483.647**. Se a variável já estiver nesse valor e você utilizar o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) para adicionar **1**, o número passa para **-2.147.483.648**. Ao continuar adicionando 1, os próximos valores serão **-2.147.483.647**, **-2.147.483.646** e assim por diante.
+
+Na versão **Clássica (Flash)** do Habbo, valores **iguais ou superiores a 2.147.483.647** não são mostrados na inspeção da variável. No lugar do número, aparece o texto **Oculto** em cor vermelha. Ao passar o mouse sobre esse texto, aparece a mensagem **“O cliente clássico não pode inspecionar este valor, é muito grande.”**
+
+![Tabela de variáveis com o valor de wired_club substituído por Hidden em vermelho e uma mensagem em inglês informando que o cliente clássico não pode inspecionar o valor porque ele é muito grande.](@assets/wf_var_user/03-texto-numero-muito-grande.png)
+
+### Opções de disponibilidade
+
+Esta seção define por quanto tempo a variável fica associada ao usuário e se ela pode ser acessada por outros quartos.
+
+| Opção | Como funciona |
+| :--- | :--- |
+| **Enquanto o usuário está no quarto** | A associação é mantida enquanto o usuário permanece no quarto. Ao sair, ele perde essa variável. |
+| **Permanente** | A associação é mantida mesmo depois que o usuário sai do quarto, até que seja removida ou a variável seja excluída. |
+| **Permanente, compartilhado entre quartos** | Além de permanecer associada ao usuário, a variável pode ser acessada em outros quartos por meio do [Wired Variável: De Outro Quarto](/referencia/variaveis/wf_var_reference/). |
+
+Por exemplo, uma marcação de participação em uma atividade pode existir apenas durante a visita ao quarto. Já uma pontuação que o jogador deve conservar para a próxima visita pode utilizar a opção **Permanente**.
+
+## Vincular a variável a um usuário
+
+Depois de confirmar a configuração, a variável aparece na lista do alvo **Usuário** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). Porém, **criar a variável não significa vinculá-la automaticamente a algum usuário**.
+
+Para fazer essa associação, você pode utilizar:
+
+* O [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/), para atribuí-la aos usuários definidos na configuração do Efeito.
+* O botão [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável) da aba **Inspeção**, depois de selecionar o usuário desejado.
+
+Imagine que você criou `pontuacao` com a opção **Tem valor** marcada. Ao atribuí-la a um jogador, você define o valor inicial que será utilizado pelo seu sistema. Cada usuário possui sua própria associação e seu próprio valor para essa variável.
+
+## Renomear a variável
+
+Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Usuário Variável**, edite o campo **Nome da variável** e confirme a alteração.
+
+## Retirar o Wired do quarto
+
+Ao tentar retirar este Wired depois de criar a variável, aparece uma janela pedindo confirmação. Ela informa que todas as referências à variável e todos os dados armazenados por ela serão apagados.
+
+![Janela Removendo uma variável avisando que todas as referências e os dados armazenados serão apagados, com as opções Cancelar e Ok.](@assets/wf_var_user/02-janela-de-aviso-ao-remover-wired.png)
+
+<Aside type="caution" title="Confira antes de remover">
+Retirar o Wired afeta a definição da variável e os dados associados a ela. Se você quer apenas desvinculá-la de um usuário específico, utilize a opção [Remover variável](/referencia/ferramentas-do-criador/inspecao/#remover-variável) na aba Inspeção.
+</Aside>
+
+## Variáveis internas de usuário
+
+Jogadores, bots e mascotes possuem variáveis internas, mas nem todas estão disponíveis para todos esses tipos de usuário. A lista abaixo reúne as que são **comuns a todos eles**.
+
+Essas variáveis possuem a propriedade **Sempre disponível** definida como **Sim** (verdadeiro). Isso significa que elas existem em todos os usuários, conforme explicado em [O que significa estar sempre disponível?](/referencia/ferramentas-do-criador/variaveis/#o-que-significa-estar-sempre-disponível).
+
+Para consultar todas as variáveis que os usuários podem ter, incluindo as que dependem do tipo de usuário ou de condições específicas, acesse a aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) e selecione o alvo **Usuário**. Já a aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/) permite conferir quais variáveis estão vinculadas a um usuário específico.
+
+| Variável | O que representa |
+| :--- | :--- |
+| `@index` | O índice atribuído ao usuário quando entra no quarto. A contagem começa em **0** depois que o quarto é carregado. Se o usuário sair e entrar novamente, recebe um novo índice. |
+| `@type` | O tipo do usuário: jogador, mascote, bot de espaço público ou bot comprado na loja. |
+| `@gender` | O gênero do usuário. Mascotes utilizam o valor correspondente a desconhecido. |
+| `@level` | O nível da conta do jogador. Bots e mascotes recebem **0**. |
+| `@achievement_score` | A quantidade de pontos de conquista da conta. Bots e mascotes recebem **0**. |
+| `@position.x` | A posição do usuário no eixo **X** do quarto. |
+| `@position.y` | A posição do usuário no eixo **Y** do quarto. |
+| `@direction` | A direção para a qual o usuário está voltado. |
+| `@altitude` | A altitude do usuário no quarto. |
+| `@room_entry.method` | A forma como o usuário entrou no quarto. |
+
+As variáveis `@type`, `@gender`, `@direction` e `@room_entry.method` possuem textos associados aos seus valores numéricos. As tabelas abaixo mostram o significado de cada valor.
+
+### Tipo de usuário
+
+A variável `@type` permite distinguir os diferentes tipos de usuário:
+
+| Valor | Tipo |
+| :--- | :--- |
+| **1** | Jogador. |
+| **2** | Mascote. |
+| **3** | Bot de espaço público. |
+| **4** | Bot comprado na loja. |
+
+### Gênero
+
+A variável `@gender` utiliza os seguintes valores:
+
+| Valor | Gênero |
+| :--- | :--- |
+| **-1** | Desconhecido, utilizado para mascotes. |
+| **0** | Masculino. |
+| **1** | Feminino. |
+
+### Direção
+
+A variável `@direction` representa uma das oito direções:
+
+| Valor | Direção |
+| :--- | :--- |
+| **0** | Norte (`N`). |
+| **1** | Nordeste (`NE`). |
+| **2** | Leste (`E`). |
+| **3** | Sudeste (`SE`). |
+| **4** | Sul (`S`). |
+| **5** | Sudoeste (`SW`). |
+| **6** | Oeste (`W`). |
+| **7** | Noroeste (`NW`). |
+
+### Forma de entrada no quarto
+
+A variável `@room_entry.method` indica como o usuário acessou o quarto:
+
+| Valor | Forma de entrada |
+| :--- | :--- |
+| **1** | **Padrão:** entrada pelo navegador de quartos. |
+| **2** | **Teleporte:** entrada utilizando um teleporte. |
+| **3** | **Link de quarto:** entrada utilizando o mobi **Conector de Quarto WIRED**. |
