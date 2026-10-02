@@ -42,6 +42,14 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import DirecaoN from "@assets/wf_var_user/05-direcao-N.png";
+import DirecaoNE from "@assets/wf_var_user/05-direcao-NE.png";
+import DirecaoE from "@assets/wf_var_user/05-direcao-E.png";
+import DirecaoSE from "@assets/wf_var_user/05-direcao-SE.png";
+import DirecaoS from "@assets/wf_var_user/05-direcao-S.png";
+import DirecaoSW from "@assets/wf_var_user/05-direcao-SW.png";
+import DirecaoW from "@assets/wf_var_user/05-direcao-W.png";
+import DirecaoNW from "@assets/wf_var_user/05-direcao-NW.png";
 
 O **Wired Variável: Usuário Variável** permite criar informações e associá-las aos usuários do quarto. Quer guardar a pontuação de um jogador, identificar quem participa de uma partida ou marcar um bot como vendedor? Você pode utilizar uma variável de usuário para isso.
 
@@ -94,6 +102,10 @@ Esta seção define por quanto tempo a variável fica associada ao usuário e se
 
 Por exemplo, uma marcação de participação em uma atividade pode existir apenas durante a visita ao quarto. Já uma pontuação que o jogador deve conservar para a próxima visita pode utilizar a opção **Permanente**.
 
+### Ver no menu Wired
+
+Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
+
 ## Vincular a variável a um usuário
 
 Depois de confirmar a configuração, a variável aparece na lista do alvo **Usuário** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). Porém, **criar a variável não significa vinculá-la automaticamente a algum usuário**.
@@ -134,8 +146,8 @@ Para consultar todas as variáveis que os usuários podem ter, incluindo as que 
 | `@gender` | O gênero do usuário. Mascotes utilizam o valor correspondente a desconhecido. |
 | `@level` | O nível da conta do jogador. Bots e mascotes recebem **0**. |
 | `@achievement_score` | A quantidade de pontos de conquista da conta. Bots e mascotes recebem **0**. |
-| `@position.x` | A posição do usuário no eixo **X** do quarto. |
-| `@position.y` | A posição do usuário no eixo **Y** do quarto. |
+| `@position.x` | A posição do usuário no eixo **X** (horizontal) do quarto. |
+| `@position.y` | A posição do usuário no eixo **Y** (vertical) do quarto. |
 | `@direction` | A direção para a qual o usuário está voltado. |
 | `@altitude` | A altitude do usuário no quarto. |
 | `@room_entry.method` | A forma como o usuário entrou no quarto. |
@@ -167,16 +179,16 @@ A variável `@gender` utiliza os seguintes valores:
 
 A variável `@direction` representa uma das oito direções:
 
-| Valor | Direção |
-| :--- | :--- |
-| **0** | Norte (`N`). |
-| **1** | Nordeste (`NE`). |
-| **2** | Leste (`E`). |
-| **3** | Sudeste (`SE`). |
-| **4** | Sul (`S`). |
-| **5** | Sudoeste (`SW`). |
-| **6** | Oeste (`W`). |
-| **7** | Noroeste (`NW`). |
+| Valor | Direção | Representação do usuário |
+| :--- | :--- | :---: |
+| **0** | Norte (`N`). | <img src={DirecaoN.src} alt="Avatar voltado para o norte, direção 0." style={{ width: "64px", height: "auto" }} /> |
+| **1** | Nordeste (`NE`). | <img src={DirecaoNE.src} alt="Avatar voltado para o nordeste, direção 1." style={{ width: "64px", height: "auto" }} /> |
+| **2** | Leste (`E`). | <img src={DirecaoE.src} alt="Avatar voltado para o leste, direção 2." style={{ width: "64px", height: "auto" }} /> |
+| **3** | Sudeste (`SE`). | <img src={DirecaoSE.src} alt="Avatar voltado para o sudeste, direção 3." style={{ width: "64px", height: "auto" }} /> |
+| **4** | Sul (`S`). | <img src={DirecaoS.src} alt="Avatar voltado para o sul, direção 4." style={{ width: "64px", height: "auto" }} /> |
+| **5** | Sudoeste (`SW`). | <img src={DirecaoSW.src} alt="Avatar voltado para o sudoeste, direção 5." style={{ width: "64px", height: "auto" }} /> |
+| **6** | Oeste (`W`). | <img src={DirecaoW.src} alt="Avatar voltado para o oeste, direção 6." style={{ width: "64px", height: "auto" }} /> |
+| **7** | Noroeste (`NW`). | <img src={DirecaoNW.src} alt="Avatar voltado para o noroeste, direção 7." style={{ width: "64px", height: "auto" }} /> |
 
 ### Forma de entrada no quarto
 
