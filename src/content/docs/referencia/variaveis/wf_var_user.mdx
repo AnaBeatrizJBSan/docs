@@ -42,6 +42,17 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import VincularPeloEfeito from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel.mp4";
+import VincularPeloEfeitoCaptionsUrl from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-captions.vtt?url";
+import VincularPeloEfeitoCaptionsRaw from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-captions.vtt?raw";
+import VincularPeloEfeitoDescriptionsUrl from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-descriptions.vtt?url";
+import VincularPeloEfeitoDescriptionsRaw from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-descriptions.vtt?raw";
+import VincularPelaInspecao from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel.mp4";
+import VincularPelaInspecaoCaptionsUrl from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-captions.vtt?url";
+import VincularPelaInspecaoCaptionsRaw from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-captions.vtt?raw";
+import VincularPelaInspecaoDescriptionsUrl from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?url";
+import VincularPelaInspecaoDescriptionsRaw from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?raw";
 import DirecaoN from "@assets/wf_var_user/05-direcao-N.png";
 import DirecaoNE from "@assets/wf_var_user/05-direcao-NE.png";
 import DirecaoE from "@assets/wf_var_user/05-direcao-E.png";
@@ -110,12 +121,45 @@ Depois de confirmar as configurações, clique duas vezes no Wired novamente. A 
 
 Depois de confirmar a configuração, a variável aparece na lista do alvo **Usuário** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). Porém, **criar a variável não significa vinculá-la automaticamente a algum usuário**.
 
-Para fazer essa associação, você pode utilizar:
+Você pode fazer essa associação por uma pilha Wired ou manualmente pela aba **Inspeção**. Nos exemplos abaixo, vamos utilizar a variável `rating_wired_club` para conhecer as duas formas.
 
-* O [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/), para atribuí-la aos usuários definidos na configuração do Efeito.
-* O botão [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável) da aba **Inspeção**, depois de selecionar o usuário desejado.
+### Pelo Efeito Wired: Dar Variável
 
-Imagine que você criou `pontuacao` com a opção **Tem valor** marcada. Ao atribuí-la a um jogador, você define o valor inicial que será utilizado pelo seu sistema. Cada usuário possui sua própria associação e seu próprio valor para essa variável.
+O [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/) permite atribuir a variável aos usuários definidos na configuração da pilha. Imagine que você queira fazer isso para quem estiver em uma área do quarto: nesse caso, um seletor pode determinar quem receberá a variável.
+
+Para montar o exemplo, crie `rating_wired_club` com **Tem valor**. Depois, selecione essa variável no Efeito **Dar Variável**, mantenha o valor inicial em **0** e escolha **Usar usuários do seletor** como destino.
+
+A área será definida pelo **Seletor Wired: Habbos na Área**. Já o **Ativador Wired: Repetir Efeito**, configurado com um intervalo de **10 segundos**, acionará a pilha para atribuir a variável aos usuários selecionados.
+
+O vídeo abaixo mostra essa configuração e a conferência do resultado pelo botão [Destacar](/referencia/ferramentas-do-criador/variaveis/#destacar), na aba **Variáveis**. Os alvos ficam realçados, e os balões com o valor **0** ajudam a visualizar a associação feita pelo sistema.
+
+<AccessibleVideo
+  id="usuario-variavel-vincular-pelo-efeito"
+  src={VincularPeloEfeito}
+  captionsSrc={VincularPeloEfeitoCaptionsUrl}
+  captionsContent={VincularPeloEfeitoCaptionsRaw}
+  descriptionsSrc={VincularPeloEfeitoDescriptionsUrl}
+  descriptionsContent={VincularPeloEfeitoDescriptionsRaw}
+  title="Vincular uma variável ao usuário com o Efeito Wired: Dar Variável"
+/>
+
+### Pelo botão Dar variável da aba Inspeção
+
+Você também pode atribuir a variável diretamente a um usuário, o que ajuda a preparar dados para um teste. Para isso, selecione o alvo na aba **Inspeção** e clique em [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável). No formulário, escolha `rating_wired_club`, informe o **Valor** e confirme em **Criar**. A variável passará a aparecer na lista desse usuário.
+
+Para demonstrar que **cada usuário mantém seu próprio valor**, o próximo exemplo atribui **1** a um jogador, **2** a um bot e **3** a um mascote.
+
+Acompanhe o processo no vídeo abaixo. Ao final, o mesmo botão **Destacar** usado no exemplo anterior permite conferir os três valores no quarto, agora definidos individualmente pela Inspeção.
+
+<AccessibleVideo
+  id="usuario-variavel-vincular-pela-inspecao"
+  src={VincularPelaInspecao}
+  captionsSrc={VincularPelaInspecaoCaptionsUrl}
+  captionsContent={VincularPelaInspecaoCaptionsRaw}
+  descriptionsSrc={VincularPelaInspecaoDescriptionsUrl}
+  descriptionsContent={VincularPelaInspecaoDescriptionsRaw}
+  title="Vincular uma variável ao usuário pelo botão Dar variável da aba Inspeção"
+/>
 
 ## Renomear a variável
 
@@ -142,7 +186,7 @@ Para consultar todas as variáveis que os usuários podem ter, incluindo as que 
 | Variável | O que representa |
 | :--- | :--- |
 | `@index` | O índice atribuído ao usuário quando entra no quarto. A contagem começa em **0** depois que o quarto é carregado. Se o usuário sair e entrar novamente, recebe um novo índice. |
-| `@type` | O tipo do usuário: jogador, mascote, bot de espaço público ou bot comprado na loja. |
+| `@type` | O tipo do usuário: jogador, mascote, bot de espaços públicos ou bot comprado na loja. |
 | `@gender` | O gênero do usuário. Mascotes utilizam o valor correspondente a desconhecido. |
 | `@level` | O nível da conta do jogador. Bots e mascotes recebem **0**. |
 | `@achievement_score` | A quantidade de pontos de conquista da conta. Bots e mascotes recebem **0**. |
@@ -162,7 +206,7 @@ A variável `@type` permite distinguir os diferentes tipos de usuário:
 | :--- | :--- |
 | **1** | Jogador. |
 | **2** | Mascote. |
-| **3** | Bot de espaço público. |
+| **3** | Bot de espaços públicos. Por exemplo: a Aninha Pixel do Clube de Boas-Vindas ou o Juarez do Cafézinho |
 | **4** | Bot comprado na loja. |
 
 ### Gênero
