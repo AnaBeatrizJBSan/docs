@@ -70,6 +70,8 @@ No Habbo, **usuário** não significa apenas um jogador: **bots e mascotes** tam
 
 ## Como esse Wired funciona?
 
+O primeiro passo é **criar a variável**. Nesta etapa, você define seu nome, se ela armazena um número e por quanto tempo ficará disponível.
+
 Ao abrir a janela de configuração, você encontra três seções: **Nome da variável**, **Configurações da variável** e **Opções de disponibilidade**.
 
 ![Janela do Wired Usuário Variável com o campo Nome da variável vazio, a opção Tem valor desmarcada e a disponibilidade Enquanto o usuário está no quarto selecionada.](@assets/wf_var_user/01-janela-do-wired.png)
@@ -77,6 +79,8 @@ Ao abrir a janela de configuração, você encontra três seções: **Nome da va
 ### Nome da variável
 
 Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e underline (`_`)**.
+
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **underline (`_`)**. Por exemplo, `pontos do jogador` se torna `pontos_do_jogador`.
 
 Prefira nomes que ajudem a entender o que a variável representa, como `pontuacao`, `participando_do_jogo` ou `vendedor`.
 
@@ -117,6 +121,8 @@ Por exemplo, uma marcação de participação em uma atividade pode existir apen
 
 Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
 
+![](@assets/wf_var_user/04-janela-do-wired-com-opcao-ver-no-menu-wired.png)
+
 ## Vincular a variável a um usuário
 
 Depois de confirmar a configuração, a variável aparece na lista do alvo **Usuário** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). Porém, **criar a variável não significa vinculá-la automaticamente a algum usuário**.
@@ -151,6 +157,10 @@ Para demonstrar que **cada usuário mantém seu próprio valor**, o próximo exe
 
 Acompanhe o processo no vídeo abaixo. Ao final, o mesmo botão **Destacar** usado no exemplo anterior permite conferir os três valores no quarto, agora definidos individualmente pela Inspeção.
 
+<Aside type="tip" title="Para acompanhar o vídeo">
+O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários e mobis. Se quiser utilizar esse botão ao acompanhar o exemplo, você pode ativar a opção [Mostrar o botão de Inspeção em usuários e mobis](/referencia/ferramentas-do-criador/configuracoes/#mostrar-o-botão-de-inspeção-em-usuários-e-mobis) nas Ferramentas do Criador.
+</Aside>
+
 <AccessibleVideo
   id="usuario-variavel-vincular-pela-inspecao"
   src={VincularPelaInspecao}
@@ -161,9 +171,37 @@ Acompanhe o processo no vídeo abaixo. Ao final, o mesmo botão **Destacar** usa
   title="Vincular uma variável ao usuário pelo botão Dar variável da aba Inspeção"
 />
 
+## Alterar o valor da variável
+
+Depois de criar a variável e vinculá-la a um usuário, você pode modificar o número que ela armazena. Isso permite, por exemplo, aumentar uma pontuação conforme o jogador realiza uma ação no quarto.
+
+Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `rating_wired_club`, escolha a operação **Somar** e informe **1** como valor de referência. Confira também a fonte de usuários: ela determina quais usuários terão seus valores alterados quando a pilha for acionada.
+
+Se um jogador possui `rating_wired_club` com valor **0**, essa operação faz seu valor passar para **1**. Cada usuário mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
+
+Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável): clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
+
+Essas operações se aplicam às variáveis com **Tem valor** marcado. Para uma variável sem valor, como `participando_do_jogo`, o que importa é atribuí-la ou removê-la do usuário.
+
+{/* Adicionar vídeo de exemplo: alterar o valor de rating_wired_club. */}
+
+## Exibir o valor da variável no quarto
+
+Até aqui, utilizamos as **Ferramentas do Criador** para consultar e conferir os valores. Como nem todos os participantes têm acesso a essas ferramentas, você pode exibir a informação diretamente no quarto para que ela faça parte da experiência do jogo.
+
+Uma forma simples é utilizar a [Variável FX: Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/). Coloque esse Wired acima do **Wired Variável: Usuário Variável** que define `rating_wired_club`. O efeito visual mostrará o valor acima dos usuários que possuem a variável.
+
+Depois, configure o estilo e a visibilidade do número. Se quiser que todos no quarto possam acompanhá-lo, escolha a audiência **Todos**; para que o próprio jogador veja seu valor, escolha **Somente o usuário**. A opção **Sempre visível** pode ajudar a acompanhar as mudanças durante o exemplo.
+
+Assim, quando o Efeito **Mudar Valor Variável** somar **1**, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
+
+{/* Adicionar vídeo de exemplo: exibir rating_wired_club no quarto com a Variável FX: Exibição de Números. */}
+
 ## Renomear a variável
 
 Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Usuário Variável**, edite o campo **Nome da variável** e confirme a alteração.
+
+Depois de confirmar, o novo nome passa a aparecer em todos os locais das **Ferramentas do Criador** que fazem referência a essa variável, como a lista da aba **Variáveis** e a tabela da aba **Inspeção**.
 
 ## Retirar o Wired do quarto
 
@@ -171,8 +209,10 @@ Ao tentar retirar este Wired depois de criar a variável, aparece uma janela ped
 
 ![Janela Removendo uma variável avisando que todas as referências e os dados armazenados serão apagados, com as opções Cancelar e Ok.](@assets/wf_var_user/02-janela-de-aviso-ao-remover-wired.png)
 
+Você também pode excluir a variável pela aba **Variáveis** das Ferramentas do Criador. Selecione-a na lista e utilize o ícone de excluir no rodapé, conforme explicado em [Excluir uma variável](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável). A ação pede confirmação, afeta todos os usuários que possuem a variável e não pode ser desfeita.
+
 <Aside type="caution" title="Confira antes de remover">
-Retirar o Wired afeta a definição da variável e os dados associados a ela. Se você quer apenas desvinculá-la de um usuário específico, utilize a opção [Remover variável](/referencia/ferramentas-do-criador/inspecao/#remover-variável) na aba Inspeção.
+Retirar o Wired ou excluir a variável pela aba Variáveis afeta a definição e os dados associados a ela. Se você quer apenas desvinculá-la de um usuário específico, utilize a opção [Remover variável](/referencia/ferramentas-do-criador/inspecao/#remover-variável) na aba Inspeção.
 </Aside>
 
 ## Variáveis internas de usuário
