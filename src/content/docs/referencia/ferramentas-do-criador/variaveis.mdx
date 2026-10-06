@@ -35,7 +35,7 @@ Você também pode abrir a janela com `:wired` ou `:wf` e selecionar a aba manua
 
 A interface reúne quatro seções: **Tipos de variável**, **Propriedades**, **Escolha de variável** e **Valores textuais**.
 
-![Aba Variables das Ferramentas do Criador com seleção de alvo, lista de variáveis, propriedades e valores textuais](@assets/ferramentas-do-criador/variaveis/01-janela-ferramentas-do-criador.png "Aba Variáveis das Ferramentas do Criador")
+![Aba Variables das Ferramentas do Criador com seleção de alvo, lista de variáveis, propriedades e valores textuais](@assets/ferramentas-do-criador/variaveis/01-janela-ferramentas-do-criador.png)
 
 ## Tipos de variável
 
@@ -46,7 +46,7 @@ No início da aba, quatro ícones permitem escolher o alvo das variáveis que vo
 * **Global:** variáveis relacionadas ao quarto como um todo. Por exemplo: contador geral de partidas.
 * **Contexto:** variáveis relacionadas à execução atual dos Wireds. Por exemplo: informações do evento que acionou a pilha.
 
-![Ícones para selecionar variáveis de mobi, usuário, global e contexto](@assets/ferramentas-do-criador/variaveis/02-tipos-de-variavel.gif "Seleção do alvo das variáveis")
+![Ícones para selecionar variáveis de mobi, usuário, global e contexto](@assets/ferramentas-do-criador/variaveis/02-tipos-de-variavel.gif)
 
 Ao abrir a aba, o ícone de **Mobi** já está selecionado. Clicar em outro ícone atualiza as informações das demais seções para mostrar as variáveis relacionadas ao alvo escolhido.
 
@@ -56,7 +56,7 @@ Por exemplo, para consultar uma variável de usuário, selecione primeiro o íco
 
 Esta seção apresenta uma tabela com as colunas **Propriedade** e **Valor**. A primeira linha já vem selecionada ao abrir a aba, e as informações exibidas descrevem a variável escolhida.
 
-![Tabela de propriedades da variável interna @id, com nome, tipo, alvo e permissões](@assets/ferramentas-do-criador/variaveis/03-propriedades.png "Propriedades da variável selecionada")
+![Tabela de propriedades da variável interna @id, com nome, tipo, alvo e permissões](@assets/ferramentas-do-criador/variaveis/03-propriedades.png)
 
 | Propriedade | O que representa |
 | :--- | :--- |
@@ -81,7 +81,7 @@ O campo **Tipo** ajuda a identificar de onde vem a variável:
 * **Inteligente:** seu nome começa com `~` (til) e ela só aparece na lista quando existe algo no quarto relacionado a ela.
 * **Interna:** é criada pelo jogo e seu nome começa com `@` (arroba).
 
-![Lista com a variável criada pelo usuário wired_club, uma variável inteligente com prefixo ~walk_helper e a variável interna @id](@assets/ferramentas-do-criador/variaveis/04-variaveis-criadas-pelo-usuario-inteligentes-e-internas.png "Variáveis criadas pelo usuário, inteligentes e internas")
+![Lista com a variável criada pelo usuário wired_club, uma variável inteligente com prefixo ~walk_helper e a variável interna @id](@assets/ferramentas-do-criador/variaveis/04-variaveis-criadas-pelo-usuario-inteligentes-e-internas.png)
 
 Alguns mobis e usuários possuem variáveis inteligentes próprias. Conheça alguns exemplos de prefixos que você pode encontrar:
 
@@ -111,7 +111,7 @@ Esta seção lista as variáveis relacionadas ao alvo selecionado. Cada alvo pos
 
 Selecione uma variável para consultar suas propriedades e, quando houver, os textos associados aos seus valores. No rodapé da lista, você encontra os controles **Destacar**, **Gerenciar** e o **ícone de excluir**.
 
-<img src={EscolhaDeVariavel.src} alt="Lista de variáveis do alvo selecionado com os botões Destacar, Gerenciar e Excluir" title="Escolha de variável" style={{ width: "30%" }} />
+<img src={EscolhaDeVariavel.src} alt="Lista de variáveis do alvo selecionado com os botões Destacar, Gerenciar e Excluir" style={{ width: "30%" }} />
 
 ### Destacar
 
@@ -124,7 +124,7 @@ Esse recurso **não funciona para variáveis internas, apenas para variáveis in
 
 Se você tentar destacar uma variável com mais alvos associados do que o limite permite, o jogo impedirá o destaque e exibirá a notificação abaixo:
 
-<img style={{ width: "35%" }} src={DestacarErro.src} alt="Notificação com a mensagem: Não é permitido destacar esta variável, pois há muitos alvos associados a ela" title="Limite de alvos para destacar uma variável" />
+<img style={{ width: "35%" }} src={DestacarErro.src} alt="Notificação com a mensagem: Não é permitido destacar esta variável, pois há muitos alvos associados a ela" />
 
 Imagine que vários mobis participam de um sistema, mas você quer conferir quais receberam determinada variável. Selecione a variável e use esse botão para identificá-los visualmente.
 
@@ -144,7 +144,7 @@ Quando o alvo selecionado é **Usuário** e há uma variável permanente vincula
 
 Se você acompanhou o [tutorial de contador de visitas do Wired Club](https://www.wiredclub.com.br/tutoriais/contador-de-visitas-simples-feito-em-5-minutos), talvez já tenha utilizado essa janela.
 
-<img src={Gerenciar.src} alt="Demonstração do acesso ao gerenciamento de uma variável permanente de usuário pelo botão Gerenciar" title="Gerenciando uma variável permanente de usuário" />
+<img src={Gerenciar.src} alt="Demonstração do acesso ao gerenciamento de uma variável permanente de usuário pelo botão Gerenciar" />
 
 #### Gerenciamento de variável
 
@@ -182,13 +182,13 @@ Quando uma variável é compartilhada entre quartos, pode haver um atraso de **2
 
 Ao clicar em **Gerenciar** na linha de um usuário, você abre uma janela para consultar e modificar suas variáveis permanentes. Ela utiliza os dados armazenados no banco de dados do Habbo, permitindo gerenciar também **usuários offline ou que não estão no quarto**.
 
-<img style={{ width: "70%" }} src={GerenciamentoDeVariavelBotaoGerenciar.src} alt="Demonstração do acesso às variáveis permanentes de um bot pelo link Gerenciar na tabela de gerenciamento de variável" title="Acesso ao gerenciamento de variáveis do usuário" />
+<img style={{ width: "70%" }} src={GerenciamentoDeVariavelBotaoGerenciar.src} alt="Demonstração do acesso às variáveis permanentes de um bot pelo link Gerenciar na tabela de gerenciamento de variável" />
 
 A janela possui um **botão de ajuda**, com explicações sobre o funcionamento da ferramenta, e um **botão de atualizar**, que busca os valores mais recentes para a tabela.
 
 Na seção de informações do alvo, a imagem aparece à esquerda. À direita, são exibidos o tipo, o nome e o identificador único do usuário. Para bots e mascotes, também aparecem o nome e o identificador único do proprietário.
 
-![Janela de gerenciamento das variáveis permanentes de um bot, com informações do alvo e botões para remover ou dar variável](@assets/ferramentas-do-criador/variaveis/08-gerenciamento-de-variavel.png "Gerenciar variáveis do usuário")
+![Janela de gerenciamento das variáveis permanentes de um bot, com informações do alvo e botões para remover ou dar variável](@assets/ferramentas-do-criador/variaveis/08-gerenciamento-de-variavel.png)
 
 A seção **Variáveis permanentes** apresenta uma tabela com as colunas **Variável** e **Valor**. Por ali, você pode:
 
@@ -196,7 +196,7 @@ A seção **Variáveis permanentes** apresenta uma tabela com as colunas **Vari�
 * **Remover uma variável:** selecione uma linha para ativar o botão **Remover variável**. Ao utilizá-lo, a variável será desvinculada daquele alvo.
 * **Dar uma variável:** clique em **Dar variável**, escolha a variável e defina o valor que ela terá.
 
-![Demonstração do gerenciamento de variáveis permanentes de um bot na tabela de variáveis e valores](@assets/ferramentas-do-criador/variaveis/08-gerenciamento-de-variavel-crud.gif "Gerenciamento de variáveis permanentes")
+![Demonstração do gerenciamento de variáveis permanentes de um bot na tabela de variáveis e valores](@assets/ferramentas-do-criador/variaveis/08-gerenciamento-de-variavel-crud.gif)
 
 Os valores exibidos estão atualizados, com a possibilidade de um atraso de **20 segundos** quando o usuário está em outro quarto que utiliza a variável.
 
@@ -230,7 +230,7 @@ Algumas variáveis associam textos aos seus valores numéricos. Quando você sel
 
 Um exemplo é a variável interna `@type` dos mobis:
 
-![Tabela de valores textuais da variável @type, associando 0 a Normal, 1 a BC e 2 a Temp](@assets/ferramentas-do-criador/variaveis/10-valores-textuais.png "Valores textuais da variável @type")
+![Tabela de valores textuais da variável @type, associando 0 a Normal, 1 a BC e 2 a Temp](@assets/ferramentas-do-criador/variaveis/10-valores-textuais.png)
 
 Nesse caso, **0** representa um mobi normal comprado na loja, **1** representa um mobi do Clube do Arquiteto e **2** representa um mobi temporário, gerado com o **Efeito Wired: Colocar Mobi Temporário**.
 
