@@ -53,6 +53,26 @@ import VincularPelaInspecaoCaptionsUrl from "@assets/wf_var_user/06-vincular-var
 import VincularPelaInspecaoCaptionsRaw from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-captions.vtt?raw";
 import VincularPelaInspecaoDescriptionsUrl from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?url";
 import VincularPelaInspecaoDescriptionsRaw from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?raw";
+import RenomearVariavel from "@assets/wf_var_user/08-renomear-a-variavel.mp4";
+import RenomearVariavelCaptionsUrl from "@assets/wf_var_user/08-renomear-a-variavel-captions.vtt?url";
+import RenomearVariavelCaptionsRaw from "@assets/wf_var_user/08-renomear-a-variavel-captions.vtt?raw";
+import RenomearVariavelDescriptionsUrl from "@assets/wf_var_user/08-renomear-a-variavel-descriptions.vtt?url";
+import RenomearVariavelDescriptionsRaw from "@assets/wf_var_user/08-renomear-a-variavel-descriptions.vtt?raw";
+import AlterarPeloEfeito from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired.mp4";
+import AlterarPeloEfeitoCaptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-captions.vtt?url";
+import AlterarPeloEfeitoCaptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-captions.vtt?raw";
+import AlterarPeloEfeitoDescriptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-descriptions.vtt?url";
+import AlterarPeloEfeitoDescriptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-descriptions.vtt?raw";
+import AlterarPelaInspecao from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar.mp4";
+import AlterarPelaInspecaoCaptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-captions.vtt?url";
+import AlterarPelaInspecaoCaptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-captions.vtt?raw";
+import AlterarPelaInspecaoDescriptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-descriptions.vtt?url";
+import AlterarPelaInspecaoDescriptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-descriptions.vtt?raw";
+import ExibirValor from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto.mp4";
+import ExibirValorCaptionsUrl from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-captions.vtt?url";
+import ExibirValorCaptionsRaw from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-captions.vtt?raw";
+import ExibirValorDescriptionsUrl from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-descriptions.vtt?url";
+import ExibirValorDescriptionsRaw from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-descriptions.vtt?raw";
 import DirecaoN from "@assets/wf_var_user/05-direcao-N.png";
 import DirecaoNE from "@assets/wf_var_user/05-direcao-NE.png";
 import DirecaoE from "@assets/wf_var_user/05-direcao-E.png";
@@ -120,7 +140,7 @@ Por exemplo, uma marcação de participação em uma atividade pode existir apen
 <Aside type="caution" title="Ao alterar a disponibilidade">
 Se você configurar a variável como **Permanente** e depois tentar mudar para **Enquanto o usuário está no quarto**, o jogo abrirá uma janela com a mensagem:
 
-![](@assets/wf_var_user/07-janela-limpando-os-dados-das-variaveis.png)
+![Janela Limpando os dados das variáveis avisando que alterar a disponibilidade apagará todos os dados armazenados de forma irreversível, com os botões Cancelar e Ok.](@assets/wf_var_user/07-janela-limpando-os-dados-das-variaveis.png)
 
 Com a nova disponibilidade, os usuários que estão fora do quarto não poderiam manter a variável associada a eles. Para aplicar a mudança igualmente a todos, o jogo apaga os dados dessa variável de **todos os usuários**, inclusive daqueles que estão no quarto. Por isso, confirme apenas se estiver de acordo em perder os valores armazenados. Essa ação não pode ser desfeita.
 </Aside>
@@ -183,15 +203,41 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
 
 Depois de criar a variável e vinculá-la a um usuário, você pode modificar o número que ela armazena. Isso permite, por exemplo, aumentar uma pontuação conforme o jogador realiza uma ação no quarto.
 
-Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `rating_wired_club`, escolha alguma operação disponível, por exemplo, **Somar** e informe algum valor de referência, por exemplo, **1**. Confira também a fonte de usuários: ela determina quais usuários terão seus valores alterados quando a pilha for acionada.
+Essa alteração se aplica às variáveis com **Tem valor** marcado. Para uma variável sem valor, como `participando_do_jogo`, o que importa é atribuí-la ou removê-la do usuário.
+
+Você pode alterar o valor por um Efeito Wired ou diretamente pela aba **Inspeção** das Ferramentas do Criador.
+
+### Pelo Efeito Wired: Mudar Valor Variável
+
+Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `rating_wired_club`, escolha a operação **Somar** e informe **1** como valor de referência. Confira também a fonte de usuários: ela determina quais usuários terão seus valores alterados quando a pilha for acionada.
 
 Se um jogador possui `rating_wired_club` com valor **0**, essa operação faz seu valor passar para **1**. Cada usuário mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
 
-Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável): clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
+<AccessibleVideo
+  id="usuario-variavel-alterar-pelo-efeito"
+  src={AlterarPeloEfeito}
+  captionsSrc={AlterarPeloEfeitoCaptionsUrl}
+  captionsContent={AlterarPeloEfeitoCaptionsRaw}
+  descriptionsSrc={AlterarPeloEfeitoDescriptionsUrl}
+  descriptionsContent={AlterarPeloEfeitoDescriptionsRaw}
+  title="Alterar o valor da variável com o Efeito Wired: Mudar Valor Variável"
+/>
 
-Essas operações se aplicam às variáveis com **Tem valor** marcado. Para uma variável sem valor, como `participando_do_jogo`, o que importa é atribuí-la ou removê-la do usuário.
+### Pela coluna Valor da aba Inspeção
 
-{/* Adicionar vídeo de exemplo: alterar o valor de rating_wired_club. */}
+Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável). Selecione o usuário e localize `rating_wired_club` na lista de variáveis. Clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
+
+Nesse caso, o número digitado substitui o valor armazenado para o usuário selecionado. No vídeo abaixo, o valor de `rating_wired_club` de um mascote é alterado de **30** para **32**.
+
+<AccessibleVideo
+  id="usuario-variavel-alterar-pela-inspecao"
+  src={AlterarPelaInspecao}
+  captionsSrc={AlterarPelaInspecaoCaptionsUrl}
+  captionsContent={AlterarPelaInspecaoCaptionsRaw}
+  descriptionsSrc={AlterarPelaInspecaoDescriptionsUrl}
+  descriptionsContent={AlterarPelaInspecaoDescriptionsRaw}
+  title="Alterar o valor da variável pela aba Inspeção"
+/>
 
 ## Exibir o valor da variável no quarto
 
@@ -203,13 +249,31 @@ Depois, configure o estilo e a visibilidade do número. Se quiser que todos no q
 
 Assim, quando o Efeito **Mudar Valor Variável** somar **1**, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
 
-{/* Adicionar vídeo de exemplo: exibir rating_wired_club no quarto com a Variável FX: Exibição de Números. */}
+<AccessibleVideo
+  id="usuario-variavel-exibir-valor"
+  src={ExibirValor}
+  captionsSrc={ExibirValorCaptionsUrl}
+  captionsContent={ExibirValorCaptionsRaw}
+  descriptionsSrc={ExibirValorDescriptionsUrl}
+  descriptionsContent={ExibirValorDescriptionsRaw}
+  title="Exibir o valor da variável no quarto com a Variável FX: Exibição de Números"
+/>
 
 ## Renomear a variável
 
 Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Usuário Variável**, edite o campo **Nome da variável** e confirme a alteração.
 
 Depois de confirmar, o novo nome passa a aparecer em todos os locais das **Ferramentas do Criador** que fazem referência a essa variável, como a lista da aba **Variáveis** e a tabela da aba **Inspeção**.
+
+<AccessibleVideo
+  id="usuario-variavel-renomear"
+  src={RenomearVariavel}
+  captionsSrc={RenomearVariavelCaptionsUrl}
+  captionsContent={RenomearVariavelCaptionsRaw}
+  descriptionsSrc={RenomearVariavelDescriptionsUrl}
+  descriptionsContent={RenomearVariavelDescriptionsRaw}
+  title="Renomear a variável e conferir o novo nome nas Ferramentas do Criador"
+/>
 
 ## Retirar o Wired do quarto
 
