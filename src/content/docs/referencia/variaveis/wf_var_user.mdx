@@ -117,6 +117,14 @@ Esta seção define por quanto tempo a variável fica associada ao usuário e se
 
 Por exemplo, uma marcação de participação em uma atividade pode existir apenas durante a visita ao quarto. Já uma pontuação que o jogador deve conservar para a próxima visita pode utilizar a opção **Permanente**.
 
+<Aside type="caution" title="Ao alterar a disponibilidade">
+Se você configurar a variável como **Permanente** e depois tentar mudar para **Enquanto o usuário está no quarto**, o jogo abrirá uma janela com a mensagem:
+
+![](@assets/wf_var_user/07-janela-limpando-os-dados-das-variaveis.png)
+
+Com a nova disponibilidade, os usuários que estão fora do quarto não poderiam manter a variável associada a eles. Para aplicar a mudança igualmente a todos, o jogo apaga os dados dessa variável de **todos os usuários**, inclusive daqueles que estão no quarto. Por isso, confirme apenas se estiver de acordo em perder os valores armazenados. Essa ação não pode ser desfeita.
+</Aside>
+
 ### Ver no menu Wired
 
 Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
@@ -175,7 +183,7 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
 
 Depois de criar a variável e vinculá-la a um usuário, você pode modificar o número que ela armazena. Isso permite, por exemplo, aumentar uma pontuação conforme o jogador realiza uma ação no quarto.
 
-Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `rating_wired_club`, escolha a operação **Somar** e informe **1** como valor de referência. Confira também a fonte de usuários: ela determina quais usuários terão seus valores alterados quando a pilha for acionada.
+Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `rating_wired_club`, escolha alguma operação disponível, por exemplo, **Somar** e informe algum valor de referência, por exemplo, **1**. Confira também a fonte de usuários: ela determina quais usuários terão seus valores alterados quando a pilha for acionada.
 
 Se um jogador possui `rating_wired_club` com valor **0**, essa operação faz seu valor passar para **1**. Cada usuário mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
 
