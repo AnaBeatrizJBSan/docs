@@ -61,9 +61,9 @@ Ao abrir a janela de configuração, você encontra três seções: **Nome da va
 
 ### Nome da variável
 
-Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e underline (`_`)**.
+Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
 
-Se você utilizar um espaço no nome, ele será substituído automaticamente por um **underline (`_`)**. Por exemplo, `energia da maquina` se torna `energia_da_maquina`.
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `energia da maquina` se torna `energia_da_maquina`.
 
 Prefira nomes que ajudem a entender o que a variável representa, como `energia`, `quantidade_de_usos` ou `objeto_da_missao`.
 
@@ -80,11 +80,17 @@ No exemplo de uma variável sem valor, estar vinculada ao mobi representa **verd
 
 #### Valores que a variável pode armazenar
 
-Com a opção **Tem valor** marcada, a variável armazena apenas **valores numéricos**, que podem ser positivos, negativos ou zero. Ela não armazena texto diretamente.
+Com a opção **Tem valor** marcada, a variável armazena apenas **valores numéricos inteiros**, que podem ser positivos, negativos ou zero. Ela não armazena texto diretamente.
 
 O limite positivo é **2.147.483.647**. Se a variável já estiver nesse valor e você utilizar o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) para adicionar **1**, o número passa para **-2.147.483.648**. Ao continuar adicionando 1, os próximos valores serão **-2.147.483.647**, **-2.147.483.646** e assim por diante.
 
 Na versão **Clássica (Flash)** do Habbo, valores **iguais ou superiores a 2.147.483.647** não são mostrados na inspeção da variável. No lugar do número, aparece o texto **Oculto** em cor vermelha. Ao passar o mouse sobre esse texto, aparece a mensagem **“O cliente clássico não pode inspecionar este valor, é muito grande.”**
+
+<Aside type="note" title="Por que existe esse limite?">
+Esses limites numéricos vêm do uso de **inteiros de 32 bits com sinal**, um formato que representa números de **-2.147.483.648** até **2.147.483.647**. A expressão **com sinal** significa que os valores podem ser negativos ou positivos, além de zero.
+
+Ao somar **1** ao maior valor, ocorre um **estouro de inteiro** (*overflow*). Na operação descrita acima, o resultado volta ao menor valor desse intervalo, passando de **2.147.483.647** para **-2.147.483.648**.
+</Aside>
 
 ### Opções de disponibilidade
 
@@ -115,7 +121,7 @@ Você pode fazer essa associação por uma pilha Wired ou manualmente pela aba *
 
 O [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/) permite atribuir a variável aos mobis definidos na configuração da pilha.
 
-Para preparar o exemplo, crie `energia` com **Tem valor**. Depois, selecione essa variável no Efeito **Dar Variável**, defina o valor inicial como **100** e configure os mobis que receberão a variável. Se você utilizar mobis de um seletor, confira também a seleção feita por ele.
+Para preparar o exemplo, crie `energia` com **Tem valor**. Depois, selecione essa variável no Efeito **Dar Variável**, defina o valor inicial como **100** e configure os mobis que receberão a variável.
 
 Quando a pilha for acionada, o Efeito atribuirá a variável aos mobis definidos como destino. Cada máquina manterá seu próprio valor de `energia`, permitindo que uma tenha **100** e outra tenha **50**, por exemplo.
 
@@ -183,17 +189,17 @@ Para consultar as variáveis disponíveis, acesse a aba [Variáveis das Ferramen
 
 | Variável | O que representa |
 | :--- | :--- |
-| `@id` | O identificador do mobi. Dentro do quarto, cada mobi possui um valor diferente. |
-| `@class_id` | O identificador da classe do mobi. Dois exemplares do mesmo modelo possuem o mesmo valor. |
+| `@id` | O identificador do mobi. Dentro do quarto, cada mobi possui um valor diferente. Confira o tópico [Identificador do mobi](#identificador-do-mobi) para mais detalhes |
+| `@class_id` | O identificador da classe do mobi. Dois exemplares do mesmo modelo possuem o mesmo valor. Confira o tópico [Classe do mobi](#classe-do-mobi) para mais detalhes |
 | `@height` | A altura do próprio mobi. |
-| `@state` | O estado do mobi, como aberto ou fechado no caso de uma porta. |
+| `@state` | O estado do mobi, como aberto ou fechado no caso de uma porta. Confira o tópico [Estado do mobi](#estado-do-mobi) para mais detalhes |
 | `@position.x` | A posição do mobi no eixo **X** (horizontal) do quarto. |
 | `@position.y` | A posição do mobi no eixo **Y** (vertical) do quarto. |
-| `@rotation` | A rotação do mobi. As rotações disponíveis dependem do modelo. |
+| `@rotation` | A rotação do mobi. As rotações disponíveis dependem do modelo. Confira o tópico [Rotação do mobi](#rotação-do-mobi) para mais detalhes |
 | `@altitude` | A altitude em que o mobi está no quarto. |
-| `@type` | O tipo do mobi: comprado na loja, do Clube do Arquiteto ou temporário. |
-| `@dimensions.x` | A dimensão ocupada pelo mobi no eixo **X** do piso. |
-| `@dimensions.y` | A dimensão ocupada pelo mobi no eixo **Y** do piso. |
+| `@type` | O tipo do mobi: comprado na loja, do Clube do Arquiteto ou temporário. Confira o tópico [Tipo do mobi](#tipo-do-mobi) para mais detalhes |
+| `@dimensions.x` | A dimensão ocupada pelo mobi no eixo **X** (horizontal) do piso. Confira o tópico [Dimensões do mobi](#dimensões-do-mobi) para mais detalhes |
+| `@dimensions.y` | A dimensão ocupada pelo mobi no eixo **Y** (vertical) do piso. Confira o tópico [Dimensões do mobi](#dimensões-do-mobi) para mais detalhes |
 | `@owner_id` | O identificador único do proprietário do mobi. |
 
 ### Identificador do mobi
@@ -255,5 +261,7 @@ A variável `@type` permite distinguir os seguintes tipos:
 As variáveis `@dimensions.x` e `@dimensions.y` representam o espaço que o mobi ocupa no piso em cada eixo.
 
 Por exemplo, o **Piso Transparente** possui dimensão **2** em ambos os eixos. Isso significa que ele ocupa uma área de **2 × 2**, totalizando **4 quadrados** no quarto.
+
+![](@assets/wf_var_furni/04-dimensoes-piso-transparente.gif)
 
 Essas dimensões descrevem o espaço ocupado no piso. Já `@height` representa a altura do próprio mobi, e `@altitude` indica a altitude em que ele está no quarto.
