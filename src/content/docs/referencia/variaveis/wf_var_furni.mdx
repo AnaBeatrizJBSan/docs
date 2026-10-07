@@ -42,6 +42,8 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import PortaDeVidroFechada from "@assets/wf_var_furni/03-porta-de-vidro-fechada.webp"
+import PortaDeVidroAberta from "@assets/wf_var_furni/03-porta-de-vidro-aberta.webp"
 
 O **Wired Variável: Mobi Variável** permite criar informações e associá-las aos mobis do quarto. Quer guardar a energia de uma máquina, contar quantas vezes um objeto foi utilizado ou marcar os mobis que fazem parte de uma atividade? Você pode utilizar uma variável de mobi para isso.
 
@@ -54,6 +56,8 @@ Cada mobi também possui informações que o Habbo disponibiliza automaticamente
 O primeiro passo é **criar a variável**. Nesta etapa, você define seu nome, se ela armazena um número e por quanto tempo ficará disponível.
 
 Ao abrir a janela de configuração, você encontra três seções: **Nome da variável**, **Configurações da variável** e **Opções de disponibilidade**.
+
+![](@assets/wf_var_furni/01-janela-do-wired.png)
 
 ### Nome da variável
 
@@ -95,13 +99,11 @@ Um quarto com jogadores dentro é considerado **ativo**. Quando ele é descarreg
 
 Por exemplo, uma contagem de usos que só precisa existir enquanto o quarto está ativo pode utilizar a primeira opção. Já a energia de uma máquina que você quer conservar para a próxima vez que o quarto for carregado pode utilizar **Permanente**.
 
-<Aside type="note" title="Ao alterar a disponibilidade">
-Na variável de mobi, a troca de disponibilidade não exibe uma janela de aviso. Confira a opção escolhida antes de confirmar a configuração.
-</Aside>
-
 ### Ver no menu Wired
 
 Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
+
+![](@assets/wf_var_furni/02-janela-do-wired-com-opcao-ver-no-menu-wired.png.png)
 
 ## Vincular a variável a um mobi
 
@@ -137,7 +139,7 @@ Você pode alterar o valor por um Efeito Wired ou diretamente pela aba **Inspeç
 
 ### Pelo Efeito Wired: Mudar Valor Variável
 
-Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `energia`, escolha a operação **Somar** e informe **-1** como valor de referência. Confira também a fonte de mobis: ela determina quais mobis terão seus valores alterados quando a pilha for acionada.
+Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `energia`, escolha a operação **Subtrair** e informe **1** como valor de referência. Confira também a fonte de mobis: ela determina quais mobis terão seus valores alterados quando a pilha for acionada.
 
 Se uma máquina possui `energia` com valor **100**, essa operação faz seu valor passar para **99**. Cada mobi mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
 
@@ -155,7 +157,7 @@ Uma forma simples é utilizar a [Variável FX: Exibição de Números](/referenc
 
 Depois, configure o estilo e a visibilidade do número. Se quiser que todos no quarto possam acompanhá-lo, escolha a audiência **Todos**. A opção **Sempre visível** pode ajudar a acompanhar as mudanças durante um teste.
 
-Assim, quando o Efeito **Mudar Valor Variável** alterar a energia, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
+Assim, quando o **Efeito Mudar Valor Variável** alterar a energia, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
 
 ## Renomear a variável
 
@@ -165,7 +167,7 @@ Depois de confirmar, o novo nome passa a aparecer em todos os locais das **Ferra
 
 ## Retirar o Wired do quarto
 
-Ao tentar retirar este Wired depois de criar a variável, aparece uma janela pedindo confirmação. Ela informa que todas as referências à variável e todos os dados armazenados por ela serão apagados.
+Ao tentar retirar este Wired depois de criar e vincular a variável, aparece uma janela pedindo confirmação. Ela informa que todas as referências à variável e todos os dados armazenados por ela serão apagados.
 
 Você também pode excluir a variável pela aba **Variáveis** das Ferramentas do Criador. Selecione-a na lista e utilize o ícone de excluir no rodapé, conforme explicado em [Excluir uma variável](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável). A ação pede confirmação, afeta todos os mobis que possuem a variável e não pode ser desfeita.
 
@@ -225,10 +227,10 @@ Evite escrever um `@class_id` fixo manualmente no sistema. Esses identificadores
 
 A variável `@state` informa o estado atual do mobi. O significado de cada número depende do modelo. Na **Porta de Vidro**, por exemplo:
 
-| Valor | Estado |
-| :--- | :--- |
-| **0** | Porta fechada. |
-| **1** | Porta aberta. |
+| Valor | Estado | Representação do mobi |
+| :--- | :--- | :---:
+| **0** | Porta fechada. | <img src={PortaDeVidroFechada.src} style={{ width: "64px", height: "auto", display: "block", marginInline: "auto" }} /> |
+| **1** | Porta aberta. | <img src={PortaDeVidroAberta.src} style={{ width: "64px", height: "auto", display: "block", marginInline: "auto" }} /> |
 
 Para conhecer os estados de outro mobi, você pode acompanhar `@state` pela aba **Inspeção** enquanto altera o estado dele.
 
