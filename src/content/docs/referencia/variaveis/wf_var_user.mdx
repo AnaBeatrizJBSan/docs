@@ -98,9 +98,9 @@ Ao abrir a janela de configuração, você encontra três seções: **Nome da va
 
 ### Nome da variável
 
-Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e underline (`_`)**.
+Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
 
-Se você utilizar um espaço no nome, ele será substituído automaticamente por um **underline (`_`)**. Por exemplo, `pontos do jogador` se torna `pontos_do_jogador`.
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `pontos do jogador` se torna `pontos_do_jogador`.
 
 Prefira nomes que ajudem a entender o que a variável representa, como `pontuacao`, `participando_do_jogo` ou `vendedor`.
 
@@ -117,13 +117,19 @@ No exemplo de uma variável sem valor, estar vinculada ao usuário representa **
 
 #### Valores que a variável pode armazenar
 
-Com a opção **Tem valor** marcada, a variável armazena apenas **valores numéricos**, que podem ser positivos, negativos ou zero. Ela não armazena texto diretamente.
+Com a opção **Tem valor** marcada, a variável armazena apenas **valores numéricos inteiros**, que podem ser positivos, negativos ou zero. Ela não armazena texto diretamente.
 
 O limite positivo é **2.147.483.647**. Se a variável já estiver nesse valor e você utilizar o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) para adicionar **1**, o número passa para **-2.147.483.648**. Ao continuar adicionando 1, os próximos valores serão **-2.147.483.647**, **-2.147.483.646** e assim por diante.
 
 Na versão **Clássica (Flash)** do Habbo, valores **iguais ou superiores a 2.147.483.647** não são mostrados na inspeção da variável. No lugar do número, aparece o texto **Oculto** em cor vermelha. Ao passar o mouse sobre esse texto, aparece a mensagem **“O cliente clássico não pode inspecionar este valor, é muito grande.”**
 
 ![Tabela de variáveis com o valor de wired_club substituído por Hidden em vermelho e uma mensagem em inglês informando que o cliente clássico não pode inspecionar o valor porque ele é muito grande.](@assets/wf_var_user/03-texto-numero-muito-grande.png)
+
+<Aside type="note" title="Por que existe esse limite?">
+Esses limites numéricos vêm do uso de **inteiros de 32 bits com sinal**, um formato que representa números de **-2.147.483.648** até **2.147.483.647**. A expressão **com sinal** significa que os valores podem ser negativos ou positivos, além de zero.
+
+Ao somar **1** ao maior valor, ocorre um **estouro de inteiro** (*overflow*). Na operação descrita acima, o resultado volta ao menor valor desse intervalo, passando de **2.147.483.647** para **-2.147.483.648**.
+</Aside>
 
 ### Opções de disponibilidade
 
@@ -136,6 +142,8 @@ Esta seção define por quanto tempo a variável fica associada ao usuário e se
 | **Permanente, compartilhado entre quartos** | Além de permanecer associada ao usuário, a variável pode ser acessada em outros quartos por meio do [Wired Variável: De Outro Quarto](/referencia/variaveis/wf_var_reference/). |
 
 Por exemplo, uma marcação de participação em uma atividade pode existir apenas durante a visita ao quarto. Já uma pontuação que o jogador deve conservar para a próxima visita pode utilizar a opção **Permanente**.
+
+Em um labirinto com fases distribuídas entre vários quartos, a opção **Permanente, compartilhado entre quartos** pode guardar o último **checkpoint** alcançado pelo jogador. Os outros quartos podem consultar essa variável por meio do **Wired Variável: De Outro Quarto**, permitindo que o sistema reconheça seu progresso e o encaminhe à fase correspondente quando ele voltar a jogar.
 
 <Aside type="caution" title="Ao alterar a disponibilidade">
 Se você configurar a variável como **Permanente** e depois tentar mudar para **Enquanto o usuário está no quarto**, o jogo abrirá uma janela com a mensagem:
