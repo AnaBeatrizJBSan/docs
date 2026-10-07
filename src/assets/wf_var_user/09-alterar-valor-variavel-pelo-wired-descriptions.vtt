@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.500
+No quarto do Habbo, há dois personagens, um gato e uma pilha de mobis WIRED. A configuração do mobi WIRED VARIÁVEL, do tipo Usuário Variável, está aberta. O nome rating_wired_club é digitado, a opção Tem valor é marcada, e a disponibilidade Enquanto o usuário está no quarto permanece selecionada. O cursor confirma em Pronto.
+
+00:00:04.500 --> 00:00:10.500
+Abre-se a configuração do EFEITO WIRED Dar Variável. A variável rating_wired_club é escolhida, o Valor inicial permanece em 0 e a Variável de destino muda de Use o usuário acionador para Usar usuários do seletor. A configuração é confirmada.
+
+00:00:10.500 --> 00:00:19.800
+Na configuração do EFEITO WIRED Mudar Valor Variável, rating_wired_club é selecionada. O menu Operação muda de Atribuir para Somar. Em Valor referência, a opção Definir valor recebe 1; o atraso permanece em 0 segundos e o destino exibido é Use o usuário acionador. O cursor confirma em Pronto.
+
+00:00:19.800 --> 00:00:27.000
+O SELETOR WIRED Habbos na Área abre a seleção de área. A pilha fica semitransparente durante a marcação, e uma faixa iluminada do piso é arrastada até abranger os dois personagens e o gato. O botão Pronto conclui a seleção.
+
+00:00:27.000 --> 00:00:31.000
+Abre-se o ATIVADOR WIRED Repetir Efeito. O tempo é definido em 10 segundos e confirmado. Em seguida, a janela Wired Creator Tools aparece na aba Variables, com rating_wired_club selecionada e o destaque da variável ativado.
+
+00:00:31.000 --> 00:00:37.500
+Os dois personagens e o gato recebem contornos azulados. Um balão com o número 2 aparece acima de cada um enquanto a visão geral da variável permanece aberta.
+
+00:00:37.500 --> 00:00:40.130
+Os três balões mudam de 2 para 3, mostrando a atualização dos valores destacados nos dois personagens e no gato.

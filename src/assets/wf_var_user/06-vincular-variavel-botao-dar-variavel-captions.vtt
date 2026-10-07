@@ -1,0 +1,35 @@
+WEBVTT
+
+00:00:01.700 --> 00:00:03.200
+Inspeção do avatar selecionado.
+
+00:00:03.200 --> 00:00:06.100
+Dar variável: rating_wired_club. Valor: 1. Criar.
+
+00:00:06.100 --> 00:00:07.200
+rating_wired_club: 1.
+
+00:00:08.900 --> 00:00:10.100
+Inspeção do bot selecionado.
+
+00:00:10.100 --> 00:00:12.600
+Dar variável: rating_wired_club. Valor: 2. Criar.
+
+00:00:12.600 --> 00:00:14.000
+rating_wired_club: 2.
+
+00:00:15.800 --> 00:00:16.900
+Inspeção do mascote selecionado.
+
+00:00:16.900 --> 00:00:19.900
+Dar variável: rating_wired_club. Valor: 3. Criar.
+
+00:00:19.900 --> 00:00:20.700
+rating_wired_club: 3.
+
+00:00:20.700 --> 00:00:22.800
+Visão geral da variável rating_wired_club.
+Alvo: usuário. Disponibilidade: permanente.
+
+00:00:22.800 --> 00:00:24.060
+Destacar: avatar 1, bot 2, mascote 3.
