@@ -42,6 +42,17 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import AlterarValorPeloWired from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired.mp4";
+import AlterarValorPeloWiredCaptionsUrl from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-captions.vtt?url";
+import AlterarValorPeloWiredCaptionsRaw from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-captions.vtt?raw";
+import AlterarValorPeloWiredDescriptionsUrl from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-descriptions.vtt?url";
+import AlterarValorPeloWiredDescriptionsRaw from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-descriptions.vtt?raw";
+import RenomearVariavel from "@assets/wf_var_room/05-renomear-a-variavel.mp4";
+import RenomearVariavelCaptionsUrl from "@assets/wf_var_room/05-renomear-a-variavel-captions.vtt?url";
+import RenomearVariavelCaptionsRaw from "@assets/wf_var_room/05-renomear-a-variavel-captions.vtt?raw";
+import RenomearVariavelDescriptionsUrl from "@assets/wf_var_room/05-renomear-a-variavel-descriptions.vtt?url";
+import RenomearVariavelDescriptionsRaw from "@assets/wf_var_room/05-renomear-a-variavel-descriptions.vtt?raw";
 import ConsultarValor from "@assets/wf_var_room/03-consultar-o-valor-da-variavel.gif";
 import AlterarValorPelaInspecao from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-inspecionar.gif";
 
@@ -119,6 +130,18 @@ Quando a pilha for acionada, o contador passará de **0** para **1**. Na próxim
 
 A alteração afeta o valor do quarto. Você não precisa escolher um jogador ou mobi para receber essa pontuação.
 
+No vídeo abaixo, o **Ativador Wired: Repetir Efeito**, configurado com um intervalo de **10 segundos**, é utilizado para demonstrar o aumento do contador. Você pode acompanhar as mudanças de **0** para **1** e depois para **2** na aba **Inspeção**.
+
+<AccessibleVideo
+  id="global-variavel-alterar-pelo-wired"
+  src={AlterarValorPeloWired}
+  captionsSrc={AlterarValorPeloWiredCaptionsUrl}
+  captionsContent={AlterarValorPeloWiredCaptionsRaw}
+  descriptionsSrc={AlterarValorPeloWiredDescriptionsUrl}
+  descriptionsContent={AlterarValorPeloWiredDescriptionsRaw}
+  title="Alterar o valor de uma variável global com o Efeito Wired: Mudar Valor Variável"
+/>
+
 ### Pela coluna Valor da aba Inspeção
 
 Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável). Escolha o alvo **Global**, localize `partidas_jogadas` e clique duas vezes no número da coluna **Valor**. Digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
@@ -132,6 +155,16 @@ Nesse caso, o número digitado substitui o valor armazenado. Por exemplo, se o c
 Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Variável Global**, edite o campo **Nome da variável** e confirme a alteração.
 
 Depois de confirmar, o novo nome passa a aparecer nos locais das **Ferramentas do Criador** que fazem referência a essa variável, como a lista da aba **Variáveis** e a tabela da aba **Inspeção**.
+
+<AccessibleVideo
+  id="global-variavel-renomear"
+  src={RenomearVariavel}
+  captionsSrc={RenomearVariavelCaptionsUrl}
+  captionsContent={RenomearVariavelCaptionsRaw}
+  descriptionsSrc={RenomearVariavelDescriptionsUrl}
+  descriptionsContent={RenomearVariavelDescriptionsRaw}
+  title="Renomear a variável global e conferir o novo nome nas Ferramentas do Criador"
+/>
 
 ## Retirar o Wired do quarto
 
