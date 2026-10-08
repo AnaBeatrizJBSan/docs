@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.100
+Num quarto do Habbo, uma cadeira amarela está ao lado de uma mesa amarela com um prato de comida. Em “Ferramentas do Criador”, a aba “Inspeção” mostra a cadeira selecionada, com sua imagem na prévia e uma lista de variáveis do mobi.
+
+00:00:03.100 --> 00:00:08.900
+A pessoa clica em “Dar variável”. No pequeno formulário que se abre, escolhe a variável “avaliacao”, substitui o valor inicial do campo por 5 e clica em “Criar”.
+
+00:00:08.900 --> 00:00:10.900
+O formulário fecha e “avaliacao” passa a aparecer no topo da lista de variáveis da cadeira com o valor 5.
+
+00:00:10.900 --> 00:00:13.100
+A pessoa seleciona o prato que está sobre a mesa. A prévia muda para o prato e a lista passa a mostrar as variáveis desse outro mobi.
+
+00:00:13.100 --> 00:00:16.900
+Novamente, clica em “Dar variável”, escolhe “avaliacao”, digita 8 no campo “Valor” e confirma em “Criar”.
+
+00:00:16.900 --> 00:00:18.000
+No topo da lista de variáveis do prato, “avaliacao” aparece com valor 8.
+
+00:00:18.000 --> 00:00:19.800
+A pessoa abre a aba “Variáveis”. Na visão geral, “avaliacao” está selecionada, com alvo “Mobi” e a propriedade “Tem valor” marcada como “Sim”.
+
+00:00:19.800 --> 00:00:21.260
+Ao clicar em “Destacar”, a cadeira e o prato ganham um brilho claro. Balões acima dos dois mobis mostram 5 sobre a cadeira e 8 sobre o prato.

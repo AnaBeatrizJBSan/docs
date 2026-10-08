@@ -1,0 +1,30 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.900
+WIRED VARIÁVEL: Mobi Variável.
+Nome: avaliacao. Tem valor.
+
+00:00:03.900 --> 00:00:06.900
+EFEITO WIRED: Mudar Valor Variável.
+Variável: avaliacao.
+
+00:00:06.900 --> 00:00:09.500
+Operação: Subtrair.
+Valor referência: Definir valor 1.
+
+00:00:09.500 --> 00:00:13.000
+Variável de destino:
+Use mobis escolhidos (2/20).
+
+00:00:13.900 --> 00:00:16.900
+ATIVADOR WIRED: Repetir Efeito.
+Tempo: 10 segundos.
+
+00:00:18.000 --> 00:00:19.500
+Variáveis: avaliacao. Alvo: Mobi.
+
+00:00:19.500 --> 00:00:25.400
+Destacar: cadeira 4; prato 7.
+
+00:00:25.400 --> 00:00:27.930
+Após o efeito: cadeira 3; prato 6.
