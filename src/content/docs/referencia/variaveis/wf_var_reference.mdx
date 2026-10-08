@@ -1,10 +1,10 @@
 ---
 title: "WIRED Variável: De outro quarto"
-description: Esta variável referencia valores armazenados em outro quarto.
+description: Aprenda a acessar variáveis compartilhadas de outros quartos, configurar a opção Somente leitura e consultar os dados nas Ferramentas do Criador.
 sidebar:
   label: De outro quarto
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -40,6 +40,134 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+import Infobox from "@components/Infobox.astro";
+
+O **Wired Variável: De Outro Quarto** permite acessar uma variável que já existe em outro quarto. Quer consultar o checkpoint de um jogador em diferentes fases de um labirinto ou utilizar a mesma pontuação coletiva em vários quartos? Este Wired permite conectar essas informações ao seu sistema.
+
+A variável original precisa estar configurada como **Permanente, compartilhado entre quartos**. Ao criar uma referência, você passa a acessar os dados dessa variável a partir do quarto em que o Wired está colocado.
 
 <Infobox />
+
+## Requisitos
+
+Antes de configurar este Wired, crie a variável no quarto de origem e selecione a disponibilidade **Permanente, compartilhado entre quartos**. Essa opção está disponível para:
+
+| Tipo | Exemplo de uso |
+| :--- | :--- |
+| [Wired Variável: Usuário Variável](/referencia/variaveis/wf_var_user/#opções-de-disponibilidade) | Guardar o checkpoint individual de cada jogador em um labirinto. |
+| [Wired Variável: Variável Global](/referencia/variaveis/wf_var_room/) | Guardar uma pontuação coletiva que será consultada em vários quartos. |
+
+Uma variável configurada apenas como **Permanente** não aparece na lista de variáveis disponíveis para referência. Confira se a opção de compartilhamento está selecionada no quarto de origem.
+
+<Aside type="note" title="Onde configurar a variável compartilhada">
+A opção **Permanente, compartilhado entre quartos** só pode ser configurada em um quarto do qual você é dono. Se você colocar seu Wired de variável no quarto de grupo de um amigo e tentar salvar com essa opção selecionada, aparecerá a mensagem **“Você só pode definir variáveis como compartilhadas em seu próprio quarto.”**, e a configuração não será salva.
+
+Para disponibilizar essa informação no quarto de um amigo, configure a variável compartilhada no seu próprio quarto e utilize o **Wired Variável: De Outro Quarto** no quarto dele, conforme explicado em [Modificar uma variável criada no quarto de um amigo](#modificar-uma-variável-criada-no-quarto-de-um-amigo).
+</Aside>
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração, você encontra quatro seções: **Nome da variável**, **Selecione um quarto**, **Variável de referência** e **Configurações da variável**.
+
+O primeiro passo é escolher de qual quarto virá a informação e qual variável será utilizada. Depois, você define o nome da referência e se ela permitirá apenas consultas ou também alterações.
+
+### Nome da variável
+
+Defina o nome que será utilizado para identificar a referência. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
+
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `checkpoint do jogador` se torna `checkpoint_do_jogador`.
+
+Você também pode deixar esse campo vazio enquanto escolhe a variável de referência. Nesse caso, ele será preenchido automaticamente com o nome da variável selecionada.
+
+### Selecione um quarto
+
+Esta lista mostra os quartos dos quais você é dono e que possuem alguma variável configurada como **Permanente, compartilhado entre quartos**. Selecione o quarto em que está a variável que você quer acessar.
+
+Se todas as variáveis disponíveis já estiverem referenciadas em outros **Wireds Variável: De Outro Quarto**, a lista **Selecione um quarto** não abrirá.
+
+Para acessar no seu quarto uma variável compartilhada que está no quarto de um amigo, esse amigo deve colocar o **Wired Variável: De Outro Quarto** dele no seu quarto, que precisa ter um **grupo**. Confira como permitir alterações em [Modificar uma variável criada no quarto de um amigo](#modificar-uma-variável-criada-no-quarto-de-um-amigo).
+
+### Variável de referência
+
+Depois de escolher o quarto, esta lista mostra as variáveis dele que possuem a disponibilidade **Permanente, compartilhado entre quartos**. Selecione a informação que deseja utilizar.
+
+Por exemplo, se o quarto de origem possui uma variável de usuário chamada `checkpoint`, escolha essa variável para acessar o progresso de cada jogador. Se o campo **Nome da variável** ainda estiver vazio, ele será preenchido com `checkpoint`.
+
+### Configurações da variável
+
+A caixa **Somente leitura** define o que pode ser feito com a variável por meio dessa referência:
+
+| Opção | Como funciona |
+| :--- | :--- |
+| **Marcada** | Permite consultar a variável, mas impede alterar seu valor por meio da referência. |
+| **Desmarcada** | Permite consultar e alterar o valor da variável. No caso de variáveis de usuário, também permite limpar a variável dos usuários que a possuem. |
+
+Se o quarto só precisa conferir o progresso de um jogador para decidir qual caminho liberar, você pode marcar **Somente leitura**. Se ele também precisa registrar um novo checkpoint, deixe a opção desmarcada.
+
+<Aside type="caution" title="Você está acessando os dados compartilhados">
+As alterações feitas pela referência atingem a variável do quarto de origem. Por exemplo, mudar o checkpoint de um jogador ou limpar sua variável afeta o progresso que os outros quartos consultam. Utilize **Somente leitura** quando o sistema precisar apenas consultar esses dados.
+</Aside>
+
+## Consultar a referência nas Ferramentas do Criador
+
+Depois de confirmar as configurações, abra a aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). A referência aparece no alvo correspondente ao tipo da variável original, com a disponibilidade **Referência**.
+
+| Variável escolhida no quarto de origem | Onde encontrar a referência |
+| :--- | :--- |
+| **Variável de usuário** | No ícone de **Usuário**. |
+| **Variável global** | No ícone de **Global**. |
+
+### Referência a uma variável de usuário
+
+Selecione o alvo **Usuário** e localize a referência. Ao clicar em [Gerenciar](/referencia/ferramentas-do-criador/variaveis/#gerenciar), a janela **Gerenciamento de variável** mostra os usuários que receberam a variável a partir do quarto de origem.
+
+Você pode consultar os dados e utilizar os recursos de gerenciamento dessa janela. As ações que modificam os dados dependem de a opção **Somente leitura** estar desmarcada.
+
+Assim, em um labirinto, você pode conferir quais jogadores possuem `checkpoint` e qual é o progresso armazenado para cada um.
+
+### Referência a uma variável global
+
+Selecione o alvo **Global** para encontrar a referência na aba **Variáveis**. Ela também aparece na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/#tipo-do-elemento), ao escolher o ícone **Global**.
+
+Você pode consultar o valor compartilhado e, se **Somente leitura** estiver desmarcada, alterá-lo. Por exemplo, uma variável `pontuacao_coletiva` permite que diferentes quartos consultem e atualizem a mesma pontuação.
+
+## Alterar o valor pela referência
+
+Para permitir alterações, abra a configuração do **Wired Variável: De Outro Quarto** e desmarque **Somente leitura**.
+
+No sistema Wired, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) e selecione a referência pelo nome definido na configuração. O tipo da variável continua sendo o da origem: uma referência de usuário trabalha com os valores de cada usuário; uma referência global trabalha com o valor compartilhado do quarto de origem.
+
+Nas Ferramentas do Criador, você também pode utilizar os recursos de gerenciamento e de [alteração de valor pela Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável), conforme o tipo e as permissões da variável.
+
+Para entender os limites dos números armazenados e sua exibição no cliente Clássico, consulte [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar).
+
+### Modificar uma variável criada no quarto de um amigo
+
+Você também pode modificar, a partir do seu quarto, uma variável criada no quarto de um amigo. Para isso, a variável de origem deve estar configurada como **Permanente, compartilhado entre quartos**, e o seu quarto precisa ter um **grupo**.
+
+Seu amigo deve colocar o **Wired Variável: De Outro Quarto** dele no seu quarto. Na configuração, ele seleciona o quarto de origem e a variável que deseja compartilhar, desmarca **Somente leitura** e confirma.
+
+Depois disso, você pode selecionar essa referência no [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) para alterar seu valor. Por exemplo, somar **1** a uma pontuação compartilhada no seu quarto também atualiza o valor da variável criada no quarto do seu amigo.
+
+## Retirar o Wired do quarto
+
+Ao retirar o **Wired Variável: De Outro Quarto**, não aparece a janela avisando que todas as referências e os dados armazenados serão apagados, como acontece ao remover os Wireds de variável de usuário ou de mobi. Isso vale mesmo quando o Wired já está configurado e a variável acessada por ele está vinculada a um usuário.
+
+Depois da remoção, a referência deixa de aparecer na aba **Inspeção** do quarto de onde o Wired foi retirado. Se você colocar o Wired novamente e utilizar as mesmas configurações, a variável voltará a aparecer ao inspecionar o usuário nesse quarto.
+
+A associação com o usuário é mantida no quarto de origem, inclusive quando a variável foi atribuída por meio da referência no outro quarto. Por exemplo, se um jogador recebeu `checkpoint` em uma fase do labirinto e você retirou o Wired de referência dessa fase, a variável continuará aparecendo ao inspecionar esse jogador no quarto onde ela foi criada.
+
+<Aside type="note" title="Os dados permanecem na origem">
+Retirar o Wired de referência não exclui a variável original nem os dados associados ao usuário. A referência deixa de estar disponível no quarto em que esse Wired foi removido.
+</Aside>
+
+## Exemplo de uso: checkpoints de um labirinto
+
+Imagine um labirinto com fases em diferentes quartos. No quarto de origem, você cria uma variável de usuário chamada `checkpoint`, com **Tem valor** marcado e disponibilidade **Permanente, compartilhado entre quartos**. Cada jogador recebe essa variável com o número correspondente ao seu progresso.
+
+Nos quartos que precisam consultar esse progresso, configure o **Wired Variável: De Outro Quarto** para acessar `checkpoint`. O sistema pode ler o valor do jogador e utilizá-lo para decidir qual fase ele poderá acessar.
+
+Se um quarto também registra a conclusão de uma fase, deixe **Somente leitura** desmarcada na referência utilizada para atualizar o checkpoint. Já um quarto que apenas consulta o progresso pode manter essa opção marcada.
+
+A referência disponibiliza a informação para o sistema. As ações de liberar passagens, encaminhar jogadores e registrar a conclusão das fases precisam ser configuradas nos demais Wireds.
