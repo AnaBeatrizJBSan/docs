@@ -1,0 +1,29 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.100
+Ferramentas do Criador: Inspeção.
+Mobi selecionado: cadeira.
+
+00:00:03.100 --> 00:00:08.900
+Dar variável. Variável: avaliacao.
+Valor: 5. Criar.
+
+00:00:08.900 --> 00:00:10.900
+Na cadeira: avaliacao = 5.
+
+00:00:10.900 --> 00:00:13.100
+Inspeção: prato selecionado.
+
+00:00:13.100 --> 00:00:16.900
+Dar variável. Variável: avaliacao.
+Valor: 8. Criar.
+
+00:00:16.900 --> 00:00:18.000
+No prato: avaliacao = 8.
+
+00:00:18.000 --> 00:00:19.800
+Variáveis: avaliacao. Alvo: Mobi.
+Tem valor: Sim.
+
+00:00:19.800 --> 00:00:21.260
+Destacar: cadeira 5; prato 8.

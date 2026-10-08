@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.150
+No quarto do Habbo, a janela “Ferramentas do Criador” está na aba “Inspeção”, com o tipo de elemento mobi selecionado. A prévia e a lista de variáveis ainda estão vazias. À direita, há uma cadeira amarela ao lado de uma mesa com um prato de comida.
+
+00:00:02.150 --> 00:00:04.000
+A pessoa seleciona a cadeira. A imagem dela aparece na prévia, e a primeira linha da lista mostra a variável “avaliacao” com valor 1.
+
+00:00:04.000 --> 00:00:05.350
+A pessoa clica no valor 1 da linha “avaliacao”. A linha fica destacada e o número é selecionado em um campo de edição.
+
+00:00:05.350 --> 00:00:07.610
+O número é substituído por 3. A linha da variável passa a mostrar “avaliacao” com valor 3 para a cadeira selecionada.
