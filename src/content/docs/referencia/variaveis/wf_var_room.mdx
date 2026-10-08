@@ -42,6 +42,8 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import ConsultarValor from "@assets/wf_var_room/03-consultar-o-valor-da-variavel.gif";
+import AlterarValorPelaInspecao from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-inspecionar.gif";
 
 O **Wired Variável: Variável Global** permite guardar informações relacionadas ao quarto inteiro. Quer contar quantas partidas já aconteceram, guardar a pontuação coletiva de uma equipe ou indicar a fase atual de uma atividade? Você pode utilizar uma variável global para isso.
 
@@ -54,6 +56,8 @@ Enquanto uma variável de usuário ou de mobi pode guardar um valor diferente pa
 O primeiro passo é **criar a variável**. Nesta etapa, você define seu nome e por quanto tempo seu valor ficará disponível. A variável global já começa com o valor **0**, sem precisar ser atribuída ao quarto pelo Efeito **Dar Variável**.
 
 Ao abrir a janela de configuração, você encontra três seções: **Nome da variável**, **Checar variável** e **Opções de disponibilidade**.
+
+![Janela do Wired Variável Global com o nome vazio, Valor atual: 0 e a disponibilidade Enquanto o quarto está ativo selecionada.](@assets/wf_var_room/01-janela-do-wired.png)
 
 ### Nome da variável
 
@@ -93,11 +97,15 @@ Se uma atividade ocupa vários quartos e todos precisam consultar a mesma pontua
 
 Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
 
+![Janela do Wired Variável Global com a opção Ver no menu Wired, o nome global_wired_club e Valor atual: 0.](@assets/wf_var_room/02-janela-do-wired-com-opcao-ver-no-menu-wired.png)
+
 ## Consultar o valor da variável
 
 Além da seção **Checar variável**, você pode utilizar as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) para acompanhar as informações do quarto.
 
 Na aba **Variáveis**, selecione o alvo **Global** para localizar a variável e consultar suas propriedades. Já na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/#tipo-do-elemento), escolha o ícone **Global** para ver as variáveis relacionadas ao próprio quarto e seus valores.
+
+<img src={ConsultarValor.src} alt="Demonstração de como consultar o valor de uma variável global nas Ferramentas do Criador." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
 
 ## Alterar o valor da variável
 
@@ -117,6 +125,8 @@ Para testar manualmente, você também pode [alterar o valor pela aba Inspeção
 
 Nesse caso, o número digitado substitui o valor armazenado. Por exemplo, se o contador está em **2** e você digitar **0**, ele passa a guardar **0**.
 
+<img src={AlterarValorPelaInspecao.src} alt="Demonstração de como editar o valor de partidas_jogadas na coluna Valor da aba Inspeção, com o alvo Global selecionado." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
+
 ## Renomear a variável
 
 Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Variável Global**, edite o campo **Nome da variável** e confirme a alteração.
@@ -126,6 +136,8 @@ Depois de confirmar, o novo nome passa a aparecer nos locais das **Ferramentas d
 ## Retirar o Wired do quarto
 
 Ao retirar o Wired que define a variável, você exclui a variável e seus dados. Confira se ela ainda é utilizada por outros Wireds antes de confirmar a remoção.
+
+![Janela Removendo uma variável avisando que todas as referências e os dados armazenados serão apagados, com as opções Cancelar e Ok.](@assets/wf_var/02-janela-de-aviso-ao-remover-wired.png)
 
 <Aside type="caution" title="Zerar e excluir são ações diferentes">
 Se você quer apenas reiniciar um contador, altere seu valor para **0**. Excluir a variável remove a informação utilizada pelo sistema, e não apenas o número que ela guarda.
@@ -139,10 +151,10 @@ O Habbo disponibiliza automaticamente informações sobre o quarto, como a quant
 | :--- | :--- |
 | `@furni_count` | A quantidade de mobis no quarto. |
 | `@user_count` | A quantidade de jogadores no quarto. |
-| `@wired_timer` | A quantidade de pulsos desde a inicialização do quarto ou a reinicialização do temporizador. Cada pulso corresponde a **0,5 segundo**. |
-| `@room_id` | O identificador numérico único do quarto. |
+| `@wired_timer` | A quantidade de pulsos desde a inicialização do quarto ou a reinicialização do temporizador. Cada pulso corresponde a **0,5 segundo**. Confira o tópico [Temporizador do quarto](#temporizador-do-quarto) para mais detalhes |
+| `@room_id` | O identificador numérico único do quarto. Confira o tópico [Identificador do quarto](#identificador-do-quarto) para mais detalhes |
 | `@group_id` | O identificador numérico único do grupo do quarto. Se o quarto não possui grupo, o valor é **0**. |
-| `@current_time` | O tempo atual em milissegundos, contado a partir de **1970**, com precisão de **1.000 milissegundos**. |
+| `@current_time` | O tempo atual em milissegundos, contado a partir de **1970**, com precisão de **1.000 milissegundos**. Confira o tópico [Tempo atual](#tempo-atual) para mais detalhes |
 
 ### Temporizador do quarto
 
