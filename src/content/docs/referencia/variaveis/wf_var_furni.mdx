@@ -44,8 +44,10 @@ import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
 import PortaDeVidroFechada from "@assets/wf_var_furni/03-porta-de-vidro-fechada.webp"
 import PortaDeVidroAberta from "@assets/wf_var_furni/03-porta-de-vidro-aberta.webp"
+import RotacaoPisosSeta from "@assets/wf_var_furni/05-rotacao-do-mobi-pisos-seta-de-madeira.gif";
+import RotacaoPortaDeVidro from "@assets/wf_var_furni/05-rotacao-do-mobi-porta-de-vidro.gif";
 
-O **Wired Variável: Mobi Variável** permite criar informações e associá-las aos mobis do quarto. Quer guardar a energia de uma máquina, contar quantas vezes um objeto foi utilizado ou marcar os mobis que fazem parte de uma atividade? Você pode utilizar uma variável de mobi para isso.
+O **Wired Variável: Mobi Variável** permite criar informações e associá-las aos mobis do quarto. Quer guardar a avaliação de um item da sua lanchonete, contar quantas vezes um objeto foi utilizado ou marcar os mobis que fazem parte de uma atividade? Você pode utilizar uma variável de mobi para isso.
 
 Cada mobi também possui informações que o Habbo disponibiliza automaticamente, como seu identificador e sua posição. Este Wired permite criar suas próprias informações, com valores individuais para cada mobi que receber a variável.
 
@@ -63,9 +65,9 @@ Ao abrir a janela de configuração, você encontra três seções: **Nome da va
 
 Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
 
-Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `energia da maquina` se torna `energia_da_maquina`.
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `avaliacao do mobi` se torna `avaliacao_do_mobi`.
 
-Prefira nomes que ajudem a entender o que a variável representa, como `energia`, `quantidade_de_usos` ou `objeto_da_missao`.
+Prefira nomes que ajudem a entender o que a variável representa, como `avaliacao`, `quantidade_de_usos` ou `objeto_da_missao`.
 
 ### Configurações da variável
 
@@ -73,7 +75,7 @@ A opção **Tem valor** define se a variável armazena um número ou apenas indi
 
 | Opção | Como funciona | Exemplo |
 | :--- | :--- | :--- |
-| **Marcada** | A variável pode armazenar um valor numérico. | `energia` guarda a energia disponível em cada máquina. |
+| **Marcada** | A variável pode armazenar um valor numérico. | `avaliacao` guarda a nota de cada mobi. |
 | **Desmarcada** | A variável funciona como uma informação de verdadeiro ou falso, conforme esteja vinculada ao mobi ou não. | `objeto_da_missao` identifica os mobis que fazem parte de uma missão. |
 
 No exemplo de uma variável sem valor, estar vinculada ao mobi representa **verdadeiro**. Se ela não estiver vinculada, representa **falso**. Você não precisa armazenar os números 1 e 0 para fazer essa distinção.
@@ -93,7 +95,7 @@ Esta seção define por quanto tempo a variável fica associada ao mobi. Há dua
 
 Um quarto com jogadores dentro é considerado **ativo**. Quando ele é descarregado, passa a estar **inativo**. Por isso, a primeira opção está relacionada ao funcionamento do quarto, e não à permanência de um jogador específico nele.
 
-Por exemplo, uma contagem de usos que só precisa existir enquanto o quarto está ativo pode utilizar a primeira opção. Já a energia de uma máquina que você quer conservar para a próxima vez que o quarto for carregado pode utilizar **Permanente**.
+Por exemplo, uma contagem de usos que só precisa existir enquanto o quarto está ativo pode utilizar a primeira opção. Já a avaliação de um mobi que você quer conservar para a próxima vez que o quarto for carregado pode utilizar **Permanente**.
 
 ### Ver no menu Wired
 
@@ -105,29 +107,29 @@ Depois de confirmar as configurações, clique duas vezes no Wired novamente. A 
 
 Depois de confirmar a configuração, a variável aparece na lista do alvo **Mobi** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). Porém, **criar a variável não significa vinculá-la automaticamente a algum mobi**.
 
-Você pode fazer essa associação por uma pilha Wired ou manualmente pela aba **Inspeção**. Nos exemplos abaixo, vamos utilizar a variável `energia` para representar a energia disponível em máquinas do quarto.
+Você pode fazer essa associação por uma pilha Wired ou manualmente pela aba **Inspeção**. Nos exemplos abaixo, vamos utilizar a variável `avaliacao` para representar as notas de dois itens de uma lanchonete: a **Cadeira de Bar**, pelo conforto, e o **Prato de Coxinhas**, pelo sabor.
 
 ### Pelo Efeito Wired: Dar Variável
 
 O [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/) permite atribuir a variável aos mobis definidos na configuração da pilha.
 
-Para preparar o exemplo, crie `energia` com **Tem valor**. Depois, selecione essa variável no Efeito **Dar Variável**, defina o valor inicial como **100** e configure os mobis que receberão a variável.
+Para preparar o exemplo, crie `avaliacao` com **Tem valor**. Depois, selecione essa variável no Efeito **Dar Variável**, defina o valor inicial como **5** e configure os mobis que receberão a variável.
 
-Quando a pilha for acionada, o Efeito atribuirá a variável aos mobis definidos como destino. Cada máquina manterá seu próprio valor de `energia`, permitindo que uma tenha **100** e outra tenha **50**, por exemplo.
+Quando a pilha for acionada, o Efeito atribuirá a variável aos mobis definidos como destino. Cada mobi manterá seu próprio valor de `avaliacao`, permitindo que a **Cadeira de Bar** tenha nota **5** e o **Prato de Coxinhas** tenha nota **8**, por exemplo.
 
 Para conferir a associação, selecione a variável na aba **Variáveis** e utilize o botão [Destacar](/referencia/ferramentas-do-criador/variaveis/#destacar). Você também pode inspecionar cada mobi individualmente.
 
 ### Pelo botão Dar variável da aba Inspeção
 
-Você também pode atribuir a variável diretamente a um mobi, o que ajuda a preparar dados para um teste. Na aba **Inspeção**, escolha o alvo **Mobi**, selecione a máquina no quarto e clique em [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável).
+Você também pode atribuir a variável diretamente a um mobi, o que ajuda a preparar dados para um teste. Na aba **Inspeção**, escolha o alvo **Mobi**, selecione a **Cadeira de Bar** no quarto e clique em [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável).
 
-No formulário, escolha `energia`, informe **100** no campo **Valor** e confirme em **Criar**. A variável passará a aparecer na lista desse mobi.
+No formulário, escolha `avaliacao`, informe **5** no campo **Valor** e confirme em **Criar**. A variável passará a aparecer na lista desse mobi.
 
-Se você repetir o processo em outra máquina, poderá informar um valor diferente. A associação feita em um mobi não atribui a variável automaticamente aos demais, mesmo que sejam mobis iguais.
+Se você repetir o processo no **Prato de Coxinhas**, poderá informar **8** como valor. A associação feita em um mobi não atribui a variável automaticamente aos demais, mesmo que sejam mobis iguais.
 
 ## Alterar o valor da variável
 
-Depois de criar a variável e vinculá-la a um mobi, você pode modificar o número que ela armazena. Isso permite, por exemplo, diminuir a energia de uma máquina conforme ela é utilizada.
+Depois de criar a variável e vinculá-la a um mobi, você pode modificar o número que ela armazena. Isso permite, por exemplo, diminuir a nota de um mobi após uma nova avaliação.
 
 Essa alteração se aplica às variáveis com **Tem valor** marcado. Para uma variável sem valor, como `objeto_da_missao`, o que importa é atribuí-la ou removê-la do mobi.
 
@@ -135,25 +137,25 @@ Você pode alterar o valor por um Efeito Wired ou diretamente pela aba **Inspeç
 
 ### Pelo Efeito Wired: Mudar Valor Variável
 
-Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `energia`, escolha a operação **Subtrair** e informe **1** como valor de referência. Confira também a fonte de mobis: ela determina quais mobis terão seus valores alterados quando a pilha for acionada.
+Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `avaliacao`, escolha a operação **Subtrair** e informe **1** como valor de referência. Confira também a fonte de mobis: ela determina quais mobis terão seus valores alterados quando a pilha for acionada.
 
-Se uma máquina possui `energia` com valor **100**, essa operação faz seu valor passar para **99**. Cada mobi mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
+Se a **Cadeira de Bar** possui `avaliacao` com valor **5**, essa operação faz seu valor passar para **4**. Cada mobi mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
 
 ### Pela coluna Valor da aba Inspeção
 
-Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável). Selecione o mobi e localize `energia` na lista de variáveis. Clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
+Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável). Selecione o mobi e localize `avaliacao` na lista de variáveis. Clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
 
-Nesse caso, o número digitado substitui o valor armazenado para o mobi selecionado. Por exemplo, se a máquina possui **99** e você digitar **100**, a variável passa a armazenar **100** para essa máquina.
+Nesse caso, o número digitado substitui o valor armazenado para o mobi selecionado. Por exemplo, se a **Cadeira de Bar** possui nota **4** e você digitar **5**, a variável passa a armazenar **5** para esse mobi.
 
 ## Exibir o valor da variável no quarto
 
 Até aqui, utilizamos as **Ferramentas do Criador** para consultar e conferir os valores. Como nem todos os participantes têm acesso a essas ferramentas, você pode exibir a informação diretamente no quarto para que ela faça parte da experiência do jogo.
 
-Uma forma simples é utilizar a [Variável FX: Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/). Coloque esse Wired acima do **Wired Variável: Mobi Variável** que define `energia`. O efeito visual mostrará o valor acima dos mobis que possuem a variável.
+Uma forma simples é utilizar a [Variável FX: Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/). Coloque esse Wired acima do **Wired Variável: Mobi Variável** que define `avaliacao`. O efeito visual mostrará o valor acima dos mobis que possuem a variável.
 
 Depois, configure o estilo e a visibilidade do número. Se quiser que todos no quarto possam acompanhá-lo, escolha a audiência **Todos**. A opção **Sempre visível** pode ajudar a acompanhar as mudanças durante um teste.
 
-Assim, quando o **Efeito Mudar Valor Variável** alterar a energia, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
+Assim, quando o **Efeito Mudar Valor Variável** alterar a avaliação, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
 
 ## Renomear a variável
 
@@ -235,6 +237,12 @@ Para conhecer os estados de outro mobi, você pode acompanhar `@state` pela aba 
 ### Rotação do mobi
 
 A variável `@rotation` informa a rotação do mobi. A quantidade de rotações possíveis depende do modelo: **Pisos Seta de Madeira** permite **8 rotações**, enquanto **Porta de Vidro** permite **2**.
+
+Veja as rotações de cada mobi nos exemplos abaixo:
+
+| Pisos Seta de Madeira | Porta de Vidro |
+| :---: | :---: |
+| <img src={RotacaoPisosSeta.src} alt="Animação dos Pisos Seta de Madeira alternando entre suas oito rotações." style={{ display: "block", marginInline: "auto" }} /> | <img src={RotacaoPortaDeVidro.src} alt="Animação da Porta de Vidro alternando entre suas duas rotações." style={{ display: "block", marginInline: "auto" }} /> |
 
 Por isso, ao preparar um sistema que utiliza rotação, confira quais posições o mobi escolhido permite e acompanhe os valores pela aba **Inspeção**.
 
