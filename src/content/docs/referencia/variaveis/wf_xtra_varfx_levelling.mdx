@@ -3,9 +3,6 @@ title: "Variável FX: Progresso de Nível"
 description: Este extra exibe o nível e o progresso acima de um usuário ou mobi, utilizando o valor de uma variável.
 sidebar:
   label: Progresso de Nível
-  badge:
-    text: NOVO
-    variant: note
 infobox:
   # == Infobox ==
   # hide: false # valor padrão
@@ -100,7 +97,7 @@ As informações exibidas são calculadas automaticamente pelo **Extra Variável
 Antes de utilizar este Extra de Variável, é necessário que exista uma variável associada ao mobi ou ao usuário. Para isso, coloque um dos seguintes Wireds no quarto:
 
 * **Wired Variável: Mobi Variável**
-* **Wired Variável: Usuário Variável**
+* **[Wired Variável: Usuário Variável](/referencia/variaveis/wf_var_user/)**
 
 Também é necessário configurar o [**Extra Variável: Sistema de Aumento de Nível**](/referencia/variaveis/wf_xtra_var_lvlup_system/) acima do Wired de variável. Ele será responsável por calcular o nível, o progresso e as demais informações usadas pelo efeito visual.
 
@@ -143,7 +140,7 @@ Atualmente existem dois estilos disponíveis:
 * **Nível e Barra:** exibe o nível atual acompanhado por uma barra de progresso segmentada.
 * **Detalhes de Nível:** exibe o nível atual, os valores numéricos de progresso e uma barra de progresso.
 
-![Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100](@assets/wf_xtra_varfx_levelling/02-estilo.png "Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100")
+![Comparação entre os estilos Nível e Barra, com uma barra segmentada, e Detalhes de Nível, com os valores de progresso 50 de 100](@assets/wf_xtra_varfx_levelling/02-estilo.png)
 
 ### Visualização
 
@@ -151,7 +148,7 @@ A seção **Visualização** mostra uma prévia da aparência do efeito.
 
 Sempre que um estilo for selecionado ou uma configuração visual for alterada, essa prévia será atualizada automaticamente.
 
-![Janela de configuração da Variável FX Progresso de Nível mostrando a prévia dos dois estilos](@assets/wf_xtra_varfx_levelling/03-visualizacao.gif "Janela de configuração da Variável FX Progresso de Nível mostrando a prévia dos dois estilos")
+![Janela de configuração da Variável FX Progresso de Nível mostrando a prévia dos dois estilos](@assets/wf_xtra_varfx_levelling/03-visualizacao.gif)
 
 #### Visualização Aleatória
 
@@ -159,7 +156,7 @@ No canto inferior direito da seção **Visualização**, existe um ícone chamad
 
 Ao pressioná-lo, a prévia passa a utilizar diferentes valores de progresso, permitindo visualizar como o efeito ficará em diferentes momentos entre um nível e outro.
 
-![Prévia do Progresso de Nível alternando entre diferentes valores ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_levelling/04-visualizacao-aleatoria.gif "Prévia do Progresso de Nível alternando entre diferentes valores ao usar a Visualização Aleatória")
+![Prévia do Progresso de Nível alternando entre diferentes valores ao usar a Visualização Aleatória](@assets/wf_xtra_varfx_levelling/04-visualizacao-aleatoria.gif)
 
 ### Configurações
 
@@ -270,7 +267,6 @@ O nível e o progresso permanecerão sempre visíveis acima do mobi ou usuário.
         <img
           src={SempreVisivelConfiguracao.src}
           alt="Configurações do Progresso de Nível com a opção Sempre visível selecionada"
-          title="Configurações do Progresso de Nível com a opção Sempre visível selecionada"
           style={{ width: "100%" }}
         />
       </td>
@@ -278,7 +274,6 @@ O nível e o progresso permanecerão sempre visíveis acima do mobi ou usuário.
         <img
           src={SempreVisivelExemplo.src}
           alt="Usuário e mobi no quarto com o Progresso de Nível sempre visível acima deles"
-          title="Exemplo do Progresso de Nível sempre visível no quarto"
           style={{ width: "100%" }}
         />
       </td>
@@ -329,7 +324,6 @@ O nível e o progresso serão exibidos somente enquanto o mouse estiver posicion
         <img
           src={VisivelAoPassarOMouseConfiguracao.src}
           alt="Configurações do Progresso de Nível com a opção Visível ao passar o mouse selecionada"
-          title="Configurações do Progresso de Nível com a opção Visível ao passar o mouse selecionada"
           style={{ width: "100%" }}
         />
       </td>
@@ -337,7 +331,6 @@ O nível e o progresso serão exibidos somente enquanto o mouse estiver posicion
         <img
           src={VisivelAoPassarOMouse.src}
           alt="Animação do Progresso de Nível sendo exibido somente quando o mouse passa sobre o mobi"
-          title="Exemplo do Progresso de Nível visível ao passar o mouse no quarto"
           style={{ width: "100%" }}
         />
       </td>
@@ -370,7 +363,6 @@ Esta opção não está disponível quando a **Variável FX: Progresso de Nível
         <img
           src={AudienciaSomenteOUsuarioConfiguracao.src}
           alt="Configurações do Progresso de Nível com a audiência Somente o usuário selecionada"
-          title="Configurações do Progresso de Nível com a audiência Somente o usuário selecionada"
           style={{ width: "100%" }}
         />
       </td>
@@ -378,7 +370,6 @@ Esta opção não está disponível quando a **Variável FX: Progresso de Nível
         <img
           src={AudienciaSomenteOUsuarioExemplo.src}
           alt="Comparação entre a visão de dois usuários, em que o Progresso de Nível aparece somente para o usuário configurado"
-          title="Exemplo do Progresso de Nível visível somente para o usuário"
           style={{ width: "100%" }}
         />
       </td>
@@ -405,7 +396,6 @@ Esta opção não está disponível quando a **Variável FX: Progresso de Nível
         <img
           src={AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao.src}
           alt="Configurações do Progresso de Nível com a audiência Usuários que estão no mesmo time selecionada"
-          title="Configurações do Progresso de Nível com a audiência Usuários que estão no mesmo time selecionada"
           style={{ width: "100%" }}
         />
       </td>
@@ -413,7 +403,6 @@ Esta opção não está disponível quando a **Variável FX: Progresso de Nível
         <img
           src={AudienciaUsuariosQueEstaoNoMesmoTimeExemplo.src}
           alt="Comparação entre usuários no mesmo time, que veem o Progresso de Nível, e um usuário de outro time, que não o vê"
-          title="Exemplo do Progresso de Nível visível para usuários do mesmo time"
           style={{ width: "100%" }}
         />
       </td>
@@ -442,7 +431,6 @@ Esta opção está disponível tanto para uma **Variável FX: Progresso de Níve
         <img
           src={AudienciaUsuariosQueTemVariavelConfiguracao.src}
           alt="Animação da janela de configuração do Progresso de Nível, incluindo as configurações de visibilidade"
-          title="Configuração da audiência Usuários que têm variável do Progresso de Nível"
           style={{ width: "100%" }}
         />
       </td>
@@ -450,7 +438,6 @@ Esta opção está disponível tanto para uma **Variável FX: Progresso de Níve
         <img
           src={AudienciaUsuariosQueTemVariavelExemplo.src}
           alt="Comparação entre usuários no quarto, em que o Progresso de Nível é visível apenas para quem possui a variável configurada"
-          title="Exemplo do Progresso de Nível visível para usuários que têm variável"
           style={{ width: "100%" }}
         />
       </td>
@@ -463,6 +450,18 @@ Esta opção está disponível tanto para uma **Variável FX: Progresso de Níve
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar o nível e o progresso acima do mobi ou usuário**.
 
 Esta opção está disponível tanto para uma **Variável FX: Progresso de Nível** vinculada a variáveis de usuário quanto a variáveis de mobi.
+
+## Limite do nível exibido
+
+O maior nível que a **Variável FX: Progresso de Nível** consegue exibir é **100.000**. Esse limite acompanha o campo **Nível máximo** do **Extra Variável: Sistema de Aumento de Nível**, responsável por calcular as informações usadas pelo efeito visual.
+
+Por exemplo, ao configurar o **Nível máximo** como **100.000**, o efeito poderá mostrar esse nível acima do mobi ou usuário quando ele acumular a experiência necessária para alcançá-lo.
+
+![Progresso de Nível exibindo o nível 100000 acima de um usuário no estilo Nível e Barra e de um mobi no estilo Detalhes de Nível, ambos com a barra preenchida.](@assets/wf_xtra_varfx_levelling/17-nivel-maximo.png)
+
+Você pode conferir a configuração do campo **Nível máximo** nas explicações dos modos [Linear](/referencia/variaveis/wf_xtra_var_lvlup_system/#linear) e [Exponencial](/referencia/variaveis/wf_xtra_var_lvlup_system/#exponencial).
+
+Ao planejar a progressão do seu sistema, considere esse limite para definir os níveis e a experiência necessária para avançar.
 
 ## Exemplos de uso
 

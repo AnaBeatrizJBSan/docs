@@ -1,0 +1,29 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.500
+WIRED VARIÁVEL: Usuário Variável.
+Nome: rating_wired_club. Tem valor.
+Disponibilidade: Enquanto o usuário está no quarto.
+
+00:00:06.500 --> 00:00:10.500
+EFEITO WIRED “Dar Variável”: rating_wired_club.
+Valor inicial: 0. Destino: Usar usuários do seletor.
+
+00:00:11.500 --> 00:00:19.800
+EFEITO WIRED “Mudar Valor Variável”.
+rating_wired_club; operação: Somar; definir valor: 1.
+Destino: Use o usuário acionador.
+
+00:00:21.500 --> 00:00:27.000
+SELETOR WIRED “Habbos na Área”.
+Área marcada sobre os personagens e o pet.
+
+00:00:28.000 --> 00:00:30.000
+ATIVADOR WIRED “Repetir Efeito”: 10 segundos.
+
+00:00:31.000 --> 00:00:37.500
+Destaque da variável rating_wired_club:
+os três valores exibidos são 2.
+
+00:00:37.500 --> 00:00:40.130
+Após a repetição, os três valores exibidos mudam para 3.
