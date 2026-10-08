@@ -42,6 +42,37 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import VincularPeloEfeito from "@assets/wf_var_furni/06-vincular-variavel-wired-efeito-dar-variavel.mp4";
+import VincularPeloEfeitoCaptionsUrl from "@assets/wf_var_furni/06-vincular-variavel-wired-efeito-dar-variavel-captions.vtt?url";
+import VincularPeloEfeitoCaptionsRaw from "@assets/wf_var_furni/06-vincular-variavel-wired-efeito-dar-variavel-captions.vtt?raw";
+import VincularPeloEfeitoDescriptionsUrl from "@assets/wf_var_furni/06-vincular-variavel-wired-efeito-dar-variavel-descriptions.vtt?url";
+import VincularPeloEfeitoDescriptionsRaw from "@assets/wf_var_furni/06-vincular-variavel-wired-efeito-dar-variavel-descriptions.vtt?raw";
+import VincularPelaInspecao from "@assets/wf_var_furni/06-vincular-variavel-botao-dar-variavel.mp4";
+import VincularPelaInspecaoCaptionsUrl from "@assets/wf_var_furni/06-vincular-variavel-botao-dar-variavel-captions.vtt?url";
+import VincularPelaInspecaoCaptionsRaw from "@assets/wf_var_furni/06-vincular-variavel-botao-dar-variavel-captions.vtt?raw";
+import VincularPelaInspecaoDescriptionsUrl from "@assets/wf_var_furni/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?url";
+import VincularPelaInspecaoDescriptionsRaw from "@assets/wf_var_furni/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?raw";
+import AlterarPeloEfeito from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-wired.mp4";
+import AlterarPeloEfeitoCaptionsUrl from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-wired-captions.vtt?url";
+import AlterarPeloEfeitoCaptionsRaw from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-wired-captions.vtt?raw";
+import AlterarPeloEfeitoDescriptionsUrl from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-wired-descriptions.vtt?url";
+import AlterarPeloEfeitoDescriptionsRaw from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-wired-descriptions.vtt?raw";
+import AlterarPelaInspecao from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-inspecionar.mp4";
+import AlterarPelaInspecaoCaptionsUrl from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-inspecionar-captions-pt-BR.vtt?url";
+import AlterarPelaInspecaoCaptionsRaw from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-inspecionar-captions-pt-BR.vtt?raw";
+import AlterarPelaInspecaoDescriptionsUrl from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-inspecionar-descriptions-pt-BR.vtt?url";
+import AlterarPelaInspecaoDescriptionsRaw from "@assets/wf_var_furni/07-alterar-valor-variavel-pelo-inspecionar-descriptions-pt-BR.vtt?raw";
+import ExibirValor from "@assets/wf_var_furni/08-exibir-o-valor-da-variavel-no-quarto.mp4";
+import ExibirValorCaptionsUrl from "@assets/wf_var_furni/08-exibir-o-valor-da-variavel-no-quarto-captions.vtt?url";
+import ExibirValorCaptionsRaw from "@assets/wf_var_furni/08-exibir-o-valor-da-variavel-no-quarto-captions.vtt?raw";
+import ExibirValorDescriptionsUrl from "@assets/wf_var_furni/08-exibir-o-valor-da-variavel-no-quarto-descriptions.vtt?url";
+import ExibirValorDescriptionsRaw from "@assets/wf_var_furni/08-exibir-o-valor-da-variavel-no-quarto-descriptions.vtt?raw";
+import RenomearVariavel from "@assets/wf_var_furni/09-renomear-a-variavel.mp4";
+import RenomearVariavelCaptionsUrl from "@assets/wf_var_furni/09-renomear-a-variavel-captions.vtt?url";
+import RenomearVariavelCaptionsRaw from "@assets/wf_var_furni/09-renomear-a-variavel-captions.vtt?raw";
+import RenomearVariavelDescriptionsUrl from "@assets/wf_var_furni/09-renomear-a-variavel-descriptions.vtt?url";
+import RenomearVariavelDescriptionsRaw from "@assets/wf_var_furni/09-renomear-a-variavel-descriptions.vtt?raw";
 import PortaDeVidroFechada from "@assets/wf_var_furni/03-porta-de-vidro-fechada.webp"
 import PortaDeVidroAberta from "@assets/wf_var_furni/03-porta-de-vidro-aberta.webp"
 import RotacaoPisosSeta from "@assets/wf_var_furni/05-rotacao-do-mobi-pisos-seta-de-madeira.gif";
@@ -115,9 +146,19 @@ O [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/) permite at
 
 Para preparar o exemplo, crie `avaliacao` com **Tem valor**. Depois, selecione essa variável no Efeito **Dar Variável**, defina o valor inicial como **5** e configure os mobis que receberão a variável.
 
-Quando a pilha for acionada, o Efeito atribuirá a variável aos mobis definidos como destino. Cada mobi manterá seu próprio valor de `avaliacao`, permitindo que a **Cadeira de Bar** tenha nota **5** e o **Prato de Coxinhas** tenha nota **8**, por exemplo.
+No vídeo abaixo, a **Cadeira de Bar** e o **Prato de Coxinhas** são selecionados na opção **Use mobis escolhidos**. O **Ativador Wired: Repetir Efeito**, configurado com um intervalo de **10 segundos**, aciona a pilha para atribuir `avaliacao` com valor **5** aos dois mobis. Cada mobi mantém seu próprio valor, que pode ser alterado individualmente depois.
 
 Para conferir a associação, selecione a variável na aba **Variáveis** e utilize o botão [Destacar](/referencia/ferramentas-do-criador/variaveis/#destacar). Você também pode inspecionar cada mobi individualmente.
+
+<AccessibleVideo
+  id="mobi-variavel-vincular-pelo-efeito"
+  src={VincularPeloEfeito}
+  captionsSrc={VincularPeloEfeitoCaptionsUrl}
+  captionsContent={VincularPeloEfeitoCaptionsRaw}
+  descriptionsSrc={VincularPeloEfeitoDescriptionsUrl}
+  descriptionsContent={VincularPeloEfeitoDescriptionsRaw}
+  title="Vincular uma variável aos mobis com o Efeito Wired: Dar Variável"
+/>
 
 ### Pelo botão Dar variável da aba Inspeção
 
@@ -126,6 +167,16 @@ Você também pode atribuir a variável diretamente a um mobi, o que ajuda a pre
 No formulário, escolha `avaliacao`, informe **5** no campo **Valor** e confirme em **Criar**. A variável passará a aparecer na lista desse mobi.
 
 Se você repetir o processo no **Prato de Coxinhas**, poderá informar **8** como valor. A associação feita em um mobi não atribui a variável automaticamente aos demais, mesmo que sejam mobis iguais.
+
+<AccessibleVideo
+  id="mobi-variavel-vincular-pela-inspecao"
+  src={VincularPelaInspecao}
+  captionsSrc={VincularPelaInspecaoCaptionsUrl}
+  captionsContent={VincularPelaInspecaoCaptionsRaw}
+  descriptionsSrc={VincularPelaInspecaoDescriptionsUrl}
+  descriptionsContent={VincularPelaInspecaoDescriptionsRaw}
+  title="Vincular uma variável ao mobi pelo botão Dar variável da aba Inspeção"
+/>
 
 ## Alterar o valor da variável
 
@@ -141,27 +192,67 @@ Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor V
 
 Se a **Cadeira de Bar** possui `avaliacao` com valor **5**, essa operação faz seu valor passar para **4**. Cada mobi mantém seu próprio valor, então os demais só serão afetados se também estiverem entre os alvos do Efeito.
 
+<AccessibleVideo
+  id="mobi-variavel-alterar-pelo-efeito"
+  src={AlterarPeloEfeito}
+  captionsSrc={AlterarPeloEfeitoCaptionsUrl}
+  captionsContent={AlterarPeloEfeitoCaptionsRaw}
+  descriptionsSrc={AlterarPeloEfeitoDescriptionsUrl}
+  descriptionsContent={AlterarPeloEfeitoDescriptionsRaw}
+  title="Alterar o valor da variável com o Efeito Wired: Mudar Valor Variável"
+/>
+
 ### Pela coluna Valor da aba Inspeção
 
 Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável). Selecione o mobi e localize `avaliacao` na lista de variáveis. Clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
 
-Nesse caso, o número digitado substitui o valor armazenado para o mobi selecionado. Por exemplo, se a **Cadeira de Bar** possui nota **4** e você digitar **5**, a variável passa a armazenar **5** para esse mobi.
+Nesse caso, o número digitado substitui o valor armazenado para o mobi selecionado. No vídeo abaixo, a nota da **Cadeira de Bar** é alterada de **1** para **3**.
+
+<AccessibleVideo
+  id="mobi-variavel-alterar-pela-inspecao"
+  src={AlterarPelaInspecao}
+  captionsSrc={AlterarPelaInspecaoCaptionsUrl}
+  captionsContent={AlterarPelaInspecaoCaptionsRaw}
+  descriptionsSrc={AlterarPelaInspecaoDescriptionsUrl}
+  descriptionsContent={AlterarPelaInspecaoDescriptionsRaw}
+  title="Alterar o valor da variável pela aba Inspeção"
+/>
 
 ## Exibir o valor da variável no quarto
 
 Até aqui, utilizamos as **Ferramentas do Criador** para consultar e conferir os valores. Como nem todos os participantes têm acesso a essas ferramentas, você pode exibir a informação diretamente no quarto para que ela faça parte da experiência do jogo.
 
-Uma forma simples é utilizar a [Variável FX: Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/). Coloque esse Wired acima do **Wired Variável: Mobi Variável** que define `avaliacao`. O efeito visual mostrará o valor acima dos mobis que possuem a variável.
+Uma forma simples é utilizar a [Variável FX: Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/). Coloque esse Wired acima do **Wired Variável: Mobi Variável** que define `avaliacao`, lembrando de clicar duas vezes nesse wired e escolher o ícone de mobi, pra indicar que a Variável FX aparecerá acima de um mobi. O efeito visual mostrará o valor acima dos mobis que possuem a variável.
 
 Depois, configure o estilo e a visibilidade do número. Se quiser que todos no quarto possam acompanhá-lo, escolha a audiência **Todos**. A opção **Sempre visível** pode ajudar a acompanhar as mudanças durante um teste.
 
 Assim, quando o **Efeito Mudar Valor Variável** alterar a avaliação, o número exibido acompanhará o novo valor. A Variável FX apresenta a informação armazenada; a atribuição e a alteração continuam sendo feitas pelas etapas anteriores.
+
+<AccessibleVideo
+  id="mobi-variavel-exibir-valor"
+  src={ExibirValor}
+  captionsSrc={ExibirValorCaptionsUrl}
+  captionsContent={ExibirValorCaptionsRaw}
+  descriptionsSrc={ExibirValorDescriptionsUrl}
+  descriptionsContent={ExibirValorDescriptionsRaw}
+  title="Exibir a avaliação dos mobis no quarto com a Variável FX: Exibição de Números"
+/>
 
 ## Renomear a variável
 
 Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Mobi Variável**, edite o campo **Nome da variável** e confirme a alteração.
 
 Depois de confirmar, o novo nome passa a aparecer em todos os locais das **Ferramentas do Criador** que fazem referência a essa variável, como a lista da aba **Variáveis** e a tabela da aba **Inspeção**.
+
+<AccessibleVideo
+  id="mobi-variavel-renomear"
+  src={RenomearVariavel}
+  captionsSrc={RenomearVariavelCaptionsUrl}
+  captionsContent={RenomearVariavelCaptionsRaw}
+  descriptionsSrc={RenomearVariavelDescriptionsUrl}
+  descriptionsContent={RenomearVariavelDescriptionsRaw}
+  title="Renomear a variável e conferir o novo nome nas Ferramentas do Criador"
+/>
 
 ## Retirar o Wired do quarto
 
