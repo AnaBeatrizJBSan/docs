@@ -90,7 +90,7 @@ O primeiro passo é **criar a variável**. Nesta etapa, você define seu nome, s
 
 Ao abrir a janela de configuração, você encontra três seções: **Nome da variável**, **Configurações da variável** e **Opções de disponibilidade**.
 
-![](@assets/wf_var_furni/01-janela-do-wired.png)
+![Janela do Wired Mobi Variável com o nome vazio, Tem valor desmarcado e a disponibilidade Enquanto o quarto está ativo selecionada.](@assets/wf_var_furni/01-janela-do-wired.png)
 
 ### Nome da variável
 
@@ -132,7 +132,7 @@ Por exemplo, uma contagem de usos que só precisa existir enquanto o quarto est�
 
 Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
 
-![](@assets/wf_var_furni/02-janela-do-wired-com-opcao-ver-no-menu-wired.png.png)
+![Janela do Wired Mobi Variável com a opção Ver no menu Wired, o nome mobi_wired_club, Tem valor marcado e a disponibilidade Permanente selecionada.](@assets/wf_var_furni/02-janela-do-wired-com-opcao-ver-no-menu-wired.png.png)
 
 ## Vincular a variável a um mobi
 
@@ -320,8 +320,8 @@ A variável `@state` informa o estado atual do mobi. O significado de cada núme
 
 | Valor | Estado | Representação do mobi |
 | :--- | :--- | :---:
-| **0** | Porta fechada. | <img src={PortaDeVidroFechada.src} style={{ width: "64px", height: "auto", display: "block", marginInline: "auto" }} /> |
-| **1** | Porta aberta. | <img src={PortaDeVidroAberta.src} style={{ width: "64px", height: "auto", display: "block", marginInline: "auto" }} /> |
+| **0** | Porta fechada. | <img src={PortaDeVidroFechada.src} alt="Porta de Vidro fechada, com o painel levantado, correspondente ao estado 0." style={{ width: "64px", height: "auto", display: "block", marginInline: "auto" }} /> |
+| **1** | Porta aberta. | <img src={PortaDeVidroAberta.src} alt="Porta de Vidro aberta, com o painel abaixado junto ao piso, correspondente ao estado 1." style={{ width: "64px", height: "auto", display: "block", marginInline: "auto" }} /> |
 
 Para conhecer os estados de outro mobi, você pode acompanhar `@state` pela aba **Inspeção** enquanto altera o estado dele.
 
@@ -353,6 +353,6 @@ As variáveis `@dimensions.x` e `@dimensions.y` representam o espaço que o mobi
 
 Por exemplo, o **Piso Transparente** possui dimensão **2** em ambos os eixos. Isso significa que ele ocupa uma área de **2 × 2**, totalizando **4 quadrados** no quarto.
 
-![](@assets/wf_var_furni/04-dimensoes-piso-transparente.gif)
+![Piso Transparente ocupando uma área de dois por dois quadrados, com um dos quatro quadrados destacado pelo cursor.](@assets/wf_var_furni/04-dimensoes-piso-transparente.gif)
 
 Essas dimensões descrevem o espaço ocupado no piso. Já `@height` representa a altura do próprio mobi, e `@altitude` indica a altitude em que ele está no quarto.

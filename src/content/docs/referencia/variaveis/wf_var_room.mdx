@@ -1,10 +1,10 @@
 ---
 title: "WIRED Variável: Variável Global"
-description: Esta variável armazena valores globais compartilhados no quarto.
+description: Aprenda a criar variáveis globais, definir sua disponibilidade e consultar informações do quarto, dos times e do tempo atual.
 sidebar:
   label: Variável Global
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -40,6 +40,211 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import AlterarValorPeloWired from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired.mp4";
+import AlterarValorPeloWiredCaptionsUrl from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-captions.vtt?url";
+import AlterarValorPeloWiredCaptionsRaw from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-captions.vtt?raw";
+import AlterarValorPeloWiredDescriptionsUrl from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-descriptions.vtt?url";
+import AlterarValorPeloWiredDescriptionsRaw from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-descriptions.vtt?raw";
+import RenomearVariavel from "@assets/wf_var_room/05-renomear-a-variavel.mp4";
+import RenomearVariavelCaptionsUrl from "@assets/wf_var_room/05-renomear-a-variavel-captions.vtt?url";
+import RenomearVariavelCaptionsRaw from "@assets/wf_var_room/05-renomear-a-variavel-captions.vtt?raw";
+import RenomearVariavelDescriptionsUrl from "@assets/wf_var_room/05-renomear-a-variavel-descriptions.vtt?url";
+import RenomearVariavelDescriptionsRaw from "@assets/wf_var_room/05-renomear-a-variavel-descriptions.vtt?raw";
+import ConsultarValor from "@assets/wf_var_room/03-consultar-o-valor-da-variavel.gif";
+import AlterarValorPelaInspecao from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-inspecionar.gif";
+
+O **Wired Variável: Variável Global** permite guardar informações relacionadas ao quarto inteiro. Quer contar quantas partidas já aconteceram, guardar a pontuação coletiva de uma equipe ou indicar a fase atual de uma atividade? Você pode utilizar uma variável global para isso.
+
+Enquanto uma variável de usuário ou de mobi pode guardar um valor diferente para cada alvo, a variável global mantém **um único valor para o quarto**. Por exemplo, `partidas_jogadas` pode registrar o total de partidas realizadas, independentemente de quem participou delas.
 
 <Infobox />
+
+## Como esse Wired funciona?
+
+O primeiro passo é **criar a variável**. Nesta etapa, você define seu nome e por quanto tempo seu valor ficará disponível. A variável global já começa com o valor **0**, sem precisar ser atribuída ao quarto pelo Efeito **Dar Variável**.
+
+Ao abrir a janela de configuração, você encontra três seções: **Nome da variável**, **Checar variável** e **Opções de disponibilidade**.
+
+![Janela do Wired Variável Global com o nome vazio, Valor atual: 0 e a disponibilidade Enquanto o quarto está ativo selecionada.](@assets/wf_var_room/01-janela-do-wired.png)
+
+### Nome da variável
+
+Defina o nome que será utilizado para identificar a variável. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
+
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `partidas jogadas` se torna `partidas_jogadas`.
+
+Prefira nomes que ajudem a entender o que a variável representa, como `partidas_jogadas`, `pontuacao_coletiva` ou `fase_atual`.
+
+### Checar variável
+
+Esta seção mostra o valor que a variável possui no momento. Ao colocar este Wired no quarto pela primeira vez, você encontra o texto **Valor atual: 0**.
+
+Depois de utilizar o sistema para alterar a variável, você pode abrir a configuração novamente para consultar seu valor. Por exemplo, se `partidas_jogadas` passou de **0** para **1**, a seção mostrará **Valor atual: 1**.
+
+#### Valores que a variável pode armazenar
+
+A variável global armazena números inteiros positivos, negativos ou zero. Consulte [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar) na visão geral para entender os limites de armazenamento e de exibição no cliente Clássico.
+
+### Opções de disponibilidade
+
+Esta seção define por quanto tempo o valor é mantido e se a variável pode ser acessada por outros quartos.
+
+| Opção | Como funciona |
+| :--- | :--- |
+| **Enquanto o quarto está ativo** | O valor é mantido enquanto o quarto está ativo. Quando ele é descarregado, esse valor é perdido. |
+| **Permanente** | O valor é mantido mesmo depois que o quarto é descarregado. |
+| **Permanente, compartilhado entre quartos** | Além de manter o valor, permite acessar a variável em outros quartos por meio do [Wired Variável: De Outro Quarto](/referencia/variaveis/wf_var_reference/). |
+
+Um quarto com jogadores dentro é considerado **ativo**. Quando ele é descarregado, passa a estar **inativo**. A opção **Enquanto o quarto está ativo** acompanha esse funcionamento do quarto, e não a permanência de um jogador específico nele.
+
+Por exemplo, uma contagem de partidas que só precisa existir enquanto o quarto está ativo pode utilizar a primeira opção. Já um total de partidas que você quer conservar para as próximas visitas pode utilizar **Permanente**.
+
+Se uma atividade ocupa vários quartos e todos precisam consultar a mesma pontuação coletiva, você pode utilizar **Permanente, compartilhado entre quartos**. Os demais quartos acessam essa informação pelo **Wired Variável: De Outro Quarto**.
+
+### Ver no menu Wired
+
+Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
+
+![Janela do Wired Variável Global com a opção Ver no menu Wired, o nome global_wired_club e Valor atual: 0.](@assets/wf_var_room/02-janela-do-wired-com-opcao-ver-no-menu-wired.png)
+
+## Consultar o valor da variável
+
+Além da seção **Checar variável**, você pode utilizar as [Ferramentas do Criador](/referencia/ferramentas-do-criador/visao-geral/) para acompanhar as informações do quarto.
+
+Na aba **Variáveis**, selecione o alvo **Global** para localizar a variável e consultar suas propriedades. Já na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/#tipo-do-elemento), escolha o ícone **Global** para ver as variáveis relacionadas ao próprio quarto e seus valores.
+
+<img src={ConsultarValor.src} alt="Demonstração de como consultar o valor de uma variável global nas Ferramentas do Criador." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
+
+## Alterar o valor da variável
+
+Depois de criar a variável, você pode modificar o número que ela armazena. Nos exemplos abaixo, vamos utilizar `partidas_jogadas`, que começa em **0**.
+
+### Pelo Efeito Wired: Mudar Valor Variável
+
+Para fazer essa alteração pelo sistema, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione o tipo de variável global, escolha `partidas_jogadas`, configure a operação **Somar** e informe **1** como valor de referência.
+
+Quando a pilha for acionada, o contador passará de **0** para **1**. Na próxima execução, passará para **2**, e assim por diante. Para contar partidas, configure o sistema para acionar essa pilha uma vez a cada partida realizada.
+
+A alteração afeta o valor do quarto. Você não precisa escolher um jogador ou mobi para receber essa pontuação.
+
+No vídeo abaixo, o **Ativador Wired: Repetir Efeito**, configurado com um intervalo de **10 segundos**, é utilizado para demonstrar o aumento do contador. Você pode acompanhar as mudanças de **0** para **1** e depois para **2** na aba **Inspeção**.
+
+<AccessibleVideo
+  id="global-variavel-alterar-pelo-wired"
+  src={AlterarValorPeloWired}
+  captionsSrc={AlterarValorPeloWiredCaptionsUrl}
+  captionsContent={AlterarValorPeloWiredCaptionsRaw}
+  descriptionsSrc={AlterarValorPeloWiredDescriptionsUrl}
+  descriptionsContent={AlterarValorPeloWiredDescriptionsRaw}
+  title="Alterar o valor de uma variável global com o Efeito Wired: Mudar Valor Variável"
+/>
+
+### Pela coluna Valor da aba Inspeção
+
+Para testar manualmente, você também pode [alterar o valor pela aba Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável). Escolha o alvo **Global**, localize `partidas_jogadas` e clique duas vezes no número da coluna **Valor**. Digite o novo número e pressione **Enter**, desde que a variável permita essa alteração.
+
+Nesse caso, o número digitado substitui o valor armazenado. Por exemplo, se o contador está em **2** e você digitar **0**, ele passa a guardar **0**.
+
+<img src={AlterarValorPelaInspecao.src} alt="Demonstração de como editar o valor de partidas_jogadas na coluna Valor da aba Inspeção, com o alvo Global selecionado." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
+
+## Renomear a variável
+
+Para alterar o nome de uma variável já criada, clique duas vezes no **Wired Variável: Variável Global**, edite o campo **Nome da variável** e confirme a alteração.
+
+Depois de confirmar, o novo nome passa a aparecer nos locais das **Ferramentas do Criador** que fazem referência a essa variável, como a lista da aba **Variáveis** e a tabela da aba **Inspeção**.
+
+<AccessibleVideo
+  id="global-variavel-renomear"
+  src={RenomearVariavel}
+  captionsSrc={RenomearVariavelCaptionsUrl}
+  captionsContent={RenomearVariavelCaptionsRaw}
+  descriptionsSrc={RenomearVariavelDescriptionsUrl}
+  descriptionsContent={RenomearVariavelDescriptionsRaw}
+  title="Renomear a variável global e conferir o novo nome nas Ferramentas do Criador"
+/>
+
+## Retirar o Wired do quarto
+
+Ao retirar o Wired que define a variável, você exclui a variável e seus dados. Confira se ela ainda é utilizada por outros Wireds antes de confirmar a remoção.
+
+![Janela Removendo uma variável avisando que todas as referências e os dados armazenados serão apagados, com as opções Cancelar e Ok.](@assets/wf_var/02-janela-de-aviso-ao-remover-wired.png)
+
+<Aside type="caution" title="Zerar e excluir são ações diferentes">
+Se você quer apenas reiniciar um contador, altere seu valor para **0**. Excluir a variável remove a informação utilizada pelo sistema, e não apenas o número que ela guarda.
+</Aside>
+
+## Variáveis internas do quarto
+
+O Habbo disponibiliza automaticamente informações sobre o quarto, como a quantidade de jogadores, seu identificador e o tempo atual. Essas são as **variáveis internas**, que você pode consultar selecionando o alvo **Global** nas Ferramentas do Criador.
+
+| Variável | O que representa |
+| :--- | :--- |
+| `@furni_count` | A quantidade de mobis no quarto. |
+| `@user_count` | A quantidade de jogadores no quarto. |
+| `@wired_timer` | A quantidade de pulsos desde a inicialização do quarto ou a reinicialização do temporizador. Cada pulso corresponde a **0,5 segundo**. Confira o tópico [Temporizador do quarto](#temporizador-do-quarto) para mais detalhes |
+| `@room_id` | O identificador numérico único do quarto. Confira o tópico [Identificador do quarto](#identificador-do-quarto) para mais detalhes |
+| `@group_id` | O identificador numérico único do grupo do quarto. Se o quarto não possui grupo, o valor é **0**. |
+| `@current_time` | O tempo atual em milissegundos, contado a partir de **1970**, com precisão de **1 milissegundo**. Confira o tópico [Tempo atual](#tempo-atual) para mais detalhes |
+
+### Temporizador do quarto
+
+A variável `@wired_timer` conta os pulsos do temporizador: a cada **0,5 segundo**, seu valor aumenta em **1**. Por exemplo, **10 pulsos** correspondem a **5 segundos**.
+
+O **Efeito Wired: Reiniciar Tempo** permite reiniciar esse contador. Você pode conferir um exemplo de consulta e uso dessa variável na página do [Ativador Wired: No Tempo Escolhido](/referencia/ativadores/wf_trg_at_given_time/).
+
+### Identificador do quarto
+
+A variável `@room_id` guarda o número que identifica o quarto. Esse mesmo número aparece no endereço copiado pela opção **Link para este quarto**.
+
+No Habbo BR/PT, o endereço segue o formato `https://www.habbo.com.br/room/NUMERO_DO_QUARTO`. A parte `NUMERO_DO_QUARTO` corresponde ao valor de `@room_id`.
+
+### Informações dos times
+
+O quarto também possui **subvariáveis internas**, que organizam informações mais específicas em nomes separados por pontos. As subvariáveis de times permitem consultar a pontuação e a quantidade de participantes de cada equipe de **Battle Ball** ou **Freeze**.
+
+| Time | Pontuação atual | Quantidade de usuários |
+| :--- | :--- | :--- |
+| **Vermelho** | `@teams.red.score` | `@teams.red.size` |
+| **Verde** | `@teams.green.score` | `@teams.green.size` |
+| **Azul** | `@teams.blue.score` | `@teams.blue.size` |
+| **Amarelo** | `@teams.yellow.score` | `@teams.yellow.size` |
+
+Por exemplo, `@teams.red.score` informa os pontos do time vermelho, enquanto `@teams.red.size` informa quantos usuários fazem parte dele.
+
+### Tempo atual
+
+A variável `@current_time` representa o tempo atual como uma quantidade de milissegundos contada a partir de **1970**. Sua precisão é de **1 milissegundo**.
+
+Esse número é grande demais para ser exibido na inspeção do cliente **Clássico (Flash)**. Por isso, aparece como **Oculto**, embora o valor continue disponível para o sistema Wired. Confira a explicação em [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar).
+
+Para consultar partes específicas da data ou do horário, utilize as subvariáveis:
+
+| Subvariável | O que representa |
+| :--- | :--- |
+| `@current_time.milliseconds_of_seconds` | A parte dos milissegundos dentro do segundo atual. |
+| `@current_time.seconds_of_minute` | Os segundos dentro do minuto atual. |
+| `@current_time.minute_of_hour` | Os minutos dentro da hora atual. |
+| `@current_time.hour_of_day` | A hora do dia. |
+| `@current_time.day_of_week` | O dia da semana, de **1** a **7**. |
+| `@current_time.day_of_month` | O dia do mês. |
+| `@current_time.day_of_year` | O dia do ano. |
+| `@current_time.week_of_year` | A semana do ano. |
+| `@current_time.month_of_year` | O mês do ano. |
+| `@current_time.year` | O ano. |
+
+#### Dia da semana
+
+A subvariável `@current_time.day_of_week` possui textos associados aos seus valores numéricos:
+
+| Valor | Dia da semana |
+| :--- | :--- |
+| **1** | Segunda-feira. |
+| **2** | Terça-feira. |
+| **3** | Quarta-feira. |
+| **4** | Quinta-feira. |
+| **5** | Sexta-feira. |
+| **6** | Sábado. |
+| **7** | Domingo. |

@@ -1,0 +1,14 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.800
+Nome da variável: partidas_jogadas.
+Valor atual: 0.
+
+00:00:01.800 --> 00:00:03.850
+Novo nome: partidas_jogadas_2.
+
+00:00:04.850 --> 00:00:06.500
+Visão geral das variáveis: partidas_jogadas_2.
+
+00:00:06.650 --> 00:00:08.900
+Inspeção: partidas_jogadas_2 = 0.
