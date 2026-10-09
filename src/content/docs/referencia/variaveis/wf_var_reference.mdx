@@ -105,35 +105,61 @@ Se o quarto só precisa conferir o progresso de um jogador para decidir qual cam
 As alterações feitas pela referência atingem a variável do quarto de origem. Por exemplo, mudar o checkpoint de um jogador ou limpar sua variável afeta o progresso que os outros quartos consultam. Utilize **Somente leitura** quando o sistema precisar apenas consultar esses dados.
 </Aside>
 
-## Consultar a referência nas Ferramentas do Criador
+## Utilizar a variável pela referência
 
-Depois de confirmar as configurações, abra a aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/). A referência aparece no alvo correspondente ao tipo da variável original, com a disponibilidade **Referência**.
+Depois de confirmar as configurações, você pode consultar a variável e, com **Somente leitura** desmarcada, vincular usuários, alterar valores e excluir dados por meio da referência. Essas ações utilizam a variável do quarto de origem e afetam as informações compartilhadas com os demais quartos.
 
-### Referência a uma variável de usuário
+Na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/), a referência aparece com a disponibilidade **Referência**. Selecione o alvo **Usuário** ou **Global**, conforme o tipo da variável original, para encontrá-la.
 
-Selecione o alvo **Usuário** e localize a referência. Ao clicar em [Gerenciar](/referencia/ferramentas-do-criador/variaveis/#gerenciar), a janela **[Gerenciamento de variável](/referencia/ferramentas-do-criador/variaveis/#gerenciamento-de-variável)** mostra todos os usuários que possuem a variável, independentemente de terem recebido essa variável no quarto de origem ou em outro quarto que a utiliza por meio do **Wired Variável: De Outro Quarto**.
+### Consultar a variável
 
-Você pode consultar os dados e utilizar os recursos de gerenciamento dessa janela. As ações que modificam os dados dependem de a opção **Somente leitura** estar desmarcada.
+Para uma **variável de usuário**, selecione a referência e clique em [Gerenciar](/referencia/ferramentas-do-criador/variaveis/#gerenciar). A janela [Gerenciamento de variável](/referencia/ferramentas-do-criador/variaveis/#gerenciamento-de-variável) mostra todos os usuários que possuem a variável, independentemente de terem recebido essa variável no quarto de origem ou em outro quarto que a utiliza por meio de uma referência.
 
-Com **Somente leitura** desmarcada, você também pode utilizar o **ícone de excluir** no rodapé da lista da aba **Variáveis**, conforme explicado em [Excluir uma variável](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável). A ação pede confirmação e afeta todos os usuários que possuem a variável, não apenas os que a receberam no quarto atual.
+Por exemplo, você pode conferir quais jogadores possuem `checkpoint` e qual é o progresso armazenado para cada um. Para consultar um usuário presente no quarto, também é possível selecioná-lo na aba **Inspeção**.
 
-Assim, em um labirinto, você pode conferir quais jogadores possuem `checkpoint` e qual é o progresso armazenado para cada um.
+Para uma **variável global**, escolha o ícone **Global** na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/#tipo-do-elemento). Você encontrará a referência e poderá consultar seu valor, como a `pontuacao_coletiva` utilizada por vários quartos.
 
-### Referência a uma variável global
+Essas consultas podem ser feitas com **Somente leitura** marcada.
 
-Selecione o alvo **Global** para encontrar a referência na aba **[Variáveis](/referencia/ferramentas-do-criador/variaveis/)**. Ela também aparece na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/#tipo-do-elemento), ao escolher o ícone **Global**.
+{/* Adicionar exemplo visual: consultar uma referência de usuário pelo botão Gerenciar e uma referência global pela aba Inspeção. */}
 
-Você pode consultar o valor compartilhado e, se **Somente leitura** estiver desmarcada, alterá-lo. Por exemplo, uma variável `pontuacao_coletiva` permite que diferentes quartos consultem e atualizem a mesma pontuação.
+### Vincular a variável a um usuário
 
-## Alterar o valor pela referência
+Com **Somente leitura** desmarcada, você pode atribuir a variável a um usuário a partir do quarto que possui a referência. Para isso, utilize o [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/), selecione a referência e configure os usuários que receberão a variável.
 
-Para permitir alterações, abra a configuração do **Wired Variável: De Outro Quarto** e desmarque **Somente leitura**.
+Você também pode selecionar um usuário na aba **Inspeção** e utilizar o botão [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável). Escolha a referência e, se a variável armazenar um número, informe o valor inicial.
 
-No sistema Wired, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) e selecione a referência pelo nome definido na configuração. O tipo da variável continua sendo o da origem: uma referência de usuário trabalha com os valores de cada usuário; uma referência global trabalha com o valor compartilhado do quarto de origem.
+Por exemplo, um jogador que ainda não possui `checkpoint` pode recebê-la com valor **1** ao iniciar o labirinto. Essa associação também poderá ser consultada no quarto de origem e nos demais quartos que utilizam a variável.
 
-Nas Ferramentas do Criador, você também pode utilizar os recursos de gerenciamento e de [alteração de valor pela Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável), conforme o tipo e as permissões da variável.
+Essa etapa se aplica às variáveis de usuário. Uma referência global já acessa o valor relacionado ao quarto de origem, sem precisar ser vinculada a jogadores.
+
+{/* Adicionar exemplo visual: atribuir checkpoint a um usuário por meio da referência e conferir a associação. */}
+
+### Alterar o valor da variável
+
+Para permitir alterações, desmarque **Somente leitura** na configuração do **Wired Variável: De Outro Quarto**.
+
+No sistema Wired, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) e selecione a referência pelo nome definido na configuração. Uma referência de usuário altera os valores dos usuários escolhidos; uma referência global altera o valor compartilhado do quarto de origem.
+
+Nas Ferramentas do Criador, você também pode [alterar o valor pela Inspeção](/referencia/ferramentas-do-criador/inspecao/#alterar-o-valor-de-uma-variável): selecione o usuário ou o alvo **Global**, clique duas vezes no número da coluna **Valor**, digite o novo número e pressione **Enter**, conforme as permissões da variável. Para variáveis de usuário, os recursos de [gerenciamento](/referencia/ferramentas-do-criador/variaveis/#gerenciar-variáveis-do-usuário) também permitem modificar os valores.
+
+Por exemplo, ao concluir uma fase, o sistema pode alterar `checkpoint` de **1** para **2** para aquele jogador. Já somar **1** a `pontuacao_coletiva` altera o valor global consultado pelos quartos que participam da atividade.
 
 Para entender os limites dos números armazenados e sua exibição no cliente Clássico, consulte [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar).
+
+{/* Adicionar exemplo visual: alterar o valor pela referência usando o Efeito Wired e conferir o resultado na Inspeção. */}
+
+### Remover ou excluir a variável
+
+Com **Somente leitura** desmarcada, você também pode remover a variável de um usuário ou utilizar a ação de excluir. Escolha a ação conforme os dados que deseja apagar.
+
+Para desvincular a variável de **um usuário específico**, selecione-a na inspeção desse usuário e utilize [Remover variável](/referencia/ferramentas-do-criador/inspecao/#remover-variável). A mesma ação está disponível no [gerenciamento das variáveis do usuário](/referencia/ferramentas-do-criador/variaveis/#gerenciar-variáveis-do-usuário).
+
+Para excluir pela lista de variáveis, selecione a referência na aba **Variáveis** e utilize o **ícone de excluir** no rodapé, conforme explicado em [Excluir uma variável](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável). A ação pede confirmação. No caso de uma variável de usuário, ela afeta **todos os usuários que possuem a variável**, incluindo aqueles que a receberam em outros quartos.
+
+Por exemplo, remover `checkpoint` de um jogador apaga sua associação com essa variável. Já a exclusão pela lista afeta todos os jogadores que a possuem. Essas alterações atingem os dados compartilhados, mesmo quando são feitas por meio da referência.
+
+{/* Adicionar exemplo visual: comparar a remoção de checkpoint de um usuário com a confirmação de exclusão pela lista de variáveis. */}
 
 ### Modificar uma variável criada no quarto de um amigo
 
