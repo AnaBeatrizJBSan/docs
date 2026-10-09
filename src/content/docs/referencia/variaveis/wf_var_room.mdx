@@ -187,7 +187,7 @@ O Habbo disponibiliza automaticamente informações sobre o quarto, como a quant
 | `@wired_timer` | A quantidade de pulsos desde a inicialização do quarto ou a reinicialização do temporizador. Cada pulso corresponde a **0,5 segundo**. Confira o tópico [Temporizador do quarto](#temporizador-do-quarto) para mais detalhes |
 | `@room_id` | O identificador numérico único do quarto. Confira o tópico [Identificador do quarto](#identificador-do-quarto) para mais detalhes |
 | `@group_id` | O identificador numérico único do grupo do quarto. Se o quarto não possui grupo, o valor é **0**. |
-| `@current_time` | O tempo atual em milissegundos, contado a partir de **1970**, com precisão de **1.000 milissegundos**. Confira o tópico [Tempo atual](#tempo-atual) para mais detalhes |
+| `@current_time` | O tempo atual em milissegundos, contado a partir de **1970**, com precisão de **1 milissegundo**. Confira o tópico [Tempo atual](#tempo-atual) para mais detalhes |
 
 ### Temporizador do quarto
 
@@ -216,7 +216,7 @@ Por exemplo, `@teams.red.score` informa os pontos do time vermelho, enquanto `@t
 
 ### Tempo atual
 
-A variável `@current_time` representa o tempo atual como uma quantidade de milissegundos contada a partir de **1970**. Sua precisão é de **1.000 milissegundos**, equivalentes a **1 segundo**.
+A variável `@current_time` representa o tempo atual como uma quantidade de milissegundos contada a partir de **1970**. Sua precisão é de **1 milissegundo**.
 
 Esse número é grande demais para ser exibido na inspeção do cliente **Clássico (Flash)**. Por isso, aparece como **Oculto**, embora o valor continue disponível para o sistema Wired. Confira a explicação em [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar).
 
