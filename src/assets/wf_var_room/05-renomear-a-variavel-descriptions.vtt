@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.800
+No quarto do Habbo, a janela de configuração de uma “Variável Global” está aberta ao lado da aba “Variáveis” das Ferramentas do Criador. O campo “Nome da variável” contém partidas_jogadas, com valor atual 0 e disponibilidade “Enquanto o quarto está ativo”.
+
+00:00:01.800 --> 00:00:03.850
+O nome no campo é alterado para partidas_jogadas_2. A opção de disponibilidade permanece selecionada, e o botão “Pronto” é acionado para salvar.
+
+00:00:03.850 --> 00:00:06.450
+A janela de configuração se fecha. Na visão geral das variáveis, a primeira entrada da lista passa de partidas_jogadas para partidas_jogadas_2.
+
+00:00:06.450 --> 00:00:08.900
+A aba “Inspeção” é aberta com o tipo de elemento global selecionado. Na primeira linha da tabela, partidas_jogadas_2 aparece com valor 0; a linha é selecionada.
