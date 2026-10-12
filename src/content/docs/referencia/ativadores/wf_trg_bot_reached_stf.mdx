@@ -45,9 +45,12 @@ infobox:
   # - Usuário acionador
   # - Item de ativação
 ---
-
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import Infobox from "@components/Infobox.astro"
-import ConfigWiredAtivador from "@assets/wf_trg_bot_reached_stf/config-wired.png";
+import Exemplo from "@assets/wf_trg_bot_reached_stf/exemplo.mp4";
+
 
 
 O **Ativador Wired: Bot alcança mobi** executa uma pilha Wired quando um Bot configurado é colocado, caminha ou é teleportado para cima de um dos mobis selecionados.
@@ -72,3 +75,65 @@ Nas configurações avançadas, você pode escolher uma das seguintes opções p
 - Usar usuários do seletor
 
 ![Janela de configuração do Ativador Wired: Bot alcança mobi](@assets/wf_trg_bot_reached_stf/config-wired.png)
+
+## Exemplo prático
+
+Para entender melhor o funcionamento desse wired vamos montar um sistema simples, criando uma ilusão em que o bot sempre estará andando no background do cenário:
+
+<AccessibleVideo
+  src={Exemplo}
+  alt="Exemplo prático do Ativador Wired Bot alcança mobi"
+
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    Primeira pilha
+
+    <Steps>
+    1. **Ativador:** Bot alcança Mobi
+        1. Informe o nome do seu Bot
+        2. Selecione o piso inicial
+    2. **Efeito:** Bot se muda ao mobi
+        1. Informe o nome do seu Bot
+        2. Selecione o piso final
+    </Steps>
+
+    Segunda pilha
+
+    <Steps>
+    1. **Ativador:** Bot alcança Mobi
+        1. Informe o nome do seu Bot
+        2. Selecione o piso final
+    2. **Efeito:** Teleportar para Mobi
+        1. Selecione o piso inicial
+    </Steps>
+
+  </TabItem>
+
+  <TabItem label="PseudoWired">
+    Primeira pilha
+
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+  - Bot alcança Mobi: Piso inicial
+
+ENTÃO
+  - Bot se muda ao Mobi: Piso final
+    `} />
+
+    Segunda pilha
+    
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+  - Bot alcança Mobi: Piso final
+
+ENTÃO
+  - Teleportar para Mobi: Piso inicial
+    `} />
+
+  
+  </TabItem>
+</Tabs>
+
+Ao terminar o sistema, coloque o Bot no piso final e automaticamente o sistema entrará no loop que queremos!
