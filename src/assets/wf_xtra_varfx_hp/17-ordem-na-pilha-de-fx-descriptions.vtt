@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.500
+No quarto do Habbo, uma pilha de três mobis wired está ao lado de um avatar. Acima dele, a barra segmentada do termômetro aparece sobre uma barra de saúde com ícone de coração.
+
+00:00:01.500 --> 00:00:04.100
+A configuração da variável FX “Pontos de Saúde” é aberta com a visualização “Termômetro”. Na seção “Ordem na pilha de FX”, o campo mostra 1. O texto explica que valores maiores colocam o FX mais abaixo na pilha de FX do objeto. A janela é fechada.
+
+00:00:04.100 --> 00:00:05.750
+Na pilha de mobis, outra variável FX é selecionada. As barras sobre o avatar continuam com o termômetro acima da barra de saúde.
+
+00:00:05.750 --> 00:00:07.250
+A configuração de “Pontos de Saúde” agora mostra a visualização “Barra de saúde”, com prévia de coração e barra verde. O campo “Ordem na pilha de FX” contém 2.
+
+00:00:07.250 --> 00:00:08.200
+O valor da ordem da “Barra de saúde” é alterado de 2 para 0, e a mudança é confirmada em “Pronto”.
+
+00:00:08.200 --> 00:00:09.250
+Acima do avatar, a barra de saúde com coração passa a ficar sobre o termômetro segmentado, mostrando a nova ordem das duas visualizações.

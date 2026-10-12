@@ -39,6 +39,11 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
+import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx.mp4";
+import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-captions.vtt?url";
+import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-captions.vtt?raw";
+import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-descriptions.vtt?url";
+import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_hp/01-requisitos.mp4";
 import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_hp/01-requisitos-captions.vtt?url";
@@ -485,6 +490,24 @@ Também é possível selecionar variáveis de usuário, mobi ou globais, conform
     </tr>
   </tbody>
 </table>
+
+### Ordem na pilha de FX
+
+![](@assets/wf_var/03-topico-ordem-na-pilha-de-fx.png)
+
+Um usuário ou mobi pode ter vários efeitos visuais ao mesmo tempo, de qualquer Variável FX. O campo **Ordem na pilha de FX** permite definir a posição deste efeito em relação aos demais: **quanto maior o valor, mais abaixo ele será exibido**.
+
+Por exemplo, imagine dois Wireds **Variável FX: Pontos de Saúde** exibindo efeitos no mesmo usuário ou mobi, um com o estilo **Termômetro** e outro com **Barra de Saúde**. Se você definir a ordem do Termômetro como **1** e a da Barra de Saúde como **0**, o termômetro aparecerá abaixo da barra.
+
+<AccessibleVideo
+  id="pontos-de-saude-ordem-na-pilha-de-fx"
+  src={OrdemNaPilhaDeFx}
+  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
+  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
+  descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
+  descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
+  title="Alterar a ordem do termômetro e da barra de saúde na pilha de FX"
+/>
 
 ## Exemplos de uso
 
