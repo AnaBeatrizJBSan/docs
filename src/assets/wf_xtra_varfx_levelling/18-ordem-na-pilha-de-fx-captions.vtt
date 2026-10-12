@@ -1,0 +1,17 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.950
+Progresso de Nível: nível 2, 1/2.
+
+00:00:01.000 --> 00:00:03.100
+Estilo "Detalhes de nível": ordem na pilha de FX = 1.
+Valores maiores colocam o FX mais abaixo.
+
+00:00:04.200 --> 00:00:05.200
+Estilo "Nível e barra": ordem na pilha de FX = 2.
+
+00:00:05.200 --> 00:00:07.200
+Estilo "Nível e barra": ordem na pilha de FX = 0.
+
+00:00:07.200 --> 00:00:07.983
+"Nível e barra" acima de "Detalhes de nível".
