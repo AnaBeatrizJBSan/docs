@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.250
+Em um quarto do Habbo, dois números 1 verdes aparecem acima do avatar: o menor está sobre o maior. Uma pilha de mobis Wired fica ao lado.
+
+00:00:00.250 --> 00:00:02.300
+Abre-se a configuração da VARIÁVEL FX Exibição de Números no estilo "Freeze", com prévia do número 50 verde. Em "Ordem na pilha de FX", o valor é 1. A interface explica que valores maiores colocam o FX mais abaixo na pilha do objeto.
+
+00:00:02.300 --> 00:00:03.500
+A janela é fechada, e outro mobi da pilha Wired é selecionado.
+
+00:00:03.500 --> 00:00:04.750
+Abre-se outra configuração de Exibição de Números, agora no estilo "Shalimar". A prévia mostra o número 50 verde com contorno mais marcado. A ordem na pilha de FX é 2.
+
+00:00:04.750 --> 00:00:06.000
+O valor da ordem do estilo "Shalimar" é alterado de 2 para 0, e a configuração é confirmada em "Pronto".
+
+00:00:06.000 --> 00:00:06.950
+Com a janela fechada, a posição dos números se inverte: o 1 maior, do estilo "Shalimar", aparece acima do 1 menor, do estilo "Freeze".
