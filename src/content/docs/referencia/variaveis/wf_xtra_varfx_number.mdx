@@ -42,6 +42,11 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
+import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx.mp4";
+import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-captions.vtt?url";
+import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-captions.vtt?raw";
+import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-descriptions.vtt?url";
+import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import CorDoTime from "@assets/wf_xtra_varfx_number/05-cor-do-time.mp4"
 import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_number/05-cor-do-time-captions.vtt?url";
@@ -445,6 +450,24 @@ Esta opção está disponível tanto para um Wired **Variável FX: Exibição de
 Levando em consideração a configuração de visibilidade escolhida anteriormente, **todos os usuários presentes no quarto poderão visualizar o número acima do mobi ou usuário**.
 
 Esta opção está disponível tanto para um Wired **Variável FX: Exibição de Números** vinculado a variáveis de usuário quanto a variáveis de mobi.
+
+### Ordem na pilha de FX
+
+![Campo Ordem na pilha de FX preenchido com 0 e orientação de que valores maiores posicionam o efeito mais abaixo na pilha de FX do objeto.](@assets/wf_var/03-topico-ordem-na-pilha-de-fx.png)
+
+Um usuário ou mobi pode ter vários efeitos visuais ao mesmo tempo, de qualquer Variável FX. O campo **Ordem na pilha de FX** permite definir a posição deste efeito em relação aos demais: **quanto maior o valor, mais abaixo ele será exibido**.
+
+Por exemplo, imagine dois Wireds **Variável FX: Exibição de Números** exibindo efeitos no mesmo usuário ou mobi, um com o estilo **Freeze** e outro com **Shalimar**. Se você definir a ordem de Freeze como **1** e a de Shalimar como **0**, o número no estilo Freeze aparecerá abaixo do número no estilo Shalimar.
+
+<AccessibleVideo
+  id="exibicao-de-numeros-ordem-na-pilha-de-fx"
+  src={OrdemNaPilhaDeFx}
+  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
+  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
+  descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
+  descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
+  title="Alterar a ordem dos estilos Freeze e Shalimar na pilha de FX"
+/>
 
 ## Limite do número exibido
 
