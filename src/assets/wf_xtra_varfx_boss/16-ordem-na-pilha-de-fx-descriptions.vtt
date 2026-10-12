@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.250
+Em um quarto do Habbo, duas barras vermelhas flutuam acima do avatar. A barra com caveiras nas extremidades está sobre uma barra sem caveiras. Há uma pilha de mobis Wired ao lado.
+
+00:00:00.250 --> 00:00:03.000
+Abre-se a configuração da VARIÁVEL FX Barra de saúde do chefe no estilo "Vida do chefe e caveira". A prévia mostra uma barra vermelha com caveiras nas pontas. Em "Ordem na pilha de FX", o valor é 1. A interface explica que valores maiores colocam o FX mais abaixo na pilha do objeto.
+
+00:00:03.000 --> 00:00:04.250
+A janela é fechada, e outro mobi da pilha Wired é selecionado.
+
+00:00:04.250 --> 00:00:05.100
+Abre-se outra configuração da Barra de saúde do chefe, no estilo "Vida do chefe". A prévia mostra uma barra vermelha sem caveiras. Sua ordem na pilha de FX é 2.
+
+00:00:05.100 --> 00:00:07.000
+O valor da ordem de "Vida do chefe" é alterado de 2 para 0, e a configuração é confirmada em "Pronto".
+
+00:00:07.000 --> 00:00:07.983
+Com a janela fechada, as barras trocam de posição: a barra sem caveiras fica acima daquela com caveiras nas extremidades.
