@@ -171,9 +171,7 @@ Depois disso, você pode selecionar essa referência no [Efeito Wired: Mudar Val
 
 ## Retirar o Wired do quarto
 
-Ao retirar o **Wired Variável: De Outro Quarto**, não aparece a janela avisando que todas as referências e os dados armazenados serão apagados, como acontece ao remover os Wireds [Mobi Variável](/referencia/variaveis/wf_var_furni/#retirar-o-wired-do-quarto) ou [Usuário Variável](/referencia/variaveis/wf_var_user/#retirar-o-wired-do-quarto).
-
-Depois da remoção, a referência deixa de aparecer na aba **[Inspeção](/referencia/ferramentas-do-criador/inspecao/)** do quarto de onde o Wired foi retirado. Se você colocar o Wired novamente e utilizar as mesmas configurações, a variável voltará a aparecer ao inspecionar o usuário nesse quarto.
+Ao retirar o **Wired Variável: De Outro Quarto**, a referência deixa de aparecer na aba **[Inspeção](/referencia/ferramentas-do-criador/inspecao/)** do quarto de onde o Wired foi retirado. Se você colocar o Wired novamente e utilizar as mesmas configurações, a variável voltará a aparecer ao inspecionar o usuário nesse quarto.
 
 A associação com o usuário é mantida no quarto de origem, inclusive quando a variável foi atribuída por meio da referência no outro quarto. Por exemplo, se um jogador recebeu `checkpoint` em uma fase do labirinto e você retirou o Wired de referência dessa fase, a variável continuará aparecendo ao inspecionar esse jogador no quarto onde ela foi criada.
 
@@ -183,10 +181,8 @@ Retirar o Wired de referência não exclui a variável original nem os dados ass
 
 ## Exemplo de uso: checkpoints de um labirinto
 
-Imagine um labirinto com fases em diferentes quartos. No quarto de origem, você cria uma variável de usuário chamada `checkpoint`, com **Tem valor** marcado e disponibilidade **Permanente, compartilhado entre quartos**. Cada jogador recebe essa variável com o número correspondente ao seu progresso.
+Quer montar um labirinto em que o jogador possa voltar à última fase alcançada? No tutorial [Sistema de checkpoint para labirintos, do Wired Club](https://www.wiredclub.com.br/tutoriais/como-fazer-um-sistema-de-checkpoint-para-labirintos), você aprende a guardar esse progresso e utilizar o comando `:checkpoint` no quarto principal para retornar à fase correspondente.
 
-Nos quartos que precisam consultar esse progresso, configure o **Wired Variável: De Outro Quarto** para acessar `checkpoint`. O sistema pode ler o valor do jogador e utilizá-lo para decidir qual fase ele poderá acessar.
+Nesse sistema, a variável de usuário `checkpoint_user` é criada no quarto principal com a disponibilidade **Permanente, compartilhado entre quartos**. Nos quartos das fases, o **Wired Variável: De Outro Quarto** cria uma referência chamada `checkpoint`, com **Somente leitura** desmarcada, para permitir a atualização do progresso do jogador.
 
-Se um quarto também registra a conclusão de uma fase, deixe **Somente leitura** desmarcada na referência utilizada para atualizar o checkpoint. Já um quarto que apenas consulta o progresso pode manter essa opção marcada.
-
-A referência disponibiliza a informação para o sistema. As ações de liberar passagens, encaminhar jogadores e registrar a conclusão das fases precisam ser configuradas nos demais Wireds.
+Acompanhe o tutorial para configurar as pilhas, identificar os Conectores de Quarto e testar o retorno aos checkpoints.
