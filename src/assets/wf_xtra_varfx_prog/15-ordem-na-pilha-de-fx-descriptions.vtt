@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.400
+Um avatar está ao lado de uma pilha de mobis wired, com duas barras verdes acima dele. A janela da variável FX “Barra de Progresso” mostra o estilo “Barra clássica”. Em “Ordem na pilha de FX”, o valor é 1. O texto explica que valores maiores colocam o FX mais abaixo na pilha do objeto. O botão “Pronto” é acionado.
+
+00:00:02.400 --> 00:00:03.750
+A janela se fecha e outra variável FX da pilha é selecionada. A barra clássica continua acima da barra segmentada sobre o avatar.
+
+00:00:03.750 --> 00:00:05.450
+A nova janela de “Barra de Progresso” mostra o estilo “Barra em blocos”, com segmentos verdes na prévia. O campo “Ordem na pilha de FX” contém 2.
+
+00:00:05.450 --> 00:00:06.400
+O valor da ordem da barra em blocos é alterado de 2 para 0, e a configuração é salva em “Pronto”.
+
+00:00:06.400 --> 00:00:07.316
+As barras acima do avatar trocam de posição: a barra em blocos passa para cima da barra clássica.

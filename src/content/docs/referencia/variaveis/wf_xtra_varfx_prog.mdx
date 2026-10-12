@@ -42,6 +42,11 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
+import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx.mp4";
+import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-captions.vtt?url";
+import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-captions.vtt?raw";
+import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-descriptions.vtt?url";
+import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_prog/01-requisitos.mp4"
 import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_prog/01-requisitos-captions.vtt?url";
@@ -422,6 +427,24 @@ Também é possível selecionar variáveis de usuário, mobi ou globais, conform
     </tr>
   </tbody>
 </table>
+
+### Ordem na pilha de FX
+
+![Campo Ordem na pilha de FX preenchido com 0 e orientação de que valores maiores posicionam o efeito mais abaixo na pilha de FX do objeto.](@assets/wf_var/03-topico-ordem-na-pilha-de-fx.png)
+
+Um usuário ou mobi pode ter vários efeitos visuais ao mesmo tempo, de qualquer Variável FX. O campo **Ordem na pilha de FX** permite definir a posição deste efeito em relação aos demais: **quanto maior o valor, mais abaixo ele será exibido**.
+
+Por exemplo, imagine dois Wireds **Variável FX: Barra de Progresso** exibindo efeitos no mesmo usuário ou mobi, um com o estilo **Barra Clássica** e outro com **Barra em Blocos**. Se você definir a ordem da Barra Clássica como **1** e a da Barra em Blocos como **0**, a barra clássica aparecerá abaixo da barra em blocos.
+
+<AccessibleVideo
+  id="barra-de-progresso-ordem-na-pilha-de-fx"
+  src={OrdemNaPilhaDeFx}
+  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
+  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
+  descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
+  descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
+  title="Alterar a ordem da barra clássica e da barra em blocos na pilha de FX"
+/>
 
 ## Exemplos de uso
 
