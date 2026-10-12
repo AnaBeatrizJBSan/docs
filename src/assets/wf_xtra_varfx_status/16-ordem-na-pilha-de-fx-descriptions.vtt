@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.000
+Em um quarto do Habbo, duas barras segmentadas aparecem acima do avatar: a amarela, com ícone de raio, está sobre a azul, com ícone de escudo. Há uma pilha de mobis Wired ao lado.
+
+00:00:01.000 --> 00:00:03.250
+Abre-se a configuração da VARIÁVEL FX Barra de Status com prévia do raio amarelo. Em "Ordem na pilha de FX", o valor é 1. A interface explica que valores maiores colocam o FX mais abaixo na pilha do objeto.
+
+00:00:03.250 --> 00:00:04.500
+A janela é fechada, e outro mobi da pilha Wired é selecionado.
+
+00:00:04.500 --> 00:00:06.350
+Abre-se outra configuração de Barra de Status, agora com a prévia do escudo azul. Sua ordem na pilha de FX é 2. O raio permanece acima do escudo no avatar.
+
+00:00:06.350 --> 00:00:07.650
+O valor da ordem do escudo é alterado de 2 para 0, e a configuração é confirmada em "Pronto".
+
+00:00:07.650 --> 00:00:08.600
+Com a janela fechada, a posição das barras se inverte: o escudo azul aparece acima do raio amarelo.
