@@ -63,6 +63,11 @@ import RemoverOuExcluirAVariavelCaptionsUrl from "@assets/wf_var_reference/08-re
 import RemoverOuExcluirAVariavelCaptionsRaw from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-captions.vtt?raw";
 import RemoverOuExcluirAVariavelDescriptionsUrl from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-descriptions.vtt?url";
 import RemoverOuExcluirAVariavelDescriptionsRaw from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-descriptions.vtt?raw";
+import RetirarOWiredDoQuarto from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto.mp4";
+import RetirarOWiredDoQuartoCaptionsUrl from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-captions.vtt?url";
+import RetirarOWiredDoQuartoCaptionsRaw from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-captions.vtt?raw";
+import RetirarOWiredDoQuartoDescriptionsUrl from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-descriptions.vtt?url";
+import RetirarOWiredDoQuartoDescriptionsRaw from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-descriptions.vtt?raw";
 
 O **Wired Variável: De Outro Quarto** permite acessar uma variável que já existe em outro quarto. Quer consultar o checkpoint de um jogador em diferentes fases de um labirinto ou utilizar a mesma pontuação coletiva em vários quartos? Este Wired permite conectar essas informações ao seu sistema.
 
@@ -241,7 +246,23 @@ Se o seu amigo mantiver **Somente leitura** marcada, você poderá apenas consul
 
 Ao retirar o **Wired Variável: De Outro Quarto**, a referência deixa de aparecer na aba **[Inspeção](/referencia/ferramentas-do-criador/inspecao/)** do quarto de onde o Wired foi retirado. Se você colocar o Wired novamente e utilizar as mesmas configurações, a variável voltará a aparecer ao inspecionar o usuário nesse quarto.
 
-A associação com o usuário é mantida no quarto de origem, inclusive quando a variável foi atribuída por meio da referência no outro quarto. Por exemplo, se um jogador recebeu `checkpoint` em uma fase do labirinto e você retirou o Wired de referência dessa fase, a variável continuará aparecendo ao inspecionar esse jogador no quarto onde ela foi criada.
+A associação com o usuário é mantida no quarto de origem, inclusive quando a variável foi atribuída por meio da referência no outro quarto.
+
+Por exemplo, no quarto **Docs Wired Club**, a variável de usuário `commits` está configurada como **Permanente, compartilhado entre quartos** e vinculada ao jogador com o valor **114**. Sobre o Wired que cria essa variável, um [Variável FX: Número](/referencia/variaveis/wf_xtra_varfx_number/) exibe esse valor no quarto.
+
+Em outro quarto, você pode colocar um **Wired Variável: De Outro Quarto**, selecionar `commits` e adicionar um **Variável FX: Número** sobre ele. Assim, o valor **114** também será exibido nesse segundo quarto.
+
+Ao retirar essa segunda pilha, o efeito visual deixa de aparecer naquele quarto. Quando você voltar ao **Docs Wired Club**, o efeito da pilha original continuará exibindo **114**, pois a variável e o valor associado ao jogador foram preservados.
+
+<AccessibleVideo
+  id="de-outro-quarto-retirar-o-wired-do-quarto"
+  src={RetirarOWiredDoQuarto}
+  title="Retirar o efeito visual do segundo quarto e conferir commits com valor 114 no quarto de origem"
+  captionsSrc={RetirarOWiredDoQuartoCaptionsUrl}
+  captionsContent={RetirarOWiredDoQuartoCaptionsRaw}
+  descriptionsSrc={RetirarOWiredDoQuartoDescriptionsUrl}
+  descriptionsContent={RetirarOWiredDoQuartoDescriptionsRaw}
+/>
 
 <Aside type="note" title="Os dados permanecem na origem">
 Retirar o Wired de referência não exclui a variável original nem os dados associados ao usuário. A referência deixa de estar disponível no quarto em que esse Wired foi removido.
