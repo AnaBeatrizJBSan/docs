@@ -42,6 +42,27 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import ConsultarAVariavel from "@assets/wf_var_reference/05-consultar-a-variavel.mp4";
+import ConsultarAVariavelCaptionsUrl from "@assets/wf_var_reference/05-consultar-a-variavel-captions.vtt?url";
+import ConsultarAVariavelCaptionsRaw from "@assets/wf_var_reference/05-consultar-a-variavel-captions.vtt?raw";
+import ConsultarAVariavelDescriptionsUrl from "@assets/wf_var_reference/05-consultar-a-variavel-descriptions.vtt?url";
+import ConsultarAVariavelDescriptionsRaw from "@assets/wf_var_reference/05-consultar-a-variavel-descriptions.vtt?raw";
+import VincularAVariavelAUmUsuario from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario.mp4";
+import VincularAVariavelAUmUsuarioCaptionsUrl from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-captions.vtt?url";
+import VincularAVariavelAUmUsuarioCaptionsRaw from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-captions.vtt?raw";
+import VincularAVariavelAUmUsuarioDescriptionsUrl from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-descriptions.vtt?url";
+import VincularAVariavelAUmUsuarioDescriptionsRaw from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-descriptions.vtt?raw";
+import AlterarOValorDaVariavel from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel.mp4";
+import AlterarOValorDaVariavelCaptionsUrl from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-captions.vtt?url";
+import AlterarOValorDaVariavelCaptionsRaw from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-captions.vtt?raw";
+import AlterarOValorDaVariavelDescriptionsUrl from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-descriptions.vtt?url";
+import AlterarOValorDaVariavelDescriptionsRaw from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-descriptions.vtt?raw";
+import RemoverOuExcluirAVariavel from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel.mp4";
+import RemoverOuExcluirAVariavelCaptionsUrl from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-captions.vtt?url";
+import RemoverOuExcluirAVariavelCaptionsRaw from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-captions.vtt?raw";
+import RemoverOuExcluirAVariavelDescriptionsUrl from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-descriptions.vtt?url";
+import RemoverOuExcluirAVariavelDescriptionsRaw from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-descriptions.vtt?raw";
 
 O **Wired Variável: De Outro Quarto** permite acessar uma variável que já existe em outro quarto. Quer consultar o checkpoint de um jogador em diferentes fases de um labirinto ou utilizar a mesma pontuação coletiva em vários quartos? Este Wired permite conectar essas informações ao seu sistema.
 
@@ -107,9 +128,11 @@ As alterações feitas pela referência atingem a variável do quarto de origem.
 
 ## Utilizar a variável pela referência
 
-Depois de confirmar as configurações, você pode consultar a variável e, com **Somente leitura** desmarcada, vincular usuários, alterar valores e excluir dados por meio da referência. Essas ações utilizam a variável do quarto de origem e afetam as informações compartilhadas com os demais quartos.
+Depois de confirmar as configurações, você pode consultar a variável e, com **[Somente leitura](#configurações-da-variável)** desmarcada, vincular usuários, alterar valores e excluir dados por meio da referência. Essas ações utilizam a variável do quarto de origem e afetam as informações compartilhadas com os demais quartos.
 
 Na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/), a referência aparece com a disponibilidade **Referência**. Selecione o alvo **Usuário** ou **Global**, conforme o tipo da variável original, para encontrá-la.
+
+![Aba Variáveis das Ferramentas do Criador com checkpoint, de usuário, e pontuacao_coletiva, global, exibindo a disponibilidade Referência.](@assets/wf_var_reference/04-disponibilidade-de-referencia.png)
 
 ### Consultar a variável
 
@@ -119,25 +142,37 @@ Por exemplo, você pode conferir quais jogadores possuem `checkpoint` e qual é 
 
 Para uma **variável global**, escolha o ícone **Global** na aba [Inspeção](/referencia/ferramentas-do-criador/inspecao/#tipo-do-elemento). Você encontrará a referência e poderá consultar seu valor, como a `pontuacao_coletiva` utilizada por vários quartos.
 
-Essas consultas podem ser feitas com **Somente leitura** marcada.
-
-{/* Adicionar exemplo visual: consultar uma referência de usuário pelo botão Gerenciar e uma referência global pela aba Inspeção. */}
+<AccessibleVideo
+  id="de-outro-quarto-consultar-a-variavel"
+  src={ConsultarAVariavel}
+  title="Consultar as referências de checkpoint e pontuacao_coletiva nas Ferramentas do Criador"
+  captionsSrc={ConsultarAVariavelCaptionsUrl}
+  captionsContent={ConsultarAVariavelCaptionsRaw}
+  descriptionsSrc={ConsultarAVariavelDescriptionsUrl}
+  descriptionsContent={ConsultarAVariavelDescriptionsRaw}
+/>
 
 ### Vincular a variável a um usuário
 
-Com **Somente leitura** desmarcada, você pode atribuir a variável a um usuário a partir do quarto que possui a referência. Para isso, utilize o [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/), selecione a referência e configure os usuários que receberão a variável.
+Com **[Somente leitura](#configurações-da-variável)** desmarcada, você pode atribuir a variável a um usuário a partir do quarto que possui a referência. Para isso, utilize o [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/), selecione a referência e configure os usuários que receberão a variável.
 
 Você também pode selecionar um usuário na aba **[Inspeção](/referencia/ferramentas-do-criador/inspecao/)** e utilizar o botão [Dar variável](/referencia/ferramentas-do-criador/inspecao/#dar-variável). Escolha a referência e, se a variável armazenar um número, informe o valor inicial.
 
 Por exemplo, um jogador que ainda não possui `checkpoint` pode recebê-la com valor **1** ao iniciar o labirinto. Essa associação também poderá ser consultada no quarto de origem e nos demais quartos que utilizam a variável.
 
-Essa etapa se aplica às variáveis de usuário. Uma referência global já acessa o valor relacionado ao quarto de origem, sem precisar ser vinculada a jogadores.
-
-{/* Adicionar exemplo visual: atribuir checkpoint a um usuário por meio da referência e conferir a associação. */}
+<AccessibleVideo
+  id="de-outro-quarto-vincular-a-variavel-a-um-usuario"
+  src={VincularAVariavelAUmUsuario}
+  title="Vincular checkpoint a um bot pelo Efeito Dar Variável e pela Inspeção"
+  captionsSrc={VincularAVariavelAUmUsuarioCaptionsUrl}
+  captionsContent={VincularAVariavelAUmUsuarioCaptionsRaw}
+  descriptionsSrc={VincularAVariavelAUmUsuarioDescriptionsUrl}
+  descriptionsContent={VincularAVariavelAUmUsuarioDescriptionsRaw}
+/>
 
 ### Alterar o valor da variável
 
-Para permitir alterações, desmarque **Somente leitura** na configuração do **Wired Variável: De Outro Quarto**.
+Para permitir alterações, desmarque **[Somente leitura](#configurações-da-variável)** na configuração do **Wired Variável: De Outro Quarto**.
 
 No sistema Wired, utilize o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) e selecione a referência pelo nome definido na configuração. Uma referência de usuário altera os valores dos usuários escolhidos; uma referência global altera o valor compartilhado do quarto de origem.
 
@@ -147,27 +182,54 @@ Por exemplo, ao concluir uma fase, o sistema pode alterar `checkpoint` de **1** 
 
 Para entender os limites dos números armazenados e sua exibição no cliente Clássico, consulte [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar).
 
-{/* Adicionar exemplo visual: alterar o valor pela referência usando o Efeito Wired e conferir o resultado na Inspeção. */}
+<AccessibleVideo
+  id="de-outro-quarto-alterar-o-valor-da-variavel"
+  src={AlterarOValorDaVariavel}
+  title="Somar ao valor de checkpoint de um bot pelo Efeito Mudar Valor Variável"
+  captionsSrc={AlterarOValorDaVariavelCaptionsUrl}
+  captionsContent={AlterarOValorDaVariavelCaptionsRaw}
+  descriptionsSrc={AlterarOValorDaVariavelDescriptionsUrl}
+  descriptionsContent={AlterarOValorDaVariavelDescriptionsRaw}
+/>
 
 ### Remover ou excluir a variável
 
-Com **Somente leitura** desmarcada, você também pode remover a variável de um usuário ou utilizar a ação de excluir. Escolha a ação conforme os dados que deseja apagar.
+Com **[Somente leitura](#configurações-da-variável)** desmarcada, você também pode remover a variável de um usuário ou utilizar a ação de excluir. Escolha a ação conforme os dados que deseja apagar.
 
 Para desvincular a variável de **um usuário específico**, selecione-a na inspeção desse usuário e utilize [Remover variável](/referencia/ferramentas-do-criador/inspecao/#remover-variável). A mesma ação está disponível no [gerenciamento das variáveis do usuário](/referencia/ferramentas-do-criador/variaveis/#gerenciar-variáveis-do-usuário).
+
+Você também pode fazer essa remoção pelo sistema, utilizando o [Efeito Wired: Remover Variável](/referencia/efeitos/wf_act_remove_var/). Selecione a referência e configure os usuários dos quais a variável será removida. Quando a pilha for acionada, esses usuários perderão a associação com a variável.
 
 Para excluir pela lista de variáveis, selecione a referência na aba **Variáveis** e utilize o **ícone de excluir** no rodapé, conforme explicado em [Excluir uma variável](/referencia/ferramentas-do-criador/variaveis/#excluir-uma-variável). A ação pede confirmação. No caso de uma variável de usuário, ela afeta **todos os usuários que possuem a variável**, incluindo aqueles que a receberam em outros quartos.
 
 Por exemplo, remover `checkpoint` de um jogador apaga sua associação com essa variável. Já a exclusão pela lista afeta todos os jogadores que a possuem. Essas alterações atingem os dados compartilhados, mesmo quando são feitas por meio da referência.
 
-{/* Adicionar exemplo visual: comparar a remoção de checkpoint de um usuário com a confirmação de exclusão pela lista de variáveis. */}
+<AccessibleVideo
+  id="de-outro-quarto-remover-ou-excluir-a-variavel"
+  src={RemoverOuExcluirAVariavel}
+  title="Remover checkpoint de um bot pelo Efeito Remover Variável"
+  captionsSrc={RemoverOuExcluirAVariavelCaptionsUrl}
+  captionsContent={RemoverOuExcluirAVariavelCaptionsRaw}
+  descriptionsSrc={RemoverOuExcluirAVariavelDescriptionsUrl}
+  descriptionsContent={RemoverOuExcluirAVariavelDescriptionsRaw}
+/>
 
 ### Modificar uma variável criada no quarto de um amigo
 
 Você também pode modificar, a partir do seu quarto, uma variável criada no quarto de um amigo. Para isso, a variável de origem deve estar configurada como **Permanente, compartilhado entre quartos**, e o seu quarto precisa ter um **grupo**.
 
-Seu amigo deve colocar o **Wired Variável: De Outro Quarto** dele no seu quarto. Na configuração, ele seleciona o quarto de origem e a variável que deseja compartilhar, desmarca **Somente leitura** e confirma.
+Seu amigo deve colocar o **Wired Variável: De Outro Quarto** dele no seu quarto. Na configuração, ele seleciona o quarto de origem e a variável que deseja compartilhar, desmarca **[Somente leitura](#configurações-da-variável)** e confirma.
 
-Depois disso, você pode selecionar essa referência no [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) para alterar seu valor. Por exemplo, somar **1** a uma pontuação compartilhada no seu quarto também atualiza o valor da variável criada no quarto do seu amigo.
+Depois de confirmar, você pode utilizar essa referência para realizar as mesmas ações explicadas nos tópicos anteriores, conforme o tipo da variável:
+
+* **[Consultar a variável](#consultar-a-variável):** conferir o valor global ou consultar os usuários que possuem a variável e os valores associados a eles.
+* **[Vincular a variável a um usuário](#vincular-a-variável-a-um-usuário):** atribuí-la a jogadores pelo Efeito **Dar Variável** ou pelas Ferramentas do Criador, quando a referência for de uma variável de usuário.
+* **[Alterar o valor da variável](#alterar-o-valor-da-variável):** atualizar os valores pelo Efeito **Mudar Valor Variável** ou pelas Ferramentas do Criador.
+* **[Remover ou excluir a variável](#remover-ou-excluir-a-variável):** remover a associação de usuários específicos ou utilizar a ação de excluir pela lista de variáveis.
+
+Por exemplo, você pode atribuir `checkpoint` a um jogador, atualizar seu progresso e remover essa associação a partir do seu quarto. Todas essas mudanças atingem a variável criada no quarto do seu amigo e os dados consultados pelos demais quartos que a utilizam.
+
+Se o seu amigo mantiver **Somente leitura** marcada, você poderá apenas consultar a variável por meio dessa referência.
 
 ## Retirar o Wired do quarto
 
@@ -183,6 +245,6 @@ Retirar o Wired de referência não exclui a variável original nem os dados ass
 
 Quer montar um labirinto em que o jogador possa voltar à última fase alcançada? No tutorial [Sistema de checkpoint para labirintos, do Wired Club](https://www.wiredclub.com.br/tutoriais/como-fazer-um-sistema-de-checkpoint-para-labirintos), você aprende a guardar esse progresso e utilizar o comando `:checkpoint` no quarto principal para retornar à fase correspondente.
 
-Nesse sistema, a variável de usuário `checkpoint_user` é criada no quarto principal com a disponibilidade **Permanente, compartilhado entre quartos**. Nos quartos das fases, o **Wired Variável: De Outro Quarto** cria uma referência chamada `checkpoint`, com **Somente leitura** desmarcada, para permitir a atualização do progresso do jogador.
+Nesse sistema, a variável de usuário `checkpoint_user` é criada no quarto principal com a disponibilidade **Permanente, compartilhado entre quartos**. Nos quartos das fases, o **Wired Variável: De Outro Quarto** cria uma referência chamada `checkpoint`, com **[Somente leitura](#configurações-da-variável)** desmarcada, para permitir a atualização do progresso do jogador.
 
 Acompanhe o tutorial para configurar as pilhas, identificar os Conectores de Quarto e testar o retorno aos checkpoints.

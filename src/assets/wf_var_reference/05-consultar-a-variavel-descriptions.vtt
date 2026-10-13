@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.900
+Na janela Ferramentas do Criador, a aba Variáveis mostra a variável de usuário "checkpoint" selecionada no painel Visão Geral de Variáveis. O botão Gerenciar é acionado.
+
+00:00:00.900 --> 00:00:04.650
+A janela Gerenciamento de Variável lista os portadores da variável permanente "checkpoint", com tipo, nome, horários de criação e atualização, valor e opção Gerenciar. A ordenação está em "Maior valor", e o rodapé informa 16 registros em uma página. Após a consulta, a janela é fechada.
+
+00:00:04.650 --> 00:00:06.450
+A aba Inspeção é aberta. Primeiro, o painel de variáveis está vazio e solicita a seleção de um usuário. A cena do quarto aparece ao lado, com o bot fswiredclub sobre um piso destacado. O bot é selecionado.
+
+00:00:06.450 --> 00:00:09.300
+A prévia mostra o bot, e a lista exibe suas variáveis. A linha "checkpoint" indica o valor 1 e é destacada. Outras propriedades do bot, como posição e direção, aparecem abaixo.
+
+00:00:09.300 --> 00:00:11.899
+No painel Inspeção, o tipo de elemento muda de usuário para quarto. A prévia passa a mostrar um quarto em miniatura. A lista de variáveis do quarto inclui "pontuacao_coletiva" com valor 2; essa linha é destacada.

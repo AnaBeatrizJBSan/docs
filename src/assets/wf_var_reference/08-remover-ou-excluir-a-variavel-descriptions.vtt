@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.900
+Em um quarto do Habbo, uma pilha de mobis Wired fica à esquerda de um bot. Na janela do efeito “Dar Variável”, é selecionada a variável checkpoint, com valor inicial 0. O destino muda de “Use o usuário acionador” para “Usar usuários do seletor”, e a configuração é confirmada.
+
+00:00:06.400 --> 00:00:10.900
+A janela do efeito “Remover Variável” é aberta. Nela, checkpoint é selecionada. O atraso é ajustado de 0 para 1,5 segundo; a origem da variável muda para “Usar usuários do seletor”. O efeito é confirmado.
+
+00:00:12.400 --> 00:00:13.900
+No seletor “Habbos por Tipo”, o tipo de usuário é alterado de “Habbo” para “Bot”, e a janela é confirmada. Assim, os efeitos configurados para usuários do seletor apontam para o bot ao lado da pilha.
+
+00:00:15.400 --> 00:00:18.300
+No ativador “Habbo Clica no Mobi”, um mobi no topo da pilha é escolhido. O contador de seleção muda de 0/20 para 1/20, e a configuração é confirmada.
+
+00:00:19.400 --> 00:00:22.900
+O bot é selecionado e seu menu “Inspect” abre a aba “Inspeção” das Ferramentas do Criador. A lista mostra variáveis internas do bot, mas ainda não mostra checkpoint. Um clique é feito no mobi configurado no topo da pilha.
+
+00:00:22.900 --> 00:00:24.350
+Na lista de inspeção do bot, surge checkpoint com valor 0 acima das variáveis internas. A linha é destacada enquanto permanece visível por um instante.
+
+00:00:24.350 --> 00:00:25.666
+Após o atraso configurado, a linha checkpoint desaparece da lista de variáveis do bot. A inspeção continua aberta com apenas as variáveis internas.
