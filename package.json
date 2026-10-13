@@ -23,7 +23,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.41.5",
     "@fontsource/noto-sans": "^5.2.8",
-    "astro": "^7.3.5",
+    "astro": "^7.3.8",
     "astro-contributors": "^0.9.0",
     "astro-og-canvas": "^0.13.0",
     "sharp": "^0.35.5",
@@ -34,5 +34,8 @@
     "starlight-seo": "file:./plugins/starlight-seo",
     "starlight-showcases": "^0.3.2",
     "starlight-theme-wiredclub": "file:./plugins/starlight-theme-wiredclub"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
   }
 }
