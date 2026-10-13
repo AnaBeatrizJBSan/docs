@@ -104,6 +104,10 @@ Se você utilizar um espaço no nome, ele será substituído automaticamente por
 
 Prefira nomes que ajudem a entender o que a variável representa, como `pontuacao`, `participando_do_jogo` ou `vendedor`.
 
+O nome precisa ser **único no quarto**, mesmo entre variáveis de tipos diferentes. Se outro Wired de variável já utilizar esse nome, ao tentar salvar a configuração aparecerá a mensagem **"Esse nome de variável já está em uso neste quarto, escolha um nome diferente!"**. Escolha outro nome para conseguir salvar.
+
+![Janela Falha ao atualizar avisando que o nome de variável já está em uso no quarto e solicitando um nome diferente.](@assets/wf_var/04-janela-de-aviso-nome-de-variavel-ja-em-uso.png)
+
 ### Configurações da variável
 
 A opção **Tem valor** define se a variável armazena um número ou apenas indica a presença de uma característica:
@@ -131,7 +135,13 @@ Esta seção define por quanto tempo a variável fica associada ao usuário e se
 
 Por exemplo, uma marcação de participação em uma atividade pode existir apenas durante a visita ao quarto. Já uma pontuação que o jogador deve conservar para a próxima visita pode utilizar a opção **Permanente**.
 
-Em um labirinto com fases distribuídas entre vários quartos, a opção **Permanente, compartilhado entre quartos** pode guardar o último **checkpoint** alcançado pelo jogador. Os outros quartos podem consultar essa variável por meio do **Wired Variável: De Outro Quarto**, permitindo que o sistema reconheça seu progresso e o encaminhe à fase correspondente quando ele voltar a jogar.
+Em um labirinto com fases distribuídas entre vários quartos, a opção **Permanente, compartilhado entre quartos** pode guardar o último **checkpoint** alcançado pelo jogador. Os outros quartos podem consultar essa variável por meio do **[Wired Variável: De Outro Quarto](/referencia/variaveis/wf_var_reference/)**, permitindo que o sistema reconheça seu progresso e o encaminhe à fase correspondente quando ele voltar a jogar.
+
+<Aside type="note" title="Compartilhamento apenas no próprio quarto">
+A opção **Permanente, compartilhado entre quartos** só pode ser configurada em um quarto do qual você é dono. Se você colocar este Wired no quarto de grupo de um amigo e tentar salvar com essa opção selecionada, aparecerá a mensagem **“Você só pode definir variáveis como compartilhadas em seu próprio quarto.”**, e a configuração não será salva.
+
+![Janela Falha ao atualizar com a mensagem Você só pode definir variáveis como compartilhadas em seu próprio quarto e o botão Ok.](@assets/wf_var/03-janela-de-aviso-ao-tentar-criar-variavel-compartilhada.png)
+</Aside>
 
 <Aside type="caution" title="Ao alterar a disponibilidade">
 Se você configurar a variável como **Permanente** e depois tentar mudar para **Enquanto o usuário está no quarto**, o jogo abrirá uma janela com a mensagem:
