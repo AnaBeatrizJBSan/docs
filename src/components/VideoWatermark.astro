@@ -1,0 +1,311 @@
+---
+import watermarkLogo from '../assets/new_logo.png';
+import { WATERMARK_WIDTH, WATERMARK_WIDTH_MIN, WATERMARK_WIDTH_MAX, WATERMARK_OPACITY } from '../utils/watermark';
+---
+
+<div class="watermark-tool" data-watermark-logo={watermarkLogo.src} data-pagefind-ignore>
+  <p class="intro">Escolha um vídeo, ajuste o tamanho da logo na prévia e aplique a marca d’água para baixar o resultado em MP4.</p>
+
+  <label class="dropzone" id="dropzone" for="video-file" tabindex="0" role="button" aria-controls="video-file">
+    <input id="video-file" type="file" accept="video/*,.mp4,.mov,.webm,.mkv" hidden />
+    <span class="upload-icon" aria-hidden="true">↑</span>
+    <strong id="drop-title">Arraste seu vídeo aqui</strong>
+    <span id="drop-description">ou clique para escolher um arquivo</span>
+    <small>MP4, MOV, WebM ou MKV · saída em MP4</small>
+  </label>
+
+  <section id="editor-panel" class="editor-panel" aria-labelledby="editor-title" hidden>
+    <h2 id="editor-title">Ajuste a marca d’água</h2>
+    <div id="preview-stage" class="preview-stage" style={`--watermark-size: ${WATERMARK_WIDTH}; --watermark-opacity: ${WATERMARK_OPACITY}`}>
+      <video id="source-video" autoplay muted loop playsinline preload="auto" aria-label="Prévia do vídeo original com a logo sobreposta"></video>
+      <img src={watermarkLogo.src} alt="" aria-hidden="true" />
+    </div>
+    <p id="preview-message" class="hint" hidden>Este formato não pode ser pré-visualizado neste navegador. Você ainda pode ajustar o tamanho e aplicar a marca d’água.</p>
+    <div class="size-label">
+      <label for="logo-size">Tamanho da logo</label>
+      <output id="logo-size-value" for="logo-size">{Math.round(WATERMARK_WIDTH * 100)}%</output>
+    </div>
+    <input id="logo-size" type="range" min={WATERMARK_WIDTH_MIN} max={WATERMARK_WIDTH_MAX} step="0.01" value={WATERMARK_WIDTH} aria-describedby="size-hint" />
+    <p id="size-hint" class="hint">Porcentagem da largura do vídeo. A prévia acompanha o ajuste em tempo real.</p>
+    <button id="process-video" class="process" type="button">Aplicar marca d’água</button>
+  </section>
+
+  <section id="status-panel" class="status-panel" aria-live="polite" aria-atomic="true" hidden>
+    <div class="file-row"><span id="file-name"></span><span id="file-size"></span></div>
+    <progress id="progress-bar" max="100" value="0" aria-label="Progresso da aplicação da marca d’água"></progress>
+    <p id="status-text">Preparando…</p>
+  </section>
+
+  <section id="result-panel" class="result-panel" aria-labelledby="result-title" hidden>
+    <h2 id="result-title">Prévia do resultado</h2>
+    <video id="result-video" controls playsinline preload="metadata" aria-label="Vídeo com marca d’água">
+      Seu navegador não suporta a reprodução deste vídeo. Use o botão abaixo para baixar o resultado.
+    </video>
+  </section>
+  <a id="download" class="download" hidden>Baixar vídeo com marca d’água <span aria-hidden="true">↓</span></a>
+  <p class="privacy">Seu vídeo é processado neste navegador, sem envio para um servidor.</p>
+  <p class="hint">Na primeira utilização, o processador baixa cerca de 31 MB. Mantenha esta aba aberta durante a exportação. Vídeos longos podem demorar e usar bastante memória.</p>
+</div>
+
+<script>
+  import type { FFmpeg } from '@ffmpeg/ffmpeg';
+  import coreURL from '@ffmpeg/core?url';
+  import wasmURL from '@ffmpeg/core/wasm?url';
+  import { buildWatermarkArgs, getVideoDisplayWidth } from '../utils/watermark';
+
+  const input = document.querySelector<HTMLInputElement>('#video-file')!;
+  const dropzone = document.querySelector<HTMLLabelElement>('#dropzone')!;
+  const dropTitle = document.querySelector<HTMLElement>('#drop-title')!;
+  const dropDescription = document.querySelector<HTMLElement>('#drop-description')!;
+  const statusPanel = document.querySelector<HTMLElement>('#status-panel')!;
+  const fileName = document.querySelector<HTMLElement>('#file-name')!;
+  const fileSize = document.querySelector<HTMLElement>('#file-size')!;
+  const progressBar = document.querySelector<HTMLProgressElement>('#progress-bar')!;
+  const statusText = document.querySelector<HTMLElement>('#status-text')!;
+  const download = document.querySelector<HTMLAnchorElement>('#download')!;
+  const resultPanel = document.querySelector<HTMLElement>('#result-panel')!;
+  const resultVideo = document.querySelector<HTMLVideoElement>('#result-video')!;
+  const editorPanel = document.querySelector<HTMLElement>('#editor-panel')!;
+  const previewStage = document.querySelector<HTMLElement>('#preview-stage')!;
+  const sourceVideo = document.querySelector<HTMLVideoElement>('#source-video')!;
+  const previewMessage = document.querySelector<HTMLElement>('#preview-message')!;
+  const sizeSlider = document.querySelector<HTMLInputElement>('#logo-size')!;
+  const sizeValue = document.querySelector<HTMLOutputElement>('#logo-size-value')!;
+  const processButton = document.querySelector<HTMLButtonElement>('#process-video')!;
+  const watermarkLogoUrl = document.querySelector<HTMLElement>('.watermark-tool')!.dataset.watermarkLogo!;
+
+  let ffmpeg: FFmpeg | undefined;
+  let busy = false;
+  let outputUrl: string | undefined;
+  let sourceUrl: string | undefined;
+  let selectedFile: File | undefined;
+
+  function setProgress(value: number, message: string) {
+    progressBar.value = Math.max(0, Math.min(100, value));
+    statusText.textContent = message;
+  }
+
+  function clearOutput() {
+    resultVideo.pause();
+    resultVideo.removeAttribute('src');
+    resultVideo.load();
+    resultPanel.hidden = true;
+    if (outputUrl) URL.revokeObjectURL(outputUrl);
+    outputUrl = undefined;
+    download.removeAttribute('href');
+    download.hidden = true;
+  }
+
+  function clearSource() {
+    sourceVideo.pause();
+    sourceVideo.removeAttribute('src');
+    sourceVideo.load();
+    if (sourceUrl) URL.revokeObjectURL(sourceUrl);
+    sourceUrl = undefined;
+    selectedFile = undefined;
+    editorPanel.hidden = true;
+  }
+
+  function selectVideo(file?: File) {
+    if (!file || busy) return;
+    clearOutput();
+    clearSource();
+    input.value = '';
+    statusPanel.hidden = false;
+    fileName.textContent = file.name;
+    fileSize.textContent = file.size < 1024 ** 2
+      ? `${(file.size / 1024).toFixed(0)} KB`
+      : `${(file.size / 1024 ** 2).toFixed(1)} MB`;
+    if (file.size === 0 || !(file.type.startsWith('video/') || /\.(mp4|mov|webm|mkv)$/i.test(file.name))) {
+      setProgress(0, 'Escolha um arquivo de vídeo válido e não vazio.');
+      return;
+    }
+    selectedFile = file;
+    sourceUrl = URL.createObjectURL(file);
+    previewStage.hidden = false;
+    previewMessage.hidden = true;
+    previewStage.style.removeProperty('--video-aspect-ratio');
+    sourceVideo.src = sourceUrl;
+    sourceVideo.load();
+    editorPanel.hidden = false;
+    dropTitle.textContent = 'Arraste outro vídeo para trocar';
+    dropDescription.textContent = 'ou clique para escolher um arquivo';
+    setProgress(0, 'Ajuste a logo na prévia e clique em Aplicar marca d’água.');
+  }
+
+  sourceVideo.addEventListener('loadedmetadata', () => {
+    if (sourceVideo.videoWidth && sourceVideo.videoHeight) {
+      previewStage.style.setProperty('--video-aspect-ratio', String(sourceVideo.videoWidth / sourceVideo.videoHeight));
+    }
+  });
+  sourceVideo.addEventListener('error', () => {
+    if (!selectedFile) return;
+    previewStage.hidden = true;
+    previewMessage.hidden = false;
+  });
+  sizeSlider.addEventListener('input', () => {
+    if (busy) return;
+    previewStage.style.setProperty('--watermark-size', sizeSlider.value);
+    sizeValue.value = `${Math.round(sizeSlider.valueAsNumber * 100)}%`;
+    clearOutput();
+    if (selectedFile) setProgress(0, 'Tamanho atualizado. Clique em Aplicar marca d’água para gerar o vídeo.');
+  });
+
+  async function getEngine() {
+    if (ffmpeg?.loaded) return ffmpeg;
+    const { FFmpeg } = await import('@ffmpeg/ffmpeg');
+    const engine = new FFmpeg();
+    ffmpeg = engine;
+    engine.on('progress', ({ progress }) => {
+      if (busy) setProgress(8 + Math.round(progress * 86), 'Aplicando a marca d’água…');
+    });
+    try {
+      await engine.load({ coreURL, wasmURL });
+    } catch {
+      engine.terminate();
+      ffmpeg = undefined;
+      throw new Error('Não foi possível carregar o processador. Verifique sua conexão e tente novamente em um navegador atualizado.');
+    }
+    return engine;
+  }
+
+  async function videoWidth(engine: FFmpeg, inputName: string): Promise<number> {
+    await engine.ffprobe([
+      '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height:stream_side_data=rotation',
+      '-of', 'json', inputName, '-o', 'metadata.json',
+    ]);
+    // core 0.12.10 may return -1 for a successful probe; validate its output instead.
+    let metadata;
+    try {
+      const data = await engine.readFile('metadata.json');
+      metadata = JSON.parse(typeof data === 'string' ? data : new TextDecoder().decode(data));
+    } catch {
+      throw new Error('Não foi possível abrir este vídeo. Tente outro arquivo.');
+    }
+    return getVideoDisplayWidth(metadata);
+  }
+
+  async function processVideo() {
+    const file = selectedFile;
+    if (!file || busy) return;
+    const logoSize = sizeSlider.valueAsNumber;
+    clearOutput();
+    busy = true;
+    input.disabled = true;
+    sizeSlider.disabled = true;
+    processButton.disabled = true;
+    sourceVideo.pause();
+    dropzone.setAttribute('aria-disabled', 'true');
+    dropzone.classList.add('processing');
+    dropTitle.textContent = 'Processando seu vídeo';
+    dropDescription.textContent = 'Mantenha esta aba aberta até a exportação terminar.';
+    setProgress(2, 'Lendo o vídeo…');
+    const inputName = `input.${file.name.split('.').pop()?.replace(/[^a-z0-9]/gi, '') || 'mp4'}`;
+    const outputName = 'watermarked.mp4';
+
+    try {
+      setProgress(3, 'Carregando o processador de vídeo…');
+      const engine = await getEngine();
+      const logoResponse = await fetch(watermarkLogoUrl);
+      if (!logoResponse.ok) throw new Error('Não foi possível carregar a imagem da marca d’água.');
+      await engine.writeFile(inputName, new Uint8Array(await file.arrayBuffer()));
+      await engine.writeFile('watermark.png', new Uint8Array(await logoResponse.arrayBuffer()));
+      const width = await videoWidth(engine, inputName);
+      setProgress(8, 'Aplicando a marca d’água centralizada…');
+      const exitCode = await engine.exec(buildWatermarkArgs(inputName, 'watermark.png', outputName, width, logoSize));
+      if (exitCode !== 0) throw new Error('A exportação falhou. Tente um vídeo menor ou em outro formato.');
+      setProgress(97, 'Preparando a prévia e o download…');
+      const data = await engine.readFile(outputName);
+      if (!(data instanceof Uint8Array) || data.byteLength === 0) throw new Error('O processador não gerou um vídeo válido.');
+      outputUrl = URL.createObjectURL(new Blob([new Uint8Array(data)], { type: 'video/mp4' }));
+      resultVideo.src = outputUrl;
+      resultVideo.load();
+      resultPanel.hidden = false;
+      download.href = outputUrl;
+      download.download = `${file.name.replace(/\.[^.]+$/, '')}-watermarked.mp4`;
+      download.hidden = false;
+      setProgress(100, 'Seu vídeo está pronto. Confira a prévia antes de baixar.');
+    } catch (error) {
+      setProgress(0, error instanceof Error ? error.message : 'Não foi possível processar o vídeo. Tente um arquivo menor.');
+      ffmpeg?.terminate();
+      ffmpeg = undefined;
+    } finally {
+      for (const name of [inputName, outputName, 'watermark.png', 'metadata.json']) {
+        try { await ffmpeg?.deleteFile(name); } catch { /* May not exist after a failed export. */ }
+      }
+      busy = false;
+      input.disabled = false;
+      sizeSlider.disabled = false;
+      processButton.disabled = false;
+      input.value = '';
+      dropzone.setAttribute('aria-disabled', 'false');
+      dropzone.classList.remove('processing');
+      dropTitle.textContent = 'Arraste outro vídeo aqui';
+      dropDescription.textContent = 'ou clique para escolher um arquivo';
+    }
+  }
+
+  input.addEventListener('change', () => selectVideo(input.files?.[0]));
+  processButton.addEventListener('click', () => void processVideo());
+  dropzone.addEventListener('keydown', (event) => {
+    if (!busy && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      input.click();
+    }
+  });
+  for (const eventName of ['dragenter', 'dragover']) {
+    dropzone.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      if (!busy) dropzone.classList.add('dragging');
+    });
+  }
+  for (const eventName of ['dragleave', 'drop']) {
+    dropzone.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      dropzone.classList.remove('dragging');
+    });
+  }
+  dropzone.addEventListener('drop', (event) => selectVideo(event.dataTransfer?.files?.[0]));
+  window.addEventListener('pagehide', (event) => {
+    if (!event.persisted) { clearOutput(); clearSource(); ffmpeg?.terminate(); }
+  });
+</script>
+
+<style>
+  .intro { margin: 0 0 1.5rem; font-size: 1rem; }
+  small { font-size: .75rem; color: var(--sl-color-gray-3); }
+  .dropzone { min-height: 15rem; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .65rem; text-align: center; background: var(--wc-panel); border: 2px dashed var(--wc-border); border-radius: var(--wc-radius-lg); cursor: pointer; transition: border-color .15s, background .15s; }
+  .dropzone:hover, .dropzone.dragging { border-color: var(--sl-color-accent); background: var(--sl-color-accent-low); }
+  .dropzone.processing { cursor: wait; opacity: .65; }
+  .upload-icon { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--sl-color-accent-low); color: var(--sl-color-text-accent); font-size: 1.8rem; }
+  .dropzone strong { color: var(--sl-color-white); }
+  .dropzone span:last-of-type { font-size: .85rem; }
+  .status-panel { margin-top: 1.5rem; }
+  .file-row { display: flex; justify-content: space-between; gap: 1rem; font-size: .8rem; }
+  #file-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  #file-size { flex-shrink: 0; }
+  progress { width: 100%; height: .5rem; margin-top: .75rem; border: 0; border-radius: 1rem; overflow: hidden; background: var(--sl-color-gray-6); accent-color: var(--sl-color-accent); }
+  progress::-webkit-progress-bar { background: var(--sl-color-gray-6); }
+  progress::-webkit-progress-value { background: var(--sl-color-accent); }
+  progress::-moz-progress-bar { background: var(--sl-color-accent); }
+  #status-text { margin: .5rem 0 0; font-size: .85rem; }
+  .editor-panel { margin-top: 1.5rem; }
+  .editor-panel h2 { margin: 0 0 .75rem; font-size: 1rem; }
+  .preview-stage { position: relative; width: min(100%, calc(65vh * var(--video-aspect-ratio, 1.7778))); aspect-ratio: var(--video-aspect-ratio, 1.7778); margin-inline: auto; overflow: hidden; border-radius: var(--wc-radius); background: black; }
+  .preview-stage video { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .preview-stage img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(var(--watermark-size) * 100%); max-width: none; height: auto; margin: 0; opacity: var(--watermark-opacity); pointer-events: none; }
+  .size-label { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; color: var(--sl-color-white); }
+  .size-label > * { margin: 0; }
+  #logo-size { display: block; width: 100%; margin: .75rem 0; accent-color: var(--sl-color-accent); cursor: pointer; }
+  .process { width: 100%; border: 0; font: inherit; cursor: pointer; }
+  .process:disabled { cursor: wait; opacity: .6; }
+  .result-panel { margin-top: 1.5rem; }
+  .result-panel h2 { margin: 0 0 .75rem; font-size: 1rem; }
+  .result-panel video { display: block; width: 100%; max-height: 70vh; border: 1px solid var(--sl-color-hairline); border-radius: var(--wc-radius); background: black; }
+  .download, .process { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1.5rem; padding: 1rem; border-radius: var(--wc-radius); background: var(--sl-color-accent); color: var(--sl-color-text-invert); text-decoration: none; font-weight: 600; }
+  .download:hover, .process:hover:not(:disabled) { filter: brightness(1.1); }
+  .privacy { margin: 1.5rem 0 .5rem; font-size: .85rem; }
+  .hint { margin: 0; font-size: .75rem; color: var(--sl-color-gray-3); }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) { .dropzone { min-height: 13rem; } }
+</style>
