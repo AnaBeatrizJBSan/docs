@@ -48,4 +48,21 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Ativador: Recebe Sinal** funciona em conjunto com o [Efeito: Mandar Sinal](/referencia/efeitos/wf_act_send_signal) e o mobi **Antena Wired**. Ele recebe os mobis e usuários enviados por meio desse efeito e os utiliza como referência para a execução das ações.
+
 <Infobox />
+
+A pilha de Wireds só será ativada quando as Antenas Wireds selecionadas em sua configuração forem acionadas por uma pilha wired ou utilizadas por um usuário. 
+
+## Configurações avançadas
+
+Você pode escolher quais antenas, ativarão esse wired nas configurações avançadas:
+
+- Use mobis escolhidos
+- Usar mobis do seletor
+- Usar mobis do sinal
+
+## Dicas de uso
+- Este Wired permite selecionar apenas mobis do tipo Antena Wired. Caso você tente selecionar um mobi de outro tipo, um aviso será exibido, impedindo a seleção.
+- Pode receber conjuntos diferentes de usuários e mobis por meio de Antenas Wired vinculadas a pilhas distintas. Cada antena mantém seu próprio conjunto de informações, sem misturar os dados recebidos de outras antenas.
+

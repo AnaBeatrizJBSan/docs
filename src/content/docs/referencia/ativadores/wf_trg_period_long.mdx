@@ -48,4 +48,16 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Ativador: Duração Periódica** é um wired que dispara automaticamente sempre que o intervalo de tempo definido em sua configuração é atingido. Após cada acionamento, o contador é reiniciado e uma nova contagem começa, repetindo esse ciclo continuamente.
+
 <Infobox />
+
+Diferente do [Ativador: Repetir Efeito (curto)](/referencia/ativadores/wf_trg_period_short) e [Ativador: Repetir Efeito](/referencia/ativadores/wf_trg_periodically), esse wired permite uma quantidade de tempo maior.
+
+Seu funcionamento independe da interação de usuários e mobílias, portanto não possui configurações adicionais nem avançadas permitindo automatizar acionamentos periódicos sem a necessidade de intervenção manual. 
+
+## Configurações
+**Definir tempo (segundos):** permite configurar o intervalo de tempo para o acionamento do wired, com valores que variam de 5 a 600 segundos.
+
+## Dicas de uso
+- Sempre que precisar ativar uma pilha repetidamente de tempos em tempos sem a intervenção de um usuário ou mobi, use esse wired.
