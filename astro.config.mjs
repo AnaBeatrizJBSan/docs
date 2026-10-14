@@ -14,6 +14,9 @@ import manifest from './webmanifest.json';
 export default defineConfig({
 	site: 'https://docs.wiredclub.com.br',
 	base: '/',
+	vite: {
+		optimizeDeps: { exclude: ['@ffmpeg/ffmpeg'] },
+	},
 	integrations: [
 		starlight({
 			title: 'Wired Club Docs',
