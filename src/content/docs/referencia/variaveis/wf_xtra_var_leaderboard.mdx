@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_xtra_var_leaderboard
   name: "Extra Variável: Placar"
-  description: "Extra Variável: Placar"
+  description: Exibe os registros de variáveis permanentes dos jogadores em um placar com colunas, ordenação e filtros personalizáveis.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -42,6 +42,22 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import ModoDeMultiplasVariaveis from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis.mp4";
+import ModoDeMultiplasVariaveisCaptionsUrl from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-captions.vtt?url";
+import ModoDeMultiplasVariaveisCaptionsRaw from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-captions.vtt?raw";
+import ModoDeMultiplasVariaveisDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-descriptions.vtt?url";
+import ModoDeMultiplasVariaveisDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-descriptions.vtt?raw";
+import Filtro from "@assets/wf_xtra_var_leaderboard/10-filtro.mp4";
+import FiltroCaptionsUrl from "@assets/wf_xtra_var_leaderboard/10-filtro-captions.vtt?url";
+import FiltroCaptionsRaw from "@assets/wf_xtra_var_leaderboard/10-filtro-captions.vtt?raw";
+import FiltroDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/10-filtro-descriptions.vtt?url";
+import FiltroDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/10-filtro-descriptions.vtt?raw";
+import LocalizacaoDoPlacar from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar.mp4";
+import LocalizacaoDoPlacarCaptionsUrl from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-captions.vtt?url";
+import LocalizacaoDoPlacarCaptionsRaw from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-captions.vtt?raw";
+import LocalizacaoDoPlacarDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-descriptions.vtt?url";
+import LocalizacaoDoPlacarDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-descriptions.vtt?raw";
 import TamanhoDaPagina from "@assets/wf_xtra_var_leaderboard/03-tamanho-da-pagina.gif";
 import NomeELarguraDasColunas from "@assets/wf_xtra_var_leaderboard/04-nome-e-largura-das-colunas.gif";
 import NumeroDeColunas from "@assets/wf_xtra_var_leaderboard/07-topico-numero-de-colunas.gif";
@@ -119,7 +135,7 @@ O campo **Número de colunas** permite escolher de **1 a 4** colunas. Inicialmen
 
 Abaixo desse campo, você encontra as opções para configurar cada coluna.
 
-<img src={NumeroDeColunas.src} alt="Demonstração do ajuste do número de colunas e das colunas correspondentes na janela do placar." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
+<img src={NumeroDeColunas.src} alt="Demonstração do ajuste do número de colunas e das colunas correspondentes na janela do placar." style={{ width: "580px", maxWidth: "100%", height: "auto" }} />
 
 #### Nome e largura das colunas
 
@@ -157,11 +173,21 @@ Nesta seção, cada variável da pilha aparece ao lado de um campo de texto. Pre
 
 O botão **Sugerir nomes** preenche esses campos com nomes baseados nas variáveis. Por exemplo, `placar_um` recebe a sugestão **Placar Um**.
 
+<AccessibleVideo
+  id="placar-modo-de-multiplas-variaveis"
+  src={ModoDeMultiplasVariaveis}
+  captionsSrc={ModoDeMultiplasVariaveisCaptionsUrl}
+  captionsContent={ModoDeMultiplasVariaveisCaptionsRaw}
+  descriptionsSrc={ModoDeMultiplasVariaveisDescriptionsUrl}
+  descriptionsContent={ModoDeMultiplasVariaveisDescriptionsRaw}
+  title="Configurar o modo de múltiplas variáveis do placar"
+/>
+
 ### Filtro
 
-Marque **Ativar filtragem** para disponibilizar o campo **Variável de filtragem**. Nessa lista, você pode selecionar uma variável permanente de usuário para utilizar no filtro do placar, então aparecerá apenas no placar os jogadores que possuem a variável.
+Marque **Ativar filtragem** para disponibilizar o campo **Variável de filtragem**. Nessa lista, escolha uma variável permanente de usuário. O placar mostrará apenas os jogadores que também possuem essa variável.
 
-Se quiser comparar também seu valor, marque **Comparar o valor da variável de filtragem**. Você pode digitar um número no campo ou clicar no ícone **Escolha uma variável** ao lado dele para selecionar uma destas variáveis internas do quarto:
+Se quiser comparar também seu valor, marque **Comparar o valor da variável de filtragem**. Nesse caso, o jogador precisa possuir a variável de filtragem com um valor igual ao utilizado na comparação. Você pode digitar um número no campo ou clicar no ícone **Escolha uma variável** ao lado dele para selecionar uma destas variáveis internas do quarto:
 
 | Variável | Informação disponível |
 | :--- | :--- |
@@ -173,6 +199,27 @@ Se quiser comparar também seu valor, marque **Comparar o valor da variável de 
 | `@group_id` | [Identificador do grupo associado ao quarto](/referencia/variaveis/wf_var_room/#variáveis-internas-do-quarto). |
 | `@current_time` | [Tempo atual](/referencia/variaveis/wf_var_room/#tempo-atual). |
 
+#### Exemplo de filtragem
+
+Imagine que um jogador listado no placar possui a variável `pontacao_um` com valor **1**, mas nenhum usuário possui `pontacao_dois`. Veja como as opções de filtro mudam o resultado:
+
+1. Ao selecionar **`pontacao_dois`** como variável de filtragem, nenhum registro aparece, pois ninguém possui essa variável.
+2. Ao trocar para **`pontacao_um`**, com a comparação de valor desmarcada, o jogador aparece no placar. No exemplo, o registro mostra o valor **1**.
+3. Ao marcar **Comparar o valor da variável de filtragem** e digitar **2**, o registro desaparece. O jogador possui `pontacao_um`, mas seu valor é **1**, diferente do **2** informado.
+4. Ao clicar em **Escolha uma variável** e selecionar **`@furni_count`**, a comparação passa a utilizar a quantidade de mobis do quarto. Como há vários mobis, esse número também é diferente de **1**, e o registro continua oculto.
+
+Assim, você pode filtrar pela presença de uma variável ou exigir que ela tenha um valor específico. A comparação apenas define quais registros aparecem no placar; ela não altera o valor armazenado para o jogador.
+
+<AccessibleVideo
+  id="placar-filtro"
+  src={Filtro}
+  captionsSrc={FiltroCaptionsUrl}
+  captionsContent={FiltroCaptionsRaw}
+  descriptionsSrc={FiltroDescriptionsUrl}
+  descriptionsContent={FiltroDescriptionsRaw}
+  title="Filtrar os registros do placar pela presença e pelo valor de uma variável"
+/>
+
 ### Localização do placar
 
 Arraste o placar pelo quarto para escolher onde ele será exibido. Se preferir, você pode ajustar sua posição manualmente pelos campos:
@@ -181,3 +228,13 @@ Arraste o placar pelo quarto para escolher onde ele será exibido. Se preferir, 
 * **Deslocamento:** o primeiro campo ajusta a posição horizontal, e o segundo ajusta a posição vertical.
 
 Depois de organizar a posição e conferir as demais opções, salve as configurações para exibir o placar aos usuários do quarto.
+
+<AccessibleVideo
+  id="placar-localizacao"
+  src={LocalizacaoDoPlacar}
+  captionsSrc={LocalizacaoDoPlacarCaptionsUrl}
+  captionsContent={LocalizacaoDoPlacarCaptionsRaw}
+  descriptionsSrc={LocalizacaoDoPlacarDescriptionsUrl}
+  descriptionsContent={LocalizacaoDoPlacarDescriptionsRaw}
+  title="Ajustar a localização do placar no quarto"
+/>
