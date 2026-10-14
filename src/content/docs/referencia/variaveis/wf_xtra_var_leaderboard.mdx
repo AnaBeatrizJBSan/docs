@@ -44,6 +44,7 @@ import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
 import TamanhoDaPagina from "@assets/wf_xtra_var_leaderboard/03-tamanho-da-pagina.gif";
 import NomeELarguraDasColunas from "@assets/wf_xtra_var_leaderboard/04-nome-e-largura-das-colunas.gif";
+import NumeroDeColunas from "@assets/wf_xtra_var_leaderboard/07-topico-numero-de-colunas.gif";
 
 O **Extra Variável: Placar** permite mostrar os registros de uma variável permanente de usuário em uma janela no quarto. Quer exibir a pontuação dos jogadores, acompanhar seus níveis ou mostrar quem teve o progresso atualizado mais recentemente? Você pode escolher quais informações aparecem no placar e como elas serão organizadas.
 
@@ -55,8 +56,12 @@ Coloque este Extra acima de um [Wired Variável: Usuário Variável](/referencia
 
 Por exemplo, você pode criar uma variável de usuário chamada `pontuacao`, configurá-la como **Permanente** e utilizá-la para guardar os pontos de cada jogador. O Extra permite apresentar esses dados para quem está no quarto.
 
+Embora a variável de usuário possa ser vinculada a jogadores, bots e mascotes, o placar mostra apenas os **jogadores que possuem a variável vinculada a eles**. Bots e mascotes não aparecem na lista, mesmo que tenham essa variável.
+
 <Aside type="caution" title="Confira a variável da pilha">
 Se a pilha não tiver uma variável permanente de usuário, a seção **Geral** mostrará um aviso em vermelho informando que o placar ficará vazio. Confira a posição do Extra e a [disponibilidade da variável](/referencia/variaveis/wf_var_user/#opções-de-disponibilidade) antes de continuar.
+
+![Aviso em vermelho na seção Geral informando que a pilha não possui uma variável de usuário persistente e que o placar ficará vazio.](@assets/wf_xtra_var_leaderboard/05-aviso-topico-geral.png)
 </Aside>
 
 ## Como esse Wired funciona?
@@ -79,6 +84,8 @@ Por exemplo, um placar de uma competição pode ter o título **Pontuação dos 
 ![Campos Título e Descrição preenchidos com Wired Club - Pontuação e Pontos conquistados no Wired Club, exibidos no topo do placar.](@assets/wf_xtra_var_leaderboard/02-topico-geral.png)
 
 #### Ordenação
+
+![Lista Ordenação aberta com as opções Maior valor, Menor valor e datas de criação e modificação, da mais antiga à mais recente.](@assets/wf_xtra_var_leaderboard/06-topico-ordenacao.png)
 
 Escolha qual informação será utilizada para organizar os registros:
 
@@ -112,6 +119,8 @@ O campo **Número de colunas** permite escolher de **1 a 4** colunas. Inicialmen
 
 Abaixo desse campo, você encontra as opções para configurar cada coluna.
 
+<img src={NumeroDeColunas.src} alt="Demonstração do ajuste do número de colunas e das colunas correspondentes na janela do placar." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
+
 #### Nome e largura das colunas
 
 A primeira coluna sempre mostra o **nome de usuário** e não pode ser substituída por outro tipo. Por padrão, seu título é **Username**, mas você pode alterá-lo para um nome como **Jogador**. O novo título deve ter pelo menos **2 caracteres**.
@@ -121,6 +130,8 @@ Você também pode ajustar a largura das colunas, escolhendo entre **Pequeno**, 
 <img src={NomeELarguraDasColunas.src} alt="Demonstração da configuração das colunas e do ajuste de sua largura na janela do placar." style={{ width: "480px", maxWidth: "100%", height: "auto" }} />
 
 #### Tipos de coluna
+
+![Lista de tipos de coluna aberta com as opções Valor, Texto, Última atualização, Data de criação e Nível. Texto e Nível estão marcados com asterisco.](@assets/wf_xtra_var_leaderboard/08-tipos-de-coluna.png)
 
 As demais colunas podem ser configuradas com um dos seguintes tipos:
 
@@ -148,7 +159,7 @@ O botão **Sugerir nomes** preenche esses campos com nomes baseados nas variáve
 
 ### Filtro
 
-Marque **Ativar filtragem** para disponibilizar o campo **Variável de filtragem**. Nessa lista, você pode selecionar uma variável permanente de usuário para utilizar no filtro do placar.
+Marque **Ativar filtragem** para disponibilizar o campo **Variável de filtragem**. Nessa lista, você pode selecionar uma variável permanente de usuário para utilizar no filtro do placar, então aparecerá apenas no placar os jogadores que possuem a variável.
 
 Se quiser comparar também seu valor, marque **Comparar o valor da variável de filtragem**. Você pode digitar um número no campo ou clicar no ícone **Escolha uma variável** ao lado dele para selecionar uma destas variáveis internas do quarto:
 
