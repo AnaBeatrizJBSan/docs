@@ -44,6 +44,9 @@ infobox:
 
 import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import TheLastOfUs from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog.mp4";
+import DocsWiredClub from "@assets/wf_xtra_var_web_api/10-docs-wc-room-anabeatrizjbsan.mp4";
 
 O **Complemento Global de Variável: Web API** permite conectar as variáveis permanentes do quarto a aplicações externas. Quer mostrar o inventário de um jogo em um site ou trazer informações de um projeto para dentro do Habbo? Este Wired fornece as chaves que sua aplicação utiliza para consultar e alterar esses dados pela API.
 
@@ -59,11 +62,15 @@ O Wired gera as chaves de acesso. Para criar uma integração própria, você pr
 
 ## Como esse Wired funciona?
 
-Ao abrir a configuração, você encontra o link da documentação, um alerta de uso, os campos das chaves de leitura e escrita e as permissões extras.
+Ao clicar duas vezes neste Wired, você encontra o link da documentação, um alerta de uso, os campos das chaves de leitura e escrita e as permissões extras.
+
+![Janela do Complemento Global de Variável Web API com o link da documentação, alerta de uso, campos das chaves de leitura e escrita e permissão de remoção em massa.](@assets/wf_xtra_var_web_api/01-janela-do-wired.png)
 
 ### Abrir documentação API
 
 Este link abre a [documentação pública da API do Habbo](https://www.habbo.com/api/public/api-docs/#/). Na seção **Wired Variables**, você encontra os endpoints para trabalhar com as variáveis, os parâmetros aceitos, a autenticação exigida e os formatos de resposta.
+
+![Seção Wired Variables da documentação da API com endpoints para consultar, criar, atualizar e remover dados de variáveis, contar registros e executar operações em lote.](@assets/wf_xtra_var_web_api/02-swagger-variaveis-wired.png)
 
 Entre as possibilidades estão consultar valores, vincular variáveis a alvos, atualizar dados e remover associações. Também é possível listar os usuários ou mobis que possuem uma variável, contar esses registros e executar várias operações em uma única requisição.
 
@@ -73,6 +80,8 @@ Utilize a documentação oficial para conferir os detalhes de cada endpoint ante
 
 O aviso da janela explica que as chaves permitem ler e escrever variáveis por endpoints HTTPS dedicados. Também informa que outras pessoas não conseguem ver o conteúdo dessa caixa e que você não deve compartilhar as chaves com quem não confia.
 
+![Alerta de uso em vermelho orientando a proteger as chaves e a recarregar o quarto após alterações nas configurações das variáveis.](@assets/wf_xtra_var_web_api/03-topico-alerta-de-uso.png)
+
 <Aside type="caution" title="Proteja as chaves do quarto">
 Trate as chaves como senhas. Guarde-as no servidor da aplicação e não as inclua em código público, capturas de tela ou código enviado ao navegador dos visitantes. Se uma chave for exposta, gere outra e atualize a configuração da aplicação.
 </Aside>
@@ -81,7 +90,9 @@ Depois de alterar as configurações das variáveis no quarto, talvez seja neces
 
 ### Chave API para leitura
 
-Esta chave é utilizada nas requisições de consulta. O campo não permite editar o texto gerado, mas você pode selecioná-lo para copiar.
+Esta chave é utilizada nas requisições de consulta. O campo de texto disponível não permite editar o texto gerado, mas você pode selecioná-lo para copiar.
+
+![Campo vazio de Chave API para leitura com os botões Gerar, Limpar e Copiar.](@assets/wf_xtra_var_web_api/05-topico-chave-api-para-leitura.png)
 
 | Botão | O que faz |
 | :--- | :--- |
@@ -96,11 +107,25 @@ Confira na documentação do endpoint como enviar a chave na requisição. Para 
 
 Esta chave é utilizada nas requisições que alteram dados, como atribuir um valor ou remover uma variável de um usuário. Os botões **Gerar**, **Gerar novamente**, **Limpar** e **Copiar** funcionam da mesma forma que no campo de leitura.
 
+![Campo vazio de Chave API para escrever com os botões Gerar, Limpar e Copiar.](@assets/wf_xtra_var_web_api/04-topico-chave-api-para-escrever.png)
+
 Ao substituir uma chave, atualize também a aplicação que a utiliza para que ela continue acessando a API.
+
+#### Ativar as chaves
+
+As chaves de leitura e escrita só ficam válidas para uso depois de concluir esta sequência:
+
+1. Gere as chaves na configuração do Wired.
+2. Clique em **Pronto** para confirmar as configurações.
+3. Nas Ferramentas do Criador, abra a aba **Configurações** e clique em **Recarregar (Reload)** na seção [Estado do quarto](/referencia/ferramentas-do-criador/configuracoes/#estado-do-quarto).
+
+Depois de recarregar o quarto, você poderá utilizar as chaves na aplicação ou no explorador de variáveis. Siga essa sequência também ao gerar novas chaves para substituir as anteriores.
 
 ### Permissões extras
 
 Depois de gerar as duas chaves, você pode marcar **Permitir remoção em massa**. Ao fazer isso, uma janela pede confirmação e alerta sobre o risco de chamar o endpoint `/variables/bulk-delete` por engano.
+
+![Janela de confirmação alertando que a remoção em massa apaga irreversivelmente o conteúdo das variáveis e recomendando testes em outro quarto, com botões Cancelar e Ok.](@assets/wf_xtra_var_web_api/06-janela-de-aviso-endpoint-variables-bulk-delete.png)
 
 <Aside type="danger" title="A remoção em massa é irreversível">
 Essa operação apaga os valores e associações das variáveis selecionadas em todos os alvos abrangidos pela solicitação. A configuração das variáveis permanece, mas os dados removidos não podem ser recuperados por essa operação. Teste sua aplicação com variáveis de teste em outro quarto antes de habilitar essa permissão nos dados do seu sistema.
@@ -110,9 +135,7 @@ Essa operação apaga os valores e associações das variáveis selecionadas em 
 
 Ao tentar retirar este Wired, aparece uma janela pedindo confirmação com a mensagem:
 
-> Tem certeza de que deseja pegar esse add-on?
->
-> O Web API vai parar de funcionar para esse quarto e as chaves serão diferentes quando colocadas novamente.
+![Janela Removendo um Add-On Web API avisando que a API deixará de funcionar no quarto e que as chaves mudarão ao recolocar o Wired, com botões Cancelar e Ok.](@assets/wf_xtra_var_web_api/07-janela-de-aviso-retirar-wired-do-quarto.png)
 
 Se você confirmar, a Web API deixará de funcionar para esse quarto. Ao colocar o Wired novamente, as chaves serão diferentes das anteriores. Atualize as chaves utilizadas pela sua aplicação ou pelo explorador de variáveis para voltar a acessar os dados.
 
@@ -121,6 +144,8 @@ Se você confirmar, a Web API deixará de funcionar para esse quarto. Ao colocar
 Quer experimentar as operações sem criar uma aplicação primeiro? O Habbo disponibiliza o [Variables Explorer](https://wired.habbo.com/variables-explorer/), uma interface para consultar e gerenciar as variáveis do quarto.
 
 Para acessar os dados, informe o **hotel**, o **identificador único do quarto** e as **chaves de API** geradas no Wired. Com isso, você pode realizar operações de criação de associações, consulta, atualização e exclusão de dados, conhecidas pela sigla **CRUD**, conforme as permissões das chaves utilizadas.
+
+![Tela de conexão do Variables Explorer com seleção de hotel, identificador do quarto, chaves de leitura e escrita e botão Open explorer.](@assets/wf_xtra_var_web_api/08-site-variables-explorer.png)
 
 As alterações feitas nessa interface atingem os dados do quarto. Criar uma associação por ela significa vincular uma variável já configurada a um alvo, conforme as regras da API; a configuração da variável continua sendo feita no Habbo.
 
@@ -373,9 +398,13 @@ Neste projeto de jogo apocalíptico, uma aplicação externa reúne mochila, uso
 
 Na demonstração descrita pelo autor, também havia autenticação com código de verificação e notificações integradas ao Supabase. Criação de itens, envio entre usuários e descarte de itens no chão estavam em desenvolvimento.
 
-{/* Adicionar vídeo do projeto The Last of Us Habbo, de an4log. */}
+<AccessibleVideo
+  id="web-api-the-last-of-us"
+  src={TheLastOfUs}
+  title="Demonstração da integração do projeto The Last of Us Habbo, por an4log"
+/>
 
-### Contribuições ao Docs Wired Club, por anabeatrizjbsan
+### Contribuições ao Docs Wired Club, por AnaBeatrizJBSan
 
 Neste quarto, a integração aproxima a comunidade do projeto de documentação. Os jogadores podem consultar informações do repositório e associar seu usuário do GitHub ao personagem do Habbo.
 
@@ -386,4 +415,8 @@ Neste quarto, a integração aproxima a comunidade do projeto de documentação.
 
 A aplicação externa faz a comunicação com os serviços envolvidos e utiliza a Web API para integrar essas informações às variáveis do quarto.
 
-{/* Adicionar vídeo do quarto de contribuições ao Docs Wired Club, de anabeatrizjbsan. */}
+<AccessibleVideo
+  id="web-api-docs-wired-club"
+  src={DocsWiredClub}
+  title="Demonstração do quarto de contribuições ao Docs Wired Club, por AnaBeatrizJBSan"
+/>
