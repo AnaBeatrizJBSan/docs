@@ -47,6 +47,8 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+
 
 O **Ativador: Habbo diz algo** é acionado sempre que um Habbo fala a palavra que foi fornecida nas configurações do wired.
 
@@ -75,7 +77,10 @@ Existem 3 escolhas diferentes, elas são:
 
 - **Combinar com todo o texto:** essa opção exige atenção ao ser utilizada, pois ignora o texto definido como gatilho e permite que qualquer mensagem enviada pelo usuário ative a pilha de Wireds.
 
-    **Importante:** é altamente recomendado combinar essa opção com wireds de seletores e condições. Caso contrário tudo o que for falado no quarto ativará esse wired.
+        <Aside type="caution" title="Cuidado com essa escolha">
+        É altamente recomendado combinar a escolha "Combinar com todo o texto" com wireds de **seletores** e **condições**. Caso contrário tudo o que for falado no quarto ativará esse wired.
+        {/* E FUNCIONA MESMO! */}
+        </Aside>
 
 ### **Selecione opções**
 Oferece duas opções interessantes:

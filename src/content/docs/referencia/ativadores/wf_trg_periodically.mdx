@@ -47,18 +47,22 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
 
 O **Ativador: Repetir Efeito** é um wired que dispara automaticamente sempre que o intervalo de tempo definido em **segundos** na sua configuração é atingido. Após cada acionamento, o contador é reiniciado e uma nova contagem começa, repetindo esse ciclo continuamente.
 
 <Infobox />
-
-Esse wired é **mais comum de ser usado** e visto em sistemas wireds para sempre executar pilhas wireds e por não ser tão rápido, como o wired [Repetir Efeito (curto)](/referencia/ativadores/wf_trg_period_short) e nem tão demorado como o wired [Duração periódica](/referencia/ativadores/wf_trg_period_long).
 
 Seu funcionamento independe da interação de usuários e mobis, portanto não possui configurações adicionais nem avançadas permitindo automatizar acionamentos periódicos sem a necessidade de intervenção manual. 
 
 ## Configurações
 
 **Definir tempo:** permite configurar o intervalo de tempo para o acionamento do wired, com valores que variam de 0.5 milissegundos a 60 segundos.
+
+<Aside type="note" title="Cada caso é um caso, mas...">
+Esse wired é bastante utilizado em sistemas, pois o intervalo de tempo configurado geralmente é suficiente para ativar a pilha de wireds.
+Caso precise de um acionamento inferior a 0,5 milissegundos, considere utilizar o [Repetir Efeito (curto)](/referencia/ativadores/wf_trg_period_short). Já se precisar de um intervalo superior a 60 segundos, considere utilizar o [Duração periódica](/referencia/ativadores/wf_trg_period_long).
+</Aside>
 
 ## Dicas de uso
 

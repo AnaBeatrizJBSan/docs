@@ -47,12 +47,20 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+
 
 O **Ativador: Recebe Sinal** funciona em conjunto com o [Efeito: Mandar Sinal](/referencia/efeitos/wf_act_send_signal) e o mobi **Antena Wired**. Ele recebe os mobis e usuários enviados por meio desse efeito e os utiliza como referência para a execução das ações.
 
 <Infobox />
 
 A pilha de Wireds só será ativada quando as Antenas Wireds selecionadas em sua configuração forem acionadas por uma pilha wired ou utilizadas por um usuário. 
+
+<Aside type="note" title="Uma observação importante">
+Quando ativado por Antenas Wired selecionadas, esse wired pode receber diferentes conjuntos de usuários e mobis provenientes de pilhas distintas. Em vez de misturar esses conjuntos, ele processa cada um separadamente, executando a pilha uma vez para cada conjunto recebido.
+
+**Por exemplo:** A pilha **A** envia usuários com a variável definida como "azul", enquanto a pilha **B** envia usuários com a variável definida como "vermelho". Se ambas ativarem o Ativador: Recebe Sinal ao mesmo tempo, ele executará a pilha duas vezes: primeiro, processando os usuários recebidos da pilha A e, depois, os da pilha B. Assim, cada conjunto mantém suas próprias informações, sem se misturar com o outro.
+</Aside>
 
 ## Configurações avançadas
 
@@ -64,5 +72,4 @@ Você pode escolher quais antenas, ativarão esse wired nas configurações avan
 
 ## Dicas de uso
 - Este Wired permite selecionar apenas mobis do tipo Antena Wired. Caso você tente selecionar um mobi de outro tipo, um aviso será exibido, impedindo a seleção.
-- Pode receber conjuntos diferentes de usuários e mobis por meio de Antenas Wired vinculadas a pilhas distintas. Cada antena mantém seu próprio conjunto de informações, sem misturar os dados recebidos de outras antenas.
 
