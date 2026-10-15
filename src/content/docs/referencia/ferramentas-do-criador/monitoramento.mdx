@@ -140,36 +140,37 @@ Por exemplo, uma transação pode falhar porque o usuário a cancelou, porque o 
 
 Os motivos possíveis incluem:
 
-* O usuário cancelou a transação;
-* Erro interno;
-* Erro no banco de dados;
-* Erro no banco de dados, sendo necessário recarregar o quarto;
-* Transação vazia;
-* Baú cheio;
-* Recurso desativado;
-* Baú não está no quarto;
-* Excesso de baús;
-* Não há baús ou os baús estão trancados;
-* Não é possível entregar todo o conteúdo a vários usuários;
-* Excesso de ofertas por parte de Wired;
-* Transações muito rápidas;
+* 0 = O usuário cancelou a transação (Cancelled By User);
+* 24 = Versão do cliente desatualizado;
+* 1000 = Erro interno (Internal Error);
+* 1001 = Erro no banco de dados (Internal Error Db);
+* 1002 = Erro no banco de dados, sendo necessário recarregar o quarto (Internal Error Reload Required);
+* 10 = Transação vazia (Empty Transaction);
+* 19 = Baú cheio (At Capacity);
+* 12 = Recurso desativado (Feature Disabled);
+* 13 = Baú não está no quarto (Chest Not In Room);
+* 14 = Excesso de baús (Too Many Chests);
+* 15 = Não há baús ou os baús estão trancados (No Wired Chests Or Locked);
+* 16 = Não é possível entregar todo o conteúdo a vários usuários (Can Not Give All To Multiple Users);
+* 17 = Excesso de ofertas por parte de Wired;
+* 18 =Transações muito rápidas;
 * O baú excederia sua capacidade;
-* Transação inválida;
-* Tempo limite esgotado;
-* Transação cancelada;
-* O usuário já está realizando uma transação;
-* Configuração incorreta do Wired;
-* Saldo insuficiente;
-* Saldo indisponível;
-* O usuário não pode realizar transações;
-* O proprietário do baú não pode realizar transações;
-* Configuração incorreta: multiplicador inválido;
-* Configuração incorreta: contratos em excesso ou ausentes;
-* Configuração incorreta: sem usuários;
-* Configuração incorreta: tempo limite inválido;
-* O usuário saiu do quarto;
-* Erro interno no banco de dados;
-* Erro interno: é necessário recarregar o quarto.
+* 1 = Transação inválida;
+* 2 =Tempo limite esgotado;
+* 3 = Transação cancelada;
+* 4 = O usuário já está realizando uma transação;
+* 5 = Configuração incorreta do Wired;
+* 6 = Saldo insuficiente;
+* 7 = Saldo indisponível;
+* 8 = O usuário não pode realizar transações;
+* 9 = O proprietário do baú não pode realizar transações;
+* 20 = Configuração incorreta: multiplicador inválido;
+* 21 = Configuração incorreta: contratos em excesso ou ausentes;
+* 22 = Configuração incorreta: sem usuários;
+* 23 = Configuração incorreta: tempo limite inválido;
+* 25 = O usuário saiu do quarto;
+* 1001 = Erro interno no banco de dados;
+* 1002 = Erro interno: é necessário recarregar o quarto.
 
 ### VARIABLE_FX_LIMIT
 
