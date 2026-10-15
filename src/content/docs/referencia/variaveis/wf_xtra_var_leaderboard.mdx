@@ -181,21 +181,21 @@ O botão **Sugerir nomes** preenche esses campos com nomes baseados nas variáve
   title="Configurar o modo de múltiplas variáveis do placar"
 />
 
+<Aside type="note" title="Uma variável por vez">
+Mesmo com várias colunas, o placar mostra informações de **uma única variável por vez**. Por exemplo, as colunas Valor, Texto e Nível se referem à variável selecionada. Para consultar outra variável da pilha, utilize o menu suspenso no canto superior direito do placar. Não é possível mostrar os valores de duas variáveis diferentes lado a lado.
+</Aside>
+
+<Aside type="tip" title="Utilize variáveis Eco para separar os Extras">
+Se cada variável precisa de Extras com configurações próprias, como dois [Conectores de Texto](/referencia/variaveis/wf_xtra_var_text_connector/) diferentes, mantenha esses Extras nas pilhas das variáveis originais. Utilize o [Wired Variável: Eco](/referencia/variaveis/wf_var_echo/) para espelhar cada variável e coloque os Ecos na pilha do placar. Assim, você pode reunir as variáveis no mesmo placar sem que os Extras de uma interfiram nas demais.
+</Aside>
+
 ### Filtro
 
 Marque **Ativar filtragem** para disponibilizar o campo **Variável de filtragem**. Nessa lista, escolha uma variável permanente de usuário. O placar mostrará apenas os jogadores que também possuem essa variável.
 
 Se quiser comparar também seu valor, marque **Comparar o valor da variável de filtragem**. Nesse caso, o jogador precisa possuir a variável de filtragem com um valor igual ao utilizado na comparação. Você pode digitar um número no campo ou clicar no ícone **Escolha uma variável** ao lado dele para selecionar uma destas variáveis internas do quarto:
 
-| Variável | Informação disponível |
-| :--- | :--- |
-| `@furni_count` | [Quantidade de mobis no quarto](/referencia/variaveis/wf_var_room/#variáveis-internas-do-quarto). |
-| `@user_count` | [Quantidade de usuários no quarto](/referencia/variaveis/wf_var_room/#variáveis-internas-do-quarto). |
-| `@wired_timer` | [Temporizador do quarto](/referencia/variaveis/wf_var_room/#temporizador-do-quarto). |
-| `@teams` | [Informações dos times](/referencia/variaveis/wf_var_room/#informações-dos-times). |
-| `@room_id` | [Identificador do quarto](/referencia/variaveis/wf_var_room/#identificador-do-quarto). |
-| `@group_id` | [Identificador do grupo associado ao quarto](/referencia/variaveis/wf_var_room/#variáveis-internas-do-quarto). |
-| `@current_time` | [Tempo atual](/referencia/variaveis/wf_var_room/#tempo-atual). |
+![Lista de variáveis internas disponíveis para comparação no filtro: @furni_count, @user_count, @wired_timer, @teams, @room_id, @group_id e @current_time.](@assets/wf_xtra_var_leaderboard/12-lista-de-variaveis-internas.png)
 
 #### Exemplo de filtragem
 
