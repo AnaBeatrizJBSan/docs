@@ -48,4 +48,23 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Ativador: Transação Completa** é acionado sempre que uma transação for bem sucedida com um dos Contratos Wired selecionados.
+
 <Infobox />
+
+## Variáveis internas
+Quando acionado ele pode receber uma das seguintes variáveis internas de contexto:
+
+- @event.transaction_complete.multiplier: multiplicador da transação (relacionada com a configuração de modo da transação do wired iniciar transação)
+- @event.transaction_complete.deposit.furni_count: quantidade de mobis depositados
+- @event.transaction_complete.deposit.coins_count: quantidade de moedas depositadas
+- @event.transaction_complete.withdrawal.furni_count: quantidade de mobis retirados
+- @event.transaction_complete.withdrawal.coins_count: quantidade de moedas retiradas
+
+## Configurações avançadas
+A fonte do mobi, sempre precisa ser um contrato personalizado, você pode escolher entre:
+- Use mobis escolhidos
+- Usar mobis do seletor 
+
+## Dicas de uso
+- Você pode utilizar as variaveis internas desse wired para atribuir a outras variáveis ou mostrar uma simples mensagem para o usuário sobre a quantidade depositada ou retirada caso a transação seja bem sucedida. 
