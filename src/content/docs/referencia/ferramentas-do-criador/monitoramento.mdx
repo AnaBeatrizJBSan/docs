@@ -141,36 +141,33 @@ Por exemplo, uma transação pode falhar porque o usuário a cancelou, porque o 
 Os motivos possíveis incluem:
 
 * 0 = O usuário cancelou a transação (Cancelled By User);
-* 24 = Versão do cliente desatualizado;
-* 1000 = Erro interno (Internal Error);
-* 1001 = Erro no banco de dados (Internal Error Db);
-* 1002 = Erro no banco de dados, sendo necessário recarregar o quarto (Internal Error Reload Required);
+* 1 = Transação inválida (Invalid Trade);
+* 2 =Tempo limite esgotado (Timeout);
+* 3 = Transação cancelada por um Wired(Cancelled By Wired);
+* 4 = O usuário já está realizando uma transação (Already Trading);
+* 5 = Configuração incorreta do Wired (Wired Misconfiguration);
+* 6 = Saldo insuficiente (No Sufficient Funds);
+* 7 = Saldo indisponível (Funds No Longer Available);
+* 8 = O usuário não pode realizar transações (User Cant Trade);
+* 9 = O proprietário do baú não pode realizar transações. (Chest Owner Cant Trade);
 * 10 = Transação vazia (Empty Transaction);
-* 19 = Baú cheio (At Capacity);
 * 12 = Recurso desativado (Feature Disabled);
 * 13 = Baú não está no quarto (Chest Not In Room);
 * 14 = Excesso de baús (Too Many Chests);
 * 15 = Não há baús ou os baús estão trancados (No Wired Chests Or Locked);
 * 16 = Não é possível entregar todo o conteúdo a vários usuários (Can Not Give All To Multiple Users);
-* 17 = Excesso de ofertas por parte de Wired;
-* 18 =Transações muito rápidas;
-* O baú excederia sua capacidade;
-* 1 = Transação inválida;
-* 2 =Tempo limite esgotado;
-* 3 = Transação cancelada;
-* 4 = O usuário já está realizando uma transação;
-* 5 = Configuração incorreta do Wired;
-* 6 = Saldo insuficiente;
-* 7 = Saldo indisponível;
-* 8 = O usuário não pode realizar transações;
-* 9 = O proprietário do baú não pode realizar transações;
-* 20 = Configuração incorreta: multiplicador inválido;
-* 21 = Configuração incorreta: contratos em excesso ou ausentes;
-* 22 = Configuração incorreta: sem usuários;
-* 23 = Configuração incorreta: tempo limite inválido;
-* 25 = O usuário saiu do quarto;
-* 1001 = Erro interno no banco de dados;
-* 1002 = Erro interno: é necessário recarregar o quarto.
+* 17 = Excesso de ofertas por parte de Wired  (Trade Limit Wired);
+* 18 = Transações muito rápidas (Rate Limit);
+* 19 = Baú cheio (At Capacity);
+* 20 = Configuração incorreta: multiplicador inválido (Misconfig Invalid Multiplier);
+* 21 = Configuração incorreta: contratos em excesso ou ausentes (Misconfig Too Many Or No Contracts);
+* 22 = Configuração incorreta: sem usuários (Misconfig No Users);
+* 23 = Configuração incorreta: tempo limite inválido (Misconfig Invalid Timeout);
+* 24 = Versão do cliente desatualizado (Outdated Client Version);
+* 25 = O usuário saiu do quarto (User Left Room);
+* 1000 = Erro interno (Internal Error);
+* 1001 = Erro no banco de dados (Internal Error Db);
+* 1002 = Erro no banco de dados, sendo necessário recarregar o quarto (Internal Error Reload Required);
 
 ### VARIABLE_FX_LIMIT
 
