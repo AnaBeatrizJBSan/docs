@@ -4,7 +4,7 @@ description: Este extra permite integrar variáveis permanentes com aplicações
 sidebar:
   label: Web API
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -22,8 +22,10 @@ infobox:
   # image_not_animated: false # valor padrão
   # image_animated_state: 100 # valor padrão
   # icon: # url preenchida automaticamente
-  availability: Apenas staff
-  # price: # preço em câmbios
+  availability: No catálogo
+  price:
+    credits: 150
+    diamonds: 150
   release_date: 2026-09-02
 
   # == Dados do Wired ==
@@ -40,6 +42,395 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import TheLastOfUs from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog.mp4";
+import TheLastOfUsCaptionsUrl from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-captions.vtt?url";
+import TheLastOfUsCaptionsRaw from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-captions.vtt?raw";
+import TheLastOfUsDescriptionsUrl from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-descriptions.vtt?url";
+import TheLastOfUsDescriptionsRaw from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-descriptions.vtt?raw";
+import DocsWiredClub from "@assets/wf_xtra_var_web_api/10-docs-wc-room-anabeatrizjbsan.mp4";
+import DocsWiredClubDescriptionsUrl from "@assets/wf_xtra_var_web_api/10-docs-wc-room-anabeatrizjbsan-descriptions.vtt?url";
+import DocsWiredClubDescriptionsRaw from "@assets/wf_xtra_var_web_api/10-docs-wc-room-anabeatrizjbsan-descriptions.vtt?raw";
+
+O **Complemento Global de Variável: Web API** permite conectar as variáveis permanentes do quarto a aplicações externas. Quer mostrar o inventário de um jogo em um site ou trazer informações de um projeto para dentro do Habbo? Este Wired fornece as chaves que sua aplicação utiliza para consultar e alterar esses dados pela API.
+
+Uma **API** é uma forma de comunicação entre programas. Neste caso, sua aplicação envia uma solicitação por HTTPS ao Habbo, que consulta ou altera as variáveis e devolve uma resposta. Cada endereço disponível para realizar uma operação é chamado de **endpoint**.
 
 <Infobox />
+
+## Requisitos
+
+Para utilizar a integração, você precisa ter acesso a este Wired, variáveis permanentes configuradas no quarto e uma aplicação capaz de fazer requisições HTTPS. Essa aplicação pode ser um site com um servidor próprio, por exemplo.
+
+O Wired gera as chaves de acesso. Para criar uma integração própria, você precisa programar sua lógica na aplicação. Se quiser consultar e gerenciar os dados por uma interface pronta, pode utilizar o [explorador de variáveis do Habbo](#explorador-de-variáveis-do-habbo). As variáveis que ela utilizará devem ser configuradas no Habbo pelos respectivos Wireds de [usuário](/referencia/variaveis/wf_var_user/), [mobi](/referencia/variaveis/wf_var_furni/) ou [quarto](/referencia/variaveis/wf_var_room/).
+
+## Como esse Wired funciona?
+
+Ao clicar duas vezes neste Wired, você encontra o link da documentação, um alerta de uso, os campos das chaves de leitura e escrita e as permissões extras.
+
+![Janela do Complemento Global de Variável Web API com o link da documentação, alerta de uso, campos das chaves de leitura e escrita e permissão de remoção em massa.](@assets/wf_xtra_var_web_api/01-janela-do-wired.png)
+
+### Abrir documentação API
+
+Este link abre a [documentação pública da API do Habbo](https://www.habbo.com/api/public/api-docs/#/). Na seção **Wired Variables**, você encontra os endpoints para trabalhar com as variáveis, os parâmetros aceitos, a autenticação exigida e os formatos de resposta.
+
+![Seção Wired Variables da documentação da API com endpoints para consultar, criar, atualizar e remover dados de variáveis, contar registros e executar operações em lote.](@assets/wf_xtra_var_web_api/02-swagger-variaveis-wired.png)
+
+Entre as possibilidades estão consultar valores, vincular variáveis a alvos, atualizar dados e remover associações. Também é possível listar os usuários ou mobis que possuem uma variável, contar esses registros e executar várias operações em uma única requisição.
+
+Utilize a documentação oficial para conferir os detalhes de cada endpoint antes de implementá-lo. Nos exemplos desta página, os caminhos são relativos ao endereço do hotel utilizado, e campos como `{roomId}` devem ser substituídos pelos identificadores correspondentes.
+
+### Alerta de uso
+
+O aviso da janela explica que as chaves permitem ler e escrever variáveis por endpoints HTTPS dedicados. Também informa que outras pessoas não conseguem ver o conteúdo dessa caixa e que você não deve compartilhar as chaves com quem não confia.
+
+![Alerta de uso em vermelho orientando a proteger as chaves e a recarregar o quarto após alterações nas configurações das variáveis.](@assets/wf_xtra_var_web_api/03-topico-alerta-de-uso.png)
+
+<Aside type="caution" title="Proteja as chaves do quarto">
+Trate as chaves como senhas. Guarde-as no servidor da aplicação e não as inclua em código público, capturas de tela ou código enviado ao navegador dos visitantes. Se uma chave for exposta, gere outra e atualize a configuração da aplicação.
+</Aside>
+
+Depois de alterar as configurações das variáveis no quarto, talvez seja necessário [recarregar o quarto](/referencia/ferramentas-do-criador/configuracoes/#estado-do-quarto) para que a API funcione corretamente.
+
+### Chave API para leitura
+
+Esta chave é utilizada nas requisições de consulta, como conferir o valor de uma variável de um jogador, listar as variáveis configuradas no quarto ou contar quantos usuários possuem uma determinada variável. Essas operações permitem ler os dados sem alterá-los. O campo de texto disponível não permite editar o texto gerado, mas você pode selecioná-lo para copiar.
+
+![Campo vazio de Chave API para leitura com os botões Gerar, Limpar e Copiar.](@assets/wf_xtra_var_web_api/05-topico-chave-api-para-leitura.png)
+
+| Botão | O que faz |
+| :--- | :--- |
+| **Gerar** | Cria uma chave e a mostra no campo. |
+| **Gerar novamente** | Substitui a chave anterior por uma nova. Aparece depois da primeira geração. |
+| **Limpar** | Apaga a chave do campo. |
+| **Copiar** | Copia a chave para que você possa utilizá-la na aplicação. |
+
+Confira na documentação do endpoint como enviar a chave na requisição. Para uma aplicação que apenas consulta dados, utilize a chave de leitura.
+
+### Chave API para escrever
+
+Esta chave é utilizada nas requisições que alteram dados, como atribuir um valor ou remover uma variável de um usuário. Os botões **Gerar**, **Gerar novamente**, **Limpar** e **Copiar** funcionam da mesma forma que no campo de leitura.
+
+![Campo vazio de Chave API para escrever com os botões Gerar, Limpar e Copiar.](@assets/wf_xtra_var_web_api/04-topico-chave-api-para-escrever.png)
+
+Ao substituir uma chave, atualize também a aplicação que a utiliza para que ela continue acessando a API.
+
+#### Ativar as chaves
+
+As chaves de leitura e escrita só ficam válidas para uso depois de concluir esta sequência:
+
+1. Gere as chaves na configuração do Wired.
+2. Clique em **Pronto** para confirmar as configurações.
+3. Nas Ferramentas do Criador, abra a aba **Configurações** e clique em **Recarregar (Reload)** na seção [Estado do quarto](/referencia/ferramentas-do-criador/configuracoes/#estado-do-quarto).
+
+Depois de recarregar o quarto, você poderá utilizar as chaves na aplicação ou no explorador de variáveis. Siga essa sequência também ao gerar novas chaves para substituir as anteriores.
+
+### Permissões extras
+
+Depois de gerar as duas chaves, você pode marcar **Permitir remoção em massa**. Ao fazer isso, uma janela pede confirmação e alerta sobre o risco de chamar o endpoint `/variables/bulk-delete` por engano.
+
+![Janela de confirmação alertando que a remoção em massa apaga irreversivelmente o conteúdo das variáveis e recomendando testes em outro quarto, com botões Cancelar e Ok.](@assets/wf_xtra_var_web_api/06-janela-de-aviso-endpoint-variables-bulk-delete.png)
+
+<Aside type="danger" title="A remoção em massa é irreversível">
+Essa operação apaga os valores e associações das variáveis selecionadas em todos os alvos abrangidos pela solicitação. A configuração das variáveis permanece, mas os dados removidos não podem ser recuperados por essa operação. Teste sua aplicação com variáveis de teste em outro quarto antes de habilitar essa permissão nos dados do seu sistema.
+</Aside>
+
+## Retirar o Wired do quarto
+
+Ao tentar retirar este Wired, aparece uma janela pedindo confirmação com a mensagem:
+
+![Janela Removendo um Add-On Web API avisando que a API deixará de funcionar no quarto e que as chaves mudarão ao recolocar o Wired, com botões Cancelar e Ok.](@assets/wf_xtra_var_web_api/07-janela-de-aviso-retirar-wired-do-quarto.png)
+
+Se você confirmar, a Web API deixará de funcionar para esse quarto. Ao colocar o Wired novamente, as chaves serão diferentes das anteriores. Atualize as chaves utilizadas pela sua aplicação ou pelo explorador de variáveis para voltar a acessar os dados.
+
+## Explorador de variáveis do Habbo
+
+Quer experimentar as operações sem criar uma aplicação primeiro? O Habbo disponibiliza o [Variables Explorer](https://wired.habbo.com/variables-explorer/), uma interface para consultar e gerenciar as variáveis do quarto.
+
+Para acessar os dados, informe o **hotel**, o **identificador único do quarto** e as **chaves de API** geradas no Wired. Com isso, você pode realizar operações de criação de associações, consulta, atualização e exclusão de dados, conhecidas pela sigla **CRUD**, conforme as permissões das chaves utilizadas.
+
+![Tela de conexão do Variables Explorer com seleção de hotel, identificador do quarto, chaves de leitura e escrita e botão Open explorer.](@assets/wf_xtra_var_web_api/08-site-variables-explorer.png)
+
+As alterações feitas nessa interface atingem os dados do quarto. Criar uma associação por ela significa vincular uma variável já configurada a um alvo, conforme as regras da API; a configuração da variável continua sendo feita no Habbo.
+
+## Entendendo os dados da API
+
+A API utiliza métodos HTTP para indicar a ação desejada: **GET** consulta, **PATCH** modifica, **PUT** cria ou substitui e **DELETE** remove. Nem todos os recursos aceitam todos esses métodos.
+
+### Escopo, alvo e identificador
+
+Antes de fazer uma solicitação, identifique qual variável e qual alvo você deseja acessar:
+
+| Termo | Significado |
+| :--- | :--- |
+| **Escopo (`scope`)** | O tipo da variável: `user`, `furni` ou `global`. |
+| **Tipo de alvo (`targetKind`)** | Distingue os alvos de um escopo. Para `user`: `users`, `pets` e `bots`. Para `furni`: `furni`, `furni-bc`, `wall-items` e `wall-items-bc`. |
+| **Entidade (`entity`)** | O alvo que pode possuir variáveis, como um jogador, bot, mascote ou mobi. |
+| **Identificador (`entityId`)** | O número que identifica esse alvo na API. |
+
+Os tipos com sufixo `-bc` representam os mobis do **Clube do Arquiteto (CA)**. Para variáveis globais, os endpoints utilizam o próprio quarto, sem precisar indicar um usuário ou mobi.
+
+### Uma variável vinculada a um alvo
+
+Para a API, uma variável de usuário ou mobi é um recurso identificado pelo **nome da variável e pelo alvo ao qual ela está vinculada**. Por exemplo, `pontuacao` de um jogador e `pontuacao` de outro jogador são recursos diferentes.
+
+Uma resposta pode ter este formato:
+
+```json
+{
+  "value": 7,
+  "creation_time": "2026-09-01T19:26:09.664Z",
+  "update_time": "2026-09-01T19:26:09.664Z"
+}
+```
+
+`value` é o valor armazenado. `creation_time` e `update_time` indicam quando esse registro foi criado e atualizado. O `Z` ao final indica que o horário está em UTC.
+
+O caminho para acessar esse recurso é:
+
+```text
+/api/public/rooms/{roomId}/variables/{scope}/{variableName}/{targetKind}/{entityId}
+```
+
+| Método | O que faz nesse recurso |
+| :--- | :--- |
+| **GET** | Consulta a variável vinculada ao alvo. |
+| **PATCH** | Altera a propriedade `value`. |
+| **PUT** | Cria a associação ou substitui a existente, de forma semelhante à opção de substituir variável existente do Efeito Dar Variável. |
+| **DELETE** | Remove a associação e o valor daquele alvo. |
+
+Criar essa associação não significa criar a configuração de um novo Wired de variável. A variável precisa estar configurada no quarto.
+
+Para uma variável global, utilize o caminho abaixo com **GET** ou **PATCH**. Ela sempre existe enquanto estiver configurada no quarto, por isso não aceita **PUT** ou **DELETE** nesse recurso.
+
+```text
+/api/public/rooms/{roomId}/variables/global/{variableName}
+```
+
+### Perfil de variáveis
+
+Um **perfil de variáveis** reúne as variáveis de um mesmo alvo. Em vez de consultar cada uma separadamente, você pode acessar esse conjunto.
+
+| Alvo | Quando o perfil existe | Métodos disponíveis |
+| :--- | :--- | :--- |
+| **Mobi** | Enquanto o mobi está no quarto. Se não possuir variáveis, o perfil estará vazio. | GET e PATCH |
+| **Global** | Sempre existe para o quarto. | GET e PATCH |
+| **Jogador, bot ou mascote** | Quando possui pelo menos uma variável permanente associada no quarto. | GET, PATCH e DELETE |
+
+Não é possível criar o perfil de um usuário pela API. Para que ele exista, o usuário precisa receber pelo menos uma variável permanente no quarto.
+
+Ao excluir o perfil de um usuário, todas as suas variáveis são removidas. Para que o perfil volte a existir, ele precisará receber uma variável novamente dentro do jogo.
+
+<Aside type="tip" title="Mantenha um registro para futuras consultas">
+Se sua aplicação precisa limpar o progresso sem perder o acesso ao perfil, você pode atribuir uma variável como `api_registered` na entrada do quarto. Ao limpar os dados por PATCH, remova as outras variáveis e preserve essa associação.
+</Aside>
+
+#### Alterar várias variáveis de um perfil
+
+Uma requisição **PATCH** de perfil pode criar associações, alterar valores e remover variáveis do mesmo alvo:
+
+```json
+{
+  "variables": {
+    "pontuacao": 7,
+    "participando": null
+  }
+}
+```
+
+Nesse exemplo, `pontuacao` é vinculada ao alvo se ainda não estiver associada, ou atualizada para **7** se já existir. O valor `null` remove a associação de `participando`. Utilize essas ações conforme os métodos e as operações permitidos para o tipo de perfil.
+
+## Consultas e operações em conjunto
+
+Além de acessar uma variável ou um perfil, você pode utilizar os seguintes recursos:
+
+| Caminho relativo a `/api/public/rooms/{roomId}` | Para que serve |
+| :--- | :--- |
+| `/variables` | Lista as variáveis configuradas no quarto, separadas em usuário, mobi e global. |
+| `/variables/{scope}/{variableName}/{targetKind}` | Lista os alvos que possuem uma variável, com paginação. |
+| `/variables/{scope}/{variableName}/{targetKind}/count` | Conta quantos alvos possuem a variável. |
+| `/variables/{scope}/{variableName}/batch` | Executa várias operações sobre a mesma variável em uma solicitação. |
+| `/variables/bulk-delete` | Remove os dados de uma ou mais variáveis dos alvos que as possuem, conforme a solicitação. |
+| `/variables_profile/user/users` | Localiza o perfil de um jogador pelo nome ou `unique_id`. |
+
+A busca por nome ou `unique_id` funciona para jogadores cujo perfil de variáveis existe no quarto. Ela permite localizar o alvo sem precisar procurar seu identificador em todas as páginas de uma listagem.
+
+### Operações em lote
+
+O endpoint de lote permite combinar até **50 operações GET, PATCH, PUT ou DELETE**. Cada operação recebe um `op_id` escolhido pela aplicação. Esse identificador volta na resposta para que você possa relacionar cada resultado à solicitação correspondente.
+
+O `op_id` serve apenas para identificar a operação dentro dessa troca de mensagens; ele não é o identificador do usuário ou mobi.
+
+### Paginação e atualizações recentes
+
+As listas começam na **página 1**, retornam **50 registros por página** por padrão e aceitam até **100 registros por página**.
+
+Para consultar associações recentes, utilize `order_by=creation_time` com `order_dir=desc`. Para consultar alterações recentes, utilize `order_by=update_time` com `order_dir=desc`. Uma variável própria para acompanhar entradas ou atualizações pode ajudar a organizar essas consultas.
+
+## Limites de requisições
+
+Os limites informados nas referências da API são aplicados **por quarto**. Há uma janela de **60 segundos** para o uso contínuo e outra de **10 segundos** para concentrar solicitações em um intervalo curto.
+
+| Tipo de operação | Limite por minuto | Limite em 10 segundos |
+| :--- | :--- | :--- |
+| Leituras simples | 300 | 60 |
+| Listagens | 120 | 20 |
+| Leituras de perfis | 120 | 20 |
+| Escritas | 120 | 30 |
+| Remoções em massa | 10 | 5 |
+
+Operações em lote possuem limites adicionais:
+
+* **30 requisições de lote por minuto**, incluindo PATCH de perfil.
+* **50 operações por lote**, no máximo.
+* **Orçamento de 500 por minuto para o custo das escritas em lote**, contabilizado separadamente.
+
+Consulte a documentação oficial ao implementar a integração, pois os limites podem ser atualizados.
+
+### Cache das contagens
+
+O resultado dos endpoints terminados em `/count` fica em cache por um período que depende da quantidade de registros. Por isso, uma contagem pode não refletir imediatamente uma alteração feita no quarto.
+
+| Quantidade de registros | Tempo de cache |
+| :--- | :--- |
+| Menos de 1.000 | 20 segundos |
+| De 1.000 a 9.999 | 60 segundos |
+| De 10.000 a 99.999 | 300 segundos |
+| 100.000 ou mais | 600 segundos |
+
+Se muitas pessoas acessarem sua aplicação, mantenha também um cache no seu servidor. Assim, vários visitantes podem consultar uma resposta recente sem gerar uma nova requisição ao Habbo a cada acesso.
+
+## Utilizar wrappers na aplicação
+
+Ao desenvolver sua integração, você pode utilizar um **wrapper**: uma biblioteca que oferece funções para acessar a API, facilitando a construção das requisições no seu código. Por exemplo, em vez de montar manualmente cada solicitação, você utiliza os métodos disponibilizados pela biblioteca para consultar ou atualizar os dados.
+
+Há opções para diferentes linguagens e ambientes:
+
+| Linguagem ou ambiente | Projeto |
+| :--- | :--- |
+| **PHP** | [Habbo API Wrapper PHP](https://github.com/Habbo-API-Wrappers/Habbo-API-Wrapper-PHP) |
+| **Laravel (PHP)** | [Laravel Habbo Web API](https://github.com/HabboFeelingNL/laravel-habbo-web-api) |
+| **Node.js** | [Habbo SDK](https://github.com/michyaraque/habbo-sdk) |
+| **Node.js com TypeScript** | [Habbo API Wrapper Node](https://github.com/Habbo-API-Wrappers/Habbo-API-Wrapper-Node) |
+| **Python** | [Habbo API Wrapper Python](https://github.com/Habbo-API-Wrappers/Habbo-API-Wrapper-Python) |
+| **Go** | [Habbo API Wrapper Go](https://github.com/Habbo-API-Wrappers/Habbo-API-Wrapper-Go) |
+
+Consulte a documentação do projeto escolhido para instalar a biblioteca, configurar o hotel, o quarto e as chaves e conferir quais operações estão disponíveis. O wrapper facilita a comunicação, mas sua aplicação continua responsável pela lógica do sistema e deve respeitar as permissões e os limites da API.
+
+## Cuidados ao programar a integração
+
+Para facilitar o uso de perfis e operações em lote, mantenha as variáveis permanentes de uma mesma aplicação em um único quarto sempre que possível.
+
+### Valores de 64 bits
+
+As variáveis armazenam **números inteiros de 64 bits com sinal**. Consulte [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar) para conhecer esse intervalo e as diferenças em relação à exibição no jogo.
+
+Em JavaScript e TypeScript, o tipo `number` não representa com precisão todos os inteiros desse intervalo. Para trabalhar com esses valores, utilize `bigint` e uma solução de leitura e escrita de JSON que preserve inteiros grandes.
+
+<Aside type="caution" title="Preserve o número desde a leitura da resposta">
+Converter para `bigint` depois de um `JSON.parse` comum pode ser tarde demais: o valor já pode ter perdido precisão. O limite de inteiros seguros de `number` é **9.007.199.254.740.991**. Além disso, `JSON.stringify` não serializa `bigint` diretamente. A integração precisa tratar tanto a leitura das respostas quanto a construção dos corpos das requisições.
+</Aside>
+
+### Identificadores de mobis
+
+Os identificadores usados no jogo nem sempre têm o mesmo formato dos utilizados na API. Para itens de parede, o identificador negativo do jogo passa a ser positivo. Para mobis do CA, também é necessário remover o deslocamento aplicado ao identificador dentro do jogo.
+
+O exemplo abaixo adapta a conversão do material de referência para funcionar sem tipos auxiliares externos:
+
+```ts
+type FurniKind = "furni" | "furni-bc" | "wall-items" | "wall-items-bc";
+type FurniId = { kind: FurniKind; id: number };
+
+const CLUB_OFFSET = 0x7fffffff - 0xffff;
+
+function toApiFurniId(gameId: number): FurniId {
+  const isWall = gameId < 0;
+  const normalized = Math.abs(gameId);
+  const isClub = normalized >= CLUB_OFFSET;
+
+  return {
+    kind: isWall
+      ? (isClub ? "wall-items-bc" : "wall-items")
+      : (isClub ? "furni-bc" : "furni"),
+    id: isClub ? normalized - CLUB_OFFSET : normalized,
+  };
+}
+
+function toGameFurniId(furni: FurniId): number {
+  const isClub = furni.kind === "furni-bc" || furni.kind === "wall-items-bc";
+  const isWall = furni.kind === "wall-items" || furni.kind === "wall-items-bc";
+  const id = furni.id + (isClub ? CLUB_OFFSET : 0);
+  return isWall ? -id : id;
+}
+```
+
+Para um item de parede do CA, por exemplo, primeiro retire o sinal negativo e depois subtraia o deslocamento. Envie à API tanto o identificador convertido quanto o tipo de alvo correto.
+
+### Progressão de níveis na aplicação
+
+Se o quarto utiliza o [Sistema de Aumento de Nível](/referencia/variaveis/wf_xtra_var_lvlup_system/), a aplicação pode calcular o nível e o progresso a partir do XP armazenado, utilizando as mesmas configurações do Extra.
+
+O código de referência apresenta implementações para os modos **Linear**, **Entrada manual**, com interpolação entre níveis, e **Exponencial**. Elas calculam nível atual, XP necessário para avançar, progresso, porcentagem, XP restante e indicação de nível máximo.
+
+No modo linear, o XP máximo deve ser calculado como **(nível máximo − 1) × tamanho da etapa**, pois o jogador começa no nível 1 com 0 XP. O material de referência corrige esse cálculo em relação à versão inicial do código.
+
+Por exemplo, com etapas de **100 XP** e nível máximo **5**:
+
+```ts
+const stepSize = 100n;
+const maximumLevel = 5n;
+const maxXp = (maximumLevel - 1n) * stepSize; // 400 XP
+
+function currentLevel(xp: bigint): bigint {
+  const bounded = xp < 0n ? 0n : xp > maxXp ? maxXp : xp;
+  return 1n + bounded / stepSize;
+}
+
+currentLevel(250n); // 3n
+currentLevel(400n); // 5n
+```
+
+Ao adaptar os outros modos, confira os resultados com a visualização do Extra no jogo. O código de referência utiliza conversões para `number` em partes dos cálculos de interpolação e exponenciação; utilizar `bigint` para armazenar o XP não elimina, por si só, as limitações dessas conversões.
+
+## Exemplos da comunidade
+
+O Wired Club participou dos testes dessa integração. Saiba mais na notícia [Nós fomos escolhidos para testar o Wired API](https://www.wiredclub.com.br/post/nos-fomos-escolhidos-para-testar-o-wired-api). Os exemplos abaixo foram apresentados por membros durante os testes.
+
+Quer conhecer outras ideias? Confira mais exemplos da comunidade na notícia [Wired API finalmente foi lançado](https://www.wiredclub.com.br/post/wired-api-finalmente-foi-lancado).
+
+### The Last of Us Habbo, por an4log
+
+Neste projeto de jogo apocalíptico, uma aplicação externa reúne mochila, uso de itens, status, habilidades, indicadores de saúde e energia e progressão de nível. As informações do personagem são integradas às variáveis do Habbo.
+
+Na demonstração descrita pelo autor, também havia autenticação com código de verificação e notificações integradas ao Supabase. Criação de itens, envio entre usuários e descarte de itens no chão estavam em desenvolvimento.
+
+<AccessibleVideo
+  id="web-api-the-last-of-us"
+  src={TheLastOfUs}
+  captionsSrc={TheLastOfUsCaptionsUrl}
+  captionsContent={TheLastOfUsCaptionsRaw}
+  descriptionsSrc={TheLastOfUsDescriptionsUrl}
+  descriptionsContent={TheLastOfUsDescriptionsRaw}
+  title="Demonstração da integração do projeto The Last of Us Habbo, por an4log"
+/>
+
+### Contribuições ao Docs Wired Club, por AnaBeatrizJBSan
+
+Neste quarto, a integração aproxima a comunidade do projeto de documentação. Os jogadores podem consultar informações do repositório e associar seu usuário do GitHub ao personagem do Habbo.
+
+* Ao clicar no mobi **Luz Lounge Estrela**, é possível consultar a quantidade de estrelas do repositório.
+* Ao clicar no **bloco numérico**, é possível consultar quantos pull requests estão abertos para revisão.
+* Ao sentar na cadeira indicada e informar o nome de usuário do GitHub ao bot, o jogador vincula sua conta ao personagem.
+* Ao clicar em um usuário vinculado, é possível consultar seus commits, pull requests de autoria própria que foram incorporados ao projeto e revisões enviadas nos pull requests de outras pessoas.
+
+A aplicação externa faz a comunicação com os serviços envolvidos e utiliza a Web API para integrar essas informações às variáveis do quarto.
+
+<AccessibleVideo
+  id="web-api-docs-wired-club"
+  src={DocsWiredClub}
+  descriptionsSrc={DocsWiredClubDescriptionsUrl}
+  descriptionsContent={DocsWiredClubDescriptionsRaw}
+  title="Demonstração do quarto de contribuições ao Docs Wired Club, por AnaBeatrizJBSan"
+/>
