@@ -1,0 +1,43 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Em um quarto Habbo com uma pilha de mobis Wired, o placar à esquerda exibe dois jogadores: alynva em primeiro com 1 ponto e AnaBeatrizJBSan em segundo com 0. O editor do ativador “Habbo Clica no Mobi” é aberto brevemente e fechado.
+
+00:00:03.500 --> 00:00:09.600
+Abre-se a condição “Valor Variável”. A variável de usuário “dia” está selecionada, com o operador “≠” e o valor de referência tempo_atual.value.day. O seletor do valor de referência é aberto para mostrar a variável global tempo_atual e sua subvariável value; em seguida, o painel da condição se fecha.
+
+00:00:10.000 --> 00:00:16.900
+Abre-se a condição “NÃO tem Variável” para o usuário acionador. A variável escolhida é “pontos”. Na seção de correspondência, a seleção muda de “Qualquer uma das variáveis NÃO corresponde” para “Nenhuma das variáveis corresponde”, e o painel é fechado.
+
+00:00:17.000 --> 00:00:20.900
+Uma configuração de condições Wired é aberta. Em “Condições que precisam coincidir”, a opção selecionada é “Pelo menos uma”. O botão “Pronto” é acionado.
+
+00:00:21.000 --> 00:00:29.900
+A ação “Dar Variável” mostra “dia” para o usuário acionador, com “Substituir variável existente” marcado, valor inicial tempo_atual.value.day e atraso de 0 segundos. Os seletores de “dia” e da variável global tempo_atual são abertos para examinar os nomes e a subvariável. Ao fim, o painel é fechado por “Cancelar”.
+
+00:00:30.000 --> 00:00:36.900
+Outra ação “Dar Variável” usa “pontos” para o usuário acionador. A substituição está marcada, o valor inicial é 1 e o atraso é 0 segundos. O botão “Pronto” é acionado.
+
+00:00:37.000 --> 00:00:40.900
+A ação “Faz pilhas” mostra um mobi selecionado em “Selecionar Mobi [1/20]” e atraso de 0 segundos; o painel é fechado. A lista de mobis Wired permanece no quarto.
+
+00:00:41.000 --> 00:00:46.900
+A ação “Mudar Valor Variável” está configurada para a variável “pontos” do usuário acionador, com operação “Somar”, valor de referência 1 e atraso de 0 segundos. O menu de operações é aberto, revelando alternativas como Atribuir e Subtrair; o painel se fecha sem uma mudança visível na operação.
+
+00:00:47.000 --> 00:00:52.000
+O mobi “Usuário Variável” chamado “dia” é aberto. “Tem valor” está marcado e a disponibilidade selecionada é “Permanente”. O painel é fechado.
+
+00:00:52.000 --> 00:00:56.900
+Outro mobi “Usuário Variável” mostra o nome “pontos”, também com “Tem valor” marcado e disponibilidade “Permanente”. Depois, o editor é fechado.
+
+00:00:57.000 --> 00:01:02.000
+No editor de “EXTRA VARIÁVEL: Placar”, a seção “Filtro” está aberta. “Ativar filtragem” e “Comparar o valor da variável de filtragem” estão marcados. A variável de filtragem é “dia” e o campo de comparação contém tempo_atual.value.day. O seletor de variáveis é aberto brevemente, e o editor do placar se fecha.
+
+00:01:02.000 --> 00:01:03.900
+O placar mostra “Carregando...” por um instante e volta a exibir alynva com 1 e AnaBeatrizJBSan com 0. Nenhuma alteração no ranking fica visível após a atualização.
+
+00:01:04.000 --> 00:01:09.900
+O mobi “Eco” é aberto. A variável chamada “tempo_atual” aponta para o valor embutido @current_time, visível no seletor de variáveis. O painel é fechado em seguida.
+
+00:01:10.000 --> 00:01:16.566
+No mobi “Utilitários de Tempo”, o tipo escolhido é “Valor”. Em “Subvariáveis avançadas”, apenas “Dia” está marcado, com o identificador day. O painel é fechado, deixando o placar e os mobis Wired à vista até o fim do vídeo.

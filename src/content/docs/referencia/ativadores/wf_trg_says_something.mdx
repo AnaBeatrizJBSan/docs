@@ -47,5 +47,44 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+
+
+O **Ativador: Habbo diz algo** é acionado sempre que um Habbo fala a palavra que foi fornecida nas configurações do wired.
+
+Ele é um wired **muito comum** usado caso você queira ativar uma pilha wired apenas dizendo algo específico, o exemplo mais famoso é quando a pessoa diz **:ajuda** e aparece mensagens de como funciona aquele jogo ou rpg com a ajuda do [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message)
 
 <Infobox />
+
+Este Wired **não possui configurações avançadas**, pois sua ativação sempre está vinculada a um usuário que aciona, e não a usuários recebidos por meio de seletores ou sinais.
+
+Apesar disso, ele conta com configurações específicas e interessantes que permitem controlar seu funcionamento de maneira precisa. Vamos conferir cada uma delas!
+
+## Configurações
+
+### **O que é dito** 
+Nesse campo, é colocado o que chamamos de mensagem de gatilho ou mensagem ativadora, ela irá definir o que o usuário precisa dizer pra ativar esse wired.
+
+### **Escolha o tipo**
+Existem 3 escolhas diferentes, elas são:
+- **Contém palavra-chave:** ativa a pilha de Wireds quando a mensagem enviada pelo usuário contém o caractere, palavra ou trecho de texto definido nessa configuração.
+
+    **Exemplo de uso:** se você configurar a palavra-chave como “lasanha”, o Wired será ativado quando um usuário disser “amo lasanha!” no quarto, pois a mensagem contém a palavra-chave definida.
+
+- **Combinação exata:** ativa a pilha de Wireds somente quando a mensagem enviada pelo usuário corresponde exatamente ao texto definido como gatilho. Diferentemente da opção Contém palavra-chave, não basta que a mensagem contenha o texto configurado: ela deve ser idêntica, sem caracteres, palavras ou trechos adicionais.
+
+    **Exemplo de uso:** se o gatilho configurado for “lasanha”, o Wired será ativado quando o usuário disser “lasanha”. Porém, se ele disser “amo lasanha!” ou “quero comer lasanha”, o Wired não será ativado, pois as mensagens contêm palavras adicionais ao texto definido.
+
+- **Combinar com todo o texto:** essa opção exige atenção ao ser utilizada, pois ignora o texto definido como gatilho e permite que qualquer mensagem enviada pelo usuário ative a pilha de Wireds.
+
+        <Aside type="caution" title="Cuidado com essa escolha">
+        É altamente recomendado combinar a escolha "Combinar com todo o texto" com wireds de **seletores** e **condições**. Caso contrário tudo o que for falado no quarto ativará esse wired.
+        </Aside>
+
+### **Selecione opções**
+Oferece duas opções interessantes:
+- **Ocultar a mensagem do gatilho:** se selecionado, ao falar a mensagem que ativa esse wired, ela ficará oculta para todos os usuários do quarto, desmarcar faz com que apareça para todos
+- **Somente o proprietario do quarto pode acionar:** como diz o nome, se selecionado somente o dono do quarto poderá ativar, desmacar faz com que todos acionem
+
+## Dicas de uso
+- Esse wired também detecta mensagens de gatilho que vieram de pets ou bots, pois são considerados usuários, considere combinar com a [Condição: Ativador Coincide](/referencia/condicoes/wf_cnd_triggerer_match)

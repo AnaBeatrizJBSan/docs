@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.700
+EXTRA VARIÁVEL “Placar”: “Modo de múltiplas variáveis”. pontuacao_um = “Pontuação Um”; pontuacao_dois = “Pontuação Dois”.
+
+00:00:03.700 --> 00:00:05.700
+O nome exibido de pontuacao_um muda para “pontuacao1”; o título da prévia acompanha a edição.
+
+00:00:05.700 --> 00:00:08.500
+O nome exibido de pontuacao_dois muda para “pontuacao2”.
+
+00:00:08.500 --> 00:00:11.800
+“Sugerir nomes” restaura “Pontuação Um” e “Pontuação Dois”.
+
+00:00:13.400 --> 00:00:14.500
+Placar “Pontuação Um”: AnaBeatrizJBSan, valor 1.
+
+00:00:14.500 --> 00:00:16.400
+Placar “Pontuação Dois”: “Nenhum registro”.
+
+00:00:16.400 --> 00:00:17.799
+Placar “Pontuação Um”: AnaBeatrizJBSan, valor 1.
