@@ -48,12 +48,12 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
-O **Ativador: Transação Falhou** é acionado sempre que uma transação falhar com um dos Contratos Wired selecionados.
+O **Ativador: Transação Falhou** é acionado sempre que uma transação falhar com um dos **Contratos Wired** selecionados.
 
 <Infobox />
 
-Variável interna
-Esse wired possui uma variável interna que pode te dizer o que aconteceu de errado na transação de acordo com seu valor.
+## Variável interna
+Esse wired possui uma variável interna chamada `@event.transaction_failed.reason:`, que pode te dizer o que aconteceu de errado na transação de acordo com seu valor.
 
 Você pode conferir em [TRANSACTION_FAILURE](/referencia/ferramentas-do-criador/monitoramento/#transaction_failure)
 
@@ -63,4 +63,4 @@ Os contratos podem ser selecionados através de:
 - Usar mobis do seletor
 
 ## Dicas de uso
-- Utilize a variável interna para mostrar ao usuário ou [ver o registro](/referencia/ferramentas-do-criador/monitoramento/#ver-registros-completos) que pode ter dado errado na transação.
+- Utilize a variável interna para mostrar ao usuário ou [ver o registro](/referencia/ferramentas-do-criador/monitoramento/#ver-registros-completos) do que pode ter dado errado na transação.

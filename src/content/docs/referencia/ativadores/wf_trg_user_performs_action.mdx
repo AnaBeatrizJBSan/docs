@@ -47,6 +47,7 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
 
 O **Ativador: Habbo faz ação** é ativado sempre que um usuário do quarto faz a ação selecionada nas configurações desse wired.
 
@@ -54,11 +55,15 @@ O **Ativador: Habbo faz ação** é ativado sempre que um usuário do quarto faz
 
 Sentar em uma cadeira, deitar em uma cama ou simplesmente dançar pode ativar esse wired. 
 
+<Aside type="caution" title="Sem condições, qualquer usuário aciona">
 Por **não possuir** configurações avançadas, qualquer usuário do quarto consegue ativar esse wired quando feito a ação.
 
 Na maioria dos cenários, considere utilizar wireds de **condições** para evitar o acionamento desnecessário. 
+</Aside>
 
-Bots podem ativar esse wired caso faça a ação selecionada, pois são considerados “usuários”.
+<Aside type="note" title="Bots são considerados">
+Bots podem ativar esse wired caso façam a ação selecionada, pois são considerados “usuários”.
+</Aside>
 
 ## Configurações
 Escolha uma das seguintes ações abaixo para acionar esse wired:

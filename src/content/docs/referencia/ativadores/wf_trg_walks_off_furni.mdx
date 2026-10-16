@@ -47,14 +47,18 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
 
-O **Ativador: Habbo sai do Mobi** é ativado sempre que um usuário sai da posição e espaço ocupado pelo mobi no quarto, esse “sair” pode ser andando, teleportando ou até mesmo saindo do quarto.
+O **Ativador: Habbo sai do Mobi** é ativado sempre que um usuário sai completamente da posição e espaço ocupado pelo mobi no quarto, esse “sair” pode ser andando, teleportando ou até mesmo saindo do quarto.
 
 <Infobox />
 
-Não é preciso andar em cima do mobi para ativar esse wired, caso a mobília esteja acima do jogador e tenha um **piso andar mágico** embaixo, o usuário que sair ainda sim ativará esse wired.
 
-Pets e Bots podem ativar esse wired, por serem considerados “usuários”.
+<Aside type="caution" title="Informações importantes">
+- Pets e Bots podem ativar esse wired, por serem considerados “usuários”.
+- Não é preciso sair em cima do mobi para ativar esse wired, caso a mobília esteja acima do jogador e tenha um **piso andar mágico** embaixo, o usuário que sair ainda sim ativará esse wired.
+</Aside>
+
 
 Esse wired **não possui** configurações adicionais já que sua ativação se baseia apenas em sair do mobi selecionado.
 
