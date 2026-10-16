@@ -48,4 +48,25 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Ativador: Pontuação obtida** é acionado quando o time escolhido atinge a quantidade de pontos selecionado nas configurações.
+
 <Infobox />
+
+Esse wired **não possui** configurações avançadas, pois é acionado automaticamente quando um time atinge a pontuação necessária no quarto. Não faz sentido utilizar usuários de sinais ou seletores, já que sua ativação acontece no momento em que as configurações presentes na janela do wired são atendidas.
+
+## Configurações
+
+**Escolha um time:** Há 5 escolhas de time diferentes para acionar esse wired:
+
+- Qualquer time
+- Vermelho
+- Azul
+- Verde
+- Amarelo
+
+
+**Equipe tem que marcar:** aqui você escolhe a quantidade de pontos, que quando obtidos pelo time, aciona o Ativador: Pontuação obtida, a quantidade vai de: 1 a 1000.
+
+## Dicas de uso
+- Esse wired é utilizado em jogos de times, mas com o avanço de variáveis e seletores, a preferência por ele acabou diminuindo. Ele ainda é uma boa opção em cenário em que quando time obtém pontos específicos cria uma cadeia de eventos automaticamente.
+- Como ele permite apenas um time ou todos, se você quiser que seja dois times especificos, empilhe dois wireds e escolha os times em cada um.
