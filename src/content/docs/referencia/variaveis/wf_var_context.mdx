@@ -41,5 +41,201 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from "@astrojs/starlight/components";
 
 <Infobox />
+
+
+## Como esse Wired funciona?
+
+Sabe quando precisamos guardar um número apenas para fazer uma conta e usar o resultado logo em seguida? A **Variável de Contexto** serve para situações como essa. Ela guarda uma informação durante uma execução Wired, incluindo as pilhas que continuam essa execução por meio de sinais.
+
+Diferente de uma variável de usuário, mobi ou global, essa informação pertence à execução. Assim, podemos guardar os números de uma calculadora, lembrar uma posição durante um percurso ou informar a outra pilha por que uma partida terminou, sem precisar vincular esses dados a um jogador ou mobi.
+
+Ao configurar este Wired, estamos criando a definição da variável: seu nome e se ela terá um valor. Para disponibilizá-la durante uma execução, utilizamos o [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/). A partir daí, os outros Wireds dessa execução podem consultar ou alterar a informação.
+
+Quando a execução e sua cadeia de sinais terminam, esses dados são descartados. A caixa Wired continua no quarto, pronta para ser utilizada em uma próxima execução.
+
+## Configurando o Wired
+
+### Nome da variável
+
+Escolha um nome que ajude a identificar o que será guardado. Por exemplo, `primeiro_numero` para um dos números de uma conta ou `motivo_fim` para indicar por que uma partida terminou.
+
+Se você escrever um espaço no nome, ele será substituído automaticamente por um sublinhado (`_`). Assim, `primeiro numero` se torna `primeiro_numero`.
+
+O nome precisa ser único no quarto, mesmo entre variáveis de tipos diferentes. Se ele já estiver em uso, ao tentar salvar você verá o aviso: “Esse nome de variável já está em uso neste quarto, escolha um nome diferente!”.
+
+### Configurações da variável
+
+A opção **Tem valor** define se a variável guardará um número.
+
+- **Marcada:** a variável pode armazenar um valor numérico, que poderá ser consultado, comparado e alterado durante a execução. É a opção que usaremos na calculadora deste exemplo.
+- **Desmarcada:** a variável funciona como uma marcação. Nesse caso, podemos verificar se ela está presente na execução, sem precisar guardar um número.
+
+Uma variável com valor pode guardar números positivos, negativos ou zero. Ela não armazena um texto diretamente. Para associar números a textos, podemos utilizar o [Extra de Variável: Conector de Texto](/referencia/variaveis/wf_xtra_var_text_connector/), como faremos com os sinais das operações matemáticas.
+
+## Tempo de vida da variável
+
+Imagine que um jogador escreveu `10 - 6` e outro escreveu `8 - 3`. Cada fala inicia uma execução, e cada execução pode ter seus próprios valores para `primeiro_numero`, `segundo_numero` e `resposta`. Os nomes são os mesmos, mas as contas não precisam compartilhar os dados.
+
+Já quando uma pilha envia um sinal para continuar o trabalho em outra pilha, as variáveis de contexto seguem disponíveis nessa cadeia. É por isso que podemos capturar os números em uma pilha, calcular em outra e mostrar o resultado em uma terceira.
+
+### Quando a execução se divide em sinais
+
+Os caminhos que partem de uma mesma execução podem compartilhar uma variável que já existia antes do envio dos sinais. Veja este exemplo:
+
+1. Uma pilha disponibiliza a variável `numero` com o valor `1`.
+2. Ela envia sinais para dois caminhos, A e B.
+3. O caminho A altera `numero` para `20` usando **Mudar Valor Variável**.
+4. Se o caminho B consultar essa variável depois da alteração, também encontrará `20`.
+
+Por outro lado, se B utilizar **Dar Variável** com **Substituir variável existente**, ele criará uma nova instância dessa variável para seu caminho. A partir desse ponto, alterar essa nova instância não altera a que A está utilizando.
+
+<Aside type="tip" title="Alterar e substituir têm efeitos diferentes">
+  Use **Mudar Valor Variável** para alterar o valor que já está sendo compartilhado. Use **Dar Variável**, com **Substituir variável existente**, quando precisar iniciar uma nova instância naquele caminho da execução.
+</Aside>
+
+## Variáveis internas de contexto
+
+Além das variáveis que criamos, existem variáveis internas com informações sobre a execução. A disponibilidade delas depende do que está acontecendo no sistema.
+
+| Variável | O que informa |
+| --- | --- |
+| `@chat_style` | O estilo do balão de fala, quando a execução começa pelo ativador **Habbo diz algo**. |
+| `@chat_type` | O tipo da fala, quando a execução começa pelo ativador **Habbo diz algo**. |
+| `@selector_furni_count` | A quantidade de mobis selecionados pelo seletor. |
+
+Por exemplo, podemos copiar a quantidade de mobis selecionados para uma variável de contexto e fazer cálculos com ela antes de atualizar um contador no quarto. Para separar as dezenas e unidades de um número de dois dígitos, podemos usar a divisão por `10` para as dezenas e o módulo por `10` para as unidades.
+
+A operação **módulo** encontra o resto de uma divisão. Em `27`, por exemplo, o resto da divisão por `10` é `7`, que corresponde ao algarismo das unidades.
+
+## Exemplo prático: uma calculadora
+
+Vamos criar uma calculadora em que o jogador escreve uma conta e um bot informa a resposta. Nesta primeira versão, faremos a subtração. Depois, você poderá usar a mesma estrutura para tentar montar as outras operações.
+
+A conta será escrita com um espaço entre cada parte, como em `10 - 6`. Precisamos identificar o primeiro número, o operador e o segundo número, além de reservar uma variável para o resultado.
+
+### Criando as variáveis
+
+Coloque quatro **WIRED Variável: Contexto Variável** no quarto e configure os nomes abaixo. Marque **Tem valor** em todos eles.
+
+| Nome | Para que vamos usar | Na conta `10 - 6` |
+| --- | --- | --- |
+| `primeiro_numero` | Guardar o primeiro número da conta. | `10` |
+| `operador` | Identificar a operação por um código numérico. | `0`, representando a subtração |
+| `segundo_numero` | Guardar o segundo número da conta. | `6` |
+| `resposta` | Guardar o resultado do cálculo. | Começa recebendo `10` e, após a subtração, passa a `4`. |
+
+Sobre a variável `operador`, coloque um **Extra de Variável: Conector de Texto**. Como a variável guarda números, precisamos associar cada sinal a um número:
+
+| Valor | Texto associado | Operação |
+| --- | --- | --- |
+| `0` | `-` | Subtração |
+| `1` | `+` | Soma |
+| `2` | `*` | Multiplicação |
+| `3` | `/` | Divisão |
+
+Vamos preparar as quatro associações, mas montar apenas a pilha da subtração. Guarde essa tabela para o desafio no final!
+
+### Capturando a conta
+
+Comece uma pilha com o [Ativador Wired: Habbo diz algo](/referencia/ativadores/wf_trg_says_something/). Marque **Combinação exata**, desmarque a opção que oculta a fala e preencha o texto assim:
+
+```text
+#(primeiro_numero) #(operador) #(segundo_numero)
+```
+
+Essas marcações indicam as partes que serão capturadas. Adicione três [Extras de Texto: Captura Variável](/referencia/extras/wf_xtra_text_input_variable/) à pilha:
+
+| Variável selecionada | Tipo de entrada |
+| --- | --- |
+| `primeiro_numero` | Numérica |
+| `operador` | Textual |
+| `segundo_numero` | Numérica |
+
+A entrada de `operador` é textual porque o jogador escreve um sinal, como `-`. O Conector de Texto faz a associação desse sinal com o número `0`.
+
+Adicione também quatro **Efeitos Wired: Dar Variável**, um para cada variável criada, com valor inicial `0`. Eles disponibilizam as variáveis para a execução; as capturas fornecem os dados da conta escrita pelo jogador.
+
+Depois, adicione o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/). Selecione `resposta` e configure a atribuição do valor de `primeiro_numero`. Assim, antes de subtrair, `resposta` terá o primeiro número da conta.
+
+Para continuar em outra pilha, coloque duas antenas no quarto. Vamos chamar uma de **antena do cálculo** e a outra de **antena da resposta**, apenas para diferenciá-las durante a montagem.
+
+Na pilha da fala, adicione o [Efeito Wired: Enviar Sinal](/referencia/efeitos/wf_act_send_signal/) e selecione a antena do cálculo. Configure o envio para encaminhar também o usuário que ativou a pilha, pois o bot precisará saber para quem responder.
+
+Utilize o [Extra Wired: Executa na Ordem](/referencia/extras/wf_xtra_exec_in_order/) para que os efeitos disponibilizem as variáveis primeiro, atribuam o primeiro número a `resposta` em seguida e enviem o sinal por último.
+
+### Calculando a subtração
+
+Monte outra pilha com o [Ativador Wired: Recebe Sinal](/referencia/ativadores/wf_trg_recv_signal/) e selecione a antena do cálculo.
+
+Adicione a [Condição Wired: Valor Variável](/referencia/condicoes/wf_cnd_var_val_match/) e verifique se `operador` é igual a `0`. Essa condição faz com que a pilha só realize o cálculo quando o jogador utilizar o sinal de menos.
+
+Em seguida, adicione **Mudar Valor Variável**. Selecione `resposta`, escolha a operação de subtração e use `segundo_numero` como valor de referência.
+
+Na conta `10 - 6`, `resposta` chega a essa pilha com o valor `10`. Ao retirar o valor `6`, guardado em `segundo_numero`, ela passa a valer `4`.
+
+Por último, adicione **Enviar Sinal** para a antena da resposta, encaminhando o usuário recebido pelo sinal. Use **Executa na Ordem** para que a subtração aconteça antes desse envio. Separar as duas antenas permite chamar a pilha da resposta somente depois de concluir o cálculo.
+
+### Mostrando a resposta
+
+Coloque um bot no quarto e monte uma terceira pilha com **Recebe Sinal**, desta vez selecionando a antena da resposta.
+
+Adicione o [Efeito Wired: Bot Fala ao Usuário Ativador](/referencia/efeitos/wf_act_bot_talk_to_avatar/), informe o nome do bot e escreva:
+
+```text
+A resposta é $(resposta).
+```
+
+Adicione também o [Extra de Texto: Campo Variável](/referencia/extras/wf_xtra_text_output_variable/) e selecione `resposta`. Ele permite inserir o valor da variável no lugar da marcação `$(resposta)`.
+
+Agora teste a calculadora escrevendo `10 - 6`. O bot deverá informar que a resposta é `4`. Experimente também `10 - 9`, `1 - 1` e `6 - 2`, mantendo os espaços entre os números e o operador.
+
+Perceba que não precisamos guardar esses números em uma variável do jogador. Eles acompanham a conta desde a captura até a resposta do bot e são descartados quando essa execução termina.
+
+### Agora é com você!
+
+Que tal acrescentar soma, multiplicação e divisão? Use a pilha de subtração como referência e consulte a tabela de associações do `operador`.
+
+Pense em quais configurações precisam mudar para reconhecer cada sinal e realizar a operação correspondente. As pilhas que capturam a conta e mostram a resposta já estão prontas para serem reaproveitadas.
+
+## Outros usos das variáveis de contexto
+
+A calculadora é apenas um começo. Conforme seus sistemas crescem, você pode usar essas variáveis para organizar cálculos e reaproveitar conjuntos de pilhas. Não precisa dominar todos os exemplos abaixo para começar a utilizá-las.
+
+### Fazer cálculos antes de alterar o valor original
+
+Imagine que uma pontuação precisa passar por várias operações antes de chegar ao resultado final. Se cada etapa alterar diretamente a variável do jogador, o ativador **Variável Mudou** poderá ser acionado várias vezes, acompanhando resultados intermediários.
+
+Uma alternativa é copiar a pontuação para uma variável de contexto, fazer os cálculos nela e, ao terminar, copiar apenas o resultado de volta. Assim, a variável original recebe uma única atualização.
+
+Isso também evita gravar cada etapa intermediária em uma variável permanente. Se a execução for interrompida antes de concluir a conta, por exemplo durante uma manutenção ou um cancelamento de execução, o valor original não terá recebido aquelas alterações parciais.
+
+<Aside type="note" title="A ordem das operações faz diferença">
+  Sem **Executa na Ordem**, os efeitos de alteração podem ser combinados em uma única mudança, seguindo esta ordem: atribuição, potência, multiplicação, divisão, módulo, adição e subtração. Quando o cálculo depende de outra sequência, use o extra e organize os efeitos na ordem desejada.
+</Aside>
+
+### Lembrar informações durante uma cadeia de sinais
+
+Podemos guardar a posição inicial de um bot, encaminhá-lo por um percurso e usar a posição guardada para fazê-lo voltar ao terminar. A informação acompanha aquela execução, sem precisar ficar armazenada permanentemente no bot.
+
+Outra possibilidade é compartilhar uma pilha de encerramento entre várias situações de um jogo. Uma variável como `motivo_fim` pode indicar vitória, tempo esgotado ou desclassificação. Cada situação define o valor e envia um sinal para as mesmas pilhas de encerramento, que consultam o motivo para decidir qual mensagem mostrar.
+
+Com um **Conector de Texto**, cada número pode corresponder a uma mensagem. Assim, você pode reaproveitar as pilhas que retiram o jogador da partida e restauram o cenário.
+
+### Indicar para onde enviar a continuação
+
+Também podemos guardar o `@id` de uma antena em uma variável de contexto. Um conjunto de pilhas realiza seu trabalho e, depois, envia um sinal para a antena identificada por esse valor. Esse padrão é chamado de **callback**: uma forma de indicar o que deve ser chamado para continuar o sistema.
+
+Por exemplo, uma rotina que encontra blocos CA conectados pode enviar cada bloco encontrado para uma antena escolhida por quem iniciou a busca. O mesmo conjunto de pilhas pode, então, servir a diferentes partes de um jogo.
+
+### Reutilizar cálculos com entradas e resultados
+
+Podemos organizar um conjunto de pilhas como uma função: ele recebe informações, realiza uma tarefa e disponibiliza um resultado. Aqui, “função” é uma maneira de organizar os Wireds com sinais e variáveis de contexto.
+
+Um exemplo é procurar a maior sequência crescente de números em uma linha de pisos. O sistema recebe o primeiro piso pelo sinal e a direção da busca por variáveis de contexto. Ao terminar, guarda o tamanho da sequência encontrada em outra variável e sinaliza a conclusão. Mudando a direção de entrada, podemos reaproveitar o mesmo sistema para uma coluna.
+
+As variáveis usadas nesse conjunto de pilhas continuam disponíveis até o fim da execução que o chamou. Se você repetir a tarefa dentro da mesma execução, inicialize novamente os dados temporários com **Dar Variável** e **Substituir variável existente**, para não reaproveitar resultados anteriores por acidente.
+
+Já conjuntos de usuários ou mobis precisam continuar sendo encaminhados pelos sinais quando forem necessários nas próximas etapas. As variáveis de contexto ajudam a guardar os parâmetros e resultados numéricos, mas não substituem automaticamente esses conjuntos.
