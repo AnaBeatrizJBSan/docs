@@ -48,4 +48,36 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Ativador: Variável Mudou** é acionado sempre que uma das variáveis selecionadas são criadas, modificadas ou apagadas.
+
 <Infobox />
+
+Esse é um wired bem utilizado por conta dos muitos sistemas que precisam acionar uma cadeia de efeitos automaticamente quando notar que aquela variável específica foi alterada. 
+
+Esse wired **não possui** configurações avançadas, mas permite selecionar até 20 mobis Wired Variável para identificar a mudança. 
+
+## Configurações
+
+**Escolher variável por:** escolha verificar a mudança de apenas uma variável ou várias:
+  - Uma variável selecionada: escolha a variável no campo “Selecione uma variável”
+  - Caixa de variáveis escolhidas: será usado os mobis Wired Variável que você selecionou com o mouse.
+
+**Ativar quando a variável for:** escolha qual mudança deve acontecer na variável para acionar esse wired:
+- Criada
+- Mudança de valor
+  - Aumentou
+  - Diminuiu
+  - Inalterado
+- Apagada
+
+**Permitir o acionamento a partir de:** marcar as opções nessa lista significa em quais meios esse wired vai ser acionado:
+- Esse quarto
+- De outro quarto
+- Inspeção (através do :inspect)
+- Externo
+
+Isso é muito útil quando você quer mudar a variável apenas na inspeção para testar algum sistema, por exemplo.
+
+
+ 
+
