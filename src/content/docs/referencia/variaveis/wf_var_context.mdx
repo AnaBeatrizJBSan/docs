@@ -43,20 +43,21 @@ infobox:
 import Infobox from "@components/Infobox.astro"
 import { Aside } from "@astrojs/starlight/components";
 
+O **Wired Variável: Contexto Variável** permite criar informações temporárias para usar durante uma execução Wired. Quer guardar os números de uma conta, lembrar a posição inicial de um bot ou informar a outra pilha por que uma partida terminou? Você pode utilizar uma variável de contexto para isso.
+
+Essas informações acompanham a execução, incluindo sua continuação por sinais, e são descartadas quando ela termina. Assim, você pode utilizá-las nas etapas de um sistema sem precisar associá-las a um usuário ou mobi.
+
 <Infobox />
 
-
 ## Como esse Wired funciona?
-
-Sabe quando precisamos guardar um número apenas para fazer uma conta e usar o resultado logo em seguida? A **Variável de Contexto** serve para situações como essa. Ela guarda uma informação durante uma execução Wired, incluindo as pilhas que continuam essa execução por meio de sinais.
-
-Diferente de uma variável de usuário, mobi ou global, essa informação pertence à execução. Assim, podemos guardar os números de uma calculadora, lembrar uma posição durante um percurso ou informar a outra pilha por que uma partida terminou, sem precisar vincular esses dados a um jogador ou mobi.
 
 Ao configurar este Wired, estamos criando a definição da variável: seu nome e se ela terá um valor. Para disponibilizá-la durante uma execução, utilizamos o [Efeito Wired: Dar Variável](/referencia/efeitos/wf_act_give_var/). A partir daí, os outros Wireds dessa execução podem consultar ou alterar a informação.
 
 Quando a execução e sua cadeia de sinais terminam, esses dados são descartados. A caixa Wired continua no quarto, pronta para ser utilizada em uma próxima execução.
 
 ## Configurando o Wired
+
+![](@assets/wf_var_context/01-janela-do-wired.png)
 
 ### Nome da variável
 
@@ -66,6 +67,8 @@ Se você escrever um espaço no nome, ele será substituído automaticamente por
 
 O nome precisa ser único no quarto, mesmo entre variáveis de tipos diferentes. Se ele já estiver em uso, ao tentar salvar você verá o aviso: “Esse nome de variável já está em uso neste quarto, escolha um nome diferente!”.
 
+![Janela Falha ao atualizar avisando que o nome de variável já está em uso no quarto e solicitando um nome diferente.](@assets/wf_var/04-janela-de-aviso-nome-de-variavel-ja-em-uso.png)
+
 ### Configurações da variável
 
 A opção **Tem valor** define se a variável guardará um número.
@@ -74,6 +77,10 @@ A opção **Tem valor** define se a variável guardará um número.
 - **Desmarcada:** a variável funciona como uma marcação. Nesse caso, podemos verificar se ela está presente na execução, sem precisar guardar um número.
 
 Uma variável com valor pode guardar números positivos, negativos ou zero. Ela não armazena um texto diretamente. Para associar números a textos, podemos utilizar o [Extra de Variável: Conector de Texto](/referencia/variaveis/wf_xtra_var_text_connector/), como faremos com os sinais das operações matemáticas.
+
+### Mostrar no menu Wired
+
+Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Mostrar no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
 
 ## Tempo de vida da variável
 
