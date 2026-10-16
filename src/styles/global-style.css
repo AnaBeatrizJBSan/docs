@@ -1,0 +1,4 @@
+/* Allow long inline code to wrap without changing preformatted code blocks. */
+:not(pre) > code {
+  overflow-wrap: anywhere;
+}
