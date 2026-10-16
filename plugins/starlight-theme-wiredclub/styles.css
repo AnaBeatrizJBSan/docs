@@ -241,6 +241,7 @@
 	}
 
 	.main-pane {
+		min-width: 0;
 		background: transparent;
 	}
 
@@ -296,7 +297,8 @@
 
 	.sl-markdown-content table {
 		width: fit-content;
-		overflow: hidden;
+		max-width: 100%;
+		overflow-x: auto;
 		border: 1px solid var(--wc-border);
 		border-radius: var(--wc-radius);
 		background: var(--wc-panel);
