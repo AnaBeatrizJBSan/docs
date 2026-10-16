@@ -161,7 +161,7 @@ infobox:
 	# image_animated_state: 100 # valor padrão
 	# icon: # url preenchida automaticamente
   availability: ${yamlStr(availability)}
-	# price: # preço em créditos no catálogo
+	# price: # preço em créditos; para incluir diamantes, use { credits: 150, diamonds: 150 }
 	# release_date: # data de lançamento
 
 	# == Dados do Wired ==

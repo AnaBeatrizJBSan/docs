@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Em um quarto do Habbo, a janela das Ferramentas do Criador está aberta na aba Variáveis, com rating_wired_club na seleção. À direita, a janela de configuração do mobi WIRED VARIÁVEL, do tipo Usuário Variável, exibe o campo Nome da variável. O nome é alterado para rating_wired_club_2. A opção Tem valor continua marcada, a disponibilidade Permanente continua selecionada, e o botão Pronto é acionado.
+
+00:00:03.500 --> 00:00:07.800
+A configuração do mobi se fecha. Na visão geral das variáveis, o primeiro item da seleção passa a ser rating_wired_club_2. As propriedades indicam uma variável criada pelo usuário, com alvo Usuário e disponibilidade Permanente.
+
+00:00:07.800 --> 00:00:12.700
+O cursor abre a aba Inspeção. A lista está vazia e pede a seleção de um elemento. Em seguida, o personagem ao lado da pilha de mobis é selecionado; um menu de contexto aparece acima dele, e a opção Inspect é escolhida.
+
+00:00:12.700 --> 00:00:16.380
+A inspeção mostra a prévia do personagem e sua lista de variáveis. A linha @type o identifica como Bot. No topo da lista, rating_wired_club_2 aparece com o valor 791, confirmando o novo nome na inspeção.

@@ -1,0 +1,308 @@
+---
+title: "Extra Variável: Placar"
+description: Aprenda a exibir variáveis permanentes de usuário em um placar, personalizar colunas, ordenar registros e configurar filtros.
+sidebar:
+  label: Placar
+  badge:
+    text: NOVO
+    variant: note
+infobox:
+  # == Infobox ==
+  # hide: false # valor padrão
+  title: Placar
+  # image: # url preenchida automaticamente
+
+  # == Dados do Mobi ==
+  revision: 75953
+  classname: wf_xtra_var_leaderboard
+  name: "Extra Variável: Placar"
+  description: Exibe os registros de variáveis permanentes dos jogadores em um placar com colunas, ordenação e filtros personalizáveis.
+  # product_name: # caso o nome na loja seja diferente do nome do Mobi
+  # image_direction: 0 # valor padrão
+  # image_not_animated: false # valor padrão
+  # image_animated_state: 100 # valor padrão
+  # icon: # url preenchida automaticamente
+  availability: No catálogo e CA
+  price: 15
+  release_date: 2026-10-13
+
+  # == Dados do Wired ==
+  type: Extra de Variável
+  # requires_bot: false # valor padrão
+  # requires_furni: false # valor padrão
+  # requires_antena: false # valor padrão
+  # requires_contract: false # valor padrão
+  # requires_chest: false # valor padrão
+  # execution_limit: 100 # valor padrão
+  # execution_limit_per_user: 100 # valor padrão
+
+  # == Dados do Variável ==
+  additional_sources: []
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import Infobox from "@components/Infobox.astro";
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import ExemploDeFiltragem from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo.mp4";
+import ExemploDeFiltragemCaptionsUrl from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-captions.vtt?url";
+import ExemploDeFiltragemCaptionsRaw from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-captions.vtt?raw";
+import ExemploDeFiltragemDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-descriptions.vtt?url";
+import ExemploDeFiltragemDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-descriptions.vtt?raw";
+import ModoDeMultiplasVariaveis from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis.mp4";
+import ModoDeMultiplasVariaveisCaptionsUrl from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-captions.vtt?url";
+import ModoDeMultiplasVariaveisCaptionsRaw from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-captions.vtt?raw";
+import ModoDeMultiplasVariaveisDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-descriptions.vtt?url";
+import ModoDeMultiplasVariaveisDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-descriptions.vtt?raw";
+import LocalizacaoDoPlacar from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar.mp4";
+import LocalizacaoDoPlacarCaptionsUrl from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-captions.vtt?url";
+import LocalizacaoDoPlacarCaptionsRaw from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-captions.vtt?raw";
+import LocalizacaoDoPlacarDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-descriptions.vtt?url";
+import LocalizacaoDoPlacarDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-descriptions.vtt?raw";
+import NumeroDeColunas from "@assets/wf_xtra_var_leaderboard/07-topico-numero-de-colunas.gif";
+
+O **Extra Variável: Placar** permite mostrar os registros de uma variável permanente de usuário em uma janela no quarto. Quer exibir a pontuação dos jogadores, acompanhar seus níveis ou mostrar quem teve o progresso atualizado mais recentemente? Você pode escolher quais informações aparecem no placar e como elas serão organizadas.
+
+<Infobox />
+
+## Requisitos
+
+Coloque este Extra acima de um [Wired Variável: Usuário Variável](/referencia/variaveis/wf_var_user/) configurado com disponibilidade **permanente**. O placar utiliza os registros associados a essa variável.
+
+Por exemplo, você pode criar uma variável de usuário chamada `pontuacao`, configurá-la como **Permanente** e utilizá-la para guardar os pontos de cada jogador. O Extra permite apresentar esses dados para quem está no quarto.
+
+Embora a variável de usuário possa ser vinculada a jogadores, bots e mascotes, o placar mostra apenas os **jogadores que possuem a variável vinculada a eles**. Bots e mascotes não aparecem na lista, mesmo que tenham essa variável.
+
+<Aside type="caution" title="Confira a variável da pilha">
+Se a pilha não tiver uma variável permanente de usuário, a seção **Geral** mostrará um aviso em vermelho informando que o placar ficará vazio. Confira a posição do Extra e a [disponibilidade da variável](/referencia/variaveis/wf_var_user/#opções-de-disponibilidade) antes de continuar.
+
+![Aviso em vermelho na seção Geral informando que a pilha não possui uma variável de usuário persistente e que o placar ficará vazio.](@assets/wf_xtra_var_leaderboard/05-aviso-topico-geral.png)
+</Aside>
+
+## Como esse Wired funciona?
+
+Ao clicar duas vezes no Wired, duas janelas são abertas: a de **configuração** e a do **placar**. Na configuração, você escolhe o título, a ordenação, as colunas, os filtros e a localização do placar.
+
+Depois de salvar as configurações, a janela do placar aparecerá para todos os usuários no quarto.
+
+![Janela de configuração do Extra Variável Placar ao lado do placar vazio, com as colunas Username e Value.](@assets/wf_xtra_var_leaderboard/01-janelas-do-wired.png)
+
+### Geral
+
+Comece definindo como o placar será apresentado:
+
+* **Título:** o nome que aparece no topo da janela do placar. Aceita até **50 caracteres**.
+* **Descrição:** um texto que aparece abaixo do título e pode explicar o que está sendo mostrado. Aceita até **80 caracteres**.
+
+Por exemplo, um placar de uma competição pode ter o título **Pontuação dos jogadores** e a descrição **Confira os pontos conquistados nos desafios do quarto**.
+
+![Campos Título e Descrição preenchidos com Wired Club - Pontuação e Pontos conquistados no Wired Club, exibidos no topo do placar.](@assets/wf_xtra_var_leaderboard/02-topico-geral.png)
+
+#### Ordenação
+
+![Lista Ordenação aberta com as opções Maior valor, Menor valor e datas de criação e modificação, da mais antiga à mais recente.](@assets/wf_xtra_var_leaderboard/06-topico-ordenacao.png)
+
+Escolha qual informação será utilizada para organizar os registros:
+
+| Opção | Como organiza os registros |
+| :--- | :--- |
+| **Maior valor** | Mostra primeiro os maiores valores da variável. |
+| **Menor valor** | Mostra primeiro os menores valores da variável. |
+| **Data de criação mais antiga** | Mostra primeiro os registros criados há mais tempo. |
+| **Data de criação mais recente** | Mostra primeiro os registros criados mais recentemente. |
+| **Data de modificação mais antiga** | Mostra primeiro os registros cuja última alteração ocorreu há mais tempo. |
+| **Data de modificação mais recente** | Mostra primeiro os registros alterados mais recentemente. |
+
+Para um placar de pontos, por exemplo, escolha **Maior valor** para colocar os jogadores com mais pontos no início da lista.
+
+#### Tamanho da página
+
+Você pode selecionar **10**, **15** ou **20** registros por página. Ajuste essa opção conforme a quantidade de informações que deseja mostrar de uma vez.
+
+![Demonstração do ajuste de Tamanho da página e da mudança no tamanho da janela do placar.](@assets/wf_xtra_var_leaderboard/03-tamanho-da-pagina.gif)
+
+### Colunas
+
+O campo **Número de colunas** permite escolher de **1 a 4** colunas. Inicialmente, elas são organizadas assim:
+
+| Quantidade | Colunas exibidas |
+| :--- | :--- |
+| **1** | Nome de usuário |
+| **2** | Nome de usuário e Valor |
+| **3** | Nome de usuário, Valor e Texto |
+| **4** | Nome de usuário, Valor, Texto e Última atualização |
+
+Abaixo desse campo, você encontra as opções para configurar cada coluna.
+
+<img src={NumeroDeColunas.src} alt="Demonstração do ajuste do número de colunas e das colunas correspondentes na janela do placar." style={{ width: "580px", maxWidth: "100%", height: "auto" }} />
+
+#### Nome e largura das colunas
+
+A primeira coluna sempre mostra o **nome de usuário** e não pode ser substituída por outro tipo. Por padrão, seu título é **Username**, mas você pode alterá-lo para um nome como **Jogador**. O novo título deve ter pelo menos **2 caracteres**.
+
+Você também pode ajustar a largura das colunas, escolhendo entre **Pequeno**, **Médio**, **Grande** e **Extra grande**. Isso ajuda a distribuir o espaço conforme o conteúdo que será exibido.
+
+![Demonstração da configuração das colunas e do ajuste de sua largura na janela do placar.](@assets/wf_xtra_var_leaderboard/04-nome-e-largura-das-colunas.gif)
+
+#### Tipos de coluna
+
+![Lista de tipos de coluna aberta com as opções Valor, Texto, Última atualização, Data de criação e Nível. Texto e Nível estão marcados com asterisco.](@assets/wf_xtra_var_leaderboard/08-tipos-de-coluna.png)
+
+As demais colunas podem ser configuradas com um dos seguintes tipos:
+
+| Tipo | O que mostra |
+| :--- | :--- |
+| **Valor** | O valor da variável associado ao usuário. |
+| **Texto*** | O texto associado ao valor da variável pelo Extra Variável: Conector de Texto. |
+| **Última atualização** | Há quanto tempo o registro foi atualizado, como **há 2 min**. |
+| **Data de criação** | Há quanto tempo o registro foi criado, como **há 15 min**. |
+| **Nível*** | O nível atual do jogador, calculado pelo Extra Variável: Sistema de Aumento de Nível. |
+
+Não é necessário escolher um tipo diferente para cada coluna. Você pode, por exemplo, manter **Nome de usuário** na primeira e utilizar **Última atualização** nas outras três.
+
+<Aside type="note" title="Colunas que precisam de outros Extras">
+O asterisco em **Texto** e **Nível** indica que essas colunas dependem de outro Extra de Variável na pilha. Para mostrar textos, utilize o [Conector de Texto](/referencia/variaveis/wf_xtra_var_text_connector/). Para mostrar níveis, utilize o [Sistema de Aumento de Nível](/referencia/variaveis/wf_xtra_var_lvlup_system/).
+</Aside>
+
+### Modo de múltiplas variáveis
+
+Quer utilizar o mesmo placar para consultar mais de uma variável? Coloque vários Wireds de variável permanente de usuário na mesma pilha do **Extra Variável: Placar**. Assim, os usuários poderão escolher qual variável consultar na janela do placar.
+
+Nesta seção, cada variável da pilha aparece ao lado de um campo de texto. Preencha esse campo com o nome que deseja mostrar no placar. Isso permite apresentar um nome mais fácil de ler sem alterar o nome definido no Wired de variável.
+
+O botão **Sugerir nomes** preenche esses campos com nomes baseados nas variáveis. Por exemplo, `placar_um` recebe a sugestão **Placar Um**.
+
+<AccessibleVideo
+  id="placar-modo-de-multiplas-variaveis"
+  src={ModoDeMultiplasVariaveis}
+  captionsSrc={ModoDeMultiplasVariaveisCaptionsUrl}
+  captionsContent={ModoDeMultiplasVariaveisCaptionsRaw}
+  descriptionsSrc={ModoDeMultiplasVariaveisDescriptionsUrl}
+  descriptionsContent={ModoDeMultiplasVariaveisDescriptionsRaw}
+  title="Configurar o modo de múltiplas variáveis do placar"
+/>
+
+<Aside type="note" title="Uma variável por vez">
+Mesmo com várias colunas, o placar mostra informações de **uma única variável por vez**. Por exemplo, as colunas Valor, Texto e Nível se referem à variável selecionada. Para consultar outra variável da pilha, utilize o menu suspenso no canto superior direito do placar. Não é possível mostrar os valores de duas variáveis diferentes lado a lado.
+</Aside>
+
+<Aside type="tip" title="Utilize variáveis Eco para separar os Extras">
+Se cada variável precisa de Extras com configurações próprias, como dois [Conectores de Texto](/referencia/variaveis/wf_xtra_var_text_connector/) diferentes, mantenha esses Extras nas pilhas das variáveis originais. Utilize o [Wired Variável: Eco](/referencia/variaveis/wf_var_echo/) para espelhar cada variável e coloque os Ecos na pilha do placar. Assim, você pode reunir as variáveis no mesmo placar sem que os Extras de uma interfiram nas demais.
+</Aside>
+
+### Filtro
+
+Marque **Ativar filtragem** para disponibilizar o campo **Variável de filtragem**. Nessa lista, escolha uma variável permanente de usuário. O placar mostrará apenas os jogadores que também possuem essa variável.
+
+Se quiser comparar também seu valor, marque **Comparar o valor da variável de filtragem**. Nesse caso, o jogador precisa possuir a variável de filtragem com um valor igual ao utilizado na comparação. Você pode digitar um número no campo ou clicar no ícone **Escolha uma variável** ao lado dele para selecionar uma destas variáveis internas do quarto:
+
+![Lista de variáveis internas disponíveis para comparação no filtro: @furni_count, @user_count, @wired_timer, @teams, @room_id, @group_id e @current_time.](@assets/wf_xtra_var_leaderboard/12-lista-de-variaveis-internas.png)
+
+#### Exemplo de filtragem
+
+Quer criar um placar diário, semanal ou mensal? Você pode guardar o período em que cada jogador pontuou e utilizar o filtro para mostrar apenas os registros do período atual. Vamos montar um exemplo de **placar diário**, em que cada clique em um mobi vale **1 ponto**.
+
+Para isso, prepare estas variáveis:
+
+| Variável | Configuração | Para que serve |
+| :--- | :--- | :--- |
+| `pontos` | Variável de usuário com **Tem valor** marcada e disponibilidade **Permanente**. | Guarda a pontuação que será exibida no placar. |
+| `dia` | Variável de usuário com **Tem valor** marcada e disponibilidade **Permanente**. | Guarda o dia em que o jogador recebeu sua pontuação. |
+| `tempo_atual` | [Variável Eco](/referencia/variaveis/wf_var_echo/) de `@current_time`, com o [Extra Variável: Utilitários de Tempo](/referencia/variaveis/wf_xtra_var_time_util/). | Disponibiliza o dia atual pela subvariável `tempo_atual.value.day`. |
+
+Coloque o **Extra Variável: Placar** na pilha de `pontos`. Em **Filtro**, marque **Ativar filtragem**, selecione `dia` e marque **Comparar o valor da variável de filtragem**. No valor de comparação, escolha `tempo_atual.value.day`.
+
+Assim, o placar exibe a pontuação de quem possui `dia` igual ao dia atual. O filtro apenas escolhe quais registros aparecem; a atualização dos pontos precisa ser feita pelas pilhas do sistema.
+
+##### Atualizar a pontuação
+
+A cada clique, confira duas situações: o jogador ainda não possui `pontos`, ou o valor de `dia` é diferente do dia atual?
+
+Se **pelo menos uma** dessas condições for verdadeira, atribua o dia atual a `dia` e defina `pontos` como **1**. Nos dois Efeitos **Dar Variável**, marque **Substituir variável existente** para que a pontuação anterior seja reiniciada e o dia seja atualizado.
+
+Se as duas condições forem falsas, o jogador já possui uma pontuação do dia atual. Nesse caso, acione a segunda pilha para somar **1** ao valor de `pontos`.
+
+##### PseudoWired
+
+**Primeira pilha: iniciar ou reiniciar a pontuação do dia**
+
+<PseudoWiredCodeBlock code={`
+QUANDO
+  - Habbo Clica no Mobi: selecione o mobi que dará pontos
+
+SE
+  - Valor Variável: dia
+    Escolha o Tipo: Diferente
+    Valor Referência: tempo_atual.value.day
+  - NÃO tem Variável: pontos
+
+COMO
+  - Pelo menos uma condição é verdadeira: Pelo menos uma
+
+ENTÃO
+  - Dar Variável: dia
+    Substituir variável existente: marcado
+    Valor inicial: tempo_atual.value.day
+  - Dar Variável: pontos
+    Substituir variável existente: marcado
+    Valor inicial: 1
+
+SENÃO
+  - Faz Pilhas: acione a segunda pilha
+`} />
+
+**Segunda pilha: acrescentar um ponto**
+
+<PseudoWiredCodeBlock code={`
+ENTÃO
+  - Mudar Valor Variável: pontos
+    Operação: Somar
+    Valor referência: 1
+`} />
+
+Nas condições e nos efeitos dessas pilhas, utilize como alvo o **usuário acionador**, que é o jogador que clicou no mobi. Configure o acionamento da segunda pilha para manter esse usuário como alvo.
+
+**Terceira pilha: guardar o dia da pontuação**
+
+* **Wired Variável: Usuário Variável**, com o nome `dia`, **Tem valor** marcada e disponibilidade **Permanente**.
+
+**Quarta pilha: guardar e exibir os pontos**
+
+* **Wired Variável: Usuário Variável**, com o nome `pontos`, **Tem valor** marcada e disponibilidade **Permanente**.
+* **Extra Variável: Placar**, com a filtragem ativada pela variável `dia` e a comparação de valor com `tempo_atual.value.day` marcada.
+
+**Quinta pilha: consultar o dia atual**
+
+* **Wired Variável: Eco**, com o nome `tempo_atual`, selecionando `@current_time`.
+* **Extra Variável: Utilitários de Tempo**, com **Escolha o tipo** definido como **Valor** e **Dia** selecionado em **Subvariáveis avançadas**. Essa configuração disponibiliza `tempo_atual.value.day`, utilizada nas comparações e na atualização da variável `dia`.
+
+Para adaptar a ideia a um placar semanal ou mensal, utilize a informação correspondente ao período tanto na variável guardada para o jogador quanto na comparação do filtro e na condição que reinicia a pontuação.
+
+<AccessibleVideo
+  id="placar-exemplo-de-filtragem"
+  src={ExemploDeFiltragem}
+  title="Exemplo de placar diário com filtro pelas variáveis pontos, dia e tempo_atual"
+  captionsSrc={ExemploDeFiltragemCaptionsUrl}
+  captionsContent={ExemploDeFiltragemCaptionsRaw}
+  descriptionsSrc={ExemploDeFiltragemDescriptionsUrl}
+  descriptionsContent={ExemploDeFiltragemDescriptionsRaw}
+/>
+
+### Localização do placar
+
+Arraste o placar pelo quarto para escolher onde ele será exibido. Se preferir, você pode ajustar sua posição manualmente pelos campos:
+
+* **Piso:** define a coordenada do piso associado ao placar.
+* **Deslocamento:** o primeiro campo ajusta a posição horizontal, e o segundo ajusta a posição vertical.
+
+Depois de organizar a posição e conferir as demais opções, salve as configurações para exibir o placar aos usuários do quarto.
+
+<AccessibleVideo
+  id="placar-localizacao"
+  src={LocalizacaoDoPlacar}
+  captionsSrc={LocalizacaoDoPlacarCaptionsUrl}
+  captionsContent={LocalizacaoDoPlacarCaptionsRaw}
+  descriptionsSrc={LocalizacaoDoPlacarDescriptionsUrl}
+  descriptionsContent={LocalizacaoDoPlacarDescriptionsRaw}
+  title="Ajustar a localização do placar no quarto"
+/>

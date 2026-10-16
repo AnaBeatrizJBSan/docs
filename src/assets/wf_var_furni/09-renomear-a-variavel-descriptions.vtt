@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.150
+No quarto do Habbo, a janela de configuração do Mobi variável está aberta. O campo “Nome da variável” mostra avaliacao. À esquerda, a aba Variáveis das Ferramentas do Criador exibe a visão geral dessa variável.
+
+00:00:01.150 --> 00:00:02.700
+O nome no campo é alterado para avaliacao_2. As opções “Tem valor” e “Permanente” continuam selecionadas, e o cursor vai ao botão “Pronto”.
+
+00:00:02.700 --> 00:00:04.250
+O botão “Pronto” é acionado e a configuração se fecha. Na visão geral, tanto a lista de variáveis quanto a propriedade “Nome” passam a mostrar avaliacao_2.
+
+00:00:04.250 --> 00:00:07.200
+A variável renomeada permanece selecionada na lista. O cursor passa à aba “Inspeção” das Ferramentas do Criador.
+
+00:00:07.200 --> 00:00:10.683
+Na aba Inspeção, a prévia mostra a cadeira amarela selecionada no quarto. A primeira linha da tabela de variáveis do móvel mostra avaliacao_2 com valor 5; a linha é selecionada.

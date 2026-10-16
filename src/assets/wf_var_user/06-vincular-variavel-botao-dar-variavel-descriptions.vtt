@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+Em um quarto do Habbo, dois personagens e um gato estão sobre o piso. O cursor seleciona o personagem à esquerda, abre o menu de contexto e escolhe a opção de inspecionar. A janela Ferramentas do Criador abre na aba Inspeção e mostra as variáveis desse personagem.
+
+00:00:03.200 --> 00:00:07.300
+Na inspeção do primeiro personagem, o cursor clica em Dar variável. No pequeno formulário, seleciona rating_wired_club, digita 1 no campo Valor e clica em Criar. A nova linha rating_wired_club aparece no topo da lista com valor 1.
+
+00:00:07.300 --> 00:00:10.100
+A janela se fecha. O cursor seleciona o personagem à direita e abre sua inspeção. A lista de variáveis indica o tipo Bot.
+
+00:00:10.100 --> 00:00:14.300
+O botão Dar variável abre novamente o formulário. O cursor escolhe rating_wired_club, informa 2 e clica em Criar. A variável aparece na lista do bot com valor 2.
+
+00:00:14.300 --> 00:00:17.000
+A inspeção do bot se fecha. O cursor seleciona o gato e abre sua inspeção. A prévia mostra o gato, e a lista exibe variáveis do mascote.
+
+00:00:17.000 --> 00:00:20.700
+O cursor clica em Dar variável, escolhe rating_wired_club, digita 3 e clica em Criar. A variável passa a aparecer no topo da lista do gato com valor 3.
+
+00:00:20.700 --> 00:00:22.800
+Na aba Variáveis, a visão geral mostra rating_wired_club selecionada. As propriedades exibem uma variável criada pelo usuário, com alvo Usuário e disponibilidade Permanente. O cursor clica no botão Destacar.
+
+00:00:22.800 --> 00:00:24.060
+Os dois personagens e o gato recebem contornos azulados. Balões acima deles mostram, respectivamente, os valores 1, 2 e 3.

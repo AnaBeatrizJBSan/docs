@@ -1,0 +1,14 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:03.250
+Barra de Status (Energia): ordem na pilha de FX = 1.
+Valores maiores colocam o FX mais abaixo.
+
+00:00:04.500 --> 00:00:06.350
+Barra de Status (Escudo): ordem na pilha de FX = 2.
+
+00:00:06.350 --> 00:00:07.450
+Barra de Status (Escudo): ordem na pilha de FX = 0.
+
+00:00:07.650 --> 00:00:08.600
+Escudo acima de Energia na pilha de FX.

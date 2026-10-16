@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.950
+No quarto do Habbo, a configuração de uma “Variável Global” é aberta. O nome partidas_jogadas é digitado; o valor atual aparece como 0 e a opção “Enquanto o quarto está ativo” está selecionada. A configuração é confirmada em “Pronto”.
+
+00:00:02.900 --> 00:00:05.450
+A janela do efeito wired “Mudar Valor Variável” é aberta. No seletor de variáveis globais, a variável partidas_jogadas é escolhida.
+
+00:00:05.450 --> 00:00:08.900
+No campo “Operação”, a opção “Somar” é selecionada. Em “Valor referência”, permanece marcada a opção “Definir valor”, e o número é alterado de 0 para 1. O efeito é salvo em “Pronto”.
+
+00:00:10.250 --> 00:00:12.950
+Abre-se o ativador wired “Repetir Efeito”. O campo “Definir tempo (segundos)” é alterado de 0,5 para 10, e a configuração é confirmada.
+
+00:00:13.750 --> 00:00:15.700
+Na aba “Inspeção” das Ferramentas do Criador, o ícone de globo está selecionado para mostrar as variáveis globais. A primeira linha da tabela exibe partidas_jogadas com valor 0.
+
+00:00:15.700 --> 00:00:18.850
+Com a tabela ainda aberta, a linha partidas_jogadas é selecionada. Seu valor muda de 0 para 1.
+
+00:00:18.850 --> 00:00:19.783
+O valor de partidas_jogadas aumenta novamente, de 1 para 2.

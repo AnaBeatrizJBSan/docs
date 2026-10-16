@@ -7,10 +7,10 @@ import {
 interface Props {
   id: string;
   src: string;
-  captionsSrc: string;
-  captionsContent: string;
-  descriptionsSrc: string;
-  descriptionsContent: string;
+  captionsSrc?: string;
+  captionsContent?: string;
+  descriptionsSrc?: string;
+  descriptionsContent?: string;
   title: string;
   poster?: string;
   preload?: "none" | "metadata" | "auto";
@@ -36,10 +36,8 @@ const {
   width = "100%"
 } = Astro.props;
 
-const captions: WebVttCue[] = parseWebVtt(captionsContent);
-const descriptions: WebVttCue[] = parseWebVtt(
-  descriptionsContent,
-);
+const captions: WebVttCue[] = captionsContent ? parseWebVtt(captionsContent) : [];
+const descriptions: WebVttCue[] = descriptionsContent ? parseWebVtt(descriptionsContent) : [];
 
 const accessibleTextId = `${id}-accessible-text`;
 ---
@@ -59,20 +57,24 @@ const accessibleTextId = `${id}-accessible-text`;
     aria-describedby={accessibleTextId}
     style={{ width }}
   >
-    <track
-      kind="captions"
-      src={captionsSrc}
-      srclang="pt-BR"
-      label="Português (Brasil)"
-    />
+    {captionsSrc && (
+      <track
+        kind="captions"
+        src={captionsSrc}
+        srclang="pt-BR"
+        label="Português (Brasil)"
+      />
+    )}
 
-    <track
-      kind="descriptions"
-      src={descriptionsSrc}
-      srclang="pt-BR"
-      label="Português (Brasil)"
-      default
-    />
+    {descriptionsSrc && (
+      <track
+        kind="descriptions"
+        src={descriptionsSrc}
+        srclang="pt-BR"
+        label="Português (Brasil)"
+        default
+      />
+    )}
 
     Seu navegador não oferece suporte à reprodução de vídeos.
   </video>

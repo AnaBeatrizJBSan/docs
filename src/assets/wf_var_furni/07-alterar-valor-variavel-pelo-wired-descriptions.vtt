@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.900
+No quarto do Habbo, uma cadeira amarela e uma mesa com um prato de comida ficam ao lado de uma pilha Wired. Na janela “Mobi Variável”, a pessoa digita “avaliacao”, marca “Tem valor”, mantém a disponibilidade enquanto o quarto está ativo e confirma.
+
+00:00:02.900 --> 00:00:06.900
+A pessoa abre o efeito Wired “Mudar Valor Variável”, escolhe o tipo de variável de mobi e seleciona “avaliacao” na lista.
+
+00:00:06.900 --> 00:00:09.500
+No menu “Operação”, seleciona “Subtrair”. Em “Valor referência”, mantém “Definir valor” e troca o zero por 1. O atraso do efeito continua em zero segundo.
+
+00:00:09.500 --> 00:00:13.100
+Na seção “Variável de destino”, a opção é “Use mobis escolhidos”. A pessoa clica na cadeira e no prato; ambos ficam realçados e o contador passa para 2 de 20. Confirma o efeito.
+
+00:00:13.800 --> 00:00:17.000
+Abre o ativador Wired “Repetir Efeito”, altera o tempo para 10 segundos e confirma.
+
+00:00:17.500 --> 00:00:19.500
+Abre “Ferramentas do Criador” na aba “Variáveis”. A variável “avaliacao” está selecionada, com alvo “Mobi”. A pessoa clica em “Destacar”.
+
+00:00:19.500 --> 00:00:25.400
+A cadeira e o prato ganham um brilho claro. Balões mostram o valor 4 acima da cadeira e 7 acima do prato enquanto a janela de variáveis permanece aberta.
+
+00:00:25.400 --> 00:00:27.930
+Os balões mudam para 3 na cadeira e 6 no prato, uma unidade a menos em cada mobi.

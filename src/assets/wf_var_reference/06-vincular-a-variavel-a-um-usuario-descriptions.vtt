@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.500
+Em um quarto do Habbo, há uma pilha de três mobis Wired ao lado de um bot. A configuração do efeito da pilha é aberta.
+
+00:00:00.500 --> 00:00:04.500
+Na janela EFEITO WIRED "Dar Variável", a variável "checkpoint" é escolhida. "Substituir variável existente" permanece desmarcada, o valor inicial é 0 e o atraso é 0 segundos. Em "Variável de destino", a opção muda de "Use o usuário acionador" para "Usar usuários do seletor". A configuração é confirmada em "Pronto".
+
+00:00:04.500 --> 00:00:08.500
+Abre-se o SELETOR WIRED "Habbos por Tipo". Em "Tipo de Usuário", a seleção muda de "Habbo" para "Bot". As opções de filtrar e inverter permanecem desmarcadas, e a configuração é confirmada.
+
+00:00:08.500 --> 00:00:12.200
+Abre-se o ATIVADOR WIRED "Habbo Clica no Mobi". O mobi no topo da pilha é selecionado como alvo do clique; o contador passa de 0/20 para 1/20. A configuração é confirmada.
+
+00:00:12.200 --> 00:00:14.750
+As janelas se fecham. O bot é selecionado no quarto e as Ferramentas do Criador abre na aba Inspeção.
+
+00:00:14.750 --> 00:00:17.500
+A prévia mostra o bot, e sua lista de variáveis contém "checkpoint" com valor 0. A linha é destacada e o botão "Remover variável" fica disponível.
+
+00:00:17.500 --> 00:00:18.750
+"Remover variável" é acionado. A linha "checkpoint" desaparece da lista do bot.
+
+00:00:18.750 --> 00:00:21.650
+O botão "Dar variável" abre um pequeno formulário. A variável "checkpoint" é selecionada, o campo Valor muda de 0 para 1 e o botão "Criar" é acionado.
+
+00:00:21.650 --> 00:00:22.667
+O formulário se fecha. A lista do bot volta a exibir "checkpoint", agora com valor 1.

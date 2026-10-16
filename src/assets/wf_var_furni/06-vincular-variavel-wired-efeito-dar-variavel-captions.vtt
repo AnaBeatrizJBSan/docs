@@ -1,0 +1,30 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.100
+WIRED VARIÁVEL: Mobi Variável.
+
+00:00:02.100 --> 00:00:05.900
+Nome: avaliacao. Tem valor.
+Disponibilidade: Enquanto o quarto está ativo.
+
+00:00:09.000 --> 00:00:13.200
+EFEITO WIRED: Dar Variável.
+Variável: avaliacao.
+
+00:00:13.200 --> 00:00:16.000
+Valor inicial: 5. Atraso: 0 segundos.
+
+00:00:16.000 --> 00:00:22.600
+Fonte do Mobi e variável de destino:
+Use mobis escolhidos (2/20).
+
+00:00:23.700 --> 00:00:25.300
+ATIVADOR WIRED: Repetir Efeito.
+Tempo: 10 segundos.
+
+00:00:26.600 --> 00:00:29.500
+Variáveis: avaliacao. Alvo: Mobi.
+Tem valor: Sim.
+
+00:00:29.500 --> 00:00:31.430
+Destacar: 5 na cadeira e 5 na mesa.

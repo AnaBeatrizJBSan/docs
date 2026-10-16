@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.450
+O editor do mob Wired “EXTRA VARIÁVEL: Placar” está aberto à esquerda. À direita, a prévia escura do placar mostra “Wired Club - Pontuação: Pontuacao Um”, colunas “Jogador” e “Valor” e “Nenhum registro”. Em “Localização do placar”, os campos começam em Piso 5 - 17 e Deslocamento 2 - -11.
+
+00:00:01.450 --> 00:00:03.450
+O placar é arrastado pelo quarto para cima e um pouco à esquerda. Os dois pares de coordenadas mudam enquanto ele se move e se estabilizam em Piso 2 - 14 e Deslocamento 0 - -3.
+
+00:00:03.450 --> 00:00:05.300
+O botão “Pronto” é acionado. O editor fecha e o placar permanece na nova posição sobre o canto superior do quarto.
+
+00:00:05.300 --> 00:00:08.450
+O editor do mesmo placar é aberto novamente. Na seção “Localização do placar”, permanecem os valores Piso 2 - 14 e Deslocamento 0 - -3.
+
+00:00:08.450 --> 00:00:11.650
+O primeiro campo “Piso” muda de 2 para 3. A prévia do placar se desloca para a direita; o segundo campo continua em 14.
+
+00:00:11.650 --> 00:00:13.650
+O segundo campo “Piso” muda de 14 para 15. O placar desce um pouco, acompanhando a alteração da posição no piso.
+
+00:00:13.650 --> 00:00:16.450
+O primeiro campo “Deslocamento” passa de 0 para 4 e depois para 10. A prévia se move mais para a direita, enquanto Piso permanece 3 - 15.
+
+00:00:16.450 --> 00:00:18.900
+O segundo campo “Deslocamento”, antes em -3, é editado. Durante a digitação, o campo fica vermelho e aparece a mensagem temporária “Número inválido”; a prévia ainda está na posição anterior.
+
+00:00:18.900 --> 00:00:20.010
+O valor digitado se torna -90. Com Piso 3 - 15 e Deslocamento 10 - -90, a prévia do placar salta para baixo. O editor permanece aberto quando o vídeo termina.

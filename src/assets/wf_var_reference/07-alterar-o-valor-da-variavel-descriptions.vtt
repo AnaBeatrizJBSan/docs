@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.400
+Em um quarto do Habbo, há uma pilha de mobis Wired à esquerda de um bot. Na janela do efeito “Dar Variável”, a variável checkpoint é selecionada, com valor inicial 0. O destino muda de “Use o usuário acionador” para “Usar usuários do seletor”, e a configuração é confirmada.
+
+00:00:03.400 --> 00:00:09.400
+Abre-se o efeito “Mudar Valor Variável” na pilha. A variável checkpoint é selecionada. No menu “Operação”, a opção “Somar” substitui “Atribuir”; o “Valor referência” passa a 1. O destino é alterado para os usuários do seletor, e o efeito é salvo.
+
+00:00:10.400 --> 00:00:11.900
+No seletor “Habbos por Tipo”, a opção “Bot” é marcada entre os tipos de usuário, e a janela é confirmada. O bot permanece ao lado da pilha.
+
+00:00:13.300 --> 00:00:15.600
+No ativador “Habbo Clica no Mobi”, um mobi da própria pilha é selecionado. O contador de mobis muda de 0/20 para 1/20. A configuração é confirmada.
+
+00:00:17.300 --> 00:00:19.100
+Um menu junto ao bot oferece “Inspect”. A janela das Ferramentas do Criador abre na aba “Inspeção” com o bot selecionado. Na lista de variáveis, checkpoint aparece primeiro com valor 0 e em seguida muda para 1.
+
+00:00:19.100 --> 00:00:21.800
+A janela de inspeção continua aberta, mostrando checkpoint com valor 1. Um mobi Wired da pilha é novamente destacado enquanto o bot segue selecionado.
+
+00:00:21.800 --> 00:00:22.950
+Na mesma lista de inspeção do bot, o valor de checkpoint aumenta de 1 para 2.

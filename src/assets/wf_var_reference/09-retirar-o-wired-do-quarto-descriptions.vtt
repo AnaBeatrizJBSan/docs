@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+Em um quarto branco com uma mesa, um avatar está sentado e outro está de pé perto de um mobi Wired azul. Na configuração de “Usuário Variável”, o nome commits é digitado. A opção “Tem valor” é marcada e a disponibilidade é alterada para “Permanente, compartilhado entre quartos”. A janela é confirmada.
+
+00:00:03.200 --> 00:00:08.900
+Um Wired de exibição de números é colocado sobre o primeiro mobi. O número 114 aparece em verde sobre o avatar em pé. Na janela “VARIÁVEL FX”, o estilo muda de “Freeze” para “Quadradão”, e a cor muda de “Verde” para “Branco”. A visualização de exemplo na janela mostra 50; após confirmar, o 114 sobre o avatar fica branco.
+
+00:00:08.900 --> 00:00:12.000
+A cena muda para outro quarto, com piso laranja, um avatar e um Wired de base rosa. Na configuração “De outro quarto”, é escolhido o quarto “Docs Wired Club”. A variável de referência commits é selecionada, com “Somente leitura” marcada, e a configuração é salva.
+
+00:00:12.000 --> 00:00:19.600
+Um Wired de exibição de números é colocado sobre a referência rosa. O número 114 surge em verde sobre o avatar. A janela da VARIÁVEL FX é aberta; o estilo passa a “Quadradão” e a cor a “Branco”. Depois da confirmação, o número 114 aparece branco no quarto laranja.
+
+00:00:20.800 --> 00:00:23.900
+As Ferramentas do Criador abre na aba “Variáveis”, com a visão “Visão Geral das Variáveis”. A variável commits é selecionada na lista. Suas propriedades mostram alvo “Usuário”, disponibilidade “Referência”, valor existente e ausência de permissão para escrever ou criar e excluir pela referência.
+
+00:00:23.900 --> 00:00:25.500
+O Wired de exibição de números, no topo da pilha do quarto laranja, é retirado. Fica apenas o Wired rosa de referência. Na janela “Visão Geral das Variáveis”, commits continua selecionada e listada.
+
+00:00:25.500 --> 00:00:27.500
+A seleção muda brevemente para checkpoint, outra variável da lista. A janela permanece aberta, enquanto o quarto laranja continua com somente o Wired de referência.
+
+00:00:27.500 --> 00:00:30.450
+A cena volta ao quarto branco. O Wired azul e a exibição de números permanecem juntos; o valor 114 continua visível em branco sobre o avatar em pé.

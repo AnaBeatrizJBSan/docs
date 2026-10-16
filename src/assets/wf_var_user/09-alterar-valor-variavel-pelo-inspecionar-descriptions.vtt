@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.000
+No quarto do Habbo, a janela das Ferramentas do Criador está aberta na aba Inspeção. O gato ao lado de sua cama é selecionado. Após uma breve atualização, a janela passa a mostrar a prévia do mascote e sua lista de variáveis.
+
+00:00:02.000 --> 00:00:03.500
+No topo da lista de variáveis do gato, rating_wired_club aparece com valor 30. O cursor se aproxima da célula desse valor.
+
+00:00:03.500 --> 00:00:06.200
+O valor 30 é selecionado e substituído por 32 diretamente na linha rating_wired_club. Ao sair da edição, a lista mostra o novo valor 32.
+
+00:00:06.200 --> 00:00:09.130
+O gato continua selecionado na inspeção, e rating_wired_club permanece em 32. Um menu de contexto do mascote aparece no quarto, sem alterar o valor exibido.

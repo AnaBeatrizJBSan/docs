@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.700
+À esquerda, a janela de configuração do EXTRA VARIÁVEL “Placar” mostra o título “Wired Club - Pontuação” e a seção “Modo de múltiplas variáveis”. Duas variáveis empilhadas aparecem com nomes para exibição: pontuacao_um como “Pontuação Um” e pontuacao_dois como “Pontuação Dois”. À direita, a prévia do placar mostra “Pontuação Um”, com AnaBeatrizJBSan e valor 1.
+
+00:00:03.700 --> 00:00:05.700
+O nome de exibição da primeira variável é editado para “pontuacao1”. Enquanto as letras são digitadas, o título da prévia do placar muda junto; a linha da jogadora permanece com valor 1.
+
+00:00:05.700 --> 00:00:08.500
+O campo da segunda variável, pontuacao_dois, é editado de “Pontuação Dois” para “pontuacao2”. A prévia continua mostrando a primeira variável, “pontuacao1”.
+
+00:00:08.500 --> 00:00:11.900
+O botão “Sugerir nomes” é acionado, e os dois campos voltam a mostrar “Pontuação Um” e “Pontuação Dois”. O título da prévia retorna a “Pontuação Um”. A configuração é confirmada em “Pronto”, fechando a janela da esquerda.
+
+00:00:12.000 --> 00:00:14.500
+Só o placar permanece aberto no quarto, com uma pilha de Wireds à direita. No canto superior direito do placar, o menu de variáveis é aberto; há duas opções, “Pontuação Um” marcada e “Pontuação Dois”.
+
+00:00:14.500 --> 00:00:16.400
+Ao selecionar “Pontuação Dois”, o placar mostra “Carregando...” por um instante e depois exibe “Nenhum registro” no lugar da linha de pontuação.
+
+00:00:16.400 --> 00:00:17.799
+O menu é aberto novamente e “Pontuação Um” é selecionada. A linha de AnaBeatrizJBSan, com valor 1, reaparece no placar.

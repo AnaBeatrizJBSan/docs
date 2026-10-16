@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.200
+No quarto do Habbo, uma janela “Usuário Variável” está aberta ao lado de dois avatares e de uma pilha de mobis Wired. O nome rating_wired_club é digitado. A opção “Tem valor” é marcada, a disponibilidade permanece em “Enquanto o usuário está no quarto” e o botão “Pronto” salva a variável.
+
+00:00:03.900 --> 00:00:08.300
+A janela do efeito “Dar Variável” se abre. No seletor de variáveis de usuário, rating_wired_club é escolhida. O valor inicial exibido é 0, e a configuração “Variável de destino” muda de “Use o usuário acionador” para “Usar usuários do seletor”. A janela é confirmada em “Pronto”.
+
+00:00:09.300 --> 00:00:17.300
+Abre-se o seletor “Habbos na Área”. O botão “Selecione a área” ativa a marcação no chão. O cursor arrasta para ampliar o retângulo iluminado até incluir os dois avatares e o mascote; a área permanece destacada enquanto o seletor é confirmado.
+
+00:00:17.800 --> 00:00:20.700
+A janela do ativador “Repetir Efeito” aparece. O campo de tempo é ajustado para 10 segundos e o botão “Pronto” é acionado.
+
+00:00:20.900 --> 00:00:24.066
+Na aba “Variáveis” das Ferramentas do Criador, rating_wired_club está selecionada na lista. O painel de propriedades indica uma variável criada pelo usuário, com alvo “Usuário” e valor. Ao acionar “Destacar”, os dois avatares recebem um contorno azul claro e balões com o número 0; o gato também fica realçado.

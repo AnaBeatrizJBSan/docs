@@ -10,6 +10,7 @@
     "generate-pwa-assets": "node scripts/generate-pwa-icons.mjs",
     "check:seo": "tsc -p plugins/starlight-seo/tsconfig.json",
     "test:seo": "node --experimental-strip-types --test plugins/starlight-seo/test/config.test.ts plugins/starlight-seo/test/head.test.ts plugins/starlight-seo/test/thumbnail-cache.test.ts",
+    "test:watermark": "node --experimental-strip-types --test scripts/watermark.test.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/",
@@ -22,8 +23,10 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.5",
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
     "@fontsource/noto-sans": "^5.2.8",
-    "astro": "^7.3.5",
+    "astro": "^7.3.8",
     "astro-contributors": "^0.9.0",
     "astro-og-canvas": "^0.13.0",
     "sharp": "^0.35.5",
@@ -34,5 +37,8 @@
     "starlight-seo": "file:./plugins/starlight-seo",
     "starlight-showcases": "^0.3.2",
     "starlight-theme-wiredclub": "file:./plugins/starlight-theme-wiredclub"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
   }
 }

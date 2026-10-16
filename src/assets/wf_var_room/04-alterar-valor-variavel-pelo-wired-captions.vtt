@@ -1,0 +1,23 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:01.900
+Variável Global: partidas_jogadas. Valor atual: 0.
+Disponibilidade: Enquanto o quarto está ativo.
+
+00:00:03.000 --> 00:00:05.800
+Mudar Valor Variável: partidas_jogadas.
+
+00:00:06.000 --> 00:00:08.900
+Operação: Somar. Definir valor: 1.
+
+00:00:10.300 --> 00:00:12.900
+Repetir Efeito. Definir tempo: 10 segundos.
+
+00:00:13.900 --> 00:00:15.700
+Inspeção: partidas_jogadas = 0.
+
+00:00:15.700 --> 00:00:18.850
+Inspeção: partidas_jogadas = 1.
+
+00:00:18.850 --> 00:00:19.783
+Inspeção: partidas_jogadas = 2.

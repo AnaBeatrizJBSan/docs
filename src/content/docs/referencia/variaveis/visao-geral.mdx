@@ -6,6 +6,7 @@ sidebar:
   order: 0
 ---
 
+import { Aside } from '@astrojs/starlight/components';
 import WiredGrid from "@components/WiredGrid.astro";
 
 ## O que é uma Variável?
@@ -15,6 +16,30 @@ As Variáveis são componentes usados para armazenar informações que podem ser
 Elas permitem criar mecânicas mais avançadas, como sistemas de pontos, vidas, progresso, contadores, estados de mobis, informações de usuários e dados compartilhados no quarto. Dependendo do tipo, uma variável pode pertencer a um usuário, a um mobi, ao quarto inteiro ou até à execução atual de uma pilha Wired.
 
 Elas não precisam ficar empilhadas na pilha principal para funcionar. O papel delas é servir como base de informação para o sistema wired, permitindo que outros Wireds consultem, filtrem, transformem e reutilizem valores ao longo do sistema.
+
+## Valores que a variável pode armazenar
+
+Uma variável pode guardar um número para representar uma informação do seu sistema. Por exemplo, uma variável chamada `pontuacao` pode guardar **10** para indicar quantos pontos um jogador tem.
+
+Esses valores são **números inteiros**, ou seja, sem casas decimais. Eles podem ser positivos, negativos ou zero, como **10**, **-5** e **0**. A variável não armazena texto diretamente.
+
+Também é possível utilizar uma variável apenas para marcar uma característica, sem guardar um número. Por exemplo, `participando_do_jogo` pode ser vinculada aos jogadores que estão em uma partida: ter essa variável indica que o jogador participa; não ter indica que ele não participa.
+
+Ao criar uma variável, você pode encontrar a caixa **Tem valor** na janela de configuração do Wired. Marque-a para guardar um número ou deixe-a desmarcada para utilizar apenas a presença da variável como informação. Os limites abaixo se aplicam aos valores numéricos.
+
+A variável pode armazenar valores de **-9.223.372.036.854.775.808** até **9.223.372.036.854.775.807**. Porém, o cliente do jogo nem sempre consegue mostrar os números dentro desse intervalo.
+
+Você pode consultar os valores pela aba [Inspeção das Ferramentas do Criador](/referencia/ferramentas-do-criador/inspecao/), que mostra as variáveis associadas ao usuário, ao mobi ou ao quarto selecionado. Na versão **Clássica (Flash)** do Habbo, números muito grandes aparecem nessa lista como **Oculto** (*Hidden*, em inglês), em vermelho. Ao passar o mouse sobre esse texto, aparece a mensagem **“O cliente clássico não pode inspecionar este valor, é muito grande.”** O valor continua armazenado na variável, mesmo sem aparecer na tela.
+
+Por exemplo, se a variável possui **2.147.483.647** e você utilizar o [Efeito Wired: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) para adicionar **1**, o valor armazenado será **2.147.483.648**. Ele continua positivo, embora não possa ser mostrado na inspeção do cliente Clássico.
+
+![Tabela de variáveis com o valor de wired_club substituído por Hidden em vermelho e uma mensagem em inglês informando que o cliente clássico não pode inspecionar o valor porque ele é muito grande.](@assets/variaveis/03-texto-numero-muito-grande.png)
+
+<Aside type="note" title="Quando o valor passa a ser negativo?">
+A variável armazena números inteiros de **64 bits com sinal**, enquanto a inspeção do cliente Clássico possui uma limitação de **32 bits**. A quantidade de bits determina o intervalo de números que pode ser representado, e **com sinal** significa que esse intervalo inclui números negativos. Por isso, um número pode deixar de aparecer na inspeção antes de atingir o limite da variável.
+
+Se a variável já possui **9.223.372.036.854.775.807** e você adiciona **1**, o resultado volta ao menor valor do intervalo: **-9.223.372.036.854.775.808**. É nesse ponto que a soma faz o valor armazenado passar de positivo para negativo.
+</Aside>
 
 ## Relação com Extras de Variável
 

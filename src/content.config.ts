@@ -30,8 +30,13 @@ const FurniInfoboxBaseSchema = BasicInfoboxSchema.extend({
 		.enum(["No catálogo", "No Clube do Arquiteto", "No catálogo e CA", "Eventos oficiais", "Apenas staff"])
 		.optional()
 		.describe("Onde o mobi pode ser obtido"),
-	price: z.number().optional().describe("Preço em créditos no catálogo"),
-	// Se houver a necessidade de incluir outros tipos de moedas como diamantes ou duckets, podemos adicionar campos adicionais aqui ou criar um campo mais genérico para múltiplas moedas.
+	price: z.union([
+		z.number(),
+		z.object({
+			credits: z.number().nonnegative().describe("Quantidade de créditos"),
+			diamonds: z.number().nonnegative().optional().describe("Quantidade adicional de diamantes"),
+		}),
+	]).optional().describe("Preço em créditos, ou objeto com credits e diamonds para preços com diamantes"),
 	release_date: z
 		.date()
 		.optional()
@@ -152,7 +157,7 @@ export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 
 const CompleteInfoboxSchema = z.union([
 	WiredInfoboxSchema,
-	BasicInfoboxSchema,
+	BasicInfoboxSchema.strict(),
 ])
 	.describe("Esquema completo para infoboxes, incluindo campos básicos e específicos para Wired");
 
