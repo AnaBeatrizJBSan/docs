@@ -1,0 +1,43 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.300
+A gravação mostra um quarto do Habbo à esquerda e um painel de controle do Wired Club no navegador à direita. No quarto, uma personagem está perto de uma mesa ocupada por outro avatar; blocos coloridos formam uma decoração na parede. No painel, o botão de sincronização é acionado.
+
+00:00:03.300 --> 00:00:07.200
+A seção de sincronização indica que a execução está em andamento. A página é rolada para baixo até a área de observação de vínculos e os registros de comandos.
+
+00:00:07.200 --> 00:00:12.500
+O bloco branco com número no quarto muda de 1 para 2. Uma seta amarela destaca o bloco enquanto a área de registros permanece visível ao lado; abaixo dele aparecem linhas novas da sincronização.
+
+00:00:12.500 --> 00:00:15.500
+A vista do quarto se aproxima da mesa. No painel, o botão “Start watcher” é selecionado e o estado da observação passa a ativo; as opções de parar e reiniciar ficam disponíveis.
+
+00:00:15.500 --> 00:00:20.500
+A personagem aguarda diante da mesa. A área “Command logs” começa a receber linhas sobre a busca por usuários e pedidos de vínculo do GitHub.
+
+00:00:20.500 --> 00:00:26.200
+Os registros crescem à direita enquanto a personagem anda pelo quarto. O painel de observação continua ativo e mostra consultas periódicas; a mesa e o avatar sentado permanecem ao fundo.
+
+00:00:26.200 --> 00:00:32.000
+A personagem se aproxima da cadeira e se senta diante da mesa. Uma resposta do bot aparece no quarto, indicando que já existe um vínculo do GitHub. O painel à direita continua registrando as verificações.
+
+00:00:32.000 --> 00:00:39.500
+A personagem envia seu nome de usuário do GitHub pelo chat. O bot pede que aguarde enquanto a solicitação é processada; novas linhas de consulta e atualização surgem nos registros do painel.
+
+00:00:39.500 --> 00:00:46.500
+O bot confirma o vínculo da conta. A personagem se levanta e fica ao lado da mesa; as linhas recentes do painel indicam que um usuário do Habbo foi associado a uma conta do GitHub.
+
+00:00:46.500 --> 00:00:50.000
+Abre-se a janela “Wired Creator Tools” na aba “Inspection”. A prévia mostra a personagem, e a lista de variáveis destaca “github_id” e “linked_gh”; uma seta aponta para os valores salvos.
+
+00:00:50.000 --> 00:00:55.500
+A janela Wired é fechada. Ao clicar na própria personagem, aparecem uma mensagem no quarto e uma notificação com as estatísticas da conta: 24 PRs mesclados, nenhuma revisão e 114 commits.
+
+00:00:55.500 --> 00:01:02.500
+Um terceiro avatar aparece sentado à mesa. A personagem clica no bloco branco com número 2; uma janela de informação do mobi se abre e uma mensagem próxima ao bloco relaciona o número aos PRs abertos para revisão.
+
+00:01:02.500 --> 00:01:10.500
+A personagem caminha até uma estrela azul suspensa perto da parede de mobis Wired e a seleciona. Uma notificação verde informa que o repositório tem duas estrelas no GitHub; a janela de informação do mobi estrela também aparece brevemente.
+
+00:01:10.500 --> 00:01:16.899
+A personagem retorna à mesa e seleciona outro avatar. Uma notificação azul mostra as estatísticas dessa pessoa: nenhum PR mesclado, 39 revisões e 180 commits. O painel do navegador continua exibindo os registros da sincronização.
