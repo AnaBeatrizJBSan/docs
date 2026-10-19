@@ -44,6 +44,18 @@ const palette: Record<
 	WiredInfoboxType,
 	{ accent: string; bg: string; border: string; label: string }
 > = {
+	Utilitário: {
+		accent: "#8a8a8a",
+		bg: "#141414",
+		border: "#2e2e2e",
+		label: "Utilitário",
+	},
+	Configurador: {
+		accent: "#8a8a8a",
+		bg: "#141414",
+		border: "#2e2e2e",
+		label: "Configurador",
+	},
 	Ativador: {
 		accent: "#b88260",
 		bg: "#452917",
@@ -252,45 +264,45 @@ if (wired && "classname" in wired && wired.classname) {
 
 	<!-- ══ DADOS GERAIS ═══════════════════════════════════════════════════════ -->
 	{
-		(wired || infobox.price !== undefined || infobox.release_date) && (
+		wired && (
 			<section class="ib-section">
 				<h3 class="ib-section-title">Dados gerais</h3>
 				<dl class="ib-dl">
-					{"classname" in infobox && infobox.classname && (
+					{"classname" in wired && wired.classname && (
 						<div class="ib-row">
 							<dt>Codenome</dt>
 							<dd>
-								<code class="ib-code">{infobox.classname}</code>
+								<code class="ib-code">{wired.classname}</code>
 							</dd>
 						</div>
 					)}
 
-					{"availability" in infobox && infobox.availability && (
+					{"availability" in wired && wired.availability && (
 						<div class="ib-row">
 							<dt>Disponibilidade</dt>
-							<dd>{infobox.availability}</dd>
+							<dd>{wired.availability}</dd>
 						</div>
 					)}
 
-					{infobox.price !== undefined && (
+					{"price" in wired && wired.price !== undefined && (
 						<div class="ib-row">
 							<dt>Preço</dt>
 							<dd>
-								{typeof infobox.price === "number" ? `${infobox.price}c` : (
+								{typeof wired.price === "number" ? `${wired.price}c` : (
 									<>
-										{infobox.price.credits}c
-										{infobox.price.diamonds !== undefined && infobox.price.diamonds > 0 &&
-											` + ${infobox.price.diamonds} ${infobox.price.diamonds === 1 ? "diamante" : "diamantes"}`}
+										{wired.price.credits}c
+										{wired.price.diamonds !== undefined && wired.price.diamonds > 0 &&
+											` + ${wired.price.diamonds} ${wired.price.diamonds === 1 ? "diamante" : "diamantes"}`}
 									</>
 								)}
 							</dd>
 						</div>
 					)}
 
-					{infobox.release_date && (
+					{"release_date" in wired && wired.release_date && (
 						<div class="ib-row">
 							<dt>Lançamento</dt>
-							<dd>{formatDate(infobox.release_date)}</dd>
+							<dd>{formatDate(wired.release_date)}</dd>
 						</div>
 					)}
 				</dl>

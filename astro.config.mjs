@@ -143,7 +143,6 @@ export default defineConfig({
             {
               label: "Outros",
               items: [
-                { slug: "referencia/outros/wf_label" },
                 {
                   label: "Utilitários",
                   items: [{ autogenerate: { directory: "referencia/outros/utilitarios" } }],

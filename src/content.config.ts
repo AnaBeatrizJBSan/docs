@@ -11,17 +11,6 @@ const BasicInfoboxSchema = z.object({
 		z.string(),
 		z.array(z.string()),
 	]).optional().describe("URL ou caminho da imagem a ser exibida na infobox, se aplicável"),
-	price: z.union([
-		z.number(),
-		z.object({
-			credits: z.number().nonnegative().describe("Quantidade de créditos"),
-			diamonds: z.number().nonnegative().optional().describe("Quantidade adicional de diamantes"),
-		}),
-	]).optional().describe("Preço em créditos, ou objeto com credits e diamonds para preços com diamantes"),
-	release_date: z
-		.date()
-		.optional()
-		.describe("Data de lançamento, com o dia sendo ignorado na exibição"),
 })
 
 const FurniInfoboxBaseSchema = BasicInfoboxSchema.extend({
@@ -41,6 +30,17 @@ const FurniInfoboxBaseSchema = BasicInfoboxSchema.extend({
 		.enum(["No catálogo", "No Clube do Arquiteto", "No catálogo e CA", "Eventos oficiais", "Apenas staff"])
 		.optional()
 		.describe("Onde o mobi pode ser obtido"),
+	price: z.union([
+		z.number(),
+		z.object({
+			credits: z.number().nonnegative().describe("Quantidade de créditos"),
+			diamonds: z.number().nonnegative().optional().describe("Quantidade adicional de diamantes"),
+		}),
+	]).optional().describe("Preço em créditos, ou objeto com credits e diamonds para preços com diamantes"),
+	release_date: z
+		.date()
+		.optional()
+		.describe("Data de lançamento, com o dia sendo ignorado na exibição"),
 });
 
 const WiredInfoboxBaseSchema = FurniInfoboxBaseSchema.extend({
@@ -141,6 +141,14 @@ const StorageInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Baú").describe("Tipo do Wired: Baú"),
 });
 
+const UtilityInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Utilitário").describe("Tipo do Wired: Utilitário"),
+});
+
+const ConfiguratorInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Configurador").describe("Tipo do Wired: Configurador"),
+});
+
 export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	TriggerInfoboxBaseSchema,
 	EffectInfoboxBaseSchema,
@@ -153,6 +161,8 @@ export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	LeaderboardInfoboxBaseSchema,
 	ContractInfoboxBaseSchema,
 	StorageInfoboxBaseSchema,
+	UtilityInfoboxBaseSchema,
+	ConfiguratorInfoboxBaseSchema,
 ]).describe("Esquema para infoboxes de Wired, com campos específicos para cada tipo");
 
 const CompleteInfoboxSchema = z.union([
