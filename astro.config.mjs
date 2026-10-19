@@ -144,8 +144,11 @@ export default defineConfig({
               label: "Outros",
               items: [
                 { slug: "referencia/outros/wf_label" },
-                { slug: "referencia/outros/wf_link" },
-                { slug: "referencia/outros/wf_xtra_link_speaker" },
+                {
+                  label: "Utilitários",
+                  items: [{ autogenerate: { directory: "referencia/outros/utilitarios" } }],
+                  collapsed: true,
+                },
                 {
                   label: "Configuradores",
                   items: [{ autogenerate: { directory: "referencia/outros/configuradores" } }],
