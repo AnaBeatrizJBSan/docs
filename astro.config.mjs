@@ -142,7 +142,28 @@ export default defineConfig({
             },
             {
               label: "Outros",
-              items: [{ autogenerate: { directory: "referencia/outros" } }],
+              items: [
+                {
+                  label: "Baús",
+                  items: [{ autogenerate: { directory: "referencia/outros/baus" } }],
+                  collapsed: true,
+                },
+                {
+                  label: "Tabelas de Classificação",
+                  items: [{ autogenerate: { directory: "referencia/outros/tabelas-de-classificacao" } }],
+                  collapsed: true,
+                },
+                {
+                  label: "Utilitários",
+                  items: [{ autogenerate: { directory: "referencia/outros/utilitarios" } }],
+                  collapsed: true,
+                },
+                {
+                  label: "Configuradores",
+                  items: [{ autogenerate: { directory: "referencia/outros/configuradores" } }],
+                  collapsed: true,
+                },
+              ],
               collapsed: true,
             },
             {
