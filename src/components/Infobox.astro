@@ -252,45 +252,45 @@ if (wired && "classname" in wired && wired.classname) {
 
 	<!-- ══ DADOS GERAIS ═══════════════════════════════════════════════════════ -->
 	{
-		wired && (
+		(wired || infobox.price !== undefined || infobox.release_date) && (
 			<section class="ib-section">
 				<h3 class="ib-section-title">Dados gerais</h3>
 				<dl class="ib-dl">
-					{"classname" in wired && wired.classname && (
+					{"classname" in infobox && infobox.classname && (
 						<div class="ib-row">
 							<dt>Codenome</dt>
 							<dd>
-								<code class="ib-code">{wired.classname}</code>
+								<code class="ib-code">{infobox.classname}</code>
 							</dd>
 						</div>
 					)}
 
-					{"availability" in wired && wired.availability && (
+					{"availability" in infobox && infobox.availability && (
 						<div class="ib-row">
 							<dt>Disponibilidade</dt>
-							<dd>{wired.availability}</dd>
+							<dd>{infobox.availability}</dd>
 						</div>
 					)}
 
-					{"price" in wired && wired.price !== undefined && (
+					{infobox.price !== undefined && (
 						<div class="ib-row">
 							<dt>Preço</dt>
 							<dd>
-								{typeof wired.price === "number" ? `${wired.price}c` : (
+								{typeof infobox.price === "number" ? `${infobox.price}c` : (
 									<>
-										{wired.price.credits}c
-										{wired.price.diamonds !== undefined && wired.price.diamonds > 0 &&
-											` + ${wired.price.diamonds} ${wired.price.diamonds === 1 ? "diamante" : "diamantes"}`}
+										{infobox.price.credits}c
+										{infobox.price.diamonds !== undefined && infobox.price.diamonds > 0 &&
+											` + ${infobox.price.diamonds} ${infobox.price.diamonds === 1 ? "diamante" : "diamantes"}`}
 									</>
 								)}
 							</dd>
 						</div>
 					)}
 
-					{"release_date" in wired && wired.release_date && (
+					{infobox.release_date && (
 						<div class="ib-row">
 							<dt>Lançamento</dt>
-							<dd>{formatDate(wired.release_date)}</dd>
+							<dd>{formatDate(infobox.release_date)}</dd>
 						</div>
 					)}
 				</dl>
