@@ -142,7 +142,26 @@ export default defineConfig({
             },
             {
               label: "Outros",
-              items: [{ autogenerate: { directory: "referencia/outros" } }],
+              items: [
+                { slug: "referencia/outros/wf_label" },
+                { slug: "referencia/outros/wf_link" },
+                { slug: "referencia/outros/wf_xtra_link_speaker" },
+                {
+                  label: "Configuradores",
+                  items: [{ autogenerate: { directory: "referencia/outros/configuradores" } }],
+                  collapsed: true,
+                },
+                {
+                  label: "Baús",
+                  items: [{ autogenerate: { directory: "referencia/outros/baus" } }],
+                  collapsed: true,
+                },
+                {
+                  label: "Tabelas de Classificação",
+                  items: [{ autogenerate: { directory: "referencia/outros/tabelas-de-classificacao" } }],
+                  collapsed: true,
+                },
+              ],
               collapsed: true,
             },
             {
