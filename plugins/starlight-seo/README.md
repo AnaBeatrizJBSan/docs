@@ -124,3 +124,17 @@ Casos especiais:
 - `seo.twitter.image` pode sobrescrever apenas a imagem do Twitter.
 
 O campo `head` nativo do Starlight continua disponível para tags arbitrárias. Quando a mesma tag também é controlada por `seo`, o valor estruturado de `seo` prevalece.
+
+## Pós-processamento das thumbnails
+
+Use `thumbnails.transform` para indicar um módulo do site, relativo à raiz do projeto:
+
+```js
+starlightSeo({ thumbnails: { transform: './src/seo/thumbnail-transform.ts' } })
+```
+
+O módulo deve exportar por padrão uma função `ThumbnailTransform` (tipo exportado por `starlight-seo`). Ela recebe `{ image, page, root, format, quality }` e retorna os bytes da imagem final, de forma síncrona ou assíncrona. `image` é um `Uint8Array`; `page.data` contém o frontmatter validado da coleção, quando disponível. Páginas sintéticas podem não ter `data`.
+
+O módulo é carregado pelo Vite, permitindo imports locais e dependências do site. A saída deve preservar o formato e as dimensões de 1200×630. Falhas no módulo interrompem a geração.
+
+O cache do plugin armazena a imagem **base**. A transformação roda após cada leitura ou geração dessa base, inclusive em cache hits, para refletir mudanças no módulo e em seus recursos externos. `hash` e o cabeçalho `X-Starlight-SEO-Cache` descrevem a base; o módulo pode manter seu próprio cache de recursos. O plugin não assume regras sobre o conteúdo, downloads ou bibliotecas de composição.

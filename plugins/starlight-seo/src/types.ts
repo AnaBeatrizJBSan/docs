@@ -49,6 +49,8 @@ export interface ThumbnailRouteMapping {
 }
 
 export interface ThumbnailOptions extends ThumbnailStyle {
+	/** Module path, relative to the project root, exporting a default ThumbnailTransform. */
+	transform?: string;
 	enabled?: boolean;
 	/** URL path without the Astro base. Defaults to `_seo`. */
 	path?: string;
@@ -112,7 +114,29 @@ export interface PageSeoFrontmatter {
 	thumbnail?: false | ThumbnailStyle;
 }
 
+export interface ThumbnailPage {
+	id: string;
+	title: string;
+	description?: string;
+	filePath?: string;
+	seo?: PageSeoFrontmatter;
+	/** Original collection data, for site-specific image transforms. */
+	data?: Record<string, unknown>;
+}
+
+export interface ThumbnailTransformContext {
+	image: Uint8Array;
+	page: ThumbnailPage;
+	root: string;
+	format: SocialImageFormat;
+	quality: number;
+}
+
+/** Runs after base rendering/cache lookup. Return bytes in the requested format. */
+export type ThumbnailTransform = (context: ThumbnailTransformContext) => Uint8Array | Promise<Uint8Array>;
+
 export interface NormalizedThumbnailOptions extends ThumbnailStyle {
+	transform?: string;
 	enabled: boolean;
 	path: string;
 	format: SocialImageFormat;

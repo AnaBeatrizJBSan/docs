@@ -13,7 +13,10 @@ export type {
 	StarlightSeoOptions,
 	StructuredDataOptions,
 	ThumbnailOptions,
+	ThumbnailPage,
 	ThumbnailStyle,
+	ThumbnailTransform,
+	ThumbnailTransformContext,
 	TwitterOptions,
 } from './src/types.ts';
 export { seoSchema } from './src/schemas/seo.ts';
