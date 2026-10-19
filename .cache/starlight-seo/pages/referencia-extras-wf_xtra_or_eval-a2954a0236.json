@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/extras/wf_xtra_or_eval",
   "source": "src/content/docs/referencia/extras/wf_xtra_or_eval.mdx",
-  "sourceHash": "e28e5ab02877a46946f2e469d1e346a98edbd42720548ce9ea01f02290b49a04",
-  "hash": "7ffa1605417d300928593d5f337d5dc868d5d57f0f02ba63641abb22a5ec5f21",
-  "renderDirectory": "renders/7ffa1605417d300928593d5f337d5dc868d5d57f0f02ba63641abb22a5ec5f21"
+  "sourceHash": "c590b6d6c9a6089c491043661bdb2938bcd5ca88767d2af0bd0c31fc279ff58c",
+  "hash": "e8b5f7ab8ac623846f888cfb6e648c2197b5dbb623859dc76aa2e917c510ece4",
+  "renderDirectory": "renders/e8b5f7ab8ac623846f888cfb6e648c2197b5dbb623859dc76aa2e917c510ece4"
 }

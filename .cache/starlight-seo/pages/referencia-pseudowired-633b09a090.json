@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/pseudowired",
   "source": "src/content/docs/referencia/pseudowired.mdx",
-  "sourceHash": "79e3dc44870687a41780452c766963460ade64e4040f59c4e0757ab805d600fb",
-  "hash": "39b41cd69a618e88aa9da93e2986ab01d6262a83e9a14ccade1e48c200763dfd",
-  "renderDirectory": "renders/39b41cd69a618e88aa9da93e2986ab01d6262a83e9a14ccade1e48c200763dfd"
+  "sourceHash": "a31a858dab049182ca2dc8536773d14fb63b9b1abd6d749761e83482529ff0b2",
+  "hash": "446c85386da7b0329dfc54915e779d48a6b59f4142366a7c58e15dfd8119f75b",
+  "renderDirectory": "renders/446c85386da7b0329dfc54915e779d48a6b59f4142366a7c58e15dfd8119f75b"
 }

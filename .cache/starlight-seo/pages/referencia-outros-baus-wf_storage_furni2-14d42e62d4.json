@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/baus/wf_storage_furni2",
   "source": "src/content/docs/referencia/outros/baus/wf_storage_furni2.mdx",
-  "sourceHash": "313b9ff18b27dab3fde51b3238d3b2adfa1ffcd129d830b6c7cc315810a889f4",
-  "hash": "f3a38713e0760fcef63759efb3552bb13b40dde0df5ccf62bebfe64b3c77b9cf",
-  "renderDirectory": "renders/f3a38713e0760fcef63759efb3552bb13b40dde0df5ccf62bebfe64b3c77b9cf"
+  "sourceHash": "4dbd4e3cb3819e88fe5aad9d6f0f8f8609b5e8358c14f038b45c9185735f1e03",
+  "hash": "086774e4bb05593e86a9b50851f06c721e377f7844752da09e55aa6b95928571",
+  "renderDirectory": "renders/086774e4bb05593e86a9b50851f06c721e377f7844752da09e55aa6b95928571"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_match_date",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_match_date.mdx",
-  "sourceHash": "b8b0935573cf39c6597a0811a585eef27a00fbf1133db0b89cb209113f3f5a9e",
-  "hash": "5d2807548df05039cd6def0ba3b80e8b3e9e6cfdd541dbae0db39daadee70d18",
-  "renderDirectory": "renders/5d2807548df05039cd6def0ba3b80e8b3e9e6cfdd541dbae0db39daadee70d18"
+  "sourceHash": "c1f16e1ddedadd86595a9db7c26a549102e38e31826bcd51fda907c880eeb4d5",
+  "hash": "88513956dfb332e9033ca720987698c8f3e33ec36388800f5ceeab3291f26a5f",
+  "renderDirectory": "renders/88513956dfb332e9033ca720987698c8f3e33ec36388800f5ceeab3291f26a5f"
 }

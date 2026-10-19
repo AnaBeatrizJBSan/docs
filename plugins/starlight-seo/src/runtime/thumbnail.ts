@@ -5,7 +5,7 @@ import path from 'node:path';
 import type { RuntimeSeoConfig, ThumbnailPage, ThumbnailStyle, ThumbnailTransform } from '../types.ts';
 export type { ThumbnailPage } from '../types.ts';
 
-const cacheVersion = '1';
+const cacheVersion = '2';
 
 export interface ThumbnailResult {
 	body: BodyInit;

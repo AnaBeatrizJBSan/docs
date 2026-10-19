@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_click_tile",
   "source": "src/content/docs/referencia/ativadores/wf_trg_click_tile.mdx",
-  "sourceHash": "db9caecfef2ec07b8ac5a9cf662618f5280555a8b66fec462f21aa0bf7297808",
-  "hash": "691d9abf46da94e4497c9934e69030ae5376a5f326ca5a1bdbe9c12735a283b9",
-  "renderDirectory": "renders/691d9abf46da94e4497c9934e69030ae5376a5f326ca5a1bdbe9c12735a283b9"
+  "sourceHash": "42bb449c68713525258e59ea6bf3de8e723a69f1f468ea05bf0495719d10f1cb",
+  "hash": "d8cd3ce7c0c8f80eaaf107d323dd34e2fc67eee3a57d724cb5ad0bf76ece80aa",
+  "renderDirectory": "renders/d8cd3ce7c0c8f80eaaf107d323dd34e2fc67eee3a57d724cb5ad0bf76ece80aa"
 }

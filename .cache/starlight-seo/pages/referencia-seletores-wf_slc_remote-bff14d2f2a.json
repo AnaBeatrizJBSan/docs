@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_slc_remote",
   "source": "src/content/docs/referencia/seletores/wf_slc_remote.mdx",
-  "sourceHash": "1fc505e9351c76a35dc7a99c98187b369fd608e3c5c99b34b32d67e6f5ea503a",
-  "hash": "d0ea9736403164b59d9264d7a4edf4d4263818a724b741250fb78607e0d0c73f",
-  "renderDirectory": "renders/d0ea9736403164b59d9264d7a4edf4d4263818a724b741250fb78607e0d0c73f"
+  "sourceHash": "492c1f312f8a3289bd86d0e167f3eb9d7f44dfbd7079e92f7312c19e00d3d868",
+  "hash": "6f648523f9f24e813fd785f568e56e023a6bd2316a6b5f09810cf86f995029dc",
+  "renderDirectory": "renders/6f648523f9f24e813fd785f568e56e023a6bd2316a6b5f09810cf86f995029dc"
 }

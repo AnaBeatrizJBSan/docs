@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_toggle_to_rnd",
   "source": "src/content/docs/referencia/efeitos/wf_act_toggle_to_rnd.mdx",
-  "sourceHash": "82b8b2da22fbb543f889ea381f6151826ebca980f393f3fcb51304f64b05136f",
-  "hash": "5257ef7e9e171249ea20056dedee2676454a91fdbd8d141229f9630db741911c",
-  "renderDirectory": "renders/5257ef7e9e171249ea20056dedee2676454a91fdbd8d141229f9630db741911c"
+  "sourceHash": "9a34ca0cbbc1bdf17f3007e165307c0a39ff9545bb6e84a5fdae5e8364166557",
+  "hash": "1a7c5e270b3f3e0773ebb85af266101001cd08c34a47f191c2653ddb35c02746",
+  "renderDirectory": "renders/1a7c5e270b3f3e0773ebb85af266101001cd08c34a47f191c2653ddb35c02746"
 }

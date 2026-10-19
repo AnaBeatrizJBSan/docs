@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/variaveis/wf_var_quest_chain",
   "source": "src/content/docs/referencia/variaveis/wf_var_quest_chain.mdx",
   "sourceHash": "1ba958ec69d7fbf007309c75855e37b64fd9d25cd51e7e72d1f8dc8d7a1b74fc",
-  "hash": "637d1bd4ff510d8cad7df7ef1fca2b3e2c5506351219f98c918390371bb5b573",
-  "renderDirectory": "renders/637d1bd4ff510d8cad7df7ef1fca2b3e2c5506351219f98c918390371bb5b573"
+  "hash": "908b0ce1fdb947b45b9ef4d2777fee1b1dcc2ac6bdd9c863f9bf084a1506ae4a",
+  "renderDirectory": "renders/908b0ce1fdb947b45b9ef4d2777fee1b1dcc2ac6bdd9c863f9bf084a1506ae4a"
 }

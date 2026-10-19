@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "sobre-nos/contribuidores",
   "source": "src/content/docs/sobre-nos/contribuidores.mdx",
-  "sourceHash": "7872925ea17df0428e9e55db22c7e499a7ba9fe1c135519f70d85652d75b2160",
-  "hash": "66f129c4e845866f8b12ab51ee44b917dc4a51143c41156f401fc5c14ed6a19f",
-  "renderDirectory": "renders/66f129c4e845866f8b12ab51ee44b917dc4a51143c41156f401fc5c14ed6a19f"
+  "sourceHash": "ff32ad14c09952efbe2f9f202a2cf964ca4d0502bd793c543a0c12e8bbac3b35",
+  "hash": "ca8cb56143579b22f5931f3f9d162213089fa29a4e42f3861d76b7ca41ef1e98",
+  "renderDirectory": "renders/ca8cb56143579b22f5931f3f9d162213089fa29a4e42f3861d76b7ca41ef1e98"
 }

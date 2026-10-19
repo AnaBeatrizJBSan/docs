@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_give_currency",
   "source": "src/content/docs/referencia/efeitos/wf_act_give_currency.mdx",
-  "sourceHash": "24dc31d3a5fff7a07a2662db0b6ec1905c7737d6a062b498cc122645ef631e72",
-  "hash": "31886da2c1dce015f475d7219b7d2d750968b0cdd59dd992575c6bee60067c7a",
-  "renderDirectory": "renders/31886da2c1dce015f475d7219b7d2d750968b0cdd59dd992575c6bee60067c7a"
+  "sourceHash": "26f6ced8d6038e81ae33bd69198df3314f147ca535d97874f7be00d81fb2389c",
+  "hash": "86f980f33eea8f59b9d10e82ce89609e0637fd1744f678d41c88ae93d91c00fc",
+  "renderDirectory": "renders/86f980f33eea8f59b9d10e82ce89609e0637fd1744f678d41c88ae93d91c00fc"
 }

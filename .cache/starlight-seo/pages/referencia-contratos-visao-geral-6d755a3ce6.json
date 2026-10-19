@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/contratos/visao-geral",
   "source": "src/content/docs/referencia/contratos/visao-geral.mdx",
-  "sourceHash": "fe983e03a37211801ea57f9a581889ee9bca5f7b47ca9761197f6217564e053d",
-  "hash": "0298f1b8916e45d51c25f293787262dc539eb1efd4c87abb1475a4ca39ca30e0",
-  "renderDirectory": "renders/0298f1b8916e45d51c25f293787262dc539eb1efd4c87abb1475a4ca39ca30e0"
+  "sourceHash": "062cce5ad107437206a64de1bb422726ba821d4295ae701528a1be97b97372c8",
+  "hash": "dd49b6b0e355ccc153dc6ecad5351afb30751e24270526b650674ace07ac6c40",
+  "renderDirectory": "renders/dd49b6b0e355ccc153dc6ecad5351afb30751e24270526b650674ace07ac6c40"
 }

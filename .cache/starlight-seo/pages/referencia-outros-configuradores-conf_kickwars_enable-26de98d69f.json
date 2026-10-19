@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "page": "referencia/outros/configuradores/conf_kickwars_enable",
+  "source": "src/content/docs/referencia/outros/configuradores/conf_kickwars_enable.mdx",
+  "sourceHash": "86a50bc59ce630e7986dd71503340e4350c55661fe3acff055db2620ed3434b8",
+  "hash": "0c3bbbb430007d1dc3c07cba0154bf001e88e2a4ef56719bec9c0ea40907224a",
+  "renderDirectory": "renders/0c3bbbb430007d1dc3c07cba0154bf001e88e2a4ef56719bec9c0ea40907224a"
+}

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_bot_reached_stf",
   "source": "src/content/docs/referencia/ativadores/wf_trg_bot_reached_stf.mdx",
-  "sourceHash": "639a2bad086d5aa389ada9e071e34e2f36156ddccc1ba119cc8ad98c194c00ac",
-  "hash": "b3f4bdfa959c0ca5068035bf8842ba0946fa47ac6ad4314dd4b897de201ce966",
-  "renderDirectory": "renders/b3f4bdfa959c0ca5068035bf8842ba0946fa47ac6ad4314dd4b897de201ce966"
+  "sourceHash": "5a6c1fdf09923951ec11340334b1f7bcd1dc3c698986a98d140babfd43b6b813",
+  "hash": "f98bbf7d2988cfd90b70e0799c20c7efdef2610575b6018f83e5f7dfff4d9c49",
+  "renderDirectory": "renders/f98bbf7d2988cfd90b70e0799c20c7efdef2610575b6018f83e5f7dfff4d9c49"
 }

@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "page": "referencia/outros/configuradores/conf_chooser_disable",
+  "source": "src/content/docs/referencia/outros/configuradores/conf_chooser_disable.mdx",
+  "sourceHash": "d5b30587f391f8661f876b751ea60a12fa25b75065d3319a8aa8cfce716f4c82",
+  "hash": "35620d11b50ec59205939ad64a7ac0489dcd48a6e938b324ec67277d3f12e7ed",
+  "renderDirectory": "renders/35620d11b50ec59205939ad64a7ac0489dcd48a6e938b324ec67277d3f12e7ed"
+}

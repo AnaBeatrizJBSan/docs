@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "guias-praticos/variaveiscontratos",
   "source": "src/content/docs/guias-praticos/variaveis+contratos.md",
   "sourceHash": "8908ee2708ca4599288ccad8f1b45490e1467fd3f289f876b8c3c8a6ea95e3d8",
-  "hash": "dedfc523e8ed3294e03653960e2933961c2ade92ed5544cc07264ecd1147c2c8",
-  "renderDirectory": "renders/dedfc523e8ed3294e03653960e2933961c2ade92ed5544cc07264ecd1147c2c8"
+  "hash": "eec55d84670cc1a91034b6407144212abb9890c28a75a2712934b86deec43635",
+  "renderDirectory": "renders/eec55d84670cc1a91034b6407144212abb9890c28a75a2712934b86deec43635"
 }

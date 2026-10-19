@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_slc_users_team",
   "source": "src/content/docs/referencia/seletores/wf_slc_users_team.mdx",
-  "sourceHash": "3761030c6e7a4f3c4e09c47b0c733a99b8cb99d600eca237aae88154f80b6b49",
-  "hash": "a0ec791a0b3e2d7b38524fed06424a9371f5da1c8b5b6f816f4e9852b4886671",
-  "renderDirectory": "renders/a0ec791a0b3e2d7b38524fed06424a9371f5da1c8b5b6f816f4e9852b4886671"
+  "sourceHash": "63e01f36b124e7f8edd4ccf4e26b6031bdec1fba4038eb15edf3725ce6dd688f",
+  "hash": "28f2a1fb1deada49f78274e7a1162f6814102fa77c83dd431d6d1bb02eee405b",
+  "renderDirectory": "renders/28f2a1fb1deada49f78274e7a1162f6814102fa77c83dd431d6d1bb02eee405b"
 }

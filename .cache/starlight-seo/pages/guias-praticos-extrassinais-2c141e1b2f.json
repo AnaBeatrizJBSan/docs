@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "guias-praticos/extrassinais",
   "source": "src/content/docs/guias-praticos/extras+sinais.md",
   "sourceHash": "014c1d5f29b7f7fc11c5fdaa4908337ea28d5e77efc8b322f1b6ea885e9bc974",
-  "hash": "494a9f37c622a319e2a092141aaf3a57d020a945d5d02f9f36ae103f924a8f50",
-  "renderDirectory": "renders/494a9f37c622a319e2a092141aaf3a57d020a945d5d02f9f36ae103f924a8f50"
+  "hash": "636c0db5f83de895e78766adec02d021654439082625d1bdb1e413280990a7cb",
+  "renderDirectory": "renders/636c0db5f83de895e78766adec02d021654439082625d1bdb1e413280990a7cb"
 }

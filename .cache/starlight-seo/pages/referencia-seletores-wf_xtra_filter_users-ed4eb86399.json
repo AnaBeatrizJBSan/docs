@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_xtra_filter_users",
   "source": "src/content/docs/referencia/seletores/wf_xtra_filter_users.mdx",
-  "sourceHash": "2383579ec4c2f56aedf0fae1af91ba4f2d53ea024a5e927db4842eb77739df41",
-  "hash": "c4d9fd84b0010c0d2de1fac1a06773906f04591f336192146a93625f85a7ca4c",
-  "renderDirectory": "renders/c4d9fd84b0010c0d2de1fac1a06773906f04591f336192146a93625f85a7ca4c"
+  "sourceHash": "e1727afd031f58d9d443a9341a41579d5ec84c17fdcccd5ed576f479d5fba804",
+  "hash": "1f9e379207b254b9ee267afe0500f491a49750f2e684b37a7f3e055d09465ab0",
+  "renderDirectory": "renders/1f9e379207b254b9ee267afe0500f491a49750f2e684b37a7f3e055d09465ab0"
 }

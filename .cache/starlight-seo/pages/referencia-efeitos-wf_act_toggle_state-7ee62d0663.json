@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_toggle_state",
   "source": "src/content/docs/referencia/efeitos/wf_act_toggle_state.mdx",
-  "sourceHash": "57836a2036dc3c4f501db5e13a42daf7d48bab59fb855d3e27d397eff6e950de",
-  "hash": "5872c02f57e06a9cb686a10577a84410a7a68a0dca735ca02b219af973bab3eb",
-  "renderDirectory": "renders/5872c02f57e06a9cb686a10577a84410a7a68a0dca735ca02b219af973bab3eb"
+  "sourceHash": "33c2ffac89dc66af20678b8f31cf4b60f84a7de9169ab67d92e7c80db5dcff21",
+  "hash": "972f7f55c45769278740f31e72c766a470fef9cf78162411a7f858f039a8c6a3",
+  "renderDirectory": "renders/972f7f55c45769278740f31e72c766a470fef9cf78162411a7f858f039a8c6a3"
 }

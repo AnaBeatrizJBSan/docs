@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_triggerer_match",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_triggerer_match.mdx",
-  "sourceHash": "3b9e553f5fd6933c557551d23b2c6ce62d98431cc9ef6471079f693468731cea",
-  "hash": "3cc220fe9447b6c073f2fa4d42bbbe71960157082b5a498711dc578324ae1bab",
-  "renderDirectory": "renders/3cc220fe9447b6c073f2fa4d42bbbe71960157082b5a498711dc578324ae1bab"
+  "sourceHash": "9c8e69a275356940e55224c25714e76aff666497dddaad52a6b0e4e933de84ab",
+  "hash": "13a7fdb8fb2a1ad5afd954e47b9c1f63287808086f3cd1519a43a1548eefe42b",
+  "renderDirectory": "renders/13a7fdb8fb2a1ad5afd954e47b9c1f63287808086f3cd1519a43a1548eefe42b"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/variaveis/wf_var_furni",
   "source": "src/content/docs/referencia/variaveis/wf_var_furni.mdx",
-  "sourceHash": "f139e5d45763d6eecbff68a688a50351cba1205fe15b481de8bbda7a07ee3cc1",
-  "hash": "fa7ba90e40750cb2868c26326fb8fcfd3ccf5ef30c4dd3db4083e7bd2c13b90c",
-  "renderDirectory": "renders/fa7ba90e40750cb2868c26326fb8fcfd3ccf5ef30c4dd3db4083e7bd2c13b90c"
+  "sourceHash": "21aabdad23b2a2f0c8b73a8daaaee8aee143e6588e6027fa12d8204f8420fc23",
+  "hash": "02d64cbbb1d3928dd56c7aee515b5ed8a2f84e0c5aff22ca652136cd13440827",
+  "renderDirectory": "renders/02d64cbbb1d3928dd56c7aee515b5ed8a2f84e0c5aff22ca652136cd13440827"
 }

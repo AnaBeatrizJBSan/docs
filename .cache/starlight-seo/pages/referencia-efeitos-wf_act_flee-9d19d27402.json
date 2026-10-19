@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_flee",
   "source": "src/content/docs/referencia/efeitos/wf_act_flee.mdx",
-  "sourceHash": "b03e90d22c018b8accafbae370ad78632c6f480b09ff2f405915663289f29af7",
-  "hash": "f9471069c6af6707388a997496455fa5d40fded899c008324ed20c014ee9f5fd",
-  "renderDirectory": "renders/f9471069c6af6707388a997496455fa5d40fded899c008324ed20c014ee9f5fd"
+  "sourceHash": "e357d8e38af0f94da47d7b9cd6aa4a73794cc40fdf325b996795e57d353dafb7",
+  "hash": "6e87d94f7416e2da0e0a20ca4bfda42971c11389b85c23e1feb701f2f77010b4",
+  "renderDirectory": "renders/6e87d94f7416e2da0e0a20ca4bfda42971c11389b85c23e1feb701f2f77010b4"
 }

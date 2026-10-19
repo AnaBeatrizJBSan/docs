@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_furni_to_user",
   "source": "src/content/docs/referencia/efeitos/wf_act_furni_to_user.mdx",
-  "sourceHash": "07ce1a04b9ce123d57e402107e25f4eee758cf549a332ce71a70ff3c5d9fa35b",
-  "hash": "b70d0c637745bab9eb79ea3faa83efc1a73535a56c629aa9dcdc7c40f59598b7",
-  "renderDirectory": "renders/b70d0c637745bab9eb79ea3faa83efc1a73535a56c629aa9dcdc7c40f59598b7"
+  "sourceHash": "8ff75d705a2ab25814239fb4c57da4d87e3e4104363bf26b57d79eedc6ae0bec",
+  "hash": "90dfdcb929c404f103117aae5be4d5a0feef721c58644f300263682bd0ddfbd8",
+  "renderDirectory": "renders/90dfdcb929c404f103117aae5be4d5a0feef721c58644f300263682bd0ddfbd8"
 }

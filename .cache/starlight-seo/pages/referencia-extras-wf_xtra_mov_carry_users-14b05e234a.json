@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/extras/wf_xtra_mov_carry_users",
   "source": "src/content/docs/referencia/extras/wf_xtra_mov_carry_users.mdx",
-  "sourceHash": "e37bd782aec4e72679c58a9f4b1efe341949030055cb136e4798add4c4810569",
-  "hash": "b5b2b5649fbfb6910078cefd244b7b6c3abb7e851f3a65edb70dbcf065cac32d",
-  "renderDirectory": "renders/b5b2b5649fbfb6910078cefd244b7b6c3abb7e851f3a65edb70dbcf065cac32d"
+  "sourceHash": "32d29aa59052d8263860aa4f3a45023163a100c2a53c48515855566716237e28",
+  "hash": "44b2315bba64abb31f8400ae8cc428bf487a663cf28ad6516b8b233b1ce765f1",
+  "renderDirectory": "renders/44b2315bba64abb31f8400ae8cc428bf487a663cf28ad6516b8b233b1ce765f1"
 }

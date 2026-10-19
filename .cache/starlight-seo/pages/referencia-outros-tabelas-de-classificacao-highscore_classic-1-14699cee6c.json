@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/tabelas-de-classificacao/highscore_classic-1",
   "source": "src/content/docs/referencia/outros/tabelas-de-classificacao/highscore_classic-1.mdx",
-  "sourceHash": "5de7adcf1fa413f36054ae52cfa468da987c0c596ae7875b8dbc5be554d30023",
-  "hash": "1a722e91802507d1cdbc23f81e788d0051691b307601c90d36c13280aa622e54",
-  "renderDirectory": "renders/1a722e91802507d1cdbc23f81e788d0051691b307601c90d36c13280aa622e54"
+  "sourceHash": "2902779b882ae19a8fc9074bcc3aa8cf224eac36264aac0a07733e3324622bd6",
+  "hash": "826ea947e1e35183d24f0dfde1882595db988ef97c972cdfb72573b2f660e9c5",
+  "renderDirectory": "renders/826ea947e1e35183d24f0dfde1882595db988ef97c972cdfb72573b2f660e9c5"
 }
