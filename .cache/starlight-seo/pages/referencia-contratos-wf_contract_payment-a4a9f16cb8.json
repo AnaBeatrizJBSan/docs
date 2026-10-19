@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/contratos/wf_contract_payment",
   "source": "src/content/docs/referencia/contratos/wf_contract_payment.mdx",
-  "sourceHash": "f61e90e171500eebceb10ae982ce85534cf35870b491d3b856cca065d4612942",
-  "hash": "770904db9c1aee56f270ea602047c32a2902ce8ef751b63b7d1cd6fb23becab7",
-  "renderDirectory": "renders/770904db9c1aee56f270ea602047c32a2902ce8ef751b63b7d1cd6fb23becab7"
+  "sourceHash": "f7e6739455a5bcef93f55d7c59e199518a9a171afc30857cfe17ce51a36bbf6e",
+  "hash": "f516ec852001443cc34f14b0278f253286e73700fdc21ba0d424feb6a3bac373",
+  "renderDirectory": "renders/f516ec852001443cc34f14b0278f253286e73700fdc21ba0d424feb6a3bac373"
 }

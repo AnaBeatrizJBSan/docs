@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_recv_signal",
   "source": "src/content/docs/referencia/ativadores/wf_trg_recv_signal.mdx",
-  "sourceHash": "4ef654dfd5116989e86f117614548557c582647b5bbee0d97bdd30b8d39555a7",
-  "hash": "cdf0a0027ddc6e690912cee5a37565bc174606143dc7a93a4fe05b1935c114b9",
-  "renderDirectory": "renders/cdf0a0027ddc6e690912cee5a37565bc174606143dc7a93a4fe05b1935c114b9"
+  "sourceHash": "c01ed442c3a7a24b10aaed9dec20233d8d6a9bd2033a6a38c8e381c97f882938",
+  "hash": "963277ad553dfd4ccb265040c657f87c58b0e8277ed7aedb7d45401147b21b0a",
+  "renderDirectory": "renders/963277ad553dfd4ccb265040c657f87c58b0e8277ed7aedb7d45401147b21b0a"
 }

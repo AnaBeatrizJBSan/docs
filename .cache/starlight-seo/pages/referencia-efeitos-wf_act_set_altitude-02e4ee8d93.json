@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_set_altitude",
   "source": "src/content/docs/referencia/efeitos/wf_act_set_altitude.mdx",
-  "sourceHash": "b51031b2aa4400d66b716d8d47e9a42d8459f10f897fe6c7a45d5b31f8f62b6d",
-  "hash": "cd75deb1170ae53c02277d908e0e6a353dcf36f83bd053c3f86f1da39a996789",
-  "renderDirectory": "renders/cd75deb1170ae53c02277d908e0e6a353dcf36f83bd053c3f86f1da39a996789"
+  "sourceHash": "35fb8b201db9d5e7c1abaaac46dda197f051e6104d9f747cc0e3b5dd60a3adcc",
+  "hash": "f32de0b4bbca128ea3d3db965904f605f92887622430105be8b392fd8ae7b451",
+  "renderDirectory": "renders/f32de0b4bbca128ea3d3db965904f605f92887622430105be8b392fd8ae7b451"
 }

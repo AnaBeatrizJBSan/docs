@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/extras/visao-geral",
   "source": "src/content/docs/referencia/extras/visao-geral.mdx",
-  "sourceHash": "b7adfe05db331defeb01f52705d5498d088c94cd9cbbd3a38b6f401c608743ee",
-  "hash": "2d1895f68add55be67e80a591681ba69ee8886ebae6aeaccae58649ccff5ee8d",
-  "renderDirectory": "renders/2d1895f68add55be67e80a591681ba69ee8886ebae6aeaccae58649ccff5ee8d"
+  "sourceHash": "8763e42ba0f56491806a44885973d2735086331f5b83d1cc48eb0e0d6cb071e4",
+  "hash": "66959c3e0dfa2e53a62ef8d26c0abd99ac39eb97a7e968f90667358b9db416cb",
+  "renderDirectory": "renders/66959c3e0dfa2e53a62ef8d26c0abd99ac39eb97a7e968f90667358b9db416cb"
 }

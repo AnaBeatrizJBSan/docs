@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "404",
   "source": null,
   "sourceHash": "e1562fb05887acadbba0c12834eb410ff5f6b17b08463ed3cfb87a3a70cf1a01",
-  "hash": "4bfb636c3c6a0ef9335c426c6cac4e71fc74d3f6d4aae50bd161e257ef8d466d",
-  "renderDirectory": "renders/4bfb636c3c6a0ef9335c426c6cac4e71fc74d3f6d4aae50bd161e257ef8d466d"
+  "hash": "cbd6ac1a193fcb8cd009ff05fd52948539a787a9ac30f532da68b1ccda5f4310",
+  "renderDirectory": "renders/cbd6ac1a193fcb8cd009ff05fd52948539a787a9ac30f532da68b1ccda5f4310"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "mudancas-recentes",
   "source": null,
   "sourceHash": "a28aca52a2388eadba18e5163e5fb3a170d657847372906d04fd38896c2e622f",
-  "hash": "0bb853666fd38592c105d2c6567fa2a0ebd540416480be46f3498e70c3acc95d",
-  "renderDirectory": "renders/0bb853666fd38592c105d2c6567fa2a0ebd540416480be46f3498e70c3acc95d"
+  "hash": "64f75626e368816a9d49aac57cdc7bd02ad7823212399bda7b35a79008d456fb",
+  "renderDirectory": "renders/64f75626e368816a9d49aac57cdc7bd02ad7823212399bda7b35a79008d456fb"
 }

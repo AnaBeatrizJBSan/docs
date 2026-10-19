@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_at_given_time",
   "source": "src/content/docs/referencia/ativadores/wf_trg_at_given_time.mdx",
-  "sourceHash": "1eaed19c0834a34359e633cadc2da3b1f51988b3078059b3736826b8a1c2b108",
-  "hash": "e24aebd432e78007be1f15dafa1da34310566c6a5d9966800b30c178822c647e",
-  "renderDirectory": "renders/e24aebd432e78007be1f15dafa1da34310566c6a5d9966800b30c178822c647e"
+  "sourceHash": "0eaaeba847a94fe04678f8a47cef34c9d1a542a60dcdfc666e619fbcfe0dc56f",
+  "hash": "96c75b5424956fdc6a57a5df90a43066d5500350d3e578ef70b11874b21c8ba6",
+  "renderDirectory": "renders/96c75b5424956fdc6a57a5df90a43066d5500350d3e578ef70b11874b21c8ba6"
 }

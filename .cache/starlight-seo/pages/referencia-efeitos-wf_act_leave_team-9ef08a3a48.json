@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_leave_team",
   "source": "src/content/docs/referencia/efeitos/wf_act_leave_team.mdx",
-  "sourceHash": "5bdc1862b710a21cb058699fa447511e58ad885484caaf72c4811454a4706f15",
-  "hash": "788469b22fbf166ede39406f23d7bc586310f1b8306fb613b770b32edf9e4e3a",
-  "renderDirectory": "renders/788469b22fbf166ede39406f23d7bc586310f1b8306fb613b770b32edf9e4e3a"
+  "sourceHash": "0ed3ff930762a1345a479fc609ec81c2ee3f308fa521ac104fcf4a7c7d119a6e",
+  "hash": "3290bef9054d4be51d5c17d45c01cf16a222d969ec48a5509785f7700a3136b7",
+  "renderDirectory": "renders/3290bef9054d4be51d5c17d45c01cf16a222d969ec48a5509785f7700a3136b7"
 }

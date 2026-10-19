@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/variaveis/wf_var_room",
   "source": "src/content/docs/referencia/variaveis/wf_var_room.mdx",
-  "sourceHash": "207ebf3c557c1406b29068511fec99e3ed5f68188ddfc0c6bbbe2b3fc08757e9",
-  "hash": "3a8f92a33e222b07352a4c26942c23ff4f36e42860e67ecc10513a29191fd7bb",
-  "renderDirectory": "renders/3a8f92a33e222b07352a4c26942c23ff4f36e42860e67ecc10513a29191fd7bb"
+  "sourceHash": "35af18850ceabc9c65dd1328f2926920ad2fa774c261bf23df448f71c6681ab7",
+  "hash": "53c61e65a68f15a5c31b20d7facc9b6cdee9ebde2acbeeec725d086e7a375604",
+  "renderDirectory": "renders/53c61e65a68f15a5c31b20d7facc9b6cdee9ebde2acbeeec725d086e7a375604"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_give_score_tm",
   "source": "src/content/docs/referencia/efeitos/wf_act_give_score_tm.mdx",
-  "sourceHash": "da7a75d08273fe8c9d41c19219fbf3d99cbb4102b781c530132d8042596408f6",
-  "hash": "d78e23d83059d575f49f9b51b570191f1c8664c0a8d68f23cec2c32c86ba4b56",
-  "renderDirectory": "renders/d78e23d83059d575f49f9b51b570191f1c8664c0a8d68f23cec2c32c86ba4b56"
+  "sourceHash": "39a59e1d0b68b6774c3c4e8330eae5aa95fcb43271186e10d8de8c82d1ff249f",
+  "hash": "87090c69d04dac8f8b00cf714b19b65e13a54d872fb0afb3857bfb44cc08c382",
+  "renderDirectory": "renders/87090c69d04dac8f8b00cf714b19b65e13a54d872fb0afb3857bfb44cc08c382"
 }

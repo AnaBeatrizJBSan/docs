@@ -220,6 +220,7 @@ export default defineConfig({
           robots: { index: true, follow: true, maxImagePreview: "large" },
           structuredData: true,
           thumbnails: {
+            transform: './src/seo/thumbnail-transform.ts',
             cache: true,
             routeMappings: [{ from: "mudancas-recentes" }],
             additionalPages: {

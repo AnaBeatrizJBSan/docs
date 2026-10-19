@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/tipos-de-wireds",
   "source": "src/content/docs/referencia/tipos-de-wireds.mdx",
-  "sourceHash": "e9350c74f3bda8bf31be8239b799f03b9a7abdd3eed94dedc5f6f9caddbba421",
-  "hash": "a28d51f7c3aabf26b354ccc1161539c202bd6328c7a11407c041d40ae0914ea5",
-  "renderDirectory": "renders/a28d51f7c3aabf26b354ccc1161539c202bd6328c7a11407c041d40ae0914ea5"
+  "sourceHash": "986c5284e54744f4579dc4a1bc8ac8e60d8c5ca6d9131b3c344b2a28997db19f",
+  "hash": "4a8389d58152a63ebec6e476b4abaf5f113da022439ca7ffc17289a477ab41ea",
+  "renderDirectory": "renders/4a8389d58152a63ebec6e476b4abaf5f113da022439ca7ffc17289a477ab41ea"
 }

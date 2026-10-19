@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "page": "referencia/ativadores/wf_trg_receive_dataframe",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_receive_dataframe.mdx",
+  "sourceHash": "de4f578cc3e42353630e63e2d97f3d7781610d1aa64259e82217c47b02308b02",
+  "hash": "ecf14aef9a83405062cbc2405bac351cb5ae7051412822330351dd54d4a7b2fa",
+  "renderDirectory": "renders/ecf14aef9a83405062cbc2405bac351cb5ae7051412822330351dd54d4a7b2fa"
+}

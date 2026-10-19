@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/visao-geral",
   "source": "src/content/docs/referencia/ativadores/visao-geral.mdx",
-  "sourceHash": "5cefa121e68b035c05714f28acf22259abd968ac80f13d748fddb05533466629",
-  "hash": "d19400af2b86ad689fef504ed0bfb60418abd4c0595b1d6c0efffedb842ebce1",
-  "renderDirectory": "renders/d19400af2b86ad689fef504ed0bfb60418abd4c0595b1d6c0efffedb842ebce1"
+  "sourceHash": "2ac9f4276db35366ab29257a3dd6c35f64882720d27f5f5ba4e14ba1687baca8",
+  "hash": "ddef8c3b76c339b0f953fae2458615684e64f967467a07f64df94a76394bed69",
+  "renderDirectory": "renders/ddef8c3b76c339b0f953fae2458615684e64f967467a07f64df94a76394bed69"
 }

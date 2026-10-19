@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/baus/visao-geral",
   "source": "src/content/docs/referencia/outros/baus/visao-geral.mdx",
-  "sourceHash": "88508cdf88f69a058bb664ddd76de7d745da290ca4719f8490e3766b74b582e4",
-  "hash": "28df7faba378b017237cf32f1145e8bb1508845deb3c84eae6691d88203da925",
-  "renderDirectory": "renders/28df7faba378b017237cf32f1145e8bb1508845deb3c84eae6691d88203da925"
+  "sourceHash": "f0ea38ef7e71c19eeb968c3f5ca5f85a796041e0aeb2b453df0f387449c78ec2",
+  "hash": "ae2a47316acfba848fd2d05e025e1e3d31f0b6f50882ae0af4011eadbe5a63e9",
+  "renderDirectory": "renders/ae2a47316acfba848fd2d05e025e1e3d31f0b6f50882ae0af4011eadbe5a63e9"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/extras/wf_xtra_unseen",
   "source": "src/content/docs/referencia/extras/wf_xtra_unseen.mdx",
-  "sourceHash": "35fdfb9869376f3f0221ddadc3b0f86b969ce0f4b4203955291b27a080fca6e2",
-  "hash": "be627bc369ad71e72322c25f9f50e1167e2d2ebaba2c794729f7fba34901c6aa",
-  "renderDirectory": "renders/be627bc369ad71e72322c25f9f50e1167e2d2ebaba2c794729f7fba34901c6aa"
+  "sourceHash": "bcc88365c9ac37bd8f87aa2f58d439f28384188f51987755048250f508b54988",
+  "hash": "e389ecb5d3c64c9e8ba328fb3f0b461f4889940c9e65a3f48c2a7a0b0bd8cd6e",
+  "renderDirectory": "renders/e389ecb5d3c64c9e8ba328fb3f0b461f4889940c9e65a3f48c2a7a0b0bd8cd6e"
 }

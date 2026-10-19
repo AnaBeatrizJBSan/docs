@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "guias-praticos/sistemas-condicionais",
   "source": "src/content/docs/guias-praticos/sistemas-condicionais.mdx",
-  "sourceHash": "f71bfa59f86f7a6bc636448cefc76726ba8fa2ac33c3ef6e6f8fc41eaf9bc936",
-  "hash": "040495dc141b906b5a714b472ac87b027cee205fdf6036f8ac27ed3f825ee42f",
-  "renderDirectory": "renders/040495dc141b906b5a714b472ac87b027cee205fdf6036f8ac27ed3f825ee42f"
+  "sourceHash": "8f91e4be17f9cff3db19036f93048a1e5fbb45592563e269eddec65b4ae1f9fb",
+  "hash": "02d57aaa7bee73aa4967b7512af863e22ca1ef1729fc22a3bbdbffdaa73335d7",
+  "renderDirectory": "renders/02d57aaa7bee73aa4967b7512af863e22ca1ef1729fc22a3bbdbffdaa73335d7"
 }

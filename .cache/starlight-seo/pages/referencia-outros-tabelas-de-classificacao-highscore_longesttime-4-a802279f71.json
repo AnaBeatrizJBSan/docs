@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/tabelas-de-classificacao/highscore_longesttime-4",
   "source": "src/content/docs/referencia/outros/tabelas-de-classificacao/highscore_longesttime-4.mdx",
-  "sourceHash": "6fe8d32188fd8a4c3396c0b9b40281dd03747f7e193fe2d78c94d3fc6290457d",
-  "hash": "a9db9b7975111c9a0215bddb708c2696a230bbfe96433014505c8183bdeff03c",
-  "renderDirectory": "renders/a9db9b7975111c9a0215bddb708c2696a230bbfe96433014505c8183bdeff03c"
+  "sourceHash": "9152e45c40fd713201b18ac40e1a863da96a0aa3b0ce951d4ee382ab70ea3df8",
+  "hash": "1b8bb6cdc8771914dc981dbc4c607973b5ce91bc3efe4c6ea2b4a4776285c5a5",
+  "renderDirectory": "renders/1b8bb6cdc8771914dc981dbc4c607973b5ce91bc3efe4c6ea2b4a4776285c5a5"
 }

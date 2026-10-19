@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_bot_talk",
   "source": "src/content/docs/referencia/efeitos/wf_act_bot_talk.mdx",
-  "sourceHash": "4109edda1c21e9638b3d1b70b8148d108bebaed66327c1018843072b38f9bc1b",
-  "hash": "ba4a4df262a92f574a9d847a42f76de37ca481deef66b829e014315148d10e5d",
-  "renderDirectory": "renders/ba4a4df262a92f574a9d847a42f76de37ca481deef66b829e014315148d10e5d"
+  "sourceHash": "a61a05940a6847167a94176c23b5dd5a11d80e40c8707ce923bf2355a584dbdf",
+  "hash": "0cab895e88a9b19ee2b98290d1d75e9e52da5031244dbeaec59b397d710ad2ab",
+  "renderDirectory": "renders/0cab895e88a9b19ee2b98290d1d75e9e52da5031244dbeaec59b397d710ad2ab"
 }

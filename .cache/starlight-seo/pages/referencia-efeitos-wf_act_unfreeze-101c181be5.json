@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_unfreeze",
   "source": "src/content/docs/referencia/efeitos/wf_act_unfreeze.mdx",
-  "sourceHash": "86ab60e0a2462fdee3560e8f83c460937e21cbde53867561a6836393a0fcf054",
-  "hash": "7fbc425497e207421c7e405471ee7d7f4609394cd92601eb68d134e782830414",
-  "renderDirectory": "renders/7fbc425497e207421c7e405471ee7d7f4609394cd92601eb68d134e782830414"
+  "sourceHash": "b11a6ecc54046cbbbd15daf12cd7c8a0685d8f41c82c12f1077776ca527472d1",
+  "hash": "4853daf39c394f27fd9487c0876955a295524e33bf6e09888328afc1bacb9ee2",
+  "renderDirectory": "renders/4853daf39c394f27fd9487c0876955a295524e33bf6e09888328afc1bacb9ee2"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_period_short",
   "source": "src/content/docs/referencia/ativadores/wf_trg_period_short.mdx",
-  "sourceHash": "8d903790e9aa0c9524d4f90bc40f0bc3692347248c1676901acfeb74e20f7216",
-  "hash": "79ccfd8828814c2ba3004116c635e79d6470fc72dd3fac156a31e7545310da71",
-  "renderDirectory": "renders/79ccfd8828814c2ba3004116c635e79d6470fc72dd3fac156a31e7545310da71"
+  "sourceHash": "16aec20213f0bbaa3219c910a8f4c97ad24597a237dc06af298e9662b26db974",
+  "hash": "169b38ee3cdf16d450dcd6ff0feebe62ab3f5e534a745052293d7ff41967623e",
+  "renderDirectory": "renders/169b38ee3cdf16d450dcd6ff0feebe62ab3f5e534a745052293d7ff41967623e"
 }

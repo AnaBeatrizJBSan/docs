@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_actor_dir",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_actor_dir.mdx",
-  "sourceHash": "a708055be82184b57841af3473e4c05400c92697b28169c237ca9a108a24e843",
-  "hash": "7555a45ea7d1862a4e51cac05107aed40d6c8282ff274b769e8acfcd7efbf87c",
-  "renderDirectory": "renders/7555a45ea7d1862a4e51cac05107aed40d6c8282ff274b769e8acfcd7efbf87c"
+  "sourceHash": "6f6c8b1fe1815a2d512f1061ef6081e027ff1ee1dfcd006bc193f2568aac5a77",
+  "hash": "c63ee36c08536ed9377e2e26d411aafb86c29d8e4fd422e44d7ae25e92320b5c",
+  "renderDirectory": "renders/c63ee36c08536ed9377e2e26d411aafb86c29d8e4fd422e44d7ae25e92320b5c"
 }

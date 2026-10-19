@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/variaveis/visao-geral",
   "source": "src/content/docs/referencia/variaveis/visao-geral.mdx",
-  "sourceHash": "c8fc1d54858befa494d725fb6a2e4ffde6ce4ced7b0cda23c35606e2d556d146",
-  "hash": "1bba8565f8b61a4ad6ac8026a75fc6028afee5bd9b7a1c13842225cb3482bd01",
-  "renderDirectory": "renders/1bba8565f8b61a4ad6ac8026a75fc6028afee5bd9b7a1c13842225cb3482bd01"
+  "sourceHash": "4ccf9ebfdae805fc484162e6738d735c6abd66028b8800fef55a906013739c39",
+  "hash": "be0f57f5cc58b3e49fc83d78d2d135965fdc77ddf8f83bcc222efa6badd5ab8f",
+  "renderDirectory": "renders/be0f57f5cc58b3e49fc83d78d2d135965fdc77ddf8f83bcc222efa6badd5ab8f"
 }

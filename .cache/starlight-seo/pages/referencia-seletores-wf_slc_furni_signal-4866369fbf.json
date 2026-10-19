@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_slc_furni_signal",
   "source": "src/content/docs/referencia/seletores/wf_slc_furni_signal.mdx",
-  "sourceHash": "1a321a6efe01e516b6a405a129cb5c88445e715f5b67a6551e2ca72abfd605d6",
-  "hash": "f0aec9b0c34314242b0e44ec1256da27b8eeec3155983f832fdc437f9714ebfe",
-  "renderDirectory": "renders/f0aec9b0c34314242b0e44ec1256da27b8eeec3155983f832fdc437f9714ebfe"
+  "sourceHash": "930c668cd96ac11f1baaaa4aa0352cbae50af7faf78049c5eb29ba9c3976f2c3",
+  "hash": "3b0d610e16bdcda88a48d1ab4a41a3669775133e1c6f63a249b1db8a68d2d3c6",
+  "renderDirectory": "renders/3b0d610e16bdcda88a48d1ab4a41a3669775133e1c6f63a249b1db8a68d2d3c6"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/tabelas-de-classificacao/highscore_perteam-3",
   "source": "src/content/docs/referencia/outros/tabelas-de-classificacao/highscore_perteam-3.mdx",
-  "sourceHash": "7ad8dc98495a85ab7448e22a13292cce60f50495fae30551a6402b9546affb1c",
-  "hash": "8ec37dab60a7e2cd77e7c57673b8749b3d2fcde22bc1ddb618b55cdb9c54c5e2",
-  "renderDirectory": "renders/8ec37dab60a7e2cd77e7c57673b8749b3d2fcde22bc1ddb618b55cdb9c54c5e2"
+  "sourceHash": "9af534e893f0efb8c51d666f4004abc95e0870cff94ec76f2d1d23bb9a0a41ae",
+  "hash": "77e971cc1e999f921303ad919d0517706809b61f3ae0a2779b05441084a4b19c",
+  "renderDirectory": "renders/77e971cc1e999f921303ad919d0517706809b61f3ae0a2779b05441084a4b19c"
 }

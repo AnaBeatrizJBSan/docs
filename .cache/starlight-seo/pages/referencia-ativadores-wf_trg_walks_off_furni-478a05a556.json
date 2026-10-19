@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_walks_off_furni",
   "source": "src/content/docs/referencia/ativadores/wf_trg_walks_off_furni.mdx",
-  "sourceHash": "5247607e0aeefe8b260ec8bcadd747edfca0e62fd7bcf8759760ef7af5791771",
-  "hash": "763ba33fd667450015c282ac9ba38fb0829120f789f8556cb258cff617220d9d",
-  "renderDirectory": "renders/763ba33fd667450015c282ac9ba38fb0829120f789f8556cb258cff617220d9d"
+  "sourceHash": "0229e7c461bc124b3227357e9be3831cb93f1896db9de912a7aff5bc509ef073",
+  "hash": "94c1518d97c6d95be590d0a30a79a157a2080957906096b12ee900d69811c4fe",
+  "renderDirectory": "renders/94c1518d97c6d95be590d0a30a79a157a2080957906096b12ee900d69811c4fe"
 }

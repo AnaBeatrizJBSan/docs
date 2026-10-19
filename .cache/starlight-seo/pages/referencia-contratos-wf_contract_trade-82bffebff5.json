@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/contratos/wf_contract_trade",
   "source": "src/content/docs/referencia/contratos/wf_contract_trade.mdx",
-  "sourceHash": "3ca8d7c14e04309eed7bed1ff6c487be0e9e4fb5f9c61d4810226020230573ca",
-  "hash": "d39158f59a7347689dbd68d583079279c53a8b9d7f8fe96ffc9601985fc4615f",
-  "renderDirectory": "renders/d39158f59a7347689dbd68d583079279c53a8b9d7f8fe96ffc9601985fc4615f"
+  "sourceHash": "ffd0030b56e8b78301f32216bbbf0fc0fbd5170ffa11d056ea0dc8d275bb5f11",
+  "hash": "1c0f65ef13570776aaf312fd06776f1c682cd16ee0bfdbfb2e696599d701afc6",
+  "renderDirectory": "renders/1c0f65ef13570776aaf312fd06776f1c682cd16ee0bfdbfb2e696599d701afc6"
 }

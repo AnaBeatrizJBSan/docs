@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_has_furni_on",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_has_furni_on.mdx",
-  "sourceHash": "85813a49c95b7d218e937569836fadac8170fbf85f552044424f475772424f57",
-  "hash": "c0d1e6c2f98c21d68bc91b25b45eee3f851fc8461386200ba588c17386bdf9aa",
-  "renderDirectory": "renders/c0d1e6c2f98c21d68bc91b25b45eee3f851fc8461386200ba588c17386bdf9aa"
+  "sourceHash": "2593cb1136dcbff643bbd8722a48749cc4266e557a3a4932ceabe719c676ab07",
+  "hash": "01fc192b8138d3620b27cb1020b92957711e99c22db91601958df5634290c6b1",
+  "renderDirectory": "renders/01fc192b8138d3620b27cb1020b92957711e99c22db91601958df5634290c6b1"
 }

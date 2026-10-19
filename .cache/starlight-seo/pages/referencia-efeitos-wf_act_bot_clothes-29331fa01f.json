@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_bot_clothes",
   "source": "src/content/docs/referencia/efeitos/wf_act_bot_clothes.mdx",
-  "sourceHash": "7c32a6d40d84c1036e4289d8e4263b5dfdb49653bd5460152a25a8a7064e1b35",
-  "hash": "7a7a8a17ca11c8dedb0783a2c5c14e848b005f44e63f921de00fd3c96a728709",
-  "renderDirectory": "renders/7a7a8a17ca11c8dedb0783a2c5c14e848b005f44e63f921de00fd3c96a728709"
+  "sourceHash": "8efd8f7b90f9dd83e511728c68db51b0bc6f6db64f784b1149cacff02ac76b97",
+  "hash": "fa32b1eb2e788ac56167a22e682408a97ead935eea60cd3b6ba3b20400f05c87",
+  "renderDirectory": "renders/fa32b1eb2e788ac56167a22e682408a97ead935eea60cd3b6ba3b20400f05c87"
 }

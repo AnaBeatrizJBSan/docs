@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "page": "referencia/ativadores/wf_trg_receive_message",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_receive_message.mdx",
+  "sourceHash": "5528003fbb0732e3d4aefbfcc23385b9568a4b206b5614f00af752e1c10eae4a",
+  "hash": "c9f78b733747bcccd31d8a5e9d9560732168c5db7114595a6ccb9dd585a522a4",
+  "renderDirectory": "renders/c9f78b733747bcccd31d8a5e9d9560732168c5db7114595a6ccb9dd585a522a4"
+}

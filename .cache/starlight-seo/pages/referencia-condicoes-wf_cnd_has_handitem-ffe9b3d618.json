@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_has_handitem",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_has_handitem.mdx",
-  "sourceHash": "eea93d34d274757ff2ae18d4e0a63320168ff96b158f520f6ed3de2cd427f378",
-  "hash": "e7a5ade45d028b37bf4ed851169f8ce6477aec790e6ca7cb113062b522a1ed82",
-  "renderDirectory": "renders/e7a5ade45d028b37bf4ed851169f8ce6477aec790e6ca7cb113062b522a1ed82"
+  "sourceHash": "d6be961b5b229956b10d6e3a6451605e662d1cdf2fe9cc13f3da56c1cefedc1a",
+  "hash": "34bb7e9f8054220374faca4178953bad3e0258a369cbf4432e8dda456417a919",
+  "renderDirectory": "renders/34bb7e9f8054220374faca4178953bad3e0258a369cbf4432e8dda456417a919"
 }

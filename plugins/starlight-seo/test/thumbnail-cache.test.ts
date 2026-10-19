@@ -3,6 +3,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import sharp from 'sharp';
 import { renderPageThumbnail } from '../src/runtime/thumbnail.ts';
 import type { RuntimeSeoConfig } from '../src/types.ts';
 
@@ -40,3 +41,37 @@ test('reuses an unchanged source and invalidates cache after a file edit', async
 		await rm(temporary, { recursive: true, force: true });
 	}
 });
+
+for (const cache of [false, true]) {
+	test(`applies a site transform to the rendered image with cache ${cache ? 'enabled' : 'disabled'}`, async () => {
+		const temporary = await mkdtemp(path.join(os.tmpdir(), 'starlight-seo-transform-'));
+		const config: RuntimeSeoConfig = {
+			root: process.cwd(), base: '/', site: 'https://example.com/', siteName: 'Example',
+			thumbnails: {
+				enabled: true, path: '_seo', format: 'png', canvasFormat: 'PNG', quality: 90,
+				cache: cache ? { dir: temporary } : false, additionalPages: {}, routeMappings: [],
+				fonts: ['./node_modules/@fontsource/noto-sans/files/noto-sans-latin-400-normal.woff'],
+			},
+		};
+		const page = { id: 'transform', title: 'Transform', data: { previewWidth: 12 } };
+		try {
+			const transform = async ({ image, page, format }: import('../src/types.ts').ThumbnailTransformContext) =>
+				sharp(image).resize(Number(page.data?.previewWidth), 6).toFormat(format).toBuffer();
+			const first = await renderPageThumbnail(page, config, transform);
+			const second = await renderPageThumbnail(page, config, transform);
+			for (const result of [first, second]) {
+				const metadata = await sharp(result.body as Buffer).metadata();
+				assert.equal(metadata.width, 12);
+				assert.equal(metadata.height, 6);
+				assert.equal(metadata.format, 'png');
+			}
+			assert.equal(second.cache, cache ? 'hit' : 'disabled');
+			// A cached base image must not retain the previous transform's output.
+			const changed = await renderPageThumbnail(page, config, async ({ image }) =>
+				sharp(image).resize(24, 12).png().toBuffer());
+			assert.equal((await sharp(changed.body as Buffer).metadata()).width, 24);
+		} finally {
+			await rm(temporary, { recursive: true, force: true });
+		}
+	});
+}

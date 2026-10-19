@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_team_has_rank",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_team_has_rank.mdx",
-  "sourceHash": "1073bfa116b7feb51d4dfd260eb644a16141df4b24ed6c7472831061fafbef15",
-  "hash": "486f29e5426a10e54f78d55200df8b28b5a9b5383a6bb116aff218f68224c984",
-  "renderDirectory": "renders/486f29e5426a10e54f78d55200df8b28b5a9b5383a6bb116aff218f68224c984"
+  "sourceHash": "d82e6b8c66a2b0776f1c0280fe3a98dcf1e4762764ee505b92539967cd41f50e",
+  "hash": "7c283002f3d46fa89e3e874c358405a8d67df855074b8582d984f21ed327e282",
+  "renderDirectory": "renders/7c283002f3d46fa89e3e874c358405a8d67df855074b8582d984f21ed327e282"
 }

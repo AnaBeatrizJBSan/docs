@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/tabelas-de-classificacao/visao-geral",
   "source": "src/content/docs/referencia/outros/tabelas-de-classificacao/visao-geral.mdx",
-  "sourceHash": "b11ed021f2e7370e7c75da4c229f462190e185b8a683b64ffa7822267c5a3b39",
-  "hash": "82da262ec060ef8d5df18c03e4596004b25caf0fb1c591e4d4fde07b7152a592",
-  "renderDirectory": "renders/82da262ec060ef8d5df18c03e4596004b25caf0fb1c591e4d4fde07b7152a592"
+  "sourceHash": "434da87d90a431a8df1f88ef89384a939588bcf5802770e59b38198cd7aa245b",
+  "hash": "d4ef11b455c43a1ea0875b6ea5b7231a6f2767807f9f4f4e869291dba7b5c890",
+  "renderDirectory": "renders/d4ef11b455c43a1ea0875b6ea5b7231a6f2767807f9f4f4e869291dba7b5c890"
 }

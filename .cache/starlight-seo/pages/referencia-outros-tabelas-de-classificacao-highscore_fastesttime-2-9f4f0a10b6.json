@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/tabelas-de-classificacao/highscore_fastesttime-2",
   "source": "src/content/docs/referencia/outros/tabelas-de-classificacao/highscore_fastesttime-2.mdx",
-  "sourceHash": "3cd52844dbe282112e36fdc58bd286d0982111e8da01f58aec766b30b841f67f",
-  "hash": "998631632c2b64b1fc860d27953057b29b5d1ab8ce9beb6f97e1c8da18ca7f7f",
-  "renderDirectory": "renders/998631632c2b64b1fc860d27953057b29b5d1ab8ce9beb6f97e1c8da18ca7f7f"
+  "sourceHash": "4def3bc1695b63ceb15d43bc287b03629dcdabfab3490d816efb8d2476381fc1",
+  "hash": "ed4fbd574038ec4de5aba9c86d56eaa63aa2057525a28d2028a18188b4f86440",
+  "renderDirectory": "renders/ed4fbd574038ec4de5aba9c86d56eaa63aa2057525a28d2028a18188b4f86440"
 }

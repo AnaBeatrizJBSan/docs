@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_give_var",
   "source": "src/content/docs/referencia/efeitos/wf_act_give_var.mdx",
-  "sourceHash": "b71dafd463612d009b468a2b96d5c90f84a0ef14e6fd6112d01304dbf66f336c",
-  "hash": "914042f0ac355f026a28303be8b18b3904d2f6b8f1184349cd5b6d490124f9a5",
-  "renderDirectory": "renders/914042f0ac355f026a28303be8b18b3904d2f6b8f1184349cd5b6d490124f9a5"
+  "sourceHash": "68568237424bc217f928da4264a18a1b57e76adf0afc2af40c49cd0c1c017f41",
+  "hash": "868f2340513c8cb7a7e72a4102600685355499de6206c3cd586b915d1ac109eb",
+  "renderDirectory": "renders/868f2340513c8cb7a7e72a4102600685355499de6206c3cd586b915d1ac109eb"
 }

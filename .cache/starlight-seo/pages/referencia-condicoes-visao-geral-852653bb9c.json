@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/visao-geral",
   "source": "src/content/docs/referencia/condicoes/visao-geral.mdx",
-  "sourceHash": "8e2fd3da031a4a2174c747e05f48b2fa409bf89817d778cae504d4a345c1022a",
-  "hash": "ba63d2c132d46f5fdfd5d7a5817f512781b38e005a61f84553325ff9ec3517d7",
-  "renderDirectory": "renders/ba63d2c132d46f5fdfd5d7a5817f512781b38e005a61f84553325ff9ec3517d7"
+  "sourceHash": "d51c1ec400cad909b16f16e20bd2803ecee57037dfab77e9004eb00af4da6d73",
+  "hash": "b004424af8a06f7b31103481f31328da84405414bb18c6505afd8dffd2a912b0",
+  "renderDirectory": "renders/b004424af8a06f7b31103481f31328da84405414bb18c6505afd8dffd2a912b0"
 }

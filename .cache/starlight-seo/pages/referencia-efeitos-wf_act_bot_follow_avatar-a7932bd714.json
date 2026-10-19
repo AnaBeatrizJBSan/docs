@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_bot_follow_avatar",
   "source": "src/content/docs/referencia/efeitos/wf_act_bot_follow_avatar.mdx",
-  "sourceHash": "55f5ffdf90e069f43ba8ebf5d8cff1d7b8ac2366407e667d4f5d6a697b4afcc2",
-  "hash": "58af6cc7abed4514063cf04e47892b9fc209ed6267e99db6fc4eddd90bfc2297",
-  "renderDirectory": "renders/58af6cc7abed4514063cf04e47892b9fc209ed6267e99db6fc4eddd90bfc2297"
+  "sourceHash": "b231f7919006d8bd2e3ac8edf8d74b0f1162023f67c6d1237b6eddb4733e227c",
+  "hash": "7fab90d379c3889161fd1bdabf03841b72bd4c402aff2bc5c74c33adc205b82e",
+  "renderDirectory": "renders/7fab90d379c3889161fd1bdabf03841b72bd4c402aff2bc5c74c33adc205b82e"
 }
