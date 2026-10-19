@@ -5,6 +5,8 @@ dist/
 
 # generated SEO thumbnails
 # .cache/
+.cache/seo-furni-icons/
+.cache/thumbnail-build.log
 
 # dependencies
 node_modules/
