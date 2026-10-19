@@ -6,7 +6,7 @@ import sharp from 'sharp';
 import { getFurniIcon } from '../utils/furniImages.ts';
 
 // Site presentation rules: preserve the original pixel art at an integer scale.
-const iconScale = 3;
+const iconScale = 6;
 const iconMargin = 60;
 const pendingIcons = new Map<string, Promise<Buffer>>();
 

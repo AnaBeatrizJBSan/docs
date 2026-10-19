@@ -38,11 +38,11 @@ test('places the icon at the top right with crisp pixels and reuses its disk cac
 	const pixel = (x: number, y: number) => Array.from(data.subarray((y * info.width + x) * 3, (y * info.width + x) * 3 + 3));
 	assert.equal(info.width, 1200);
 	assert.equal(info.height, 630);
-	assert.deepEqual(pixel(1134, 60), [255, 0, 0]);
-	assert.deepEqual(pixel(1136, 62), [255, 0, 0]);
-	assert.deepEqual(pixel(1137, 60), [0, 0, 255]);
-	assert.deepEqual(pixel(1134, 63), [255, 255, 0]);
-	assert.deepEqual(pixel(1133, 60), [0, 0, 0]);
+	assert.deepEqual(pixel(1128, 60), [255, 0, 0]);
+	assert.deepEqual(pixel(1133, 65), [255, 0, 0]);
+	assert.deepEqual(pixel(1134, 60), [0, 0, 255]);
+	assert.deepEqual(pixel(1128, 66), [255, 255, 0]);
+	assert.deepEqual(pixel(1127, 60), [0, 0, 0]);
 	assert.deepEqual(pixel(1140, 60), [0, 0, 0]);
 	t.mock.method(globalThis, 'fetch', async () => { throw new Error('Must use the disk cache'); });
 	assert.deepEqual(await transform(context), result);
