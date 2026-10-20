@@ -49,6 +49,8 @@ import CriandoAsVariaveis from "@assets/wf_var_context/04-criando-as-variaveis.m
 import CapturandoAConta1 from "@assets/wf_var_context/04-capturando-a-conta-1.mp4";
 import CapturandoAConta2 from "@assets/wf_var_context/04-capturando-a-conta-2.mp4";
 import CapturandoAConta3 from "@assets/wf_var_context/04-capturando-a-conta-3.mp4";
+import CalculandoASubtracao from "@assets/wf_var_context/05-calculando-a-subtracao.mp4";
+import MostrandoAResposta from "@assets/wf_var_context/06-mostrando-a-resposta.mp4";
 
 O **Wired Variável: Contexto Variável** permite criar informações temporárias para usar durante uma execução Wired. Quer guardar os números de uma conta, lembrar a posição inicial de um bot ou informar a outra pilha por que uma partida terminou? Você pode utilizar uma variável de contexto para isso.
 
@@ -212,6 +214,12 @@ Em seguida, adicione **Mudar Valor Variável**. Selecione `resposta`, escolha a 
 
 Na conta `10 - 6`, `resposta` chega a essa pilha com o valor `10`. Ao retirar o valor `6`, guardado em `segundo_numero`, ela passa a valer `4`.
 
+<AccessibleVideo
+  id="contexto-variavel-calculando-a-subtracao"
+  src={CalculandoASubtracao}
+  title="Configurar a pilha que calcula a subtração com variáveis de contexto"
+/>
+
 ### Mostrando a resposta
 
 Coloque um bot no quarto e monte uma terceira pilha com **Recebe Sinal**, selecionando a mesma antena utilizada na pilha da subtração. As duas pilhas recebem o sinal enviado pela pilha que captura a conta.
@@ -227,6 +235,12 @@ Adicione também o [Extra de Texto: Campo Variável](/referencia/extras/wf_xtra_
 Agora teste a calculadora escrevendo `10 - 6`. O bot deverá informar que a resposta é `4`. Experimente também `10 - 9`, `1 - 1` e `6 - 2`, mantendo os espaços entre os números e o operador.
 
 Perceba que não precisamos guardar esses números em uma variável do jogador. Eles acompanham a conta desde a captura até a resposta do bot e são descartados quando essa execução termina.
+
+<AccessibleVideo
+  id="contexto-variavel-mostrando-a-resposta"
+  src={MostrandoAResposta}
+  title="Mostrar o resultado da calculadora na mensagem do bot"
+/>
 
 ### Agora é com você!
 
