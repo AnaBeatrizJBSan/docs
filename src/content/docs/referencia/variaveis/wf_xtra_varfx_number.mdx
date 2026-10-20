@@ -40,19 +40,13 @@ infobox:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx.mp4";
-import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-captions.vtt?url";
-import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-captions.vtt?raw";
 import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-descriptions.vtt?url";
 import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_number/15-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import CorDoTime from "@assets/wf_xtra_varfx_number/05-cor-do-time.mp4"
-import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_number/05-cor-do-time-captions.vtt?url";
-import CorDoTimeCaptionsRaw from "@assets/wf_xtra_varfx_number/05-cor-do-time-captions.vtt?raw";
 import CorDoTimeDescriptionsUrl from "@assets/wf_xtra_varfx_number/05-cor-do-time-descriptions.vtt?url";
 import CorDoTimeDescriptionsRaw from "@assets/wf_xtra_varfx_number/05-cor-do-time-descriptions.vtt?raw";
 import Requisitos from "@assets/wf_xtra_varfx_number/01-requisitos.mp4"
-import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_number/01-requisitos-captions.vtt?url";
-import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_number/01-requisitos-captions.vtt?raw";
 import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_number/01-requisitos-descriptions.vtt?url";
 import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_number/01-requisitos-descriptions.vtt?raw";
 import IconeBateria from "@assets/wf_xtra_varfx_number/06-icones-bateria.png"
@@ -82,8 +76,6 @@ import IconeTempoRestante from "@assets/wf_xtra_varfx_number/06-icones-tempo-res
 import IconeAprimoramento from "@assets/wf_xtra_varfx_number/05-aprimoramento.png"
 import IconeTroncosDeMadeira from "@assets/wf_xtra_varfx_number/06-icones-troncos-de-madeira.png"
 import AlinhamentoDoIcone from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone.mp4"
-import AlinhamentoDoIconeCaptionsUrl from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-captions.vtt?url";
-import AlinhamentoDoIconeCaptionsRaw from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-captions.vtt?raw";
 import AlinhamentoDoIconeDescriptionsUrl from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-descriptions.vtt?url";
 import AlinhamentoDoIconeDescriptionsRaw from "@assets/wf_xtra_varfx_number/07-alinhamento-do-icone-descriptions.vtt?raw";
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
@@ -92,8 +84,6 @@ import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired
 import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_number/08-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza.mp4";
-import VisivelQuandoAVariavelAtualizaExemploCaptionsUrl from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-captions.vtt?url";
-import VisivelQuandoAVariavelAtualizaExemploCaptionsRaw from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
 import VisivelQuandoAVariavelAtualizaExemploDescriptionsUrl from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
 import VisivelQuandoAVariavelAtualizaExemploDescriptionsRaw from "@assets/wf_xtra_varfx_number/09-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_number/10-exemplo-visivel-ao-passar-o-mouse.gif";
@@ -129,8 +119,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="requisitos-exibicao-numeros"
   src={Requisitos}
   title="Configuração de uma variável para a Exibição de Números"
-  captionsSrc={RequisitosCaptionsUrl}
-  captionsContent={RequisitosCaptionsRaw}
   descriptionsSrc={RequisitosDescriptionsUrl}
   descriptionsContent={RequisitosDescriptionsRaw}
 />
@@ -183,8 +171,6 @@ O vídeo abaixo mostra a Exibição de Números utilizando a cor do time do usu�
   id="cor-do-time-exibicao-numeros"
   src={CorDoTime}
   title="Cor do time da Exibição de Números"
-  captionsSrc={CorDoTimeCaptionsUrl}
-  captionsContent={CorDoTimeCaptionsRaw}
   descriptionsSrc={CorDoTimeDescriptionsUrl}
   descriptionsContent={CorDoTimeDescriptionsRaw}
 />
@@ -241,8 +227,6 @@ A opção **Alinhamento do ícone** define onde o ícone escolhido será exibido
   id="alinhamento-icone-exibicao-numeros"
   src={AlinhamentoDoIcone}
   title="Alinhamento do ícone da Exibição de Números"
-  captionsSrc={AlinhamentoDoIconeCaptionsUrl}
-  captionsContent={AlinhamentoDoIconeCaptionsRaw}
   descriptionsSrc={AlinhamentoDoIconeDescriptionsUrl}
   descriptionsContent={AlinhamentoDoIconeDescriptionsRaw}
 />
@@ -298,8 +282,6 @@ O vídeo abaixo demonstra a exibição temporária depois de uma atualização d
   id="visivel-quando-atualiza-exibicao-numeros"
   src={VisivelQuandoAVariavelAtualizaExemplo}
   title="Exibição de Números visível quando a variável atualiza"
-  captionsSrc={VisivelQuandoAVariavelAtualizaExemploCaptionsUrl}
-  captionsContent={VisivelQuandoAVariavelAtualizaExemploCaptionsRaw}
   descriptionsSrc={VisivelQuandoAVariavelAtualizaExemploDescriptionsUrl}
   descriptionsContent={VisivelQuandoAVariavelAtualizaExemploDescriptionsRaw}
 />
@@ -459,8 +441,6 @@ Por exemplo, imagine dois Wireds **Variável FX: Exibição de Números** exibin
 <AccessibleVideo
   id="exibicao-de-numeros-ordem-na-pilha-de-fx"
   src={OrdemNaPilhaDeFx}
-  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
-  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
   descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
   descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
   title="Alterar a ordem dos estilos Freeze e Shalimar na pilha de FX"

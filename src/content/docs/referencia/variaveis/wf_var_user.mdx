@@ -44,33 +44,21 @@ import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import VincularPeloEfeito from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel.mp4";
-import VincularPeloEfeitoCaptionsUrl from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-captions.vtt?url";
-import VincularPeloEfeitoCaptionsRaw from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-captions.vtt?raw";
 import VincularPeloEfeitoDescriptionsUrl from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-descriptions.vtt?url";
 import VincularPeloEfeitoDescriptionsRaw from "@assets/wf_var_user/06-vincular-variavel-wired-efeito-dar-variavel-descriptions.vtt?raw";
 import VincularPelaInspecao from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel.mp4";
-import VincularPelaInspecaoCaptionsUrl from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-captions.vtt?url";
-import VincularPelaInspecaoCaptionsRaw from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-captions.vtt?raw";
 import VincularPelaInspecaoDescriptionsUrl from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?url";
 import VincularPelaInspecaoDescriptionsRaw from "@assets/wf_var_user/06-vincular-variavel-botao-dar-variavel-descriptions.vtt?raw";
 import RenomearVariavel from "@assets/wf_var_user/08-renomear-a-variavel.mp4";
-import RenomearVariavelCaptionsUrl from "@assets/wf_var_user/08-renomear-a-variavel-captions.vtt?url";
-import RenomearVariavelCaptionsRaw from "@assets/wf_var_user/08-renomear-a-variavel-captions.vtt?raw";
 import RenomearVariavelDescriptionsUrl from "@assets/wf_var_user/08-renomear-a-variavel-descriptions.vtt?url";
 import RenomearVariavelDescriptionsRaw from "@assets/wf_var_user/08-renomear-a-variavel-descriptions.vtt?raw";
 import AlterarPeloEfeito from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired.mp4";
-import AlterarPeloEfeitoCaptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-captions.vtt?url";
-import AlterarPeloEfeitoCaptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-captions.vtt?raw";
 import AlterarPeloEfeitoDescriptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-descriptions.vtt?url";
 import AlterarPeloEfeitoDescriptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-wired-descriptions.vtt?raw";
 import AlterarPelaInspecao from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar.mp4";
-import AlterarPelaInspecaoCaptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-captions.vtt?url";
-import AlterarPelaInspecaoCaptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-captions.vtt?raw";
 import AlterarPelaInspecaoDescriptionsUrl from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-descriptions.vtt?url";
 import AlterarPelaInspecaoDescriptionsRaw from "@assets/wf_var_user/09-alterar-valor-variavel-pelo-inspecionar-descriptions.vtt?raw";
 import ExibirValor from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto.mp4";
-import ExibirValorCaptionsUrl from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-captions.vtt?url";
-import ExibirValorCaptionsRaw from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-captions.vtt?raw";
 import ExibirValorDescriptionsUrl from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-descriptions.vtt?url";
 import ExibirValorDescriptionsRaw from "@assets/wf_var_user/10-exibir-o-valor-da-variavel-no-quarto-descriptions.vtt?raw";
 import DirecaoN from "@assets/wf_var_user/05-direcao-N.png";
@@ -176,8 +164,6 @@ O vídeo abaixo mostra essa configuração e a conferência do resultado pelo bo
 <AccessibleVideo
   id="usuario-variavel-vincular-pelo-efeito"
   src={VincularPeloEfeito}
-  captionsSrc={VincularPeloEfeitoCaptionsUrl}
-  captionsContent={VincularPeloEfeitoCaptionsRaw}
   descriptionsSrc={VincularPeloEfeitoDescriptionsUrl}
   descriptionsContent={VincularPeloEfeitoDescriptionsRaw}
   title="Vincular uma variável ao usuário com o Efeito Wired: Dar Variável"
@@ -198,8 +184,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
 <AccessibleVideo
   id="usuario-variavel-vincular-pela-inspecao"
   src={VincularPelaInspecao}
-  captionsSrc={VincularPelaInspecaoCaptionsUrl}
-  captionsContent={VincularPelaInspecaoCaptionsRaw}
   descriptionsSrc={VincularPelaInspecaoDescriptionsUrl}
   descriptionsContent={VincularPelaInspecaoDescriptionsRaw}
   title="Vincular uma variável ao usuário pelo botão Dar variável da aba Inspeção"
@@ -222,8 +206,6 @@ Se um jogador possui `rating_wired_club` com valor **0**, essa operação faz se
 <AccessibleVideo
   id="usuario-variavel-alterar-pelo-efeito"
   src={AlterarPeloEfeito}
-  captionsSrc={AlterarPeloEfeitoCaptionsUrl}
-  captionsContent={AlterarPeloEfeitoCaptionsRaw}
   descriptionsSrc={AlterarPeloEfeitoDescriptionsUrl}
   descriptionsContent={AlterarPeloEfeitoDescriptionsRaw}
   title="Alterar o valor da variável com o Efeito Wired: Mudar Valor Variável"
@@ -238,8 +220,6 @@ Nesse caso, o número digitado substitui o valor armazenado para o usuário sele
 <AccessibleVideo
   id="usuario-variavel-alterar-pela-inspecao"
   src={AlterarPelaInspecao}
-  captionsSrc={AlterarPelaInspecaoCaptionsUrl}
-  captionsContent={AlterarPelaInspecaoCaptionsRaw}
   descriptionsSrc={AlterarPelaInspecaoDescriptionsUrl}
   descriptionsContent={AlterarPelaInspecaoDescriptionsRaw}
   title="Alterar o valor da variável pela aba Inspeção"
@@ -258,8 +238,6 @@ Assim, quando o Efeito **Mudar Valor Variável** somar **1**, o número exibido 
 <AccessibleVideo
   id="usuario-variavel-exibir-valor"
   src={ExibirValor}
-  captionsSrc={ExibirValorCaptionsUrl}
-  captionsContent={ExibirValorCaptionsRaw}
   descriptionsSrc={ExibirValorDescriptionsUrl}
   descriptionsContent={ExibirValorDescriptionsRaw}
   title="Exibir o valor da variável no quarto com a Variável FX: Exibição de Números"
@@ -274,8 +252,6 @@ Depois de confirmar, o novo nome passa a aparecer em todos os locais das **Ferra
 <AccessibleVideo
   id="usuario-variavel-renomear"
   src={RenomearVariavel}
-  captionsSrc={RenomearVariavelCaptionsUrl}
-  captionsContent={RenomearVariavelCaptionsRaw}
   descriptionsSrc={RenomearVariavelDescriptionsUrl}
   descriptionsContent={RenomearVariavelDescriptionsRaw}
   title="Renomear a variável e conferir o novo nome nas Ferramentas do Criador"

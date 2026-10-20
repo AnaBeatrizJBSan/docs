@@ -40,14 +40,10 @@ infobox:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_status/16-ordem-na-pilha-de-fx.mp4";
-import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_status/16-ordem-na-pilha-de-fx-captions.vtt?url";
-import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_status/16-ordem-na-pilha-de-fx-captions.vtt?raw";
 import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_status/16-ordem-na-pilha-de-fx-descriptions.vtt?url";
 import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_status/16-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_status/01-requisitos.mp4"
-import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_status/01-requisitos-captions.vtt?url";
-import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_status/01-requisitos-captions.vtt?raw";
 import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_status/01-requisitos-descriptions.vtt?url";
 import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_status/01-requisitos-descriptions.vtt?raw";
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png"
@@ -59,34 +55,22 @@ import IntervaloAvancadoVariavelGlobal from "@assets/wf_xtra_varfx/06-wired-conf
 import IntervaloAvancadoVariavelDeMobi from "@assets/wf_xtra_varfx/07-wired-configuracoes-avancadas-de-intervalo-variavel-de-mobi.gif";
 import IntervaloAvancadoVariavelDeUsuario from "@assets/wf_xtra_varfx/08-wired-configuracoes-avancadas-de-intervalo-variavel-de-usuario.gif";
 import CorVermelhoParaVerde from "@assets/wf_xtra_varfx_status/05-cor-vermelho-pra-verde.mp4"
-import CorVermelhoParaVerdeCaptionsUrl from "@assets/wf_xtra_varfx_status/05-cor-vermelho-pra-verde-captions.vtt?url";
-import CorVermelhoParaVerdeCaptionsRaw from "@assets/wf_xtra_varfx_status/05-cor-vermelho-pra-verde-captions.vtt?raw";
 import CorVermelhoParaVerdeDescriptionsUrl from "@assets/wf_xtra_varfx_status/05-cor-vermelho-pra-verde-descriptions.vtt?url";
 import CorVermelhoParaVerdeDescriptionsRaw from "@assets/wf_xtra_varfx_status/05-cor-vermelho-pra-verde-descriptions.vtt?raw";
 import Tamanho from "@assets/wf_xtra_varfx_status/06-tamanho.mp4"
-import TamanhoCaptionsUrl from "@assets/wf_xtra_varfx_status/06-tamanho-captions.vtt?url";
-import TamanhoCaptionsRaw from "@assets/wf_xtra_varfx_status/06-tamanho-captions.vtt?raw";
 import TamanhoDescriptionsUrl from "@assets/wf_xtra_varfx_status/06-tamanho-descriptions.vtt?url";
 import TamanhoDescriptionsRaw from "@assets/wf_xtra_varfx_status/06-tamanho-descriptions.vtt?raw";
 import EstiloVisual from "@assets/wf_xtra_varfx_status/07-estilo-visual.mp4"
-import EstiloVisualCaptionsUrl from "@assets/wf_xtra_varfx_status/07-estilo-visual-captions.vtt?url";
-import EstiloVisualCaptionsRaw from "@assets/wf_xtra_varfx_status/07-estilo-visual-captions.vtt?raw";
 import EstiloVisualDescriptionsUrl from "@assets/wf_xtra_varfx_status/07-estilo-visual-descriptions.vtt?url";
 import EstiloVisualDescriptionsRaw from "@assets/wf_xtra_varfx_status/07-estilo-visual-descriptions.vtt?raw";
 import Segmentos from "@assets/wf_xtra_varfx_status/08-segmentos.mp4"
-import SegmentosCaptionsUrl from "@assets/wf_xtra_varfx_status/08-segmentos-captions.vtt?url";
-import SegmentosCaptionsRaw from "@assets/wf_xtra_varfx_status/08-segmentos-captions.vtt?raw";
 import SegmentosDescriptionsUrl from "@assets/wf_xtra_varfx_status/08-segmentos-descriptions.vtt?url";
 import SegmentosDescriptionsRaw from "@assets/wf_xtra_varfx_status/08-segmentos-descriptions.vtt?raw";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_status/09-intervalo-de-valores.mp4"
-import IntervaloDeValoresCaptionsUrl from "@assets/wf_xtra_varfx_status/09-intervalo-de-valores-captions.vtt?url";
-import IntervaloDeValoresCaptionsRaw from "@assets/wf_xtra_varfx_status/09-intervalo-de-valores-captions.vtt?raw";
 import IntervaloDeValoresDescriptionsUrl from "@assets/wf_xtra_varfx_status/09-intervalo-de-valores-descriptions.vtt?url";
 import IntervaloDeValoresDescriptionsRaw from "@assets/wf_xtra_varfx_status/09-intervalo-de-valores-descriptions.vtt?raw";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_status/10-exemplo-sempre-visivel.png"
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_status/11-visivel-quando-a-variavel-atualiza.mp4"
-import VisivelQuandoAVariavelAtualizaCaptionsUrl from "@assets/wf_xtra_varfx_status/11-barra-de-status-visivel-quando-a-variavel-atualiza-captions.vtt?url";
-import VisivelQuandoAVariavelAtualizaCaptionsRaw from "@assets/wf_xtra_varfx_status/11-barra-de-status-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
 import VisivelQuandoAVariavelAtualizaDescriptionsUrl from "@assets/wf_xtra_varfx_status/11-barra-de-status-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
 import VisivelQuandoAVariavelAtualizaDescriptionsRaw from "@assets/wf_xtra_varfx_status/11-barra-de-status-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_status/12-visivel-ao-passar-o-mouse.gif"
@@ -121,8 +105,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="requisitos-barra-status"
   src={Requisitos}
   title="Configuração de uma variável para a Barra de Status"
-  captionsSrc={RequisitosCaptionsUrl}
-  captionsContent={RequisitosCaptionsRaw}
   descriptionsSrc={RequisitosDescriptionsUrl}
   descriptionsContent={RequisitosDescriptionsRaw}
 />
@@ -194,8 +176,6 @@ O estilo **Bateria** utiliza sempre a aparência **Vermelho para verde**. Confor
   id="cor-vermelho-pra-verde-barra-status"
   src={CorVermelhoParaVerde}
   title="Cor Vermelho para verde do estilo Bateria"
-  captionsSrc={CorVermelhoParaVerdeCaptionsUrl}
-  captionsContent={CorVermelhoParaVerdeCaptionsRaw}
   descriptionsSrc={CorVermelhoParaVerdeDescriptionsUrl}
   descriptionsContent={CorVermelhoParaVerdeDescriptionsRaw}
 />
@@ -216,8 +196,6 @@ O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
   id="tamanho-barra-status"
   src={Tamanho}
   title="Tamanhos da Barra de Status"
-  captionsSrc={TamanhoCaptionsUrl}
-  captionsContent={TamanhoCaptionsRaw}
   descriptionsSrc={TamanhoDescriptionsUrl}
   descriptionsContent={TamanhoDescriptionsRaw}
 />
@@ -236,8 +214,6 @@ O vídeo abaixo apresenta como cada estilo visual altera a barra.
   id="estilo-visual-barra-status"
   src={EstiloVisual}
   title="Estilo visual da Barra de Status"
-  captionsSrc={EstiloVisualCaptionsUrl}
-  captionsContent={EstiloVisualCaptionsRaw}
   descriptionsSrc={EstiloVisualDescriptionsUrl}
   descriptionsContent={EstiloVisualDescriptionsRaw}
 />
@@ -252,8 +228,6 @@ O vídeo abaixo compara a barra com diferentes quantidades de segmentos.
   id="segmentos-barra-status"
   src={Segmentos}
   title="Segmentos da Barra de Status"
-  captionsSrc={SegmentosCaptionsUrl}
-  captionsContent={SegmentosCaptionsRaw}
   descriptionsSrc={SegmentosDescriptionsUrl}
   descriptionsContent={SegmentosDescriptionsRaw}
 />
@@ -284,8 +258,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="intervalo-de-valores-barra-status"
   src={IntervaloDeValores}
   title="Intervalo de valores da Barra de Status"
-  captionsSrc={IntervaloDeValoresCaptionsUrl}
-  captionsContent={IntervaloDeValoresCaptionsRaw}
   descriptionsSrc={IntervaloDeValoresDescriptionsUrl}
   descriptionsContent={IntervaloDeValoresDescriptionsRaw}
 />
@@ -329,8 +301,6 @@ O vídeo abaixo demonstra a exibição temporária depois de uma atualização d
   id="visivel-quando-a-variavel-atualiza-barra-status"
   src={VisivelQuandoAVariavelAtualiza}
   title="Barra de Status visível quando a variável atualiza"
-  captionsSrc={VisivelQuandoAVariavelAtualizaCaptionsUrl}
-  captionsContent={VisivelQuandoAVariavelAtualizaCaptionsRaw}
   descriptionsSrc={VisivelQuandoAVariavelAtualizaDescriptionsUrl}
   descriptionsContent={VisivelQuandoAVariavelAtualizaDescriptionsRaw}
 />
@@ -458,8 +428,6 @@ Por exemplo, imagine dois Wireds **Variável FX: Barra de Status** exibindo efei
 <AccessibleVideo
   id="barra-de-status-ordem-na-pilha-de-fx"
   src={OrdemNaPilhaDeFx}
-  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
-  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
   descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
   descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
   title="Alterar a ordem das barras de energia e escudo na pilha de FX"

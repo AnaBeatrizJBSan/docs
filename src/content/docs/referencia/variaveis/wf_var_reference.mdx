@@ -44,28 +44,18 @@ import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import ConsultarAVariavel from "@assets/wf_var_reference/05-consultar-a-variavel.mp4";
-import ConsultarAVariavelCaptionsUrl from "@assets/wf_var_reference/05-consultar-a-variavel-captions.vtt?url";
-import ConsultarAVariavelCaptionsRaw from "@assets/wf_var_reference/05-consultar-a-variavel-captions.vtt?raw";
 import ConsultarAVariavelDescriptionsUrl from "@assets/wf_var_reference/05-consultar-a-variavel-descriptions.vtt?url";
 import ConsultarAVariavelDescriptionsRaw from "@assets/wf_var_reference/05-consultar-a-variavel-descriptions.vtt?raw";
 import VincularAVariavelAUmUsuario from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario.mp4";
-import VincularAVariavelAUmUsuarioCaptionsUrl from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-captions.vtt?url";
-import VincularAVariavelAUmUsuarioCaptionsRaw from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-captions.vtt?raw";
 import VincularAVariavelAUmUsuarioDescriptionsUrl from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-descriptions.vtt?url";
 import VincularAVariavelAUmUsuarioDescriptionsRaw from "@assets/wf_var_reference/06-vincular-a-variavel-a-um-usuario-descriptions.vtt?raw";
 import AlterarOValorDaVariavel from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel.mp4";
-import AlterarOValorDaVariavelCaptionsUrl from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-captions.vtt?url";
-import AlterarOValorDaVariavelCaptionsRaw from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-captions.vtt?raw";
 import AlterarOValorDaVariavelDescriptionsUrl from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-descriptions.vtt?url";
 import AlterarOValorDaVariavelDescriptionsRaw from "@assets/wf_var_reference/07-alterar-o-valor-da-variavel-descriptions.vtt?raw";
 import RemoverOuExcluirAVariavel from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel.mp4";
-import RemoverOuExcluirAVariavelCaptionsUrl from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-captions.vtt?url";
-import RemoverOuExcluirAVariavelCaptionsRaw from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-captions.vtt?raw";
 import RemoverOuExcluirAVariavelDescriptionsUrl from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-descriptions.vtt?url";
 import RemoverOuExcluirAVariavelDescriptionsRaw from "@assets/wf_var_reference/08-remover-ou-excluir-a-variavel-descriptions.vtt?raw";
 import RetirarOWiredDoQuarto from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto.mp4";
-import RetirarOWiredDoQuartoCaptionsUrl from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-captions.vtt?url";
-import RetirarOWiredDoQuartoCaptionsRaw from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-captions.vtt?raw";
 import RetirarOWiredDoQuartoDescriptionsUrl from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-descriptions.vtt?url";
 import RetirarOWiredDoQuartoDescriptionsRaw from "@assets/wf_var_reference/09-retirar-o-wired-do-quarto-descriptions.vtt?raw";
 
@@ -157,8 +147,6 @@ Para uma **variável global**, escolha o ícone **Global** na aba [Inspeção](/
   id="de-outro-quarto-consultar-a-variavel"
   src={ConsultarAVariavel}
   title="Consultar as referências de checkpoint e pontuacao_coletiva nas Ferramentas do Criador"
-  captionsSrc={ConsultarAVariavelCaptionsUrl}
-  captionsContent={ConsultarAVariavelCaptionsRaw}
   descriptionsSrc={ConsultarAVariavelDescriptionsUrl}
   descriptionsContent={ConsultarAVariavelDescriptionsRaw}
 />
@@ -175,8 +163,6 @@ Por exemplo, um jogador que ainda não possui `checkpoint` pode recebê-la com v
   id="de-outro-quarto-vincular-a-variavel-a-um-usuario"
   src={VincularAVariavelAUmUsuario}
   title="Vincular checkpoint a um bot pelo Efeito Dar Variável e pela Inspeção"
-  captionsSrc={VincularAVariavelAUmUsuarioCaptionsUrl}
-  captionsContent={VincularAVariavelAUmUsuarioCaptionsRaw}
   descriptionsSrc={VincularAVariavelAUmUsuarioDescriptionsUrl}
   descriptionsContent={VincularAVariavelAUmUsuarioDescriptionsRaw}
 />
@@ -197,8 +183,6 @@ Para entender os limites dos números armazenados e sua exibição no cliente Cl
   id="de-outro-quarto-alterar-o-valor-da-variavel"
   src={AlterarOValorDaVariavel}
   title="Somar ao valor de checkpoint de um bot pelo Efeito Mudar Valor Variável"
-  captionsSrc={AlterarOValorDaVariavelCaptionsUrl}
-  captionsContent={AlterarOValorDaVariavelCaptionsRaw}
   descriptionsSrc={AlterarOValorDaVariavelDescriptionsUrl}
   descriptionsContent={AlterarOValorDaVariavelDescriptionsRaw}
 />
@@ -219,8 +203,6 @@ Por exemplo, remover `checkpoint` de um jogador apaga sua associação com essa 
   id="de-outro-quarto-remover-ou-excluir-a-variavel"
   src={RemoverOuExcluirAVariavel}
   title="Remover checkpoint de um bot pelo Efeito Remover Variável"
-  captionsSrc={RemoverOuExcluirAVariavelCaptionsUrl}
-  captionsContent={RemoverOuExcluirAVariavelCaptionsRaw}
   descriptionsSrc={RemoverOuExcluirAVariavelDescriptionsUrl}
   descriptionsContent={RemoverOuExcluirAVariavelDescriptionsRaw}
 />
@@ -258,8 +240,6 @@ Ao retirar essa segunda pilha, o efeito visual deixa de aparecer naquele quarto.
   id="de-outro-quarto-retirar-o-wired-do-quarto"
   src={RetirarOWiredDoQuarto}
   title="Retirar o efeito visual do segundo quarto e conferir commits com valor 114 no quarto de origem"
-  captionsSrc={RetirarOWiredDoQuartoCaptionsUrl}
-  captionsContent={RetirarOWiredDoQuartoCaptionsRaw}
   descriptionsSrc={RetirarOWiredDoQuartoDescriptionsUrl}
   descriptionsContent={RetirarOWiredDoQuartoDescriptionsRaw}
 />
