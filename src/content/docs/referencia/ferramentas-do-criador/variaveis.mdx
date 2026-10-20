@@ -12,13 +12,9 @@ import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import Gerenciar from "@assets/ferramentas-do-criador/variaveis/07-gerenciar.gif";
 import Destacar from "@assets/ferramentas-do-criador/variaveis/06-destacar.mp4";
-import DestacarCaptionsUrl from "@assets/ferramentas-do-criador/variaveis/06-destacar-captions.vtt?url";
-import DestacarCaptionsRaw from "@assets/ferramentas-do-criador/variaveis/06-destacar-captions.vtt?raw";
 import DestacarDescriptionsUrl from "@assets/ferramentas-do-criador/variaveis/06-destacar-descriptions.vtt?url";
 import DestacarDescriptionsRaw from "@assets/ferramentas-do-criador/variaveis/06-destacar-descriptions.vtt?raw";
 import ExcluirVariavel from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel.mp4";
-import ExcluirVariavelCaptionsUrl from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-captions.vtt?url";
-import ExcluirVariavelCaptionsRaw from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-captions.vtt?raw";
 import ExcluirVariavelDescriptionsUrl from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-descriptions.vtt?url";
 import ExcluirVariavelDescriptionsRaw from "@assets/ferramentas-do-criador/variaveis/09-excluir-uma-variavel-descriptions.vtt?raw";
 import EscolhaDeVariavel from '@assets/ferramentas-do-criador/variaveis/05-escolha-de-variavel.gif'
@@ -131,8 +127,6 @@ Imagine que vários mobis participam de um sistema, mas você quer conferir quai
   id="variaveis-destacar"
   src={Destacar}
   title="Destacando os alvos que possuem uma variável"
-  captionsSrc={DestacarCaptionsUrl}
-  captionsContent={DestacarCaptionsRaw}
   descriptionsSrc={DestacarDescriptionsUrl}
   descriptionsContent={DestacarDescriptionsRaw}
 />
@@ -217,8 +211,6 @@ Excluir a variável pela lista afeta todos os usuários ou mobis que a possuem. 
   id="variaveis-excluir-uma-variavel"
   src={ExcluirVariavel}
   title="Excluindo uma variável pelas Ferramentas do Criador"
-  captionsSrc={ExcluirVariavelCaptionsUrl}
-  captionsContent={ExcluirVariavelCaptionsRaw}
   descriptionsSrc={ExcluirVariavelDescriptionsUrl}
   descriptionsContent={ExcluirVariavelDescriptionsRaw}
 />

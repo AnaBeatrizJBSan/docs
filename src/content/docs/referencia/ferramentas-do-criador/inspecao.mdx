@@ -11,18 +11,12 @@ sidebar:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import TipoDoElemento from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento.mp4";
-import TipoDoElementoCaptionsUrl from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-captions.vtt?url";
-import TipoDoElementoCaptionsRaw from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-captions.vtt?raw";
 import TipoDoElementoDescriptionsUrl from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-descriptions.vtt?url";
 import TipoDoElementoDescriptionsRaw from "@assets/ferramentas-do-criador/inspecao/02-tipo-do-elemento-descriptions.vtt?raw";
 import EncontrarWireds from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi.mp4";
-import EncontrarWiredsCaptionsUrl from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-captions.vtt?url";
-import EncontrarWiredsCaptionsRaw from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-captions.vtt?raw";
 import EncontrarWiredsDescriptionsUrl from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-descriptions.vtt?url";
 import EncontrarWiredsDescriptionsRaw from "@assets/ferramentas-do-criador/inspecao/05-encontrar-wireds-que-utilizam-um-mobi-descriptions.vtt?raw";
 import ManterSelecionado from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado.mp4";
-import ManterSelecionadoCaptionsUrl from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-captions.vtt?url";
-import ManterSelecionadoCaptionsRaw from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-captions.vtt?raw";
 import ManterSelecionadoDescriptionsUrl from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-descriptions.vtt?url";
 import ManterSelecionadoDescriptionsRaw from "@assets/ferramentas-do-criador/inspecao/06-manter-selecionado-descriptions.vtt?raw";
 
@@ -58,8 +52,6 @@ Depois da seleção, as demais seções mostram as informações do alvo escolhi
   id="inspecao-tipo-do-elemento"
   src={TipoDoElemento}
   title="Como escolher o tipo de elemento para inspecionar"
-  captionsSrc={TipoDoElementoCaptionsUrl}
-  captionsContent={TipoDoElementoCaptionsRaw}
   descriptionsSrc={TipoDoElementoDescriptionsUrl}
   descriptionsContent={TipoDoElementoDescriptionsRaw}
 />
@@ -116,8 +108,6 @@ Por exemplo, no [tutorial de como adicionar um relógio ao quarto](https://www.w
   id="inspecao-encontrar-wireds"
   src={EncontrarWireds}
   title="Como encontrar os Wireds que utilizam um mobi"
-  captionsSrc={EncontrarWiredsCaptionsUrl}
-  captionsContent={EncontrarWiredsCaptionsRaw}
   descriptionsSrc={EncontrarWiredsDescriptionsUrl}
   descriptionsContent={EncontrarWiredsDescriptionsRaw}
 />
@@ -132,8 +122,6 @@ Com a caixa **desmarcada**, a prévia muda a cada nova seleção no quarto, conf
   id="inspecao-manter-selecionado"
   src={ManterSelecionado}
   title="Como funciona a opção Manter selecionado na aba Inspeção"
-  captionsSrc={ManterSelecionadoCaptionsUrl}
-  captionsContent={ManterSelecionadoCaptionsRaw}
   descriptionsSrc={ManterSelecionadoDescriptionsUrl}
   descriptionsContent={ManterSelecionadoDescriptionsRaw}
 />
