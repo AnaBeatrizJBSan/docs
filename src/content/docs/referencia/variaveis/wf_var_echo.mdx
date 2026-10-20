@@ -1,6 +1,6 @@
 ---
 title: "Variável WIRED: Eco"
-description: Esta variável repete ou encaminha valores de outra variável para reutilização na pilha.
+description: Permite aplicar Extras de Variável a uma variável selecionada.
 sidebar:
   label: Eco
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 72921
   classname: wf_var_echo
   name: "Variável WIRED: Eco"
-  description: Esta variável repete ou encaminha valores de outra variável para reutilização na pilha.
+  description: Permite aplicar Extras de Variável a uma variável selecionada.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -42,4 +42,124 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Wired Variável: Eco** permite espelhar outra variável e utilizá-la em seu sistema, com ou sem Extras de Variável. Quer associar o estado de um Piso Colorido ao nome de uma cor ou calcular um nível a partir da pontuação de uma equipe? Você pode utilizar uma variável Eco para isso.
+
 <Infobox />
+
+Não é obrigatório colocar Extras sobre a Eco. Porém, ela resolve uma limitação: os Extras de Variável só podem ser colocados diretamente sobre variáveis do tipo **criadas pelo usuário**. A Eco permite utilizar todos esses Extras também com **variáveis internas, inteligentes e subvariáveis**: basta selecionar a variável desejada e colocar o Extra sobre a caixa da Eco.
+
+## Como esse Wired funciona?
+
+O primeiro passo é escolher qual variável a Eco utilizará. Depois de confirmar a configuração, você já pode utilizar a Eco. Se quiser aplicar um Extra de Variável, coloque-o sobre ela. Por exemplo, ao selecionar `@state`, uma variável interna de mobi, podemos acrescentar um **Conector de Texto** para associar cada estado a um texto.
+
+A Eco também permite selecionar uma variável criada pelo usuário. Isso pode ser útil quando você precisa utilizar a mesma informação em outra pilha de Extras.
+
+Ao abrir a janela de configuração, você encontra duas seções: **Nome da variável** e **Selecione uma variável**.
+
+### Nome da variável
+
+Defina o nome que será utilizado para identificar a variável Eco. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
+
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `cor do piso` se torna `cor_do_piso`.
+
+Prefira nomes que ajudem a entender como a Eco será utilizada, como `cor_do_piso` ou `nivel_da_equipe`.
+
+Você também pode deixar esse campo vazio enquanto escolhe a variável. Nesse caso, ele será preenchido automaticamente com o nome da variável selecionada. Confira o nome antes de confirmar a configuração.
+
+O nome precisa ser **único no quarto**, mesmo entre variáveis de tipos diferentes. Se outro Wired de variável já utilizar esse nome, ao tentar salvar a configuração aparecerá a mensagem **"Esse nome de variável já está em uso neste quarto, escolha um nome diferente!"**. Escolha outro nome para conseguir salvar.
+
+![Janela Falha ao atualizar avisando que o nome de variável já está em uso no quarto e solicitando um nome diferente.](@assets/wf_var/04-janela-de-aviso-nome-de-variavel-ja-em-uso.png)
+
+### Selecione uma variável
+
+Clique no ícone do alvo ao qual a variável pertence: **Mobi**, **Usuário**, **Global** ou **Contexto**. Em seguida, abra a lista **Buscar uma variável** e escolha a informação que deseja utilizar.
+
+A lista apresenta as variáveis correspondentes ao alvo selecionado, incluindo internas, inteligentes e criadas pelo usuário. Para utilizar `@state`, por exemplo, escolha o ícone **Mobi**. Já para trabalhar com uma informação do quarto, escolha **Global**.
+
+Se você ainda está conhecendo essas categorias, consulte [Criadas pelo usuário, inteligentes e internas](/referencia/ferramentas-do-criador/variaveis/#criadas-pelo-usuário-inteligentes-e-internas), na página de Variáveis das Ferramentas do Criador.
+
+### Valores que a variável pode armazenar
+
+A Eco utiliza a informação da variável selecionada. Quando essa variável possui valor, ela trabalha com números inteiros positivos, negativos ou zero. Consulte [Valores que a variável pode armazenar](/referencia/variaveis/visao-geral/#valores-que-a-variável-pode-armazenar) para entender os limites de armazenamento e de exibição no cliente Clássico.
+
+A Eco não mantém um valor independente do original. Por exemplo, se ela espelha uma variável de pontuação, as duas permitem consultar a mesma pontuação. Associar um texto com o **Conector de Texto** também não transforma esse número em um texto armazenado: o Extra relaciona o valor numérico a uma representação textual.
+
+### Ver no menu Wired
+
+Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
+
+## Disponibilidade e vínculo com o alvo
+
+Na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/#propriedades), a propriedade **Disponibilidade** da Eco sempre aparece como `/`, indicando **“nem sempre estará disponível”**. A presença da Eco no alvo depende da variável que ela espelha.
+
+Se a variável original já existe no alvo, a Eco fica **automaticamente vinculada a ele**. Por exemplo, se você selecionar uma variável de pontuação que um jogador já possui, a Eco também estará disponível para esse jogador, sem precisar vinculá-la separadamente.
+
+## Consultar e modificar a variável pela Eco
+
+A Eco e a variável original dão acesso aos mesmos dados. Por isso, as ações de criar ou vincular, consultar, alterar valores e remover ou excluir dados se refletem nas duas, independentemente de qual delas você utiliza para realizar a ação.
+
+Imagine uma variável de usuário chamada `pontuacao` e uma Eco que a espelha. Ao alterar a pontuação pela Eco, você também altera o valor consultado pela variável original. Se fizer a alteração pela original, a Eco passa a mostrar o novo valor.
+
+Ao remover o vínculo da variável com um jogador por meio da original ou da Eco, ambas deixam de estar vinculadas a ele. Isso é diferente de retirar apenas a caixa Wired Eco do quarto, ação que preserva o vínculo da variável original.
+
+As ações disponíveis dependem das permissões da variável original. Você pode conferir propriedades como **Pode ter o valor alterado** e **Pode ser criada ou apagada** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/#propriedades).
+
+## Retirar o Wired do quarto
+
+Quando a variável original é do tipo **criada pelo usuário** e tanto ela quanto a Eco estão vinculadas a um alvo, o resultado depende de qual Wired você retira do quarto:
+
+| Wired retirado | O que acontece com o vínculo |
+| :--- | :--- |
+| **Variável Eco** | Apenas a Eco é desvinculada do alvo. A variável original continua vinculada. |
+| **Wired que criou a variável original** | Tanto a variável original quanto a Eco são desvinculadas do alvo. |
+
+Por exemplo, se um jogador possui `pontuacao` e uma Eco dessa variável, retirar apenas a caixa da Eco mantém a pontuação original vinculada ao jogador. Já retirar o Wired que criou `pontuacao` faz com que ambas deixem de estar vinculadas a ele.
+
+Retirar a caixa da Eco do quarto é diferente de utilizar a Eco para remover os dados da variável de um alvo, como explicado em [Consultar e modificar a variável pela Eco](#consultar-e-modificar-a-variável-pela-eco).
+
+## Aplicar Extras à variável Eco
+
+Se quiser ampliar o uso da variável selecionada, coloque o **Extra de Variável** sobre a caixa da Eco. O Extra passa a trabalhar com a informação da variável selecionada.
+
+Por exemplo, um **Conector de Texto** pode associar números a nomes de cores. Já o **Sistema de Aumento de Nível** pode calcular informações de progressão a partir do valor selecionado.
+
+A Eco também permite trabalhar com subvariáveis, como as disponibilizadas por Extras de Variável. Assim, uma informação derivada de outra variável pode servir de base para um novo Extra.
+
+## Exemplo prático: nomes para as cores de um piso
+
+Imagine que você quer utilizar o nome da cor de um **Piso Colorido** em seu sistema. A variável interna `@state` informa o estado do mobi como um número. Vamos utilizar uma Eco para associar esses números aos nomes das cores.
+
+1. Coloque um **Wired Variável: Eco** no quarto.
+2. No campo **Nome da variável**, escreva `cor_do_piso`.
+3. Em **Selecione uma variável**, escolha o ícone **Mobi** e selecione `@state`.
+4. Confirme a configuração e coloque um [Extra de Variável: Conector de Texto](/referencia/variaveis/wf_xtra_var_text_connector/) sobre a Eco.
+5. No Conector de Texto, configure as associações abaixo.
+
+| Valor | Texto associado |
+| :--- | :--- |
+| **0** | azul claro |
+| **1** | amarelo |
+| **2** | laranja |
+
+Ao consultar essa Eco para um Piso Colorido, o valor de `@state` poderá ser utilizado com o texto associado. Se o piso estiver no estado `1`, por exemplo, o texto correspondente será **amarelo**.
+
+A variável `@state` existe para diferentes mobis, mas cada mobi possui seus próprios estados. As associações deste exemplo correspondem ao **Piso Colorido**; ao adaptar o sistema para outro mobi, confira quais estados ele utiliza.
+
+## Exemplo de uso: nível pela pontuação de uma equipe
+
+Também podemos utilizar uma informação interna do quarto como base para um sistema de níveis. A variável `@teams.yellow.score`, por exemplo, informa a pontuação da equipe amarela.
+
+1. Coloque um **Wired Variável: Eco** no quarto e dê a ela o nome `nivel_da_equipe`.
+2. Em **Selecione uma variável**, escolha o alvo **Global** e selecione `@teams.yellow.score`.
+3. Confirme a configuração e coloque o [Extra Variável: Sistema de Aumento de Nível](/referencia/variaveis/wf_xtra_var_lvlup_system/) sobre a Eco.
+4. Configure a progressão de nível conforme a pontuação necessária para avançar em seu jogo.
+
+Com essa combinação, a pontuação da equipe serve de base para calcular o nível. Você pode utilizar essa informação em outras pilhas para aumentar a dificuldade conforme a equipe avança, por exemplo.
+
+O aumento de dificuldade precisa ser configurado nos Wireds do seu sistema. A Eco e o Extra fornecem as informações de nível que essas pilhas irão consultar.
+
+## Outros exemplos no projeto
+
+No [exemplo de filtragem do Placar](/referencia/variaveis/wf_xtra_var_leaderboard/#exemplo-de-filtragem), uma Eco chamada `tempo_atual` utiliza a variável interna `@current_time`. Sobre ela, o **Extra Variável: Utilitários de Tempo** disponibiliza o dia atual pela subvariável `tempo_atual.value.day`, usada para filtrar a pontuação do dia.
+
+A página do Placar também mostra como [utilizar variáveis Eco para separar os Extras](/referencia/variaveis/wf_xtra_var_leaderboard/#modo-de-múltiplas-variáveis) quando diferentes variáveis precisam de configurações próprias.
