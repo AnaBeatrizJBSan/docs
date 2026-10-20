@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "sobre-nos/como-contribuir",
   "source": "src/content/docs/sobre-nos/como-contribuir.mdx",
-  "sourceHash": "b1510fafcfcfc6b6f4ac46841209cf48b4e92a398f7ea751bbfac3e81b723a97",
-  "hash": "52b7fb58c7865f8d6e74da807267871229bd6b10b0732dd6a95718b7a8aebb8e",
-  "renderDirectory": "renders/52b7fb58c7865f8d6e74da807267871229bd6b10b0732dd6a95718b7a8aebb8e"
+  "sourceHash": "0eadb73482c7434ae5c72028ef421d59df071e1f191e8b0c420cd79de0cb71d5",
+  "hash": "a7197ba5b900260a2047063aee634dc54fa5f71d2b5bb4906bfeb4c6ad0a4904",
+  "renderDirectory": "renders/a7197ba5b900260a2047063aee634dc54fa5f71d2b5bb4906bfeb4c6ad0a4904"
 }

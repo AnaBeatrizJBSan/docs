@@ -2,17 +2,10 @@ import { generateOpenGraphImage, type OGImageOptions } from 'astro-og-canvas';
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import type { PageSeoFrontmatter, RuntimeSeoConfig, ThumbnailStyle } from '../types.ts';
+import type { RuntimeSeoConfig, ThumbnailPage, ThumbnailStyle, ThumbnailTransform } from '../types.ts';
+export type { ThumbnailPage } from '../types.ts';
 
-const cacheVersion = '1';
-
-export interface ThumbnailPage {
-	id: string;
-	title: string;
-	description?: string;
-	filePath?: string;
-	seo?: PageSeoFrontmatter;
-}
+const cacheVersion = '2';
 
 export interface ThumbnailResult {
 	body: BodyInit;
@@ -24,14 +17,23 @@ export interface ThumbnailResult {
 /** Render with astro-og-canvas and scope its cache to a hash of the source file. */
 export async function renderPageThumbnail(
 	page: ThumbnailPage,
-	config: RuntimeSeoConfig
+	config: RuntimeSeoConfig,
+	transform?: ThumbnailTransform
 ): Promise<ThumbnailResult> {
 	const imageOptions = toOgImageOptions(page, config);
 	const { hash, sourceHash } = await pageHashes(page, imageOptions);
+	const transformImage = async (body: BodyInit): Promise<BodyInit> => {
+		if (!transform) return body;
+		const image = new Uint8Array(await new Response(body).arrayBuffer());
+		return Uint8Array.from(await transform({
+			image, page, root: config.root,
+			format: config.thumbnails.format, quality: config.thumbnails.quality,
+		}));
+	};
 
 	if (!config.thumbnails.cache) {
 		return {
-			body: await generateOpenGraphImage({ ...imageOptions, cacheDir: false }),
+			body: await transformImage(await generateOpenGraphImage({ ...imageOptions, cacheDir: false })),
 			hash,
 			sourceHash,
 			cache: 'disabled',
@@ -54,7 +56,7 @@ export async function renderPageThumbnail(
 		renderDirectory: path.relative(cacheRoot, renderDir).replace(/\\/g, '/'),
 	}, null, 2));
 
-	return { body, hash, sourceHash, cache: cacheHit ? 'hit' : 'miss' };
+	return { body: await transformImage(body), hash, sourceHash, cache: cacheHit ? 'hit' : 'miss' };
 }
 
 export function toOgImageOptions(page: ThumbnailPage, config: RuntimeSeoConfig): OGImageOptions {

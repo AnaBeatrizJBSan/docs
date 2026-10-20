@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_counter_time_matches",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_counter_time_matches.mdx",
-  "sourceHash": "ecade65913a1d712bd816a7ee3305de67bf667dec5d3ce45f3f18f459dd7282a",
-  "hash": "b8359a6ca55defa7f5375f66cb3e2c6b48db3af90b9ab4afa62c58064c0fc76f",
-  "renderDirectory": "renders/b8359a6ca55defa7f5375f66cb3e2c6b48db3af90b9ab4afa62c58064c0fc76f"
+  "sourceHash": "f97c5a2041230bc67bb802e41f9730a323b0d98554ea9ce40fadaf7e6c93c08f",
+  "hash": "4a086325388c9180aa369d86f1e8412ba55eae5f2231114f89a2a3fcbffe9d25",
+  "renderDirectory": "renders/4a086325388c9180aa369d86f1e8412ba55eae5f2231114f89a2a3fcbffe9d25"
 }

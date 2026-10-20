@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_bot_move",
   "source": "src/content/docs/referencia/efeitos/wf_act_bot_move.mdx",
-  "sourceHash": "c2a7d0d06473efe3ff6218e11f3a73b1153a9fadf783b7a45e812a85f6cc45d1",
-  "hash": "2f9f9d708199167b42c881411a8ca29c5ea6ded6c34515eed29f220afc69c124",
-  "renderDirectory": "renders/2f9f9d708199167b42c881411a8ca29c5ea6ded6c34515eed29f220afc69c124"
+  "sourceHash": "d8265740568198653182c7b847f411f6c2de86233e3ce24a71912113279446a2",
+  "hash": "d8a13669ff836e6143eb7d465d68a73e2dc7c17fab2c665e76c4deddea1108bf",
+  "renderDirectory": "renders/d8a13669ff836e6143eb7d465d68a73e2dc7c17fab2c665e76c4deddea1108bf"
 }

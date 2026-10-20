@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_move_rotate",
   "source": "src/content/docs/referencia/efeitos/wf_act_move_rotate.mdx",
-  "sourceHash": "fd07c804d77316debf86351fc85e650e503eabdcf5723ea54e683f6c336a0df3",
-  "hash": "78c19adf2a61df3d9c0d62452481f0ac5fb53ba00ef096b7d2531cef72709f52",
-  "renderDirectory": "renders/78c19adf2a61df3d9c0d62452481f0ac5fb53ba00ef096b7d2531cef72709f52"
+  "sourceHash": "5ca108252e293065a6c2844bccbad4a08e97aae6bac1cf352d22b68d6774734f",
+  "hash": "12593479c18c69e532747c91cf5f45c86cfce63d5a85aa84c7047c13bd82259e",
+  "renderDirectory": "renders/12593479c18c69e532747c91cf5f45c86cfce63d5a85aa84c7047c13bd82259e"
 }

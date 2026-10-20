@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/variaveis/wf_xtra_var_text_connector",
   "source": "src/content/docs/referencia/variaveis/wf_xtra_var_text_connector.mdx",
-  "sourceHash": "9aa94778b493a759ccbfc5a7b1c4fab94e7cbfacc0132f2ff7ed979794f6bf8d",
-  "hash": "0a2c2ec2eadad46747e1a87f9eab78f15d4a093689ccad5999711888bb3707eb",
-  "renderDirectory": "renders/0a2c2ec2eadad46747e1a87f9eab78f15d4a093689ccad5999711888bb3707eb"
+  "sourceHash": "5cd8ef7006194bf38f6889f5f0e47abad454bc42848521d42c9cfc102e836a2b",
+  "hash": "7b89260779d886077c4e4be6bb06000f52c556af015af0fdac29a8d4208ce1e8",
+  "renderDirectory": "renders/7b89260779d886077c4e4be6bb06000f52c556af015af0fdac29a8d4208ce1e8"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_log",
   "source": "src/content/docs/referencia/efeitos/wf_act_log.mdx",
-  "sourceHash": "2f130f88bb449ecb3ffa97434326fb989ebcbf8ba0008cb608a488abf7605d1c",
-  "hash": "6ece2c5bb3d6e306edfaa86feb2619da15099651a6f35fe4086c77cc1f447aa2",
-  "renderDirectory": "renders/6ece2c5bb3d6e306edfaa86feb2619da15099651a6f35fe4086c77cc1f447aa2"
+  "sourceHash": "aa46e5346305a73d4ec4c1d0c8518e371e30a1ecfad1b6e64d95b1c0f2dfbce3",
+  "hash": "376c6ebd66a75d6c0031fe060e2618988bd1865e907b6697696886ea3f554132",
+  "renderDirectory": "renders/376c6ebd66a75d6c0031fe060e2618988bd1865e907b6697696886ea3f554132"
 }

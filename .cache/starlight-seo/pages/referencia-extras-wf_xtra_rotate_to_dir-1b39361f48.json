@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/extras/wf_xtra_rotate_to_dir",
   "source": "src/content/docs/referencia/extras/wf_xtra_rotate_to_dir.mdx",
-  "sourceHash": "04c6777bd5c90ef525d1125145930eee6105a03b258571b438360646528aabd9",
-  "hash": "b0a859f1f540120787a09a4c5df8ede2c736b7b6038ef2ba53cfa4ae32bb79b8",
-  "renderDirectory": "renders/b0a859f1f540120787a09a4c5df8ede2c736b7b6038ef2ba53cfa4ae32bb79b8"
+  "sourceHash": "8f1bd7c61dfeb14f30b347468f1debee7e1c3086964becac645645739a0bb45b",
+  "hash": "10c25c91e98f52ceba3c38f82b37c8f1d8ec9c3caa5cee57f4e7f36f05c1a78b",
+  "renderDirectory": "renders/10c25c91e98f52ceba3c38f82b37c8f1d8ec9c3caa5cee57f4e7f36f05c1a78b"
 }

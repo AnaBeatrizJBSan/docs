@@ -1,0 +1,8 @@
+{
+  "version": "2",
+  "page": "referencia/ativadores/wf_trg_room_initializes",
+  "source": "src/content/docs/referencia/ativadores/wf_trg_room_initializes.mdx",
+  "sourceHash": "6a584b817ad23656cf91c66e26781e73979352e0eb25dc748b4a7f7755e92e09",
+  "hash": "a6ab4c5706b6abc29250c49d11b30dc6f1571bf47568688e80c99a034f5f22af",
+  "renderDirectory": "renders/a6ab4c5706b6abc29250c49d11b30dc6f1571bf47568688e80c99a034f5f22af"
+}

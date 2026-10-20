@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_slc_furni_bytype",
   "source": "src/content/docs/referencia/seletores/wf_slc_furni_bytype.mdx",
-  "sourceHash": "be01d51f9dabee119d2acbe3d52a8e65e48acede1f41bd3e8cc7a9694a0d3ba7",
-  "hash": "f96ba07393c8cc41151e0048ac4d09735c3e10e352fe75e6921f69183059f756",
-  "renderDirectory": "renders/f96ba07393c8cc41151e0048ac4d09735c3e10e352fe75e6921f69183059f756"
+  "sourceHash": "baf771c898596c19bce91451f473a2f9b581a34ae024f826cfd88e3d9bc1ab17",
+  "hash": "142dc10ecc3785111f12b1ea7ffd198f60d1335747fb949cbc0a3c2de65a7e89",
+  "renderDirectory": "renders/142dc10ecc3785111f12b1ea7ffd198f60d1335747fb949cbc0a3c2de65a7e89"
 }

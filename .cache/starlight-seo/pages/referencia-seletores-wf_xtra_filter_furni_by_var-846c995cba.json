@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_xtra_filter_furni_by_var",
   "source": "src/content/docs/referencia/seletores/wf_xtra_filter_furni_by_var.mdx",
-  "sourceHash": "6350214d7b18230e4646cd4475d6dbdb17fb7fb2d3986f059f016c85f1015ac7",
-  "hash": "88f9baca229adb465b55738271a507a605324292dbfc3b61d48e30573d7378e3",
-  "renderDirectory": "renders/88f9baca229adb465b55738271a507a605324292dbfc3b61d48e30573d7378e3"
+  "sourceHash": "c564903c877e65113521c822a156ea906cf2c234d6152cd413d556c2ffb87702",
+  "hash": "dee7b179c1cc8ffa9975204c63bb735174d48639990c8671a54d5251438ac788",
+  "renderDirectory": "renders/dee7b179c1cc8ffa9975204c63bb735174d48639990c8671a54d5251438ac788"
 }

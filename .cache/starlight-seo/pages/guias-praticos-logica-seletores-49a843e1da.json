@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "guias-praticos/logica-seletores",
   "source": "src/content/docs/guias-praticos/logica-seletores.mdx",
-  "sourceHash": "97c39b22323fede8be06d7be329e95b1ee3852a96cafe0db60302c8910fc60ab",
-  "hash": "16666dccd1f5e920b07cd03cf5c62e90c458fee881a3f4b7f43ce8407e5648ee",
-  "renderDirectory": "renders/16666dccd1f5e920b07cd03cf5c62e90c458fee881a3f4b7f43ce8407e5648ee"
+  "sourceHash": "22d427dfbfbfeffa5a1efd5e9e6d63db6335fca6b32b40149418b24d3463cd74",
+  "hash": "251f8d7b8d8c4f60e18edcf65ed36d2f59c3e247e4f36dea2070403ef8fd49de",
+  "renderDirectory": "renders/251f8d7b8d8c4f60e18edcf65ed36d2f59c3e247e4f36dea2070403ef8fd49de"
 }

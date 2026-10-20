@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "sobre-nos/wired-club",
   "source": "src/content/docs/sobre-nos/wired-club.md",
   "sourceHash": "a3e7c1f12fe87d73f5a114d6c777fcc3a30927b8f239124194c2569d5b843d62",
-  "hash": "3b3fe5686dfca5053017806923c3d2343c869d971fb8b9405387b5df02b62657",
-  "renderDirectory": "renders/3b3fe5686dfca5053017806923c3d2343c869d971fb8b9405387b5df02b62657"
+  "hash": "458375c1e71d27d187ca052e8ce3c8ba137effe6e80e8b9bf3655d4039960a90",
+  "renderDirectory": "renders/458375c1e71d27d187ca052e8ce3c8ba137effe6e80e8b9bf3655d4039960a90"
 }

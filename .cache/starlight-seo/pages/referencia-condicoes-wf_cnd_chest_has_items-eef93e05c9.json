@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/condicoes/wf_cnd_chest_has_items",
   "source": "src/content/docs/referencia/condicoes/wf_cnd_chest_has_items.mdx",
-  "sourceHash": "d65b9712f47170cbed7b43712b4dae596f856579d163be4628ec3d380d63d4b9",
-  "hash": "bb9b2c0a0e91d5e6c2692333690a89cee0f4b2c3416fcfdcc3d35cdd202a2aef",
-  "renderDirectory": "renders/bb9b2c0a0e91d5e6c2692333690a89cee0f4b2c3416fcfdcc3d35cdd202a2aef"
+  "sourceHash": "a0f087e96de7e4b96f6eee16a39cfcdfb8062ee7fa8817b92f53ddb56649a6b7",
+  "hash": "cc4772ed47d1860185713f57035272e2eb008277ef1fa36e008260a6af09e17e",
+  "renderDirectory": "renders/cc4772ed47d1860185713f57035272e2eb008277ef1fa36e008260a6af09e17e"
 }

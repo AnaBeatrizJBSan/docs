@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_bot_teleport",
   "source": "src/content/docs/referencia/efeitos/wf_act_bot_teleport.mdx",
-  "sourceHash": "1dce921eb24ac2ba0925c5e75969eb6f470c7543bee87b8c31812db5bd6eee95",
-  "hash": "e2c897bd99b53819a97ae12e771d1f60e99d6aeb3845ecca1e4ae88fe0b43ad3",
-  "renderDirectory": "renders/e2c897bd99b53819a97ae12e771d1f60e99d6aeb3845ecca1e4ae88fe0b43ad3"
+  "sourceHash": "a90c6bf67836c09e6bbd8c4789d7fb59f8b822fe629133a6ce389ce284a5bf16",
+  "hash": "2c37a528c7f5f62ad7e099f5f3b33f1eeb0a52b1fa71017ad8ecf580be3ed716",
+  "renderDirectory": "renders/2c37a528c7f5f62ad7e099f5f3b33f1eeb0a52b1fa71017ad8ecf580be3ed716"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_slc_furni_altitude",
   "source": "src/content/docs/referencia/seletores/wf_slc_furni_altitude.mdx",
-  "sourceHash": "6f3cf17e8052db0ce97667eb4f72a15e29d855586bcf81d02583b8675df4c550",
-  "hash": "8eb9b2d9d233073f81700457609199ca389319fb03d4d76a31c27bc7043a8707",
-  "renderDirectory": "renders/8eb9b2d9d233073f81700457609199ca389319fb03d4d76a31c27bc7043a8707"
+  "sourceHash": "837a69b2995c81c01936354ed91d12f57c68f6d2e25991d550edf029ced0af49",
+  "hash": "ad2b036e225b1442887cea019d53cd61e6d20489a4b1b4209a1bf6c0fa5f94dc",
+  "renderDirectory": "renders/ad2b036e225b1442887cea019d53cd61e6d20489a4b1b4209a1bf6c0fa5f94dc"
 }

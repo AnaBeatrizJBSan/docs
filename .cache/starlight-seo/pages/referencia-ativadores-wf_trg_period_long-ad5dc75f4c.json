@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/ativadores/wf_trg_period_long",
   "source": "src/content/docs/referencia/ativadores/wf_trg_period_long.mdx",
-  "sourceHash": "fbbc4965ecfaf1d729b55ca59b6b781320fac8b36a858bb15dd53d8905e046dc",
-  "hash": "26dc9eff7e32e40121b1f70b369244a43e359439ccd149d983030c074c6f1217",
-  "renderDirectory": "renders/26dc9eff7e32e40121b1f70b369244a43e359439ccd149d983030c074c6f1217"
+  "sourceHash": "4f88826afffc942dbd96643f4e3b40844202144cb054b09447be219c44813315",
+  "hash": "40813724ccd3c8982f76577e8c4182ead7bd779bfda022d9bc04e40c8c679718",
+  "renderDirectory": "renders/40813724ccd3c8982f76577e8c4182ead7bd779bfda022d9bc04e40c8c679718"
 }

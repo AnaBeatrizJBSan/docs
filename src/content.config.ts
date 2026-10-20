@@ -141,6 +141,14 @@ const StorageInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
 	type: z.literal("Baú").describe("Tipo do Wired: Baú"),
 });
 
+const UtilityInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Utilitário").describe("Tipo do Wired: Utilitário"),
+});
+
+const ConfiguratorInfoboxBaseSchema = WiredInfoboxBaseSchema.extend({
+	type: z.literal("Configurador").describe("Tipo do Wired: Configurador"),
+});
+
 export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	TriggerInfoboxBaseSchema,
 	EffectInfoboxBaseSchema,
@@ -153,6 +161,8 @@ export const WiredInfoboxSchema = z.discriminatedUnion("type", [
 	LeaderboardInfoboxBaseSchema,
 	ContractInfoboxBaseSchema,
 	StorageInfoboxBaseSchema,
+	UtilityInfoboxBaseSchema,
+	ConfiguratorInfoboxBaseSchema,
 ]).describe("Esquema para infoboxes de Wired, com campos específicos para cada tipo");
 
 const CompleteInfoboxSchema = z.union([

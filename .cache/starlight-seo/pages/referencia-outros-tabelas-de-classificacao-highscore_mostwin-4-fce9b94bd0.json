@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/outros/tabelas-de-classificacao/highscore_mostwin-4",
   "source": "src/content/docs/referencia/outros/tabelas-de-classificacao/highscore_mostwin-4.mdx",
-  "sourceHash": "768eb1cc901ccdc3cb0166eb9f8ae58d9585368bf06cf1935a6af027a34b0536",
-  "hash": "0f1eb241247a8df4cab6ade7e6fb893db1d03d04bccd8771003ebda64e4d9e4c",
-  "renderDirectory": "renders/0f1eb241247a8df4cab6ade7e6fb893db1d03d04bccd8771003ebda64e4d9e4c"
+  "sourceHash": "06071c28e327431a62f8ea5452cd839d9c3b933419001e674df23dbbe0d8ca28",
+  "hash": "e5c9e20fdb8f2c60eeb5780b329709b39c7e5d2919a51d82d37cf0322585ea31",
+  "renderDirectory": "renders/e5c9e20fdb8f2c60eeb5780b329709b39c7e5d2919a51d82d37cf0322585ea31"
 }

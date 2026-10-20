@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_chase",
   "source": "src/content/docs/referencia/efeitos/wf_act_chase.mdx",
-  "sourceHash": "b6ae8d0b8e0c7929c1bee050138ca2ea642388c87610b89c000a563e3ce30732",
-  "hash": "18951cdd303c907e49c056630d5e48000e7f26cde0cc59744ecff813983eae4f",
-  "renderDirectory": "renders/18951cdd303c907e49c056630d5e48000e7f26cde0cc59744ecff813983eae4f"
+  "sourceHash": "8132c2817fe07242c91bc76e5bf622c71ae1bd1105b1b22fa69ebf0557dc0343",
+  "hash": "f14a2993547bbf7d2745aeeeb026e9d1f2c6978b7b9161d8efc1a55913f6f5e9",
+  "renderDirectory": "renders/f14a2993547bbf7d2745aeeeb026e9d1f2c6978b7b9161d8efc1a55913f6f5e9"
 }

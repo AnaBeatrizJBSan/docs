@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "vamos-comecar/logica-programacao",
   "source": "src/content/docs/vamos-comecar/logica-programacao.mdx",
-  "sourceHash": "8a50cdc07beb8779f3da41feb4fffef0d8eac8f9013a4fba8bf819b091004ef6",
-  "hash": "7f55d27402e80a01dae6b5b5b2000c47d253edf0cd85f9379512e8e0211b4b4a",
-  "renderDirectory": "renders/7f55d27402e80a01dae6b5b5b2000c47d253edf0cd85f9379512e8e0211b4b4a"
+  "sourceHash": "a0b2252a5faf52f9ae7a2c1213e389a9dabc9f43131172efd89f8828adf08547",
+  "hash": "9b486a424bc9b99df48f4264613e422ad9246663ae79739b15e00669c7107159",
+  "renderDirectory": "renders/9b486a424bc9b99df48f4264613e422ad9246663ae79739b15e00669c7107159"
 }

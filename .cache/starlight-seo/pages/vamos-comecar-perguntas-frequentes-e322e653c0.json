@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "vamos-comecar/perguntas-frequentes",
   "source": "src/content/docs/vamos-comecar/perguntas-frequentes.mdx",
-  "sourceHash": "486873987b196175e89458c9c31c66ead9da9e97a93a3f5d4c3b97aac3f07640",
-  "hash": "e8199d62671247e57465f7c352a017212c91774b973ad4865817dd2d5374f8f9",
-  "renderDirectory": "renders/e8199d62671247e57465f7c352a017212c91774b973ad4865817dd2d5374f8f9"
+  "sourceHash": "14c3b8ac852d96a401a8759b19bd5ec4b0ae7189fae080e9a35b7afed974499c",
+  "hash": "7c6388b291dc42f7f751333a15eb64c04760f4d93aae1f408635d8e99b8403b6",
+  "renderDirectory": "renders/7c6388b291dc42f7f751333a15eb64c04760f4d93aae1f408635d8e99b8403b6"
 }

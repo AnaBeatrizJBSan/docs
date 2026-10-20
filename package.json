@@ -11,6 +11,8 @@
     "check:seo": "tsc -p plugins/starlight-seo/tsconfig.json",
     "test:seo": "node --experimental-strip-types --test plugins/starlight-seo/test/config.test.ts plugins/starlight-seo/test/head.test.ts plugins/starlight-seo/test/thumbnail-cache.test.ts",
     "test:watermark": "node --experimental-strip-types --test scripts/watermark.test.mjs",
+    "test:thumbnail": "node --experimental-strip-types --test scripts/thumbnail-transform.test.ts",
+    "check:thumbnail": "tsc -p scripts/tsconfig.thumbnail.json",
     "preview": "astro preview",
     "astro": "astro",
     "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/",

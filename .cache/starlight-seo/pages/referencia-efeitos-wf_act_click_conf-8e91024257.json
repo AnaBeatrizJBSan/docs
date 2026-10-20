@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/efeitos/wf_act_click_conf",
   "source": "src/content/docs/referencia/efeitos/wf_act_click_conf.mdx",
-  "sourceHash": "6d8a59583032de483c68f17368ecd66c3a61187a76678f5a795bbb11625a4865",
-  "hash": "ae4f507b4fd5583cfaf63fa8222143f60bb438f97a44e491a5b9fc9129ff8638",
-  "renderDirectory": "renders/ae4f507b4fd5583cfaf63fa8222143f60bb438f97a44e491a5b9fc9129ff8638"
+  "sourceHash": "9865a374bf1d1fc85c69aa1f1825cd1c118e92d2d43686e85776532742af6eae",
+  "hash": "425c5594402d9aa3cc9208053b6cd989c8a8104a5590f1bb026b624fc20bf915",
+  "renderDirectory": "renders/425c5594402d9aa3cc9208053b6cd989c8a8104a5590f1bb026b624fc20bf915"
 }

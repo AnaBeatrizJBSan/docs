@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/seletores/wf_slc_users_neighborhood",
   "source": "src/content/docs/referencia/seletores/wf_slc_users_neighborhood.mdx",
-  "sourceHash": "73161bf3c1164ad0c4639aedb4c50b3d4e605681c3cbce9e794ae3180fa18b4b",
-  "hash": "7b55e923c09101bfff290e2f9a66f3ce0b33113d47031499afd6b29c31965945",
-  "renderDirectory": "renders/7b55e923c09101bfff290e2f9a66f3ce0b33113d47031499afd6b29c31965945"
+  "sourceHash": "3219ea1eb87cfa3bf43952a2bef7a0fc0aa40daec496bbbecd8f17a277c96e60",
+  "hash": "776ae924062f6f89fc7035b10957abced3795a5d1573aca655d8321341aef65a",
+  "renderDirectory": "renders/776ae924062f6f89fc7035b10957abced3795a5d1573aca655d8321341aef65a"
 }

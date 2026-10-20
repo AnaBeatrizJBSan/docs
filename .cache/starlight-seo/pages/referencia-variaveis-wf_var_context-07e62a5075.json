@@ -1,8 +1,8 @@
 {
-  "version": "1",
+  "version": "2",
   "page": "referencia/variaveis/wf_var_context",
   "source": "src/content/docs/referencia/variaveis/wf_var_context.mdx",
-  "sourceHash": "157899b0d0a7662696f70119996d94e70ca27e2672d0d3d35e0af2bc027f732b",
-  "hash": "d0a79eb5bb9fe54a3836cfcc42e0c3a8af6a70a3a8ddb0023d26ac9ad7f26a3f",
-  "renderDirectory": "renders/d0a79eb5bb9fe54a3836cfcc42e0c3a8af6a70a3a8ddb0023d26ac9ad7f26a3f"
+  "sourceHash": "998e185bc17b10416238949942c409c432d4a1d775d51a1f5f9ce6dd773b011d",
+  "hash": "92bc1f7bb18e87ab614721102e147f4d760085c2fccba39b31d5868413962e97",
+  "renderDirectory": "renders/92bc1f7bb18e87ab614721102e147f4d760085c2fccba39b31d5868413962e97"
 }
