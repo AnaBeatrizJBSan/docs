@@ -45,18 +45,12 @@ import Infobox from "@components/Infobox.astro";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import ExemploDeFiltragem from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo.mp4";
-import ExemploDeFiltragemCaptionsUrl from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-captions.vtt?url";
-import ExemploDeFiltragemCaptionsRaw from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-captions.vtt?raw";
 import ExemploDeFiltragemDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-descriptions.vtt?url";
 import ExemploDeFiltragemDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/10-filtro-exemplo-descriptions.vtt?raw";
 import ModoDeMultiplasVariaveis from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis.mp4";
-import ModoDeMultiplasVariaveisCaptionsUrl from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-captions.vtt?url";
-import ModoDeMultiplasVariaveisCaptionsRaw from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-captions.vtt?raw";
 import ModoDeMultiplasVariaveisDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-descriptions.vtt?url";
 import ModoDeMultiplasVariaveisDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/09-modo-de-multiplas-variaveis-descriptions.vtt?raw";
 import LocalizacaoDoPlacar from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar.mp4";
-import LocalizacaoDoPlacarCaptionsUrl from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-captions.vtt?url";
-import LocalizacaoDoPlacarCaptionsRaw from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-captions.vtt?raw";
 import LocalizacaoDoPlacarDescriptionsUrl from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-descriptions.vtt?url";
 import LocalizacaoDoPlacarDescriptionsRaw from "@assets/wf_xtra_var_leaderboard/11-localizacao-do-placar-descriptions.vtt?raw";
 import NumeroDeColunas from "@assets/wf_xtra_var_leaderboard/07-topico-numero-de-colunas.gif";
@@ -175,8 +169,6 @@ O botão **Sugerir nomes** preenche esses campos com nomes baseados nas variáve
 <AccessibleVideo
   id="placar-modo-de-multiplas-variaveis"
   src={ModoDeMultiplasVariaveis}
-  captionsSrc={ModoDeMultiplasVariaveisCaptionsUrl}
-  captionsContent={ModoDeMultiplasVariaveisCaptionsRaw}
   descriptionsSrc={ModoDeMultiplasVariaveisDescriptionsUrl}
   descriptionsContent={ModoDeMultiplasVariaveisDescriptionsRaw}
   title="Configurar o modo de múltiplas variáveis do placar"
@@ -282,8 +274,6 @@ Para adaptar a ideia a um placar semanal ou mensal, utilize a informação corre
   id="placar-exemplo-de-filtragem"
   src={ExemploDeFiltragem}
   title="Exemplo de placar diário com filtro pelas variáveis pontos, dia e tempo_atual"
-  captionsSrc={ExemploDeFiltragemCaptionsUrl}
-  captionsContent={ExemploDeFiltragemCaptionsRaw}
   descriptionsSrc={ExemploDeFiltragemDescriptionsUrl}
   descriptionsContent={ExemploDeFiltragemDescriptionsRaw}
 />
@@ -300,8 +290,6 @@ Depois de organizar a posição e conferir as demais opções, salve as configur
 <AccessibleVideo
   id="placar-localizacao"
   src={LocalizacaoDoPlacar}
-  captionsSrc={LocalizacaoDoPlacarCaptionsUrl}
-  captionsContent={LocalizacaoDoPlacarCaptionsRaw}
   descriptionsSrc={LocalizacaoDoPlacarDescriptionsUrl}
   descriptionsContent={LocalizacaoDoPlacarDescriptionsRaw}
   title="Ajustar a localização do placar no quarto"

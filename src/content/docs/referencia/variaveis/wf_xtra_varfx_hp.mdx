@@ -40,34 +40,22 @@ infobox:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx.mp4";
-import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-captions.vtt?url";
-import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-captions.vtt?raw";
 import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-descriptions.vtt?url";
 import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_hp/17-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_hp/01-requisitos.mp4";
-import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_hp/01-requisitos-captions.vtt?url";
-import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_hp/01-requisitos-captions.vtt?raw";
 import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_hp/01-requisitos-descriptions.vtt?url";
 import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_hp/01-requisitos-descriptions.vtt?raw";
 import Cor from "@assets/wf_xtra_varfx_hp/05-cor.mp4";
-import CorCaptionsUrl from "@assets/wf_xtra_varfx_hp/05-cor-captions.vtt?url";
-import CorCaptionsRaw from "@assets/wf_xtra_varfx_hp/05-cor-captions.vtt?raw";
 import CorDescriptionsUrl from "@assets/wf_xtra_varfx_hp/05-cor-descriptions.vtt?url";
 import CorDescriptionsRaw from "@assets/wf_xtra_varfx_hp/05-cor-descriptions.vtt?raw";
 import Segmentos from "@assets/wf_xtra_varfx_hp/06-segmentos.mp4";
-import SegmentosCaptionsUrl from "@assets/wf_xtra_varfx_hp/06-segmentos-captions.vtt?url";
-import SegmentosCaptionsRaw from "@assets/wf_xtra_varfx_hp/06-segmentos-captions.vtt?raw";
 import SegmentosDescriptionsUrl from "@assets/wf_xtra_varfx_hp/06-segmentos-descriptions.vtt?url";
 import SegmentosDescriptionsRaw from "@assets/wf_xtra_varfx_hp/06-segmentos-descriptions.vtt?raw";
 import Tamanho from "@assets/wf_xtra_varfx_hp/07-tamanho.mp4";
-import TamanhoCaptionsUrl from "@assets/wf_xtra_varfx_hp/07-tamanho-captions.vtt?url";
-import TamanhoCaptionsRaw from "@assets/wf_xtra_varfx_hp/07-tamanho-captions.vtt?raw";
 import TamanhoDescriptionsUrl from "@assets/wf_xtra_varfx_hp/07-tamanho-descriptions.vtt?url";
 import TamanhoDescriptionsRaw from "@assets/wf_xtra_varfx_hp/07-tamanho-descriptions.vtt?raw";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores.mp4";
-import IntervaloDeValoresCaptionsUrl from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores-captions.vtt?url";
-import IntervaloDeValoresCaptionsRaw from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores-captions.vtt?raw";
 import IntervaloDeValoresDescriptionsUrl from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores-descriptions.vtt?url";
 import IntervaloDeValoresDescriptionsRaw from "@assets/wf_xtra_varfx_hp/08-intervalo-de-valores-descriptions.vtt?raw";
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
@@ -79,8 +67,6 @@ import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired
 import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_hp/09-exemplo-sempre-visivel.png";
 import VisivelQuandoAVariavelAtualizaExemplo from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza.mp4";
-import VisivelQuandoAVariavelAtualizaExemploCaptionsUrl from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza-captions.vtt?url";
-import VisivelQuandoAVariavelAtualizaExemploCaptionsRaw from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
 import VisivelQuandoAVariavelAtualizaExemploDescriptionsUrl from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
 import VisivelQuandoAVariavelAtualizaExemploDescriptionsRaw from "@assets/wf_xtra_varfx_hp/10-exemplo-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_hp/11-exemplo-visivel-ao-passar-o-mouse.gif";
@@ -116,8 +102,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="requisitos-pontos-saude"
   src={Requisitos}
   title="Configuração de uma variável para os Pontos de Saúde"
-  captionsSrc={RequisitosCaptionsUrl}
-  captionsContent={RequisitosCaptionsRaw}
   descriptionsSrc={RequisitosDescriptionsUrl}
   descriptionsContent={RequisitosDescriptionsRaw}
 />
@@ -180,8 +164,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="cor-do-time-pontos-saude"
   src={Cor}
   title="Cor do time dos Pontos de Saúde"
-  captionsSrc={CorCaptionsUrl}
-  captionsContent={CorCaptionsRaw}
   descriptionsSrc={CorDescriptionsUrl}
   descriptionsContent={CorDescriptionsRaw}
 />
@@ -196,8 +178,6 @@ O vídeo abaixo compara o termômetro com diferentes quantidades de segmentos.
   id="segmentos-termometro-pontos-saude"
   src={Segmentos}
   title="Segmentos do estilo Termômetro"
-  captionsSrc={SegmentosCaptionsUrl}
-  captionsContent={SegmentosCaptionsRaw}
   descriptionsSrc={SegmentosDescriptionsUrl}
   descriptionsContent={SegmentosDescriptionsRaw}
 />
@@ -219,8 +199,6 @@ O vídeo abaixo mostra a diferença entre os tamanhos disponíveis para cada est
   id="tamanhos-pontos-saude"
   src={Tamanho}
   title="Tamanhos dos Pontos de Saúde"
-  captionsSrc={TamanhoCaptionsUrl}
-  captionsContent={TamanhoCaptionsRaw}
   descriptionsSrc={TamanhoDescriptionsUrl}
   descriptionsContent={TamanhoDescriptionsRaw}
 />
@@ -247,8 +225,6 @@ O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da 
   id="intervalo-valores-pontos-saude"
   src={IntervaloDeValores}
   title="Intervalo de valores dos Pontos de Saúde"
-  captionsSrc={IntervaloDeValoresCaptionsUrl}
-  captionsContent={IntervaloDeValoresCaptionsRaw}
   descriptionsSrc={IntervaloDeValoresDescriptionsUrl}
   descriptionsContent={IntervaloDeValoresDescriptionsRaw}
 />
@@ -304,8 +280,6 @@ No exemplo abaixo foi informado o valor **2000** para a duração, então a barr
   id="visivel-quando-atualiza-pontos-saude"
   src={VisivelQuandoAVariavelAtualizaExemplo}
   title="Pontos de Saúde visíveis quando a variável atualiza"
-  captionsSrc={VisivelQuandoAVariavelAtualizaExemploCaptionsUrl}
-  captionsContent={VisivelQuandoAVariavelAtualizaExemploCaptionsRaw}
   descriptionsSrc={VisivelQuandoAVariavelAtualizaExemploDescriptionsUrl}
   descriptionsContent={VisivelQuandoAVariavelAtualizaExemploDescriptionsRaw}
 />
@@ -502,8 +476,6 @@ Por exemplo, imagine dois Wireds **Variável FX: Pontos de Saúde** exibindo efe
 <AccessibleVideo
   id="pontos-de-saude-ordem-na-pilha-de-fx"
   src={OrdemNaPilhaDeFx}
-  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
-  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
   descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
   descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
   title="Alterar a ordem do termômetro e da barra de saúde na pilha de FX"

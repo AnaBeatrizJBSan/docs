@@ -44,13 +44,9 @@ import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import AlterarValorPeloWired from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired.mp4";
-import AlterarValorPeloWiredCaptionsUrl from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-captions.vtt?url";
-import AlterarValorPeloWiredCaptionsRaw from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-captions.vtt?raw";
 import AlterarValorPeloWiredDescriptionsUrl from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-descriptions.vtt?url";
 import AlterarValorPeloWiredDescriptionsRaw from "@assets/wf_var_room/04-alterar-valor-variavel-pelo-wired-descriptions.vtt?raw";
 import RenomearVariavel from "@assets/wf_var_room/05-renomear-a-variavel.mp4";
-import RenomearVariavelCaptionsUrl from "@assets/wf_var_room/05-renomear-a-variavel-captions.vtt?url";
-import RenomearVariavelCaptionsRaw from "@assets/wf_var_room/05-renomear-a-variavel-captions.vtt?raw";
 import RenomearVariavelDescriptionsUrl from "@assets/wf_var_room/05-renomear-a-variavel-descriptions.vtt?url";
 import RenomearVariavelDescriptionsRaw from "@assets/wf_var_room/05-renomear-a-variavel-descriptions.vtt?raw";
 import ConsultarValor from "@assets/wf_var_room/03-consultar-o-valor-da-variavel.gif";
@@ -145,8 +141,6 @@ No vídeo abaixo, o **Ativador Wired: Repetir Efeito**, configurado com um inter
 <AccessibleVideo
   id="global-variavel-alterar-pelo-wired"
   src={AlterarValorPeloWired}
-  captionsSrc={AlterarValorPeloWiredCaptionsUrl}
-  captionsContent={AlterarValorPeloWiredCaptionsRaw}
   descriptionsSrc={AlterarValorPeloWiredDescriptionsUrl}
   descriptionsContent={AlterarValorPeloWiredDescriptionsRaw}
   title="Alterar o valor de uma variável global com o Efeito Wired: Mudar Valor Variável"
@@ -169,8 +163,6 @@ Depois de confirmar, o novo nome passa a aparecer nos locais das **Ferramentas d
 <AccessibleVideo
   id="global-variavel-renomear"
   src={RenomearVariavel}
-  captionsSrc={RenomearVariavelCaptionsUrl}
-  captionsContent={RenomearVariavelCaptionsRaw}
   descriptionsSrc={RenomearVariavelDescriptionsUrl}
   descriptionsContent={RenomearVariavelDescriptionsRaw}
   title="Renomear a variável global e conferir o novo nome nas Ferramentas do Criador"
