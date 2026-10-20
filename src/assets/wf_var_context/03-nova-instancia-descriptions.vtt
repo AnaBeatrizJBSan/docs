@@ -1,0 +1,31 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.000
+Em uma sala do Habbo, três pilhas de mobis Wired estão alinhadas sobre o piso laranja. No ativador “Recebe Sinal”, duas antenas são selecionadas.
+
+00:00:05.000 --> 00:00:13.500
+O efeito “Mostrar mensagem” contém “Caminho A - Após receber sinal do Caminho B” e “Número: ${numero}”. A mensagem é visível para todos, com atraso de oito segundos; uma prévia é aberta.
+
+00:00:14.000 --> 00:00:17.500
+O extra “Limite de Execução” mostra uma execução em uma janela de dez segundos. O controle da janela é ajustado brevemente antes de a configuração ser fechada.
+
+00:00:18.000 --> 00:00:26.000
+No efeito “Dar Variável”, a variável de contexto numero recebe valor inicial 10, com “Substituir variável existente” marcado e atraso de cinco segundos. A opção de substituição é alternada durante a edição.
+
+00:00:27.000 --> 00:00:33.000
+Outro efeito “Mostrar mensagem” contém “Caminho B - Após Dar Variável” e “Número: ${numero}”. A visibilidade muda para “Todos”; o atraso é de seis segundos.
+
+00:00:34.000 --> 00:00:37.500
+No efeito “Mandar Sinal”, um mobi é selecionado como destino e o atraso exibido é de sete segundos.
+
+00:00:38.000 --> 00:00:43.000
+São abertas as janelas dos extras “Executa na Ordem” e “Limite de Execução”. Esta última mostra uma execução em dez segundos.
+
+00:00:43.000 --> 00:00:49.500
+O avatar aparece ao lado das pilhas. As notificações surgem em sequência: “Caminho A — Número: 20” e “Caminho B — Número: 20”.
+
+00:00:49.500 --> 00:00:52.000
+Uma nova notificação informa “Caminho B - Após Dar Variável — Número: 10”. Em seguida aparece “Caminho A - Após receber sinal do Caminho B — Número: 20”.
+
+00:00:52.000 --> 00:00:55.216
+As quatro notificações permanecem empilhadas acima das pilhas Wired enquanto o avatar está parado à esquerda.

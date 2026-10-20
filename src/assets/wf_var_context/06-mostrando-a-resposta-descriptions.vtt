@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+Em um quarto do Habbo, as pilhas Wired da calculadora aparecem ao lado de um jogador e um bot. Abre-se o ativador “Recebe Sinal”, seleciona-se a antena no chão e confirma-se em “Pronto”.
+
+00:00:04.000 --> 00:00:09.000
+Abre-se o efeito “Bot fala ou sussurra ao usuário ativado”. A janela mostra o nome do bot e uma mensagem que começa com “A resposta é”, seguida da marcação para inserir o valor da variável resposta.
+
+00:00:09.000 --> 00:00:14.000
+A opção “Conversar” está selecionada e o atraso está definido como um segundo. A configuração do efeito é confirmada em “Pronto”.
+
+00:00:14.000 --> 00:00:18.000
+Abre-se o extra de texto “Campo Variável”, com resposta no campo “Nome do Espaço”. Na lista de variáveis de contexto, seleciona-se resposta.
+
+00:00:18.000 --> 00:00:23.000
+O Campo Variável mostra a exibição “Numérica”, o tipo de espaço “Único” e a origem “Variáveis de contexto”. A configuração é confirmada em “Pronto”.
+
+00:00:23.000 --> 00:00:25.000
+Com as janelas fechadas, o jogador escreve “10 - 1” no chat. Os indicadores das pilhas Wired se acendem durante a execução da calculadora.
+
+00:00:25.000 --> 00:00:29.290
+O bot responde ao jogador: “A resposta é 9.” Os balões com a conta e o resultado permanecem visíveis acima dos personagens.

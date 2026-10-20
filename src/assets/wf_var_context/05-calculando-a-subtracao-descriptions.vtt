@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+Em um quarto do Habbo, duas pilhas Wired aparecem ao lado das variáveis da calculadora. Abre-se o ativador “Recebe Sinal”, seleciona-se a antena no chão e confirma-se em “Pronto”.
+
+00:00:03.000 --> 00:00:07.000
+Abre-se a condição “Valor Variável”. A janela mostra a variável operador, a comparação de igualdade e o valor de referência 0. A origem está definida como “Variáveis de contexto”.
+
+00:00:07.000 --> 00:00:13.000
+A lista de variáveis de contexto é aberta e operador é selecionada. A comparação permanece igual a 0, código associado à subtração. A configuração é confirmada em “Pronto”.
+
+00:00:13.000 --> 00:00:17.000
+Abre-se o efeito “Mudar Valor Variável”. A janela mostra resposta como variável selecionada, a operação “Subtrair” e segundo_numero como valor de referência. O destino é “Variáveis de contexto” e o atraso é de zero segundo.
+
+00:00:17.000 --> 00:00:22.000
+A lista de variáveis é aberta e resposta é selecionada. Em seguida, abre-se o menu de operações e escolhe-se a subtração, exibida no campo como “Subtrair”.
+
+00:00:22.000 --> 00:00:27.500
+O seletor do campo “Valor referência” é aberto. Na origem “Variáveis de contexto”, seleciona-se segundo_numero. Assim, o efeito retira de resposta o valor guardado em segundo_numero.
+
+00:00:27.500 --> 00:00:28.667
+O seletor se fecha e o cursor se posiciona sobre o botão “Pronto”, com a operação de subtração configurada.

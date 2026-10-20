@@ -44,13 +44,29 @@ import Infobox from "@components/Infobox.astro"
 import { Aside } from "@astrojs/starlight/components";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import ExecucaoDivididaEmSinais from "@assets/wf_var_context/03-execucao-dividida-em-sinais.mp4";
+import ExecucaoDivididaEmSinaisDescriptionsUrl from "@assets/wf_var_context/03-execucao-dividida-em-sinais-descriptions.vtt?url";
+import ExecucaoDivididaEmSinaisDescriptionsRaw from "@assets/wf_var_context/03-execucao-dividida-em-sinais-descriptions.vtt?raw";
 import NovaInstancia from "@assets/wf_var_context/03-nova-instancia.mp4";
+import NovaInstanciaDescriptionsUrl from "@assets/wf_var_context/03-nova-instancia-descriptions.vtt?url";
+import NovaInstanciaDescriptionsRaw from "@assets/wf_var_context/03-nova-instancia-descriptions.vtt?raw";
 import CriandoAsVariaveis from "@assets/wf_var_context/04-criando-as-variaveis.mp4";
+import CriandoAsVariaveisDescriptionsUrl from "@assets/wf_var_context/04-criando-as-variaveis-descriptions.vtt?url";
+import CriandoAsVariaveisDescriptionsRaw from "@assets/wf_var_context/04-criando-as-variaveis-descriptions.vtt?raw";
 import CapturandoAConta1 from "@assets/wf_var_context/04-capturando-a-conta-1.mp4";
+import CapturandoAConta1DescriptionsUrl from "@assets/wf_var_context/04-capturando-a-conta-1-descriptions.vtt?url";
+import CapturandoAConta1DescriptionsRaw from "@assets/wf_var_context/04-capturando-a-conta-1-descriptions.vtt?raw";
 import CapturandoAConta2 from "@assets/wf_var_context/04-capturando-a-conta-2.mp4";
+import CapturandoAConta2DescriptionsUrl from "@assets/wf_var_context/04-capturando-a-conta-2-descriptions.vtt?url";
+import CapturandoAConta2DescriptionsRaw from "@assets/wf_var_context/04-capturando-a-conta-2-descriptions.vtt?raw";
 import CapturandoAConta3 from "@assets/wf_var_context/04-capturando-a-conta-3.mp4";
+import CapturandoAConta3DescriptionsUrl from "@assets/wf_var_context/04-capturando-a-conta-3-descriptions.vtt?url";
+import CapturandoAConta3DescriptionsRaw from "@assets/wf_var_context/04-capturando-a-conta-3-descriptions.vtt?raw";
 import CalculandoASubtracao from "@assets/wf_var_context/05-calculando-a-subtracao.mp4";
+import CalculandoASubtracaoDescriptionsUrl from "@assets/wf_var_context/05-calculando-a-subtracao-descriptions.vtt?url";
+import CalculandoASubtracaoDescriptionsRaw from "@assets/wf_var_context/05-calculando-a-subtracao-descriptions.vtt?raw";
 import MostrandoAResposta from "@assets/wf_var_context/06-mostrando-a-resposta.mp4";
+import MostrandoARespostaDescriptionsUrl from "@assets/wf_var_context/06-mostrando-a-resposta-descriptions.vtt?url";
+import MostrandoARespostaDescriptionsRaw from "@assets/wf_var_context/06-mostrando-a-resposta-descriptions.vtt?raw";
 
 O **Wired Variável: Contexto Variável** permite criar informações temporárias para usar durante uma execução Wired. Quer guardar os números de uma conta, lembrar a posição inicial de um bot ou informar a outra pilha por que uma partida terminou? Você pode utilizar uma variável de contexto para isso.
 
@@ -109,6 +125,8 @@ Os caminhos que partem de uma mesma execução podem compartilhar uma variável 
 <AccessibleVideo
   id="contexto-variavel-execucao-dividida-em-sinais"
   src={ExecucaoDivididaEmSinais}
+  descriptionsSrc={ExecucaoDivididaEmSinaisDescriptionsUrl}
+  descriptionsContent={ExecucaoDivididaEmSinaisDescriptionsRaw}
   title="Compartilhar uma variável de contexto entre caminhos de uma execução por sinais"
 />
 
@@ -117,6 +135,8 @@ Por outro lado, se B utilizar **Dar Variável** com **Substituir variável exist
 <AccessibleVideo
   id="contexto-variavel-nova-instancia"
   src={NovaInstancia}
+  descriptionsSrc={NovaInstanciaDescriptionsUrl}
+  descriptionsContent={NovaInstanciaDescriptionsRaw}
   title="Criar uma nova instância da variável de contexto com Substituir variável existente"
 />
 
@@ -155,6 +175,8 @@ Vamos preparar as quatro associações, mas montar apenas a pilha da subtração
 <AccessibleVideo
   id="contexto-variavel-criando-as-variaveis"
   src={CriandoAsVariaveis}
+  descriptionsSrc={CriandoAsVariaveisDescriptionsUrl}
+  descriptionsContent={CriandoAsVariaveisDescriptionsRaw}
   title="Criar as variáveis de contexto e associar os operadores da calculadora a valores numéricos"
 />
 
@@ -179,6 +201,8 @@ A entrada de `operador` é textual porque o jogador escreve um sinal, como `-`. 
 <AccessibleVideo
   id="contexto-variavel-capturando-a-conta-1"
   src={CapturandoAConta1}
+  descriptionsSrc={CapturandoAConta1DescriptionsUrl}
+  descriptionsContent={CapturandoAConta1DescriptionsRaw}
   title="Capturar a conta escrita pelo jogador: parte 1 de 3"
 />
 
@@ -187,6 +211,8 @@ Adicione também quatro **Efeitos Wired: Dar Variável**, um para cada variável
 <AccessibleVideo
   id="contexto-variavel-capturando-a-conta-2"
   src={CapturandoAConta2}
+  descriptionsSrc={CapturandoAConta2DescriptionsUrl}
+  descriptionsContent={CapturandoAConta2DescriptionsRaw}
   title="Capturar a conta escrita pelo jogador: parte 2 de 3"
 />
 
@@ -201,6 +227,8 @@ Utilize o [Extra Wired: Executa na Ordem](/referencia/extras/wf_xtra_exec_in_ord
 <AccessibleVideo
   id="contexto-variavel-capturando-a-conta-3"
   src={CapturandoAConta3}
+  descriptionsSrc={CapturandoAConta3DescriptionsUrl}
+  descriptionsContent={CapturandoAConta3DescriptionsRaw}
   title="Capturar a conta escrita pelo jogador: parte 3 de 3"
 />
 
@@ -217,6 +245,8 @@ Na conta `10 - 6`, `resposta` chega a essa pilha com o valor `10`. Ao retirar o 
 <AccessibleVideo
   id="contexto-variavel-calculando-a-subtracao"
   src={CalculandoASubtracao}
+  descriptionsSrc={CalculandoASubtracaoDescriptionsUrl}
+  descriptionsContent={CalculandoASubtracaoDescriptionsRaw}
   title="Configurar a pilha que calcula a subtração com variáveis de contexto"
 />
 
@@ -239,6 +269,8 @@ Perceba que não precisamos guardar esses números em uma variável do jogador. 
 <AccessibleVideo
   id="contexto-variavel-mostrando-a-resposta"
   src={MostrandoAResposta}
+  descriptionsSrc={MostrandoARespostaDescriptionsUrl}
+  descriptionsContent={MostrandoARespostaDescriptionsRaw}
   title="Mostrar o resultado da calculadora na mensagem do bot"
 />
 
