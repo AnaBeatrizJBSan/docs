@@ -1,0 +1,40 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.500
+Em uma sala do Habbo, vários mobis Wired formam pilhas sobre o piso laranja. A janela “Contexto Variável” define a variável numero com a opção “Tem valor” marcada.
+
+00:00:04.500 --> 00:00:07.500
+O ativador “Habbo Clica no Mobi” seleciona o próprio Wired.
+
+00:00:07.500 --> 00:00:11.500
+O efeito “Dar Variável” escolhe numero, com valor inicial 1, sem substituir uma variável existente.
+
+00:00:11.500 --> 00:00:15.500
+No efeito “Mandar Sinal”, duas antenas são selecionadas como destinos. O atraso está em zero segundo.
+
+00:00:15.500 --> 00:00:21.500
+O extra “Limite de Execução” fica configurado para uma execução em uma janela de dez segundos.
+
+00:00:22.000 --> 00:00:27.500
+No efeito “Mudar Valor Variável”, a operação “Atribuir” define o valor de referência 20 para numero.
+
+00:00:27.500 --> 00:00:35.000
+O primeiro efeito “Mostrar mensagem” contém “Caminho A” e, abaixo, “Número: ${numero}”. A visibilidade é alterada para “Todos”.
+
+00:00:35.000 --> 00:00:41.000
+O extra de texto “Campo Variável” associa o espaço numero à variável numero e seleciona a exibição numérica.
+
+00:00:41.000 --> 00:00:46.000
+Após a janela “Executa na Ordem”, um ativador “Recebe Sinal” aparece com um mobi selecionado.
+
+00:00:46.000 --> 00:00:51.500
+Outro efeito “Mostrar mensagem” contém “Caminho B” e “Número: ${numero}”, com atraso de um segundo.
+
+00:00:51.500 --> 00:00:55.500
+Um segundo “Campo Variável” associa o espaço numero à mesma variável para exibição numérica.
+
+00:00:55.500 --> 00:00:58.500
+Outro ativador “Recebe Sinal” é configurado com um mobi selecionado. A janela se fecha e as pilhas Wired ficam visíveis.
+
+00:00:58.500 --> 00:01:01.312
+Ao lado do avatar, aparecem notificações: “Caminho A — Número: 20” e, em seguida, “Caminho B — Número: 20”. A imagem clareia no encerramento.

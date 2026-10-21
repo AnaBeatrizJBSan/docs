@@ -7,8 +7,6 @@ import {
 interface Props {
   id: string;
   src: string;
-  captionsSrc?: string;
-  captionsContent?: string;
   descriptionsSrc?: string;
   descriptionsContent?: string;
   title: string;
@@ -23,8 +21,6 @@ interface Props {
 const {
   id,
   src,
-  captionsSrc,
-  captionsContent,
   descriptionsSrc,
   descriptionsContent,
   title,
@@ -36,7 +32,6 @@ const {
   width = "100%"
 } = Astro.props;
 
-const captions: WebVttCue[] = captionsContent ? parseWebVtt(captionsContent) : [];
 const descriptions: WebVttCue[] = descriptionsContent ? parseWebVtt(descriptionsContent) : [];
 
 const accessibleTextId = `${id}-accessible-text`;
@@ -57,15 +52,6 @@ const accessibleTextId = `${id}-accessible-text`;
     aria-describedby={accessibleTextId}
     style={{ width }}
   >
-    {captionsSrc && (
-      <track
-        kind="captions"
-        src={captionsSrc}
-        srclang="pt-BR"
-        label="Português (Brasil)"
-      />
-    )}
-
     {descriptionsSrc && (
       <track
         kind="descriptions"
@@ -82,18 +68,6 @@ const accessibleTextId = `${id}-accessible-text`;
   <figcaption>{title}</figcaption>
 
   <div id={accessibleTextId} class="video-accessible-text">
-    <section>
-      <h3>Legendas do vídeo: {title}</h3>
-
-      {
-        captions.length > 0 ? (
-          captions.map((cue) => <p>{cue.text}</p>)
-        ) : (
-          <p>Este vídeo não possui legendas disponíveis.</p>
-        )
-      }
-    </section>
-
     <section>
       <h3>Audiodescrição do vídeo: {title}</h3>
 

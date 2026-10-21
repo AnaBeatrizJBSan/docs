@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.500
+Na sala do Habbo, abre-se o efeito “Dar Variável”. O seletor alterna da opção de variável do usuário acionador para variáveis de contexto; o valor inicial exibido é 0 e o atraso é de zero segundo.
+
+00:00:04.500 --> 00:00:11.500
+Na lista de variáveis de contexto, operador é selecionada para o primeiro efeito “Dar Variável”. “Substituir variável existente” permanece desmarcado. A janela é confirmada.
+
+00:00:12.500 --> 00:00:17.000
+Abre-se outro “Dar Variável”. A seleção passa para variáveis de contexto e escolhe primeiro_numero, com valor inicial 0 e sem atraso. A configuração é confirmada.
+
+00:00:18.000 --> 00:00:22.000
+No terceiro “Dar Variável”, o seletor também passa de “Use o usuário acionador” para “Variáveis de contexto”. A lista de variáveis é aberta.
+
+00:00:22.000 --> 00:00:27.716
+A variável segundo_numero é selecionada. O valor inicial continua em 0, “Substituir variável existente” permanece desmarcado e o atraso é de zero segundo. Após confirmar, a janela se fecha e a pilha Wired permanece visível.
