@@ -40,14 +40,10 @@ infobox:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx.mp4";
-import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-captions.vtt?url";
-import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-captions.vtt?raw";
 import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-descriptions.vtt?url";
 import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_prog/15-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_prog/01-requisitos.mp4"
-import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_prog/01-requisitos-captions.vtt?url";
-import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_prog/01-requisitos-captions.vtt?raw";
 import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_prog/01-requisitos-descriptions.vtt?url";
 import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_prog/01-requisitos-descriptions.vtt?raw";
 import BarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-barra-classica.png"
@@ -56,29 +52,19 @@ import BarraListrada from "@assets/wf_xtra_varfx_prog/02-estilo-barra-listrada.g
 import BarraDeSeta from "@assets/wf_xtra_varfx_prog/02-estilo-barra-de-seta.png"
 import MiniBarraClassica from "@assets/wf_xtra_varfx_prog/02-estilo-mini-barra-classica.png"
 import CorDoTime from "@assets/wf_xtra_varfx_prog/05-cor-do-time.mp4"
-import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_prog/05-cor-do-time-captions.vtt?url";
-import CorDoTimeCaptionsRaw from "@assets/wf_xtra_varfx_prog/05-cor-do-time-captions.vtt?raw";
 import CorDoTimeDescriptionsUrl from "@assets/wf_xtra_varfx_prog/05-cor-do-time-descriptions.vtt?url";
 import CorDoTimeDescriptionsRaw from "@assets/wf_xtra_varfx_prog/05-cor-do-time-descriptions.vtt?raw";
 import Tamanho from "@assets/wf_xtra_varfx_prog/06-tamanho.mp4"
-import TamanhoCaptionsUrl from "@assets/wf_xtra_varfx_prog/06-tamanho-captions.vtt?url";
-import TamanhoCaptionsRaw from "@assets/wf_xtra_varfx_prog/06-tamanho-captions.vtt?raw";
 import TamanhoDescriptionsUrl from "@assets/wf_xtra_varfx_prog/06-tamanho-descriptions.vtt?url";
 import TamanhoDescriptionsRaw from "@assets/wf_xtra_varfx_prog/06-tamanho-descriptions.vtt?raw";
 import Segmentos from "@assets/wf_xtra_varfx_prog/07-segmentos.mp4"
-import SegmentosCaptionsUrl from "@assets/wf_xtra_varfx_prog/07-segmentos-captions.vtt?url";
-import SegmentosCaptionsRaw from "@assets/wf_xtra_varfx_prog/07-segmentos-captions.vtt?raw";
 import SegmentosDescriptionsUrl from "@assets/wf_xtra_varfx_prog/07-segmentos-descriptions.vtt?url";
 import SegmentosDescriptionsRaw from "@assets/wf_xtra_varfx_prog/07-segmentos-descriptions.vtt?raw";
 import IntervaloDeValores from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores.mp4"
-import IntervaloDeValoresCaptionsUrl from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-captions.vtt?url";
-import IntervaloDeValoresCaptionsRaw from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-captions.vtt?raw";
 import IntervaloDeValoresDescriptionsUrl from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-descriptions.vtt?url";
 import IntervaloDeValoresDescriptionsRaw from "@assets/wf_xtra_varfx_prog/08-intervalo-de-valores-descriptions.vtt?raw";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_prog/09-exemplo-sempre-visivel.png"
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza.mp4"
-import VisivelQuandoAVariavelAtualizaCaptionsUrl from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-captions.vtt?url";
-import VisivelQuandoAVariavelAtualizaCaptionsRaw from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
 import VisivelQuandoAVariavelAtualizaDescriptionsUrl from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
 import VisivelQuandoAVariavelAtualizaDescriptionsRaw from "@assets/wf_xtra_varfx_prog/10-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouseExemplo from "@assets/wf_xtra_varfx_prog/11-exemplo-visivel-ao-passar-o-mouse.gif"
@@ -121,8 +107,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="requisitos-barra-progresso"
   src={Requisitos}
   title="Configuração de uma variável para a Barra de Progresso"
-  captionsSrc={RequisitosCaptionsUrl}
-  captionsContent={RequisitosCaptionsRaw}
   descriptionsSrc={RequisitosDescriptionsUrl}
   descriptionsContent={RequisitosDescriptionsRaw}
 />
@@ -196,8 +180,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="cor-do-time-barra-progresso"
   src={CorDoTime}
   title="Cor do time da Barra de Progresso"
-  captionsSrc={CorDoTimeCaptionsUrl}
-  captionsContent={CorDoTimeCaptionsRaw}
   descriptionsSrc={CorDoTimeDescriptionsUrl}
   descriptionsContent={CorDoTimeDescriptionsRaw}
 />
@@ -218,8 +200,6 @@ O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
   id="tamanho-barra-progresso"
   src={Tamanho}
   title="Tamanhos da Barra de Progresso"
-  captionsSrc={TamanhoCaptionsUrl}
-  captionsContent={TamanhoCaptionsRaw}
   descriptionsSrc={TamanhoDescriptionsUrl}
   descriptionsContent={TamanhoDescriptionsRaw}
 />
@@ -234,8 +214,6 @@ O vídeo abaixo compara a barra de progresso com diferentes quantidades de segme
   id="segmentos-barra-progresso"
   src={Segmentos}
   title="Segmentos da Barra de Progresso"
-  captionsSrc={SegmentosCaptionsUrl}
-  captionsContent={SegmentosCaptionsRaw}
   descriptionsSrc={SegmentosDescriptionsUrl}
   descriptionsContent={SegmentosDescriptionsRaw}
 />
@@ -262,8 +240,6 @@ O vídeo abaixo demonstra como o intervalo de valores altera o preenchimento da 
   id="intervalo-de-valores-barra-progresso"
   src={IntervaloDeValores}
   title="Intervalo de valores da Barra de Progresso"
-  captionsSrc={IntervaloDeValoresCaptionsUrl}
-  captionsContent={IntervaloDeValoresCaptionsRaw}
   descriptionsSrc={IntervaloDeValoresDescriptionsUrl}
   descriptionsContent={IntervaloDeValoresDescriptionsRaw}
 />
@@ -307,8 +283,6 @@ O vídeo abaixo demonstra a exibição temporária depois de uma atualização d
   id="visivel-quando-a-variavel-atualiza-barra-progresso"
   src={VisivelQuandoAVariavelAtualiza}
   title="Barra de Progresso visível quando a variável atualiza"
-  captionsSrc={VisivelQuandoAVariavelAtualizaCaptionsUrl}
-  captionsContent={VisivelQuandoAVariavelAtualizaCaptionsRaw}
   descriptionsSrc={VisivelQuandoAVariavelAtualizaDescriptionsUrl}
   descriptionsContent={VisivelQuandoAVariavelAtualizaDescriptionsRaw}
 />
@@ -436,8 +410,6 @@ Por exemplo, imagine dois Wireds **Variável FX: Barra de Progresso** exibindo e
 <AccessibleVideo
   id="barra-de-progresso-ordem-na-pilha-de-fx"
   src={OrdemNaPilhaDeFx}
-  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
-  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
   descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
   descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
   title="Alterar a ordem da barra clássica e da barra em blocos na pilha de FX"

@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.500
+Em uma sala do Habbo, abre-se o efeito “Mudar Valor Variável”; o destino é alterado de “Use o usuário acionador” para “Variáveis de contexto”.
+
+00:00:02.500 --> 00:00:04.500
+Na lista de variáveis de contexto, resposta é selecionada. A operação exibida é “Atribuir”, com valor de referência inicialmente 0 e atraso de zero segundo.
+
+00:00:04.500 --> 00:00:09.500
+O menu de operações é aberto e “Atribuir” continua selecionado. No campo “Valor referência”, o seletor passa à origem “Variáveis de contexto” e escolhe primeiro_numero. O campo passa a mostrar esse nome como valor de referência.
+
+00:00:09.500 --> 00:00:13.500
+Após confirmar a alteração, abre-se o efeito “Mandar Sinal”. Um mobi da sala é selecionado como destino; as opções de sinal adicionais estão desmarcadas e o atraso é de zero segundo.
+
+00:00:13.500 --> 00:00:17.194
+A janela de sinal se fecha. Abre-se o extra “Executa na Ordem”, que é confirmado; a pilha Wired e os quatro mobis permanecem visíveis.

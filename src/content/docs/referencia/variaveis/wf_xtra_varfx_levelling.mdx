@@ -40,39 +40,25 @@ infobox:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import OrdemNaPilhaDeFx from "@assets/wf_xtra_varfx_levelling/18-ordem-na-pilha-de-fx.mp4";
-import OrdemNaPilhaDeFxCaptionsUrl from "@assets/wf_xtra_varfx_levelling/18-ordem-na-pilha-de-fx-captions.vtt?url";
-import OrdemNaPilhaDeFxCaptionsRaw from "@assets/wf_xtra_varfx_levelling/18-ordem-na-pilha-de-fx-captions.vtt?raw";
 import OrdemNaPilhaDeFxDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/18-ordem-na-pilha-de-fx-descriptions.vtt?url";
 import OrdemNaPilhaDeFxDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/18-ordem-na-pilha-de-fx-descriptions.vtt?raw";
 import Infobox from "@components/Infobox.astro"
 import Requisitos from "@assets/wf_xtra_varfx_levelling/01-requisitos.mp4"
-import RequisitosCaptionsUrl from "@assets/wf_xtra_varfx_levelling/01-requisitos-captions.vtt?url";
-import RequisitosCaptionsRaw from "@assets/wf_xtra_varfx_levelling/01-requisitos-captions.vtt?raw";
 import RequisitosDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/01-requisitos-descriptions.vtt?url";
 import RequisitosDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/01-requisitos-descriptions.vtt?raw";
 import ProgressaoDeNivel from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel.mp4"
-import ProgressaoDeNivelCaptionsUrl from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel-captions.vtt?url";
-import ProgressaoDeNivelCaptionsRaw from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel-captions.vtt?raw";
 import ProgressaoDeNivelDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel-descriptions.vtt?url";
 import ProgressaoDeNivelDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/05-progressao-de-nivel-descriptions.vtt?raw";
 import CorDoTime from "@assets/wf_xtra_varfx_levelling/06-cor-do-time.mp4"
-import CorDoTimeCaptionsUrl from "@assets/wf_xtra_varfx_levelling/06-cor-do-time-captions.vtt?url";
-import CorDoTimeCaptionsRaw from "@assets/wf_xtra_varfx_levelling/06-cor-do-time-captions.vtt?raw";
 import CorDoTimeDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/06-cor-do-time-descriptions.vtt?url";
 import CorDoTimeDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/06-cor-do-time-descriptions.vtt?raw";
 import Segmentos from "@assets/wf_xtra_varfx_levelling/07-segmentos.mp4"
-import SegmentosCaptionsUrl from "@assets/wf_xtra_varfx_levelling/07-segmentos-captions.vtt?url";
-import SegmentosCaptionsRaw from "@assets/wf_xtra_varfx_levelling/07-segmentos-captions.vtt?raw";
 import SegmentosDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/07-segmentos-descriptions.vtt?url";
 import SegmentosDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/07-segmentos-descriptions.vtt?raw";
 import EstiloVisual from "@assets/wf_xtra_varfx_levelling/08-estilo-visual.mp4"
-import EstiloVisualCaptionsUrl from "@assets/wf_xtra_varfx_levelling/08-estilo-visual-captions.vtt?url";
-import EstiloVisualCaptionsRaw from "@assets/wf_xtra_varfx_levelling/08-estilo-visual-captions.vtt?raw";
 import EstiloVisualDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/08-estilo-visual-descriptions.vtt?url";
 import EstiloVisualDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/08-estilo-visual-descriptions.vtt?raw";
 import Tamanho from "@assets/wf_xtra_varfx_levelling/09-tamanho.mp4"
-import TamanhoCaptionsUrl from "@assets/wf_xtra_varfx_levelling/09-tamanho-captions.vtt?url";
-import TamanhoCaptionsRaw from "@assets/wf_xtra_varfx_levelling/09-tamanho-captions.vtt?raw";
 import TamanhoDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/09-tamanho-descriptions.vtt?url";
 import TamanhoDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/09-tamanho-descriptions.vtt?raw";
 import SempreVisivelConfiguracao from "@assets/wf_xtra_varfx/01-wired-sempre-visivel.png";
@@ -81,8 +67,6 @@ import AudienciaSomenteOUsuarioConfiguracao from "@assets/wf_xtra_varfx/03-wired
 import AudienciaUsuariosQueEstaoNoMesmoTimeConfiguracao from "@assets/wf_xtra_varfx/04-wired-audiencia-usuarios-que-estao-no-mesmo-time.png";
 import SempreVisivelExemplo from "@assets/wf_xtra_varfx_levelling/10-exemplo-sempre-visivel.png"
 import VisivelQuandoAVariavelAtualiza from "@assets/wf_xtra_varfx_levelling/11-visivel-quando-a-variavel-atualiza.mp4"
-import VisivelQuandoAVariavelAtualizaCaptionsUrl from "@assets/wf_xtra_varfx_levelling/11-visivel-quando-a-variavel-atualiza-captions.vtt?url";
-import VisivelQuandoAVariavelAtualizaCaptionsRaw from "@assets/wf_xtra_varfx_levelling/11-visivel-quando-a-variavel-atualiza-captions.vtt?raw";
 import VisivelQuandoAVariavelAtualizaDescriptionsUrl from "@assets/wf_xtra_varfx_levelling/11-visivel-quando-a-variavel-atualiza-descriptions.vtt?url";
 import VisivelQuandoAVariavelAtualizaDescriptionsRaw from "@assets/wf_xtra_varfx_levelling/11-visivel-quando-a-variavel-atualiza-descriptions.vtt?raw";
 import VisivelAoPassarOMouse from "@assets/wf_xtra_varfx_levelling/12-visivel-ao-passar-o-mouse.gif"
@@ -118,8 +102,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="requisitos-progresso-nivel"
   src={Requisitos}
   title="Configuração do Progresso de Nível"
-  captionsSrc={RequisitosCaptionsUrl}
-  captionsContent={RequisitosCaptionsRaw}
   descriptionsSrc={RequisitosDescriptionsUrl}
   descriptionsContent={RequisitosDescriptionsRaw}
 />
@@ -178,8 +160,6 @@ O vídeo abaixo demonstra a mudança de cor conforme o progresso de nível é at
   id="cor-progressao-nivel"
   src={ProgressaoDeNivel}
   title="Cor Progressão de nível"
-  captionsSrc={ProgressaoDeNivelCaptionsUrl}
-  captionsContent={ProgressaoDeNivelCaptionsRaw}
   descriptionsSrc={ProgressaoDeNivelDescriptionsUrl}
   descriptionsContent={ProgressaoDeNivelDescriptionsRaw}
 />
@@ -191,8 +171,6 @@ O vídeo abaixo mostra a exibição utilizando a cor do time do usuário.
   id="cor-do-time-progresso-nivel"
   src={CorDoTime}
   title="Cor do time do Progresso de Nível"
-  captionsSrc={CorDoTimeCaptionsUrl}
-  captionsContent={CorDoTimeCaptionsRaw}
   descriptionsSrc={CorDoTimeDescriptionsUrl}
   descriptionsContent={CorDoTimeDescriptionsRaw}
 />
@@ -206,8 +184,6 @@ O vídeo abaixo compara a barra de progresso com diferentes quantidades de segme
   id="segmentos-progresso-nivel"
   src={Segmentos}
   title="Segmentos do Progresso de Nível"
-  captionsSrc={SegmentosCaptionsUrl}
-  captionsContent={SegmentosCaptionsRaw}
   descriptionsSrc={SegmentosDescriptionsUrl}
   descriptionsContent={SegmentosDescriptionsRaw}
 />
@@ -225,8 +201,6 @@ O vídeo abaixo apresenta como cada estilo visual altera a barra de progresso.
   id="estilo-visual-progresso-nivel"
   src={EstiloVisual}
   title="Estilo visual do Progresso de Nível"
-  captionsSrc={EstiloVisualCaptionsUrl}
-  captionsContent={EstiloVisualCaptionsRaw}
   descriptionsSrc={EstiloVisualDescriptionsUrl}
   descriptionsContent={EstiloVisualDescriptionsRaw}
 />
@@ -245,8 +219,6 @@ O vídeo abaixo mostra a diferença entre os tamanhos disponíveis.
   id="tamanhos-progresso-nivel"
   src={Tamanho}
   title="Tamanhos do Progresso de Nível"
-  captionsSrc={TamanhoCaptionsUrl}
-  captionsContent={TamanhoCaptionsRaw}
   descriptionsSrc={TamanhoDescriptionsUrl}
   descriptionsContent={TamanhoDescriptionsRaw}
 />
@@ -306,8 +278,6 @@ O vídeo utiliza o botão **Inspect**, que não aparece por padrão em usuários
   id="visivel-quando-atualiza-progresso-nivel"
   src={VisivelQuandoAVariavelAtualiza}
   title="Progresso de Nível visível quando a variável atualiza"
-  captionsSrc={VisivelQuandoAVariavelAtualizaCaptionsUrl}
-  captionsContent={VisivelQuandoAVariavelAtualizaCaptionsRaw}
   descriptionsSrc={VisivelQuandoAVariavelAtualizaDescriptionsUrl}
   descriptionsContent={VisivelQuandoAVariavelAtualizaDescriptionsRaw}
 />
@@ -467,8 +437,6 @@ Por exemplo, imagine dois Wireds **Variável FX: Progresso de Nível** exibindo 
 <AccessibleVideo
   id="progresso-de-nivel-ordem-na-pilha-de-fx"
   src={OrdemNaPilhaDeFx}
-  captionsSrc={OrdemNaPilhaDeFxCaptionsUrl}
-  captionsContent={OrdemNaPilhaDeFxCaptionsRaw}
   descriptionsSrc={OrdemNaPilhaDeFxDescriptionsUrl}
   descriptionsContent={OrdemNaPilhaDeFxDescriptionsRaw}
   title="Alterar a ordem dos estilos Detalhes de Nível e Nível e Barra na pilha de FX"

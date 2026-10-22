@@ -46,8 +46,6 @@ import { Aside } from '@astrojs/starlight/components';
 import Infobox from "@components/Infobox.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import TheLastOfUs from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog.mp4";
-import TheLastOfUsCaptionsUrl from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-captions.vtt?url";
-import TheLastOfUsCaptionsRaw from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-captions.vtt?raw";
 import TheLastOfUsDescriptionsUrl from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-descriptions.vtt?url";
 import TheLastOfUsDescriptionsRaw from "@assets/wf_xtra_var_web_api/09-the-last-of-us-analog-descriptions.vtt?raw";
 import DocsWiredClub from "@assets/wf_xtra_var_web_api/10-docs-wc-room-anabeatrizjbsan.mp4";
@@ -409,8 +407,6 @@ Na demonstração descrita pelo autor, também havia autenticação com código 
 <AccessibleVideo
   id="web-api-the-last-of-us"
   src={TheLastOfUs}
-  captionsSrc={TheLastOfUsCaptionsUrl}
-  captionsContent={TheLastOfUsCaptionsRaw}
   descriptionsSrc={TheLastOfUsDescriptionsUrl}
   descriptionsContent={TheLastOfUsDescriptionsRaw}
   title="Demonstração da integração do projeto The Last of Us Habbo, por an4log"

@@ -11,15 +11,11 @@ sidebar:
 import { Aside } from '@astrojs/starlight/components';
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import LimparTodos from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos.mp4";
-import LimparTodosCaptionsUrl from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-captions.vtt?url";
-import LimparTodosCaptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-captions.vtt?raw";
 import LimparTodosDescriptionsUrl from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?url";
 import LimparTodosDescriptionsRaw from "@assets/ferramentas-do-criador/monitoramento/07-limpar-todos-descriptions.vtt?raw";
 import WhisperReadNotificacao from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-notificacao.png"
 import PlacementFailureErro from "@assets/ferramentas-do-criador/monitoramento/10-placement_failure-erro.png"
 import DesativarSussurro from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox.mp4";
-import DesativarSussurroCaptionsUrl from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-captions.vtt?url";
-import DesativarSussurroCaptionsRaw from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-captions.vtt?raw";
 import DesativarSussurroDescriptionsUrl from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-descriptions.vtt?url";
 import DesativarSussurroDescriptionsRaw from "@assets/ferramentas-do-criador/monitoramento/08-whisper_read-ativando-checkbox-descriptions.vtt?raw";
 
@@ -203,8 +199,6 @@ Para impedir que Wireds detectem seus sussurros, siga o passo a passo do vídeo 
   id="monitoramento-desativar-sussurro"
   src={DesativarSussurro}
   title="Como desativar a detecção de sussurros pelos Wireds"
-  captionsSrc={DesativarSussurroCaptionsUrl}
-  captionsContent={DesativarSussurroCaptionsRaw}
   descriptionsSrc={DesativarSussurroDescriptionsUrl}
   descriptionsContent={DesativarSussurroDescriptionsRaw}
 />
@@ -235,8 +229,6 @@ O botão **Limpar todos** apaga os dados exibidos na tabela de registros. Ele pe
   id="monitoramento-limpar-todos"
   src={LimparTodos}
   title="Limpando todos os registros da tabela de Monitoramento"
-  captionsSrc={LimparTodosCaptionsUrl}
-  captionsContent={LimparTodosCaptionsRaw}
   descriptionsSrc={LimparTodosDescriptionsUrl}
   descriptionsContent={LimparTodosDescriptionsRaw}
 />
