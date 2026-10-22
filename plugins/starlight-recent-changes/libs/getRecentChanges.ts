@@ -39,7 +39,7 @@ export async function getRecentChanges(filePath?: string) {
 	const repoBaseUrl = getRepoBaseUrl(root);
 	const titles = new Map((await getCollection('docs')).map((entry) => [entry.id, entry.data.title]));
 	const filterSlug = filePath ? normalizeSlug(filePath, docsRoot) : undefined;
-	return getGitHistory(root)
+	return [...getGitHistory(root)].sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
 		.filter((commit) => !filterSlug || commit.files.some((file) => normalizeSlug(path.resolve(root, file.path), docsRoot) === filterSlug))
 		.map((commit) => {
 			const author = commit.authors[0];

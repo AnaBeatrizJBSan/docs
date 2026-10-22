@@ -73,3 +73,28 @@ test('refreshes the shared snapshot after a new commit and does not reuse identi
 	await other.commit('page.mdx', 'Other', 'Alice <alice@example.com>', '2026-01-01T12:00:00Z', 'docs: other');
 	assert.equal(getPageContributors(path.join(other.root, 'src/content/docs/page.mdx'), other.root)[0].login, 'different-alice');
 });
+
+test('keeps earlier contributors through a backdated rename and orders people by their latest date', async (t) => {
+	const { root, git, commit } = await repository(t);
+	await commit('old.mdx', 'First', 'Alice <alice@users.noreply.github.com>', '2026-01-02T12:00:00Z', 'docs: start');
+	git('mv', 'src/content/docs/old.mdx', 'src/content/docs/new.mdx');
+	await commit('new.mdx', 'First', 'Bob <bob@users.noreply.github.com>', '2026-01-01T12:00:00Z', 'docs: rename');
+	assert.deepEqual(getPageContributors(path.join(root, 'src/content/docs/new.mdx'), root).map(({ login }) => login), ['alice', 'bob']);
+});
+
+test('does not guess GitHub profiles or merge different people from a shared first name', async (t) => {
+	const { root, commit } = await repository(t);
+	await commit('page.mdx', 'First', 'Alex <alex-one@example.com>', '2026-01-01T12:00:00Z', 'docs: start');
+	await commit('page.mdx', 'Second', 'Alex <alex-two@example.com>', '2026-01-02T12:00:00Z', 'docs: edit');
+	const people = getPageContributors(path.join(root, 'src/content/docs/page.mdx'), root);
+	assert.equal(people.length, 2);
+	assert.ok(people.every((person) => person.login === undefined && person.profileUrl === undefined));
+});
+
+test('does not identify a person from a username substring inside an unrelated email', async (t) => {
+	const { root, commit } = await repository(t);
+	await commit('page.mdx', 'First', 'Malcolm <malice@example.com>', '2026-01-01T12:00:00Z', 'docs: start');
+	const [person] = getPageContributors(path.join(root, 'src/content/docs/page.mdx'), root);
+	assert.equal(person.name, 'Malcolm');
+	assert.equal(person.profileUrl, undefined);
+});

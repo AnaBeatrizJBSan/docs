@@ -13,6 +13,8 @@ export interface AuthorDetails {
 	avatarUrl?: string;
 	handle?: string;
 	name?: string;
+	/** Login recognized from the contributor registry or a GitHub noreply address. */
+	githubLogin?: string;
 }
 
 const cachedRcContributors = new Map<string, { modified: number; contributors: RcContributor[] }>();
@@ -47,10 +49,11 @@ function getRcContributors(root: string): RcContributor[] {
 export function getAuthorInfo(authorName: string, authorEmail: string, root: string): AuthorDetails {
 	const name = authorName.trim();
 	const email = authorEmail.trim().toLowerCase();
+	const emailNameParts = email.split('@')[0].split(/[.+_]/);
 
 	const contributors = getRcContributors(root);
 
-	// 1. Try to find matching contributor in .all-contributorsrc by name, login, or email inclusion
+	// 1. Match registry names/logins or a complete username segment in the email.
 	for (const c of contributors) {
 		const cName = c.name?.toLowerCase();
 		const cLogin = c.login;
@@ -59,13 +62,15 @@ export function getAuthorInfo(authorName: string, authorEmail: string, root: str
 		if (cName && cName === name.toLowerCase()) {
 			return {
 				name: c.name || name,
+				githubLogin: cLogin,
 				avatarUrl: c.avatar_url,
 				handle: cLogin || name,
 			};
 		}
-		if (cLoginLower && (cLoginLower === name.toLowerCase() || (email && email.includes(cLoginLower)))) {
+		if (cLoginLower && (cLoginLower === name.toLowerCase() || emailNameParts.includes(cLoginLower))) {
 			return {
 				name: c.name || name,
+				githubLogin: cLogin,
 				avatarUrl: c.avatar_url,
 				handle: cLogin || name,
 			};
@@ -84,6 +89,7 @@ export function getAuthorInfo(authorName: string, authorEmail: string, root: str
 			}
 		}
 		return {
+			githubLogin: ghUser,
 			avatarUrl,
 			handle: ghUser,
 		};

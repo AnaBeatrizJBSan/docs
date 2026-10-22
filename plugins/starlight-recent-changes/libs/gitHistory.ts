@@ -37,7 +37,7 @@ export function getGitHistory(root = process.cwd()): HistoryCommit[] {
 	].join('|');
 	if (cached?.signature === signature) return cached.commits;
 	const result = spawnSync('git', [
-		'log', '--no-merges', '--find-renames', '--name-status', '-z',
+		'log', '--topo-order', '--no-merges', '--find-renames', '--name-status', '-z',
 		'--format=%x1e%H%x00%aN%x00%aE%x00%cI%x00%s%x00%B%x00', '--', contentDirectory,
 	], { cwd: root, encoding: 'utf8', windowsHide: true, maxBuffer: 32 * 1024 * 1024 });
 	if (result.status !== 0) {
@@ -70,5 +70,5 @@ function parseHistory(log: string): HistoryCommit[] {
 		}
 		if (files.length) commits.push({ hash, date, message, authors, files });
 	}
-	return commits.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+	return commits;
 }
