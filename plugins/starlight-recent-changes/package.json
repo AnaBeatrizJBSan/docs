@@ -4,6 +4,7 @@
   "type": "module",
   "exports": {
     ".": "./index.ts",
+    "./activity": "./libs/activity.ts",
 		"./overrides/LastUpdated.astro": "./overrides/LastUpdated.astro",
 		"./pages/RecentChanges.astro": "./pages/RecentChanges.astro",
 		"./pages/PageHistory.astro": "./pages/PageHistory.astro"

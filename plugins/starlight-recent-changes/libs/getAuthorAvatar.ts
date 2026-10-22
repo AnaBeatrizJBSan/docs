@@ -12,23 +12,25 @@ interface RcContributor {
 export interface AuthorDetails {
 	avatarUrl?: string;
 	handle?: string;
+	name?: string;
 }
 
-let cachedRcContributors: RcContributor[] | null = null;
+const cachedRcContributors = new Map<string, { modified: number; contributors: RcContributor[] }>();
 
 function getRcContributors(root: string): RcContributor[] {
-	if (cachedRcContributors) return cachedRcContributors;
-
 	let currentDir = root;
 	while (currentDir) {
 		const filePath = path.join(currentDir, '.all-contributorsrc');
 		if (fs.existsSync(filePath)) {
 			try {
+				const modified = fs.statSync(filePath).mtimeMs;
+				const cached = cachedRcContributors.get(filePath);
+				if (cached?.modified === modified) return cached.contributors;
 				const content = fs.readFileSync(filePath, 'utf-8');
 				const parsed = JSON.parse(content);
 				if (Array.isArray(parsed?.contributors)) {
-					cachedRcContributors = parsed.contributors;
-					return cachedRcContributors!;
+					cachedRcContributors.set(filePath, { modified, contributors: parsed.contributors });
+					return parsed.contributors;
 				}
 			} catch {}
 			break;
@@ -39,8 +41,7 @@ function getRcContributors(root: string): RcContributor[] {
 		currentDir = parentDir;
 	}
 
-	cachedRcContributors = [];
-	return cachedRcContributors;
+	return [];
 }
 
 export function getAuthorInfo(authorName: string, authorEmail: string, root: string): AuthorDetails {
@@ -57,12 +58,14 @@ export function getAuthorInfo(authorName: string, authorEmail: string, root: str
 
 		if (cName && cName === name.toLowerCase()) {
 			return {
+				name: c.name || name,
 				avatarUrl: c.avatar_url,
 				handle: cLogin || name,
 			};
 		}
 		if (cLoginLower && (cLoginLower === name.toLowerCase() || (email && email.includes(cLoginLower)))) {
 			return {
+				name: c.name || name,
 				avatarUrl: c.avatar_url,
 				handle: cLogin || name,
 			};
