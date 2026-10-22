@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Em um quarto do Habbo, a aba “Inspeção” das Ferramentas do Criador está aberta, sem usuário selecionado. Ao lado de um bot, abre-se o Wired Eco, com o nome eco_type.
+
+00:00:03.500 --> 00:00:08.000
+A lista de variáveis de usuário é aberta. A Eco é configurada para espelhar a variável interna @type, e a janela de configuração se fecha.
+
+00:00:08.000 --> 00:00:11.500
+Nas Ferramentas do Criador, abre-se a aba “Variáveis”. O alvo Usuário está selecionado, e eco_type aparece na lista de variáveis.
+
+00:00:11.500 --> 00:00:17.000
+Ao selecionar eco_type, a tabela de propriedades mostra o tipo “Criado pelo Usuário”, o alvo “Usuário” e uma barra na propriedade “Disponibilidade”. A variável tem valor, mas as propriedades de alteração do valor e de criação ou exclusão aparecem como “Não”.
+
+00:00:17.000 --> 00:00:19.000
+Retorna-se à aba “Inspeção” e seleciona-se o bot que está ao lado do Wired.
+
+00:00:19.000 --> 00:00:21.418
+A lista de variáveis do bot mostra eco_type com o valor 4 e @type com o valor “4 (Bot)”. A Eco aparece vinculada ao bot sem que o botão “Dar variável” seja utilizado.
