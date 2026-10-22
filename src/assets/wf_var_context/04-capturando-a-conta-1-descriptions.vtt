@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+Em uma sala do Habbo, quatro mobis cinza estão alinhados à esquerda de uma pequena pilha Wired. A janela do ativador “Habbo diz algo” mostra um padrão com os campos #(primeiro_numero), #(operador) e #(segundo_numero), separados por espaços. A opção “Combinação exata” está selecionada.
+
+00:00:03.500 --> 00:00:06.500
+As opções “Ocultar a mensagem do gatilho” e “Somente o proprietário da sala pode acionar” permanecem desmarcadas. A configuração do ativador é confirmada.
+
+00:00:07.500 --> 00:00:14.000
+No extra de texto “Captura Variável”, o nome gravado primeiro_numero corresponde à variável primeiro_numero. A entrada “Numérica” está selecionada; a lista de variáveis é aberta e a configuração é confirmada.
+
+00:00:15.500 --> 00:00:19.000
+Outro “Captura Variável” associa o nome gravado operador à variável operador. O tipo de entrada selecionado é “Textual”.
+
+00:00:20.000 --> 00:00:24.500
+O terceiro “Captura Variável” associa segundo_numero à variável de mesmo nome. O tipo de entrada é “Numérica”; a lista de variáveis é aberta antes da confirmação.
+
+00:00:24.500 --> 00:00:25.316
+A janela se fecha e os mobis Wired permanecem alinhados na sala.

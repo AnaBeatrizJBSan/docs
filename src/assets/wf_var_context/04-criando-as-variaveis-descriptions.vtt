@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:05.800
+No primeiro bloco WIRED VARIÁVEL, a janela Contexto Variável mostra o nome “primeiro_numero” e a opção “Tem valor” marcada. A configuração é confirmada em “Pronto”.
+
+00:00:06.000 --> 00:00:10.800
+No bloco seguinte, o nome da variável é definido como “operador”, também com “Tem valor” marcado, e confirmado.
+
+00:00:11.500 --> 00:00:15.000
+Abre-se o Conector de Texto sobre o bloco amarelo. No campo “Conectar texto a variável”, aparecem quatro linhas: “0=-”, “1=+”, “2=*” e “3=/”. A configuração é confirmada.
+
+00:00:16.000 --> 00:00:20.500
+No terceiro bloco de Contexto Variável, o nome “segundo_numero” é inserido. A opção “Tem valor” permanece marcada; o botão “Pronto” confirma a alteração.
+
+00:00:21.000 --> 00:00:27.000
+No último bloco, a variável recebe o nome “resposta”, com “Tem valor” marcado. A janela é fechada após a confirmação, deixando os quatro blocos alinhados no piso.
