@@ -41,7 +41,19 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import RetirarOWired from "@assets/wf_var_echo/07-retirar-o-wired-do-quarto.mp4";
+import RetirarOWiredDescriptionsUrl from "@assets/wf_var_echo/07-retirar-o-wired-do-quarto-descriptions.vtt?url";
+import RetirarOWiredDescriptionsRaw from "@assets/wf_var_echo/07-retirar-o-wired-do-quarto-descriptions.vtt?raw";
+import DisponibilidadeEVinculo from "@assets/wf_var_echo/05-disponibilidade-e-vinculo-com-o-alvo.mp4";
+import DisponibilidadeEVinculoDescriptionsUrl from "@assets/wf_var_echo/05-disponibilidade-e-vinculo-com-o-alvo-descriptions.vtt?url";
+import DisponibilidadeEVinculoDescriptionsRaw from "@assets/wf_var_echo/05-disponibilidade-e-vinculo-com-o-alvo-descriptions.vtt?raw";
+import CoresDoPiso from "@assets/wf_var_echo/06-nomes-para-as-cores-de-um-piso.mp4";
+import CoresDoPisoDescriptionsUrl from "@assets/wf_var_echo/06-nomes-para-as-cores-de-um-piso-descriptions.vtt?url";
+import CoresDoPisoDescriptionsRaw from "@assets/wf_var_echo/06-nomes-para-as-cores-de-um-piso-descriptions.vtt?raw";
 import SelecaoDosAlvos from "@assets/wf_var_echo/03-alvos-do-selecione-uma-variavel.gif"
+import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 
 O **Wired Variável: Eco** permite espelhar outra variável e utilizá-la em seu sistema, com ou sem Extras de Variável. Quer associar o estado de um Piso Colorido ao nome de uma cor ou calcular um nível a partir da pontuação de uma equipe? Você pode utilizar uma variável Eco para isso.
 
@@ -109,7 +121,15 @@ Depois de confirmar as configurações, clique duas vezes no Wired novamente. A 
 
 Na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/#propriedades), a propriedade **Disponibilidade** da Eco sempre aparece como `/`, indicando **“nem sempre estará disponível”**. A presença da Eco no alvo depende da variável que ela espelha.
 
-Se a variável original já existe no alvo, a Eco fica **automaticamente vinculada a ele**. Por exemplo, se você selecionar a variável `@type` que um jogador já possui por padrão, a Eco também estará disponível para esse jogador, sem precisar vinculá-la separadamente.
+Se a variável original já existe no alvo, a Eco fica **automaticamente vinculada a ele**. Por exemplo, se você selecionar a variável `@type` que um usuário já possui por padrão, a Eco também estará disponível para esse jogador, sem precisar vinculá-la separadamente.
+
+<AccessibleVideo
+  id="eco-disponibilidade-e-vinculo-com-o-alvo"
+  src={DisponibilidadeEVinculo}
+  descriptionsSrc={DisponibilidadeEVinculoDescriptionsUrl}
+  descriptionsContent={DisponibilidadeEVinculoDescriptionsRaw}
+  title="Consultar a disponibilidade da Eco e seu vínculo automático com um bot"
+/>
 
 ## Consultar e modificar a variável pela Eco
 
@@ -134,9 +154,17 @@ Por exemplo, se um jogador possui `pontuacao` e uma Eco dessa variável, retirar
 
 Retirar a caixa da Eco do quarto é diferente de utilizar a Eco para remover os dados da variável de um alvo, como explicado em [Consultar e modificar a variável pela Eco](#consultar-e-modificar-a-variável-pela-eco).
 
+<AccessibleVideo
+  id="eco-retirar-o-wired-do-quarto"
+  src={RetirarOWired}
+  descriptionsSrc={RetirarOWiredDescriptionsUrl}
+  descriptionsContent={RetirarOWiredDescriptionsRaw}
+  title="Comparar a retirada do Wired Eco com a retirada do Wired da variável original"
+/>
+
 ## Aplicar Extras à variável Eco
 
-Se quiser ampliar o uso da variável selecionada, coloque o **Extra de Variável** sobre a caixa da Eco. O Extra passa a trabalhar com a informação da variável selecionada.
+Se quiser ampliar o uso da variável selecionada, coloque algum **Extra de Variável** sobre a caixa da Eco. O Extra passa a trabalhar com a informação da variável selecionada.
 
 Por exemplo, um **Conector de Texto** pode associar números a nomes de cores. Já o **Sistema de Aumento de Nível** pode calcular informações de progressão a partir do valor selecionado.
 
@@ -157,10 +185,76 @@ Imagine que você quer utilizar o nome da cor de um **Piso Colorido** em seu sis
 | **0** | azul claro |
 | **1** | amarelo |
 | **2** | laranja |
+| **3** | vermelho |
+| **4** | rosa |
+| **5** | azul escuro |
+| **6** | verde |
 
 Ao consultar essa Eco para um Piso Colorido, o valor de `@state` poderá ser utilizado com o texto associado. Se o piso estiver no estado `1`, por exemplo, o texto correspondente será **amarelo**.
 
 A variável `@state` existe para diferentes mobis, mas cada mobi possui seus próprios estados. As associações deste exemplo correspondem ao **Piso Colorido**; ao adaptar o sistema para outro mobi, confira quais estados ele utiliza.
+
+<AccessibleVideo
+  id="eco-nomes-para-as-cores-de-um-piso"
+  src={CoresDoPiso}
+  descriptionsSrc={CoresDoPisoDescriptionsUrl}
+  descriptionsContent={CoresDoPisoDescriptionsRaw}
+  title="Exibir os nomes das cores de um Piso Colorido usando uma variável Eco e o Conector de Texto"
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    Primeira pilha
+    <Steps>
+    1. **Efeito:** Mudar Estado do Mobi
+        1. Selecione o Piso Colorido
+    2. **Ativador:** Repetir Efeito
+        1. Escreva 10
+    </Steps>
+    Segunda pilha
+    <Steps>
+    1. **Ativador:** Estado do Mobi é Modificado
+        1. Selecione o Piso Colorido
+        2. Selecione Ativa para Todos os Estados
+    2. **Efeito:** Mostrar mensagem
+        1. Escreva `A cor do piso é [b]$(cor_do_piso)[/b]`
+        2. Selecione Usar usuários do Seletor no tópico de Selecionar usuários fonte
+    3. **Extra:** Campo Variável
+        1. Selecione a variável de mobi `cor_do_piso`
+        2. Selecione Textual
+        3. Selecione Único
+    4. **Seletor:** Habbos na Área
+        1. Selecione a área com jogadores
+    </Steps>
+  </TabItem>
+
+  <TabItem label="PseudoWired">
+    Primeira pilha
+    <PseudoWiredCodeBlock code={`
+    QUANDO
+      - Repetir Efeito: 10
+    ENTÃO
+      - Mudar estado do Mobi: Piso colorido
+    `} />
+    Segunda pilha
+    <PseudoWiredCodeBlock code={`
+    ALVOS
+      - Habbos na Área
+    QUANDO
+      - Estado do Mobi é modificado: Piso colorido
+        Ativa para todos os estados
+    COMO
+      - Campo Variável: cor_do_piso
+        Selecione uma variável: cor_do_piso
+        Textual
+        Único
+    ENTÃO
+      - Mostrar mensagem: A cor do piso é [b]$(cor_do_piso)[/b]
+        Usar usuários do Seletor
+    `} />
+  </TabItem>
+</Tabs>
+
 
 ## Outros exemplos no projeto
 
