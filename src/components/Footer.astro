@@ -1,0 +1,13 @@
+---
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+import { getPageContributors } from 'starlight-recent-changes/activity';
+import PageContributors from './PageContributors.astro';
+
+const { entry } = Astro.locals.starlightRoute;
+const contributors = entry.filePath
+	? getPageContributors(entry.filePath)
+	: [];
+---
+
+<PageContributors contributors={contributors} />
+<DefaultFooter />

@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "../../.astro/types.d.ts",
+    "../../node_modules/@astrojs/starlight/virtual.d.ts",
+    "index.ts", "virtual.d.ts", "common/**/*.ts", "libs/**/*.ts", "test/**/*.ts"
+  ]
+}

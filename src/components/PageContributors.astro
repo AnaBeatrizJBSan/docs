@@ -1,0 +1,38 @@
+---
+import type { PageContributor } from 'starlight-recent-changes/activity';
+
+interface Props { contributors: PageContributor[] }
+const contributors = Astro.props.contributors.filter((person) => person.profileUrl);
+---
+
+{contributors.length > 0 && (
+	<section id="contribuidores" class="page-contributors" aria-label="Contribuidores desta página" data-pagefind-ignore>
+		<span class="contributors-label">Contribuíram com esta página</span>
+		<ul role="list">
+			{contributors.map((person) => (
+				<li>
+					<a href={person.profileUrl} title={person.name} aria-label={`Perfil de ${person.name} no GitHub`}
+						target="_blank" rel="noopener noreferrer">
+						<span aria-hidden="true">{person.name.slice(0, 2).toUpperCase()}</span>
+						{person.avatarUrl && <img src={person.avatarUrl} width="36" height="36" alt="" loading="lazy"
+							onerror="this.style.display='none'" />}
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+)}
+
+<style>
+	.page-contributors { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--sl-color-hairline); }
+	.contributors-label { display: block; color: var(--sl-color-gray-3); font-size: .8rem; margin-bottom: .65rem; }
+	ul { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 0; }
+	li { margin: 0; }
+	a { position: relative; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+		overflow: hidden; border: 2px solid var(--sl-color-gray-5); background: var(--sl-color-gray-6);
+		color: var(--sl-color-text); text-decoration: none; transition: border-color .15s; }
+	a:hover, a:focus-visible { border-color: var(--sl-color-accent); }
+	a:focus-visible { outline: 2px solid var(--sl-color-accent); outline-offset: 3px; }
+	img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+	span[aria-hidden] { font-size: .7rem; font-weight: 600; }
+</style>
