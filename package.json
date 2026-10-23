@@ -15,6 +15,7 @@
     "check:thumbnail": "tsc -p scripts/tsconfig.thumbnail.json",
     "test:activity": "node --experimental-strip-types --test plugins/starlight-recent-changes/test/activity.test.ts",
     "check:activity": "tsc -p plugins/starlight-recent-changes/tsconfig.json",
+    "test:sidebar-sort": "node --experimental-strip-types --test plugins/starlight-sidebar-label-sort/test/sort.test.ts",
     "preview": "astro preview",
     "astro": "astro",
     "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/",
@@ -40,6 +41,7 @@
     "starlight-scroll-to-top": "^1.0.1",
     "starlight-seo": "file:./plugins/starlight-seo",
     "starlight-showcases": "^0.3.2",
+    "starlight-sidebar-label-sort": "file:./plugins/starlight-sidebar-label-sort",
     "starlight-theme-wiredclub": "file:./plugins/starlight-theme-wiredclub"
   },
   "overrides": {

@@ -7,6 +7,7 @@ import starlightRecentChanges from "starlight-recent-changes";
 import starlightPageReader from "starlight-page-reader";
 import starlightSeo from "starlight-seo";
 import starlightThemeWiredClub from "starlight-theme-wiredclub";
+import starlightSidebarLabelSort from "starlight-sidebar-label-sort";
 import AstroPWA from "@vite-pwa/astro";
 import manifest from "./webmanifest.json";
 
@@ -213,6 +214,7 @@ export default defineConfig({
       lastUpdated: true,
       plugins: [
         starlightThemeWiredClub(),
+        starlightSidebarLabelSort(),
         starlightLlmsTxt(),
         starlightPageReader({ pages: true }),
         starlightSeo({
