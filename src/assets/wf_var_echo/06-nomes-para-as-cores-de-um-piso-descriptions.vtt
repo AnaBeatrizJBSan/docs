@@ -1,0 +1,37 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.500
+Em um quarto do Habbo, um jogador está ao lado de um Piso Colorido e de pilhas Wired. Abre-se a variável Eco, com o nome cor_do_piso e a variável interna de mobi @state selecionada. A configuração é confirmada em “Pronto”.
+
+00:00:04.500 --> 00:00:08.000
+Abre-se o Extra de Variável “Conector de Texto”, colocado sobre a Eco. A lista associa os valores de 0 a 6 aos textos azul claro, amarelo, laranja, vermelho, rosa, azul escuro e verde. A janela é confirmada.
+
+00:00:08.000 --> 00:00:13.000
+Na pilha menor, abre-se o efeito “Mudar estado do Mobi”. O Piso Colorido é selecionado, com a opção “Alternar para o próximo estado” marcada e atraso de zero segundo. Confirma-se em “Pronto”.
+
+00:00:13.000 --> 00:00:15.000
+Abre-se o ativador “Repetir Efeito”, que mostra o campo de tempo em segundos. A configuração é confirmada.
+
+00:00:15.000 --> 00:00:20.000
+Na outra pilha, abre-se o ativador “Estado do Mobi é modificado”. O Piso Colorido está selecionado e a opção “Ativar para todos os estados” está marcada, para acompanhar as mudanças entre seus estados.
+
+00:00:20.000 --> 00:00:24.000
+Abre-se o efeito “Mostrar mensagem” e seu editor de mensagens. O texto começa com “A cor do piso é” e inclui o campo cor_do_piso, destacado em negrito na prévia.
+
+00:00:24.000 --> 00:00:27.000
+De volta à janela do efeito, a visibilidade está definida como “Todos” e o atraso é de zero segundo. Nas configurações avançadas, a fonte de usuários é alterada de “Usar usuários do acionador” para “Use o usuário seletor. A configuração é confirmada.
+
+00:00:27.000 --> 00:00:34.000
+Abre-se o extra de texto “Campo Variável”. O espaço cor_do_piso é associado à variável Eco de mesmo nome. A exibição está definida como “Textual”, o tipo de espaço como “Único” e a origem como “Use o item de ativação”. Confirma-se em “Pronto”.
+
+00:00:34.000 --> 00:00:39.000
+Abre-se o seletor “Habbos na Área”. O quarto aparece com a visualização de seleção de área, e a região do piso onde está o jogador é destacada. A configuração é confirmada.
+
+00:00:39.000 --> 00:00:45.000
+Com as janelas fechadas, o Piso Colorido aparece vermelho. Uma notificação mostra “A cor do piso é vermelho”, com o nome da cor em negrito.
+
+00:00:45.000 --> 00:00:51.000
+O piso muda para rosa e surge outra notificação: “A cor do piso é rosa”. A mensagem anterior continua visível acima dela.
+
+00:00:51.000 --> 00:00:53.013
+O piso muda novamente, e uma terceira notificação informa “A cor do piso é azul escuro”. As três mensagens mostram os textos associados aos estados do piso.

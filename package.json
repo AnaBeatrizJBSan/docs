@@ -13,6 +13,8 @@
     "test:watermark": "node --experimental-strip-types --test scripts/watermark.test.mjs",
     "test:thumbnail": "node --experimental-strip-types --test scripts/thumbnail-transform.test.ts",
     "check:thumbnail": "tsc -p scripts/tsconfig.thumbnail.json",
+    "test:activity": "node --experimental-strip-types --test plugins/starlight-recent-changes/test/activity.test.ts",
+    "check:activity": "tsc -p plugins/starlight-recent-changes/tsconfig.json",
     "preview": "astro preview",
     "astro": "astro",
     "to-pdf": "npx starlight-to-pdf https://docs.wiredclub.com.br/",

@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.000
+Em um quarto do Habbo, a aba “Inspeção” das Ferramentas do Criador mostra um bot selecionado. As variáveis eco_pontuacao e pontuacao aparecem vinculadas a ele, ambas com o valor 10.
+
+00:00:01.000 --> 00:00:05.500
+Abre-se o Wired “Usuário Variável”. Seu nome é pontuacao, a opção “Tem valor” está marcada e a disponibilidade está definida como “Enquanto o usuário está no quarto”.
+
+00:00:05.500 --> 00:00:11.000
+Abre-se o Wired Eco. O nome eco_pontuacao aparece no campo superior, e pontuacao está selecionada como variável de origem. A configuração é confirmada em “Pronto”.
+
+00:00:11.000 --> 00:00:14.000
+A caixa Wired Eco é retirada do quarto. A variável eco_pontuacao desaparece da lista de inspeção do bot, enquanto pontuacao permanece com o valor 10.
+
+00:00:14.000 --> 00:00:17.000
+A linha pontuacao é selecionada na aba de inspeção, destacando que o vínculo e o valor 10 continuam disponíveis após a retirada da Eco.
+
+00:00:17.000 --> 00:00:19.000
+A caixa Eco volta ao quarto, ao lado da variável original. A lista de inspeção volta a mostrar eco_pontuacao e pontuacao, ambas com o valor 10.
+
+00:00:19.000 --> 00:00:21.000
+Ao tentar retirar o Wired da variável original, aparece a janela “Removendo uma variável”. O aviso informa que todas as referências e os dados armazenados pela variável serão apagados. A remoção é confirmada em “Ok”.
+
+00:00:21.000 --> 00:00:22.848
+A caixa da variável original desaparece, restando a Eco no quarto. Na inspeção do bot, tanto pontuacao quanto eco_pontuacao deixam de aparecer; as variáveis internas continuam listadas.
