@@ -6,7 +6,7 @@ const contributors = Astro.props.contributors.filter((person) => person.profileU
 ---
 
 {contributors.length > 0 && (
-	<section class="page-contributors" aria-label="Contribuidores desta página" data-pagefind-ignore>
+	<section id="contribuidores" class="page-contributors" aria-label="Contribuidores desta página" data-pagefind-ignore>
 		<span class="contributors-label">Contribuíram com esta página</span>
 		<ul role="list">
 			{contributors.map((person) => (

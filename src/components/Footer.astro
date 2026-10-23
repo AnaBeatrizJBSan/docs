@@ -4,7 +4,7 @@ import { getPageContributors } from 'starlight-recent-changes/activity';
 import PageContributors from './PageContributors.astro';
 
 const { entry } = Astro.locals.starlightRoute;
-const contributors = entry.filePath && entry.data.template !== 'splash'
+const contributors = entry.filePath
 	? getPageContributors(entry.filePath)
 	: [];
 ---
