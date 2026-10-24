@@ -1,6 +1,6 @@
 ---
 title: "Wired Variável: Ponteiro de Variável"
-description: wf_var_pointer
+description: Aprenda a configurar um ponteiro para acessar diferentes variáveis pela mesma lógica Wired e montar um sistema de inventário.
 sidebar:
   label: "Ponteiro de Variável"
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_var_pointer
   name: "WIRED VARIÁVEL: Ponteiro de Variável"
-  description: wf_var_pointer
+  description: Permite acessar uma variável identificada por uma variável de contexto.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -40,6 +40,208 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import Infobox from "@components/Infobox.astro";
+import { Aside } from '@astrojs/starlight/components';
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+
+O **Wired Variável: Ponteiro de Variável** permite escolher, durante uma execução, qual variável será consultada ou modificada. Com ele, você pode reutilizar uma sequência de pilhas para adicionar diferentes itens ao inventário de um jogador, por exemplo.
 
 <Infobox />
+
+O ponteiro identifica a variável de destino pelo **ID do mobi da caixa Wired que a define**. Esse número fica armazenado em uma variável de contexto. Ao mudar o ID guardado nesse contexto, você muda a variável acessada pelo ponteiro.
+
+## Como esse Wired funciona?
+
+Apesar do nome, o ponteiro **não é uma variável em si**: ele apenas aponta para outras variáveis. Ele não armazena dados próprios nem pode ser vinculado diretamente a um alvo. O vínculo e os valores pertencem à variável de destino.
+
+Imagine três variáveis de usuário: `pedra`, `ouro` e `peixe`. Cada uma possui uma caixa Wired com seu próprio `@id`. Em vez de configurar um efeito para cada variável, podemos configurar um único **Mudar Valor Variável** com o ponteiro e informar, pela variável de contexto, qual dessas caixas queremos acessar.
+
+A variável de contexto escolhe **qual informação** será acessada. Já a fonte configurada no efeito determina **quem receberá a alteração**. No inventário, o contexto identifica o item, e a fonte de usuários identifica o jogador que receberá mais uma unidade.
+
+<Aside type="note" title="Uma configuração avançada">
+O ponteiro é útil quando a variável de destino precisa mudar durante a execução. Para um sistema que utiliza sempre a mesma variável, você pode selecioná-la diretamente nos Wireds.
+</Aside>
+
+## Configurando o Wired
+
+Ao abrir a janela de configuração, você encontra os ícones de alvo e os tópicos **Informações de uso**, **Nome da variável** e **Variável de contexto identificadora**.
+
+### Alvo da variável
+
+Selecione o ícone correspondente ao alvo da variável que o ponteiro acessará: **Mobi**, **Usuário**, **Global** ou **Contexto**.
+
+Para um inventário em que cada jogador possui sua própria quantidade de itens, escolha **Usuário**. Esse alvo deve corresponder ao tipo das variáveis de destino.
+
+### Informações de uso
+
+Este tópico apresenta a função do ponteiro e explica como ele identifica a variável de destino. A janela também avisa que esta é uma caixa avançada: vale utilizá-la quando o sistema precisa escolher entre diferentes variáveis durante a execução.
+
+### Nome da variável
+
+Defina o nome que será utilizado para identificar o ponteiro. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**.
+
+Se você utilizar um espaço no nome, ele será substituído automaticamente por um **sublinhado (`_`)**. Por exemplo, `ponteiro item do inventario` se torna `ponteiro_item_do_inventario`.
+
+O nome precisa ser **único no quarto**, mesmo entre variáveis de tipos diferentes. Se outro Wired de variável já utilizar esse nome, ao tentar salvar a configuração aparecerá a mensagem **"Esse nome de variável já está em uso neste quarto, escolha um nome diferente!"**. Escolha outro nome para conseguir salvar.
+
+![Janela Falha ao atualizar avisando que o nome de variável já está em uso no quarto e solicitando um nome diferente.](@assets/wf_var/04-janela-de-aviso-nome-de-variavel-ja-em-uso.png)
+
+### Variável de contexto identificadora
+
+Informe o nome da variável de contexto que armazenará o **ID do mobi da caixa Wired da variável de destino**. Crie essa variável com o [Wired Variável: Contexto Variável](/referencia/variaveis/wf_var_context/) e marque **Tem valor**, pois ela precisa guardar um número.
+
+Antes de utilizar o ponteiro em uma execução, disponibilize essa variável de contexto e atribua a ela o ID da caixa desejada. No inventário, utilizaremos `contexto_item_do_inventario` para guardar o `@id` da caixa de `pedra`, `ouro` ou `peixe`.
+
+O contexto acompanha a execução e sua continuação por sinais. Por isso, podemos identificar a variável em uma pilha e utilizar o ponteiro na próxima. Confira [Tempo de vida da variável](/referencia/variaveis/wf_var_context/#tempo-de-vida-da-variável).
+
+<Aside type="tip" title="Qual ID utilizar?">
+No inventário, consulte o `@id` da **caixa Wired da variável de usuário**. O mobi que representa o item guardará uma cópia desse número para informar ao sistema qual variável acessar.
+</Aside>
+
+### Ver no menu Wired
+
+Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
+
+## Consultar e modificar a variável pelo ponteiro
+
+Durante uma execução com a variável de contexto identificadora disponível e preenchida, o ponteiro dá acesso aos dados da variável de destino. As consultas e alterações de valor por meio dele utilizam essa variável e os alvos definidos nos Wireds que realizam as operações.
+
+Imagine que `contexto_item_do_inventario` guarda o ID da caixa da variável de usuário `ouro`. Ao somar **1** por `ponteiro_item_do_inventario`, você altera o valor de `ouro` para o jogador definido no efeito. Se alterar esse valor diretamente pela variável original, o ponteiro também passa a consultar o novo valor enquanto estiver apontando para ela.
+
+Se você alterar o ID armazenado no contexto para o da caixa de `pedra`, as próximas operações pelo ponteiro passarão a utilizar essa outra variável.
+
+Para atribuir `pedra` a um jogador, você pode selecionar essa variável diretamente na aba **Inspeção das Ferramentas do Criador**, ou executar uma pilha com **Dar Variável** utilizando o ponteiro. Nesse segundo caso, a execução precisa ter `contexto_item_do_inventario` com o ID da caixa de `pedra`.
+
+<Aside type="note" title="O ponteiro não pode ser vinculado diretamente">
+Se você tentar dar `ponteiro_item_do_inventario` a um usuário pelas Ferramentas do Criador, ele não será vinculado. Para preparar o inventário manualmente, atribua ao jogador as variáveis de destino: `pedra`, `ouro` e `peixe`.
+</Aside>
+
+Para remover `pedra` de um jogador, selecione a própria variável `pedra` no **Efeito Wired: Remover Variável** e configure o jogador como alvo. Remover `contexto_item_do_inventario` atua sobre a informação que identifica o destino do ponteiro; essa ação não remove `pedra`, `ouro` ou `peixe` do jogador.
+
+As ações disponíveis dependem das permissões da variável de destino. Você pode conferir propriedades como **Pode ter o valor alterado** e **Pode ser criada ou apagada** na aba [Variáveis das Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/#propriedades).
+
+## Renomear a variável
+
+Para alterar o nome do ponteiro, clique duas vezes no **Wired Variável: Ponteiro de Variável**, edite o campo **Nome da variável** e confirme a alteração.
+
+Depois de confirmar, o novo nome passa a aparecer nos locais das **Ferramentas do Criador** que fazem referência a ele. Para mudar qual variável será acessada durante uma execução, altere o ID armazenado na variável de contexto identificadora.
+
+## Retirar o Wired do quarto
+
+Ao retirar a caixa Wired do ponteiro, você remove a definição utilizada para acessar outras variáveis. Confira se o ponteiro ainda é utilizado por outros Wireds antes de confirmar a remoção.
+
+![Janela Removendo uma variável avisando que todas as referências e os dados armazenados serão apagados, com as opções Cancelar e Ok.](@assets/wf_var/02-janela-de-aviso-ao-remover-wired.png)
+
+Os valores manipulados pelo ponteiro pertencem à variável de destino. Para excluir essa variável e seus dados, consulte as orientações do Wired que a define, como [Retirar o Wired do quarto](/referencia/variaveis/wf_var_room/#retirar-o-wired-do-quarto), na página de Variável Global.
+
+## Exemplo prático: um sistema de inventário
+
+Vamos configurar um inventário em que clicar no mobi de um item soma **1** à quantidade desse item para o jogador. A mesma sequência de pilhas será utilizada para pedra, ouro e peixe.
+
+### Preparando as variáveis
+
+Crie as variáveis abaixo. Nas variáveis de contexto, de usuário e de mobi, marque **Tem valor**.
+
+| Tipo | Nome | Para que vamos usar |
+| :--- | :--- | :--- |
+| Contexto | `contexto_item_do_inventario` | Guardar o ID da caixa da variável do item escolhido. |
+| Ponteiro, com alvo Usuário | `ponteiro_item_do_inventario` | Acessar a variável identificada por `contexto_item_do_inventario`. |
+| Usuário | `pedra`, `ouro` e `peixe` | Guardar a quantidade de cada item para cada jogador. Crie uma caixa para cada variável. |
+| Mobi | `id_do_mobi_var_de_usuario` | Guardar, no mobi que representa o item, o ID da caixa da variável de usuário correspondente. |
+
+Na configuração do ponteiro, informe `contexto_item_do_inventario` como **Variável de contexto identificadora**.
+
+Pela aba **Inspeção** das Ferramentas do Criador, atribua `pedra`, `ouro` e `peixe` ao jogador que fará o teste, todas com valor inicial **0**. Consulte [Vincular a variável a um usuário](/referencia/variaveis/wf_var_user/#vincular-a-variável-a-um-usuário) se precisar de ajuda.
+
+### Associando cada mobi à variável do item
+
+1. Coloque no quarto os mobis **Pedras de Estimação**, **Pá do Tesouro** e **Salmão** para representar pedra, ouro e peixe, respectivamente.
+2. Na aba **Inspeção**, selecione a caixa Wired da variável `pedra` e consulte seu `@id`.
+3. Selecione **Pedras de Estimação** e utilize **Dar variável** para atribuir `id_do_mobi_var_de_usuario`, informando o ID consultado como valor.
+4. Repita o procedimento com **Pá do Tesouro** para `ouro` e **Salmão** para `peixe`, utilizando o ID da caixa correspondente a cada item.
+
+| Mobi que representa o item | Valor de `id_do_mobi_var_de_usuario` |
+| :--- | :--- |
+| Pedras de Estimação | `@id` da caixa da variável de usuário `pedra` |
+| Pá do Tesouro | `@id` da caixa da variável de usuário `ouro` |
+| Salmão | `@id` da caixa da variável de usuário `peixe` |
+
+Assim, o mobi clicado informa qual variável deverá receber a quantidade adicionada.
+
+### Pilha 1: identificar o mobi clicado
+
+Utilize o seletor **Mobi com Variável** para selecionar os mobis que possuem `id_do_mobi_var_de_usuario`. Configure **Habbo Clica no Mobi** para utilizar os mobis do seletor.
+
+Ao clicar em um desses mobis, envie um sinal para uma **Antena Wired Pequena**, que chamaremos de **antena A**. Envie o item de ativação para que a próxima pilha possa consultar a variável do mobi clicado. Preserve também o jogador ativador ao continuar a execução.
+
+<PseudoWiredCodeBlock code={`
+ALVOS
+  - Mobi com Variável:
+    Selecione uma variável: id_do_mobi_var_de_usuario
+QUANDO
+  - Habbo Clica no Mobi:
+    Selecione a fonte do mobi: Usar mobis do seletor
+ENTÃO
+  - Mandar Sinal:
+    Antenas: Antena Wired Pequena (Antena A)
+    Mobis para enviar: Use o item de ativação
+`} />
+
+### Pilha 2: identificar a variável de usuário
+
+Configure **Recebe Sinal** com a antena A. No seletor **Mobi com Variável**, escolha `@id` e procure o valor igual a `id_do_mobi_var_de_usuario`, utilizando o item de ativação como origem dessa informação. A seleção identifica a caixa Wired da variável do item.
+
+Adicione **Dar Variável** para disponibilizar `contexto_item_do_inventario`. Como valor inicial, utilize `id_do_mobi_var_de_usuario`, também com origem no item de ativação. Esse valor já é o ID da caixa que o ponteiro precisa acessar.
+
+Por último, envie um sinal para outra **Antena Wired Pequena**, que chamaremos de **antena B**. Mantenha o jogador que clicou como usuário da continuação.
+
+<PseudoWiredCodeBlock code={`
+ALVOS
+  - Mobi com Variável:
+    Selecione uma variável: @id
+    Selecionar por valor: igual (=)
+    Valor referência: id_do_mobi_var_de_usuario
+    Origem da variável: Use o item de ativação
+QUANDO
+  - Recebe Sinal:
+    Antenas: Antena Wired Pequena (Antena A)
+ENTÃO
+  - Dar Variável: contexto_item_do_inventario
+    Valor inicial: id_do_mobi_var_de_usuario
+    Origem da variável: Use o item de ativação
+  - Mandar Sinal:
+    Antenas: Antena Wired Pequena (Antena B)
+`} />
+
+### Pilha 3: adicionar o item pelo ponteiro
+
+Configure **Recebe Sinal** com a antena B. Adicione **Mudar Valor Variável**, selecione `ponteiro_item_do_inventario`, escolha **Somar** e informe **1** como valor de referência. Configure a fonte de usuários para atingir o jogador que iniciou a sequência clicando no mobi.
+
+<PseudoWiredCodeBlock code={`
+QUANDO
+  - Recebe Sinal:
+    Antenas: Antena Wired Pequena (Antena B)
+ENTÃO
+  - Mudar Valor Variável:
+    Selecione uma variável: ponteiro_item_do_inventario
+    Operação: Somar
+    Valor referência: 1
+    Variável de destino: Use o usuário acionador
+`} />
+
+Se o jogador clicar em **Pedras de Estimação**, o contexto identificará a caixa de `pedra`, e a quantidade dessa variável aumentará em **1**. Ao clicar na **Pá do Tesouro**, a mesma pilha aumentará `ouro`.
+
+### Conferindo o resultado e acrescentando novos itens
+
+Clique em cada mobi e confira as quantidades do jogador pela aba **Inspeção**. Partindo de **0**, clicar duas vezes em **Pedras de Estimação** e uma vez na **Pá do Tesouro** deve resultar em `pedra = 2`, `ouro = 1` e `peixe = 0`.
+
+Para adicionar outro item ao sistema:
+
+1. Crie uma variável de usuário para guardar sua quantidade e atribua-a aos jogadores que utilizarão o inventário.
+2. Coloque o mobi que representa esse item no quarto.
+3. Atribua a ele `id_do_mobi_var_de_usuario`, com o `@id` da nova caixa Wired de variável como valor.
+4. Teste o clique utilizando a mesma sequência de pilhas.
+
+Não é necessário alterar as configurações das pilhas para cada novo item. A variável de contexto informa o destino, e o ponteiro permite reutilizar a operação de soma.
+
+**Créditos:** exemplo de inventário baseado no tutorial escrito pelo jogador **Haouken**, do Habbo BR/PT.
