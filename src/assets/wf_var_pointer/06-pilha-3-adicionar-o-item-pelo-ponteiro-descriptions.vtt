@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+No ativador “Recebe Sinal” da terceira pilha, seleciona-se a antena da direita e confirma-se em “Pronto”.
+
+00:00:03.000 --> 00:00:08.000
+Abre-se “Mudar Valor Variável”. A variável selecionada é ponteiro_item_do_inventario, do alvo Usuário.
+
+00:00:08.000 --> 00:00:11.000
+A lista de operações é aberta, e a opção escolhida é “Somar”.
+
+00:00:11.000 --> 00:00:14.614
+O valor de referência é 1, e a origem do alvo está em “Use o usuário acionador”. A configuração é confirmada.

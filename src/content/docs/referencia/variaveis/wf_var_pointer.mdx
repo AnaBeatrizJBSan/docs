@@ -43,6 +43,29 @@ infobox:
 import Infobox from "@components/Infobox.astro";
 import { Aside } from '@astrojs/starlight/components';
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import AlvoDaVariavel from "@assets/wf_var_pointer/04-alvo-da-variavel.gif";
+import RenomearVariavel from "@assets/wf_var_pointer/05-renomear-a-variavel.mp4";
+import RenomearVariavelDescriptionsUrl from "@assets/wf_var_pointer/05-renomear-a-variavel-descriptions.vtt?url";
+import RenomearVariavelDescriptionsRaw from "@assets/wf_var_pointer/05-renomear-a-variavel-descriptions.vtt?raw";
+import PreparandoVariaveis from "@assets/wf_var_pointer/06-preparando-as-variaveis.mp4";
+import PreparandoVariaveisDescriptionsUrl from "@assets/wf_var_pointer/06-preparando-as-variaveis-descriptions.vtt?url";
+import PreparandoVariaveisDescriptionsRaw from "@assets/wf_var_pointer/06-preparando-as-variaveis-descriptions.vtt?raw";
+import AssociandoMobis from "@assets/wf_var_pointer/06-associando-cada-mobi-a-variavel-do-item.mp4";
+import AssociandoMobisDescriptionsUrl from "@assets/wf_var_pointer/06-associando-cada-mobi-a-variavel-do-item-descriptions.vtt?url";
+import AssociandoMobisDescriptionsRaw from "@assets/wf_var_pointer/06-associando-cada-mobi-a-variavel-do-item-descriptions.vtt?raw";
+import Pilha1 from "@assets/wf_var_pointer/06-pilha-1-identificar-o-mobi-clicado.mp4";
+import Pilha1DescriptionsUrl from "@assets/wf_var_pointer/06-pilha-1-identificar-o-mobi-clicado-descriptions.vtt?url";
+import Pilha1DescriptionsRaw from "@assets/wf_var_pointer/06-pilha-1-identificar-o-mobi-clicado-descriptions.vtt?raw";
+import Pilha2 from "@assets/wf_var_pointer/06-pilha-2-identificar-a-variavel-de-usuario.mp4";
+import Pilha2DescriptionsUrl from "@assets/wf_var_pointer/06-pilha-2-identificar-a-variavel-de-usuario-descriptions.vtt?url";
+import Pilha2DescriptionsRaw from "@assets/wf_var_pointer/06-pilha-2-identificar-a-variavel-de-usuario-descriptions.vtt?raw";
+import Pilha3 from "@assets/wf_var_pointer/06-pilha-3-adicionar-o-item-pelo-ponteiro.mp4";
+import Pilha3DescriptionsUrl from "@assets/wf_var_pointer/06-pilha-3-adicionar-o-item-pelo-ponteiro-descriptions.vtt?url";
+import Pilha3DescriptionsRaw from "@assets/wf_var_pointer/06-pilha-3-adicionar-o-item-pelo-ponteiro-descriptions.vtt?raw";
+import ConferindoResultado from "@assets/wf_var_pointer/06-conferindo-o-resultado-e-acrescentando-novos-itens.mp4";
+import ConferindoResultadoDescriptionsUrl from "@assets/wf_var_pointer/06-conferindo-o-resultado-e-acrescentando-novos-itens-descriptions.vtt?url";
+import ConferindoResultadoDescriptionsRaw from "@assets/wf_var_pointer/06-conferindo-o-resultado-e-acrescentando-novos-itens-descriptions.vtt?raw";
 
 O **Wired Variável: Ponteiro de Variável** permite escolher, durante uma execução, qual variável será consultada ou modificada. Com ele, você pode reutilizar uma sequência de pilhas para adicionar diferentes itens ao inventário de um jogador, por exemplo.
 
@@ -73,6 +96,13 @@ Ao abrir a janela de configuração, você encontra os ícones de alvo e os tóp
 Selecione o ícone correspondente ao alvo da variável que o ponteiro acessará: **Mobi**, **Usuário**, **Global** ou **Contexto**.
 
 Para um inventário em que cada jogador possui sua própria quantidade de itens, escolha **Usuário**. Esse alvo deve corresponder ao tipo das variáveis de destino.
+
+<img
+  src={AlvoDaVariavel.src}
+  alt="Seleção dos ícones de alvo Mobi, Usuário, Global e Contexto na janela do Ponteiro de Variável"
+  width={AlvoDaVariavel.width}
+  height={AlvoDaVariavel.height}
+/>
 
 ### Informações de uso
 
@@ -132,6 +162,14 @@ Para alterar o nome do ponteiro, clique duas vezes no **Wired Variável: Ponteir
 
 Depois de confirmar, o novo nome passa a aparecer nos locais das **Ferramentas do Criador** que fazem referência a ele. Para mudar qual variável será acessada durante uma execução, altere o ID armazenado na variável de contexto identificadora.
 
+<AccessibleVideo
+  id="ponteiro-renomear-a-variavel"
+  src={RenomearVariavel}
+  descriptionsSrc={RenomearVariavelDescriptionsUrl}
+  descriptionsContent={RenomearVariavelDescriptionsRaw}
+  title="Renomear o ponteiro e conferir o novo nome nas Ferramentas do Criador"
+/>
+
 ## Retirar o Wired do quarto
 
 Ao retirar a caixa Wired do ponteiro, você remove a definição utilizada para acessar outras variáveis. Confira se o ponteiro ainda é utilizado por outros Wireds antes de confirmar a remoção.
@@ -159,6 +197,14 @@ Na configuração do ponteiro, informe `contexto_item_do_inventario` como **Vari
 
 Pela aba **Inspeção** das Ferramentas do Criador, atribua `pedra`, `ouro` e `peixe` ao jogador que fará o teste, todas com valor inicial **0**. Consulte [Vincular a variável a um usuário](/referencia/variaveis/wf_var_user/#vincular-a-variável-a-um-usuário) se precisar de ajuda.
 
+<AccessibleVideo
+  id="ponteiro-preparando-as-variaveis"
+  src={PreparandoVariaveis}
+  descriptionsSrc={PreparandoVariaveisDescriptionsUrl}
+  descriptionsContent={PreparandoVariaveisDescriptionsRaw}
+  title="Preparar as variáveis do inventário e atribuir pedra, ouro e peixe à jogadora"
+/>
+
 ### Associando cada mobi à variável do item
 
 1. Coloque no quarto os mobis **Pedras de Estimação**, **Pá do Tesouro** e **Salmão** para representar pedra, ouro e peixe, respectivamente.
@@ -173,6 +219,14 @@ Pela aba **Inspeção** das Ferramentas do Criador, atribua `pedra`, `ouro` e `p
 | Salmão | `@id` da caixa da variável de usuário `peixe` |
 
 Assim, o mobi clicado informa qual variável deverá receber a quantidade adicionada.
+
+<AccessibleVideo
+  id="ponteiro-associando-mobis"
+  src={AssociandoMobis}
+  descriptionsSrc={AssociandoMobisDescriptionsUrl}
+  descriptionsContent={AssociandoMobisDescriptionsRaw}
+  title="Associar Pedras de Estimação, Pá do Tesouro e Salmão às variáveis dos itens"
+/>
 
 ### Pilha 1: identificar o mobi clicado
 
@@ -193,11 +247,19 @@ ENTÃO
     Mobis para enviar: Use o item de ativação
 `} />
 
+<AccessibleVideo
+  id="ponteiro-pilha-1"
+  src={Pilha1}
+  descriptionsSrc={Pilha1DescriptionsUrl}
+  descriptionsContent={Pilha1DescriptionsRaw}
+  title="Configurar a primeira pilha para identificar o mobi clicado e enviar o sinal"
+/>
+
 ### Pilha 2: identificar a variável de usuário
 
 Configure **Recebe Sinal** com a antena A. No seletor **Mobi com Variável**, escolha `@id` e procure o valor igual a `id_do_mobi_var_de_usuario`, utilizando o item de ativação como origem dessa informação. A seleção identifica a caixa Wired da variável do item.
 
-Adicione **Dar Variável** para disponibilizar `contexto_item_do_inventario`. Como valor inicial, utilize `id_do_mobi_var_de_usuario`, também com origem no item de ativação. Esse valor já é o ID da caixa que o ponteiro precisa acessar.
+Adicione **Dar Variável** para disponibilizar `contexto_item_do_inventario`. Como valor inicial, utilize `id_do_mobi_var_de_usuario` e selecione **Use o item de ativação** como origem da variável. Esse valor já é o ID da caixa que o ponteiro precisa acessar.
 
 Por último, envie um sinal para outra **Antena Wired Pequena**, que chamaremos de **antena B**. Mantenha o jogador que clicou como usuário da continuação.
 
@@ -219,6 +281,14 @@ ENTÃO
     Antenas: Antena Wired Pequena (Antena B)
 `} />
 
+<AccessibleVideo
+  id="ponteiro-pilha-2"
+  src={Pilha2}
+  descriptionsSrc={Pilha2DescriptionsUrl}
+  descriptionsContent={Pilha2DescriptionsRaw}
+  title="Configurar a segunda pilha para identificar a variável do item e preencher o contexto"
+/>
+
 ### Pilha 3: adicionar o item pelo ponteiro
 
 Configure **Recebe Sinal** com a antena B. Adicione **Mudar Valor Variável**, selecione `ponteiro_item_do_inventario`, escolha **Somar** e informe **1** como valor de referência. Configure a fonte de usuários para atingir o jogador que iniciou a sequência clicando no mobi.
@@ -237,9 +307,25 @@ ENTÃO
 
 Se o jogador clicar em **Pedras de Estimação**, o contexto identificará a caixa de `pedra`, e a quantidade dessa variável aumentará em **1**. Ao clicar na **Pá do Tesouro**, a mesma pilha aumentará `ouro`.
 
+<AccessibleVideo
+  id="ponteiro-pilha-3"
+  src={Pilha3}
+  descriptionsSrc={Pilha3DescriptionsUrl}
+  descriptionsContent={Pilha3DescriptionsRaw}
+  title="Configurar a terceira pilha para somar uma unidade ao item pelo ponteiro"
+/>
+
 ### Conferindo o resultado e acrescentando novos itens
 
-Clique em cada mobi e confira as quantidades do jogador pela aba **Inspeção**. Partindo de **0**, clicar duas vezes em **Pedras de Estimação** e uma vez na **Pá do Tesouro** deve resultar em `pedra = 2`, `ouro = 1` e `peixe = 0`.
+Clique em cada mobi e confira as quantidades do jogador pela aba **Inspeção**. Partindo de **0**, clicar duas vezes em **Pedras de Estimação** e uma vez na **Pá do Tesouro** deve resultar em `pedra = 2`, `ouro = 1` e `peixe = 0`. No vídeo, o teste continua com três cliques no **Salmão**, fazendo `peixe` chegar a **3**.
+
+<AccessibleVideo
+  id="ponteiro-conferindo-o-resultado"
+  src={ConferindoResultado}
+  descriptionsSrc={ConferindoResultadoDescriptionsUrl}
+  descriptionsContent={ConferindoResultadoDescriptionsRaw}
+  title="Clicar nos mobis e conferir as quantidades de pedra, ouro e peixe na Inspeção"
+/>
 
 Para adicionar outro item ao sistema:
 

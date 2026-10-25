@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+A Inspeção mostra ouro, pedra e peixe com valor 0 para a jogadora. Cliques em Pedras de Estimação aumentam pedra para 2.
+
+00:00:03.000 --> 00:00:05.000
+Ao clicar na Pá do Tesouro, ouro passa para 1. Pedra permanece em 2.
+
+00:00:05.000 --> 00:00:08.784
+Cliques no Salmão aumentam peixe até 3. Ao final, a tabela mostra ouro igual a 1, pedra igual a 2 e peixe igual a 3.
