@@ -1,6 +1,6 @@
 ---
 title: "Wired Variável: Ponteiro de Variável"
-description: Aprenda a configurar um ponteiro para acessar diferentes variáveis pela mesma lógica Wired e montar um sistema de inventário.
+description: Aprenda a configurar um ponteiro para acessar diferentes variáveis pela mesma lógica Wired.
 sidebar:
   label: "Ponteiro de Variável"
   badge:
@@ -66,6 +66,8 @@ O ponteiro é útil quando a variável de destino precisa mudar durante a execu�
 
 Ao abrir a janela de configuração, você encontra os ícones de alvo e os tópicos **Informações de uso**, **Nome da variável** e **Variável de contexto identificadora**.
 
+![Janela do Wired Ponteiro de Variável com o alvo Usuário selecionado, o nome vazio e a lista de variável de contexto identificadora sem seleção.](@assets/wf_var_pointer/01-janela-do-wired.png)
+
 ### Alvo da variável
 
 Selecione o ícone correspondente ao alvo da variável que o ponteiro acessará: **Mobi**, **Usuário**, **Global** ou **Contexto**.
@@ -75,6 +77,8 @@ Para um inventário em que cada jogador possui sua própria quantidade de itens,
 ### Informações de uso
 
 Este tópico apresenta a função do ponteiro e explica como ele identifica a variável de destino. A janela também avisa que esta é uma caixa avançada: vale utilizá-la quando o sistema precisa escolher entre diferentes variáveis durante a execução.
+
+![Tópico Informações de uso expandido, explicando que o ponteiro identifica a variável de destino pelo ID de sua caixa Wired armazenado em uma variável de contexto e avisando que este é um recurso avançado.](@assets/wf_var_pointer/03-topico-informacoes-de-uso.png)
 
 ### Nome da variável
 
@@ -90,17 +94,19 @@ O nome precisa ser **único no quarto**, mesmo entre variáveis de tipos diferen
 
 Informe o nome da variável de contexto que armazenará o **ID do mobi da caixa Wired da variável de destino**. Crie essa variável com o [Wired Variável: Contexto Variável](/referencia/variaveis/wf_var_context/) e marque **Tem valor**, pois ela precisa guardar um número.
 
-Antes de utilizar o ponteiro em uma execução, disponibilize essa variável de contexto e atribua a ela o ID da caixa desejada. No inventário, utilizaremos `contexto_item_do_inventario` para guardar o `@id` da caixa de `pedra`, `ouro` ou `peixe`.
+Antes de utilizar o ponteiro em uma execução, disponibilize essa variável de contexto e atribua a ela o ID da caixa desejada. No [exemplo de inventário](#exemplo-prático-um-sistema-de-inventário), utilizaremos `contexto_item_do_inventario` para guardar o `@id` da caixa de `pedra`, `ouro` ou `peixe`.
 
 O contexto acompanha a execução e sua continuação por sinais. Por isso, podemos identificar a variável em uma pilha e utilizar o ponteiro na próxima. Confira [Tempo de vida da variável](/referencia/variaveis/wf_var_context/#tempo-de-vida-da-variável).
 
 <Aside type="tip" title="Qual ID utilizar?">
-No inventário, consulte o `@id` da **caixa Wired da variável de usuário**. O mobi que representa o item guardará uma cópia desse número para informar ao sistema qual variável acessar.
+No [exemplo de inventário](#exemplo-prático-um-sistema-de-inventário), consulte o `@id` da **caixa Wired da variável de usuário**. O mobi que representa o item guardará uma cópia desse número para informar ao sistema qual variável acessar.
 </Aside>
 
 ### Ver no menu Wired
 
 Depois de confirmar as configurações, clique duas vezes no Wired novamente. A janela passa a apresentar a opção **Ver no menu Wired**. Ao clicar nela, as [Ferramentas do Criador](/referencia/ferramentas-do-criador/variaveis/) são abertas diretamente na aba **Variáveis**.
+
+![Janela do Wired Ponteiro de Variável configurada para o inventário, com o alvo Usuário, o nome do ponteiro, a variável de contexto identificadora selecionada e o link Ver no menu Wired disponível.](@assets/wf_var_pointer/02-janela-do-wired-com-ver-no-menu-wired.png)
 
 ## Consultar e modificar a variável pelo ponteiro
 
@@ -172,7 +178,7 @@ Assim, o mobi clicado informa qual variável deverá receber a quantidade adicio
 
 Utilize o seletor **Mobi com Variável** para selecionar os mobis que possuem `id_do_mobi_var_de_usuario`. Configure **Habbo Clica no Mobi** para utilizar os mobis do seletor.
 
-Ao clicar em um desses mobis, envie um sinal para uma **Antena Wired Pequena**, que chamaremos de **antena A**. Envie o item de ativação para que a próxima pilha possa consultar a variável do mobi clicado. Preserve também o jogador ativador ao continuar a execução.
+Ao clicar em um desses mobis, envie um sinal para uma **Antena Wired Pequena**, que chamaremos de **antena A**. Envie o item de ativação para que a próxima pilha possa consultar a variável do mobi clicado.
 
 <PseudoWiredCodeBlock code={`
 ALVOS
