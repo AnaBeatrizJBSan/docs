@@ -1,5 +1,3 @@
-# AGENTS.md
-
 ## Project Overview
 
 This repository contains the official Wired Club documentation, built with Astro and Starlight.
@@ -21,16 +19,20 @@ All contributions must prioritize technical accuracy, readability, consistency w
 
 **Before creating or substantially rewriting any documentation page, inspect existing documentation files to understand and reproduce the project's established textual tone.**
 
-The following directories are the authoritative writing-style references:
+The following directories were selected because their reference texts were written by a human. They are the authoritative references for preserving the project's natural, human textual tone:
 
 1. **Getting Started:** All documentation files recursively inside `src/content/docs/vamos-comecar/`.
 2. **Practical Guides:** All documentation files recursively inside `src/content/docs/guias-praticos/`.
-3. **Reference:** Only documentation files located directly inside `src/content/docs/referencia/`. **Do not include files from subdirectories of `referencia/` when analyzing the writing style.**
+3. **Reference:** Only documentation files located directly inside `src/content/docs/referencia/`. Files in its subdirectories are outside this mandatory human-tone reference set, but remain important structural and technical references as described below.
 4. **About Us:** All documentation files recursively inside `src/content/docs/sobre-nos/`.
 
 For `referencia/`, a file such as `referencia/glossario.mdx` is eligible, but a file such as `referencia/variaveis/exemplo.mdx` is not.
 
-This exclusion applies specifically to the mandatory writing-style reference set. Nested reference pages may still be inspected when necessary for technical information or to preserve the structure of an existing page.
+This exclusion applies only to the mandatory human-tone reference set. It does not mean that other documentation pages should be ignored.
+
+Before creating or substantially rewriting a Wired page, also inspect existing `.mdx` pages with substantive content about that Wired and related Wireds, including pages in subdirectories of `referencia/`. Use them to follow the established textual structure: section organization, heading patterns, order of explanations, configuration descriptions, examples, and component usage. Empty scaffolds or pages containing only frontmatter and an infobox are not sufficient structural references.
+
+Use these sources together: the four directories guide the human tone, while relevant populated Wired pages guide the structure and technical conventions. Adapt the structure to the feature being documented rather than copying sections that do not apply.
 
 ### How to Apply the Writing Style
 
@@ -39,8 +41,9 @@ Before writing:
 1. Read the eligible files in the four reference directories.
 2. Identify recurring patterns in tone, vocabulary, sentence length, paragraph structure, headings, transitions, explanations, and examples.
 3. Pay attention to how the documentation addresses readers and introduces unfamiliar concepts.
-4. Use those observations to guide the new content.
-5. Compare the finished text against representative reference pages before completing the task.
+4. Inspect relevant populated Wired `.mdx` pages, including nested reference pages, and identify the textual structure appropriate to the requested page.
+5. Combine the human-tone observations with the relevant Wired-page structure to guide the new content.
+6. Compare the finished text against representative human-tone references and populated Wired pages before completing the task.
 
 When the reference set is large, inspect all eligible files where practical. If that is not feasible, select a representative sample from every directory, prioritizing pages similar to the requested content.
 
@@ -193,7 +196,7 @@ For technical reference documentation:
 - Include examples only when their behavior can be verified.
 - Maintain consistency with related reference pages.
 
-Although nested directories under `referencia/` are excluded from the mandatory textual-tone reference set, their pages may be inspected to understand technical conventions and page-specific structures.
+Although nested directories under `referencia/` are excluded from the mandatory human-tone reference set, relevant populated pages must also be inspected to guide textual structure and technical conventions when creating or substantially rewriting a Wired page.
 
 ## 6. Accessibility
 

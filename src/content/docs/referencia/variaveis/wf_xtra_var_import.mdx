@@ -1,10 +1,10 @@
 ---
 title: "Extra Variável: Importar"
-description: wf_xtra_var_import
+description: Importe conectores de texto, criadores de subvariáveis e FX compartilhados por uma variável de outro quarto.
 sidebar:
   label: "Importar"
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -40,6 +40,78 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import Infobox from "@components/Infobox.astro";
+import { Steps } from "@astrojs/starlight/components";
+
+O **Extra Variável: Importar** permite utilizar os textos, as subvariáveis e os efeitos visuais compartilhados por uma variável de outro quarto. Ele acompanha o Wired que faz a referência e permite escolher quais categorias de Extras serão utilizadas no quarto de destino.
 
 <Infobox />
+
+Ele funciona junto ao [Extra Variável: Compartilhar](/referencia/variaveis/wf_xtra_var_share/), colocado no quarto de origem. Por exemplo, um Conector de Texto configurado no quarto principal de um labirinto pode fornecer o nome da fase que será mostrado ao jogador em outro quarto.
+
+## Requisitos
+
+Coloque este Extra acima do [Wired Variável: De Outro Quarto](/referencia/variaveis/wf_var_reference/). Na referência, selecione o quarto de origem e a variável cuja lógica você quer utilizar.
+
+No quarto de origem, a variável deve ser de [Usuário](/referencia/variaveis/wf_var_user/) ou [Global](/referencia/variaveis/wf_var_room/), com a disponibilidade **Permanente, compartilhado entre quartos**. Acima dela devem estar os Extras que fornecem a lógica e o **Extra Variável: Compartilhar**, com as categorias desejadas marcadas e sincronizadas.
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração, você encontra as seções **Informações de uso** e **Categorias**. O quarto e a variável de origem são definidos no **Wired Variável: De Outro Quarto**; neste Extra, você escolhe quais categorias deseja importar.
+
+![Janela do Extra Variável Importar com as categorias Conectores de texto, Criadores de subvariáveis e FX de Variável marcadas.](@assets/wf_xtra_var_import/01-janela-do-wired.png)
+
+### Informações de uso
+
+Esta seção explica que o Extra importa categorias de Extras de variável de outros quartos. Para utilizá-las, elas precisam estar disponíveis na origem por meio do **Extra Variável: Compartilhar**.
+
+### Categorias
+
+Marque as categorias que deseja utilizar neste quarto. Você pode selecionar mais de uma, desde que elas também estejam marcadas no **Compartilhar** da variável de origem.
+
+#### Conectores de texto
+
+Importa a lógica dos [Conectores de Texto](/referencia/variaveis/wf_xtra_var_text_connector/) que estão acima da variável original. Assim, os textos associados aos valores dessa variável podem ser utilizados no quarto que possui a referência.
+
+No exemplo do labirinto, essa opção permite apresentar **“Wired Club - Fase 1”** quando o valor da referência `checkpoint` é **1**.
+
+#### Criadores de subvariáveis
+
+Importa a lógica dos Extras [Sistema de Aumento de Nível](/referencia/variaveis/wf_xtra_var_lvlup_system/) e [Utilitários de Tempo](/referencia/variaveis/wf_xtra_var_time_util/) que estão acima da variável original. Utilize esta opção para acessar as subvariáveis fornecidas por esses Extras no quarto de destino.
+
+#### FX de variável
+
+Importa a lógica dos efeitos visuais compartilhados pela variável de origem:
+
+* [Progresso de Nível](/referencia/variaveis/wf_xtra_varfx_levelling/)
+* [Pontos de Saúde](/referencia/variaveis/wf_xtra_varfx_hp/)
+* [Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/)
+* [Barra de Status](/referencia/variaveis/wf_xtra_varfx_status/)
+* [Barra de saúde do chefe](/referencia/variaveis/wf_xtra_varfx_boss/)
+* [Barra de Progresso](/referencia/variaveis/wf_xtra_varfx_prog/)
+
+### Atualizar a lógica importada
+
+Se alterar um Extra no quarto de origem, pressione **Sincronizar** no **Extra Variável: Compartilhar** para que a alteração apareça neste quarto. Essa atualização é feita na origem; a janela do **Importar** contém apenas a escolha das categorias.
+
+## Exemplo de uso: mostrar o nome da fase
+
+Este exemplo dá continuidade à [configuração dos textos no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-textos-das-fases-de-um-labirinto). Ele parte de um sistema de checkpoint já montado, em que `checkpoint_user` é a variável original e `checkpoint` é o nome da referência no quarto da fase.
+
+No quarto da fase 1, a pilha com **Ativador Wired: Habbo Entra no Quarto** e **Efeito Wired: Dar Variável** deve estar configurada para atribuir ao jogador a variável `checkpoint` com valor **1**. A opção **Somente leitura** da referência precisa estar desmarcada para permitir essa atribuição.
+
+<Steps>
+
+1. Coloque o **Extra Variável: Importar** acima do **Wired Variável: De Outro Quarto** que referencia `checkpoint_user` e marque **Conectores de texto**.
+2. Na pilha de entrada, adicione o [Efeito Wired: Mostrar Mensagem](/referencia/efeitos/wf_act_show_message/) e o [Wired Texto Extra: Campo Variável](/referencia/extras/wf_xtra_text_output_variable/).
+3. No **Campo Variável**, selecione a variável de usuário `checkpoint` e, em **Tipo de Exibição da Variável**, escolha **Textual**.
+4. No campo **Mensagem** do **Mostrar Mensagem**, escreva `$(checkpoint)`.
+5. Entre novamente no quarto para conferir o resultado.
+
+</Steps>
+
+Com `checkpoint` no valor **1**, o texto correspondente é **“Wired Club - Fase 1”**. O **Campo Variável** utiliza a lógica do Conector de Texto importada do quarto principal para apresentar esse texto na mensagem.
+
+## Se a lógica não aparecer
+
+Confira se o **Importar** está acima do Wired de referência correto e se a categoria desejada está marcada nos dois Extras: **Compartilhar**, na origem, e **Importar**, no destino. Depois, verifique se os Extras que fornecem a lógica estão acima da variável original e pressione **Sincronizar** no quarto de origem.
