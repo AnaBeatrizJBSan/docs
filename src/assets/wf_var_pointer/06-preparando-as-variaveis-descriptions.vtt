@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+Em um quarto do Habbo, seis caixas de variável estão alinhadas. Abre-se Contexto Variável, com o nome contexto_item_do_inventario e “Tem valor” marcado.
+
+00:00:04.000 --> 00:00:08.000
+Abre-se Ponteiro de Variável. O alvo é Usuário, o nome é ponteiro_item_do_inventario e a variável de contexto identificadora selecionada é contexto_item_do_inventario.
+
+00:00:08.000 --> 00:00:14.000
+Abre-se a primeira caixa de Usuário Variável. Ela tem o nome pedra, “Tem valor” marcado e disponibilidade “Permanente”. A configuração é confirmada.
+
+00:00:14.000 --> 00:00:20.000
+A segunda caixa de Usuário Variável mostra o nome ouro. “Tem valor” está marcado, e a disponibilidade é “Permanente”. Confirma-se em “Pronto”.
+
+00:00:20.000 --> 00:00:26.000
+A terceira caixa de Usuário Variável mostra o nome peixe, também com “Tem valor” marcado e disponibilidade “Permanente”. A janela é confirmada.
+
+00:00:26.000 --> 00:00:32.000
+Abre-se Mobi Variável, com o nome id_do_mobi_var_de_usuario. A opção “Tem valor” está marcada, e a disponibilidade é “Permanente”.
+
+00:00:32.000 --> 00:00:36.000
+Nas Ferramentas do Criador, abre-se a aba Inspeção e seleciona-se a jogadora. O botão “Dar variável” abre o formulário para dar uma variável.
+
+00:00:36.000 --> 00:00:43.242
+Pelo formulário, as variáveis ouro, pedra e peixe são atribuídas à jogadora. Ao final, as três aparecem na tabela de Inspeção com valor 0.

@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.000
+Abre-se o ativador “Recebe Sinal” da segunda pilha. Seleciona-se a antena da esquerda, utilizada pela primeira pilha, e confirma-se em “Pronto”.
+
+00:00:06.000 --> 00:00:16.000
+No seletor “Mobi com Variável”, escolhe-se @id. A opção “Selecionar por valor” está marcada, com comparação igual e id_do_mobi_var_de_usuario como valor de referência.
+
+00:00:16.000 --> 00:00:22.000
+Abre-se a configuração de origem do valor de referência. Ela mostra “Use o item de ativação”. Fecha-se a lista e confirma-se o seletor.
+
+00:00:22.000 --> 00:00:28.000
+Abre-se o efeito “Dar Variável”. A variável de destino é contexto_item_do_inventario, e o valor inicial vem de id_do_mobi_var_de_usuario. “Substituir variável existente” está desmarcado.
+
+00:00:28.000 --> 00:00:34.000
+Na configuração de origem do valor inicial, a opção exibida é “Use o item de ativação”. Fecha-se essa lista e confirma-se o efeito “Dar Variável”.
+
+00:00:34.000 --> 00:00:39.550
+Abre-se “Mandar Sinal” e seleciona-se a antena da direita para continuar na terceira pilha. O atraso está em 0 segundo. A configuração é confirmada.

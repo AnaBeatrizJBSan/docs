@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.000
+A janela do ponteiro mostra o nome ponteiro_item_do_inventario. Ao lado, a aba Variáveis das Ferramentas do Criador exibe o ponteiro selecionado.
+
+00:00:03.000 --> 00:00:07.000
+O nome do ponteiro é alterado para item_do_inventario, e a configuração é confirmada em “Pronto”.
+
+00:00:07.000 --> 00:00:09.150
+Na lista de variáveis de usuário, seleciona-se o ponteiro com o novo nome: item_do_inventario.

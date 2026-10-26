@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:07.000
+A aba Inspeção está aberta ao lado das caixas de variável e dos mobis do inventário. Seleciona-se a caixa da variável pedra e consulta-se seu @id.
+
+00:00:07.000 --> 00:00:13.000
+Seleciona-se Pedras de Estimação. Pelo botão “Dar variável”, atribui-se id_do_mobi_var_de_usuario com o ID da caixa de pedra como valor. A variável aparece na tabela do mobi.
+
+00:00:13.000 --> 00:00:17.000
+Seleciona-se a caixa da variável ouro e destaca-se seu @id na tabela de Inspeção.
+
+00:00:17.000 --> 00:00:23.000
+Seleciona-se a Pá do Tesouro. No formulário “Dar variável”, escolhe-se id_do_mobi_var_de_usuario, informa-se o ID da caixa de ouro e confirma-se a atribuição.
+
+00:00:23.000 --> 00:00:27.000
+Seleciona-se a caixa da variável peixe e consulta-se seu @id. Em seguida, seleciona-se o mobi Salmão.
+
+00:00:27.000 --> 00:00:31.117
+Atribui-se id_do_mobi_var_de_usuario ao Salmão com o ID da caixa de peixe. A variável e seu valor aparecem na tabela de Inspeção do mobi.

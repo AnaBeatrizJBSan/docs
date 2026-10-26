@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:07.000
+Ao lado dos mobis do inventário, abre-se o ativador “Habbo Clica no Mobi”. Nas configurações avançadas, a fonte do mobi está definida como “Usar mobis do seletor”. Confirma-se a janela.
+
+00:00:07.000 --> 00:00:12.000
+Abre-se o seletor “Mobi com Variável”. A variável selecionada é id_do_mobi_var_de_usuario. A opção “Selecionar por valor” está desmarcada. Confirma-se em “Pronto”.
+
+00:00:12.000 --> 00:00:21.167
+Abre-se “Mandar Sinal” e seleciona-se uma Antena Wired Pequena. Nas configurações avançadas, “Mobis para enviar” está definido como “Use o item de ativação”. A configuração é confirmada.
