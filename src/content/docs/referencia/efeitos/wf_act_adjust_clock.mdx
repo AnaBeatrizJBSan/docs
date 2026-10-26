@@ -45,5 +45,35 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+
+
+O **Efeito: Ajusta o tempo do contador do mobi**, utiliza como referência a variável interna `~clock.pulse_count` do mobi selecionado.
 
 <Infobox />
+
+Este Wired tem o efeito visível apenas em mobis do tipo **cronômetro**.
+
+Embora seja possível selecionar qualquer mobi, o efeito só será aplicado aos mobis compatíveis.
+
+<Aside type="note" title="Dica">
+Utilize a ferramenta [Inspeção](/referencia/ferramentas-do-criador/inspecao/) em um mobi do tipo cronômetro e mude os valores da variável interna `~clock.pulse_count` para ver o que acontece com o visor do relógio!
+</Aside>
+
+## Configurações:
+
+**Escolha o tipo:**
+- Aumentar
+- Diminuir
+- Configurar valor 
+
+Em seguida escolha a quantidade de tempo que vai ser modificada com base no que você selecionou acima:
+
+- Minutos: vai de 0 a 99
+- Segundos: vai de 0 a 59.6
+
+## Configurações avançadas:
+- Use o item de ativação
+- Use mobis escolhidos
+- Usar mobis do seletor
+- Usar mobis do sinal
