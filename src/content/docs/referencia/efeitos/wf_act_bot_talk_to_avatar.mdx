@@ -45,5 +45,52 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside } from '@astrojs/starlight/components';
+
+
+O **Efeito: Bot fala ou sussurra ao usuário ativado**, faz com que o bot ou os bots selecionados enviem mensagens em balões de fala, que podem ser visíveis para todos os usuários do quarto ou apenas para os usuários selecionados, dependendo da configuração escolhida.
 
 <Infobox />
+
+## Configurações
+
+**Nome do bot**: Coloque o nome do bot que irá falar com os usuários, você pode selecionar mais de um bot nas [configurações avançadas](#configurações-avançadas)
+
+**Mensagem**: Escreva a mensagem que o bot irá dizer no quarto para o usuário em seguida escolha uma opção que determinará a forma da mensagem:
+- Sussurrar: apenas os usuários selecionados conseguem visualizar
+- Conversar: é visível para todos no quarto e a mensagem do bot começa com o nick do usuário. Por exemplo:
+
+  > NomeDoUsuário: olá!
+
+
+
+<Aside type="caution" title="Observação importante">
+O Bot irá dizer **uma fala por usuário** ou seja, se você selecionou dois usuários o bot irá dizer:
+
+> UsuárioUm: Bem-vindo!
+
+> UsuárioDois: Bem-vindo!
+
+É importante saber dessa observação pois dependendo do sistema, caso seja muitos usuários, haverá um flood de falas de bot no quarto.
+</Aside>
+
+**Opcional**: Você pode ocultar o nome do bot quando ele dizer algo selecionando a opção **“Ocultar o nome do bot no chat”**
+
+**Largura Balão de Fala:**
+- Preferência do usuário: se baseia na configuração de chat do usuário
+- Largo
+- Normal
+- Fino
+
+## Configurações avançadas:
+
+**Selecione Bot fonte:**
+- Use o bot especificado pelo nome
+- Usar usuários do sinal
+- Usar o usuário do acionador
+- Usar o usuário do seletor
+
+**Selecione usuários fonte:**
+- Usar usuários do sinal
+- Usar o usuário do acionador
+- Usar o usuário do seletor
