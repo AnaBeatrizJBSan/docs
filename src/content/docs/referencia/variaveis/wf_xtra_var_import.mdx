@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_xtra_var_import
   name: "Extra Variável: Importar"
-  description: wf_xtra_var_import
+  description: Este extra importa a lógica dos Extras compartilhados por uma variável de outro quarto.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -42,6 +42,16 @@ infobox:
 
 import Infobox from "@components/Infobox.astro";
 import { Steps } from "@astrojs/starlight/components";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import NomeDaFase from "@assets/wf_xtra_var_import/02-mostrar-o-nome-da-fase.mp4";
+import NomeDaFaseDescriptionsUrl from "@assets/wf_xtra_var_import/02-mostrar-o-nome-da-fase-descriptions.vtt?url";
+import NomeDaFaseDescriptionsRaw from "@assets/wf_xtra_var_import/02-mostrar-o-nome-da-fase-descriptions.vtt?raw";
+import CheckpointAcimaDoJogador from "@assets/wf_xtra_var_import/03-mostrar-o-checkpoint-acima-do-jogador.mp4";
+import CheckpointAcimaDoJogadorDescriptionsUrl from "@assets/wf_xtra_var_import/03-mostrar-o-checkpoint-acima-do-jogador-descriptions.vtt?url";
+import CheckpointAcimaDoJogadorDescriptionsRaw from "@assets/wf_xtra_var_import/03-mostrar-o-checkpoint-acima-do-jogador-descriptions.vtt?raw";
+import CheckpointsEmNiveis from "@assets/wf_xtra_var_import/04-agrupar-checkpoints-em-niveis.mp4";
+import CheckpointsEmNiveisDescriptionsUrl from "@assets/wf_xtra_var_import/04-agrupar-checkpoints-em-niveis-descriptions.vtt?url";
+import CheckpointsEmNiveisDescriptionsRaw from "@assets/wf_xtra_var_import/04-agrupar-checkpoints-em-niveis-descriptions.vtt?raw";
 
 O **Extra Variável: Importar** permite utilizar os textos, as subvariáveis e os efeitos visuais compartilhados por uma variável de outro quarto. Ele acompanha o Wired que faz a referência e permite escolher quais categorias de Extras serão utilizadas no quarto de destino.
 
@@ -110,17 +120,56 @@ No quarto da fase 1, a pilha com **Ativador Wired: Habbo Entra no Quarto** e **E
 
 </Steps>
 
+<AccessibleVideo
+  id="import-mostrar-o-nome-da-fase"
+  src={NomeDaFase}
+  title="Importar os textos e mostrar o nome da fase"
+  descriptionsSrc={NomeDaFaseDescriptionsUrl}
+  descriptionsContent={NomeDaFaseDescriptionsRaw}
+/>
+
 Com `checkpoint` no valor **1**, o texto correspondente é **“Wired Club - Fase 1”**. O **Campo Variável** utiliza a lógica do Conector de Texto importada do quarto principal para apresentar esse texto na mensagem.
 
 ## Exemplo de uso: mostrar o checkpoint acima do jogador
 
-Você também pode importar a configuração da **Variável FX: Exibição de Números** para mostrar o checkpoint acima do avatar nos quartos das fases. Siga a [configuração do FX no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-mostrar-o-checkpoint-acima-do-jogador) e marque **FX de variável** no **Importar**, colocado acima do Wired que referencia `checkpoint_user`.
+Este exemplo dá continuidade à [configuração do FX no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-mostrar-o-checkpoint-acima-do-jogador). A **Variável FX: Exibição de Números** utiliza o valor de `checkpoint_user` para mostrar o checkpoint acima do avatar.
 
-Com a referência `checkpoint` no valor **3**, o efeito mostrará o número **3**, conforme a aparência e a visibilidade configuradas na origem.
+<Steps>
+
+1. No quarto de uma fase, confira se o **Wired Variável: De Outro Quarto** referencia `checkpoint_user` com o nome `checkpoint`.
+2. Coloque o **Extra Variável: Importar** acima desse Wired de referência e marque **FX de variável**.
+3. Entre no quarto com um jogador que possua o checkpoint **3** e confira o número acima do avatar.
+
+</Steps>
+
+<AccessibleVideo
+  id="import-mostrar-o-checkpoint-acima-do-jogador"
+  src={CheckpointAcimaDoJogador}
+  title="Importar o FX que mostra o checkpoint acima do jogador"
+  descriptionsSrc={CheckpointAcimaDoJogadorDescriptionsUrl}
+  descriptionsContent={CheckpointAcimaDoJogadorDescriptionsRaw}
+/>
+
+Com a referência `checkpoint` no valor **3**, o efeito mostrará o número **3**, conforme a aparência e a visibilidade configuradas na origem. Quando o sistema atualizar o checkpoint, o número acompanhará esse valor. Repita a configuração do **Importar** nos demais quartos em que quiser mostrar o efeito.
 
 ## Exemplo de uso: agrupar checkpoints em níveis
 
-Para utilizar o nível do jogador nos quartos das fases, siga a [configuração do Sistema de Aumento de Nível no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-agrupar-checkpoints-em-níveis). No **Importar**, acima do Wired que referencia `checkpoint_user`, marque **Criadores de subvariáveis**.
+Este exemplo dá continuidade à [configuração do Sistema de Aumento de Nível no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-agrupar-checkpoints-em-níveis). Com as subvariáveis **Nível atual** e **XP restante** compartilhadas na origem, você pode utilizar o nível e o progresso do jogador nas pilhas dos quartos das fases.
+
+<Steps>
+
+1. No quarto de uma fase, confira se o **Wired Variável: De Outro Quarto** referencia `checkpoint_user` com o nome `checkpoint`.
+2. Coloque o **Extra Variável: Importar** acima desse Wired de referência e marque **Criadores de subvariáveis**.
+
+</Steps>
+
+<AccessibleVideo
+  id="import-agrupar-checkpoints-em-niveis"
+  src={CheckpointsEmNiveis}
+  title="Importar e consultar o nível e o XP restante do jogador"
+  descriptionsSrc={CheckpointsEmNiveisDescriptionsUrl}
+  descriptionsContent={CheckpointsEmNiveisDescriptionsRaw}
+/>
 
 No exemplo, cada cinco checkpoints representam um avanço de nível, até o nível **3**. Um jogador no checkpoint **7** estará no nível **2**, com **3** de XP restante para o próximo nível. As subvariáveis importadas permitem consultar essas informações no quarto da fase.
 
