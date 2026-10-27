@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.500
+No quarto da fase, a janela Importar é aberta. A opção Criadores de subvariáveis é marcada e FX de Variável é desmarcada. Conectores de texto permanece desmarcada. A configuração é confirmada em Pronto.
+
+00:00:03.500 --> 00:00:07.500
+De volta ao quarto, o avatar é selecionado. Seu menu é aberto, e a opção Inspect é acionada.
+
+00:00:07.500 --> 00:00:11.500
+As Ferramentas do Criador são abertas na aba Inspeção. A lista de variáveis do avatar mostra "checkpoint" com valor 7, "checkpoint.current_level" com valor 2 e "checkpoint.xp_remaining" com valor 3.
+
+00:00:11.500 --> 00:00:14.500
+As linhas "checkpoint", "checkpoint.current_level" e "checkpoint.xp_remaining" são destacadas em sequência, mostrando o checkpoint 7, o nível atual 2 e os 3 pontos restantes para o próximo nível.

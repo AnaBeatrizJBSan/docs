@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.500
+No quarto da fase, o avatar está ao lado de duas pilhas de Wireds.
+
+00:00:01.500 --> 00:00:04.000
+A janela Importar é aberta com as três categorias marcadas. Criadores de subvariáveis e FX de Variável são desmarcadas, mantendo apenas Conectores de texto. A configuração é confirmada em Pronto.
+
+00:00:04.000 --> 00:00:05.500
+A janela é fechada, e o cursor se dirige à outra pilha de Wireds.
+
+00:00:05.500 --> 00:00:13.500
+A janela Mostrar mensagem é aberta. O campo Mensagem contém "$(checkpoint)", e o atraso está definido como 2 segundos. O texto e o campo de atraso são destacados antes de confirmar em Pronto.
+
+00:00:13.500 --> 00:00:20.500
+A janela Campo Variável é aberta. Nome do Espaço está preenchido com "checkpoint", e a variável selecionada também é "checkpoint". A lista de variáveis é aberta e fechada. O tipo de exibição está em Textual, o tipo de espaço em Único e a origem em Use o usuário acionador. A configuração é confirmada em Pronto.
+
+00:00:20.500 --> 00:00:23.210
+Após fechar a janela, aparece no quarto a notificação "Wired Club - Fase 1".

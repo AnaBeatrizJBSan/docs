@@ -1,10 +1,10 @@
 ---
 title: "Extra Variável: Compartilhar"
-description: wf_xtra_var_share
+description: Compartilhe conectores de texto, criadores de subvariáveis e FX de uma variável com outros quartos.
 sidebar:
   label: "Compartilhar"
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_xtra_var_share
   name: "Extra Variável: Compartilhar"
-  description: wf_xtra_var_share
+  description: Este extra compartilha a lógica dos Extras de uma variável com outros quartos.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -40,6 +40,165 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import Infobox from "@components/Infobox.astro";
+import { Steps } from "@astrojs/starlight/components";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import TextosDasFases from "@assets/wf_xtra_var_share/02-textos-das-fases-de-um-labirinto.mp4";
+import TextosDasFasesDescriptionsUrl from "@assets/wf_xtra_var_share/02-textos-das-fases-de-um-labirinto-descriptions.vtt?url";
+import TextosDasFasesDescriptionsRaw from "@assets/wf_xtra_var_share/02-textos-das-fases-de-um-labirinto-descriptions.vtt?raw";
+import CheckpointAcimaDoJogador from "@assets/wf_xtra_var_share/03-mostrar-o-checkpoint-acima-do-jogador.mp4";
+import CheckpointAcimaDoJogadorDescriptionsUrl from "@assets/wf_xtra_var_share/03-mostrar-o-checkpoint-acima-do-jogador-descriptions.vtt?url";
+import CheckpointAcimaDoJogadorDescriptionsRaw from "@assets/wf_xtra_var_share/03-mostrar-o-checkpoint-acima-do-jogador-descriptions.vtt?raw";
+import CheckpointsEmNiveis from "@assets/wf_xtra_var_share/04-agrupar-checkpoints-em-niveis.mp4";
+import CheckpointsEmNiveisDescriptionsUrl from "@assets/wf_xtra_var_share/04-agrupar-checkpoints-em-niveis-descriptions.vtt?url";
+import CheckpointsEmNiveisDescriptionsRaw from "@assets/wf_xtra_var_share/04-agrupar-checkpoints-em-niveis-descriptions.vtt?raw";
+
+O **Extra Variável: Compartilhar** permite disponibilizar a lógica dos Extras de uma variável para outros quartos. Assim, você pode configurar textos, subvariáveis e efeitos visuais no quarto de origem e utilizá-los nos quartos que acessam essa variável.
 
 <Infobox />
+
+No quarto de destino, o [Extra Variável: Importar](/referencia/variaveis/wf_xtra_var_import/) utiliza essa lógica sobre um [Wired Variável: De Outro Quarto](/referencia/variaveis/wf_var_reference/). Por exemplo, você pode configurar os textos de cada fase de um labirinto no quarto principal e utilizá-los nos quartos das fases.
+
+## Requisitos
+
+Coloque este Extra acima do Wired que cria a variável no quarto de origem. Ele pode ser utilizado com:
+
+* [Wired Variável: Usuário Variável](/referencia/variaveis/wf_var_user/).
+* [Wired Variável: Variável Global](/referencia/variaveis/wf_var_room/).
+
+A variável precisa estar configurada com a disponibilidade **Permanente, compartilhado entre quartos**. Os Extras cuja lógica será compartilhada também devem estar acima desse Wired de variável.
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração, você encontra as seções **Informações de uso** e **Categorias**, além do botão **Sincronizar**. Nessa janela, você escolhe quais tipos de Extras serão compartilhados com os outros quartos.
+
+![Janela do Extra Variável Compartilhar com as três categorias marcadas e o botão Sincronizar abaixo delas.](@assets/wf_xtra_var_share/01-janela-do-wired.png)
+
+### Informações de uso
+
+Esta seção explica que o compartilhamento é feito por categoria. A escolha se aplica aos Extras que estão acima da variável de origem.
+
+### Categorias
+
+Marque as categorias que deseja disponibilizar. Você pode selecionar mais de uma, e cada categoria inclui a lógica de todos os Extras daquele tipo que estiverem acima do Wired de variável.
+
+#### Conectores de texto
+
+Compartilha a lógica dos [Conectores de Texto](/referencia/variaveis/wf_xtra_var_text_connector/), que associam textos aos valores da variável.
+
+Por exemplo, o valor **1** pode corresponder ao texto **“Wired Club - Fase 1”**. Ao compartilhar essa categoria, os outros quartos poderão utilizar essa associação por meio do **Extra Variável: Importar**.
+
+#### Criadores de subvariáveis
+
+Compartilha a lógica dos Extras [Sistema de Aumento de Nível](/referencia/variaveis/wf_xtra_var_lvlup_system/) e [Utilitários de Tempo](/referencia/variaveis/wf_xtra_var_time_util/). Marque esta opção quando quiser utilizar nos outros quartos as subvariáveis criadas por esses Extras.
+
+#### FX de variável
+
+Compartilha a lógica dos Extras que apresentam efeitos visuais associados à variável:
+
+* [Progresso de Nível](/referencia/variaveis/wf_xtra_varfx_levelling/)
+* [Pontos de Saúde](/referencia/variaveis/wf_xtra_varfx_hp/)
+* [Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/)
+* [Barra de Status](/referencia/variaveis/wf_xtra_varfx_status/)
+* [Barra de saúde do chefe](/referencia/variaveis/wf_xtra_varfx_boss/)
+* [Barra de Progresso](/referencia/variaveis/wf_xtra_varfx_prog/)
+
+No quarto de destino, marque também as categorias desejadas no **Extra Variável: Importar**.
+
+### Sincronizar
+
+Depois de escolher as categorias, pressione **Sincronizar** para disponibilizar a configuração aos quartos que utilizam o **Extra Variável: Importar**.
+
+Sempre que alterar um dos Extras compartilhados, volte a este Wired e pressione **Sincronizar** novamente. Por exemplo, adicionar uma linha ao **Conector de Texto** no quarto de origem não basta para que o novo texto apareça nos outros quartos: é necessário sincronizar essa alteração.
+
+## Exemplo de uso: textos das fases de um labirinto
+
+No [sistema de checkpoints de um labirinto](/referencia/variaveis/wf_var_reference/#exemplo-de-uso-checkpoints-de-um-labirinto), a variável de usuário `checkpoint_user` guarda o progresso do jogador no quarto principal. Você pode associar um texto ao número de cada fase e compartilhar essa configuração.
+
+<Steps>
+
+1. No quarto principal, confira se `checkpoint_user` está configurada como **Permanente, compartilhado entre quartos**.
+2. Coloque um **Variável Extra: Conector de Texto** acima do Wired que cria `checkpoint_user` e configure as linhas:
+
+   ```text
+   0=Wired Club - Fase 0
+   1=Wired Club - Fase 1
+   ```
+
+3. Acima do mesmo Wired de variável, coloque o **Extra Variável: Compartilhar**.
+4. Marque apenas **Conectores de texto** e pressione **Sincronizar**.
+
+</Steps>
+
+<AccessibleVideo
+  id="share-textos-das-fases-de-um-labirinto"
+  src={TextosDasFases}
+  title="Compartilhar os textos das fases do labirinto"
+  descriptionsSrc={TextosDasFasesDescriptionsUrl}
+  descriptionsContent={TextosDasFasesDescriptionsRaw}
+/>
+
+Depois, configure o quarto da fase conforme o [exemplo do Extra Variável: Importar](/referencia/variaveis/wf_xtra_var_import/#exemplo-de-uso-mostrar-o-nome-da-fase). Se adicionar textos para novas fases, volte ao **Compartilhar** e pressione **Sincronizar** novamente.
+
+## Exemplo de uso: mostrar o checkpoint acima do jogador
+
+No mesmo sistema de labirinto, você pode utilizar a [Variável FX: Exibição de Números](/referencia/variaveis/wf_xtra_varfx_number/) para mostrar o checkpoint acima do avatar. A aparência do número fica configurada no quarto principal, e os quartos das fases importam essa configuração.
+
+Este exemplo utiliza a variável de usuário `checkpoint_user`, com disponibilidade **Permanente, compartilhado entre quartos**. O jogador precisa ter a variável associada a ele, com o valor do checkpoint alcançado.
+
+<Steps>
+
+1. No quarto principal, coloque a **Variável FX: Exibição de Números** acima do Wired que cria `checkpoint_user`.
+2. Configure a aparência do número e, em **Configurações de visibilidade**, selecione **Sempre visível**. Para que cada jogador veja apenas o próprio checkpoint, escolha a audiência **Somente o usuário**.
+3. No **Extra Variável: Compartilhar**, acima da mesma variável, marque **FX de variável** e pressione **Sincronizar**.
+
+</Steps>
+
+<AccessibleVideo
+  id="share-mostrar-o-checkpoint-acima-do-jogador"
+  src={CheckpointAcimaDoJogador}
+  title="Compartilhar a configuração da Exibição de Números"
+  descriptionsSrc={CheckpointAcimaDoJogadorDescriptionsUrl}
+  descriptionsContent={CheckpointAcimaDoJogadorDescriptionsRaw}
+/>
+
+Depois, configure o quarto da fase conforme o [exemplo do Extra Variável: Importar](/referencia/variaveis/wf_xtra_var_import/#exemplo-de-uso-mostrar-o-checkpoint-acima-do-jogador).
+
+Se alterar a aparência ou a visibilidade do FX no quarto principal, pressione **Sincronizar** novamente para disponibilizar a alteração aos outros quartos.
+
+## Exemplo de uso: agrupar checkpoints em níveis
+
+O [Extra Variável: Sistema de Aumento de Nível](/referencia/variaveis/wf_xtra_var_lvlup_system/) permite transformar o avanço pelo labirinto em níveis de progressão. Neste exemplo, o valor de `checkpoint_user` será utilizado como experiência: a cada cinco checkpoints, o jogador avança um nível, até chegar ao nível **3**.
+
+A variável continua guardando o número do checkpoint. O nível e a quantidade que falta para o próximo nível são calculados em **subvariáveis**, sem substituir esse valor.
+
+<Steps>
+
+1. No quarto principal, coloque o **Extra Variável: Sistema de Aumento de Nível** acima do Wired que cria `checkpoint_user`, configurada como **Permanente, compartilhado entre quartos**.
+2. Em **Modo de progressão**, selecione **Linear**, defina **Tamanho da etapa** como **5** e **Nível máximo** como **3**.
+3. Em **Criar subvariáveis**, marque **Nível atual** e **XP restante**. Mantenha os nomes padrão `current_level` e `xp_remaining`.
+4. No **Extra Variável: Compartilhar**, acima da mesma variável, marque **Criadores de subvariáveis** e pressione **Sincronizar**.
+
+</Steps>
+
+<AccessibleVideo
+  id="share-agrupar-checkpoints-em-niveis"
+  src={CheckpointsEmNiveis}
+  title="Compartilhar as subvariáveis do Sistema de Aumento de Nível"
+  descriptionsSrc={CheckpointsEmNiveisDescriptionsUrl}
+  descriptionsContent={CheckpointsEmNiveisDescriptionsRaw}
+/>
+
+Com essa configuração, os níveis acompanham o checkpoint da seguinte forma:
+
+| Valor do checkpoint | Nível calculado |
+| :--- | :--- |
+| **0 a 4** | **1** |
+| **5 a 9** | **2** |
+| **10 ou mais** | **3**, o máximo configurado |
+
+Por exemplo, um jogador no checkpoint **7** estará no nível **2**, com **3** de XP restante para alcançar o nível **3**. Neste sistema, isso significa avançar mais três checkpoints.
+
+Depois, configure o quarto da fase conforme o [exemplo do Extra Variável: Importar](/referencia/variaveis/wf_xtra_var_import/#exemplo-de-uso-agrupar-checkpoints-em-níveis).
+
+Se mudar o tamanho da etapa, o nível máximo ou as subvariáveis criadas no quarto principal, pressione **Sincronizar** novamente.
