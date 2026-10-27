@@ -112,6 +112,18 @@ No quarto da fase 1, a pilha com **Ativador Wired: Habbo Entra no Quarto** e **E
 
 Com `checkpoint` no valor **1**, o texto correspondente é **“Wired Club - Fase 1”**. O **Campo Variável** utiliza a lógica do Conector de Texto importada do quarto principal para apresentar esse texto na mensagem.
 
+## Exemplo de uso: mostrar o checkpoint acima do jogador
+
+Você também pode importar a configuração da **Variável FX: Exibição de Números** para mostrar o checkpoint acima do avatar nos quartos das fases. Siga a [configuração do FX no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-mostrar-o-checkpoint-acima-do-jogador) e marque **FX de variável** no **Importar**, colocado acima do Wired que referencia `checkpoint_user`.
+
+Com a referência `checkpoint` no valor **3**, o efeito mostrará o número **3**, conforme a aparência e a visibilidade configuradas na origem.
+
+## Exemplo de uso: agrupar checkpoints em níveis
+
+Para utilizar o nível do jogador nos quartos das fases, siga a [configuração do Sistema de Aumento de Nível no quarto principal](/referencia/variaveis/wf_xtra_var_share/#exemplo-de-uso-agrupar-checkpoints-em-níveis). No **Importar**, acima do Wired que referencia `checkpoint_user`, marque **Criadores de subvariáveis**.
+
+No exemplo, cada cinco checkpoints representam um avanço de nível, até o nível **3**. Um jogador no checkpoint **7** estará no nível **2**, com **3** de XP restante para o próximo nível. As subvariáveis importadas permitem consultar essas informações no quarto da fase.
+
 ## Se a lógica não aparecer
 
 Confira se o **Importar** está acima do Wired de referência correto e se a categoria desejada está marcada nos dois Extras: **Compartilhar**, na origem, e **Importar**, no destino. Depois, verifique se os Extras que fornecem a lógica estão acima da variável original e pressione **Sincronizar** no quarto de origem.
