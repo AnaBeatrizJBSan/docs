@@ -1,10 +1,10 @@
 ---
 title: "Efeito Wired: Enviar Mensagem na Rede"
-description: wf_act_send_message
+description: Envie mensagens entre quartos conectados à mesma rede e personalize o texto com formatação e campos.
 sidebar:
   label: "Enviar Mensagem na Rede"
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -46,4 +46,116 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Efeito: Enviar Mensagem na Rede** envia um texto por meio de uma [Torre da Rede Wired](/referencia/outros/utilitarios/wf_link/). Com ele, você pode compartilhar avisos entre quartos, anunciar o início de um jogo ou enviar uma mensagem de boas-vindas para outra fase de um labirinto.
+
 <Infobox />
+
+As torres de envio e de recebimento precisam estar conectadas à mesma rede. No quarto que receberá o texto, utilize o [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) para acionar a pilha que dará uso à mensagem.
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração, você escolhe a origem da mensagem, define o texto que será enviado e ajusta o atraso do efeito. Nas configurações avançadas, você seleciona as torres utilizadas no envio.
+
+### Origem da mensagem
+
+Escolha de onde virá o texto enviado:
+
+* **Do ativador Wired:** utiliza a mensagem do ativador da mesma pilha. Por exemplo, com o [Ativador: Habbo Diz Algo](/referencia/ativadores/wf_trg_says_something/), você pode enviar o texto dito pelo jogador. Nesta opção, o campo **Mensagem** fica desativado para edição.
+* **Mensagem personalizada:** permite escrever o texto no campo **Mensagem**, incluindo formatação e espaços de texto.
+
+:::note[Uso das mensagens dos jogadores]
+
+Ao adicionar este Wired no quarto, os jogadores recebem o aviso **“Os Wireds deste quarto podem usar o texto completo das mensagens que os ativam.”** quando entram no quarto. Isso informa que o sistema pode utilizar o texto completo dito para ativar a pilha.
+
+:::
+
+### Mensagem
+
+Com **Mensagem personalizada** selecionada, escreva o texto que será enviado. Ao lado do campo, pressione o ícone **Abrir editor de mensagens** para acessar as ferramentas de formatação.
+
+#### Editor de mensagens
+
+O editor possui um campo de texto, um contador de caracteres e uma seção **Prévia**, onde você pode conferir a aparência do balão com os estilos aplicados. O limite indicado é de **1.000 caracteres**.
+
+Os botões **B**, **I** e **U** inserem tags de negrito, itálico e sublinhado. Escreva entre as tags ou selecione um trecho já digitado e pressione o botão desejado:
+
+| Estilo | Exemplo |
+| --- | --- |
+| Negrito | `[b]Wired Club[/b]` |
+| Itálico | `[i]Wired Club[/i]` |
+| Sublinhado | `[u]Wired Club[/u]` |
+
+O botão **A** permite escolher a cor do texto:
+
+| Cor | Exemplo |
+| --- | --- |
+| Vermelho | `[red]Wired Club[/red]` |
+| Laranja | `[orange]Wired Club[/orange]` |
+| Amarelo | `[yellow]Wired Club[/yellow]` |
+| Verde | `[green]Wired Club[/green]` |
+| Ciano | `[cyan]Wired Club[/cyan]` |
+| Azul | `[blue]Wired Club[/blue]` |
+| Roxo | `[purple]Wired Club[/purple]` |
+| Rosa | `[pink]Wired Club[/pink]` |
+
+O botão **Alinhar** insere `[a]` como ponto de alinhamento. Os textos após pontos correspondentes ficam alinhados em colunas.
+
+#### Adicionar campo
+
+O botão **Adicionar campo** lista os espaços de texto disponíveis na pilha. Os Extras [Campo Nome de Mobi](/referencia/extras/wf_xtra_text_output_furni_name/), [Campo Nome de Usuário](/referencia/extras/wf_xtra_text_output_username/) e [Campo Variável](/referencia/extras/wf_xtra_text_output_variable/) disponibilizam os nomes definidos em **Nome do Espaço**. Ao escolher um campo, o editor insere `$(nome_do_espaço)` na mensagem.
+
+Se a pilha contém o **Ativador: Habbo Diz Algo**, também fica disponível o campo `trigger_text`, criado automaticamente pelo Habbo. Nesse caso, `$(trigger_text)` representa o texto dito pelo jogador para ativar a pilha.
+
+Por exemplo, com um **Campo Nome de Usuário** cujo espaço se chama `nome_do_usuario`, você pode escrever:
+
+```text
+[b]$(nome_do_usuario)[/b], você utilizou o comando [b]$(trigger_text)[/b].
+```
+
+### Atraso (segundos)
+
+Define quanto tempo o efeito espera antes de enviar a mensagem. Você pode digitar um valor entre **0 e 60 segundos** ou usar as setas abaixo do campo.
+
+No ícone de temporização, escolha o intervalo utilizado pelas setas:
+
+* **Padrão (a cada 0.5s):** altera o atraso em meio segundo por clique.
+* **Preciso (a cada 0.05s):** altera o atraso em cinco centésimos de segundo por clique.
+
+### Configurações avançadas
+
+Pressione **Mostrar configurações avançadas** para escolher as torres utilizadas no envio. Use as setas para alternar entre as fontes:
+
+* **Use mobis escolhidos:** selecione as torres diretamente no quarto, podendo selecionar até **20** delas.
+* **Usar mobis do seletor:** utiliza as torres selecionadas por um Seletor de mobis.
+* **Usar mobis do sinal:** utiliza as torres recebidas por meio do sistema de [sinais](/referencia/ativadores/wf_trg_recv_signal/).
+* **Use o item de ativação:** utiliza o mobi que ativou a pilha como fonte da torre.
+
+## Exemplo de uso: mensagem na fase de um labirinto
+
+Este exemplo complementa o [sistema de checkpoints de um labirinto](/referencia/variaveis/wf_var_reference/#exemplo-de-uso-checkpoints-de-um-labirinto). O retorno à fase pelo comando `:checkpoint` deve estar configurado antes de adicionar a mensagem: o envio pela rede cuida do texto, enquanto o sistema de checkpoints faz a teleportação.
+
+### No quarto inicial
+
+1. Coloque uma **Torre da Rede Wired**, crie uma rede com o nome desejado e pressione **Conectar** na linha dessa rede.
+2. Na pilha que recebe o comando `:checkpoint` pelo **Ativador: Habbo Diz Algo**, adicione o **Efeito: Enviar Mensagem na Rede** e o **Texto Extra: Campo Nome de Usuário**.
+3. No **Campo Nome de Usuário**, escreva `nome_do_usuario` em **Nome do Espaço**. Mantenha **Tipo de Espaço** em **Usuário único** e **Selecionar usuários fonte** em **Use o usuário acionador**.
+4. No **Enviar Mensagem na Rede**, escolha **Mensagem personalizada** e escreva:
+
+   ```text
+   [b]$(nome_do_usuario)[/b], boas-vindas à fase do labirinto!
+   O comando utilizado para entrar neste quarto foi [b]$(trigger_text)[/b].
+   ```
+
+5. Nas configurações avançadas do efeito, escolha **Use mobis escolhidos** e selecione a torre do quarto inicial.
+
+### No quarto da fase
+
+1. Coloque outra **Torre da Rede Wired** e pressione **Conectar** na mesma rede. Não é necessário criar a rede novamente.
+2. Monte uma pilha com o **Ativador: Receber Mensagem da Rede**, o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
+3. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre desse quarto.
+4. No **Mostrar mensagem**, escreva `$(trigger_text)` em **Mensagem**, escolha **Somente o Usuário** em **Visibilidade da Mensagem**, defina **Atraso** como **1 segundo** e escolha **Usar Usuários do Seletor** em **Selecionar Usuários Fonte**.
+5. No **Habbos na Área**, pressione **Selecione a Área** e marque a área onde estarão os jogadores que devem ver a mensagem.
+
+Ao dizer `:checkpoint` no quarto inicial, o sistema de checkpoints leva o jogador à fase e a rede envia o texto configurado. No envio, `$(nome_do_usuario)` é substituído pelo nome do jogador e `$(trigger_text)` pelo comando `:checkpoint`. Na pilha de recebimento, `$(trigger_text)` passa a representar a mensagem recebida inteira.
+
+A mensagem será exibida aos usuários selecionados na área configurada. Se houver outros jogadores nessa área, eles também poderão vê-la.

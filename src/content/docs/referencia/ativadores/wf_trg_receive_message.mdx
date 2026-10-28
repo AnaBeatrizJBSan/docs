@@ -1,10 +1,10 @@
 ---
 title: "Ativador Wired: Receber Mensagem da Rede"
-description: wf_trg_receive_message
+description: Ative uma pilha ao receber uma mensagem pela Rede Wired e utilize o texto recebido no espaço trigger_text.
 sidebar:
   label: "Receber Mensagem da Rede"
   badge:
-    text: RASCUNHO
+    text: NOVO
     variant: note
 infobox:
   # == Infobox ==
@@ -48,4 +48,38 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 
+O **Ativador: Receber Mensagem da Rede** aciona a pilha quando uma das [Torres da Rede Wired](/referencia/outros/utilitarios/wf_link/) configuradas recebe uma mensagem. Ele funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/), permitindo utilizar em um quarto o texto enviado por outro.
+
 <Infobox />
+
+As torres de envio e de recebimento precisam estar conectadas à mesma rede. Para receber mensagens enviadas pelo próprio quarto, marque **receber mensagens enviadas por este quarto** na configuração da torre receptora.
+
+## Como esse Wired funciona?
+
+Ao abrir a janela de configuração, você encontra as seções **Informações de uso** e **Torre da Rede Wired**. Nessa janela, você confere como utilizar o texto recebido e escolhe as torres que acionarão a pilha.
+
+### Informações de uso
+
+A mensagem recebida fica disponível no espaço de texto `$(trigger_text)`. Você pode utilizá-lo nos campos de texto dos efeitos da pilha.
+
+Por exemplo, para mostrar a mensagem recebida, coloque o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) na mesma pilha e escreva `$(trigger_text)` no campo **Mensagem**. Configure também os usuários que devem vê-la.
+
+Neste ativador, `$(trigger_text)` contém o texto recebido inteiro. Se o remetente utilizou campos como o nome de um usuário ou o texto de um comando, a mensagem recebida já contém essas substituições.
+
+### Torre da Rede Wired
+
+Use as setas para escolher como serão selecionadas as torres que acionam a pilha:
+
+* **Use mobis escolhidos:** clique nas torres no quarto para selecioná-las, podendo escolher até **20** delas.
+* **Usar mobis do seletor:** utiliza as torres selecionadas por um Seletor de mobis.
+
+## Exemplo de uso: mostrar a mensagem recebida
+
+Com a torre conectada à mesma rede utilizada no envio, monte uma pilha com este ativador, o **Efeito: Mostrar mensagem** e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
+
+1. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre do quarto.
+2. No **Mostrar mensagem**, escreva `$(trigger_text)` no campo **Mensagem**.
+3. Em **Visibilidade da Mensagem**, escolha **Somente o Usuário**. Em **Selecionar Usuários Fonte**, escolha **Usar Usuários do Seletor**.
+4. No **Habbos na Área**, pressione **Selecione a Área** e marque onde estarão os usuários que devem ver o texto.
+
+Quando a torre receber uma mensagem, a pilha será acionada e o efeito mostrará o texto aos usuários selecionados. Para combinar o envio com a chegada de um jogador a outro quarto, veja o [exemplo de mensagem na fase de um labirinto](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-mensagem-na-fase-de-um-labirinto).
