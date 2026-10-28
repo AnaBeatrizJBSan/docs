@@ -47,6 +47,7 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Steps } from "@astrojs/starlight/components";
 
 O **Ativador: Receber Mensagem da Rede** aciona a pilha quando uma das [Torres da Rede Wired](/referencia/outros/utilitarios/wf_link/) configuradas recebe uma mensagem. Ele funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/), permitindo utilizar em um quarto o texto enviado por outro.
 
@@ -73,13 +74,17 @@ Use as setas para escolher como serão selecionadas as torres que acionam a pilh
 * **Use mobis escolhidos:** clique nas torres no quarto para selecioná-las, podendo escolher até **20** delas.
 * **Usar mobis do seletor:** utiliza as torres selecionadas por um Seletor de mobis.
 
+Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, ao tentar salvar a configuração aparecerá uma janela com o texto **“Selecione pelo menos uma Torre da Rede Wired.”**
+
 ## Exemplo de uso: mostrar a mensagem recebida
 
 Com a torre conectada à mesma rede utilizada no envio, monte uma pilha com este ativador, o **Efeito: Mostrar mensagem** e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
 
+<Steps>
 1. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre do quarto.
 2. No **Mostrar mensagem**, escreva `$(trigger_text)` no campo **Mensagem**.
 3. Em **Visibilidade da Mensagem**, escolha **Somente o Usuário**. Em **Selecionar Usuários Fonte**, escolha **Usar Usuários do Seletor**.
 4. No **Habbos na Área**, pressione **Selecione a Área** e marque onde estarão os usuários que devem ver o texto.
+</Steps>
 
 Quando a torre receber uma mensagem, a pilha será acionada e o efeito mostrará o texto aos usuários selecionados. Para combinar o envio com a chegada de um jogador a outro quarto, veja o [exemplo de mensagem na fase de um labirinto](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-mensagem-na-fase-de-um-labirinto).

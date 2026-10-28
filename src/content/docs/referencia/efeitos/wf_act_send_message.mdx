@@ -45,6 +45,7 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Steps } from "@astrojs/starlight/components";
 
 O **Efeito: Enviar Mensagem na Rede** envia um texto por meio de uma [Torre da Rede Wired](/referencia/outros/utilitarios/wf_link/). Com ele, você pode compartilhar avisos entre quartos, anunciar o início de um jogo ou enviar uma mensagem de boas-vindas para outra fase de um labirinto.
 
@@ -102,7 +103,7 @@ O botão **Alinhar** insere `[a]` como ponto de alinhamento. Os textos após pon
 
 #### Adicionar campo
 
-O botão **Adicionar campo** lista os espaços de texto disponíveis na pilha. Os Extras [Campo Nome de Mobi](/referencia/extras/wf_xtra_text_output_furni_name/), [Campo Nome de Usuário](/referencia/extras/wf_xtra_text_output_username/) e [Campo Variável](/referencia/extras/wf_xtra_text_output_variable/) disponibilizam os nomes definidos em **Nome do Espaço**. Ao escolher um campo, o editor insere `$(nome_do_espaço)` na mensagem.
+O botão **Adicionar campo** lista os espaços de texto disponíveis na pilha. Os Extras [Campo Nome de Mobi](/referencia/extras/wf_xtra_text_output_furni_name/), [Campo Nome de Usuário](/referencia/extras/wf_xtra_text_output_username/) e [Campo Variável](/referencia/extras/wf_xtra_text_output_variable/) disponibilizam os nomes definidos em **Nome do Espaço**. Ao escolher um campo, o editor insere `$(nome_do_espaço)` na mensagem. Caso não tenha nenhum desses Extras na pilha, este botão fica desabilitado.
 
 Se a pilha contém o **Ativador: Habbo Diz Algo**, também fica disponível o campo `trigger_text`, criado automaticamente pelo Habbo. Nesse caso, `$(trigger_text)` representa o texto dito pelo jogador para ativar a pilha.
 
@@ -130,12 +131,15 @@ Pressione **Mostrar configurações avançadas** para escolher as torres utiliza
 * **Usar mobis do sinal:** utiliza as torres recebidas por meio do sistema de [sinais](/referencia/ativadores/wf_trg_recv_signal/).
 * **Use o item de ativação:** utiliza o mobi que ativou a pilha como fonte da torre.
 
+Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, ao tentar salvar a configuração aparecerá uma janela com o texto **“Selecione pelo menos uma Torre da Rede Wired.”**
+
 ## Exemplo de uso: mensagem na fase de um labirinto
 
 Este exemplo complementa o [sistema de checkpoints de um labirinto](/referencia/variaveis/wf_var_reference/#exemplo-de-uso-checkpoints-de-um-labirinto). O retorno à fase pelo comando `:checkpoint` deve estar configurado antes de adicionar a mensagem: o envio pela rede cuida do texto, enquanto o sistema de checkpoints faz a teleportação.
 
 ### No quarto inicial
 
+<Steps>
 1. Coloque uma **Torre da Rede Wired**, crie uma rede com o nome desejado e pressione **Conectar** na linha dessa rede.
 2. Na pilha que recebe o comando `:checkpoint` pelo **Ativador: Habbo Diz Algo**, adicione o **Efeito: Enviar Mensagem na Rede** e o **Texto Extra: Campo Nome de Usuário**.
 3. No **Campo Nome de Usuário**, escreva `nome_do_usuario` em **Nome do Espaço**. Mantenha **Tipo de Espaço** em **Usuário único** e **Selecionar usuários fonte** em **Use o usuário acionador**.
@@ -147,14 +151,17 @@ Este exemplo complementa o [sistema de checkpoints de um labirinto](/referencia/
    ```
 
 5. Nas configurações avançadas do efeito, escolha **Use mobis escolhidos** e selecione a torre do quarto inicial.
+</Steps>
 
 ### No quarto da fase
 
+<Steps>
 1. Coloque outra **Torre da Rede Wired** e pressione **Conectar** na mesma rede. Não é necessário criar a rede novamente.
 2. Monte uma pilha com o **Ativador: Receber Mensagem da Rede**, o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
 3. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre desse quarto.
 4. No **Mostrar mensagem**, escreva `$(trigger_text)` em **Mensagem**, escolha **Somente o Usuário** em **Visibilidade da Mensagem**, defina **Atraso** como **1 segundo** e escolha **Usar Usuários do Seletor** em **Selecionar Usuários Fonte**.
 5. No **Habbos na Área**, pressione **Selecione a Área** e marque a área onde estarão os jogadores que devem ver a mensagem.
+</Steps>
 
 Ao dizer `:checkpoint` no quarto inicial, o sistema de checkpoints leva o jogador à fase e a rede envia o texto configurado. No envio, `$(nome_do_usuario)` é substituído pelo nome do jogador e `$(trigger_text)` pelo comando `:checkpoint`. Na pilha de recebimento, `$(trigger_text)` passa a representar a mensagem recebida inteira.
 
