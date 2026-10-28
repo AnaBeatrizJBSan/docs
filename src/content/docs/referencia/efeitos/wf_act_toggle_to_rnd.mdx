@@ -67,14 +67,14 @@ Consulte o tópico [Estado do Mobi](/referencia/variaveis/wf_var_furni/#estado-d
 
 ## Efeito Vs Estado
 
-Há uma confusão entre o [EXTRA: Efeito Aleatório](/referencia/extras/wf_xtra_random/) e o **Efeito: Alterar mobi para estado aleatório.**
+Há uma confusão entre o [Extra: Efeito Aleatório](/referencia/extras/wf_xtra_random/) e o **Efeito: Alterar mobi para estado aleatório.**
 
-O EXTRA: Efeito Aleatório é usado para ativar aleatoriamente um ou mais **wireds de efeito** presentes na pilha. Ele **não altera** diretamente o `@state` de um mobi, mas escolhe quais wireds serão ativados.
+O Extra: Efeito Aleatório é usado para ativar aleatoriamente um ou mais **wireds de efeito** presentes na pilha. Ele **não altera** diretamente o `@state` de um mobi, mas escolhe quais wireds serão ativados.
 
-Essa confusão existe porque, antes da criação do Efeito: Alterar mobi para estado aleatório, era comum usar o "EXTRA" junto com vários wireds [Mobis que voltam à programação original](/referencia/efeitos/wf_act_match_to_sshot/), cada um salvando um estado diferente do mobi.
+Essa confusão existe porque, antes da criação do Efeito: Alterar mobi para estado aleatório, era comum usar o "Extra" junto com vários wireds [Mobis que voltam à programação original](/referencia/efeitos/wf_act_match_to_sshot/), cada um salvando um estado diferente do mobi.
 
-Por exemplo, se um mobi tivesse 7 estados possíveis, seriam necessários 7 wireds Mobis que voltam à programação original, um para cada estado. Assim, o EXTRA poderia ativar um deles aleatoriamente.
+Por exemplo, se um mobi tivesse 7 estados possíveis, seriam necessários 7 wireds Mobis que voltam à programação original, um para cada estado. Assim, o Extra poderia ativar um deles aleatoriamente.
 
 O Efeito: Alterar mobi para estado aleatório simplifica esse processo, permitindo alterar o estado do mobi diretamente com apenas um wired.
 
-Isso **não significa** que o EXTRA: Efeito Aleatório esteja obsoleto! Ele continua sendo útil quando você deseja ativar aleatoriamente um ou mais wireds de efeito presentes na pilha.
+Isso **não significa** que o Extra: Efeito Aleatório esteja obsoleto! Ele continua sendo útil quando você deseja ativar aleatoriamente um ou mais wireds de efeito presentes na pilha.
