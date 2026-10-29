@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_link
   name: "Torre da Rede Wired"
-  description: wf_link
+  description: Conecta o quarto a uma rede para enviar e receber mensagens por meio de Wireds.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -41,6 +41,7 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
+import { Aside, Steps } from "@astrojs/starlight/components";
 
 A **Torre da Rede Wired** conecta um quarto a uma rede de troca de mensagens. Ao conectar torres de quartos diferentes à mesma rede, você pode enviar um aviso de um quarto e recebê-lo nos demais.
 
@@ -52,7 +53,7 @@ A torre funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia
 
 Clique duas vezes na torre para abrir sua configuração. A janela mostra a rede selecionada, a tabela **Minhas redes**, o campo para criar uma rede e a opção de receber mensagens enviadas pelo próprio quarto.
 
-Na primeira configuração, as tabelas aparecem vazias. Depois de criar uma rede, você pode conectar outras torres a ela sem precisar criá-la novamente.
+Na primeira configuração, as tabelas aparecem vazias. Depois de criar uma rede, você pode conectar torres de outros quartos a ela sem precisar criá-la novamente.
 
 ### Criar uma rede
 
@@ -66,8 +67,8 @@ Cada linha representa uma rede criada:
 | --- | --- |
 | **Nome da rede** | Mostra o nome definido na criação da rede. |
 | **Torres conectadas** | Informa a quantidade de torres conectadas à rede. |
-| **Estado** | Apresenta a ação **Conectar**, que vincula esta torre à rede escolhida. |
-| **Gerenciar** | Abre a janela com os quartos e as torres conectados à rede. |
+| **Estado** | Mostra **Conectar** quando a torre pode ser vinculada à rede. Se você adicionar outra torre ao mesmo quarto e abrir sua configuração, a rede já usada por uma torre com estado **Conectado** aparecerá como **Vinculado ao quarto**. Nesse caso, crie uma nova rede para conectar a segunda torre, pois duas torres do mesmo quarto não podem se conectar à mesma rede. |
+| **Gerenciar** | Abre a janela com os quartos e as torres conectados à rede. Saiba mais no tópico [Gerenciar a Rede](#gerenciar-a-rede) |
 
 Após conectar, o topo da janela mostra **Rede selecionada:** seguido do nome da rede. A ação **remover conexão** permite desconectar a torre que você está configurando.
 
@@ -97,17 +98,17 @@ No rodapé da janela de gerenciamento, altere o campo **Nome da rede** e pressio
 
 A ação **Excluir rede**, no rodapé, abre uma confirmação antes da exclusão.
 
-:::caution[Exclusão da rede]
-
+<Aside type="caution" title="Exclusão da rede">
 Excluir a rede desconecta todas as suas torres, em todos os quartos. Essa ação não pode ser desfeita. Para desconectar apenas a torre que está configurando, use **remover conexão** na janela principal.
-
-:::
+</Aside>
 
 ## Conectar dois quartos
 
+<Steps>
 1. No primeiro quarto, coloque uma torre, crie uma rede e pressione **Conectar**.
 2. No segundo quarto, coloque outra torre e pressione **Conectar** na linha da mesma rede.
 3. No quarto de envio, selecione a torre no **Efeito: Enviar Mensagem na Rede**.
 4. No quarto de recebimento, selecione a torre no **Ativador: Receber Mensagem da Rede** e configure os efeitos que utilizarão o texto recebido.
+</Steps>
 
 Veja a configuração completa no [exemplo de mensagem na fase de um labirinto](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-mensagem-na-fase-de-um-labirinto).

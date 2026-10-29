@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.000
+No quarto inicial do labirinto, a Torre da Rede Wired é aberta. Na lista Minhas redes, a rede Rede Wired Club já existe e tem uma torre conectada. O botão Conectar é acionado; o estado muda para Conectado e o total passa para duas torres.
+
+00:00:06.000 --> 00:00:13.500
+A janela Campo Nome de Usuário é aberta. O Nome do Espaço está definido como nome_do_usuario, o Tipo de Espaço é Usuário único e, nas configurações avançadas, a fonte é Use o usuário acionador. A configuração é confirmada.
+
+00:00:13.500 --> 00:00:17.000
+A janela do efeito Enviar Mensagem na Rede é aberta com Mensagem personalizada selecionada. O texto começa com [b]$(nome_do_usuario)[/b], dá boas-vindas à fase do labirinto e inclui o campo [b]$(trigger_text)[/b] para o comando utilizado.
+
+00:00:17.000 --> 00:00:21.000
+O Editor de mensagens é aberto para mostrar o texto completo e a prévia do balão. Os campos nome_do_usuario e trigger_text aparecem em negrito na prévia.
+
+00:00:21.000 --> 00:00:28.160
+De volta ao efeito, o atraso está em 2 segundos. As configurações avançadas mostram a fonte Use mobis escolhidos; a torre do quarto é selecionada e o contador chega a 1/20. A configuração é confirmada em Pronto.

@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.500
+No quarto da fase, a janela da Torre da Rede Wired mostra a rede Rede Wired Club com uma torre conectada. O botão Conectar é acionado; o estado muda para Conectado e o total chega a duas torres.
+
+00:00:05.500 --> 00:00:11.500
+A janela do ativador Receber Mensagem da Rede informa que o texto recebido fica no espaço $(trigger_text). A torre do quarto é selecionada em Use mobis escolhidos, e o contador marca 1/20 antes de confirmar.
+
+00:00:11.500 --> 00:00:19.500
+A janela do efeito Mostrar mensagem contém $(trigger_text) no campo Mensagem. A visibilidade está em Somente o usuário, o atraso em 1 segundo e a fonte dos usuários em Usar usuários do seletor. A configuração é confirmada.
+
+00:00:19.500 --> 00:00:24.576
+O seletor Habbos na Área abre o modo de seleção. Uma área do quarto é marcada no piso para definir quais usuários poderão ver a mensagem, e a configuração é confirmada em Pronto.
