@@ -43,78 +43,87 @@ infobox:
 import Infobox from "@components/Infobox.astro"
 import { Aside, Steps } from "@astrojs/starlight/components";
 
-A **Torre da Rede Wired** conecta um quarto a uma rede de troca de mensagens. Ao conectar torres de quartos diferentes à mesma rede, você pode enviar um aviso de um quarto e recebê-lo nos demais.
+A **Torre da Rede Wired** é a ligação entre quartos que trocam mensagens pela Rede Wired. Coloque uma torre em cada quarto e conecte-as à mesma rede para que uma mensagem enviada em um deles possa chegar ao outro. Você pode utilizar essa ligação para avisar que uma partida começou, por exemplo, sem precisar repetir a configuração do aviso em todos os quartos.
 
 <Infobox />
 
-A torre funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/) e o [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/). O efeito envia o texto pela torre escolhida, e o ativador aciona a pilha quando uma das torres configuradas recebe a mensagem.
+A torre fornece a conexão; os Wireds definem o que acontece com a mensagem. No quarto de origem, o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/) escolhe o texto e a torre usada no envio. No destino, o [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) observa a torre local e inicia uma pilha quando ela recebe o texto. É nessa pilha que você configura como a mensagem será utilizada.
 
 ## Como esse mobi funciona?
 
-Clique duas vezes na torre para abrir sua configuração. A janela mostra a rede selecionada, a tabela **Minhas redes**, o campo para criar uma rede e a opção de receber mensagens enviadas pelo próprio quarto.
+Clique duas vezes na torre para abrir sua configuração. A janela mostra a rede atualmente selecionada, as redes disponíveis em **Minhas redes**, o campo **Nova rede** e a opção **Receber mensagens enviadas por este quarto**. Você pode criar uma rede nessa janela e, em seguida, conectar a torre a ela.
 
-Na primeira configuração, as tabelas aparecem vazias. Depois de criar uma rede, você pode conectar torres de outros quartos a ela sem precisar criá-la novamente.
+Na primeira configuração, as listas aparecem vazias. Depois de criar uma rede, ela passa a aparecer em **Minhas redes**. Quando colocar outra torre em um segundo quarto, procure essa mesma rede na lista e conecte a nova torre. Assim, as duas passam a participar da mesma rede.
 
 ![Janela da Torre da Rede Wired com a rede selecionada, a lista Minhas redes, o campo Nova rede e a opção de receber mensagens enviadas pelo quarto.](@assets/wf_link/01-janela-do-mobi.png)
 
 ### Criar uma rede
 
-No campo **Nova rede**, digite o nome desejado e pressione **Criar rede**. A rede aparecerá em **Minhas redes**. Para vincular a torre que está configurando, pressione **Conectar** na linha dessa rede.
+No campo **Nova rede**, digite um nome que ajude a reconhecer a ligação entre os quartos e pressione **Criar rede**. A nova rede aparecerá em **Minhas redes**, mas a criação sozinha não termina a configuração da torre: pressione **Conectar** na linha da rede para vinculá-la.
+
+![Demonstração do clique em Conectar na linha de uma rede para vincular a Torre da Rede Wired.](@assets/wf_link/04-conectando-rede.gif)
+
+Por exemplo, se você tem um quarto de jogo e uma sala de espera, pode criar a rede `Avisos do jogo`. Coloque outra torre na sala de espera e conecte-a à rede já criada. Não é necessário criar uma segunda rede com o mesmo nome para fazer a ligação.
 
 ### Minhas redes
 
-Cada linha representa uma rede criada:
+Cada linha representa uma rede disponível para a torre que você está configurando. A lista permite conferir quantas torres já participam da rede e conectar a torre atual:
 
 | Campo | Função |
 | --- | --- |
 | **Nome da rede** | Mostra o nome definido na criação da rede. |
 | **Torres conectadas** | Informa a quantidade de torres conectadas à rede. |
-| **Estado** | Mostra **Conectar** quando a torre pode ser vinculada à rede. Se você adicionar outra torre ao mesmo quarto e abrir sua configuração, a rede já usada por uma torre com estado **Conectado** aparecerá como **Vinculado ao quarto**. Nesse caso, crie uma nova rede para conectar a segunda torre, pois duas torres do mesmo quarto não podem se conectar à mesma rede. |
-| **Gerenciar** | Abre a janela com os quartos e as torres conectados à rede. Saiba mais no tópico [Gerenciar a Rede](#gerenciar-a-rede) |
+| **Estado** | Mostra **Conectar** quando esta torre pode entrar na rede e **Conectado** quando ela já está vinculada. Se outra torre do mesmo quarto já estiver **Conectado** nessa rede, a nova torre verá **Vinculado ao quarto**: ela não pode entrar na mesma rede e precisa de uma nova rede para ser conectada. |
 
-Após conectar, o topo da janela mostra **Rede selecionada:** seguido do nome da rede. A ação **remover conexão** permite desconectar a torre que você está configurando.
+O link **Gerenciar** aparece no fim de cada linha, em uma coluna sem título. Ele abre a janela com os quartos e as torres conectados àquela rede. Saiba mais em [Gerenciar a rede](#gerenciar-a-rede).
+
+Depois de conectar a torre, o topo da janela mostra **Rede selecionada:** seguido do nome escolhido. A ação **remover conexão** desconecta apenas a torre cuja janela está aberta. Ela é diferente de **Excluir rede**, que afeta todas as torres conectadas à rede.
+
+O estado **Vinculado ao quarto** aparece quando você coloca outra torre no mesmo quarto e abre a configuração dela enquanto a primeira já está **Conectado** àquela rede. Nesse caso, crie uma nova rede para a segunda torre; as duas torres do quarto não podem usar a mesma rede ao mesmo tempo.
 
 ### Receber mensagens enviadas por este quarto
 
-Marque esta opção se a torre também deve receber mensagens enviadas pelo quarto em que ela está. Essa configuração aparece como **Auto-recebimento** na lista de quartos conectados.
+Marque **Receber mensagens enviadas por este quarto** se a torre também deve receber mensagens que saem do quarto onde ela está. No gerenciamento da rede, essa escolha aparece na coluna **Auto-recebimento**.
 
-Por exemplo, se você quer que uma pilha receba um aviso enviado no próprio quarto, habilite esta opção na torre utilizada para receber a mensagem.
+Por exemplo, se uma pilha envia um aviso e outra pilha do **mesmo quarto** precisa reagir a ele pelo **Receber Mensagem da Rede**, habilite a opção na torre observada pelo ativador. Para uma sala de espera que recebe mensagens enviadas de outro quarto, esta opção não é necessária.
 
 ## Gerenciar a rede
 
-Pressione **Gerenciar** na linha da rede desejada. A janela **Quartos conectados:**, seguida do nome da rede, lista as conexões. A tabela só passa a ter registros depois que uma torre é conectada.
+Pressione **Gerenciar** na linha da rede desejada para abrir a janela **Quartos conectados:**, seguida do nome da rede. Ela mostra quais quartos e torres participam da conexão, além das opções para renomear ou excluir a rede. Se nenhuma torre tiver sido conectada, a tabela ainda não terá registros.
 
 ![Janela Quartos conectados com a lista de quartos e torres da rede, a opção de renomear e a ação Excluir rede.](@assets/wf_link/02-janela-quartos-conectados.png)
 
 | Campo | Função |
 | --- | --- |
-| **Nome do quarto** | Mostra o nome do quarto onde está a torre conectada. |
-| **ID do Quarto** | Mostra o [identificador único do quarto](/referencia/variaveis/wf_var_room/#identificador-do-quarto). |
+| **Nome do quarto** | Identifica o quarto em que a torre conectada está colocada. |
+| **ID do Quarto** | Mostra o [identificador único do quarto](/referencia/variaveis/wf_var_room/#identificador-do-quarto), útil para distinguir quartos com nomes parecidos. |
 | **ID da Torre** | Mostra o [identificador único da Torre](/referencia/variaveis/wf_var_furni/#identificador-do-mobi) conectada. |
-| **Auto-recebimento** | Informa **Sim** ou **Não**, conforme a opção de receber mensagens enviadas pelo próprio quarto. |
-| **Visitar** | Leva você ao quarto daquela conexão. |
+| **Auto-recebimento** | Informa **Sim** se aquela torre recebe mensagens enviadas pelo próprio quarto; caso contrário, mostra **Não**. |
+| **Visitar** | Te manda para o quarto daquela conexão para você conferir a torre no local. |
+
+Consulte a coluna **Auto-recebimento** quando uma pilha precisa reagir a uma mensagem enviada no próprio quarto. Se ela mostrar **Não** para a torre receptora, volte à configuração dessa torre e marque a opção correspondente.
 
 ### Renomear a rede
 
-No rodapé da janela de gerenciamento, altere o campo **Nome da rede** e pressione **Renomear**.
+No rodapé da janela **Quartos conectados**, altere o campo **Nome da rede** e pressione **Renomear**. Use um nome que permita reconhecer a rede na lista **Minhas redes**, especialmente quando você administra várias ligações entre quartos.
 
 ### Excluir a rede
 
-A ação **Excluir rede**, no rodapé, abre uma confirmação antes da exclusão.
+A ação **Excluir rede**, no rodapé da janela, abre uma confirmação. A mensagem informa que a exclusão desconectará as suas torres em todos os quartos e que a ação não poderá ser desfeita. Confira se deseja retirar a rede inteira antes de pressionar **Ok**.
 
 ![Janela de confirmação Excluir rede, com aviso de que todas as torres serão desconectadas e botões Cancelar e Ok.](@assets/wf_link/03-janela-excluir-rede.png)
 
 <Aside type="caution" title="Exclusão da rede">
-Excluir a rede desconecta todas as suas torres, em todos os quartos. Essa ação não pode ser desfeita. Para desconectar apenas a torre que está configurando, use **remover conexão** na janela principal.
+Excluir a rede desconecta todas as suas torres, em todos os quartos. Essa ação não pode ser desfeita. Para desconectar somente a torre que está configurando, use **remover conexão** na janela principal dela.
 </Aside>
 
 ## Conectar dois quartos
 
 <Steps>
-1. No primeiro quarto, coloque uma torre, crie uma rede e pressione **Conectar**.
-2. No segundo quarto, coloque outra torre e pressione **Conectar** na linha da mesma rede.
-3. No quarto de envio, selecione a torre no **Efeito: Enviar Mensagem na Rede**.
-4. No quarto de recebimento, selecione a torre no **Ativador: Receber Mensagem da Rede** e configure os efeitos que utilizarão o texto recebido.
+1. No quarto de envio, coloque uma torre, digite um nome em **Nova rede**, pressione **Criar rede** e, depois, **Conectar** na linha dessa rede.
+2. No quarto de recebimento, coloque outra torre. Em **Minhas redes**, procure a rede criada no primeiro quarto e pressione **Conectar**. Confira se o estado muda para **Conectado**.
+3. No quarto de envio, adicione o **Efeito: Enviar Mensagem na Rede** à pilha que produzirá o aviso. Escolha a mensagem e selecione a torre desse quarto nas configurações avançadas.
+4. No quarto de recebimento, configure o **Ativador: Receber Mensagem da Rede** para observar a torre local. Acrescente à pilha o efeito que utilizará o texto recebido, como **Mostrar mensagem**.
 </Steps>
 
-Veja a configuração completa no [exemplo de mensagem na fase de um labirinto](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-mensagem-na-fase-de-um-labirinto).
+Com as duas torres conectadas, uma mensagem enviada pela primeira pode acionar o ativador ligado à segunda. Veja o [exemplo de aviso para uma sala de espera](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-avisar-o-início-de-uma-rodada) para configurar os Wireds dos dois lados.
