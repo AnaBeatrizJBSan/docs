@@ -55,9 +55,11 @@ Clique duas vezes na torre para abrir sua configuração. A janela mostra a rede
 
 Na primeira configuração, as tabelas aparecem vazias. Depois de criar uma rede, você pode conectar torres de outros quartos a ela sem precisar criá-la novamente.
 
+![Janela da Torre da Rede Wired com a rede selecionada, a lista Minhas redes, o campo Nova rede e a opção de receber mensagens enviadas pelo quarto.](@assets/wf_link/01-janela-do-mobi.png)
+
 ### Criar uma rede
 
-No campo **Nome da rede**, digite o nome desejado e pressione **Criar rede**. A rede aparecerá em **Minhas redes**. Para vincular a torre que está configurando, pressione **Conectar** na linha dessa rede.
+No campo **Nova rede**, digite o nome desejado e pressione **Criar rede**. A rede aparecerá em **Minhas redes**. Para vincular a torre que está configurando, pressione **Conectar** na linha dessa rede.
 
 ### Minhas redes
 
@@ -82,11 +84,13 @@ Por exemplo, se você quer que uma pilha receba um aviso enviado no próprio qua
 
 Pressione **Gerenciar** na linha da rede desejada. A janela **Quartos conectados:**, seguida do nome da rede, lista as conexões. A tabela só passa a ter registros depois que uma torre é conectada.
 
+![Janela Quartos conectados com a lista de quartos e torres da rede, a opção de renomear e a ação Excluir rede.](@assets/wf_link/02-janela-quartos-conectados.png)
+
 | Campo | Função |
 | --- | --- |
 | **Nome do quarto** | Mostra o nome do quarto onde está a torre conectada. |
 | **ID do Quarto** | Mostra o [identificador único do quarto](/referencia/variaveis/wf_var_room/#identificador-do-quarto). |
-| **ID da Torre** | Mostra o [identificador único do mobi](/referencia/variaveis/wf_var_furni/#identificador-do-mobi) conectado. |
+| **ID da Torre** | Mostra o [identificador único da Torre](/referencia/variaveis/wf_var_furni/#identificador-do-mobi) conectada. |
 | **Auto-recebimento** | Informa **Sim** ou **Não**, conforme a opção de receber mensagens enviadas pelo próprio quarto. |
 | **Visitar** | Leva você ao quarto daquela conexão. |
 
@@ -97,6 +101,8 @@ No rodapé da janela de gerenciamento, altere o campo **Nome da rede** e pressio
 ### Excluir a rede
 
 A ação **Excluir rede**, no rodapé, abre uma confirmação antes da exclusão.
+
+![Janela de confirmação Excluir rede, com aviso de que todas as torres serão desconectadas e botões Cancelar e Ok.](@assets/wf_link/03-janela-excluir-rede.png)
 
 <Aside type="caution" title="Exclusão da rede">
 Excluir a rede desconecta todas as suas torres, em todos os quartos. Essa ação não pode ser desfeita. Para desconectar apenas a torre que está configurando, use **remover conexão** na janela principal.

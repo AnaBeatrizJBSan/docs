@@ -46,6 +46,30 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 import { Aside, Steps } from "@astrojs/starlight/components";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import FormatacaoTexto from "@assets/wf_act_send_message/04-negrito-italico-e-sublinhado.mp4";
+import FormatacaoTextoDescriptionsUrl from "@assets/wf_act_send_message/04-negrito-italico-e-sublinhado-descriptions.vtt?url";
+import FormatacaoTextoDescriptionsRaw from "@assets/wf_act_send_message/04-negrito-italico-e-sublinhado-descriptions.vtt?raw";
+import Cor from "@assets/wf_act_send_message/04-cor.mp4";
+import CorDescriptionsUrl from "@assets/wf_act_send_message/04-cor-descriptions.vtt?url";
+import CorDescriptionsRaw from "@assets/wf_act_send_message/04-cor-descriptions.vtt?raw";
+import Alinhar from "@assets/wf_act_send_message/04-alinhar.mp4";
+import AlinharDescriptionsUrl from "@assets/wf_act_send_message/04-alinhar-descriptions.vtt?url";
+import AlinharDescriptionsRaw from "@assets/wf_act_send_message/04-alinhar-descriptions.vtt?raw";
+import AdicionarCampo from "@assets/wf_act_send_message/04-adicionar-campo.mp4";
+import AdicionarCampoDescriptionsUrl from "@assets/wf_act_send_message/04-adicionar-campo-descriptions.vtt?url";
+import AdicionarCampoDescriptionsRaw from "@assets/wf_act_send_message/04-adicionar-campo-descriptions.vtt?raw";
+import QuartoInicial from "@assets/wf_act_send_message/07-exemplo-no-quarto-inicial.mp4";
+import QuartoInicialDescriptionsUrl from "@assets/wf_act_send_message/07-exemplo-no-quarto-inicial-descriptions.vtt?url";
+import QuartoInicialDescriptionsRaw from "@assets/wf_act_send_message/07-exemplo-no-quarto-inicial-descriptions.vtt?raw";
+import QuartoDaFase from "@assets/wf_act_send_message/07-exemplo-no-quarto-da-fase.mp4";
+import QuartoDaFaseDescriptionsUrl from "@assets/wf_act_send_message/07-exemplo-no-quarto-da-fase-descriptions.vtt?url";
+import QuartoDaFaseDescriptionsRaw from "@assets/wf_act_send_message/07-exemplo-no-quarto-da-fase-descriptions.vtt?raw";
+import Teleportando from "@assets/wf_act_send_message/08-exemplo-teleportando.mp4";
+import TeleportandoDescriptionsUrl from "@assets/wf_act_send_message/08-exemplo-teleportando-descriptions.vtt?url";
+import TeleportandoDescriptionsRaw from "@assets/wf_act_send_message/08-exemplo-teleportando-descriptions.vtt?raw";
+import Atraso from "@assets/wf_act_send_message/05-atraso.gif";
+import ConfiguracoesAvancadas from "@assets/wf_act_send_message/06-configuracoes-avancadas.gif";
 
 O **Efeito: Enviar Mensagem na Rede** envia um texto por meio de uma [Torre da Rede Wired](/referencia/outros/utilitarios/wf_link/). Com ele, você pode compartilhar avisos entre quartos, anunciar o início de um jogo ou enviar uma mensagem de boas-vindas para outra fase de um labirinto.
 
@@ -57,6 +81,8 @@ As torres de envio e de recebimento precisam estar conectadas à mesma rede. No 
 
 Ao abrir a janela de configuração, você escolhe a origem da mensagem, define o texto que será enviado e ajusta o atraso do efeito. Nas configurações avançadas, você seleciona as torres utilizadas no envio.
 
+![Janela do efeito Enviar Mensagem na Rede com a origem Do Ativador WIRED selecionada, campo Mensagem desativado e atraso em zero segundos.](@assets/wf_act_send_message/01-janela-do-wired.png)
+
 ### Origem da mensagem
 
 Escolha de onde virá o texto enviado:
@@ -66,6 +92,8 @@ Escolha de onde virá o texto enviado:
 
 <Aside type="note" title="Uso das mensagens dos jogadores">
 Ao adicionar este Wired no quarto, os jogadores recebem o aviso **“Os Wireds deste quarto podem usar o texto completo das mensagens que os ativam.”** quando entram no quarto. Isso informa que o sistema pode utilizar o texto completo dito para ativar a pilha.
+
+![Aviso exibido ao entrar no quarto: os Wireds podem usar o texto completo das mensagens que os ativam.](@assets/wf_act_send_message/02-aviso-wired-pode-utilizar-mensagens.png)
 </Aside>
 
 ### Mensagem
@@ -76,32 +104,49 @@ Com **Mensagem personalizada** selecionada, escreva o texto que será enviado. A
 
 O editor possui um campo de texto, um contador de caracteres e uma seção **Prévia**, onde você pode conferir a aparência do balão com os estilos aplicados. O limite indicado é de **1.000 caracteres**.
 
+![Janela do Editor de mensagens aberta ao lado do efeito Enviar Mensagem na Rede, com o texto Wired Club e sua prévia no balão.](@assets/wf_act_send_message/03-janela-editor-de-mensagens.png)
+
 Os botões **B**, **I** e **U** inserem tags de negrito, itálico e sublinhado. Escreva entre as tags ou selecione um trecho já digitado e pressione o botão desejado:
 
-| Estilo | Exemplo |
-| --- | --- |
-| Negrito | `[b]Wired Club[/b]` |
-| Itálico | `[i]Wired Club[/i]` |
-| Sublinhado | `[u]Wired Club[/u]` |
+<AccessibleVideo
+  id="enviar-mensagem-formatacao-texto"
+  src={FormatacaoTexto}
+  title="Aplicar negrito, itálico e sublinhado no Editor de mensagens"
+  descriptionsSrc={FormatacaoTextoDescriptionsUrl}
+  descriptionsContent={FormatacaoTextoDescriptionsRaw}
+/>
 
 O botão **A** permite escolher a cor do texto:
 
-| Cor | Exemplo |
-| --- | --- |
-| Vermelho | `[red]Wired Club[/red]` |
-| Laranja | `[orange]Wired Club[/orange]` |
-| Amarelo | `[yellow]Wired Club[/yellow]` |
-| Verde | `[green]Wired Club[/green]` |
-| Ciano | `[cyan]Wired Club[/cyan]` |
-| Azul | `[blue]Wired Club[/blue]` |
-| Roxo | `[purple]Wired Club[/purple]` |
-| Rosa | `[pink]Wired Club[/pink]` |
+<AccessibleVideo
+  id="enviar-mensagem-cor"
+  src={Cor}
+  title="Aplicar cores ao texto no Editor de mensagens"
+  descriptionsSrc={CorDescriptionsUrl}
+  descriptionsContent={CorDescriptionsRaw}
+/>
 
 O botão **Alinhar** insere `[a]` como ponto de alinhamento. Os textos após pontos correspondentes ficam alinhados em colunas.
+
+<AccessibleVideo
+  id="enviar-mensagem-alinhar"
+  src={Alinhar}
+  title="Alinhar trechos do texto no Editor de mensagens"
+  descriptionsSrc={AlinharDescriptionsUrl}
+  descriptionsContent={AlinharDescriptionsRaw}
+/>
 
 #### Adicionar campo
 
 O botão **Adicionar campo** lista os espaços de texto disponíveis na pilha. Os Extras [Campo Nome de Mobi](/referencia/extras/wf_xtra_text_output_furni_name/), [Campo Nome de Usuário](/referencia/extras/wf_xtra_text_output_username/) e [Campo Variável](/referencia/extras/wf_xtra_text_output_variable/) disponibilizam os nomes definidos em **Nome do Espaço**. Ao escolher um campo, o editor insere `$(nome_do_espaço)` na mensagem. Caso não tenha nenhum desses Extras na pilha, este botão fica desabilitado.
+
+<AccessibleVideo
+  id="enviar-mensagem-adicionar-campo"
+  src={AdicionarCampo}
+  title="Inserir espaços de texto pelo botão Adicionar campo"
+  descriptionsSrc={AdicionarCampoDescriptionsUrl}
+  descriptionsContent={AdicionarCampoDescriptionsRaw}
+/>
 
 Também é possível que fique disponível o campo `trigger_text`, criado automaticamente pelo Habbo. Nesse caso, `$(trigger_text)` representa o texto dito pelo jogador para ativar a pilha.
 
@@ -120,6 +165,12 @@ No ícone de temporização, escolha o intervalo utilizado pelas setas:
 * **Padrão (a cada 0.5s):** altera o atraso em meio segundo por clique.
 * **Preciso (a cada 0.05s):** altera o atraso em cinco centésimos de segundo por clique.
 
+<img
+  src={Atraso.src}
+  alt="Demonstração do ajuste do atraso do efeito Enviar Mensagem na Rede pelo campo numérico e pelas setas"
+  style={{ width: "35%" }}
+/>
+
 ### Configurações avançadas
 
 Pressione **Mostrar configurações avançadas** para escolher as torres utilizadas no envio. Use as setas para alternar entre as fontes:
@@ -129,7 +180,15 @@ Pressione **Mostrar configurações avançadas** para escolher as torres utiliza
 * **Usar mobis do sinal:** utiliza as torres recebidas por meio do sistema de [sinais](/referencia/ativadores/wf_trg_recv_signal/).
 * **Use o item de ativação:** utiliza o mobi que ativou a pilha como fonte da torre.
 
+<img
+  src={ConfiguracoesAvancadas.src}
+  alt="Demonstração das configurações avançadas do efeito, com a seção Torre da Rede Wired aberta e as fontes de mobis disponíveis"
+  style={{ width: "35%" }}
+/>
+
 Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, ao tentar salvar a configuração aparecerá uma janela com o texto **“Selecione pelo menos uma Torre da Rede Wired.”**
+
+![Janela Falha ao atualizar com o aviso Selecione pelo menos uma Torre da Rede Wired.](@assets/wf_act_trg/01-janela-selecione-uma-torre-wired.png)
 
 ## Exemplo de uso: mensagem na fase de um labirinto
 
@@ -151,6 +210,14 @@ Este exemplo complementa o [sistema de checkpoints de um labirinto](/referencia/
 5. Nas configurações avançadas do efeito, escolha **Use mobis escolhidos** e selecione a torre do quarto inicial.
 </Steps>
 
+<AccessibleVideo
+  id="enviar-mensagem-quarto-inicial"
+  src={QuartoInicial}
+  title="Configurar a torre e o envio da mensagem no quarto inicial"
+  descriptionsSrc={QuartoInicialDescriptionsUrl}
+  descriptionsContent={QuartoInicialDescriptionsRaw}
+/>
+
 ### No quarto da fase
 
 <Steps>
@@ -161,6 +228,22 @@ Este exemplo complementa o [sistema de checkpoints de um labirinto](/referencia/
 5. No **Habbos na Área**, pressione **Selecione a Área** e marque a área onde estarão os jogadores que devem ver a mensagem.
 </Steps>
 
+<AccessibleVideo
+  id="enviar-mensagem-quarto-da-fase"
+  src={QuartoDaFase}
+  title="Configurar a torre e o recebimento da mensagem no quarto da fase"
+  descriptionsSrc={QuartoDaFaseDescriptionsUrl}
+  descriptionsContent={QuartoDaFaseDescriptionsRaw}
+/>
+
 Ao dizer `:checkpoint` no quarto inicial, o sistema de checkpoints leva o jogador à fase e a rede envia o texto configurado. No envio, `$(nome_do_usuario)` é substituído pelo nome do jogador e `$(trigger_text)` pelo comando `:checkpoint`. Na pilha de recebimento, `$(trigger_text)` passa a representar a mensagem recebida inteira.
 
 A mensagem será exibida aos usuários selecionados na área configurada. Se houver outros jogadores nessa área, eles também poderão vê-la.
+
+<AccessibleVideo
+  id="enviar-mensagem-teleportando"
+  src={Teleportando}
+  title="Teleportar pelo comando :checkpoint e mostrar a mensagem no quarto da fase"
+  descriptionsSrc={TeleportandoDescriptionsUrl}
+  descriptionsContent={TeleportandoDescriptionsRaw}
+/>

@@ -59,9 +59,11 @@ As torres de envio e de recebimento precisam estar conectadas à mesma rede. Par
 
 Ao abrir a janela de configuração, você encontra as seções **Informações de uso** e **Torre da Rede Wired**. Nessa janela, você confere como utilizar o texto recebido e escolhe as torres que acionarão a pilha.
 
+![Janela do Ativador Receber Mensagem da Rede com as seções Informações de uso e Torre da Rede Wired e a seleção de mobis escolhidos.](@assets/wf_trg_receive_message/01-janela-do-wired.png)
+
 ### Informações de uso
 
-A mensagem recebida fica disponível no espaço de texto `$(trigger_text)`. Você pode utilizá-lo nos campos de texto dos efeitos da pilha.
+A mensagem recebida fica disponível no espaço de texto `$(trigger_text)`, criado automaticamente pelo Habbo. Você pode utilizá-lo nos campos de texto dos efeitos da pilha.
 
 Por exemplo, para mostrar a mensagem recebida, coloque o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) na mesma pilha e escreva `$(trigger_text)` no campo **Mensagem**. Configure também os usuários que devem vê-la.
 
@@ -75,6 +77,8 @@ Use as setas para escolher como serão selecionadas as torres que acionam a pilh
 * **Usar mobis do seletor:** utiliza as torres selecionadas por um Seletor de mobis.
 
 Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, ao tentar salvar a configuração aparecerá uma janela com o texto **“Selecione pelo menos uma Torre da Rede Wired.”**
+
+![Janela Falha ao atualizar com o aviso Selecione pelo menos uma Torre da Rede Wired.](@assets/wf_act_trg/01-janela-selecione-uma-torre-wired.png)
 
 ## Exemplo de uso: mostrar a mensagem recebida
 
