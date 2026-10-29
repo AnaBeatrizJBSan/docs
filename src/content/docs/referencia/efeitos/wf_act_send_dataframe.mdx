@@ -1,6 +1,6 @@
 ---
 title: "Efeito Wired: Enviar Dataframe na Rede"
-description: wf_act_send_dataframe
+description: Envie até 12 pares de chave e valor para outros quartos por meio da Torre da Rede Wired.
 sidebar:
   label: "Enviar Dataframe na Rede"
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_act_send_dataframe
   name: "WIRED EFEITO: Enviar Dataframe na Rede"
-  description: wf_act_send_dataframe
+  description: Envia um dataframe com pares de chave e valor pela Torre da Rede Wired.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -44,6 +44,107 @@ infobox:
   #   classname: # classname técnico
 ---
 
-import Infobox from "@components/Infobox.astro"
+import Infobox from "@components/Infobox.astro";
+import { Aside, Steps } from "@astrojs/starlight/components";
+
+O **Efeito: Enviar Dataframe na Rede** permite enviar várias informações de um quarto para outro pela [Torre da Rede Wired](/referencia/outros/utilitarios/wf_link/). Cada informação ocupa uma linha da configuração: você dá um nome a ela, chamado **chave**, e define o **valor** que será enviado.
 
 <Infobox />
+
+Um dataframe organiza dados em linhas e colunas, de forma semelhante a uma tabela. Neste Wired, as colunas são **Chave** e **Valor**. Isso permite enviar, na mesma execução, dados diferentes como o nome de um jogador, um número e um texto associado a uma variável.
+
+Para que outro quarto receba esses dados, coloque uma torre em cada quarto, conecte as duas à mesma rede e configure o [Ativador: Receber Dataframe da Rede](/referencia/ativadores/wf_trg_receive_dataframe/) no destino. O efeito cuida do envio; o ativador define quais chaves serão lidas e onde cada valor ficará disponível.
+
+## Como esse Wired funciona?
+
+Quando a pilha executa este efeito, ele reúne as linhas configuradas e as envia pela torre selecionada. Antes disso, você escolhe quantas linhas utilizar, preenche a chave de cada uma, define a origem do valor e, se necessário, ajusta o atraso.
+
+A chave é o que permite reconhecer um dado no quarto de destino. Se você enviar uma linha chamada `rodada`, por exemplo, configure também a chave `rodada` no ativador de recebimento. Nesse ativador, você poderá decidir se o valor será colocado em um espaço de texto ou em uma variável de contexto.
+
+<Aside type="tip" title="Dica de Ouro">
+Em termos de programação, você pode imaginar as linhas como as propriedades de um objeto: cada chave identifica um valor. Três linhas poderiam ser representadas assim:
+
+```json
+{
+  "nome": "FSWiredClub",
+  "idade_da_conta": 1,
+  "genero": "M"
+}
+```
+
+Nesse exemplo, `nome` e `genero` guardam textos, enquanto `idade_da_conta` guarda um número. Cada par corresponde a uma linha do Wired. O objeto serve apenas para visualizar a relação entre chaves e valores; ele não descreve o formato interno usado pela Rede Wired.
+</Aside>
+
+### Número de linhas
+
+No campo de lista **Número de linhas**, escolha um valor de **0 a 12**. Com **0**, não há linhas para preencher. Ao escolher **1**, aparece a seção **Linha 1**, com os campos **Chave** e **Valor**. Se você aumentar o número, surgem as seções **Linha 2**, **Linha 3** e assim por diante, até **Linha 12**.
+
+Cada linha é configurada separadamente. Você pode, por exemplo, enviar um texto na primeira e um número na segunda. Para saber quantas linhas preparar, conte quantas informações o quarto de destino precisará receber.
+
+#### Chave
+
+Digite um nome que ajude a identificar o valor, como `aviso`, `rodada` ou `nome_do_jogador`. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**. Se você escrever um espaço, ele será substituído automaticamente por um sublinhado: `numero da rodada` se torna `numero_da_rodada`.
+
+Guarde o nome escolhido para configurar o recebimento. **Chave** não é o nome da variável que fornece o valor: é o nome pelo qual o ativador do outro quarto encontrará essa linha. No destino, informe a mesma chave para decidir onde o valor será colocado.
+
+#### Valor
+
+Ao lado da chave, escolha como o valor será preenchido. A opção selecionada altera o campo **Valor** daquela linha:
+
+##### Número
+
+Use esta opção para enviar um número. Você pode digitá-lo diretamente no campo **Valor**, como `14`, ou pressionar o ícone **Escolha uma variável** ao lado do campo para utilizar um valor já disponível no Wired.
+
+O ícone abre a janela **Origem da variável**. Nela, escolha uma variável de **mobi**, **usuário**, **global** ou de **contexto** e, depois, selecione a variável desejada. Por exemplo, a variável de mobi [`@state`](/referencia/variaveis/wf_var_furni/#estado-do-mobi) fornece o estado numérico de um mobi; o significado do número depende do modelo do objeto.
+
+##### Texto da Variável
+
+Escolha esta opção quando o número de uma variável tiver um texto associado e você quiser enviar o **texto**, em vez do número. A lista de escolha mostra as variáveis que possuem textos vinculados. Você pode conferir essas associações em [Valores textuais](/referencia/ferramentas-do-criador/variaveis/#valores-textuais).
+
+Aqui, o campo **Valor** não funciona como uma caixa para escrever uma mensagem livre. Se você tentar digitar, ele informa **“Selecione uma variável disponível ou deixe este campo vazio”**. Use o ícone **Escolha uma variável** para selecionar a variável cujo texto será enviado.
+
+##### Mensagem Personalizada
+
+Nesta opção, o rótulo **Valor** muda para **Mensagem**. Digite o texto que deseja enviar, como `Rodada iniciada`. Diferentemente das opções anteriores, não há um seletor de variáveis ao lado desse campo.
+
+Se o texto precisar incluir um nome que muda conforme a execução, você pode utilizar um espaço criado pelo [Texto Extra: Campo Nome de Usuário](/referencia/extras/wf_xtra_text_output_username/) na mesma pilha. Nesse caso, a marcação `$(nome_do_espaco)` no campo **Mensagem** é preenchida com o nome fornecido pelo Extra.
+
+### Atraso (segundos)
+
+Este campo define quanto tempo o efeito esperará entre a execução da pilha e o envio do dataframe. Ele aceita valores de **0 a 60 segundos**. Para enviar sem espera, mantenha **0**.
+
+Você pode digitar o valor ou usar as setas. O ícone de temporização muda o intervalo de cada clique: **Padrão (a cada 0.5s)** ou **Preciso (a cada 0.05s)**. A opção precisa permite ajustar atrasos menores sem depender da digitação.
+
+### Configurações avançadas
+
+Pressione **Mostrar configurações avançadas** para definir de onde virão as torres utilizadas no envio. As setas desta seção alternam entre as seguintes formas de escolha:
+
+* **Use mobis escolhidos:** clique diretamente nas torres do quarto. Você pode selecionar até **20** delas; essa escolha fica definida na configuração do efeito.
+* **Escolha de mobis secundários:** permite escolher mais torres além das selecionadas na primeira opção, respeitando o limite de **20** para esse conjunto. Pressione o ícone **Habilitar escolha de mobis**, identificado por um cursor, e clique nas torres que deseja incluir.
+* **Usar mobis do seletor:** utiliza os mobis fornecidos por um [Seletor de mobis](/referencia/seletores/visao-geral/). Essa opção é útil quando a seleção deve ser feita pela lógica da pilha.
+* **Usar mobis do sinal:** utiliza os mobis recebidos pelo sistema de [sinais](/referencia/ativadores/wf_trg_recv_signal/), em vez de uma seleção fixa neste efeito.
+* **Use o item de ativação:** utiliza como torre o mobi que ativou a pilha. Essa escolha só faz sentido quando o item de ativação é a própria **Torre da Rede Wired**.
+
+Se a pilha for acionada por um botão que não é a torre, como no exemplo abaixo, escolha a torre diretamente em **Use mobis escolhidos**.
+
+## Exemplo de uso: avisar o início de uma rodada
+
+Imagine um jogo com um quarto de controle e uma sala de espera. Ao clicar em um mobi no quarto de controle, você quer avisar que a primeira rodada começou. Junto com o texto do aviso, enviará o número **1**, para que o outro quarto possa usar essa informação na mesma execução.
+
+No efeito, prepare estas linhas:
+
+| Linha | Chave | Tipo de valor | Conteúdo |
+| --- | --- | --- | --- |
+| 1 | `aviso` | **Mensagem Personalizada** | `Rodada iniciada` |
+| 2 | `rodada` | **Número** | `1` |
+
+<Steps>
+1. No quarto de controle, coloque uma **Torre da Rede Wired**, crie uma rede e conecte a torre a ela.
+2. Monte uma pilha com o [Ativador: Habbo Clica no Mobi](/referencia/ativadores/wf_trg_click_furni/) e este efeito. No ativador, selecione o mobi que será usado para iniciar a rodada.
+3. No **Enviar Dataframe na Rede**, escolha **2** em **Número de linhas**. Na **Linha 1**, escreva `aviso` em **Chave**, selecione **Mensagem Personalizada** e digite `Rodada iniciada` em **Mensagem**.
+4. Na **Linha 2**, escreva `rodada` em **Chave**, selecione **Número** e digite `1` em **Valor**. Deixe **Atraso (segundos)** em **0** para enviar os dados quando a pilha for acionada.
+5. Em **Configurações avançadas**, escolha **Use mobis escolhidos** e selecione a torre do quarto de controle. O mobi clicado no passo 2 aciona a pilha; ele não substitui a torre usada no envio.
+6. Na sala de espera, conecte outra torre à mesma rede e configure o **Receber Dataframe da Rede** para ler as chaves `aviso` e `rodada`. Veja [como configurar o recebimento](/referencia/ativadores/wf_trg_receive_dataframe/#exemplo-de-uso-receber-o-aviso-da-rodada).
+</Steps>
+
+Ao clicar no mobi escolhido, a pilha envia as duas linhas. A primeira leva o texto do aviso; a segunda leva o número da rodada. Na sala de espera, cada chave será encaminhada ao destino definido no ativador, sem precisar recriar o texto e o número lá.
