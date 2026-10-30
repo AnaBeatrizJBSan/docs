@@ -46,6 +46,7 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 import { Aside, Steps } from "@astrojs/starlight/components";
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import FormatacaoTexto from "@assets/wf_act_send_message/04-negrito-italico-e-sublinhado.mp4";
 import FormatacaoTextoDescriptionsUrl from "@assets/wf_act_send_message/04-negrito-italico-e-sublinhado-descriptions.vtt?url";
@@ -59,15 +60,6 @@ import AlinharDescriptionsRaw from "@assets/wf_act_send_message/04-alinhar-descr
 import AdicionarCampo from "@assets/wf_act_send_message/04-adicionar-campo.mp4";
 import AdicionarCampoDescriptionsUrl from "@assets/wf_act_send_message/04-adicionar-campo-descriptions.vtt?url";
 import AdicionarCampoDescriptionsRaw from "@assets/wf_act_send_message/04-adicionar-campo-descriptions.vtt?raw";
-import QuartoInicial from "@assets/wf_act_send_message/07-exemplo-no-quarto-inicial.mp4";
-import QuartoInicialDescriptionsUrl from "@assets/wf_act_send_message/07-exemplo-no-quarto-inicial-descriptions.vtt?url";
-import QuartoInicialDescriptionsRaw from "@assets/wf_act_send_message/07-exemplo-no-quarto-inicial-descriptions.vtt?raw";
-import QuartoDaFase from "@assets/wf_act_send_message/07-exemplo-no-quarto-da-fase.mp4";
-import QuartoDaFaseDescriptionsUrl from "@assets/wf_act_send_message/07-exemplo-no-quarto-da-fase-descriptions.vtt?url";
-import QuartoDaFaseDescriptionsRaw from "@assets/wf_act_send_message/07-exemplo-no-quarto-da-fase-descriptions.vtt?raw";
-import Teleportando from "@assets/wf_act_send_message/08-exemplo-teleportando.mp4";
-import TeleportandoDescriptionsUrl from "@assets/wf_act_send_message/08-exemplo-teleportando-descriptions.vtt?url";
-import TeleportandoDescriptionsRaw from "@assets/wf_act_send_message/08-exemplo-teleportando-descriptions.vtt?raw";
 import Atraso from "@assets/wf_act_send_message/05-atraso.gif";
 import ConfiguracoesAvancadas from "@assets/wf_act_send_message/06-configuracoes-avancadas.gif";
 
@@ -209,60 +201,40 @@ Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, a configu
 ![Janela Falha ao atualizar com o aviso Selecione pelo menos uma Torre da Rede Wired.](@assets/wf_act_trg/01-janela-selecione-uma-torre-wired.png)
 </Aside>
 
-## Exemplo de uso: mensagem na fase de um labirinto
+## Exemplo de uso: relatórios de uma investigação
 
-Este exemplo complementa o [sistema de checkpoints de um labirinto](https://www.wiredclub.com.br/tutoriais/como-fazer-um-sistema-de-checkpoint-para-labirintos). Aqui, o comando `:checkpoint` é usado tanto para iniciar o retorno do jogador à fase quanto para compor uma mensagem que aparecerá no quarto de destino. O sistema de checkpoints faz a teleportação; a Rede Wired leva apenas o texto. Configure o retorno à fase antes de seguir estes passos.
+Em um RPG, uma esposa contrata uma detetive para descobrir se o marido está se encontrando com outra pessoa. A detetive acompanha `bobbyGatinho56` em um restaurante, disfarçada de atendente de caixa. Ela fica sentada atrás do balcão com um **Celular Tijolão** na mão, representando um walkie-talkie. À sua frente há uma mesa com quatro cadeiras e o mobi **Comida Coreana**. `bobbyGatinho56` ocupa a cadeira da direita, de frente para `JoyPixel`, a pessoa com quem saiu para o encontro.
 
-### No quarto inicial
+Durante a cena, `bobbyGatinho56` diz `minha mulher nem sabe q tô nesse encontro`, e `JoyPixel` responde `ahahahahaha`. A detetive relata à esposa, em duas falas separadas: `ele está debochando dizendo que você nao sabe de nada` e `a suposta amante deu uma gargalhada`.
 
-<Steps>
-1. Coloque uma **Torre da Rede Wired**, crie uma rede com o nome desejado e pressione **Conectar** na linha dessa rede.
-2. Na pilha que recebe o comando `:checkpoint` pelo **Ativador: Habbo Diz Algo**, adicione o **Efeito: Enviar Mensagem na Rede** e o **Texto Extra: Campo Nome de Usuário**.
-3. No **Campo Nome de Usuário**, escreva `nome_do_usuario` em **Nome do Espaço**. Mantenha **Tipo de Espaço** em **Usuário único** e **Selecionar usuários fonte** em **Use o usuário acionador**.
-4. No **Enviar Mensagem na Rede**, escolha **Mensagem personalizada** e escreva:
-
-   ```text
-   [b]$(nome_do_usuario)[/b], boas-vindas à fase do labirinto!
-   O comando utilizado para entrar neste quarto foi [b]$(trigger_text)[/b].
-   ```
-
-5. Defina **2 segundos** em **Atraso (segundos)**, como mostrado no vídeo. Nas configurações avançadas do efeito, escolha **Use mobis escolhidos** e selecione a torre do quarto inicial.
-</Steps>
-
-<AccessibleVideo
-  id="enviar-mensagem-quarto-inicial"
-  src={QuartoInicial}
-  title="Configurar a torre e o envio da mensagem no quarto inicial"
-  descriptionsSrc={QuartoInicialDescriptionsUrl}
-  descriptionsContent={QuartoInicialDescriptionsRaw}
-/>
-
-### No quarto da fase
+### No restaurante
 
 <Steps>
-1. Coloque outra **Torre da Rede Wired** e pressione **Conectar** na mesma rede. Não é necessário criar a rede novamente.
-2. Monte uma pilha com o **Ativador: Receber Mensagem da Rede**, o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
-3. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre desse quarto.
-4. No **Mostrar mensagem**, escreva `$(trigger_text)` em **Mensagem**, escolha **Somente o Usuário** em **Visibilidade da Mensagem**, defina **Atraso** como **1 segundo** e escolha **Usar Usuários do Seletor** em **Selecionar Usuários Fonte**.
-5. No **Habbos na Área**, pressione **Selecione a Área** e marque a área onde estarão os jogadores que devem ver a mensagem.
+1. Coloque uma **Torre da Rede Wired**, crie a rede `Investigações` e conecte a torre a ela.
+2. Monte uma pilha com o [Ativador: Habbo Diz Algo](/referencia/ativadores/wf_trg_says_something/), a [Condição: Usuário tem item de mão](/referencia/condicoes/wf_cnd_has_handitem/) e o **Efeito: Enviar Mensagem na Rede**.
+3. No **Habbo Diz Algo**, escolha **Combinar com todo o texto** e marque **Ocultar a mensagem do gatilho**. Assim, o ativador aceita qualquer texto e oculta a fala que o aciona. A condição do próximo passo determina se a mensagem será enviada à rede.
+4. Na condição, selecione **Tijolão** em **Item de mão**. É o item que a detetive carrega enquanto envia os relatos.
+5. No **Enviar Mensagem na Rede**, escolha **Do ativador Wired** em **Origem da mensagem**. Em **Configurações avançadas**, escolha **Use mobis escolhidos** e selecione a torre do restaurante.
 </Steps>
 
-<AccessibleVideo
-  id="enviar-mensagem-quarto-da-fase"
-  src={QuartoDaFase}
-  title="Configurar a torre e o recebimento da mensagem no quarto da fase"
-  descriptionsSrc={QuartoDaFaseDescriptionsUrl}
-  descriptionsContent={QuartoDaFaseDescriptionsRaw}
-/>
+A lógica da pilha em [PseudoWired](/referencia/pseudowired/) fica assim:
 
-Ao dizer `:checkpoint` no quarto inicial, o sistema de checkpoints leva o jogador à fase e o efeito envia o texto configurado pela rede. No envio, `$(nome_do_usuario)` é substituído pelo nome do jogador e `$(trigger_text)` pelo comando `:checkpoint`. Já no quarto da fase, o mesmo nome `trigger_text` representa **a mensagem recebida inteira**, com esses campos preenchidos.
+<PseudoWiredCodeBlock code={`
+QUANDO
+  - Habbo diz algo:
+    Escolha o tipo: Combinar com todo o texto
+    Ocultar a mensagem do gatilho: marcado
 
-A mensagem será exibida aos usuários selecionados na área configurada. Se houver outros jogadores nessa área, eles também poderão vê-la.
+SE
+  - Usuário tem item de mão:
+    Item de mão: Tijolão
 
-<AccessibleVideo
-  id="enviar-mensagem-teleportando"
-  src={Teleportando}
-  title="Teleportar pelo comando :checkpoint e mostrar a mensagem no quarto da fase"
-  descriptionsSrc={TeleportandoDescriptionsUrl}
-  descriptionsContent={TeleportandoDescriptionsRaw}
-/>
+ENTÃO
+  - Enviar Mensagem na Rede:
+    Origem da mensagem: Do ativador Wired
+    Torre da Rede Wired: Use mobis escolhidos
+`} />
+
+### No escritório
+
+A esposa espera no sofá, diante da escrivaninha vazia da detetive. A torre desse quarto está conectada à mesma rede `Investigações`. O [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) recebe cada relato e aciona uma pilha com **Mostrar mensagem** e **Habbos na Área**. O efeito mostra um aviso com **“Informação encontrada:”** seguido da fala recebida. Veja a [configuração dessa pilha](/referencia/ativadores/wf_trg_receive_message/#exemplo-de-uso-receber-os-relatórios-da-detetive).

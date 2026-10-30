@@ -57,6 +57,12 @@ Na primeira configuração, as listas aparecem vazias. Depois de criar uma rede,
 
 ![Janela da Torre da Rede Wired com a rede selecionada, a lista Minhas redes, o campo Nova rede e a opção de receber mensagens enviadas pelo quarto.](@assets/wf_link/01-janela-do-mobi.png)
 
+<Aside type="caution" title="Quem pode configurar a torre?">
+Somente o **dono da Torre da Rede Wired** pode abrir a janela de configuração da rede. Se outra pessoa com direitos no quarto clicar duas vezes na torre, aparecerá o aviso **“Somente o dono da Torre pode abrir a janela de configuração da rede.”**
+
+![Janela Falha ao atualizar com o aviso de que somente o dono da Torre pode abrir a configuração da rede.](@assets/wf_link/05-janela-aviso-configuracao-da-rede.png)
+</Aside>
+
 ### Criar uma rede
 
 No campo **Nova rede**, digite um nome que ajude a reconhecer a ligação entre os quartos e pressione **Criar rede**. A nova rede aparecerá em **Minhas redes**, mas a criação sozinha não termina a configuração da torre: pressione **Conectar** na linha da rede para vinculá-la.
@@ -126,4 +132,4 @@ Excluir a rede desconecta todas as suas torres, em todos os quartos. Essa ação
 4. No quarto de recebimento, configure o **Ativador: Receber Mensagem da Rede** para observar a torre local. Acrescente à pilha o efeito que utilizará o texto recebido, como **Mostrar mensagem**.
 </Steps>
 
-Com as duas torres conectadas, uma mensagem enviada pela primeira pode acionar o ativador ligado à segunda. Veja a configuração completa no [exemplo de mensagem na fase de um labirinto](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-mensagem-na-fase-de-um-labirinto).
+Com as duas torres conectadas, uma mensagem enviada pela primeira pode acionar o ativador ligado à segunda. No [exemplo da investigação](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-relatórios-de-uma-investigação), a rede `Investigações` conecta o restaurante ao escritório: a torre do restaurante envia os relatos da detetive, e a do escritório os entrega à pilha que mostra as mensagens à esposa. Como o envio parte de outro quarto, não é preciso marcar **Receber mensagens enviadas por este quarto** na torre do escritório. Veja também [como configurar o recebimento](/referencia/ativadores/wf_trg_receive_message/#exemplo-de-uso-receber-os-relatórios-da-detetive).

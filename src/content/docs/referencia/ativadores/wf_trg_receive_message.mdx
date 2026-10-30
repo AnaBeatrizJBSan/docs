@@ -48,6 +48,7 @@ infobox:
 
 import Infobox from "@components/Infobox.astro"
 import { Aside, Steps } from "@astrojs/starlight/components";
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 
 O **Ativador: Receber Mensagem da Rede** inicia uma pilha quando uma das [Torres da Rede Wired](/referencia/outros/utilitarios/wf_link/) escolhidas recebe um texto. Ele funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/), permitindo usar a mensagem em outro quarto ou no próprio quarto de envio.
 
@@ -70,7 +71,7 @@ A mensagem recebida fica disponível no espaço de texto `$(trigger_text)`, cria
 No [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/), você pode preencher **Mensagem** apenas com `$(trigger_text)` para repetir o aviso recebido. Também pode acrescentar um texto próprio, como `Aviso da sala de jogos: $(trigger_text)`. Em ambos os casos, configure os usuários que deverão receber a mensagem do efeito.
 
 <Aside type="tip" title="Dica">
-O significado de `$(trigger_text)` depende da pilha em que ele aparece. Em uma pilha iniciada por **Habbo Diz Algo**, ele pode representar a fala do jogador. **Neste ativador**, representa a **mensagem recebida inteira**. Se o efeito de envio utilizou campos como o nome de um usuário, essas substituições já fazem parte do texto recebido; o ativador não precisa refazê-las.
+O significado de `$(trigger_text)` depende da pilha em que ele aparece. Em uma pilha iniciada por **Habbo Diz Algo**, ele pode representar a fala do jogador. Se o efeito de envio utilizou campos como o nome de um usuário, essas substituições já fazem parte do texto recebido; o ativador não precisa refazê-las.
 </Aside>
 
 ### Torre da Rede Wired
@@ -86,15 +87,34 @@ Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, a configu
 ![Janela Falha ao atualizar com o aviso Selecione pelo menos uma Torre da Rede Wired.](@assets/wf_act_trg/01-janela-selecione-uma-torre-wired.png)
 </Aside>
 
-## Exemplo de uso: mostrar a mensagem recebida
+## Exemplo de uso: receber os relatórios da detetive
 
-Com a torre conectada à mesma rede utilizada no envio, monte uma pilha com este ativador, o **Efeito: Mostrar mensagem** e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
+No [exemplo da investigação](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-relatórios-de-uma-investigação), a detetive está disfarçada de atendente em um restaurante. Ela acompanha `bobbyGatinho56` e `JoyPixel` e envia dois relatos pela rede `Investigações`. Enquanto isso, a esposa de `bobbyGatinho56` espera no sofá do escritório, diante da escrivaninha vazia da detetive. A pilha deste quarto mostrará cada relato como uma notificação.
 
 <Steps>
-1. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre do quarto.
-2. No **Mostrar mensagem**, escreva `$(trigger_text)` no campo **Mensagem**.
-3. Em **Visibilidade da Mensagem**, escolha **Somente o Usuário**. Em **Selecionar Usuários Fonte**, escolha **Usar Usuários do Seletor**.
-4. No **Habbos na Área**, pressione **Selecione a Área** e marque onde estarão os usuários que devem ver o texto.
+1. Coloque uma **Torre da Rede Wired** no escritório e conecte-a à rede `Investigações`, já criada no restaurante.
+2. Monte uma pilha com o **Ativador: Receber Mensagem da Rede**, o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
+3. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre do escritório.
+4. No **Mostrar mensagem**, escreva `[b]Informação encontrada:[/b] $(trigger_text)` no campo **Mensagem**.
+5. No mesmo efeito, escolha **Atenção** em **Estilo de notificação** e **Usar Usuários do Seletor** em **Selecionar Usuários Fonte**.
+6. No **Habbos na Área**, pressione **Selecione a Área** e marque a área completa do escritório.
 </Steps>
 
-Quando a torre receber uma mensagem, a pilha será acionada e o efeito mostrará o texto aos usuários selecionados. Para combinar o envio com a chegada de um jogador a outro quarto, veja o [exemplo de mensagem na fase de um labirinto](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-mensagem-na-fase-de-um-labirinto).
+A lógica da pilha em [PseudoWired](/referencia/pseudowired/) fica assim:
+
+<PseudoWiredCodeBlock code={`
+ALVOS
+  - Habbos na Área: quarto inteiro
+
+QUANDO
+  - Receber Mensagem da Rede:
+    Torre da Rede Wired: Use mobis escolhidos
+
+ENTÃO
+  - Mostrar mensagem:
+    Mensagem: "[b]Informação encontrada:[/b] $(trigger_text)"
+    Estilo de notificação: Atenção
+    Selecionar Usuários Fonte: Usar Usuários do Seletor
+`} />
+
+Cada fala da detetive chega como uma mensagem separada. Na primeira execução, `$(trigger_text)` contém `ele está debochando dizendo que você nao sabe de nada`; na segunda, contém `a suposta amante deu uma gargalhada`. O **Mostrar mensagem** coloca cada texto após **“Informação encontrada:”**.

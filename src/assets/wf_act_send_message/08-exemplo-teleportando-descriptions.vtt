@@ -1,7 +1,0 @@
-WEBVTT
-
-00:00:00.000 --> 00:00:01.500
-No quarto inicial do labirinto, o jogador diz :checkpoint. Um efeito azul aparece ao redor do avatar, que é teleportado para o quarto da fase.
-
-00:00:01.500 --> 00:00:03.484
-No quarto da fase, o avatar chega sobre um piso azul. Uma mensagem de boas-vindas aparece na tela com o nome do jogador e informa que o comando utilizado para entrar foi :checkpoint.
