@@ -1,6 +1,6 @@
 ---
 title: "Efeito Wired: Enviar Mensagem na Rede"
-description: Envie mensagens entre quartos conectados à mesma rede e personalize o texto com formatação e campos.
+description: Envia mensagens pela Rede Wired e permite formatar o texto ou inserir campos.
 sidebar:
   label: "Enviar Mensagem na Rede"
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 75953
   classname: wf_act_send_message
   name: "WIRED EFEITO: Enviar Mensagem na Rede"
-  description: Envia uma mensagem pela Torre da Rede Wired para os quartos conectados à mesma rede.
+  description: Envia uma mensagem pela Torre da Rede Wired para a rede à qual ela está conectada.
   # product_name: # caso o nome na loja seja diferente do nome do Mobi
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -71,17 +71,17 @@ import TeleportandoDescriptionsRaw from "@assets/wf_act_send_message/08-exemplo-
 import Atraso from "@assets/wf_act_send_message/05-atraso.gif";
 import ConfiguracoesAvancadas from "@assets/wf_act_send_message/06-configuracoes-avancadas.gif";
 
-O **Efeito: Enviar Mensagem na Rede** envia um texto de um quarto para outros conectados pela [Torre da Rede Wired](/referencia/outros/utilitarios/wf_link/). Assim, uma ação no quarto de origem pode avisar quem está em outro quarto: por exemplo, o início de uma rodada para os jogadores que aguardam na sala de espera.
+O **Efeito: Enviar Mensagem na Rede** transmite um texto pela [Torre da Rede Wired](/referencia/outros/utilitarios/wf_link/). A mensagem pode chegar a outros quartos conectados à rede ou ser recebida no próprio quarto de envio, se a torre estiver configurada para isso.
 
 <Infobox />
 
-Antes de configurar o efeito, coloque uma torre em cada quarto e conecte as duas à mesma rede. No quarto de destino, o [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) identifica a chegada do texto e aciona a pilha que o utilizará. O efeito envia a mensagem; o ativador, por si só, não a mostra aos jogadores.
+Antes de configurar o efeito, conecte uma torre à rede e selecione-a como fonte de envio. Onde a mensagem será recebida, configure o [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) para observar a torre local. Para recebê-la no mesmo quarto, marque **Receber mensagens enviadas por este quarto** na torre. O efeito envia a mensagem; o ativador, por si só, não a mostra aos jogadores.
 
 ## Como esse Wired funciona?
 
 Ao abrir a janela, primeiro escolha de onde virá a mensagem: do texto do ativador da pilha ou de um texto escrito no próprio efeito. Depois, ajuste o atraso e selecione a torre que fará o envio nas configurações avançadas.
 
-Quando essa pilha for acionada, a mensagem seguirá pela rede da torre selecionada. No quarto de destino, o texto recebido ficará disponível para os Wireds da pilha iniciada pelo ativador de recebimento. Você pode, por exemplo, mostrá-lo em uma mensagem ou utilizá-lo como parte de outro texto.
+Quando essa pilha for acionada, a mensagem seguirá pela rede da torre selecionada. O texto recebido ficará disponível para os Wireds da pilha iniciada pelo ativador de recebimento. Você pode, por exemplo, mostrá-lo em uma mensagem ou utilizá-lo como parte de outro texto.
 
 ![Janela do efeito Enviar Mensagem na Rede com a origem Do Ativador WIRED selecionada, campo Mensagem desativado e atraso em zero segundos.](@assets/wf_act_send_message/01-janela-do-wired.png)
 
@@ -100,7 +100,7 @@ Ao adicionar este Wired no quarto, os jogadores recebem o aviso **“Os Wireds d
 
 ### Mensagem
 
-Com **Mensagem personalizada** selecionada, escreva no campo **Mensagem** exatamente o aviso que o outro quarto deverá receber. Se o texto precisar de estilos ou de espaços de texto, pressione **Abrir editor de mensagens** ao lado do campo. Você poderá montar a mensagem e conferir uma prévia antes de salvar.
+Com **Mensagem personalizada** selecionada, escreva no campo **Mensagem** o texto que deseja transmitir pela rede. Se ele precisar de estilos ou de espaços de texto, pressione **Abrir editor de mensagens** ao lado do campo. Você poderá montar a mensagem e conferir uma prévia antes de salvar.
 
 #### Editor de mensagens
 
@@ -203,9 +203,11 @@ Pressione **Mostrar configurações avançadas** para definir quais torres envia
   style={{ width: "35%" }}
 />
 
+<Aside type="caution" title="Aviso">
 Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, a configuração não será salva. Ao tentar confirmar, aparecerá uma janela com o texto **“Selecione pelo menos uma Torre da Rede Wired.”** Confira os mobis escolhidos e selecione uma torre.
 
 ![Janela Falha ao atualizar com o aviso Selecione pelo menos uma Torre da Rede Wired.](@assets/wf_act_trg/01-janela-selecione-uma-torre-wired.png)
+</Aside>
 
 ## Exemplo de uso: mensagem na fase de um labirinto
 

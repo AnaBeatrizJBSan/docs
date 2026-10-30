@@ -1,6 +1,6 @@
 ---
 title: "Torre da Rede Wired"
-description: Conecte torres à mesma rede para trocar mensagens entre quartos e gerencie as conexões da Rede Wired.
+description: Configure Torres da Rede Wired para enviar e receber mensagens e gerenciar as conexões da rede.
 sidebar:
   label: "Torre da Rede Wired"
   badge:
@@ -43,11 +43,11 @@ infobox:
 import Infobox from "@components/Infobox.astro"
 import { Aside, Steps } from "@astrojs/starlight/components";
 
-A **Torre da Rede Wired** é a ligação entre quartos que trocam mensagens pela Rede Wired. Coloque uma torre em cada quarto e conecte-as à mesma rede para que uma mensagem enviada em um deles possa chegar ao outro. Você pode utilizar essa ligação para avisar que uma partida começou, por exemplo, sem precisar repetir a configuração do aviso em todos os quartos.
+A **Torre da Rede Wired** conecta um quarto à rede usada para trocar mensagens. Se você conectar torres de quartos diferentes à mesma rede, uma mensagem enviada em um deles poderá chegar aos demais. A torre também pode receber mensagens enviadas pelo próprio quarto quando a opção de auto-recebimento está marcada.
 
 <Infobox />
 
-A torre fornece a conexão; os Wireds definem o que acontece com a mensagem. No quarto de origem, o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/) escolhe o texto e a torre usada no envio. No destino, o [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) observa a torre local e inicia uma pilha quando ela recebe o texto. É nessa pilha que você configura como a mensagem será utilizada.
+A torre fornece a conexão; os Wireds definem o que acontece com a mensagem. O [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/) escolhe o texto e a torre usada no envio. O [Ativador: Receber Mensagem da Rede](/referencia/ativadores/wf_trg_receive_message/) observa a torre escolhida para o recebimento e inicia uma pilha quando ela recebe o texto. É nessa pilha que você configura como a mensagem será utilizada.
 
 ## Como esse mobi funciona?
 

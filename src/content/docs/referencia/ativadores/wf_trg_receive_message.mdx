@@ -1,6 +1,6 @@
 ---
 title: "Ativador Wired: Receber Mensagem da Rede"
-description: Ative uma pilha ao receber uma mensagem pela Rede Wired e utilize o texto recebido no espaço trigger_text.
+description: Aciona uma pilha quando uma Torre da Rede Wired recebe uma mensagem e disponibiliza o texto em trigger_text.
 sidebar:
   label: "Receber Mensagem da Rede"
   badge:
@@ -29,7 +29,7 @@ infobox:
   # == Dados do Wired ==
   type: Ativador
   # requires_bot: false # valor padrão
-  # requires_furni: false # valor padrão
+  requires_furni: true
   # requires_antena: false # valor padrão
   # requires_contract: false # valor padrão
   # requires_chest: false # valor padrão
@@ -47,19 +47,19 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
-import { Steps } from "@astrojs/starlight/components";
+import { Aside, Steps } from "@astrojs/starlight/components";
 
-O **Ativador: Receber Mensagem da Rede** inicia uma pilha quando uma das [Torres da Rede Wired](/referencia/outros/utilitarios/wf_link/) escolhidas recebe um texto. Ele funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/): o efeito envia a mensagem em um quarto, e este ativador permite utilizá-la em outro.
+O **Ativador: Receber Mensagem da Rede** inicia uma pilha quando uma das [Torres da Rede Wired](/referencia/outros/utilitarios/wf_link/) escolhidas recebe um texto. Ele funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/), permitindo usar a mensagem em outro quarto ou no próprio quarto de envio.
 
 <Infobox />
 
-Antes de configurar o ativador, coloque uma torre no quarto de envio e outra no quarto de recebimento. Conecte as duas à mesma rede e selecione a torre local neste Wired. Se quiser que uma torre também receba mensagens enviadas pelo próprio quarto, marque **receber mensagens enviadas por este quarto** na configuração dela.
+Conecte à rede a torre usada no envio e selecione neste ativador a torre que receberá a mensagem. Para receber uma mensagem enviada pelo próprio quarto, marque **Receber mensagens enviadas por este quarto** na configuração da torre.
 
 ## Como esse Wired funciona?
 
-Ao abrir a janela de configuração, você encontra as seções **Informações de uso** e **Torre da Rede Wired**. A primeira mostra o espaço de texto em que a mensagem recebida ficará disponível; na segunda, você escolhe as torres capazes de acionar esta pilha.
+Ao abrir a janela de configuração, você encontra as seções **Informações de uso** e **Torre da Rede Wired**. Em **Informações de uso**, a janela explica qual espaço de texto receberá a mensagem. Em **Torre da Rede Wired**, você escolhe as torres capazes de acionar esta pilha.
 
-Quando a mensagem chega por uma das torres selecionadas, o ativador inicia a execução. O texto recebido pode então ser usado em um Efeito da mesma pilha. Para mostrá-lo aos jogadores, por exemplo, acrescente o **Efeito: Mostrar mensagem** e configure quem deverá vê-la.
+Quando a mensagem chega por uma das torres selecionadas, o ativador inicia a execução. O texto recebido pode então ser usado em um Efeito durante essa execução. Para mostrá-lo aos jogadores, por exemplo, acrescente o **Efeito: Mostrar mensagem** e configure quem deverá vê-la.
 
 ![Janela do Ativador Receber Mensagem da Rede com as seções Informações de uso e Torre da Rede Wired e a seleção de mobis escolhidos.](@assets/wf_trg_receive_message/01-janela-do-wired.png)
 
@@ -69,7 +69,9 @@ A mensagem recebida fica disponível no espaço de texto `$(trigger_text)`, cria
 
 No [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/), você pode preencher **Mensagem** apenas com `$(trigger_text)` para repetir o aviso recebido. Também pode acrescentar um texto próprio, como `Aviso da sala de jogos: $(trigger_text)`. Em ambos os casos, configure os usuários que deverão receber a mensagem do efeito.
 
-O significado de `$(trigger_text)` depende da pilha em que ele aparece. Em uma pilha iniciada por **Habbo Diz Algo**, ele pode representar a fala do jogador. **Neste ativador**, representa a **mensagem recebida inteira**. Se o efeito de envio utilizou campos como o nome de um usuário, essas substituições já fazem parte do texto que chegou ao outro quarto; o ativador não precisa refazê-las.
+<Aside type="tip" title="Dica">
+O significado de `$(trigger_text)` depende da pilha em que ele aparece. Em uma pilha iniciada por **Habbo Diz Algo**, ele pode representar a fala do jogador. **Neste ativador**, representa a **mensagem recebida inteira**. Se o efeito de envio utilizou campos como o nome de um usuário, essas substituições já fazem parte do texto recebido; o ativador não precisa refazê-las.
+</Aside>
 
 ### Torre da Rede Wired
 
@@ -78,9 +80,11 @@ Nesta seção, use as setas para definir de onde virão as torres que poderão a
 * **Use mobis escolhidos:** clique diretamente nas torres do quarto. Você pode selecionar até **20**. É a escolha mais simples quando já sabe quais torres receberão as mensagens dessa pilha.
 * **Usar mobis do seletor:** utiliza as torres fornecidas por um Seletor de mobis. Escolha essa opção quando a seleção depender de outra parte da lógica Wired.
 
+<Aside type="caution" title="Aviso">
 Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, a configuração não será salva. Ao tentar confirmar, aparecerá uma janela com o texto **“Selecione pelo menos uma Torre da Rede Wired.”** Volte à seleção e escolha uma torre.
 
 ![Janela Falha ao atualizar com o aviso Selecione pelo menos uma Torre da Rede Wired.](@assets/wf_act_trg/01-janela-selecione-uma-torre-wired.png)
+</Aside>
 
 ## Exemplo de uso: mostrar a mensagem recebida
 
