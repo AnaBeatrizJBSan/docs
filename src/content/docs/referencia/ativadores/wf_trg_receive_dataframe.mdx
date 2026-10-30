@@ -71,6 +71,10 @@ Configure uma chave por linha. Se o envio contém `aviso` e `rodada` e você que
 
 Escreva o nome da chave enviada, como `aviso`, `rodada` ou `nome_do_jogador`. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**. Se você escrever um espaço, ele será substituído automaticamente por um sublinhado: `numero da rodada` se torna `numero_da_rodada`.
 
+Cada chave precisa ter um nome **único entre as linhas deste ativador**. Se outra linha já usar o mesmo nome, aparecerá um aviso ao tentar salvar a configuração. Escolha outro nome para a chave repetida.
+
+![Janela Falha ao atualizar avisando que o nome de variável já está em uso no quarto e solicitando um nome diferente.](@assets/wf_var/04-janela-de-aviso-nome-de-variavel-ja-em-uso.png)
+
 Use o **mesmo nome** configurado no efeito de envio. A chave indica qual valor do dataframe será lido; ela não precisa ter o mesmo nome do espaço de texto ou da variável de contexto que receberá esse valor. Por exemplo, a chave `aviso` pode preencher um espaço chamado `mensagem_da_rodada`.
 
 #### Espaço ou variável

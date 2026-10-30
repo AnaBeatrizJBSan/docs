@@ -85,7 +85,11 @@ Cada linha é configurada separadamente. Você pode, por exemplo, enviar um text
 
 Digite um nome que ajude a identificar o valor, como `aviso`, `rodada` ou `nome_do_jogador`. O campo aceita entre **1 e 40 caracteres**, utilizando apenas **letras, números e sublinhado (`_`)**. Se você escrever um espaço, ele será substituído automaticamente por um sublinhado: `numero da rodada` se torna `numero_da_rodada`.
 
-Guarde o nome escolhido para configurar o recebimento. **Chave** não é o nome da variável que fornece o valor: é o nome pelo qual o ativador do outro quarto encontrará essa linha. No destino, informe a mesma chave para decidir onde o valor será colocado.
+Cada chave precisa ter um nome **único entre as linhas deste efeito**. Se outra linha já usar o mesmo nome, aparecerá um aviso ao tentar salvar a configuração. Escolha outro nome para a chave repetida.
+
+![Janela Falha ao atualizar avisando que o nome de variável já está em uso no quarto e solicitando um nome diferente.](@assets/wf_var/04-janela-de-aviso-nome-de-variavel-ja-em-uso.png)
+
+Guarde o nome escolhido para configurar o recebimento. **Chave** é o nome pelo qual o ativador do outro quarto encontrará essa linha. No destino, informe a mesma chave para decidir onde o valor será colocado.
 
 #### Valor
 
@@ -93,7 +97,7 @@ Ao lado da chave, escolha como o valor será preenchido. A opção selecionada a
 
 ##### Número
 
-Use esta opção para enviar um número. Você pode digitá-lo diretamente no campo **Valor**, como `14`, ou pressionar o ícone **Escolha uma variável** ao lado do campo para utilizar um valor já disponível no Wired.
+Use esta opção para enviar um número. Você pode digitá-lo diretamente no campo **Valor**, como `14`, ou pressionar o ícone **Escolha uma variável** ao lado do campo para utilizar um valor já disponível em alguma variável.
 
 O ícone abre a janela **Origem da variável**. Nela, escolha uma variável de **mobi**, **usuário**, **global** ou de **contexto** e, depois, selecione a variável desejada. Por exemplo, a variável de mobi [`@state`](/referencia/variaveis/wf_var_furni/#estado-do-mobi) fornece o estado numérico de um mobi; o significado do número depende do modelo do objeto.
 
