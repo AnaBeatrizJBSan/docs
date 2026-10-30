@@ -47,8 +47,15 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
-import { Aside, Steps } from "@astrojs/starlight/components";
+import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
+import NoEscritorio from "@assets/wf_trg_receive_message/02-no-escritorio.mp4";
+import NoEscritorioDescriptionsUrl from "@assets/wf_trg_receive_message/02-no-escritorio-descriptions.vtt?url";
+import NoEscritorioDescriptionsRaw from "@assets/wf_trg_receive_message/02-no-escritorio-descriptions.vtt?raw";
+import ExemploDetetive from "@assets/wf_trg_receive_message/03-exemplo-rpg-de-detetive.mp4";
+import ExemploDetetiveDescriptionsUrl from "@assets/wf_trg_receive_message/03-exemplo-rpg-de-detetive-descriptions.vtt?url";
+import ExemploDetetiveDescriptionsRaw from "@assets/wf_trg_receive_message/03-exemplo-rpg-de-detetive-descriptions.vtt?raw";
 
 O **Ativador: Receber Mensagem da Rede** inicia uma pilha quando uma das [Torres da Rede Wired](/referencia/outros/utilitarios/wf_link/) escolhidas recebe um texto. Ele funciona em conjunto com o [Efeito: Enviar Mensagem na Rede](/referencia/efeitos/wf_act_send_message/), permitindo usar a mensagem em outro quarto ou no próprio quarto de envio.
 
@@ -89,9 +96,19 @@ Se você selecionar um mobi que não seja uma **Torre da Rede Wired**, a configu
 
 ## Exemplo de uso: receber os relatórios da detetive
 
-No [exemplo da investigação](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-relatórios-de-uma-investigação), a detetive está disfarçada de atendente em um restaurante. Ela acompanha `bobbyGatinho56` e `JoyPixel` e envia dois relatos pela rede `Investigações`. Enquanto isso, a esposa de `bobbyGatinho56` espera no sofá do escritório, diante da escrivaninha vazia da detetive. A pilha deste quarto mostrará cada relato como uma notificação.
+No [exemplo da investigação](/referencia/efeitos/wf_act_send_message/#exemplo-de-uso-relatórios-de-uma-investigação), a detetive está disfarçada de atendente em um restaurante. Ela acompanha `bobbyGatinho56` e `JoyPixel` e envia relatos pela rede `Investigações`. Enquanto isso, a esposa de `bobbyGatinho56` espera no sofá do escritório, diante da escrivaninha vazia da detetive. A pilha deste quarto mostrará cada relato como uma notificação.
 
-<Steps>
+<AccessibleVideo
+  id="investigacao-no-escritorio"
+  src={NoEscritorio}
+  title="Configuração da pilha que recebe os relatos da detetive no escritório"
+  descriptionsSrc={NoEscritorioDescriptionsUrl}
+  descriptionsContent={NoEscritorioDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
 1. Coloque uma **Torre da Rede Wired** no escritório e conecte-a à rede `Investigações`, já criada no restaurante.
 2. Monte uma pilha com o **Ativador: Receber Mensagem da Rede**, o [Efeito: Mostrar mensagem](/referencia/efeitos/wf_act_show_message/) e o [Seletor: Habbos na Área](/referencia/seletores/wf_slc_users_area/).
 3. No **Receber Mensagem da Rede**, escolha **Use mobis escolhidos** e selecione a torre do escritório.
@@ -99,10 +116,9 @@ No [exemplo da investigação](/referencia/efeitos/wf_act_send_message/#exemplo-
 5. No mesmo efeito, escolha **Atenção** em **Estilo de notificação** e **Usar Usuários do Seletor** em **Selecionar Usuários Fonte**.
 6. No **Habbos na Área**, pressione **Selecione a Área** e marque a área completa do escritório.
 </Steps>
-
-A lógica da pilha em [PseudoWired](/referencia/pseudowired/) fica assim:
-
-<PseudoWiredCodeBlock code={`
+  </TabItem>
+  <TabItem label="PseudoWired">
+    <PseudoWiredCodeBlock code={`
 ALVOS
   - Habbos na Área: quarto inteiro
 
@@ -116,5 +132,15 @@ ENTÃO
     Estilo de notificação: Atenção
     Selecionar Usuários Fonte: Usar Usuários do Seletor
 `} />
+  </TabItem>
+</Tabs>
 
 Cada fala da detetive chega como uma mensagem separada e o **Mostrar mensagem** coloca cada texto após **“Informação encontrada:”**.
+
+<AccessibleVideo
+  id="exemplo-rpg-de-detetive"
+  src={ExemploDetetive}
+  title="Simulação da investigação com mensagens entre o restaurante e o escritório"
+  descriptionsSrc={ExemploDetetiveDescriptionsUrl}
+  descriptionsContent={ExemploDetetiveDescriptionsRaw}
+/>

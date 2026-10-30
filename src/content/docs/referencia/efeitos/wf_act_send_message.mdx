@@ -45,7 +45,7 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro"
-import { Aside, Steps } from "@astrojs/starlight/components";
+import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import AccessibleVideo from "@components/AccessibleVideo.astro";
 import FormatacaoTexto from "@assets/wf_act_send_message/04-negrito-italico-e-sublinhado.mp4";
@@ -60,6 +60,9 @@ import AlinharDescriptionsRaw from "@assets/wf_act_send_message/04-alinhar-descr
 import AdicionarCampo from "@assets/wf_act_send_message/04-adicionar-campo.mp4";
 import AdicionarCampoDescriptionsUrl from "@assets/wf_act_send_message/04-adicionar-campo-descriptions.vtt?url";
 import AdicionarCampoDescriptionsRaw from "@assets/wf_act_send_message/04-adicionar-campo-descriptions.vtt?raw";
+import NoRestaurante from "@assets/wf_act_send_message/07-no-restaurante.mp4";
+import NoRestauranteDescriptionsUrl from "@assets/wf_act_send_message/07-no-restaurante-descriptions.vtt?url";
+import NoRestauranteDescriptionsRaw from "@assets/wf_act_send_message/07-no-restaurante-descriptions.vtt?raw";
 import Atraso from "@assets/wf_act_send_message/05-atraso.gif";
 import ConfiguracoesAvancadas from "@assets/wf_act_send_message/06-configuracoes-avancadas.gif";
 
@@ -209,20 +212,29 @@ Durante a cena, `bobbyGatinho56` diz `minha mulher nem sabe q tô nesse encontro
 
 ### No restaurante
 
-<Steps>
+<AccessibleVideo
+  id="investigacao-no-restaurante"
+  src={NoRestaurante}
+  title="Configuração da pilha que envia os relatos da detetive no restaurante"
+  descriptionsSrc={NoRestauranteDescriptionsUrl}
+  descriptionsContent={NoRestauranteDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
 1. Coloque uma **Torre da Rede Wired**, crie a rede `Investigações` e conecte a torre a ela.
 2. Monte uma pilha com o [Ativador: Habbo Diz Algo](/referencia/ativadores/wf_trg_says_something/), a [Condição: Usuário tem item de mão](/referencia/condicoes/wf_cnd_has_handitem/) e o **Efeito: Enviar Mensagem na Rede**.
-3. No **Habbo Diz Algo**, escolha **Combinar com todo o texto** e marque **Ocultar a mensagem do gatilho**. Assim, o ativador aceita qualquer texto e oculta a fala que o aciona. A condição do próximo passo determina se a mensagem será enviada à rede.
+3. No **Habbo Diz Algo**, escolha **Concordar com todo o texto** e marque **Ocultar a mensagem do gatilho**. Assim, o ativador aceita qualquer texto e oculta a fala que o aciona. A condição do próximo passo determina se a mensagem será enviada à rede.
 4. Na condição, selecione **Tijolão** em **Item de mão**. É o item que a detetive carrega enquanto envia os relatos.
 5. No **Enviar Mensagem na Rede**, escolha **Do ativador Wired** em **Origem da mensagem**. Em **Configurações avançadas**, escolha **Use mobis escolhidos** e selecione a torre do restaurante.
 </Steps>
-
-A lógica da pilha em [PseudoWired](/referencia/pseudowired/) fica assim:
-
-<PseudoWiredCodeBlock code={`
+  </TabItem>
+  <TabItem label="PseudoWired">
+    <PseudoWiredCodeBlock code={`
 QUANDO
   - Habbo diz algo:
-    Escolha o tipo: Combinar com todo o texto
+    Escolha o tipo: Concordar com todo o texto
     Ocultar a mensagem do gatilho: marcado
 
 SE
@@ -234,6 +246,8 @@ ENTÃO
     Origem da mensagem: Do ativador Wired
     Torre da Rede Wired: Use mobis escolhidos
 `} />
+  </TabItem>
+</Tabs>
 
 ### No escritório
 
