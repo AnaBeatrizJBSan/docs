@@ -40,9 +40,13 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 import Atraso from "@assets/wf_act/02-atraso.gif";
+import MoverMobisSelecionadosPeloTipo from "@assets/wf_act_move_furni_as_group/04-exemplo-mover-mobis-selecionados-pelo-tipo.mp4";
+import MoverMobisSelecionadosPeloTipoDescriptionsUrl from "@assets/wf_act_move_furni_as_group/04-exemplo-mover-mobis-selecionados-pelo-tipo-descriptions.vtt?url";
+import MoverMobisSelecionadosPeloTipoDescriptionsRaw from "@assets/wf_act_move_furni_as_group/04-exemplo-mover-mobis-selecionados-pelo-tipo-descriptions.vtt?raw";
 
 O **Efeito: Mover Móbis em Grupo** leva vários mobis para outro lugar do quarto, mantendo a distância entre eles. Você escolhe quais mobis serão movidos e qual mobi ou usuário servirá de referência para o destino.
 
@@ -67,7 +71,7 @@ Os campos **X** e **Y** ajustam a posição em que o grupo será colocado. Digit
 
 Deixe os dois campos em **0** se não precisar acrescentar um deslocamento ao destino escolhido. Os mobis continuam mantendo a mesma distância entre si.
 
-No exemplo abaixo, **X = 9** e **Y = 0** deslocam o grupo **9 quadrados na horizontal** em relação ao **Bloco invisível** escolhido como referência, sem deslocamento adicional no eixo Y.
+No [exemplo abaixo](#exemplo-de-uso-mover-mobis-selecionados-pelo-tipo), **X = 9** e **Y = 0** deslocam o grupo **9 quadrados na horizontal** em relação ao **Bloco invisível** escolhido como referência, sem deslocamento adicional no eixo Y.
 
 ### Atraso (segundos)
 
@@ -119,12 +123,20 @@ O movimento pode não acontecer se o destino estiver ocupado por usuários ou po
 
 Imagine alguns mobis dispostos em uma área de **5 × 5 quadrados**. Vamos selecioná-los pelo tipo e mover o grupo usando um **Bloco invisível** como referência de destino. Com **X = 9** e **Y = 0**, o grupo ficará deslocado **9 quadrados na horizontal** em relação ao bloco, sem alterar a distância entre os mobis.
 
-O **Mobi por Tipo** seleciona todos os mobis do tipo configurado, mesmo que estejam fora dessa área. Por isso, escolha um tipo que identifique apenas os mobis que você deseja mover neste exemplo.
+O **Mobi por Tipo** seleciona os mobis dos tipos configurados, mesmo que estejam fora dessa área. Por isso, escolha tipos que identifiquem apenas os mobis que você deseja mover neste exemplo.
+
+<AccessibleVideo
+  id="mover-mobis-em-grupo-selecionados-pelo-tipo"
+  src={MoverMobisSelecionadosPeloTipo}
+  title="Mover uma composição de mobis selecionados pelo tipo sem alterar sua disposição"
+  descriptionsSrc={MoverMobisSelecionadosPeloTipoDescriptionsUrl}
+  descriptionsContent={MoverMobisSelecionadosPeloTipoDescriptionsRaw}
+/>
 
 <Tabs>
   <TabItem label="Configuração">
     <Steps>
-1. Adicione o [Seletor: Mobi por Tipo](/referencia/seletores/wf_slc_furni_bytype/) à pilha e escolha o tipo dos mobis que deseja mover. Neste exemplo, eles estão dispostos em parte de uma área de **5 × 5 quadrados**.
+1. Adicione o [Seletor: Mobi por Tipo](/referencia/seletores/wf_slc_furni_bytype/) à pilha e escolha mobis dos tipos que deseja mover. Neste exemplo, eles estão dispostos em parte de uma área de **5 × 5 quadrados**.
 2. Configure o [Ativador: Habbo Clica no Mobi](/referencia/ativadores/wf_trg_click_furni/) para acionar a pilha ao clicar no próprio Wired.
 3. Adicione a [Condição WIRED: Pode Realizar Movimentos](/referencia/condicoes/wf_cnd_valid_moves/) e o [Extra: Física do Movimento](/referencia/extras/wf_xtra_mov_physics/). No Extra, marque **Manter a altura do mobi** e **Mover através dos mobis**.
 4. No **Mover Móbis em Grupo**, escolha **Usar mobis do seletor** em **Os móveis em movimento**. Em **Local de destino**, escolha o ícone de mobi e **Escolha de mobis secundários**; selecione o **Bloco invisível (empilhável e caminhável)**. Em **Deslocamentos**, informe **X = 9** e **Y = 0**.
@@ -133,7 +145,7 @@ O **Mobi por Tipo** seleciona todos os mobis do tipo configurado, mesmo que este
   <TabItem label="PseudoWired">
     <PseudoWiredCodeBlock code={`
 ALVOS
-  - Mobi por Tipo: tipo dos mobis dispostos na área de 5 × 5 quadrados
+  - Mobi por Tipo: tipos dos mobis dispostos na área de 5 × 5 quadrados
 
 QUANDO
   - Habbo Clica no Mobi: Habbo Clica no Mobi
@@ -148,15 +160,15 @@ COMO
 
 ENTÃO
   - Mover Móbis em Grupo:
+    Deslocamentos:
+      X: 9
+      Y: 0
     Os móveis em movimento: Usar mobis do seletor
     Local de destino:
       Escolha de mobis secundários
       Bloco invisível (empilhável e caminhável)
-    Deslocamentos:
-      X: 9
-      Y: 0
 `} />
   </TabItem>
 </Tabs>
 
-Ao clicar no ativador, os mobis do tipo configurado são movidos como um grupo. Eles ficam deslocados na horizontal em relação ao **Bloco invisível** e mantêm a mesma distância entre si, mesmo com apenas um mobi escolhido como referência de destino.
+Ao clicar no ativador, os mobis dos tipos configurados são movidos como um grupo. Eles ficam deslocados na horizontal em relação ao **Bloco invisível** e mantêm a mesma distância entre si, mesmo com apenas um mobi escolhido como referência de destino.
