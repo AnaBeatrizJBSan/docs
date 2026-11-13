@@ -44,6 +44,8 @@ import AccessibleVideo from "@components/AccessibleVideo.astro";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
 import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 import Atraso from "@assets/wf_act/02-atraso.gif";
+import MobisEmMovimento from "@assets/wf_act_move_furni_as_group/02-opcao-os-mobis-em-movimento.gif";
+import LocalDeDestino from "@assets/wf_act_move_furni_as_group/03-opcao-local-de-destino.gif";
 import MoverMobisSelecionadosPeloTipo from "@assets/wf_act_move_furni_as_group/04-exemplo-mover-mobis-selecionados-pelo-tipo.mp4";
 import MoverMobisSelecionadosPeloTipoDescriptionsUrl from "@assets/wf_act_move_furni_as_group/04-exemplo-mover-mobis-selecionados-pelo-tipo-descriptions.vtt?url";
 import MoverMobisSelecionadosPeloTipoDescriptionsRaw from "@assets/wf_act_move_furni_as_group/04-exemplo-mover-mobis-selecionados-pelo-tipo-descriptions.vtt?raw";
@@ -95,6 +97,12 @@ Use as setas desta seção para escolher de onde virão os mobis que serão movi
 - **Usar mobis do sinal:** usa os mobis incluídos em um sinal enviado por [Mandar Sinal](/referencia/efeitos/wf_act_send_signal/) e recebido por [Recebe Sinal](/referencia/ativadores/wf_trg_recv_signal/).
 - **Use o item de ativação:** usa o mobi que ativou a pilha. Com [Habbo Clica no Mobi](/referencia/ativadores/wf_trg_click_furni/), por exemplo, pode ser o mobi clicado.
 
+<img
+  src={MobisEmMovimento.src}
+  alt="Animação da seção Os móveis em movimento: as setas alternam entre mobis escolhidos, mobis secundários, mobis do seletor, mobis do sinal e item de ativação."
+  style={{ width: "400px", maxWidth: "100%" }}
+/>
+
 ### Local de destino
 
 Escolha o ícone de **mobi** ou **usuário** para definir o tipo de referência do destino. Depois, use as setas para escolher de onde virá essa referência.
@@ -112,6 +120,12 @@ Com o ícone de **usuário**, você pode escolher:
 - **Use o usuário acionador:** usa o usuário que ativou a pilha.
 - **Usar usuários do seletor:** usa os usuários encontrados por um [Seletor de usuários](/referencia/seletores/visao-geral/) da pilha.
 - **Usar usuários do sinal:** usa os usuários incluídos em um sinal recebido pela pilha.
+
+<img
+  src={LocalDeDestino.src}
+  alt="Animação da seção Local de destino: o ícone de mobi alterna as fontes de mobis e o ícone de usuário mostra as fontes de usuários disponíveis."
+  style={{ width: "400px", maxWidth: "100%" }}
+/>
 
 Para entender essas fontes em outros Wireds, consulte [Fonte de Usuário ou Mobi](/referencia/configurando-wireds/#fonte-de-usuário-ou-mobi).
 
