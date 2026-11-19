@@ -1,6 +1,6 @@
 ---
 title: "WIRED EXTRA: Movimento Curva"
-description: Este extra faz o mobi girar em curva durante movimentos configurados.
+description: Este extra adiciona uma curva ao trajeto de movimentos executados por uma pilha Wired.
 sidebar:
   label: Movimento Curva
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 74952
   classname: wf_xtra_mov_curve
   name: "WIRED EXTRA: Movimento Curva"
-  description: Este extra faz o mobi girar em curva durante movimentos configurados.
+  description: Este extra altera o trajeto de movimentos executados por uma pilha Wired, fazendo mobis e usuários transportados percorrerem uma curva.
   product_name: "Add-on WIRED: Movimento Curva"
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -40,6 +40,126 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import Infobox from "@components/Infobox.astro";
+import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+
+O **Extra: Movimento Curva** modifica o caminho percorrido durante um movimento Wired. Ele pode fazer um mobi seguir uma curva em vez de uma linha reta. Se o mobi carregar um usuário, esse usuário acompanha o trajeto.
 
 <Infobox />
+
+## Como esse Wired funciona?
+
+Coloque o Extra na mesma pilha do efeito que movimenta o mobi. O Extra não inicia um movimento por conta própria: o efeito continua definindo **o que se move e para onde**, enquanto **Movimento Curva** muda o trajeto percorrido. O espaço disponível para a curva também depende da distância do movimento. Nos exemplos abaixo, isso acontece tanto com uma esfera que se desloca sozinha quanto com um piso que leva um usuário.
+
+### Movimento curvado
+
+Neste campo numérico, informe um valor fixo para controlar a curvatura. O número não representa uma distância, um ângulo ou outra unidade de medida: ele funciona como um multiplicador do movimento. Quanto menor o valor, mais próximo de uma linha reta fica o trajeto.
+
+Você também pode clicar no ícone **Escolha uma variável**, à direita do campo, para usar um número armazenado em uma variável. A janela [Origem da variável](/referencia/configurando-wireds/#origem-da-variável) permite escolher de onde virá esse valor.
+
+## Exemplo com mobis
+
+Uma **Esfera Pequena** se move em direção a uma **Divisória para Quartos** invisível e, ao encontrá-la, volta para trás. Vamos comparar o trajeto sem o Extra e com o Extra na pilha.
+
+### Movimento em linha reta
+
+Sem **Movimento Curva**, a **Esfera Pequena laranja** avança em linha reta. O [Ativador: Repetir Efeito](/referencia/ativadores/wf_trg_periodically/) aciona a pilha a cada segundo, e [Mudar Direção Mobi](/referencia/efeitos/wf_act_move_to_dir/) movimenta a esfera para leste, fazendo-a voltar quando encontra a divisória.
+
+<PseudoWiredCodeBlock code={`
+QUANDO
+  - Repetir Efeito: 1 segundo
+
+ENTÃO
+  - Mudar Direção Mobi: Esfera Pequena (laranja)
+    Leste
+    Voltar para trás
+`} />
+
+### Curva em um quadrado
+
+Agora, a **Esfera Pequena azul** usa a mesma lógica de avanço e retorno, mas a pilha também contém **Movimento Curva** com valor **1000**. Como a esfera avança apenas **um quadrado**, a curva fica limitada a esse espaço. Ao encontrar a divisória, ela continua voltando para trás.
+
+<PseudoWiredCodeBlock code={`
+QUANDO
+  - Repetir Efeito: 1 segundo
+
+COMO
+  - Movimento Curva: 1000
+
+ENTÃO
+  - Mudar Direção Mobi: Esfera Pequena (azul)
+    Direção de inicio: Leste
+    Voltar para trás
+`} />
+
+### Curva em um deslocamento maior
+
+Para dar mais espaço à curva, a pilha abaixo soma **5** à [variável interna `@position.x`](/referencia/variaveis/wf_var_furni/#variáveis-internas-de-mobi) da **Esfera Pequena branca** a cada segundo. O [Efeito: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) desloca o mobi cinco quadrados no eixo horizontal, enquanto a [Condição: Pode Realizar Movimentos](/referencia/condicoes/wf_cnd_valid_moves/) verifica o movimento. Com **Movimento Curva** em **500**, o trajeto desse exemplo fica mais aberto, parecido com o arco de uma parábola.
+
+<PseudoWiredCodeBlock code={`
+QUANDO
+  - Repetir Efeito: 1 segundo
+
+SE
+  - Pode Realizar Movimentos
+
+COMO
+  - Movimento Curva: 500
+
+ENTÃO
+  - Mudar Valor Variável: @position.x
+    Somar
+    5
+    Esfera Pequena (branca)
+`} />
+
+## Exemplo com usuários
+
+Para levar um usuário pelo mesmo trajeto, coloque-o sobre um **Piso Andar Mágico** e selecione a área em que ele está com [Habbos na Área](/referencia/seletores/wf_slc_users_area/). A pilha usa [Carrega Habbos](/referencia/extras/wf_xtra_mov_carry_users/) para transportá-lo junto com o piso e [Física do Movimento](/referencia/extras/wf_xtra_mov_physics/) com **Manter a altura do mobi** e **Mover através dos Habbos**. O usuário pode ser um jogador, bot ou mascote selecionado na área.
+
+### Sem Movimento Curva
+
+Quando a pilha contém os Extras de transporte e física, mas não contém **Movimento Curva**, o **Piso Andar Mágico** e o usuário transportado percorrem uma linha reta.
+
+<PseudoWiredCodeBlock code={`
+ALVOS
+  - Habbos na Área: área onde o usuário está
+
+QUANDO
+  - Repetir Efeito: 1 segundo
+
+COMO
+  - Física do Movimento:
+    Manter a altura do mobi
+    Mover através dos Habbos
+  - Carrega Habbos
+
+ENTÃO
+  - Mudar Direção Mobi: Piso Andar Mágico
+    Direção de inicio: Leste
+    Voltar para trás
+`} />
+
+### Com Movimento Curva
+
+Ao acrescentar **Movimento Curva** com valor **1000**, o piso passa a fazer uma curva durante o movimento. O usuário carregado acompanha essa mudança de trajeto; os demais componentes da pilha continuam com as mesmas configurações.
+
+<PseudoWiredCodeBlock code={`
+ALVOS
+  - Habbos na Área: área onde o usuário está
+
+QUANDO
+  - Repetir Efeito: 1 segundo
+
+COMO
+  - Movimento Curva: 1000
+  - Física do Movimento:
+    Manter a altura do mobi
+    Mover através dos Habbos
+  - Carrega Habbos
+
+ENTÃO
+  - Mudar Direção Mobi: Piso Andar Mágico
+    Direção de inicio: Leste
+    Voltar para trás
+`} />
