@@ -41,15 +41,34 @@ infobox:
 ---
 
 import Infobox from "@components/Infobox.astro";
+import AccessibleVideo from "@components/AccessibleVideo.astro";
 import PseudoWiredCodeBlock from "@components/PseudoWiredCodeBlock.astro";
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+import MobiMovimentoEmLinhaReta from "@assets/wf_xtra_mov_curve/02-mobi-movimento-em-linha-reta.mp4";
+import MobiMovimentoEmLinhaRetaDescriptionsUrl from "@assets/wf_xtra_mov_curve/02-mobi-movimento-em-linha-reta-descriptions.vtt?url";
+import MobiMovimentoEmLinhaRetaDescriptionsRaw from "@assets/wf_xtra_mov_curve/02-mobi-movimento-em-linha-reta-descriptions.vtt?raw";
+import MobiCurvaEmUmQuadrado from "@assets/wf_xtra_mov_curve/02-mobi-curva-em-um-quadrado.mp4";
+import MobiCurvaEmUmQuadradoDescriptionsUrl from "@assets/wf_xtra_mov_curve/02-mobi-curva-em-um-quadrado-descriptions.vtt?url";
+import MobiCurvaEmUmQuadradoDescriptionsRaw from "@assets/wf_xtra_mov_curve/02-mobi-curva-em-um-quadrado-descriptions.vtt?raw";
+import MobiCurvaEmUmDeslocamentoMaior from "@assets/wf_xtra_mov_curve/02-mobi-curva-em-um-deslocamento-maior.mp4";
+import MobiCurvaEmUmDeslocamentoMaiorDescriptionsUrl from "@assets/wf_xtra_mov_curve/02-mobi-curva-em-um-deslocamento-maior-descriptions.vtt?url";
+import MobiCurvaEmUmDeslocamentoMaiorDescriptionsRaw from "@assets/wf_xtra_mov_curve/02-mobi-curva-em-um-deslocamento-maior-descriptions.vtt?raw";
+import UsuarioSemMovimentoCurva from "@assets/wf_xtra_mov_curve/03-usuario-sem-movimento-curva.mp4";
+import UsuarioSemMovimentoCurvaDescriptionsUrl from "@assets/wf_xtra_mov_curve/03-usuario-sem-movimento-curva-descriptions.vtt?url";
+import UsuarioSemMovimentoCurvaDescriptionsRaw from "@assets/wf_xtra_mov_curve/03-usuario-sem-movimento-curva-descriptions.vtt?raw";
+import UsuarioComMovimentoCurva from "@assets/wf_xtra_mov_curve/03-usuario-com-movimento-curva.mp4";
+import UsuarioComMovimentoCurvaDescriptionsUrl from "@assets/wf_xtra_mov_curve/03-usuario-com-movimento-curva-descriptions.vtt?url";
+import UsuarioComMovimentoCurvaDescriptionsRaw from "@assets/wf_xtra_mov_curve/03-usuario-com-movimento-curva-descriptions.vtt?raw";
 
-O **Extra: Movimento Curva** modifica o caminho percorrido durante um movimento Wired. Ele pode fazer um mobi seguir uma curva em vez de uma linha reta. Se o mobi carregar um usuário, esse usuário acompanha o trajeto.
+O **Extra: Movimento Curva** modifica o caminho percorrido durante um movimento Wired. Ele pode fazer um mobi seguir uma curva em vez de uma linha reta. Se o mobi carregar um usuário, esse usuário acompanha o trajeto se o [Extra Carrega Habbos](/referencia/extras/wf_xtra_mov_carry_users/) for utilizado em conjunto.
 
 <Infobox />
 
 ## Como esse Wired funciona?
 
 Coloque o Extra na mesma pilha do efeito que movimenta o mobi. O Extra não inicia um movimento por conta própria: o efeito continua definindo **o que se move e para onde**, enquanto **Movimento Curva** muda o trajeto percorrido. O espaço disponível para a curva também depende da distância do movimento. Nos exemplos abaixo, isso acontece tanto com uma esfera que se desloca sozinha quanto com um piso que leva um usuário.
+
+![Janela do Extra Movimento Curva com o campo Movimento curvado preenchido com 160.](@assets/wf_xtra_mov_curve/01-janela-do-wired.png)
 
 ### Movimento curvado
 
@@ -65,6 +84,23 @@ Uma **Esfera Pequena** se move em direção a uma **Divisória para Quartos** e,
 
 Sem **Movimento Curva**, a **Esfera Pequena laranja** avança em linha reta. O [Ativador: Repetir Efeito](/referencia/ativadores/wf_trg_periodically/) aciona a pilha a cada segundo, e [Mudar Direção Mobi](/referencia/efeitos/wf_act_move_to_dir/) movimenta a esfera para leste, fazendo-a voltar quando encontra a divisória.
 
+<AccessibleVideo
+  id="movimento-curva-mobi-em-linha-reta"
+  src={MobiMovimentoEmLinhaReta}
+  title="Esfera Pequena avançando em linha reta e voltando ao encontrar a divisória"
+  descriptionsSrc={MobiMovimentoEmLinhaRetaDescriptionsUrl}
+  descriptionsContent={MobiMovimentoEmLinhaRetaDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
+1. Coloque a **Esfera Pequena laranja** em frente à **Divisória para Quartos** e monte uma pilha com **Repetir Efeito** e **Mudar Direção Mobi**.
+2. No ativador, escolha **1 segundo**. No efeito, selecione a esfera, defina a direção inicial como **Leste** e marque **Voltar para trás** quando o movimento for bloqueado.
+3. Salve as configurações. A esfera avança em linha reta e retorna ao encontrar a divisória.
+</Steps>
+  </TabItem>
+  <TabItem label="PseudoWired">
 <PseudoWiredCodeBlock code={`
 QUANDO
   - Repetir Efeito: 1 segundo
@@ -74,11 +110,30 @@ ENTÃO
     Leste
     Voltar para trás
 `} />
+  </TabItem>
+</Tabs>
 
 ### Curva em um quadrado
 
 Agora, a **Esfera Pequena azul** usa a mesma lógica de avanço e retorno, mas a pilha também contém **Movimento Curva** com valor **1000**. Como a esfera avança apenas **um quadrado**, a curva fica limitada a esse espaço. Ao encontrar a divisória, ela continua voltando para trás.
 
+<AccessibleVideo
+  id="movimento-curva-mobi-em-um-quadrado"
+  src={MobiCurvaEmUmQuadrado}
+  title="Esfera Pequena azul fazendo uma curva limitada a um quadrado"
+  descriptionsSrc={MobiCurvaEmUmQuadradoDescriptionsUrl}
+  descriptionsContent={MobiCurvaEmUmQuadradoDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
+1. Monte uma pilha como a do exemplo anterior, desta vez selecionando a **Esfera Pequena azul** no efeito **Mudar Direção Mobi**.
+2. Acrescente **Movimento Curva** à pilha e informe **1000** em **Movimento curvado**.
+3. Salve e observe o movimento. A esfera avança um quadrado por vez; por isso, a curva fica limitada a esse espaço.
+</Steps>
+  </TabItem>
+  <TabItem label="PseudoWired">
 <PseudoWiredCodeBlock code={`
 QUANDO
   - Repetir Efeito: 1 segundo
@@ -91,11 +146,30 @@ ENTÃO
     Direção de inicio: Leste
     Voltar para trás
 `} />
+  </TabItem>
+</Tabs>
 
 ### Curva em um deslocamento maior
 
 Para dar mais espaço à curva, a pilha abaixo soma **3** à [variável interna `@position.x`](/referencia/variaveis/wf_var_furni/#variáveis-internas-de-mobi) da **Esfera Pequena branca** a cada segundo. O [Efeito: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) desloca o mobi três quadrados no eixo horizontal, enquanto a [Condição: Pode Realizar Movimentos](/referencia/condicoes/wf_cnd_valid_moves/) verifica o movimento. Com **Movimento Curva** em **500**, o trajeto desse exemplo fica mais aberto, parecido com o arco de uma parábola.
 
+<AccessibleVideo
+  id="movimento-curva-mobi-deslocamento-maior"
+  src={MobiCurvaEmUmDeslocamentoMaior}
+  title="Esfera Pequena branca percorrendo uma curva com deslocamento de três quadrados"
+  descriptionsSrc={MobiCurvaEmUmDeslocamentoMaiorDescriptionsUrl}
+  descriptionsContent={MobiCurvaEmUmDeslocamentoMaiorDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
+1. Monte uma pilha com **Repetir Efeito**, **Pode Realizar Movimentos**, **Movimento Curva** e **Mudar Valor Variável**. Coloque a **Esfera Pequena branca** no quarto.
+2. Configure o efeito para somar **3** à variável interna `@position.x` da esfera. No Extra, informe **500** em **Movimento curvado**.
+3. Defina **1 segundo** no ativador e salve. A esfera percorre um arco mais amplo a cada deslocamento.
+</Steps>
+  </TabItem>
+  <TabItem label="PseudoWired">
 <PseudoWiredCodeBlock code={`
 QUANDO
   - Repetir Efeito: 1 segundo
@@ -112,6 +186,8 @@ ENTÃO
     3
     Esfera Pequena (branca)
 `} />
+  </TabItem>
+</Tabs>
 
 ## Exemplo com usuários
 
@@ -123,6 +199,24 @@ Nos vídeos dos dois exemplos com usuários, usamos o [Controlador de Mobi Invis
 
 Quando a pilha contém os Extras de transporte e física, mas não contém **Movimento Curva**, o **Piso Andar Mágico** e o usuário transportado percorrem uma linha reta.
 
+<AccessibleVideo
+  id="movimento-curva-usuario-em-linha-reta"
+  src={UsuarioSemMovimentoCurva}
+  title="Usuário sendo transportado em linha reta por um Piso Andar Mágico invisível"
+  descriptionsSrc={UsuarioSemMovimentoCurvaDescriptionsUrl}
+  descriptionsContent={UsuarioSemMovimentoCurvaDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
+1. Coloque o usuário sobre um **Piso Andar Mágico**. Use o **Controlador de Mobi Invisível** para ocultar o piso, como no vídeo.
+2. Monte uma pilha com **Habbos na Área**, **Repetir Efeito**, **Física do Movimento**, **Carrega Habbos** e **Mudar Direção Mobi**. No Seletor, marque a área onde está o usuário.
+3. Defina **1 segundo** no ativador. No Extra **Física do Movimento**, marque **Manter a altura do mobi** e **Mover através dos Habbos**. No efeito, selecione o piso, escolha **Leste** como direção inicial e marque **Voltar para trás**.
+4. Salve a pilha. O piso transporta o usuário em linha reta e retorna ao encontrar a divisória.
+</Steps>
+  </TabItem>
+  <TabItem label="PseudoWired">
 <PseudoWiredCodeBlock code={`
 ALVOS
   - Habbos na Área: área onde o usuário está
@@ -141,11 +235,30 @@ ENTÃO
     Direção de inicio: Leste
     Voltar para trás
 `} />
+  </TabItem>
+</Tabs>
 
 ### Com Movimento Curva
 
 Ao acrescentar **Movimento Curva** com valor **1000**, o piso passa a fazer uma curva durante o movimento. O usuário carregado acompanha essa mudança de trajeto; os demais componentes da pilha continuam com as mesmas configurações.
 
+<AccessibleVideo
+  id="movimento-curva-usuario-em-curva"
+  src={UsuarioComMovimentoCurva}
+  title="Usuário sendo transportado em curva por um Piso Andar Mágico invisível"
+  descriptionsSrc={UsuarioComMovimentoCurvaDescriptionsUrl}
+  descriptionsContent={UsuarioComMovimentoCurvaDescriptionsRaw}
+/>
+
+<Tabs>
+  <TabItem label="Configuração">
+    <Steps>
+1. Use o mesmo **Piso Andar Mágico** invisível e a pilha do exemplo anterior, com o usuário selecionado por **Habbos na Área**.
+2. Acrescente **Movimento Curva** à pilha e informe **1000** em **Movimento curvado**. Mantenha as configurações de **Física do Movimento**, **Carrega Habbos** e **Mudar Direção Mobi**.
+3. Salve e observe o resultado. O usuário acompanha a curva percorrida pelo piso.
+</Steps>
+  </TabItem>
+  <TabItem label="PseudoWired">
 <PseudoWiredCodeBlock code={`
 ALVOS
   - Habbos na Área: área onde o usuário está
@@ -165,3 +278,5 @@ ENTÃO
     Direção de inicio: Leste
     Voltar para trás
 `} />
+  </TabItem>
+</Tabs>
