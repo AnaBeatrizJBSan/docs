@@ -59,7 +59,7 @@ Você também pode clicar no ícone **Escolha uma variável**, à direita do cam
 
 ## Exemplo com mobis
 
-Uma **Esfera Pequena** se move em direção a uma **Divisória para Quartos** invisível e, ao encontrá-la, volta para trás. Vamos comparar o trajeto sem o Extra e com o Extra na pilha.
+Uma **Esfera Pequena** se move em direção a uma **Divisória para Quartos** e, ao encontrá-la, volta para trás. Vamos comparar o trajeto sem o Extra e com o Extra na pilha.
 
 ### Movimento em linha reta
 
@@ -94,7 +94,7 @@ ENTÃO
 
 ### Curva em um deslocamento maior
 
-Para dar mais espaço à curva, a pilha abaixo soma **5** à [variável interna `@position.x`](/referencia/variaveis/wf_var_furni/#variáveis-internas-de-mobi) da **Esfera Pequena branca** a cada segundo. O [Efeito: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) desloca o mobi cinco quadrados no eixo horizontal, enquanto a [Condição: Pode Realizar Movimentos](/referencia/condicoes/wf_cnd_valid_moves/) verifica o movimento. Com **Movimento Curva** em **500**, o trajeto desse exemplo fica mais aberto, parecido com o arco de uma parábola.
+Para dar mais espaço à curva, a pilha abaixo soma **3** à [variável interna `@position.x`](/referencia/variaveis/wf_var_furni/#variáveis-internas-de-mobi) da **Esfera Pequena branca** a cada segundo. O [Efeito: Mudar Valor Variável](/referencia/efeitos/wf_act_change_var_val/) desloca o mobi três quadrados no eixo horizontal, enquanto a [Condição: Pode Realizar Movimentos](/referencia/condicoes/wf_cnd_valid_moves/) verifica o movimento. Com **Movimento Curva** em **500**, o trajeto desse exemplo fica mais aberto, parecido com o arco de uma parábola.
 
 <PseudoWiredCodeBlock code={`
 QUANDO
@@ -109,13 +109,15 @@ COMO
 ENTÃO
   - Mudar Valor Variável: @position.x
     Somar
-    5
+    3
     Esfera Pequena (branca)
 `} />
 
 ## Exemplo com usuários
 
 Para levar um usuário pelo mesmo trajeto, coloque-o sobre um **Piso Andar Mágico** e selecione a área em que ele está com [Habbos na Área](/referencia/seletores/wf_slc_users_area/). A pilha usa [Carrega Habbos](/referencia/extras/wf_xtra_mov_carry_users/) para transportá-lo junto com o piso e [Física do Movimento](/referencia/extras/wf_xtra_mov_physics/) com **Manter a altura do mobi** e **Mover através dos Habbos**. O usuário pode ser um jogador, bot ou mascote selecionado na área.
+
+Nos vídeos dos dois exemplos com usuários, usamos o [Controlador de Mobi Invisível](/referencia/outros/configuradores/conf_invis_control/) para deixar o **Piso Andar Mágico** invisível durante o movimento. Você também pode usá-lo para ocultar o piso no seu quarto.
 
 ### Sem Movimento Curva
 

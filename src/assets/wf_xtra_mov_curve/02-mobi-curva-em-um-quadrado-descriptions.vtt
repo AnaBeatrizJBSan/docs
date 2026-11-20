@@ -1,0 +1,13 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.000
+A janela do Efeito Mudar Direção Mobi é configurada para movimentar a Esfera Pequena azul em direção à divisória e fazê-la voltar ao encontrar um obstáculo.
+
+00:00:06.000 --> 00:00:09.000
+O Ativador Repetir Efeito mostra o intervalo de um segundo. Em seguida, é aberta a janela do Extra Movimento Curva.
+
+00:00:09.000 --> 00:00:12.000
+O campo Movimento curvado do Extra Movimento Curva mostra o valor 1000, e a configuração é salva.
+
+00:00:12.000 --> 00:00:18.090
+A Esfera Pequena azul avança e volta entre os dois lados do quarto. Como ela se desloca apenas um quadrado por vez, a curva fica limitada a esse espaço.

@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:09.000
+A janela do Efeito Mudar Valor Variável mostra a variável de posição do mobi selecionada. A operação Somar recebe o valor 3 para deslocar a Esfera Pequena branca no eixo horizontal.
+
+00:00:09.000 --> 00:00:15.000
+O Extra Movimento Curva é configurado com o valor 500. Depois, o Ativador Repetir Efeito mostra o intervalo de um segundo.
+
+00:00:15.000 --> 00:00:26.709
+Com as janelas fechadas, a Esfera Pequena branca se desloca pelo quarto em arcos amplos. O trajeto curvado fica mais visível porque cada movimento percorre uma distância maior.
