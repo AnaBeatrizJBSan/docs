@@ -1,6 +1,6 @@
 ---
 title: "WIRED EXTRA: Projétil"
-description: Este extra faz um mobi mudar de deslocamento, direção ou trajetória.
+description: Configure a direção, a trajetória, a distância e o tempo da animação de um mobi usado como projétil em movimentos Wired.
 sidebar:
   label: Projétil
   badge:
@@ -16,7 +16,7 @@ infobox:
   revision: 74952
   classname: wf_xtra_rotate_to_dir
   name: "WIRED EXTRA: Projétil"
-  description: Este extra faz um mobi mudar de deslocamento, direção ou trajetória.
+  description: Este extra configura a direção, a trajetória, a distância e o tempo da animação de um mobi usado como projétil em movimentos Wired.
   product_name: "Add-on Wired: Projétil"
   # image_direction: 0 # valor padrão
   # image_not_animated: false # valor padrão
@@ -29,7 +29,7 @@ infobox:
   # == Dados do Wired ==
   type: Extra
   # requires_bot: false # valor padrão
-  # requires_furni: false # valor padrão
+  requires_furni: true
   # requires_antena: false # valor padrão
   # requires_contract: false # valor padrão
   # requires_chest: false # valor padrão
@@ -40,6 +40,128 @@ infobox:
   additional_sources: []
 ---
 
-import Infobox from "@components/Infobox.astro"
+import Infobox from "@components/Infobox.astro";
+
+O **Extra: Projétil** acrescenta opções ao movimento de um mobi usado como projétil. Você pode ajustar a direção em que ele aponta, a trajetória e a duração da animação, além de acompanhar informações do percurso por variáveis.
 
 <Infobox />
+
+## Como esse Wired funciona?
+
+Adicione o Extra à pilha Wired que move o mobi. Quando a pilha for executada, as configurações do **Projétil** serão aplicadas ao mobi indicado em **O projétil**. Qualquer mobi pode cumprir esse papel. O catálogo e o Clube do Arquiteto também possuem mobis próprios para isso, na categoria **Projectiles**:
+
+| Mobi | Imagem |
+| :--- | :--- |
+| Flecha | ![Mobi Flecha, uma seta apontada para a direita.](@assets/wf_xtra_rotate_to_dir/06-flecha.png) |
+| Antídoto | ![Mobi Antídoto, uma pequena seringa verde.](@assets/wf_xtra_rotate_to_dir/07-antidoto.png) |
+| Projétil de Borracha | ![Mobi Projétil de Borracha, um pequeno cilindro marrom.](@assets/wf_xtra_rotate_to_dir/08-projetil-de-borracha.png) |
+
+Ao abrir o Wired, você encontra as seções de direção, trajetória, tempo de animação, rotação e variáveis internas. **Mostrar configurações avançadas** permite escolher o projétil e o atirador usados pela pilha.
+
+![Janela de configuração do Extra Projétil, com informações de uso e a direção do projétil.](@assets/wf_xtra_rotate_to_dir/05-janela-do-wired.png)
+
+### Informações de uso
+
+O texto desta seção informa que o Extra foi desenhado para mobis de projéteis e serve para adicionar funções a um projétil movido por Wired. Isso também vale para outros mobis escolhidos para representar um projétil.
+
+### Direção do projétil
+
+**Girar O Projétil Na Direção Do Movimento** vem marcado. Com essa opção, a rotação do mobi acompanha a direção em que ele se move. Se você a desmarcar, as opções abaixo ficam indisponíveis e o valor de `@rotation` do projétil não é alterado pelo Extra; ele mantém a rotação que já tinha no quarto.
+
+Em **Sistema**, escolha uma das quatro formas de representar as direções. A janela mostra um desenho correspondente à opção selecionada:
+
+| Sistema | Representação na janela |
+| :--- | :--- |
+| **8 direções, reto** | ![Diagrama de oito direções com a opção reto.](@assets/wf_xtra_rotate_to_dir/01-oito-direcoes-reto.png) |
+| **8 direções, difuso** | ![Diagrama de oito direções com a opção difuso.](@assets/wf_xtra_rotate_to_dir/02-oito-direcoes-difuso.png) |
+| **4 direções, opção 1** | ![Diagrama das quatro direções da opção 1.](@assets/wf_xtra_rotate_to_dir/03-quatro-direcoes-opcao-1.png) |
+| **4 direções, opção 2** | ![Diagrama das quatro direções da opção 2.](@assets/wf_xtra_rotate_to_dir/04-quatro-direcoes-opcao-2.png) |
+
+**Alterar cosmeticamente a direção do atirador** também vem marcado. Ele faz o usuário definido em **O atirador** apontar na direção da rotação do projétil, alterando `@direction`. Se você não quiser que o atirador acompanhe o disparo, desmarque essa opção.
+
+Dentro dela, **Aplicar um salto curto ao jogador ao disparar de lado** vem marcado por padrão. Quando o atirador está voltado para uma direção diferente da rotação do projétil, essa opção mostra uma pequena animação de salto.
+
+### Trajetória da animação
+
+#### Tipo de trajetória
+
+- **Reto:** o projétil percorre uma linha reta. Essa trajetória pode ser alterada se a pilha também contiver o [Extra: Movimento Curva](/referencia/extras/wf_xtra_mov_curve/). Esta opção não vem selecionada por padrão.
+- **Curvado:** cria uma trajetória curva. O campo numérico exibido abaixo aparece na janela com o nome **Reto**; seu valor ajusta a intensidade da curva e aceita números de **-1000 a 1000**. Valores menores deixam a trajetória mais próxima de uma linha reta.
+
+#### Distância da animação
+
+Escolha até onde a animação do projétil se estenderá:
+
+- **Normal (do início ao bloco de destino):** anima o percurso desde o ponto inicial até o piso de destino.
+- **Ultrapassar em X blocos:** prolonga a animação pela quantidade de pisos indicada em **Quantidade de blocos**, além do piso de destino.
+- **Sempre disparar X blocos:** o projétil percorre a quantidade fixa de pisos definida em **Quantidade de blocos**, mesmo que o piso de destino esteja mais longe. Nesse caso, ele para após percorrer essa distância, sem chegar necessariamente ao destino.
+
+Por exemplo, configure **Quantidade de blocos** como **5**. Se a **Flecha** começa em `@position.y = 19` e o **Bloco invisível (empilhável e caminhável)** usado como destino está em `@position.y = 29`, ambos em `@position.x = 14`, a Flecha percorre **5 pisos** quando o efeito de movimento é ativado. Ela para em `@position.y = 24`, antes de chegar ao bloco invisível.
+
+#### Quantidade de blocos
+
+Este campo fica disponível quando você seleciona **Ultrapassar em X blocos** ou **Sempre disparar X blocos**. Digite um número ou escolha uma variável para fornecer o valor. Se usar uma variável, confira como definir a [Origem da variável](/referencia/configurando-wireds/#origem-da-variável).
+
+### Tempo de animação
+
+**Ajustar o tempo da animação conforme a distância** vem desmarcado. Ao marcá-lo, você pode configurar o tempo por bloco e quais diferenças de posição entram no cálculo da distância.
+
+#### Tempo por bloco movido (ms)
+
+Informe o tempo de cada bloco em milissegundos, entre **1 e 100000**. Você também pode escolher uma variável como fonte desse número; a opção [Origem da variável](/referencia/configurando-wireds/#origem-da-variável) define de onde ela será lida. Por exemplo, **1000 ms** correspondem a **1 segundo por bloco**.
+
+#### O que determina a distância
+
+Marque as diferenças que devem entrar no cálculo do tempo:
+
+- **X diferença:** considera a diferença no eixo `@position.x`.
+- **Y diferença:** considera a diferença no eixo `@position.y`.
+- **Diferença de altura:** considera a diferença de `@altitude`.
+
+#### Aumentar velocidade para movimentos de longa distância
+
+Esta opção contém o campo **Aumento de velocidade (ms)**, que aceita valores de **0 a 100000**. Use-o para ajustar a aceleração dos movimentos longos.
+
+### Deslocar a rotação em 0
+
+Use as setas para indicar um deslocamento de **0 a 7** na rotação do projétil. O número exibido no título muda junto com o valor escolhido: a seta da direita aumenta o número e a da esquerda o diminui. Esse valor é somado à rotação `@rotation` do projétil; em **0**, não há deslocamento adicional.
+
+### Variáveis internas do projétil
+
+Nesta seção, marque as informações do percurso que deseja disponibilizar como variáveis do mobi indicado em **O projétil**. Os nomes aparecem em campos que permitem copiar o texto, mas não editá-lo. Ao marcar uma opção e executar a pilha, o nome da variável recebe o prefixo `@projectile.`.
+
+| Opção | Nome exibido | Observação |
+| :--- | :--- | :--- |
+| **Blocos percorridos** | `animation.tiles_travelled` | Interceptável; pode exigir alto uso de Wired ao acompanhar colisões durante o trajeto. |
+| **Colisões do usuário** | `animation.user_collisions` | Interceptável; pode ser usada para acompanhar colisões com usuários durante o trajeto. |
+| **Colisões de mobi** | `animation.furni_collisions` | Interceptável; pode ser usada para acompanhar colisões com mobis durante o trajeto. |
+| **X (animação)** | `animation.position.x` | Posição X da animação. |
+| **Y (animação)** | `animation.position.y` | Posição Y da animação. |
+| **Altitude (animação)** | `animation.position.altitude` | Altitude da animação. |
+| **Está viajando** | `animation.is_travelling` | Interceptável. |
+
+Por exemplo, ao marcar **Blocos percorridos**, o nome completo da variável no projétil será `@projectile.animation.tiles_travelled`. As opções indicadas como **interceptáveis** podem ser usadas com o [Ativador: Variável Mudou](/referencia/ativadores/wf_trg_var_changed/) para reagir a mudanças durante a trajetória.
+
+### Mostrar configurações avançadas
+
+Abra esta seção para escolher as fontes usadas em **O projétil** e **O atirador**. As setas de cada campo alternam entre as opções disponíveis.
+
+#### O projétil
+
+Esta escolha determina quais mobis receberão as configurações do Extra:
+
+- **Todo o mobi movido pela pilha Wired:** usa todos os mobis movidos pela pilha.
+- **Use o item de ativação:** usa o mobi que ativou a pilha. Com [Habbo Clica no Mobi](/referencia/ativadores/wf_trg_click_furni/), por exemplo, pode ser o mobi clicado.
+- **Use mobis escolhidos:** usa os mobis que você seleciona ao clicar neles enquanto a janela de configuração está aberta.
+- **Usar mobis do seletor:** usa os mobis encontrados por um [Seletor de mobis](/referencia/seletores/visao-geral/) da pilha.
+- **Usar mobis do sinal:** usa os mobis incluídos em um sinal enviado por [Mandar Sinal](/referencia/efeitos/wf_act_send_signal/) e recebido por [Recebe Sinal](/referencia/ativadores/wf_trg_recv_signal/).
+
+#### O atirador
+
+Esta escolha determina qual usuário pode ter a direção alterada por **Alterar cosmeticamente a direção do atirador**:
+
+- **Use o usuário acionador:** usa o usuário que ativou a pilha.
+- **Usar usuários do seletor:** usa os usuários encontrados por um [Seletor de usuários](/referencia/seletores/visao-geral/) da pilha.
+- **Usar usuários do sinal:** usa os usuários incluídos em um sinal enviado por **Mandar Sinal** e recebido por **Recebe Sinal**.
+
+**O atirador** fica desativado quando **Alterar cosmeticamente a direção do atirador** está desmarcado. Para conhecer essas fontes em outros Wireds, consulte [Fonte de Usuário ou Mobi](/referencia/configurando-wireds/#fonte-de-usuário-ou-mobi).
